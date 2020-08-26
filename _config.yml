@@ -94,17 +94,20 @@ analytics:
 # Site Author
 author:
   name             : "Barbara Hidalgo-Sotelo"
-  avatar           : "/assets/images/bio-photo-01.jpg"
+  avatar           : "/assets/images/bio-photo-1.jpg"
   bio              : "Data Science Portfolio"
   location         : "Austin, TX"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "barbs@balex.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "mailto:barbs@balex.com"
+    - label: "Linkedin"
+      icon: "fab fa-linkedin-in"
+      url: "https://www.linkedin.com/in/barbara-hidalgo-sotelo-6a572429/"
+    # - label: "Website"
+    #   icon: "fas fa-fw fa-link"
+    #   # url: "https://your-website.com"https://www.linkedin.com/in/barbara-hidalgo-sotelo-6a572429/
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
