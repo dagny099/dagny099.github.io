@@ -2,7 +2,7 @@
 title: "About"
 permalink: /about/
 header:
-  image: "/assets/images/bullcrick-photo-1.jpg"
+  image: "/assets/images/bullcrick-photo-01.jpg"
 ---
   
 I'm a data scientist and software consultant with experience in machine learning, eye tracking, and dashboarding for business intelligence. I'm also a marathon-runner, bilingual Toastmaster, and deputy voter registrar. Austin is where the magic typically happens but "Love Data, Will Travel" is my motto. 
