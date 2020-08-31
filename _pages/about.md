@@ -6,9 +6,9 @@ header:
 ---
 
 ## BIOGRAPHY  
-I'm a data scientist and consultant with interdisciplinary experience in machine learning, UX/UI, and cognitive science. I'm also a marathon-runner, [bilingual Toastmaster](https://7032821.toastmastersclubs.org/), and deputy [voter registrar](https://www.headcount.org/state/texas/). Austin is (usually) where the magic happens but "Love Data, Will Travel" is my motto. 
+I'm a data scientist and consultant with interdisciplinary experience in machine learning, UX/UI, and cognitive science. I'm also a marathon-runner, [bilingual Toastmaster](https://7032821.toastmastersclubs.org/), and deputy [voter registrar](https://www.headcount.org/state/texas/). 
 
-Since 2014, I've consulted on enterprise software UI for the business management and healthcare industries. And when called upon, I've enjoyed managing projects for companies in marketing and risk management industries. At core, I'm well suited to creatively solve complex problems with innovation, execution and drive. 
+Since 2014, I've consulted on enterprise software UI for the business management and healthcare industries. I've also enjoyed managing projects for companies in marketing and risk management industries. <ins>Bottom line:</ins> I'm well suited to creatively solve complex problems with innovation, execution and drive. 
 
 My Resume is [here](/assets/docs/Hidalgo-Sotelo_Resume_2020.pdf) and my CV is [here](/assets/docs/Hidalgo-Sotelo_CV.pdf). 
 
