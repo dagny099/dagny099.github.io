@@ -1,7 +1,6 @@
 ---
 title: "Projects"
 permalink: /projects/
-layout: splash
 header:
   opacity: "0.9"
   overlay-image: "/assets/images/gunnison-photo-01.jpg"
@@ -28,7 +27,6 @@ feature_row:
     btn_class: "btn--primary"
 
 ---
-[comment]: # (Testing whether comment is visible)
 
 {% include feature_row id="intro" type="center" %}
 
