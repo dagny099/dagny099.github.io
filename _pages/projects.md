@@ -3,8 +3,7 @@ title: "Projects"
 permalink: /projects/
 layout: splash
 header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
+  opacity: "0.9"
   overlay-image: "/assets/images/gunnison-photo-01.jpg"
 excerpt: "Sample of my work, past and present."
 intro: 
