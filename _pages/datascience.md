@@ -1,11 +1,11 @@
 ---
-layout: archive
-permalink: /data-science/
+layout: posts
 title: "Data Science posts by Tags"
-author_profile: true
+permalink: /data-science/
 header:
   image: "/assets/images/gunnison-photo-01.jpg"
 ---
+<!--- This is an HTML comment in Markdown
 
 {% include base_path %}
 {% include group-by-array collection=site.posts field="tags" %}
@@ -17,3 +17,5 @@ header:
     {% include archive-single.html %}
   {% endfor %}
 {% endfor %}
+
+ -->
