@@ -2,8 +2,10 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Data Science"
-    url: /data-science/
+  - title: "Projects"
+    url: /projects/
+  - title: "Publications"
+    url: /publications/
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "Sample Collections"
