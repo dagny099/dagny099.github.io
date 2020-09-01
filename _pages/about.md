@@ -20,11 +20,11 @@ TL/DR: I have a passion for learning and helping others learn. Reach out if like
 * Author of peer-reviewed publications with 500+ citations.
 * Two Bachelor of Science degrees, Electrical Engineering and Biology, from UT-Austin.
 * STEM-program leader and council member in Dean's Scholars Program, College of Natural Sciences, at UT-Austin.
-* NCAA Women's Rowing team, coached by Carrie Graves, at UT-Austin. 
+* NCAA Women's Rowing team, coached by Carrie Graves, at UT-Austin.  
 {: .small}
 
 
-*My Resume is [here](/assets/docs/Hidalgo-Sotelo_Resume_2020.pdf) and my CV is [here](/assets/docs/Hidalgo-Sotelo_CV.pdf).* 
+**My Resume is [here](/assets/docs/Hidalgo-Sotelo_Resume_2020.pdf) and my CV is [here](/assets/docs/Hidalgo-Sotelo_CV.pdf).**  
 
 > Throw your dreams into space like a kite, and you do not know what it will bring back, a new life, a new friend, a new love, a new country.
 <cite>Anaïs Nin</cite>
