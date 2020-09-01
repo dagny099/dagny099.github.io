@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-permalink: /projectz/
+permalink: /projects/
 layout: splash
 header:
   opacity: "0.9"
@@ -28,3 +28,8 @@ feature_row:
     btn_class: "btn--primary"
 
 ---
+
+{% include feature_row id="intro" type="center" %}
+
+{% include feature_row %}
+

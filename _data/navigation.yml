@@ -3,9 +3,9 @@ main:
   - title: "About"
     url: /about/
   - title: "Projects"
-    url: /projectz/
-  - title: "Publications"
     url: /publications/
+  - title: "Publications"
+    url: /projects/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
