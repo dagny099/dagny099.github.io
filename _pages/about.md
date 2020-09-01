@@ -24,7 +24,7 @@ TL/DR: I have a passion for learning and helping others learn. Reach out if like
 {: .small}
 
 
-**My Resume is [here](/assets/docs/Hidalgo-Sotelo_Resume_2020.pdf) and my CV is [here](/assets/docs/Hidalgo-Sotelo_CV.pdf).**  
+### My Resume is [here](/assets/docs/Hidalgo-Sotelo_Resume_2020.pdf) and my CV is [here](/assets/docs/Hidalgo-Sotelo_CV.pdf).
 
 > Throw your dreams into space like a kite, and you do not know what it will bring back, a new life, a new friend, a new love, a new country.
 <cite>Anaïs Nin</cite>
