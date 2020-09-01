@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-permalink: /projects/
+permalink: /projectz/
 layout: splash
 header:
   opacity: "0.9"
