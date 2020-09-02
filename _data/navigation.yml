@@ -3,10 +3,10 @@ main:
   - title: "About"
     url: /about/
   - title: "Projects"
-    url: /publications/
-  - title: "Publications"
     url: /projects/
+  - title: "Publications"
+    url: /publications/
+  - title: "Resources"
+    url: /resources/
   # - title: "Sample Collections"
   #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
