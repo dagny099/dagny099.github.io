@@ -17,6 +17,7 @@ When performing natural tasks in real world contexts, people move their eye gaze
 •	Specifically, how does context-specific learning (e.g. the familiar layout of one’s bedroom or TV remote control) influence spatial and temporal characteristics of attentional processing.  
 
 •	Modeling individual differences in search behavior and using those models to enhance visual exploration of familiar contexts - Can computational models learn person-specific eye movement parameters and predict what regions of a scene or visual display will attract a person’s attention?
+{: .medium}
 
 ## Publications
 
@@ -27,6 +28,7 @@ Ehinger, K.*, Hidalgo-Sotelo, B. *, Torralba, A. & Oliva, A. (2009).  Modeling S
 Rich, A., Kunar M., VanWert M., Hidalgo-Sotelo B., Horowitz T., & Wolfe J. (2008).  Why do we miss rare targets? Exploring the boundaries of the low prevalence effect. Journal of Vision, 8(15):15, 1-17.
 
 Hidalgo-Sotelo B., Oliva A.,& Torralba A. (2005).  Human Learning of Contextual Priors for Object Search: Where does the time go?  Proceedings of the 3rd Workshop on Attention and Performance at CVPR. Washington, DC: IEEE Computer Society.
+{: .small}
 
 ## Posters
 
@@ -45,4 +47,5 @@ Rich, A. N., Hidalgo-Sotelo, B., Kunar, M. A., Van Wert, M. J., & Wolfe, J. M. (
 What happens during search for rare targets? Eye movements in low prevalence visual search. Vision Sciences Society Annual Meeting, Sarasota FL.
 
 Kenner N., Hidalgo-Sotelo B., & Oliva A .(May 2005).  Rapid Goal-Directed Exploration of a Scene: The Interaction of Contextual Guidance and Salience. Vision Sciences Society Annual Meeting, Sarasota FL.
+{: .small}
 
