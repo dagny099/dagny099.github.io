@@ -95,11 +95,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Barbara Hidalgo-Sotelo"
+  name             : Barbara
   avatar           : "/assets/images/bio-photo-1.jpg"
-  bio              : "My Hub"
+  bio              : "Love data, Will travel."
   location         : "Austin, TX"
-  email            :
+  email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
