@@ -15,7 +15,7 @@ feature_row:
     alt: ""WEMOS D1 board with DHT11 sensor""
     title: "DIY Sensor Dashboard"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: /temp-sensor-01/
+    url: "/temp-sensor-01/"
     btn_label: "Read More"
     btn_class: "btn--primary"
   - image_path: /assets/images/model_img_th.jpg
@@ -24,7 +24,6 @@ feature_row:
     url: "http://olivalab.mit.edu/SearchModels/"
     btn_label: "Read More"
     btn_class: "btn--primary"
-
 ---
 
 {% include feature_row %}
