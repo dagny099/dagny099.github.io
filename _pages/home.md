@@ -1,6 +1,6 @@
 ---
 layout: splash
-permalink: /
+permalink: /home/
 hidden: true
 header:
   overlay-image: "/assets/images/skyline_20170218.jpg"
