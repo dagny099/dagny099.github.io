@@ -3,7 +3,7 @@ layout: splash
 permalink: /home/
 hidden: true
 header:
-  overlay-image: "/assets/images/skyline_20170218.jpg"
+  overlay-image: "/assets/images/sinawa.jpg"
 
 feature_row:
   - image_path: /assets/images/sinawa.jpg
