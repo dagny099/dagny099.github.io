@@ -4,9 +4,19 @@ main:
     url: /about/
   - title: "Projects"
     url: /projects/
-  - title: "Publications"
-    url: /publications/
+  - title: "Research"
+    url: /research/
   - title: "Resources"
     url: /resources/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
+
+# sidebar navigation list sample
+sidebar-pub:
+  - title: "Table of Contents"
+    children:
+      - title: "Overview"
+        url: /research/#overview
+      - title: "Publications"
+        url: /research/#publications
+      - title: "Posters"
+        url: /research/#posters
+      - title: "Demos"
