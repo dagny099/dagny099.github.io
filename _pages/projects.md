@@ -18,7 +18,7 @@ feature_row:
   - image_path: "/assets/images/tempsensor_pic_th.jpg"
     title: "Temp Sensor Fun"
     excerpt: "How-to build a fleet of IoT temp sensors including a visualization dashboard (<$10/sensor)."
-    url: /temp-sensor-01/
+    url: /temp-sensor-00/
     btn_label: "Read More"
     btn_class: "btn--primary"
   - image_path: "/assets/images/angel_pic_th.jpg"
@@ -30,6 +30,6 @@ feature_row:
 
 
 
-> Your very existence is wrapped up in the things you need to fulfill. Whatever you choose for a career path, remember the struggles along the way are only meant to shape you for your purpose. '
+> Your very existence is wrapped up in the things you need to fulfill. Whatever you choose for a career path, remember the struggles along the way are only meant to shape you for your purpose.
 <cite> Chadwick Boseman </cite>
 {: .small}

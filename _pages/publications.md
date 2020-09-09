@@ -11,8 +11,7 @@ sidebar:
     image_alt: "Street scene with example of eye fixations"
     nav: sidebar-pub
 ---
-
-## Overview
+## Big Picture
 
 Eye movements are such a natural and universal behavior that most people don't ever think about how they happen or even THAT they happen. When you want to watch something, or drive somewhere, or when you want nothing at all- eye movements are happening **constantly**. In fact, people change their gaze several times per *second*, every waking hour of every day.
 
@@ -23,7 +22,8 @@ Sometimes visual attention is "grabbed" by **color**{: style="color: red"}, SHAP
 Other times, eye gaze may be deployed in a highly targeted fashion, such as looking for your friend among the crowd of park goers: you may not bother to look at the red balloons or other obviously non-friend items, but you may scrutinize the face of every silhouette that matches their familiar profile.
 
 **Where** the eyes are looking and **how long** they linger in a particular spot are naturally occurring behaviors that can indicate which scene regions are visually or cognitively **salient**.  
-{: .medium}
+
+## Research Questions
 
 My work seeks to identify how an individual's specific visual memory impacts their attention when performing a familiar task. Towards goal, much of my work involved recording people's eye movements and comparing human gaze locations with different model predictions. Specific research questions:
 * How do people combine bottom-up visual information and top-down scene knowledge to selectively deploy the eyes during a visual search task?

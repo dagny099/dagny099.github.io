@@ -5,13 +5,13 @@ header:
   overlay_image: "/assets/images/bullcrick-photo-01.jpg"
 ---
 ## BIOGRAPHY  
-I'm a data scientist and software consultant with interdisciplinary experience in machine learning, UX/UI, and cognitive science. I'm also a marathon-runner, [bilingual Toastmaster](https://7032821.toastmastersclubs.org/), and deputy [voter registrar](https://www.headcount.org/state/texas/). 
+I'm a data scientist and software consultant with interdisciplinary experience in machine learning, UX/UI, and cognitive science. I'm also a marathon-runner, [bilingual Toastmaster](https://7032821.toastmastersclubs.org/), and deputy [voter registrar](https://www.headcount.org/state/texas/).
 
 Since 2014, I've consulted on enterprise software UI for the business management and healthcare industries. I've also enjoyed managing projects for companies in marketing and risk management industries. *I'm well suited to creatively solve complex problems with innovation, execution and drive.*
 
-TL/DR: I have a passion for learning and helping others learn. Reach out if like-minded. 
+TL/DR: I have a passion for learning and helping others learn. Reach out if like-minded.
 
-### My Resume is [here](/assets/docs/Hidalgo-Sotelo_Resume_2020.pdf) and my CV is [here](/assets/docs/Hidalgo-Sotelo_CV.pdf).
+### My Resume is [here](/assets/docs/Hidalgo-Sotelo_Resume_2020.pdf) and my CV is [here](/assets/docs/Hidalgo-Sotelo_Academic_CV.pdf).
 
 ## HIGHLIGHTS
 * Research on visual attention and memory @ MIT's Brain and Cognitive Science dpmt under the supervision of Aude Oliva.
@@ -29,4 +29,3 @@ TL/DR: I have a passion for learning and helping others learn. Reach out if like
 > Throw your dreams into space like a kite, and you do not know what it will bring back, a new life, a new friend, a new love, a new country.
 <cite>Anaïs Nin</cite>
 {: .small}
-

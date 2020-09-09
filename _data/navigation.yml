@@ -13,8 +13,10 @@ main:
 sidebar-pub:
   - title: "Table of Contents"
     children:
-      - title: "Overview"
-        url: /research/#overview
+      - title: "Big Picture"
+        url: /research/#big-picture
+      - title: "Research Questions"
+        url: /research/#research-questions
       - title: "Publications"
         url: /research/#publications
       - title: "Posters"
