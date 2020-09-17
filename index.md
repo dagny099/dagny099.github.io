@@ -12,7 +12,7 @@ feature_row:
     excerpt: "Find out more about my ongoing and past projects here."
     btn_class: "btn--primary"
     btn_label: "See more"
-  - url: "/publications/"
+  - url: "/research/"
     image_path: /assets/images/eveningmoon_th.jpg
     alt: "Picture of the moon in the city at dusk"
     title: "Publications"

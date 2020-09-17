@@ -12,6 +12,7 @@ sidebar:
     nav: sidebar-pub
 ---
 ## Big Picture
+{: style="margin: 0px;"}
 
 Eye movements are such a natural and universal behavior that most people don't ever think about how they happen or even THAT they happen. When you want to watch something, or drive somewhere, or when you want nothing at all- eye movements are happening **constantly**. In fact, people change their gaze several times per *second*, every waking hour of every day.
 
@@ -29,42 +30,45 @@ My work seeks to identify how an individual's specific visual memory impacts the
 * How do people combine bottom-up visual information and top-down scene knowledge to selectively deploy the eyes during a visual search task?
 *	How does context-specific learning (e.g. the familiar layout of one’s bedroom) influence eye movements and attention?  
 *	Can computational models learn an individual's-specific eye movement patterns and predict what regions of a scene or visual display will attract a person’s attention?
-{: .medium}
 
 ## Publications
+Person, place, and past influence eye movements during visual search.  **Hidalgo-Sotelo, B.** & Oliva, A. (2010).  *In S. Ohlsson & R. Catrambone (Eds.), Proceedings of the 32nd Annual Conference of the Cognitive Science Society*, (pp. 820-825). Austin, TX: Cognitive Science Society. [Link](/assets/docs/HidalgoOliva_CogSci2010.pdf)
+{: style="font-size: 0.85em;"}
 
-Person, place, and past influence eye movements during visual search.  Hidalgo-Sotelo, B. & Oliva, A. (2010).  In S. Ohlsson & R. Catrambone (Eds.), Proceedings of the 32nd Annual Conference of the Cognitive Science Society, (pp. 820-825). Austin, TX: Cognitive Science Society.
+Modeling Search for People in 900 Scenes: A combined source model of eye guidance. , **Hidalgo-Sotelo, B.**, Ehinger K.\*,Torralba, A. & Oliva, A. (2009).  *Visual Cognition*, 17(6): 945-978. [Link](/assets/docs/EhingerHidalgoTorralbaOliva_VisCog2009.pdf)
+{: style="font-size: 0.85em;"}
 
-Modeling Search for People in 900 Scenes: A combined source model of eye guidance. Ehinger, K.*, Hidalgo-Sotelo, B. *, Torralba, A. & Oliva, A. (2009).  Visual Cognition, 17(6): 945-978.
+Why do we miss rare targets? Exploring the boundaries of the low prevalence effect. Rich, A., Kunar M., VanWert M., **Hidalgo-Sotelo B.**, Horowitz T., & Wolfe J. (2008).  *Journal of Vision*, 8(15):15, 1-17. [Link](/assets/docs/RichEtal_JOV2008.pdf)
+{: style="font-size: 0.85em;"}
 
-Why do we miss rare targets? Exploring the boundaries of the low prevalence effect. Rich, A., Kunar M., VanWert M., Hidalgo-Sotelo B., Horowitz T., & Wolfe J. (2008).  Journal of Vision, 8(15):15, 1-17.
-
-Human Learning of Contextual Priors for Object Search: Where does the time go?  Hidalgo-Sotelo B., Oliva A.,& Torralba A. (2005).  Proceedings of the 3rd Workshop on Attention and Performance at CVPR. Washington, DC: IEEE Computer Society.
+Human Learning of Contextual Priors for Object Search: Where does the time go?  **Hidalgo-Sotelo B.**, Oliva A.,& Torralba A. (2005).  *Proceedings of the 3rd Workshop on Attention and Performance at CVPR.* Washington, DC: IEEE Computer Society. [Link](/assets/docs/HidalgoOlivaTorralba_WAPCV2005.pdf)
+{: style="font-size: 0.85em;"}
 
 ## Posters
 
-Hidalgo-Sotelo, B., & Oliva, A. (August 2010). Person, place, and past influence eye movements during visual search. Cognitive Science Society Annual Meeting, Portland OR.
-{: .small}
+[Person, place, and past influence eye movements during visual search](/assets/docs/VSS2010_BHSOliva_poster.pdf). Hidalgo-Sotelo, B., & Oliva, A. (August 2010). *Cognitive Science Society Annual Meeting*, Portland OR.
+{: style="font-size: 0.85em;"}
 
-Hidalgo-Sotelo, B., & Oliva, A. (May 2010). History repeats itself: A role for observer-dependent scene context in search. Vision Sciences Society Annual Meeting, Naples FL.
-{: .small}
+History repeats itself: A role for observer-dependent scene context in search. Hidalgo-Sotelo, B., & Oliva, A. (May 2010). *Vision Sciences Society Annual Meeting*, Naples FL.
+{: style="font-size: 0.85em;"}
 
-Hidalgo-Sotelo, B., & Oliva, A. (May 2008). Delaying initial saccade latency in familiar scenes improves search guidance. Tufts Conference on Cognitive Neuroscience of Visual Knowledge: Where vision meets memory. Boston MA.
-{: .small}
+Delaying initial saccade latency in familiar scenes improves search guidance. Hidalgo-Sotelo, B., & Oliva, A. (May 2008). *Tufts Conference on Cognitive Neuroscience of Visual Knowledge: Where vision meets memory.* Boston MA.
+{: style="font-size: 0.85em;"}
 
-Hidalgo-Sotelo, B., & Oliva, A. (May 2008). Look before you leap: Lengthening initial saccade latency in familiar scenes improves search guidance. Vision Sciences Society Annual Meeting, Naples FL.
-{: .small}
+[Look before you leap: Lengthening initial saccade latency in familiar scenes improves search guidance](/assets/docs/HidalgoSotelo_DelayedSearch_VSS08.PDF). Hidalgo-Sotelo, B., & Oliva, A. (May 2008). *Vision Sciences Society Annual Meeting*, Naples FL.
+{: style="font-size: 0.85em;"}
 
-Rich, A., Kunar, M., Van Wert, M., Hidalgo-Sotelo, B., & Wolfe, J. (May 2007).  Do rare features pop out? Exploring the boundaries of the low prevalence effect. Vision Sciences Society Annual Meeting, Sarasota FL.
-Hidalgo-Sotelo, B., & Oliva, A. (May 2006). Decomposing the effect of contextual priors in search: Where does the time go? Vision Sciences Society Annual Meeting, Sarasota FL.
-{: .small}
+Do rare features pop out? Exploring the boundaries of the low prevalence effect. Rich, A., Kunar, M., Van Wert, M., Hidalgo-Sotelo, B., & Wolfe, J. (May 2007).  *Vision Sciences Society Annual Meeting*, Sarasota FL.
+{: style="font-size: 0.85em;"}
 
-Rich, A. N., Hidalgo-Sotelo, B., Kunar, M. A., Van Wert, M. J., & Wolfe, J. M. (May 2006).
-What happens during search for rare targets? Eye movements in low prevalence visual search. Vision Sciences Society Annual Meeting, Sarasota FL.
-{: .small}
+[Decomposing the effect of contextual priors in search: Where does the time go?](/assets/docs/VSS06-IdentityPriors-HidalgoSotelo.pdf). Hidalgo-Sotelo, B., & Oliva, A. (May 2006).  *Vision Sciences Society Annual Meeting*, Sarasota FL.
+{: style="font-size: 0.85em;"}
 
-Kenner N., Hidalgo-Sotelo B., & Oliva A .(May 2005).  Rapid Goal-Directed Exploration of a Scene: The Interaction of Contextual Guidance and Salience. Vision Sciences Society Annual Meeting, Sarasota FL.
-{: .small}
+What happens during search for rare targets? Eye movements in low prevalence visual search. Rich, A. N., Hidalgo-Sotelo, B., Kunar, M. A., Van Wert, M. J., & Wolfe, J. M. (May 2006).  *Vision Sciences Society Annual Meeting*, Sarasota FL.
+{: style="font-size: 0.85em;"}
+
+Rapid Goal-Directed Exploration of a Scene: The Interaction of Contextual Guidance and Salience. Kenner N., Hidalgo-Sotelo B., & Oliva A .(May 2005).  *Vision Sciences Society Annual Meeting*, Sarasota FL.
+{: style="font-size: 0.85em;"}
 
 ## Demos
 
