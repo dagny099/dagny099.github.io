@@ -8,6 +8,7 @@ excerpt: "Environment Sensing, Visualizing"
 tags: [arduino, temp sensor, mqtt]
 categories: [data science]
 ---
+# Story
 ## What's my motivation?
 Texas is HOT. ACs work overtime and electricity bills soar. In a nutshell, this was the motivation for wanting to see how cheaply and easily I could build a small temperature sensor to collect heating and cooling data from different rooms in the house. This has been a really fun project and taught me **a lot**, including how to use to program an Arduino, design a lightweight data pipeline, and build a visualization dashboard to see my data.
 
