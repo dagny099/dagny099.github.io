@@ -37,7 +37,7 @@ After this post, you'll be able to:
 * Add additional sensors to your fleet
 * Monitor and detect your fleet is working as expected
 * Create a Heroku web app to visualize the data
-* Create an interactive graph to visualize the smoothened data measurements.
+* Create an [interactive graph to visualize the smoothened data measurements](http://barb-iot-temp.herokuapp.com/).
 
 ### Part 3: Data Pipeline, automated
 After this post, you'll be able to:

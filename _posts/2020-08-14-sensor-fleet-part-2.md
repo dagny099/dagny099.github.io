@@ -1,9 +1,12 @@
 ---
-layout: single
+layout: archive
 title: "Sensor Fleet Part 2"
 permalink: /temp-sensor-02/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
+  actions:
+    - label: "Dashboard"
+      url: "http://barb-iot-temp.herokuapp.com/"
 excerpt: "Environment Sensing, Visualizing"
 tags: [arduino, temp sensor, mqtt]
 categories: [data science]
