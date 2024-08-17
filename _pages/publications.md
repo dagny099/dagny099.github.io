@@ -12,8 +12,7 @@ sidebar:
     nav: sidebar-pub
 ---
 ## Big Picture
-{: style="margin: 0px;"}
-
+{: style="margin-top: 0px; padding-top: 0px;"}
 Eye movements are such a natural and universal behavior that most people don't ever think about how they happen or even THAT they happen. When you want to watch something, or drive somewhere, or when you want nothing at all- eye movements are happening **constantly**. In fact, people change their gaze several times per *second*, every waking hour of every day.
 
 Our visual attention is intricately linked to (but not the same as) where our eyes are directed, like when driving a car and being careful to watch for pedestrians, bikes and pesky scooters.

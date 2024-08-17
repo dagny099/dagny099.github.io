@@ -1,6 +1,8 @@
 ---
 layout: single
 title: "Recreational 3D Printing"
+sitemap:
+    priority: 0.5
 permalink: /print3d-00/
 header:
   overlay_image: "/assets/images/M5-calib-mini-v0.jpg"
@@ -9,6 +11,7 @@ tags: [3d models, stl files, prototyping]
 categories: [3d printing]
 ---
 ## At-Home Additive Manufacturing
+{: style="margin-top: 0px; padding-top: 0px;"} 
 
 Curiosity was sparked by a Kickstarter campaign by AnkerMake in the fall of 2022.   
 
@@ -19,6 +22,12 @@ _Lessons in progress_:
 - Most important slicer settings to understand
 - Editing STL models with 3d modeling software (starting with [TinkerCad](https://www.tinkercad.com/))
 {: .small}
+
+### Demo of gist
+<script src="https://gist.github.com/dagny099/ff93395ed55b984060bb9bfae6aa5b52.js"></script>
+
+## Other Demo of gist
+{% raw %}{% gist dagny099/ff93395ed55b984060bb9bfae6aa5b52 %}{% endraw %}
 
 ##### More to come soon:
 - Network graph based on schema.org showing objects to print

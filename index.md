@@ -1,5 +1,8 @@
 ---
 layout: home
+sitemap:
+  priority: 1.0
+  changefreq: weekly
 hidden: true
 title: " "
 header:

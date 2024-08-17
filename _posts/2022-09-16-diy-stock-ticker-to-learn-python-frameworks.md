@@ -1,6 +1,8 @@
 ---
 layout: single
 title: "DIY Stock Ticker to Learn Python Frameworks"
+sitemap:
+    priority: 0.5
 permalink: /stock-ticker-00/
 excerpt: "Comparing Python Webapp Frameworks"
 tags: [python, webapps, dash, flask, streamlit]

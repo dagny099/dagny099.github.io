@@ -1,8 +1,6 @@
 ---
 title: "Projects"
 permalink: /projects/
-hidden: true
-layout: collection
 header:
   opacity: "0.9"
   overlay_image: "/assets/images/gunnison-photo-01.jpg"
@@ -25,10 +23,7 @@ feature_row:
     title: "Running Dashboard"
     excerpt: "Build a data pipeline from an exercise app to my personal dashboard using Python's Streamlit library."
 ---
-
 {% include feature_row %}
-
-
 
 > Your very existence is wrapped up in the things you need to fulfill. Whatever you choose for a career path, remember the struggles along the way are only meant to shape you for your purpose.
 <cite> Chadwick Boseman </cite>

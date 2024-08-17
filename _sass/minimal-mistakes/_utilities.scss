@@ -591,3 +591,51 @@ a.reversefootnote {
     position: static;
   }
 }
+
+/*
+   GIST FORMATTING
+   ========================================================================== */
+/* Custom CSS for GitHub Gist in Dark Mode */
+.gist .gist-file {
+  background-color: #2e2e2e !important; /* Dark background */
+  color: #f8f8f2 !important; /* Light text color */
+  border: 1px solid #444 !important; /* Darker border */
+  border-radius: 5px !important; /* Slight rounding for nicer edges */
+  padding: 10px !important; /* Add padding around the content */
+}
+
+.gist .gist-data {
+  background-color: #2e2e2e !important;
+}
+
+.gist .gist-meta {
+  background-color: #2e2e2e !important;
+  color: #f8f8f2 !important;
+  border-top: 1px solid #444 !important;
+}
+
+.gist .gist-file .gist-data pre {
+  color: #f8f8f2 !important; /* Text color for code */
+  background-color: #2e2e2e !important; /* Background for code blocks */
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Monospace font for code */
+}
+
+.gist .gist-file .gist-meta a {
+  color: #8be9fd !important; /* Light blue links */
+  text-decoration: none !important;
+}
+
+.gist .gist-file .gist-meta a:hover {
+  text-decoration: underline !important; /* Underline on hover */
+}
+
+.gist .gist-file .gist-line-number {
+  color: #6272a4 !important; /* Line numbers color */
+  background-color: #2e2e2e !important; /* Line numbers background */
+}
+
+.gist .gist-file .gist-line-number:hover {
+  color: #f8f8f2 !important;
+}
+
+  
