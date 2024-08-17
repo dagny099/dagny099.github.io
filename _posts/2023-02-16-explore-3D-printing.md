@@ -26,8 +26,6 @@ _Lessons in progress_:
 ### Demo of gist
 <script src="https://gist.github.com/dagny099/ff93395ed55b984060bb9bfae6aa5b52.js"></script>
 
-## Other Demo of gist
-{% raw %}{% gist dagny099/ff93395ed55b984060bb9bfae6aa5b52 %}{% endraw %}
 
 ##### More to come soon:
 - Network graph based on schema.org showing objects to print
