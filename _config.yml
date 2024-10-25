@@ -95,9 +95,9 @@ analytics:
 
 # Site Author
 author:
-  name             : Barbara
-  avatar           : "/assets/images/bio-photo-1.jpg"
-  bio              : "Love data, Will travel"
+  name             : Dr. Barbara
+  avatar           : "/assets/images/biopic/bhs_forweb2.png"
+  bio              : "Making Data Matter"
   location         : "Austin, TX"
   email            :
   links:
@@ -189,7 +189,7 @@ markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
-incremental: false
+incremental: true
 
 
 # Markdown Processing
@@ -210,16 +210,14 @@ sass:
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 
+
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -227,11 +225,53 @@ plugins:
 
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+
+
+# Pagination with jekyll-paginate
+# paginate: 5 # amount of posts to show
+# paginate_path: /page:num/
+
+# Pagination with jekyll-paginate-v2
+# See https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
+#   for configuration details
+pagination:
+  # Set enabled to true to use paginate v2
+  enabled: true
+  per_page: 3
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  sort_field: 'date'
+  sort_reverse: true
+  # debug: true
+  # collection: 'posts'
+  # limit: 0
+  # category: 'posts'
+  # tag: ''
+  # locale: ''
+  # trail:
+  #   before: 2
+  #   after: 2
+
+# AutoPages configuration
+autopages:
+  enabled: false
+  categories:
+    enabled: false
+    layouts:
+      - 'category'
+
+
+
+# Configure the porfolio collection... this basically says output "index.html" files for each porfolio document in "_portfolio" at _site/portfolio/doc_filename
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Archives
@@ -291,3 +331,11 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: false
+      share: true

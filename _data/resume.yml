@@ -1,0 +1,211 @@
+# Personal Information
+personal_info:
+  name: "Barbara Hidalgo-Sotelo"
+  email: "barbs@balex.com"
+  linkedin: "linkedin.com/in/barbara-hidalgo-sotelo"
+  website: "www.barbhs.com"
+  location: "Austin, TX"
+  title: "Data Scientist & Technical Consultant | Knowledge Graph Enthusiast"
+
+# Summary
+summary: >
+  An MIT-trained data scientist with expertise in behavioral research, statistics, machine learning, and management consulting. Experienced in healthcare, federal agencies, and risk management. A personable leader and team player who thrives in cross-disciplinary environments where creativity and flexibility are crucial. Key strengths include leadership, project management, and advanced technical skills.
+
+# Experience
+experience:
+  - title: "Technical Consultant"
+    company: "Inflective, Inc."
+    date: "Jan - April 2024"
+    location: "Remote"
+    responsibilities: >
+      - "Triaged business and project management issues to resolution, ensuring smooth project execution."
+      - "Collaborated with project team members to assess and report status, monitor quality, and drive team motivation."
+      - "Supported the change management project plan using a proprietary method and software."
+
+  - title: "Data Scientist"
+    company: "Metric5 Consulting"
+    date: "2021 - 2023"
+    location: "Remote (Client based in Washington DC)"
+    responsibilities:
+      - "Created a Python tool to streamline metadata export from a data catalog, boosting stakeholder efficiency, and authored detailed user documentation."
+      - "Published a metadata glossary for a data catalog and developed a Python tool for stakeholders to easily update."
+      - "Developed a proof-of-concept reporting utility integrating ServiceNow, COTS software, and PowerBI, significantly improving the visualization and management of data access requests."
+
+  - title: "Project Manager"
+    company: "Inflective, Inc."
+    date: "2017 - 2019"
+    location: "Remote (Client based in Parsippany, NJ)"
+    responsibilities:
+      - "Led a digital transformation project to optimize the adjudication of 4M medical bills annually, resulting in a 30% increase in processing efficiency and significant cost savings."
+      - "Co-led Lean Six-Sigma workshops at a multi-billion dollar risk management company, identifying and implementing operational improvements that reduced processing times by 25%."
+      - "Introduced a machine learning approach to automate the classification of medical bills, training a decision tree model using Python and Scikit-learn, which matched the performance of human coders."
+
+  - title: "Research Project Manager"
+    company: "MediaScience"
+    date: "2017"
+    location: "Austin, TX"
+    responsibilities:
+      - "Supervised experimental data collection of eye tracking in naturalistic environments, providing insights into viewer engagement for media industry clients."
+      - "Analyzed biometric data, including GSR and facial expressions, delivering customized reports that enhanced client advertising strategies."
+
+  - title: "Technical Consultant"
+    company: "Persis Consulting"
+    date: "2014 - 2017"
+    location: "Remote"
+    responsibilities:
+      - "Documented software requirements for private-sector consulting clients in the finance and healthcare industries, ensuring alignment with business needs."
+      - "Managed QA/QC testing for web-based products, enhancing software reliability and performance."
+      - "Created non-technical documentation of web app architecture, facilitating understanding and communication among stakeholders."
+      - "Developed comprehensive end-user training, including a wiki and video resources, significantly improving user adoption and satisfaction."
+
+  - title: "Research Engineer/Scientist"
+    company: "University of Texas at Austin"
+    date: "2013 - 2016"
+    location: "Austin, TX"
+    responsibilities:
+      - "Developed a Matlab software package for secure data collection and transmission in a longitudinal study on bilingual language development, contributing to advancements in the field."
+      - "Created an algorithm for extracting speech onset time from recorded speech, incorporating a human-validation mechanism to ensure accuracy."
+      - "Designed a user-friendly GUI for data analysis, enabling efficient and accurate data processing by research staff."
+      - "Managed lab staff and coordinated their contributions to the data pipeline, ensuring high-quality, accurate results. Provided guidance and mentorship to enhance their analytical skills and foster a collaborative research environment."
+
+# Technical Skills
+technical_skills:
+  programming_languages:
+    - "Python"
+    - "Matlab"
+    - "R"
+    - "SQL"
+    - "Cypher"
+    - "Git"
+    - "JavaScript"
+    - "HTML/CSS"
+    - "Bash script"
+
+  database_technologies:
+    - "MySQL"
+    - "PostgreSQL"
+    - "Neo4J"
+    - "MongoDB"
+
+  data_visualization_frameworks:
+    - "PowerBI"
+    - "Tableau"
+    - "Plotly"
+    - "Matplotlib"
+    - "Streamlit"
+    - "Dash"
+    - "Seaborn"
+    - "Altair"
+
+  ai_ml_packages:
+    - "scipy"
+    - "scikit-learn"
+    - "tensorflow"
+    - "pyspark"
+    - "pandas"
+    - "beautifulsoup"
+    - "spacy"
+    - "networkx"
+
+  generative_ai:
+    - "OpenAI language and embedding APIs"
+    - "Azure AI Studio"
+
+# Education
+education:
+  - degree: "PhD, Cognitive Science"
+    institution: "Massachusetts Institute of Technology"
+
+  - degree: "Bachelor of Science in Electrical Engineering"
+    institution: "University of Texas at Austin"
+
+  - degree: "Bachelor of Science in Biology"
+    institution: "University of Texas at Austin"
+
+# Certifications
+certifications:
+  - name: "Microsoft Certified: Azure AI Engineer Associate"
+    issuer: "Microsoft"
+    date: "June 2024"
+
+  - name: "Certified Data Management Professional (CDMP) Associate"
+    issuer: "DAMA International"
+    date: "March 2024"
+
+  - name: "AWS Certified Cloud Practitioner"
+    issuer: "Amazon Web Services"
+    date: "June 2023"
+
+  - name: "Open Knowledge Graph Certified"
+    issuer: "EDM Council"
+    date: "November 2022"
+
+  - name: "DCAM V2 Accredited"
+    issuer: "EDM Council"
+    date: "October 2021"
+
+# Strengths
+strengths:
+  - "Data scientist with Business Acumen"
+  - "Quantitative Analysis and Ownership"
+  - "Effective Communication Skills"
+  - "Prioritization and Impact Skills"
+  - "Thrive in fast-paced environments"
+  - "Collaborative leader and team player"
+  - "Passionate about data democratization"
+
+# Projects
+projects:
+  - name: "How-to Build a DIY Temperature Sensor Fleet (2020)"
+    url: "http://dagny099.github.io/temp-sensor-00/"
+    description: "Created a workflow for visualizing home-generated data from multiple temperature sensors powered by Arduino (<$10 per sensor); used AWS to store data with SQL and run a web server to interactively visualize the temperature throughout my house."
+
+  - name: "Modeling Search for People in 900 Scenes (2009)"
+    url: "http://olivalab.mit.edu/SearchModels"
+    description: "Recorded eye movements of observers looking for people in 912 outdoor scenes. Conducted spatial and temporal analyses of individual differences in eye movement patterns; predictive modeling of human visual attention via Bayesian learning model."
+
+# Research Summary
+research_summary: >
+  Eye movements are such a natural and universal behavior that most people don’t ever think about how they happen or even THAT they happen. When you want to watch something, or drive somewhere, or when you want nothing at all- eye movements are happening constantly. In fact, people change their gaze several times per second, every waking hour of every day.
+
+  Our visual attention is intricately linked to (but not the same as) where our eyes are directed, like when driving a car and being careful to watch for pedestrians, bikes and pesky scooters.
+
+  Sometimes visual attention is “grabbed” by color, SHAPE, or any number of visual properties (good designers are experts at directing visual attention through a space, artwork, or webpage).
+
+  Other times, eye gaze may be deployed in a highly targeted fashion, such as looking for your friend among the crowd of park goers: you may not bother to look at the red balloons or other obviously non-friend items, but you may scrutinize the face of every silhouette that matches their familiar profile.
+
+  Where the eyes are looking and how long they linger in a particular spot are naturally occurring behaviors that can indicate which scene regions are visually or cognitively salient.
+
+  Research Questions:
+
+  My work seeks to identify how an individual’s specific visual memory impacts their attention when performing a familiar task. Towards goal, much of my work involved recording people’s eye movements and comparing human gaze locations with different model predictions. Specific research questions:
+
+  * How do people combine bottom-up visual information and top-down scene knowledge to selectively deploy the eyes during a visual search task?
+  * How does context-specific learning (e.g. the familiar layout of one’s bedroom) influence eye movements and attention?
+  * Can computational models learn an individual’s-specific eye movement patterns and predict what regions of a scene or visual display will attract a person’s attention?
+
+# Publications
+publications:
+  - title: "Person, place, and past influence eye movements during visual search."
+    authors: "Hidalgo-Sotelo, B. & Oliva, A."
+    year: "2010"
+    publication: "In S. Ohlsson & R. Catrambone (Eds.), Proceedings of the 32nd Annual Conference of the Cognitive Science Society, (pp. 820-825). Austin, TX: Cognitive Science Society."
+    link: "Link"
+
+  - title: "Modeling Search for People in 900 Scenes: A combined source model of eye guidance."
+    authors: "Hidalgo-Sotelo, B., Ehinger K.*, Torralba, A. & Oliva, A."
+    year: "2009"
+    publication: "Visual Cognition, 17(6): 945-978."
+    link: "Link"
+
+  - title: "Why do we miss rare targets? Exploring the boundaries of the low prevalence effect."
+    authors: "Rich, A., Kunar M., VanWert M., Hidalgo-Sotelo B., Horowitz T., & Wolfe J."
+    year: "2008"
+    publication: "Journal of Vision, 8(15):15, 1-17."
+    link: "Link"
+
+  - title: "Human Learning of Contextual Priors for Object Search: Where does the time go?"
+    authors: "Hidalgo-Sotelo B., Oliva A., & Torralba A."
+    year: "2005"
+    publication: "Proceedings of the 3rd Workshop on Attention and Performance at CVPR. Washington, DC: IEEE Computer Society."
+    link: "Link"

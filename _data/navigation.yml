@@ -1,13 +1,13 @@
 # main links
 main:
-  - title: "About"
+  - title: "About Me"
     url: /about/
-  - title: "Projects"
+  - title: "Portfolio"
     url: /projects/
-  - title: "Research"
-    url: /research/
-  - title: "Resources"
-    url: /resources/
+  - title: "Blog"
+    url: /blog/
+  - title: "Resume"
+    url: /resume/
 
 # sidebar navigation list sample
 sidebar-pub:

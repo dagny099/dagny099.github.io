@@ -9,6 +9,8 @@ header:
 excerpt: "Exploring the prototyping possibilities "
 tags: [3d models, stl files, prototyping]
 categories: [3d printing]
+pagination: 
+  enabled: true
 ---
 ## At-Home Additive Manufacturing
 {: style="margin-top: 0px; padding-top: 0px;"} 
