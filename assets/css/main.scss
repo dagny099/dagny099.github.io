@@ -6,3 +6,119 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+// These two styles are to hide the page title on the home page
+.layout--home .page__hero--overlay .page__title {
+    display: none !important;  // Apply universally outside media queries
+  }
+  
+@media (min-width: 37.5em) {
+    .layout--home  .page__hero--overlay .page__title {
+      display: none !important;  // Apply within this specific media query
+    }
+  }
+
+
+/* Customize grid layout for portfolio pages */
+/* Grid Container */
+.layout--collection .entries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust column width */
+    gap: 5px; /* Increase gap between items */
+    padding: 10px; /* Padding around the grid container */
+    width: 100%;
+    // border: 1px solid #ddd; /* Optional: Add border around the grid */
+  }
+  
+  /* Full-Width Grid Item */
+  .layout--collection .grid__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Center all elements horizontally */
+    width: 100%; /* Forces each item to take the full width of its column */
+    height: 100%; /* Forces each item to take full height within the grid */
+    box-sizing: border-box; /* Ensures padding doesn’t add to the item’s width */
+    overflow: hidden; /* Hide overflow if content exceeds item */
+    // text-align: center; /* Center text inside the grid item */
+    // border: 1px solid #fff; /* Optional: Add border around the grid */
+}
+  
+  /* Flexbox for the Article Inside Each Grid Item */
+  .layout--collection  .archive__item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%; /* Ensure article takes full height */
+  }
+  
+  /* Image Container */
+  .layout--collection  .archive__item-teaser {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    flex-shrink: 0; /* Prevents the image container from shrinking */
+  }
+  
+  .layout--collection  .archive__item-teaser img {
+    width: 100%;             /* Full width of the container */
+    height: auto;            /* Maintain aspect ratio */
+    object-fit: cover;       /* Ensure image covers container without cutting off */
+    display: block;          /* Prevent unwanted spacing below the image */
+    max-width: 90%;          /* Optional: Limit image width for visual balance */
+    border: 2px solid lightslategray;  /* Optional: Add border around the image */
+    }
+  
+  /* Headline and Excerpt Styling */
+  .layout--collection  .archive__item-title {
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+    text-align: center; /* Center text inside the grid item */
+}
+  
+.layout--collection  .archive__item-excerpt {
+    font-size: 0.8em;
+    margin: 10px;
+    flex-grow: 1; /* Allows the excerpt to expand if necessary */
+  }  
+      
+// -----------------------------------
+/* Custom padding for overlay content on wide portfolio pages */
+.portfolio-page.wide .page__hero--overlay {
+    padding: 25px 0 25px 0; 
+  }
+    
+/* Custom spacing for <p> elements inside the overlay on wide portfolio pages */
+.portfolio-page.wide .wrapper p {
+    margin: 15px 0 15px 0;  /* Adjust margin spacing */
+}
+  
+.portfolio-page.wide .wrapper   h1 {
+    margin-bottom: 10px;  /* Adjust margin spacing */
+}
+    
+// -----------------------------------
+// Custom styles for responsive images at different sizes
+.img-small {
+max-width: 350px;   // Max width for small images
+width: 100%;        // Makes image responsive
+height: auto;
+}
+
+.img-medium {
+max-width: 650px;   // Max width for medium images
+width: 100%;        // Makes image responsive
+height: auto;
+}
+
+.img-large {
+max-width: 950px;   // Max width for large images
+width: 100%;        // Makes image responsive
+height: auto;
+}
+
+.img-full {
+    width: 100%;
+    max-width: 1200px; // Optional max width to prevent oversizing on large screens
+    height: auto;
+  }
+  

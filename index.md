@@ -1,17 +1,14 @@
 ---
 layout: home
+title: "Barbara Hidalgo-Sotelo"
 sitemap:
   priority: 1.0
   changefreq: weekly
 author_profile: true
-title: " "
-# excerpt: "This post should display a **header with a solid background color**, if the theme supports it."
 header: 
   overlay_image: "/assets/images/rock_mts_bw.jpg"
-  # overlay_color: "#0090cb"
   opacity: 0.1
-  # overlay_color_opacity: 0.4
-# image: "/assets/images/rock_mts_bw2.jpg"
+  # overlay_color: "#0090cb"
 
 feature_row:
   - url: "/projects/"

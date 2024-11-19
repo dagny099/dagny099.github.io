@@ -1,0 +1,36 @@
+---
+layout: archive
+breadcrumbs: false
+---
+
+{{ content }}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+
+{% comment %}
+Get a unique list of categories used in the collection to create grouped sections.
+{% endcomment %}
+{% assign categories = site[page.collection] | map: "category" | uniq | sort %}
+
+  {% for category in categories %}
+    <!-- Section heading for each category -->
+    <h2 class="category-heading">{{ category }}</h2>
+
+    <div class="entries-{{ entries_layout }}">
+      <!-- <div class="portfolio-section"> -->
+      {% assign filtered_items = site[page.collection] | where: "category", category %}
+
+    {% for item in filtered_items %}
+
+      <article class="portfolio-item">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.excerpt }}</p>
+      <a href="{{ item.url | relative_url }}">Read more</a>
+  </article>
+{% endfor %}
+</div>
+  
+    <!-- </div> -->
+    
+  {% endfor %}
+

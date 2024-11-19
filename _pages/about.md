@@ -1,5 +1,7 @@
 ---
 title: "About"
+layout: single
+breadcrumbs: false
 permalink: /about/
 header:
   overlay_image: "/assets/images/bullcrick-photo-01.jpg"
