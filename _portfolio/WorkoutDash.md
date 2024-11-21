@@ -1,7 +1,6 @@
 ---
 title: "Workout Dashboard"
 excerpt: "Build an interactive dashboard of my workouts backed by AWS Relational Database (RDS)"
-order: 2 # Lower numbers appear first
 date: 2024-02-15 # Change this to control the order
 classes: [wide, portfolio-page]
 category: Project

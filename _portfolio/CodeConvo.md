@@ -2,11 +2,13 @@
 title: "CodeConvo"
 excerpt: "Build a configurable chatbot with memory & topic analysis"
 date: 2024-01-15 # Edited this to control order of appearance on Portfolio collections
+breadcrumbs: false
 classes: [wide, portfolio-page]
 category: Project
 tags: [NLP, GenAI, App Design, Streamlit, AWS, EC2]
 header:
   # overlay_image: /assets/images/bullcrick-photo-01.jpg
+  # overlay_image: assets/images/portfolio/codeconvo_screenshot_th3.png
   overlay_color: "#333"
   # opacity: 0.7
   teaser: assets/images/portfolio/codeconvo_screenshot_th3.png

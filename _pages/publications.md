@@ -6,6 +6,7 @@ header:
   opacity: "0.4"
   overlay_image: "/assets/images/flowers_02.jpg"
 author_profile: false
+# classes: wide
 sidebar:
   - image: /assets/images/model_img_th.jpg
     image_alt: "Street scene with example of eye fixations"
