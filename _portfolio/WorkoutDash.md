@@ -7,7 +7,20 @@ category: Project
 tags: [Data Science, Data Visualization, SQL, Streamlit, AWS, RDS]
 header:
   image: assets/images/
-  teaser: assets/images/powerlines_pic_th.jpg
+  overlay_color: "#6b7fa1"
+  teaser: assets/images/portfolio/barbDash_Viz_teaser.jpg
+  # actions:
+  #   - label: Visit App
+  #     url: https://codeconvo.barbhs.com
+sidebar:
+  - title: "Audience"
+    image: assets/images/portfolio/barbDash_Viz_side.jpg
+    text: "Me :)"
+  # - title: "Goals"
+  #   text: "Practice SQL queries on my own data | Derive data insights to motivate more exercise"
+  # - title: "Tech Stack"
+  #   text: "FRONT-END LAYER: Streamlit, Custom HTML/CSS | APPLICATION LAYER: Python and Boto3 | INFRASTRUCTURE LAYER: AWS EC2"
+
 ---
 
 - **Description:** A full-stack data analytics platform that pulls workout data from my MapMyRun profile into an actionable workout dashboard application. This web application combines data ingestion and cleaning, data modeling and access, and machine learning to help me visualize and understand my training patterns as viewed on my configurable dashboard. 

@@ -11,27 +11,24 @@ header:
   # overlay_color: "#0090cb"
 
 feature_row:
-  - url: "/projects/"
-    image_path: /assets/images/sinawa_th.jpg
-    alt: "Outdoor landscape scene at Zion, Sinawa Temple"
-    title: "Projects"
-    excerpt: "Find out more about my ongoing and past projects here."
-    btn_class: "btn--primary"
-    btn_label: "See more"
   - url: "/research/"
-    image_path: /assets/images/eveningmoon_th.jpg
-    alt: "Picture of the moon in the city at dusk"
-    title: "Publications"
-    excerpt: "Links to my research articles, posters, and presentations."
+    image_path: /assets/images/model_img_th.jpg
+    title: "Research"
+    excerpt: "How do people search in familiar scenes? Insights into cognitive processing by studing spatial patterns in eye movements and relationship to memory."
     btn_class: "btn--primary"
-    btn_label: "See more"
+    btn_label: "Visit"
+  - url: "/portfolio/"
+    image_path: /assets/images/portfolio_thumbnail_desertMJ.jpg
+    title: "Portfolio"
+    excerpt: "Explore my collection of projects showcasing expertise in Data Science and AI, including web apps, data visualizations, and ML projects."
+    btn_class: "btn--primary"
+    btn_label: "Visit"
   - url: "/about/"
-    image_path: /assets/images/bees_pollen_th.jpg
-    alt: "Close-up of photo of bees, pollen, and honey cells"
-    title: "Resources"
-    excerpt: "An ever expanding tablular list of resources and downloads."
+    image_path: /assets/images/resume_thumbnail_woman2.jpg
+    title: "Blog"
+    excerpt: "Thoughts and insights on data science, human behavior, and the technology that connects them - Coming Soon (examples below)."
     btn_class: "btn--primary"
-    btn_label: "See more"      
+    btn_label: "Visit"
 ---
 
 {% include feature_row %}

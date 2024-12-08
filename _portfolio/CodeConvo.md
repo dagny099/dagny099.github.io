@@ -19,9 +19,9 @@ sidebar:
   - title: "Audience"
     image: assets/images/portfolio/codeconvo_screenshot.png
     image_alt: "App Screenshot"
-    text: "Designer, Front-End Developer"
+    text: "The curious and uninitiated ;)"
   - title: "Tech Stack"
-    text: "Reuters try PR stupid commenters should isn't a business model"
+    text: "FRONT-END LAYER: Streamlit, Custom HTML/CSS | APPLICATION LAYER: Python based conversation management | INTEGRATION LAYER: Llama-Index, OpenAI API, Claude API | INFRASTRUCTURE LAYER: AWS EC2, Custom domain"
 ---
 
 - **Description:** A Streamlit-based application that enables interactive conversations with Large Language Models (supporting multiple LLM providers) while providing tools for conversation management and analysis. The interface allows users to configure their LLM interactions, save chat histories, and generate topic summaries of their conversations. Serve the application from a remote server and make it accessible from a custom domain that I own.  

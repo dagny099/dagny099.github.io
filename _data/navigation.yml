@@ -7,7 +7,7 @@ main:
   - title: "Portfolio"
     url: /portfolio/
   - title: "Resume"
-    url: /resume/
+    url: /projects/  #TODO: change to /resume/
 
 # sidebar navigation list sample
 sidebar-pub:
