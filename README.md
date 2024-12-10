@@ -1,4 +1,4 @@
-# Welcome to My Personal Website Code
+# README
 
 Hola! 👋 Thanks for visting the GitHub repository for my personal website. This is where I host the code for my personal website, which serves as my portfolio and blog.
 
