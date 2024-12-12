@@ -40,4 +40,4 @@ sidebar:
   - **Design**: Content Layout, Report Generation, User Experience
   - **Software Architecture**: Modular Design, Error Handling, Configuration Management, AWS EC2
 
-- **[GitHub Repository](https://github.com/dagny099/agentic_rag_kg/)** | **[Read More](https://codeconvo.barbhs.com/)**
+- **[GitHub Repository](https://github.com/dagny099/agentic_rag_kg/)** | **[Explore App](https://codeconvo.barbhs.com/)**

@@ -38,4 +38,4 @@ sidebar:
   - **Machine Learning**: Anomaly detection for data cleaning, unsupervised learning and clustering algorithms for workout classification
   - **Development Tools**: Poetry for dependency management, Git
 
-- **[GitHub Repository](https://github.com/dagny099/build_workout_dashboard/)** | **[Read More](https://workouts.barbhs.com/)**
+- **[GitHub Repository](https://github.com/dagny099/build_workout_dashboard/)** | **[Explore App](https://workouts.barbhs.com/)**

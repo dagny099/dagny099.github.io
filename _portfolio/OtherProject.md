@@ -1,5 +1,5 @@
 ---
-title: "Other Project"
+title: "Temperature Sensor Project"
 excerpt: "Excerpt from Test project with category = Research"
 order: 5 # Lower numbers appear first
 date: 2024-03-15 # Change this to control the order
