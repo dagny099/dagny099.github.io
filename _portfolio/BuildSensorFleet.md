@@ -1,7 +1,7 @@
 ---
-title: "Create IoT Workflow for Real-Time Data Visualilzation"
+title: "An IoT Workflow for Real-Time Data Visualilzation"
 excerpt: ""
-date: 2024-03-15 # Change this to control the order
+date: 2024-05-15 # Change this to control the order
 classes: [wide, portfolio-page]
 category: Project
 tags: [arduino, temp sensor, mqtt]

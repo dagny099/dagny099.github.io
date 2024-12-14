@@ -1,6 +1,6 @@
 ---
 title: "CodeConvo"
-excerpt: "Build a configurable chatbot with memory & topic analysis"
+excerpt: "Explore my configurable chatbot with memory & topic analysis"
 date: 2024-01-15 # Edited this to control order of appearance on Portfolio collections
 breadcrumbs: false
 classes: [wide, portfolio-page]
