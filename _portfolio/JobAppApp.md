@@ -28,4 +28,4 @@ sidebar:
 
 - **Skills:**  -->
 
-- **[GitHub Repository](https://github.com/dagny099/dagny099.github.io)** | **[Explore App](https://barbsassistant.streamlit.app/)**
+- **[GitHub Repository](https://github.com/dagny099/assistant_author)** | **[Explore App](https://barbsassistant.streamlit.app/)**
