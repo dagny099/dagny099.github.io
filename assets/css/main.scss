@@ -18,6 +18,11 @@
     }
   }
 
+/* Adjust space below*/
+.page__hero--overlay {
+  padding: 2em 0 0.5em 0;  // Adjust these values to control header height
+}
+  
 
 /* Customize grid layout for portfolio pages */
 /* Grid Container */
@@ -95,7 +100,13 @@
 .portfolio-page.wide .wrapper   h1 {
     margin-bottom: 10px;  /* Adjust margin spacing */
 }
-    
+
+.portfolio-page   h2 {
+  margin-top: 0px; /* Adjust margin spacing */
+  padding-top: 0px;
+}
+
+
 // -----------------------------------
 // Custom styles for responsive images at different sizes
 .img-small {
@@ -122,3 +133,8 @@ height: auto;
     height: auto;
   }
   
+// Left sidebar spacing (if you're using it)
+.sidebar img {
+  margin-top: 10px; // Adjust top margin
+  margin-right: 25px; // Adjust right padding
+}

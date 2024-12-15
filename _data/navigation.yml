@@ -9,6 +9,20 @@ main:
   - title: "Resume"
     url: /projects/  #TODO: change to /resume/
 
+# sidebar Toc for Project: Build your own Website
+# sidebar-pub:
+#   - title: "ToC"
+#     children:
+#       - title: ""
+#         url: /
+#       - title: ""
+#         url: 
+#       - title: ""
+#         url: 
+#       - title: ""
+#         url: 
+
+
 # sidebar navigation list sample
 sidebar-pub:
   - title: "Table of Contents"
