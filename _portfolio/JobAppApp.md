@@ -19,7 +19,7 @@ sidebar:
   - title: ""
     image: assets/images/portfolio/jobappassistant_th.jpg
     image_alt: "App Screenshot"
-    text: "*README.md: Instructions for my own existence*"
+    text: "*Resistance is futile*"
 ---
 
 ## Overview
