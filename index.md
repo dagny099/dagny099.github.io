@@ -1,6 +1,6 @@
 ---
-layout: home
-title: "Barbara Hidalgo-Sotelo"
+layout: archive
+title: "     "
 sitemap:
   priority: 1.0
   changefreq: weekly
@@ -32,3 +32,22 @@ feature_row:
 ---
 
 {% include feature_row %}
+
+<h3 class="archive__subtitle" style="margin: 0;">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+<!-- <p>Number of posts assigned: {{ posts | size }}</p> -->
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in posts limit: 3 %}
+    {% include archive-single.html type=entries_layout %}
+  {% endfor %}
+</div>
+
+{% include paginator.html %}
