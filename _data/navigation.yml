@@ -7,7 +7,9 @@ main:
   - title: "Portfolio"
     url: /portfolio/
   - title: "Resume"
-    url: /projects/  #TODO: change to /resume/
+    url: /assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf   #TODO: change to /resume/
+  #- title: "Blog"
+  #  url: /blog/     
 
 # sidebar navigation list sample
 sidebar-pub:
