@@ -14,7 +14,7 @@ feature_row:
   - url: "/research/"
     image_path: /assets/images/model_img_th.jpg
     title: "Research"
-    excerpt: "How do people search in familiar scenes? Insights into cognitive processing by studing spatial patterns in eye movements and relationship to memory."
+    excerpt: "How do we search in familiar scenes? Insights into cognitive processing by studing spatial patterns in eye movements and relationship to memory."
     btn_class: "btn--primary"
     btn_label: "Visit"
   - url: "/portfolio/"
