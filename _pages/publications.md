@@ -69,7 +69,3 @@ What happens during search for rare targets? Eye movements in low prevalence vis
 
 Rapid Goal-Directed Exploration of a Scene: The Interaction of Contextual Guidance and Salience. Kenner N., Hidalgo-Sotelo B., & Oliva A .(May 2005).  *Vision Sciences Society Annual Meeting*, Sarasota FL.
 {: style="font-size: 0.85em;"}
-
-## Demos
-
-Work in progress. *Target Date: 10-01-2020*

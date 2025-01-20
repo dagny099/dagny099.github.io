@@ -13,6 +13,9 @@ header:
   image: assets/images/
   overlay_color: "#6b7fa1"
   teaser: assets/images/portfolio/barbDash_Viz_teaser.jpg
+  actions:
+    - label: Visit App
+      url: http://workouts.barbhs.com
 sidebar:
   - title: ""
     image: assets/images/portfolio/barbDash_Viz_side.jpg
