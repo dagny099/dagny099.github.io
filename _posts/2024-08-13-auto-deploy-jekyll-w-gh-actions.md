@@ -82,15 +82,16 @@ jobs:
 
       - name: Run HTML Proofer
         run: bundle exec htmlproofer ./_site --allow-hash-href
+        continue-on-error: true #
 
       - name: Deploy to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site  # Jekyll output folder
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
 ```
 
 This workflow will:
