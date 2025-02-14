@@ -1,5 +1,17 @@
 ---
+title: "Gallery"
+# layout: single
+# breadcrumbs: false
+categories:
+  - gallery-images
+tags:
+  - midjourney
+permalink: /gallery/
 gallery:
+  - url: /assets/images/midjourney/wall-worthy/sq-sketch-waters.png
+    image_path: /assets/images/midjourney/wall-worthy/sq-sketch-waters.png
+    alt: "water in motion"
+    title: ""
   - url: /assets/images/midjourney/wall-worthy/sq-celestial-reflections.png
     image_path: /assets/images/midjourney/wall-worthy/sq-celestial-reflections.png
     alt: "celestial reflections"
@@ -8,10 +20,6 @@ gallery:
     image_path: /assets/images/midjourney/wall-worthy/sq-doors-v01.png
     alt: "tumbling into doors of truth, slowly"
     # title: ""
-  - url: /assets/images/midjourney/wall-worthy/sq-sketch-waters.png
-    image_path: /assets/images/midjourney/wall-worthy/sq-sketch-waters.png
-    alt: "water in motion"
-    title: ""
   - url: /assets/images/midjourney/wall-worthy/sq_girl_reading_intently.png
     image_path: /assets/images/midjourney/wall-worthy/sq_girl_reading_intently.png
     alt: "girl reading in cozy nook"
@@ -37,12 +45,11 @@ gallery3:
     alt: "inception"
 ---
 
-{% include gallery caption="Gallery 1 has four square images" %}
-
-
 {% include gallery id="gallery2" class="full" caption="Gallery with 2 image, class=full" %}
 
+{% include gallery id="gallery3" caption="Gallery 3 has 3 images with wide aspect ratio" %}
 
-{% include gallery id="galler3" layout="half" caption="Gallery 3 has 3 images with wide aspect ratio" %}
+{% include gallery layout="half" caption="Gallery 1 has four square images" %}
+
 
 
