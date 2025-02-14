@@ -63,8 +63,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write #Req for authentication
-      contents: read #Needed to check out repo content
+      id-token: write # Req for authentication
+      pages: write    # Req to publish to GH pages
+      contents: read  # Needed to check out repo content
     
     steps:
       - name: Checkout repository
