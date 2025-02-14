@@ -80,9 +80,9 @@ jobs:
       - name: Build the site
         run: bundle exec jekyll build
 
-      - name: Run HTML Proofer
-        run: bundle exec htmlproofer ./_site --allow-hash-href
-        continue-on-error: true #
+      #- name: Run HTML Proofer
+      #  run: bundle exec htmlproofer ./_site --allow-hash-href
+       # continue-on-error: true #
 
       - name: Deploy to GitHub Pages
         uses: actions/upload-pages-artifact@v3
