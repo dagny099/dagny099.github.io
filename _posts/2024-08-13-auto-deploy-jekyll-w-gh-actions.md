@@ -169,3 +169,4 @@ Now that you’ve automated this, you can explore even more:
 💡 Extend your CI/CD knowledge to **other web projects!**  
 
 
+[Home](/)
