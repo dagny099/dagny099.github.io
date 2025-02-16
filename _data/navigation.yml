@@ -8,8 +8,8 @@ main:
     url: /portfolio/
   - title: "Resume"
     url: /assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf   #TODO: change to /resume/
-  #- title: "Blog"
-  #  url: /blog/     
+  - title: "Blog"
+    url: /blog/     
   # - title: "Contact"
   #  url: /contact/
 
