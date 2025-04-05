@@ -1,94 +1,97 @@
 ---
-title: "CoverCraft: a Job App Assistant Chatbot"
-excerpt: "An LLM assistant to iteratively customize your resume and cover letters"
-date: 2024-04-15 # Change this to control the order
+title: "CareerCraft: Job Application Assistant"
+excerpt: "An intelligent assistant for creating customized resumes and cover letters using advanced NLP."
+date: 2024-04-15
 classes: [portfolio-page]
 category: Project
-tags: [NLP, GenAI, App Design, Streamlit]
+tags: [NLP, GenAI, App Design, Streamlit, Heroku]
 toc: true
 toc_sticky: true  
-toc_label: "ToC"  
-toc_icon: "sitemap"   
+toc_label: "Contents"  
+toc_icon: "sitemap"
 header:
   overlay_color: "#122d50"
   teaser: assets/images/portfolio_thumbnail_desertMJ.jpg
   actions:
-    - label: Visit App
-      url: https://barbsassistant.streamlit.app
+    - label: Visit App on Heroku
+      url: https://careercraft.barbhs.com
+    - label: GitHub Repository
+      url: https://github.com/dagny099/assistant_author
 sidebar:
-  - title: ""
+  - title: "CareerCraft App"
     image: assets/images/portfolio/jobappassistant_th.jpg
-    image_alt: "App Screenshot"
-    text: "*Resistance is futile*"
+    image_alt: "CareerCraft App Screenshot"
+    text: "*Elevate your career opportunities with AI.*"
 ---
 
-## Overview
-The app delivers an engaging workflow, enabling users to import existing resumes, edit them interactively, and generate tailored cover letters. It also identifies ATS-relevant keywords to improve application success rates.
+## 🚀 Project Overview
+CareerCraft empowers job seekers to effortlessly create highly customized resumes and cover letters using sophisticated natural language processing (NLP) techniques powered by OpenAI's GPT models. Initially deployed on Streamlit Cloud, the application now primarily resides on Heroku, ensuring enhanced stability, improved responsiveness, and persistent availability.
 
-### Audience
-- **Data scientists** looking to explore how to use LLMs to tailor documents in a directed way.
-- **Experienced professionals** refining their application for a career shift.
-- **Job seekers** aiming to improve Applicant Tracking System (ATS) compatibility.
-
-## Description
-This project is a publicly accessible **Streamlit web application** designed to empower job seekers by streamlining the creation of tailored resumes and cover letters. Using helpful LLMslike OpenAI's GPT-3.5 and GPT-4, the app provides an intuitive and interactive experience for customizing job application materials. By automating key elements of the process—such as keyword optimization and draft generation—the app supports users in presenting their best professional selves.
+### 🎯 Who Should Use CareerCraft?
+- **Data Scientists** exploring practical NLP and GenAI integration
+- **Professionals** aiming for career transitions or advancements
+- **Job Applicants** seeking ATS optimization and personalized materials
 
 
-### Project Highlights
+## 🛠️ Key Features
 
-* **Seamless Import Options**:
-   - Supports resume input via file upload (PDF, text) or manual text entry
-   
-* **Interactive Customization**:
-   - Sidebar inputs allow users to customize resumes and cover letters with job-specific details
-   - Real-time LLM-powered edits for personalized tone and content
+<div style="float: right; margin: 10px; width: 40%;">
+  <img src="assets/images/portfolio/DataFlow-Diagram-CareerCraft_v1.png"" 
+       alt="CoverCraft App Screenshot" style="width:100%; height:auto;">
+  <em style="display:block; text-align:center; font-size:0.9em;">CareerCraft Workflow</em>
+</div>
 
-* **ATS Keyword Optimization**:
-   - Identifies and highlights gaps in keyword relevance based on the job description
+### 📁 Multiple Import Formats
+- Easily upload resumes via PDF, text files, or manual entry
 
-* **User-Friendly Outputs**:
-   - Enables downloading finalized cover letters and storing session states for later edits
+### 🎨 Interactive Customization
+- User-friendly sidebar to edit resumes and cover letters dynamically
+- AI-driven content generation and editing based on user specifications
 
-* **Scalable Infrastructure**:
-   - Built with Streamlit, ensuring lightweight and adaptable deployment options
+### 🔍 ATS Optimization
+- Automated keyword matching to maximize ATS compatibility and success
 
+### 💾 Convenient Outputs
+- Immediate download options for cover letters and session management for ongoing edits
+
+### ☁️ Robust Hosting Infrastructure
+- Primary deployment on **Heroku**, with fallback on **Streamlit Cloud** for redundancy
 
 ## Core Skills
 
-### Tools & Technologies
-- **Development Framework**: Streamlit for web app creation
-- **NLP & AI**: OpenAI's GPT-3.5/GPT-4 for natural language processing
-- **Backend Utilities**: PyPDF2, JSON parsing, and text processing
-- **Version Control**: Git
-- **Cloud Hosting**: Streamlit Community Cloud
+<div style="float: right; margin: 10px; width: 40%;">
+  <img src="assets/images/portfolio/CareerCraft_techstack_v1.png"
+       alt="CoverCraft App Screenshot" style="width:100%; height:auto;">
+  <em style="display:block; text-align:center; font-size:0.9em;">CareerCraft Tech Stack</em>
+</div>
 
-### Technical Skillset
-- **Text Parsing**:
-   - Extracts applicant details like name, contact information, and professional summary with advanced regular expressions and contextual inference
-- **Interactive LLM Integration**:
-   - Powers real-time cover letter and resume edits based on user prompts
-- **Data Management**:
-   - Implements session persistence using Python’s pickle library for seamless state saving
-- **Keyword Analysis**:
-   - Employs statistical and NLP-based techniques for ATS keyword alignment
+
+### 🖥️ Tools & Technologies
+- **Frontend**: Streamlit Web Framework
+- **AI/NLP**: GPT-3.5 & GPT-4 from OpenAI
+- **Backend Utilities**: PyPDF2, JSON, pickle for session state management
+- **Deployment**: Heroku (Primary), Streamlit Cloud (Backup)
+- **Version Control**: GitHub
+
+### 📈 Technical Skillset
+- **Text Parsing & Extraction**: Accurately extracts key applicant information (name, skills, contact details).
+- **Interactive LLM Integration**: Provides real-time feedback and editing suggestions powered by GPT models.
+- **Persistent Session Management**: Seamless continuation of previous sessions through serialization.
 
 
 ## Project Insights
 
-### Implementation Challenges
-* **Accurate Information Extraction**:
-   - Balancing precision and recall when parsing user-provided resumes to avoid omitting critical details
-* **ATS Simulation**:
-   - Developing an accessible yet representative ATS keyword scanning system without reliance on proprietary algorithms
-* **LLM Responsiveness**:
-   - Ensuring the app responds accurately to diverse user prompts, maintaining a balance between automation and interactivity
+### 🌟 Challenges & Solutions
+- **Information Accuracy**: Implemented NLP best practices to balance accuracy with flexibility.
+- **ATS Keyword Simulation**: Developed a realistic keyword-matching approach without proprietary algorithms.
+- **Responsive AI Interaction**: Optimized LLM interactions for prompt responsiveness and user satisfaction.
 
-### Future Development
-- **Enhanced Keyword Analysis**: Integrate pre-trained NLP models (e.g., SpaCy, BERT) to refine keyword extraction and relevance scoring
-- **Broader File Format Support**: Add functionality for importing/exporting Microsoft Word documents
-- **Expanded LLM Features**: Provide detailed user guidance for fine-tuning the tone, structure, and content of resumes and cover letters
+## 🚧 Future Directions
+- **Advanced Keyword Analysis**: Integrate NLP libraries (SpaCy, BERT) to refine ATS matching.
+- **Broader Document Support**: Add MS Word document compatibility.
+- **Enhanced AI Features**: Offer detailed guidance for nuanced editing of professional documents.
 
 ---
 
-**Learn More:**   
-**[GitHub Repository](https://github.com/dagny099/assistant_author)** | **[Explore App](https://barbsassistant.streamlit.app/)**
+**Explore Further:**  
+[🔗 Visit CareerCraft on Heroku](https://careercraft.barbhs.com) | [📘 GitHub Repository](https://github.com/dagny099/assistant_author)
