@@ -1,0 +1,165 @@
+{
+  "nodes": [
+    {
+      "id": "app",
+      "label": "app",
+      "type": "module",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/app.py"
+    },
+    {
+      "id": "app.main",
+      "label": "main",
+      "type": "function",
+      "module": "app",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/app.py"
+    },
+    {
+      "id": "utils.dependency_mapper",
+      "label": "utils.dependency_mapper",
+      "type": "module",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.extract_dependencies",
+      "label": "extract_dependencies",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.discover_modules",
+      "label": "discover_modules",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.resolve_file_dependencies",
+      "label": "resolve_file_dependencies",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.build_dependency_graph",
+      "label": "build_dependency_graph",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.export_graph_to_json",
+      "label": "export_graph_to_json",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.extract_defined_functions",
+      "label": "extract_defined_functions",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.resolve_function_usages",
+      "label": "resolve_function_usages",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.build_function_dependency_graph",
+      "label": "build_function_dependency_graph",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.dfs",
+      "label": "dfs",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    },
+    {
+      "id": "utils.dependency_mapper.dfs",
+      "label": "dfs",
+      "type": "function",
+      "module": "utils.dependency_mapper",
+      "path": "/Users/bhs/PROJECTS/dependency-mapping-tool/utils/dependency_mapper.py"
+    }
+  ],
+  "edges": [
+    {
+      "source": "app.main",
+      "target": "app",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.extract_dependencies",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.discover_modules",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.resolve_file_dependencies",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.build_dependency_graph",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.export_graph_to_json",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.extract_defined_functions",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.resolve_function_usages",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.build_function_dependency_graph",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.dfs",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.dfs",
+      "target": "utils.dependency_mapper",
+      "relationship": "defines"
+    },
+    {
+      "source": "utils.dependency_mapper.extract_defined_functions",
+      "target": "app",
+      "relationship": "calls"
+    },
+    {
+      "source": "utils.dependency_mapper.build_function_dependency_graph",
+      "target": "app",
+      "relationship": "calls"
+    },
+    {
+      "source": "utils.dependency_mapper.discover_modules",
+      "target": "app",
+      "relationship": "calls"
+    }
+  ]
+}
