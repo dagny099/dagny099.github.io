@@ -1,0 +1,83 @@
+<style>
+    .masthead {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        padding: 0.75rem 1rem;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+    }
+  
+    .masthead__inner-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    @media screen and (min-width: 768px) {
+      .masthead__inner-wrap {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  
+    .masthead__logo {
+      flex: 0 0 auto;
+      margin-bottom: 0.4rem;
+      border-radius: 12px;
+    }
+  
+    @media screen and (min-width: 768px) {
+      .masthead__logo {
+        margin-bottom: 0;
+      }
+    }
+  
+    .custom-nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-weight: bold;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+    }
+  
+    .custom-nav a {
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+  </style>
+  
+  <div class="masthead" style="position: sticky; top: 0; z-index: 999; background-color: #ffffff; border-bottom: 1px solid #e5e5e5;">
+    <div class="masthead__inner-wrap">
+      <!-- Logo Left -->
+      <div class="masthead__logo">
+        {% if site.logo %}
+          <a href="{{ '/' | relative_url }}">
+            <img src="{{ site.logo | relative_url }}" alt="Logo" style="height: 75px;">
+          </a>
+        {% endif %}
+      </div>
+  
+      <!-- Center Nav Links from _data/navigation.yml -->
+      <nav class="custom-nav">
+        {% for link in site.data.navigation.main %}
+          <a href="{{ link.url | relative_url }}"
+             title="{{ link.description | default: link.title }}"
+             style="color: {{ link.color | default: '#3d6c67' }};"
+             onmouseover="this.style.color='#c0572a'"
+             onmouseout="this.style.color='{{ link.color | default: '#3d6c67' }}'">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+  
+      <!-- Spacer Right -->
+      <div style="flex: 0 0 36px;"></div>
+    </div>
+  </div>
+  

@@ -1,17 +1,39 @@
-# main links
 main:
-  - title: "About"
-    url: /about/
-  - title: "Research"
-    url: /research/
-  - title: "Portfolio"
-    url: /portfolio/
-  - title: "Resume"
-    url: /assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf   #TODO: change to /resume/
-  - title: "Blog"
-    url: /blog/     
-  # - title: "Contact"
-  #  url: /contact/
+  - title: "Data Stories"
+    url: /data-stories/
+    color: "#c0572a"
+    description: "Projects that extract insight from complex or messy data"
+
+  - title: "Explorations"
+    url: /explorations/
+    color: "#3d6c67"
+    description: "Playful or early-stage investigations and ideas"
+
+  - title: "Thinking in Public"
+    url: /thinking/
+    color: "#6f5b91"
+    description: "Essays, reflections, and developing ideas on cognition, data, and AI"
+
+  - title: "My Journey"
+    url: /my-journey/
+    color: "#5f5449"
+    description: "A personal timeline of learning, projects, and career pivots"
+
+
+# Prior to 5/23/25
+# main:
+#   - title: "About"
+#     url: /about/
+#   - title: "Research"
+#     url: /research/
+#   - title: "Portfolio"
+#     url: /portfolio/
+#   - title: "Resume"
+#     url: /assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf   #TODO: change to /resume/
+#   - title: "Blog"
+#     url: /blog/     
+#   # - title: "Contact"
+#   #  url: /contact/
 
 # sidebar navigation list sample
 sidebar-pub:

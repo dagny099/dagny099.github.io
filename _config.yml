@@ -16,16 +16,16 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale                   : "en-US"
-title                    : &name "Barbara Hidalgo-Sotelo" # site title 
+title                    : &name  #  # site title 
 title_separator          : " " #" - "
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : *name
+name                     : "Barbara Hidalgo-Sotelo" # *name
 description              : &description "A digital footprint under my control."
 url                      : "https://barbhs.com"   # Move to barbhs.com
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "dagny099/dagny099.github.io"  # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/bee_barb.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/swirl_barb_logo.png"  # "/assets/images/bee_barb.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : *name # overrides the website title displayed in the masthead, use " " for no title
 
 breadcrumbs            : true # true, false (default)
@@ -132,18 +132,21 @@ footer:
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
       # url:
     - label: "Bitbucket"
       icon: "fab fa-fw fa-bitbucket"
       # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/dagny099"
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://linkedin.com/in/barbarahidalgo"
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:barbs@balex.com"
 
 
 # Reading Files

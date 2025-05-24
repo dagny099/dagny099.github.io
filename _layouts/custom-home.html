@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Barbara Hidalgo-Sotelo</title>
+  {% include head.html %}
+</head>
+<body>
+
+<main>
+
+<!-- HERO SECTION -->
+<header style="text-align: center; padding: 5rem 2rem 2rem; background-color: #faf7f2;">
+  <h1 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #1c1c1c;">Barbara Hidalgo-Sotelo</h1>
+  <p style="font-size: 1.2rem; max-width: 700px; margin: 1.5rem auto; color: #333;">
+    Exploring messy data, intelligent systems, and what it means to make meaning.
+  </p>
+  <img src="/assets/images/icon_tree_of_life_trans.png" alt="Abstract data visualization" style="margin-top: 2rem; max-width: 450px; width: 100%; border-radius: 12px;">
+</header>
+
+<!-- CTA SECTION -->
+<section style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; padding: 3rem 2rem; background-color: #fff;">
+  <a href="/data-stories/" style="background-color: #c0572a; color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">View Data Stories</a>
+  <a href="/experiments/" style="background-color: #3d6c67; color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">See Experiments</a>
+  <a href="/my-journey/" style="background-color: #b59f85; color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">Read My Journey</a>
+  <a href="/contact/" style="background-color: #6f5b91; color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">Get in Touch</a>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" style="text-align: center; padding: 2rem 1rem; background-color: #f0eee9; font-size: 0.9rem; color: #666;">
+    <!-- Social + Feed -->
+    <div class="footer-social">
+      <ul class="social-icons" style="list-style: none; padding: 0; margin: 0 auto; display: inline-flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+        {% if site.footer.links %}
+          {% for link in site.footer.links %}
+            {% if link.label and link.url %}
+              <li>
+                <a href="{{ link.url }}" target="_blank" rel="nofollow noopener noreferrer" title="{{ link.label }}">
+                  <i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+       <!-- TODO GET FEED TESTED:
+        <li><a href="{{ site.atom_feed.path | default: '/feed.xml' }}" title="Subscribe to updates"> <i class="fas fa-rss-square"></i> Feed</a></li>
+        -->
+      </ul>
+    </div>
+  
+    <!-- Copyright -->
+    <div style="margin-top: 1rem;">
+      &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. All rights reserved.
+    </div>
+  </footer>
+  
+</body>
+
+</html>
