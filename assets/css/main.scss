@@ -193,3 +193,75 @@ height: auto;
 .section-wrapper.thinking {
   border-left: 4px solid #6f5b91;
 }
+
+/*
+.breadcrumb {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-size: 0.9rem;
+  margin: 1.5rem auto;
+  padding: 0 1.25rem;
+  max-width: 960px;
+  color: #6f5b91;
+}
+*/
+
+.breadcrumb.fade-in {
+  opacity: 1;
+  transform: none;
+}
+
+.breadcrumb {
+  will-change: opacity, transform;
+}
+
+.breadcrumb a {
+  color: #6f5b91;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb .current {
+  color: #1c1c1c;
+  font-weight: 500;
+}
+
+
+
+/* Inherit color by section */
+
+.breadcrumb {
+  opacity: 0;
+  transform: translateY(8px);
+  font-size: 0.9rem;
+  margin: 1.5rem auto;
+  padding: 0 1.25rem;
+  max-width: 960px;
+  /* transition: color 0.3s ease; */
+  transition: color 0.6s ease, transform 0.6s ease;
+}
+
+.breadcrumb a,
+.breadcrumb .current {
+  text-decoration: none;
+}
+
+.breadcrumb.section-thinking a,
+.breadcrumb.section-thinking .current {
+  color: #6f5b91;
+}
+
+.breadcrumb.section-data-stories a,
+.breadcrumb.section-data-stories .current {
+  color: #c0572a;
+}
+
+.breadcrumb.section-explorations a,
+.breadcrumb.section-explorations .current {
+  color: #3d6c67;
+}
+

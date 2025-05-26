@@ -10,12 +10,6 @@ author_profile: false
 tags: [ai, rag, enterprise]
 ---
 
-<!-- BREADCRUMB NAV -->
-<nav style="font-size: 0.9rem; margin-bottom: 1.5rem;">
-  <a href="/" style="color: #6f5b91;">Home</a> /
-  <a href="/thinking/" style="color: #6f5b91;">Thinking in Public</a> /
-  <span style="color: #1c1c1c;">{{ page.title }}</span>
-</nav>
 
 <!-- MAIN CONTENT -->
 # {{ page.title }}

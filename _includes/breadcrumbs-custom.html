@@ -1,0 +1,13 @@
+<nav class="breadcrumb section-{{ page.section }}">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  {% if page.section == 'thinking' %}
+    / <a href="/thinking/">Thinking in Public</a>
+  {% elsif page.section == 'data-stories' %}
+    / <a href="/data-stories/">Data Stories</a>
+  {% elsif page.section == 'explorations' %}
+    / <a href="/explorations/">Explorations</a>
+  {% endif %}
+  {% if page.title %}
+    / <span class="current">{{ page.title }}</span>
+  {% endif %}
+</nav>

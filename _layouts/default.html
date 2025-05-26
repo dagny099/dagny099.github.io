@@ -43,6 +43,16 @@
         }
       });
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const breadcrumb = document.querySelector(".breadcrumb");
+        if (breadcrumb) {
+          requestAnimationFrame(() => {
+            breadcrumb.classList.add("fade-in");
+          });
+        }
+      });
+    </script>
 
 </body>
 
