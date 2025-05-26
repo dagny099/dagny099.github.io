@@ -1,0 +1,102 @@
+---
+layout: default
+title: "Data Stories"
+permalink: /data-stories/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Barbara Hidalgo-Sotelo</title>
+  {% include head.html %}
+</head>
+<body>
+
+<main>
+<!-- HEADER -->
+<header style="text-align: center; padding: 4rem 2rem 2rem; background-color: #faf7f2;">
+  <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #1c1c1c;">Data Stories</h1>
+  <p style="font-size: 1.1rem; color: #444; max-width: 720px; margin: 1rem auto;">
+    Where structured insights emerge from messy beginnings. Each story explores a data journey—from problem to pattern to possibility.
+  </p>
+</header>
+
+<!-- STORY CARDS GRID -->
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 3rem 2rem; background-color: #ffffff;">
+
+  <!-- STORY CARD 1 -->
+  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">Citation Link Prediction</h2>
+    <p>Graph neural networks to identify and predict emerging relationships in academic citation networks.</p>
+    <a href="/data-stories/citation-link-prediction/" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
+  </div>
+
+  <!-- STORY CARD 2 -->
+  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">Job Application Assistant</h2>
+    <p>Streamlit app with OpenAI to craft customized resumes and cover letters that pass ATS and ICIMS systems.</p>
+    <a href="/data-stories/job-application-assistant/" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
+  </div>
+
+  <!-- STORY CARD 3 -->
+  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">Hive Photo Metadata Tracker</h2>
+    <p>Combines Cloud Vision API + weather data to annotate and visualize beehive photo uploads over time.</p>
+    <a href="/data-stories/hive-photo-metadata-tracker/" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
+  </div>
+
+  <!-- STORY CARD 4 -->
+  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">Midjourney Tracker</h2>
+    <p>Organize and analyze image generations from Midjourney with metadata, tagging, and image download tools.</p>
+    <a href="/data-stories/midjourney-tracker/" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
+  </div>
+
+  <!-- STORY CARD 5 -->
+  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">Exercise Dashboard</h2>
+    <p>Fitness visualization dashboard integrating local and cloud-stored exercise metrics using Streamlit and AWS RDS.</p>
+    <a href="/data-stories/exercise-dashboard/" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
+  </div>
+
+  <!-- STORY CARD 6 -->
+  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">Notion Knowledge Toolkit</h2>
+    <p>Build and maintain a personal knowledge graph by syncing Notion schema with visual and exportable graph tools.</p>
+    <a href="/data-stories/notion-knowledge-toolkit/" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" style="text-align: center; padding: 2rem 1rem; background-color: #f0eee9; font-size: 0.9rem; color: #666;">
+  <!-- Social + Feed -->
+  <div class="footer-social">
+    <ul class="social-icons" style="list-style: none; padding: 0; margin: 0 auto; display: inline-flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+      {% if site.footer.links %}
+        {% for link in site.footer.links %}
+          {% if link.label and link.url %}
+            <li>
+              <a href="{{ link.url }}" target="_blank" rel="nofollow noopener noreferrer" title="{{ link.label }}">
+                <i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+     <!-- TODO GET FEED TESTED:
+      <li><a href="{{ site.atom_feed.path | default: '/feed.xml' }}" title="Subscribe to updates"> <i class="fas fa-rss-square"></i> Feed</a></li>
+      -->
+    </ul>
+  </div>
+
+  <!-- Copyright -->
+  <div style="margin-top: 1rem;">
+    &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. All rights reserved.
+  </div>
+</footer>
+
+</body>
+
+</html>

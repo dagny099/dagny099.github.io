@@ -138,3 +138,58 @@ height: auto;
   margin-top: 10px; // Adjust top margin
   margin-right: 25px; // Adjust right padding
 }
+
+.mermaid {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.toggle-block {
+  background: #f9f8f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.toggle-block summary {
+  font-weight: 600;
+  color: #3d6c67;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.toggle-content {
+  margin-top: 0.75rem;
+}
+
+.section-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+@media screen and (min-width: 768px) {
+  .section-wrapper {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Optional: section-specific tweaks */
+.section-wrapper.data-stories {
+  border-left: 4px solid #c0572a;
+}
+
+.section-wrapper.explorations {
+  border-left: 4px solid #3d6c67;
+}
+
+.section-wrapper.thinking {
+  border-left: 4px solid #6f5b91;
+}

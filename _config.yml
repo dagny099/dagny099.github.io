@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : &name  #  # site title 
 title_separator          : " " #" - "
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Barbara Hidalgo-Sotelo" # *name
+name                     : *name
 description              : &description "A digital footprint under my control."
 url                      : "https://barbhs.com"   # Move to barbhs.com
 baseurl                  : # the subpath of your site, e.g. "/blog"

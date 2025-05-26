@@ -45,11 +45,23 @@
       font-size: 1rem;
       padding: 0.5rem 0;
     }
-  
+
     .custom-nav a {
       text-decoration: none;
       transition: color 0.3s ease;
     }
+
+   /* .custom-nav a.active-nav {
+      font-weight: 700;
+      text-decoration: underline;
+      color: #3d6c67; 
+    }
+    */
+
+    .custom-nav a:hover {
+      color: #c0572a;
+    } 
+
   </style>
   
   <div class="masthead" style="position: sticky; top: 0; z-index: 999; background-color: #ffffff; border-bottom: 1px solid #e5e5e5;">
@@ -66,16 +78,17 @@
       <!-- Center Nav Links from _data/navigation.yml -->
       <nav class="custom-nav">
         {% for link in site.data.navigation.main %}
+          {% assign is_active = page.url | split: '/' | slice: 1,1 | first %}
+          {% assign link_path = link.url | split: '/' | slice: 1,1 | first %}
           <a href="{{ link.url | relative_url }}"
              title="{{ link.description | default: link.title }}"
-             style="color: {{ link.color | default: '#3d6c67' }};"
-             onmouseover="this.style.color='#c0572a'"
-             onmouseout="this.style.color='{{ link.color | default: '#3d6c67' }}'">
+             class="{% if is_active == link_path %}active-nav{% endif %}"
+             style="color: {{ link.color | default: '#3d3d3d' }};">
             {{ link.title }}
           </a>
         {% endfor %}
       </nav>
-  
+        
       <!-- Spacer Right -->
       <div style="flex: 0 0 36px;"></div>
     </div>

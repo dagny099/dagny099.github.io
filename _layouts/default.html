@@ -1,5 +1,3 @@
----
----
 
 <!doctype html>
 <!--
@@ -11,7 +9,7 @@
 <html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
   <head>
     {% include head.html %}
-    {% include head/custom.html %}
+    {% include head/custom.html %}   
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
@@ -28,7 +26,25 @@
         {% include_cached search/search_form.html %}
       </div>
     {% endif %}
-  </body>
+
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+          primaryColor: '#faf7f2',
+          edgeLabelBackground: '#ffffff',
+          nodeBorder: '#c0572a',
+          primaryTextColor: '#3d3d3d',
+          lineColor: '#6f5b91',
+          nodeTextColor: '#3d3d3d',
+          fontFamily: 'Inter, sans-serif'
+        }
+      });
+    </script>
+
+</body>
 
   <!--
     <div id="footer" class="page__footer">

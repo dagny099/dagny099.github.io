@@ -1,0 +1,9 @@
+<details class="toggle-block" {% if include.open == true %}open{% endif %}>
+  <summary>{{ include.title }}</summary>
+  <div class="toggle-content">
+    {% capture content %}
+      {% include {{ include.content }} %}
+    {% endcapture %}
+    {{ content | markdownify }}
+  </div>
+</details>

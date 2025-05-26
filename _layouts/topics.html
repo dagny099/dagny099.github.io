@@ -1,0 +1,61 @@
+---
+layout: default
+title: Topics & Themes
+permalink: /topics/
+---
+
+<style>
+  .tag-group {
+    margin-bottom: 4rem;
+  }
+  .tag-group h2 {
+    font-size: 1.75rem;
+    font-family: 'Playfair Display', serif;
+    color: #3d3d3d;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1rem;
+  }
+  .tag-post {
+    margin: 0.5rem 0;
+  }
+  .tag-post a {
+    color: #6f5b91;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .tag-post a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<h1 style="text-align: center;">Topics & Themes</h1>
+<p style="text-align: center; max-width: 720px; margin: 0 auto 2rem; color: #555;">
+  Explore recurring themes and ideas across my work in cognition, data, and design.
+</p>
+
+{% assign all_pages = site.pages | where_exp: "p", "p.section == 'thinking' or p.section == 'data-stories' or p.section == 'explorations'" %}
+{% assign tag_map = {} %}
+
+{% for post in all_pages %}
+  {% for tag in post.tags %}
+    {% assign tag_slug = tag | slugify %}
+    {% if tag_map[tag_slug] == nil %}
+      {% assign tag_map = tag_map | merge: {{ tag_slug | jsonify }}: [post] %}
+    {% else %}
+      {% assign tag_map = tag_map | merge: tag_map | merge: {{ tag_slug | jsonify }}: tag_map[tag_slug] | push: post %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% for tag in tag_map %}
+  <div class="tag-group">
+    <h2>{{ tag[0] | replace: "-", " " | capitalize }}</h2>
+    {% assign posts = tag[1] %}
+    {% for post in posts %}
+      <div class="tag-post">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br>
+        <small>{{ post.description }}</small>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
