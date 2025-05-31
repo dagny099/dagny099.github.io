@@ -1,4 +1,25 @@
-<!-- start custom footer snippets -->
-
+<!-- FOOTER -->
+<footer class="site-footer" style="text-align: center; padding: 1rem 1rem 2em 1em; background-color: #f0eee9; font-size: 0.9rem; color: #666;">
+    <p style="font-weight: bolder;"><a href="/get-in-touch/" style="text-decoration: none;">Let's connect</a></p>
+    <!-- Social + Feed -->
+    <div class="footer-social">
+      <ul class="social-icons" style="list-style: none; padding: 0; margin: 0 auto; display: inline-flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+        {% if site.footer.links %}
+          {% for link in site.footer.links %}
+            {% if link.label and link.url %}
+              <li>
+                <a href="{{ link.url }}" target="_blank" rel="nofollow noopener noreferrer" title="{{ link.label }}">
+                  <i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+    </ul>
+</div>
   
-<!-- end custom footer snippets -->
+    <!-- Copyright -->
+    <div style="margin-top: 1rem;">
+      &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. All rights reserved.
+    </div>
+  </footer>

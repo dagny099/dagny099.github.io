@@ -1,3 +1,31 @@
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#faf7f2',
+      edgeLabelBackground: '#ffffff',
+      nodeBorder: '#c0572a',
+      primaryTextColor: '#3d3d3d',
+      lineColor: '#6f5b91',
+      nodeTextColor: '#3d3d3d',
+      fontFamily: 'Inter, sans-serif'
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const breadcrumb = document.querySelector(".breadcrumb");
+    if (breadcrumb) {
+      requestAnimationFrame(() => {
+        breadcrumb.classList.add("fade-in");
+      });
+    }
+  });
+</script>
+
+
 {% if site.footer_scripts %}
   {% for script in site.footer_scripts %}
     <script src="{{ script | relative_url }}"></script>

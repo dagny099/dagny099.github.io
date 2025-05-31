@@ -3,21 +3,29 @@ main:
     url: /data-stories/
     color: "#c0572a"
     description: "Projects that extract insight from complex or messy data"
+    subtitle: "Where structured insights emerge from messy beginnings. Each story explores a data journey—from problem to pattern to possibility."
+    background-color: "faf7f2"
 
   - title: "Explorations"
     url: /explorations/
     color: "#3d6c67"
+    subtitle: "A collection of playful prototypes, emerging ideas, and imperfect but intentional beginnings."
     description: "Playful or early-stage investigations and ideas"
+    background-color: "f4f9f8"
 
   - title: "Thinking in Public"
     url: /thinking/
     color: "#6f5b91"
     description: "Essays, reflections, and developing ideas on cognition, data, and AI"
+    subtitle: "Essays, reflections, and working notes that capture how I think about data, systems, cognition, and meaning."
+    background-color: "faf7f2"
 
   - title: "My Journey"
     url: /my-journey/
     color: "#5f5449"
     description: "A personal timeline of learning, projects, and career pivots"
+    subtitle: "A personal timeline of learning, projects, and career pivots"
+    background-color: "faf7f2"
 
 
 # Prior to 5/23/25

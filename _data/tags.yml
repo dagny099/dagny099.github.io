@@ -1,0 +1,15 @@
+streamlit:
+  color: "#6f5b91"
+  description: "App-building and UI tools for data scientists"
+
+ai:
+  color: "#c0572a"
+  description: "Cloud-based tools and pipelines"
+
+workflow:
+  color: "#3d6c67"
+  description: "Developer productivity, environments, and setup"
+
+enterprise:
+  color: "#b98a3e"
+  description: "Retrieval-Augmented Generation or LLM design patterns"

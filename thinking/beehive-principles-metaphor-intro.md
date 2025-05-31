@@ -4,9 +4,6 @@ description: "How a honeybee colony became my favorite metaphor for teaching ent
 permalink: /thinking/beehive-principles-metaphor-intro/
 layout: section
 section: thinking
-breadcrumbs: false
-read_time: true
-author_profile: false
 tags: [ai, rag, enterprise]
 ---
 

@@ -1,0 +1,15 @@
+{% assign section = site.data.navigation.main | where: "url", page.url | first %}
+
+{% if section %}
+  <header class="section-header" style="text-align: center; padding: 3rem 1rem 2rem; background-color: {{ section.background-color}};">
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #1c1c1c ;">
+      {{ section.title }}
+    </h1>
+
+    {% if section.subtitle %}
+      <p style="font-size: 1.1rem; max-width: 720px; margin: 1.25rem auto; color: #444;">
+        {{ section.subtitle }}
+      </p>
+    {% endif %}
+  </header>
+{% endif %}
