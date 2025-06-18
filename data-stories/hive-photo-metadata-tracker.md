@@ -363,7 +363,7 @@ Part 1 established the foundation—we can extract structure from chaos and teac
 
 Want to test computer vision on your own photos? I've built a streamlined demo app:
 
-🔗 **[Beehive Photo Analyzer](http://your-demo-url.com)** - Upload any photo and see what the AI detects
+🔗 **[Beehive Photo Analyzer](https://beestory.barbhs.com)** - Upload any photo and see what the AI detects
 
 ---
 
@@ -385,19 +385,19 @@ Whether you're drowning in family photos, business documents, or research images
 
 ## Resources & Code
 
-**🐙 GitHub Repository:** [Complete analysis pipeline and visualization code](https://github.com/dagny099/beehive-analysis)
+**🐙 GitHub Repository:** Complete analysis pipeline and visualization code is being re-written, [previous version here](https://github.com/dagny099/beehive-tracker)
 
-**📊 Interactive Demo:** [Try the photo analyzer yourself](http://hivetracker.barbhs.com)
+**📊 Interactive Demo:** [Try the photo analyzer yourself](http://beestory.barbhs.com)
 
-**📝 Technical Deep-Dive:** [Jupyter notebook with full reproducible analysis](https://github.com/dagny099/beehive-analysis/blob/main/analysis.ipynb)
+**📝 Technical Deep-Dive:** Jupyter notebook with full reproducible analysis - [Coming soon here](https://github.com/dagny099/beehive-tracker/blob/main/analysis.ipynb)
 
 <details markdown="1">
 <summary><strong>🚀 Quick Start for Your Own Photos</strong></summary>
 
 ```bash
 # Clone the analysis pipeline
-git clone https://github.com/dagny099/beehive-analysis
-cd beehive-analysis
+git clone https://github.com/dagny099/beehive-tracker
+cd beehive-tracker
 
 # Install dependencies  
 pip install -r requirements.txt
