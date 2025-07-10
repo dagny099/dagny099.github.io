@@ -8,6 +8,7 @@ tags: []
 ---
 
 # The Choco Effect: How a Dog Transformed My Running Data
+<img src="{{ '/assets/images/choco_puppy_with-stick.png' | relative_url }}" alt="Button hover demo" style="float:right; margin: 0em 0em 1em 1em; max-width:250px; height:auto;">
 
 *A decade of fitness tracking reveals an unexpected truth about consistency, companionship, and the stories hiding in our data*
 
@@ -15,21 +16,32 @@ tags: []
 
 ## The Perfect Tracker's Paradox
 
-I was the model quantified-self citizen. 2,593 workouts logged over 14 years. Every run tracked, every mile recorded, every pace calculated. MapMyRun dutifully collected it all while I... never actually looked at what it was telling me.
+I was the model quantified-self runner. 2,593 workouts logged over 14 years. Every run tracked, every mile recorded, every pace calculated. MapMyRun dutifully collected it all while I... never actually looked at what it was telling me.
 
-That changed when I finally exported my data and discovered something remarkable: I could pinpoint the exact month my life changed. Not through memory or photos, but through the dramatic shift in my running patterns.
+That changed when I finally exported my data and discovered something remarkable: I could pinpoint the exact month my life changed. Not through memory or photos, but through the dramatic shift in my running patterns:  **June 2018. The month I became a different kind of runner.**
 
-**June 2018. The month I became a different kind of runner.**
+<br>[![Timeline](/assets/visualizations/choco-effect/fig_1_thumb_timeline.png)](/assets/visualizations/choco-effect/fig_1_timeline.html){:target="_blank"}
+<br>
 
-> **[INTERACTIVE VISUALIZATION: The Timeline Split]**
-> *A timeline showing all 2,593 workouts from 2011-2025. A dramatic visual divide at June 2018 shows the "before" era (505 sparse workouts) and the "after" era (2,088 dense workouts). Each point colored by pace - blue for runs, orange for walks.*
+ {% include figure popup=true image_path="/assets/visualizations/choco-effect/fig_1_thumb_timeline.png" alt="Interactive timeline chart" url="/assets/visualizations/choco-effect/fig_1_timeline.html" caption="Click to explore the interactive version." %}
 
----
+<div class="chart-container">
+  <iframe src="/assets/visualizations/choco-effect/fig_1_timeline.html" 
+          width="100%" 
+          height="450" 
+          frameborder="0"
+          class="desktop-chart"
+          style="border: 1px solid #ddd; border-radius: 8px;">
+  </iframe>
+</div>
+<!-- **VISUALIZATION: The Timeline Split**
+*This timeline shows all 2,593 workouts from 2011-2025. Each point colored by pace - blue for runs, orange for walks.*
+A dramatic visual divide at June 2018 shows the "before" era (505 sparse workouts) and the "after" era (2,088 dense workouts).
+-->
 
-## The Discovery: When Patterns Tell Stories
+### The Discovery: When Patterns Tell Stories
 
 The numbers were so dramatic I initially thought I'd made a data processing error:
-
 - **Before June 2018**: 505 workouts over 7 years (6 workouts/month)
 - **After June 2018**: 2,088 workouts over 6.5 years (27 workouts/month)
 
@@ -37,8 +49,26 @@ That's not improvement. That's transformation. A 4.5x increase in consistency th
 
 But the frequency change was just the beginning. The *nature* of my workouts had fundamentally shifted:
 
+---
 > **[VISUALIZATION: The Pace Transformation]**
 > *Split violin plot showing pace distribution before/after June 2018. Before: tight distribution around 9.3 min/mi. After: bimodal distribution with peaks at 10 min/mi (runs) and 24 min/mi (walks).*
+
+<div class="chart-container">
+  <iframe src="/assets/visualizations/choco-effect/visualization_2_compare_histograms_3_metrics.html" 
+          width="100%" 
+          height="500" 
+          frameborder="0"
+          class="desktop-chart"
+          style="border: 1px solid #ddd; border-radius: 8px;">
+  </iframe>
+  
+  <!-- <img src="/assets/visualizations/choco-effect/XXX.png" 
+       alt="Vision API analysis pipeline diagram" 
+       class="mobile-chart"
+       style="width: 100%; border-radius: 8px;">
+  -->
+</div>
+
 
 **Before Choco**:
 - Average pace: 9.3 min/mile
@@ -56,10 +86,10 @@ Something had fundamentally changed about how I exercised. And that something ha
 
 ## Meet Choco: The Data Scientist I Didn't Know I Needed
 
-<details>
+<details markdown="1" open>
 <summary>🐕 The Technical Details of Dog-Driven Data</summary>
 
-Choco, my Labrador Retriever, didn't just join my workouts—she restructured them entirely. The data reveals two distinct activity profiles post-June 2018:
+Choco, my Labrador Retriever, didn't just join my workouts—he restructured them entirely. The data reveals two distinct activity profiles post-June 2018:
 
 **Profile 1: "Real Runs" (14% of workouts)**
 - Pace: 8-12 min/mile
@@ -87,6 +117,22 @@ My carefully curated workout data became beautifully chaotic—and unexpectedly 
 > **[VISUALIZATION: The Consistency Revolution]**
 > *Calendar heatmap showing workout frequency by day, 2015-2025. Sparse dots before June 2018 transform into an almost-daily pattern after. The "Choco line" is clearly visible.*
 
+<div class="chart-container">
+  <iframe src="/assets/visualizations/choco-effect/visualization_3_consistency_rolling_avg.html" 
+          width="100%" 
+          height="600" 
+          frameborder="0"
+          class="desktop-chart"
+          style="border: 1px solid #ddd; border-radius: 8px;">
+  </iframe>
+  
+  <!-- <img src="/assets/visualizations/choco-effect/XXX.png" 
+       alt="Vision API analysis pipeline diagram" 
+       class="mobile-chart"
+       style="width: 100%; border-radius: 8px;">
+  -->
+</div>
+
 ---
 
 ## The Paradox of Imperfect Data
@@ -96,21 +142,21 @@ The traditional data quality expert in me initially saw problems:
 - Distance averages were "ruined" by short outings  
 - Activity categorization was inconsistent
 
-But the human in me saw the real story: **Choco didn't mess up my data—she revealed what actually drives exercise consistency.**
+But the human in me saw the real story: **Choco didn't mess up my data—he revealed what actually drives exercise consistency.**
 
-<details>
+<details markdown="1" open>
 <summary>📊 The Numbers Behind the Transformation</summary>
 
-**Consistency Metrics**:
-- Longest streak pre-Choco: 14 days
-- Longest streak post-Choco: 247 days
-- Monthly variance pre-Choco: ±8.7 workouts
-- Monthly variance post-Choco: ±3.2 workouts
-
-**Behavioral Changes**:
-- Morning workouts: 85% → 62% (dogs don't care about your schedule)
-- Weekend activity: 2x increase (every day is workout day with a dog)
-- Seasonal consistency: Winter dropoff eliminated (dogs need walks year-round)
+**Consistency Metrics**:  
+- Longest streak pre-Choco: 14 days  
+- Longest streak post-Choco: 247 days  
+- Monthly variance pre-Choco: ±8.7 workouts  
+- Monthly variance post-Choco: ±3.2 workouts  
+ 
+**Behavioral Changes**:  
+- Morning workouts: 85% → 62% (dogs don't care about your schedule)  
+- Weekend activity: 2x increase (every day is workout day with a dog)  
+- Seasonal consistency: Winter dropoff eliminated (dogs need walks year-round)  
 
 </details>
 
@@ -145,17 +191,17 @@ But here's where it gets interesting: there's a fuzzy middle ground where runs b
 
 The Choco Effect taught me that the most interesting insights often hide in what we consider "data quality issues." Those inconsistencies, outliers, and sudden changes? They're life happening.
 
-<details>
-<summary>🛠️ Try This With Your Own Data</summary>
+<details markdown="1">
+<summary>🛠️ Try This With Your Own Data</summary>  
 
-**Quick Analysis Checklist**:
-1. Export your fitness data (Strava, Garmin, Apple Health, etc.)
-2. Look for sudden changes in:
-   - Frequency patterns
-   - Average metrics (pace, distance, duration)
-   - Workout time distributions
-3. Ask yourself: What life change might explain this?
-4. Check if categories or labels changed around the same time
+**Quick Analysis Checklist**:  
+1. Export your fitness data (Strava, Garmin, Apple Health, etc.)  
+2. Look for sudden changes in:  
+   - Frequency patterns  
+   - Average metrics (pace, distance, duration)  
+   - Workout time distributions  
+3. Ask yourself: What life change might explain this?  
+4. Check if categories or labels changed around the same time  
 
 **SQL Starter Query**:
 ```sql
@@ -202,4 +248,4 @@ What stories are hiding in your perfectly tracked imperfect life?
 
 ---
 
-*Barbara is a data scientist who discovered that the best insights come from imperfect data. Her dog Choco is a better personal trainer than any app, though she refuses to wear a fitness tracker. Follow their data adventures at [your-site].*
+*Barbara is a data scientist who discovered that the best insights come from imperfect data. Her dog Choco is a better personal trainer than any app, though he refuses to wear a fitness tracker. Follow their data adventures at [barbhs.com].*
