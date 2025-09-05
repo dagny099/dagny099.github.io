@@ -4,7 +4,7 @@ description: "Fitness visualization dashboard integrating local and cloud-stored
 permalink: /data-stories/exercise-dashboard/
 layout: section
 section: data-stories
-tags: []
+tags: [trend analysis, data visualization]
 ---
 
 # The Choco Effect: How a Dog Transformed My Running Data
@@ -16,31 +16,20 @@ tags: []
 
 ## The Perfect Tracker's Paradox
 
-I was the model quantified-self runner. 2,593 workouts logged over 14 years. Every run tracked, every mile recorded, every pace calculated. MapMyRun dutifully collected it all while I... never actually looked at what it was telling me.
+I was the model quantified-self runner: 2,593 workouts logged over 14 years. Every run tracked, every mile recorded, every pace calculated. MapMyRun dutifully collected it all while I... never actually looked at what it was telling me.
 
 That changed when I finally exported my data and discovered something remarkable: I could pinpoint the exact month my life changed. Not through memory or photos, but through the dramatic shift in my running patterns:  **June 2018. The month I became a different kind of runner.**
-
-<br>[![Timeline](/assets/visualizations/choco-effect/fig_1_thumb_timeline.png)](/assets/visualizations/choco-effect/fig_1_timeline.html){:target="_blank"}
-<br>
-
- {% include figure popup=true image_path="/assets/visualizations/choco-effect/fig_1_thumb_timeline.png" alt="Interactive timeline chart" url="/assets/visualizations/choco-effect/fig_1_timeline.html" caption="Click to explore the interactive version." %}
-
-<div class="chart-container">
+<!-- **VISUALIZATION: The Timeline Split**-->
+<figure class="chart">
   <iframe src="/assets/visualizations/choco-effect/fig_1_timeline.html" 
           width="100%" 
-          height="450" 
+          height="475px" 
           frameborder="0"
           class="desktop-chart"
           style="border: 1px solid #ddd; border-radius: 8px;">
   </iframe>
-</div>
-<!-- **VISUALIZATION: The Timeline Split**
-*This timeline shows all 2,593 workouts from 2011-2025. Each point colored by pace - blue for runs, orange for walks.*
-A dramatic visual divide at June 2018 shows the "before" era (505 sparse workouts) and the "after" era (2,088 dense workouts).
--->
-
-### The Discovery: When Patterns Tell Stories
-
+  <figcaption><strong>My pace from 2011-2025</strong>: Each workout is colored by average pace - <span style="color: #3498db;">JOGS</span>, <span style="color: #e74c3c;">WALKS</span>, and <span style="color: #9b59b6;">Bit of both? </span> Notice how the density of workouts increases post-Choco arrival 🐾</figcaption>
+</figure>
 The numbers were so dramatic I initially thought I'd made a data processing error:
 - **Before June 2018**: 505 workouts over 7 years (6 workouts/month)
 - **After June 2018**: 2,088 workouts over 6.5 years (27 workouts/month)
@@ -49,11 +38,9 @@ That's not improvement. That's transformation. A 4.5x increase in consistency th
 
 But the frequency change was just the beginning. The *nature* of my workouts had fundamentally shifted:
 
----
-> **[VISUALIZATION: The Pace Transformation]**
-> *Split violin plot showing pace distribution before/after June 2018. Before: tight distribution around 9.3 min/mi. After: bimodal distribution with peaks at 10 min/mi (runs) and 24 min/mi (walks).*
-
-<div class="chart-container">
+<!-- **VISUALIZATION: The Pace Transformation]** -->
+<figure class="chart">
+  <figcaption><strong>Bimodal Distribution Emerges</strong>: The violin plot shows pace distribution before/after June 2018. Before, tightly distributed around 9.3 min/mi. After, workouts are bimodally distributed with peaks at 10 min/mi (runs) and 24 min/mi (walks). (similar for duration and distance)🐾</figcaption>
   <iframe src="/assets/visualizations/choco-effect/visualization_2_compare_histograms_3_metrics.html" 
           width="100%" 
           height="500" 
@@ -61,13 +48,7 @@ But the frequency change was just the beginning. The *nature* of my workouts had
           class="desktop-chart"
           style="border: 1px solid #ddd; border-radius: 8px;">
   </iframe>
-  
-  <!-- <img src="/assets/visualizations/choco-effect/XXX.png" 
-       alt="Vision API analysis pipeline diagram" 
-       class="mobile-chart"
-       style="width: 100%; border-radius: 8px;">
-  -->
-</div>
+</figure>
 
 
 **Before Choco**:
