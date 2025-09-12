@@ -1,0 +1,34 @@
+{% comment %}
+Usage:
+{% include card.html
+   variant="project"                 # "project" | "post" | "resource"
+   title=page.title
+   url=page.url
+   excerpt=page.excerpt
+   image=page.image_path             # optional
+   pills=page.tags                   # optional array
+   cta_label="30-sec view"           # optional
+   cta_url=page.url                  # optional
+%}
+{% endcomment %}
+
+{% assign _variant = include.variant | default: "project" %}
+<article class="card card--{{ _variant }}">
+  <div class="card__media">
+    {% if include.image %}<img src="{{ include.image }}" alt="">{% endif %}
+  </div>
+  <div class="card__body">
+    <h3 class="card__title">{% if include.url %}<a href="{{ include.url }}">{% endif %}{{ include.title }}{% if include.url %}</a>{% endif %}</h3>
+    {% if include.excerpt %}<p class="card__excerpt">{{ include.excerpt }}</p>{% endif %}
+    {% if include.pills and include.pills != empty %}
+      <div class="card__meta">
+        {% for t in include.pills %}<span class="pill pill--topic">{{ t }}</span>{% endfor %}
+      </div>
+    {% endif %}
+    <div class="card__footer">
+      {% if include.cta_label %}
+        <a class="card__cta" href="{{ include.cta_url | default: include.url }}">{{ include.cta_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+</article>

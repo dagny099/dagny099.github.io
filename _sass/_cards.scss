@@ -1,0 +1,85 @@
+/* === Card System (Minimal Mistakes companion) =====================
+   Drop this file into: _sass/_cards.scss
+   Then import from assets/css/main.scss after theme imports:
+     @import "cards";
+==================================================================*/
+
+:root{
+  --accent-teal:#3d6c67;
+  --accent-purple:#6f5b91;
+  --accent-orange:#c0572a;
+  --ink-900:#0f172a; --ink-800:#1f2937;
+  --gray-300:#d1d5db; --gray-200:#e5e7eb; --gray-50:#f8fafc;
+}
+
+.cards{
+  --gap: 1rem;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card{
+  display: flex; flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+  overflow: hidden;
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+.card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.10); }
+
+.card__media{
+  aspect-ratio: 16 / 9;
+  background: var(--gray-50);
+  overflow: hidden;
+}
+.card__media > img{ width:100%; height:100%; object-fit: cover; display:block; }
+.card__media:empty{
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.02)),
+    #f4f6f8;
+}
+.card__media:empty::after{
+  content:"";
+  position:absolute; inset:0; margin:auto; width:52px; height:52px;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M21 19V5a2 2 0 0 0-2-2H5C3.89 3 3 3.9 3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01 3.5-4.51L19 18H5l3.5-4.5zM9 8a2 2 0 1 1-.001 3.999A2 2 0 0 1 9 8z'/></svg>") no-repeat center / contain;
+  background: #b6bec8;
+}
+
+.card__body{ padding: .9rem 1rem 1rem 1rem; display:flex; flex-direction:column; gap:.5rem; }
+.card__title{ margin: .2rem 0 0 0; font-weight: 800; line-height: 1.2;
+  font-size: clamp(1.05rem, calc(.95rem + .3vw), 1.25rem); }
+.card__excerpt{ margin: 0; color: var(--ink-800);
+  font-size: clamp(.94rem, calc(.9rem + .15vw), 1rem); }
+.card__meta{ display:flex; flex-wrap:wrap; gap:.375rem; margin: .25rem 0 0 0; }
+.pill{ padding:.15rem .5rem; border-radius:999px; font-size:.8rem; line-height:1.2; border:1px solid var(--gray-300); background:#fff; }
+.pill--topic{ background: #f6f7f9; border-color: #e2e4e8; }
+.pill--format{ background: transparent; }
+.pill--level{ background: color-mix(in oklab, var(--accent-purple) 12%, white); border-color: transparent; }
+.pill--status{ background: color-mix(in oklab, var(--accent-orange) 12%, white); border-color: transparent; }
+
+.card__footer{ margin-top: auto; display:flex; align-items:center; gap:.5rem; }
+.card__cta{
+  align-self:flex-start;
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.45rem .7rem; border-radius:10px; text-decoration:none; font-weight:700;
+  background: var(--ink-900); color:#fff;
+}
+.card__cta:hover{ filter: brightness(1.05); }
+
+/* Variants ------------------------------------------------------*/
+.card--project .card__cta{ background: var(--accent-orange); }
+.card--post .card__cta{ background: var(--accent-purple); }
+.card--resource .card__cta{ background: var(--accent-teal); }
+
+/* Subtle variant-specific borders */
+.card--project{ border-color: color-mix(in oklab, var(--accent-orange) 22%, white); }
+.card--post{ border-color: color-mix(in oklab, var(--accent-purple) 22%, white); }
+.card--resource{ border-color: color-mix(in oklab, var(--accent-teal) 22%, white); }
+
+/* Link reset inside title */
+.card__title a{ text-decoration:none; color: inherit; }
+.card__title a:hover{ text-decoration: underline; }

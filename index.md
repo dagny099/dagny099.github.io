@@ -43,7 +43,7 @@ feature_row:
 <div class="home-section">
   <details class="home-accordion" markdown="1" open>
     <summary><h2>Featured work</h2></summary>
-    {% include feature_row %}
+  {% include cards_grid.html variant="project" items=site.projects cta_label="30-sec view" image_key="image_path" %}
   </details>
 
   <!-- right-aligned subtle text link under Featured -->
