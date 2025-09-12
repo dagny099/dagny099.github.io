@@ -22,16 +22,40 @@ layout: default
   <img src="/assets/images/icon_tree_of_life_trans.png" alt="Abstract data visualization" style="margin-top: 2rem; max-width: 450px; width: 100%; border-radius: 12px;">
 </header>
 
-<!-- CTA SECTION -->
-<!-- CTA SECTION -->
-<section style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; padding: 3rem 2rem; background-color: #fff;">
+<section class="home-cards">
   {% for item in site.data.navigation.main %}
-    <a href="{{ item.url }}" 
-       style="background-color: {{ item.color }}; color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
-      {{ item.title }}
+    <a class="home-card" href="{{ item.url | relative_url }}"
+       style="--card-bg: {{ item['background-color'] | default: '#ffffff' }}; --card-accent: {{ item.color | default: '#333' }};">
+      <div class="home-card__title" style="color: var(--card-accent);">
+        {{ item.title }}
+      </div>
+      {% if item.subtitle %}
+        <div class="home-card__subtitle">{{ item.subtitle }}</div>
+      {% endif %}
+      {% if item.description %}
+        <div class="home-card__desc">{{ item.description }}</div>
+      {% endif %}
     </a>
   {% endfor %}
 </section>
+
+<style>
+.home-cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1rem; padding: 2rem 1rem;
+}
+.home-card{
+  display:block; background: var(--card-bg);
+  border-radius: 12px; padding: 1rem 1.25rem;
+  text-decoration:none; box-shadow: 0 1px 8px rgba(0,0,0,.05);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+.home-card:hover{ transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.home-card__title{ font-weight: 700; font-size: 1.05rem; margin-bottom: .25rem; }
+.home-card__subtitle{ font-size: .95rem; opacity: .9; margin-bottom: .35rem; }
+.home-card__desc{ font-size: .9rem; opacity: .8; line-height: 1.4; }
+</style>
 
 </main>
 

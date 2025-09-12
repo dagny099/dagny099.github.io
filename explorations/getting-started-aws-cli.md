@@ -6,7 +6,7 @@ header:
   overlay_filter: 0.5
   caption: "Photo by Anders Jensen on Unsplash"
 permalink: /explorations/aws-cli-tutorial-launch-rds-for-ec2-access/
-layout: section
+layout: single
 section: explorations
 tags: [aws, data engineering, cli, rds, python, tutorial,]
 ---

@@ -1,0 +1,170 @@
+/* ===== Utilities used across the site ===== */
+
+/* Image size helpers */
+.img-small  { max-width: 350px; width: 100%; height: auto; }
+.img-medium { max-width: 650px; width: 100%; height: auto; }
+.img-large  { max-width: 950px; width: 100%; height: auto; }
+.img-full   { max-width: 1200px; width: 100%; height: auto; }
+
+/* Mermaid diagram container */
+.mermaid {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+/* Details/summary “toggle” block */
+.toggle-block {
+  background: #f9f8f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  margin: 1.5rem 0;
+  font-size: .95rem;
+}
+.toggle-block summary {
+  font-weight: 600;
+  color: #3d6c67;
+  cursor: pointer;
+}
+
+/* Section wrapper for long-form pages */
+.section-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+@media (min-width: 768px) {
+  .section-wrapper { padding: 3rem 2rem; }
+}
+
+/* ===== Homepage (index.md) only =====
+   Add `classes: home` to /index.md front matter so these scope cleanly.
+*/
+.home.layout--splash {
+  /* Hide hero title on the splash hero only on home */
+  .page__hero--overlay .page__title { display: none !important; }
+
+  /* Tighter hero padding on the splash banner */
+  .page__hero--overlay { padding: 2em 0 .5em; }
+}
+
+/* ===== Collection grid (projects/resources indexes) ===== */
+.layout--collection {
+  .entries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .grid__item { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; box-sizing: border-box; overflow: hidden; }
+
+  .archive__item { display: flex; flex-direction: column; flex-grow: 1; height: 100%; }
+
+  .archive__item-teaser {
+    width: 100%; display: flex; justify-content: center; flex-shrink: 0;
+    img { width: 100%; height: auto; object-fit: cover; display: block; /* remove borders for a cleaner grid */ }
+  }
+
+  .archive__item-title { font-size: 1.1em; margin: 10px 0 5px; text-align: center; }
+  .archive__item-excerpt { font-size: .9em; margin: 10px; flex-grow: 1; }
+}
+
+.layout--home .page__title { display: none !important; }
+
+/* --- Resources grid --- */
+.layout--collection.resources .entries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem 1.25rem;
+}
+
+.layout--collection.resources .archive__item { 
+  display: block; 
+}
+
+.layout--collection.resources .archive__item-teaser {
+  overflow: hidden; 
+  border-radius: 10px; 
+  margin-bottom: .6rem;
+}
+
+.layout--collection.resources .archive__item-teaser img {
+  display: block;
+  width: 100%;
+  height: 160px;            /* consistent band */
+  object-fit: cover;        /* crop gracefully */
+}
+
+.layout--collection.resources .archive__item-title { 
+  font-size: 1.02rem; 
+  line-height: 1.25; 
+  margin-bottom: .25rem; 
+}
+
+.layout--collection.resources .archive__item-excerpt { 
+  font-size: .92rem; 
+  opacity: .9; 
+}
+
+/* /* --- Masthead tuning --- */
+.masthead__inner-wrap { 
+  padding-top: .45rem; 
+  padding-bottom: .45rem; 
+}
+
+.greedy-nav .site-title {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  margin-right: 1rem;           /* space between title and links */
+  line-height: 1.2;
+}
+
+.greedy-nav .visible-links > li > a {
+  padding: 0 .6rem;             /* space between links */
+  color: #1b1b1b;               /* ensure readable on light masthead */
+}
+
+.greedy-nav .visible-links > li > a:hover { 
+  opacity: .85; 
+}
+
+.layout--home .greedy-nav .site-title { font-size: 1rem; opacity: .85; }
+
+/* When it gets snug, let GreedyNav collapse earlier */
+@media (max-width: 980px){
+  .greedy-nav .visible-links > li > a { padding: 0 .5rem; }
+
+
+/* ===== Optional: small polish for sidebars ===== */
+.sidebar img { margin-top: 10px; margin-right: 25px; }
+
+/* ===== Nav cards (rendered by _includes/nav/cards.html) ===== */
+.home-cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1rem; padding: 2rem 0;
+}
+.home-card{
+  display:block; background: var(--card-bg, #fff);
+  border-radius: 12px; padding: 1rem 1.25rem;
+  text-decoration:none; box-shadow: 0 1px 8px rgba(0,0,0,.05);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+.home-card:hover{ transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.home-card__title{ font-weight: 700; font-size: 1.05rem; margin-bottom: .25rem; }
+.home-card__subtitle{ font-size: .95rem; opacity:.9; margin-bottom:.35rem; }
+.home-card__desc{ font-size: .9rem; opacity:.82; line-height: 1.45; }
+
+
+
+/* ===== Optional / advanced (park these until the site is stable) =====
+   Your breadcrumb color-by-section and portfolio-page-class rules were neat,
+   but they require extra page classes to be added consistently.
+   Once the site is stable, we can re-introduce them with targeted classes.
+*/

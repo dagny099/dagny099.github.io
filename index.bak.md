@@ -42,59 +42,54 @@ feature_row:
      ======================= -->
 <div class="home-section">
   <details class="home-accordion" markdown="1" open>
-    <summary><h2>Featured work</h2></summary>
-    {% include feature_row %}
-  </details>
-
-  <!-- right-aligned subtle text link under Featured -->
-  <p class="home-cta home-cta--right">
-    <a class="link-more" href="/projects/">View all projects</a>
-  </p>
+  <summary><h2>Featured work</h2></summary>
+  {% include feature_row %}
+</details>
 </div>
+
+
 
 <!-- =======================
      Resources & Guides (home minis)
      ======================= -->
 <div class="home-section">
   <details class="home-accordion" markdown="1" open>
-    <summary><h2>Resources &amp; Guides</h2></summary>
+  <summary><h2>Resources &amp; Guides</h2></summary>
 
-    <div class="resource-minis">
-      <article class="resource-mini">
-        <div class="resource-mini__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></div>
-        <div class="resource-mini__body">
-          <h3><a href="/resources/executive-brief/">Executive brief template</a></h3>
-          <p>Turn fuzzy threads into crisp, action‑ready briefs with surface links to evidence.</p>
-        </div>
-      </article>
+  <div class="resource-minis">
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/executive-brief/">Executive brief template</a></h3>
+        <p>Turn fuzzy threads into crisp, action‑ready briefs with surface links to evidence.</p>
+      </div>
+    </article>
 
-      <article class="resource-mini">
-        <div class="resource-mini__icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
-        <div class="resource-mini__body">
-          <h3><a href="/resources/dataset-cards/">Dataset &amp; prompt cards</a></h3>
-          <p>Lightweight governance you can actually keep—structure, versions, and reproducible envs.</p>
-        </div>
-      </article>
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/dataset-cards/">Dataset &amp; prompt cards</a></h3>
+        <p>Lightweight governance you can actually keep—structure, versions, and reproducible envs.</p>
+      </div>
+    </article>
 
-      <article class="resource-mini">
-        <div class="resource-mini__icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
-        <div class="resource-mini__body">
-          <h3><a href="/resources/streamlit-bridge/">Streamlit: DS to app, without drama</a></h3>
-          <p>From notebook to interactive app in hours. Pragmatic guide, patterns, and gotchas.</p>
-        </div>
-      </article>
-    </div>
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/streamlit-bridge/">Streamlit: DS to app, without drama</a></h3>
+        <p>From notebook to interactive app in hours. Pragmatic guide, patterns, and gotchas.</p>
+      </div>
+    </article>
+  </div>
 
-    <p class="home-cta">
-      <a class="link-more" href="/resources/">Browse all resources</a>
-    </p>
+  <p class="home-cta">
+  <a class="link-more" href="/resources/">Browse all resources →</a>
+  </p>
   </details>
 </div>
 
-<hr class="home-divider" />
-
 <!-- =======================
-     Explore the site
+     Explore the site (Option B: brand‑tinted chips)
      ======================= -->
 <div class="home-section">
   <h2 class="sr-only">Explore the site</h2>

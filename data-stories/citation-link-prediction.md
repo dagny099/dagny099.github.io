@@ -2,7 +2,7 @@
 title: "Knowledge Cartography: Finding Lost Cousins in the Academic Family Tree"
 description: "Using graph neural networks to discover hidden connections between papers that should have met but never did."
 permalink: /data-stories/citation-link-prediction/
-layout: section
+layout: single
 section: data-stories
 tags: [graph neural networks, pytorch, neo4j]
 ---

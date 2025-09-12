@@ -1,0 +1,31 @@
+{% comment %}
+Renders buttons if the corresponding front-matter keys exist:
+- download_url, repo_url, notebook_url, demo_url
+Usage: {% include resource/buttons.html %}
+{% endcomment %}
+
+<p class="resource-btnrow">
+  {% if page.download_url %}
+    <a class="btn btn--primary" href="{{ page.download_url | relative_url }}">
+      <i class="fas fa-download"></i>&nbsp;Download PDF
+    </a>
+  {% endif %}
+
+  {% if page.notebook_url %}
+    <a class="btn" href="{{ page.notebook_url | relative_url }}">
+      <i class="fas fa-book"></i>&nbsp;Open Notebook
+    </a>
+  {% endif %}
+
+  {% if page.repo_url %}
+    <a class="btn" href="{{ page.repo_url }}">
+      <i class="fab fa-github"></i>&nbsp;View Repo
+    </a>
+  {% endif %}
+
+  {% if page.demo_url %}
+    <a class="btn" href="{{ page.demo_url }}">
+      <i class="fas fa-external-link-alt"></i>&nbsp;Live Demo
+    </a>
+  {% endif %}
+</p>

@@ -1,0 +1,33 @@
+{% comment %}
+Reusable nav cards
+Usage:
+  {% include nav/cards.html %}                      # defaults to site.data.navigation.main
+  {% include nav/cards.html links=site.data.navigation.main class="mt" show_subtitle=false %}
+Params:
+  - links: array of {title, url, color, subtitle, description, background-color}
+  - class: extra class on the outer section
+  - show_subtitle: default true
+  - show_desc: default true
+{% endcomment %}
+
+{% assign links = include.links | default: site.data.navigation.main %}
+<section class="home-cards mm-nav-cards {{ include.class }}">
+  {% for item in links %}
+    {% assign bg = item["background-color"] | default: "#ffffff" %}
+    {% assign accent = item.color | default: "#333" %}
+    <a class="home-card" href="{{ item.url | relative_url }}"
+       style="--card-bg: {{ bg }}; --card-accent: {{ accent }};">
+      <div class="home-card__title" style="color: var(--card-accent);">
+        {{ item.title }}
+      </div>
+
+      {% if item.subtitle and include.show_subtitle != false %}
+        <div class="home-card__subtitle">{{ item.subtitle }}</div>
+      {% endif %}
+
+      {% if item.description and include.show_desc != false %}
+        <div class="home-card__desc">{{ item.description }}</div>
+      {% endif %}
+    </a>
+  {% endfor %}
+</section>

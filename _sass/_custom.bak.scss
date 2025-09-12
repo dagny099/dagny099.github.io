@@ -1,0 +1,386 @@
+/* ==========================================================================
+   CUSTOM: Barbara HS — lean, scoped overrides
+   ========================================================================== */
+
+/* ------------------------------
+   0) Small utilities
+   ------------------------------ */
+
+:root {
+  /* brand accent suggestions; adjust freely */
+  --accent-teal: #3d6c67;
+  --accent-purple: #6f5b91;
+  --accent-orange: #c0572a;
+  --ink-900: #0f172a;
+  --ink-800: #1f2937;
+}
+
+/* Never let long titles push layouts around */
+.u-clamp-2 {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* ------------------------------
+   1) Masthead spacing + nav legibility
+   (site-wide but gentle)
+   ------------------------------ */
+
+.masthead__inner-wrap {
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+}
+
+.site-title {
+  font-weight: 800;
+  /* avoid Sass unit math: wrap + inside calc() */
+  font-size: clamp(1.25rem, calc(1.05rem + 1.2vw), 2rem);
+  letter-spacing: .2px;
+}
+
+.greedy-nav .visible-links > li > a {
+  color: var(--ink-800);
+  font-weight: 600;
+}
+.greedy-nav .visible-links > li > a:hover { text-decoration: underline; }
+
+/* give the title and links breathing room on wide screens */
+@media (min-width: 920px) {
+  .greedy-nav .visible-links { gap: 0.75rem; }
+  .masthead__menu { margin-left: .5rem; }
+}
+
+/* ------------------------------
+   2) Home hero (index)
+   ------------------------------ */
+
+/* If you use the big hero on the homepage, make the body text readable width */
+.layout--home .page__lead { max-width: 62ch; }
+
+/* Optional: hide default page title when using hero overlay on home
+   (only if you’re showing your name in the hero already)
+*/
+.layout--home .page__hero--overlay .page__title { display: none; }
+
+/* ------------------------------
+   3) Project detail pages (single)
+   ------------------------------ */
+
+/* Slightly tighter top hero on project pages */
+.project.hero .page__hero--overlay { padding: 1.2rem 0 .75rem; }
+
+/* Meta grid (Role, When, Stack, Links) */
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: .75rem 1rem;
+  margin: 0 0 1rem 0;
+}
+.project-meta .k {
+  display: block; font-weight: 700; font-size: .8rem; letter-spacing: .02em;
+  text-transform: uppercase; opacity: .7; margin-bottom: .15rem;
+}
+.project-meta .btn { margin-right: .35rem; margin-top: .25rem; }
+.btn--sm { padding: .3rem .6rem; font-size: .85rem; border-radius: 8px; }
+
+/* Small stat cards (optional section) */
+.stat-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap: .75rem; margin: 1rem 0 1.5rem;
+}
+.stat-cards > div {
+  background: #faf7f2; border: 1px solid #eee; border-radius: 12px;
+  padding: .9rem .9rem 1rem; text-align: center;
+}
+.stat-cards .n { font-weight: 800; font-size: 1.6rem; line-height: 1; margin-bottom: .25rem; }
+.stat-cards .c { font-size: .85rem; opacity: .85; }
+
+/* Tag/category chips a touch closer to content */
+.page__meta { margin-top: .75rem; }
+
+/* Make single-column content a bit wider on desktop when you add `classes: wide` */
+.layout--single.wide .page__content { max-width: 70rem; }
+
+/* ------------------------------
+   4) Projects listing page (collection grid)
+   (Opt-in: add `classes: projects` to /_pages/projects.md)
+   ------------------------------ */
+
+.layout--collection.projects .entries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.layout--collection.projects .archive__item {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid #eaeaea; border-radius: 14px;
+  overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+.layout--collection.projects .archive__item-teaser { margin: 0; }
+.layout--collection.projects .archive__item-teaser img {
+  width: 100%; height: 180px; object-fit: cover; display: block;
+}
+.layout--collection.projects .archive__item-title { margin: .85rem 1rem .25rem; }
+.layout--collection.projects .archive__item-excerpt {
+  margin: 0 1rem 1rem; color: #444; font-size: .95rem;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* ------------------------------
+   5) Resources listing page (collection grid)
+   (Add `classes: resources` to /_pages/resources.md)
+   ------------------------------ */
+
+.layout--collection.resources {
+  .page__lead { max-width: 62ch; }
+
+  .entries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  .archive__item {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .archive__item-teaser { margin: 0; }
+  .archive__item-teaser img {
+    width: 100%;
+    height: 180px;                  /* consistent band */
+    object-fit: cover;
+    display: block;
+  }
+
+  .archive__item-title {
+    font-size: 1.05rem;
+    line-height: 1.25;
+    margin: .85rem 1rem .25rem;
+  }
+
+  .archive__item-excerpt {
+    margin: 0 1rem 1rem;
+    color: #444; font-size: .95rem;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  .page__meta { margin: .25rem 1rem 1rem; }
+}
+
+.layout--collection.resources .archive__item:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  border-color: #e3e3e3;
+}
+
+/* ------------------------------
+   6) Home “navigation cards” include (if you use nav/cards.html)
+   ------------------------------ */
+
+.home-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem; margin-top: 1rem;
+}
+.home-card {
+  display: block; background: var(--card-bg, #fff); border: 1px solid #ececec;
+  border-radius: 14px; padding: 1rem; text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+.home-card__title   { font-weight: 700; margin-bottom: .25rem; }
+.home-card__subtitle{ opacity: .85; font-size: .95rem; margin-bottom: .25rem; }
+.home-card__desc    { color: #444; font-size: .92rem; }
+.home-card:hover    { box-shadow: 0 6px 16px rgba(0,0,0,.08); border-color: #e3e3e3; }
+
+/* ===== HOME (splash) and MASTHEAD TWEAKS ===== */
+
+/* Hide the page H1 inside the splash hero (keeps masthead title only) */
+.layout--splash .page__hero--overlay .page__title { display: none !important; }
+
+/* Make the splash hero shorter */
+.layout--splash .page__hero--overlay {
+  padding: 1.1rem 0 .9rem;       /* tighter */
+  min-height: initial;           /* prevents extra vertical space */
+}
+
+/* Masthead spacing + nav link behavior */
+.masthead__inner-wrap { padding-top: .55rem; padding-bottom: .55rem; }
+
+.greedy-nav .site-title {
+  font-size: 1.55rem;            /* smaller than the hero text */
+  letter-spacing: -.01em;
+  line-height: 1.1;
+}
+
+/* Pull nav items a bit closer together, keep good click targets */
+.greedy-nav .visible-links { gap: .45rem; }
+.greedy-nav .visible-links > li > a { padding: .35rem .45rem; }
+
+/* On hover show only the theme’s blue underline, not a second black underline */
+.greedy-nav .visible-links > li > a,
+.greedy-nav .visible-links > li > a:hover,
+.greedy-nav .visible-links > li > a:focus {
+  text-decoration: none;
+}
+
+/* ===== PROJECTS GRID (self-contained) ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: .75rem;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+  transition: transform .08s ease, box-shadow .15s ease;
+}
+.project-card:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+
+.project-card__media { display: block; aspect-ratio: 16 / 9; background: #f4f4f4; }
+.project-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.project-card__placeholder {
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+  font-size: 2rem; color: #6f5b91; /* on-brand */
+}
+
+.project-card__body { padding: .9rem 1rem 1rem; }
+.project-card__title { font-size: 1.1rem; line-height: 1.25; margin: .15rem 0 .35rem; }
+.project-card__title a { text-decoration: none; }
+.project-card__excerpt { color: #3b3b3b; font-size: .95rem; margin: 0; }
+
+
+/* ---------- RESOURCES GRID: distinct but on-brand ---------- */
+.layout--single.resources .page__content { margin-top: .5rem; }
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.resource-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex; 
+  flex-direction: column;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+  transition: transform .08s ease, box-shadow .15s ease;
+}
+.resource-card:hover { 
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+.resource-card__media {
+  display: block;
+  aspect-ratio: 4 / 3;           /* stable, works with or without image */
+  background: #f7f7f7;
+}
+.resource-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.resource-card__placeholder {
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+  font-size: 2rem; color: #6f5b91;
+}
+
+.resource-card__body { padding: .9rem 1rem 1rem; }
+.resource-card__title { font-size: 1.05rem; margin: .15rem 0 .4rem; }
+.resource-card__title a { text-decoration: none; }
+.resource-card__desc { color: #3c3c3c; font-size: .95rem; margin: 0 0 .6rem; }
+
+.resource-card__meta { display: flex; flex-wrap: wrap; gap: .35rem; }
+.resource-pill {
+  display: inline-block;
+  background: #f4f4fa;
+  border: 1px solid #e8e7f4;
+  color: #554a7d;
+  padding: .18rem .5rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+/* ===== HOME: content gutters (after the hero) ===== */
+.layout--splash .page__content {
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}
+
+/* Tone down <hr> spacing if you use one between sections */
+.layout--splash hr { margin: 1rem 0; border-color: rgba(0,0,0,.06); }
+
+/* ===== Reusable section header + home sections ===== */
+.home-section { margin-top: 1.25rem; }
+.home-section__title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 .75rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+.home-section__title::before {
+  content: "";
+  width: .32rem; height: 1.2em; border-radius: 4px;
+  background: var(--accent-orange);   /* default accent */
+}
+/* Per-section accents (optional) */
+.home-feature   .home-section__title::before { background: var(--accent-orange); }
+.home-resources .home-section__title::before { background: var(--accent-teal);   }
+
+/* ===== Home: resource “mini” cards ===== */
+.resource-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.resource-mini {
+  display: flex; gap: .75rem; align-items: flex-start;
+  padding: .85rem 1rem; text-decoration: none;
+  background: #fff; border: 1px solid #eaeaea; border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+  transition: transform .08s ease, box-shadow .15s ease;
+}
+.resource-mini:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+
+.resource-mini__icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: grid; place-items: center;
+  background: #f1f6f5; color: var(--accent-teal);   /* on-brand */
+  font-size: 1.15rem;
+}
+.resource-mini__title { font-weight: 700; margin: 0 0 .1rem; color: var(--ink-800); }
+.resource-mini__meta  { font-size: .85rem; opacity: .75; }
+
+
+
+
+.project-card:hover   { border-color: color-mix(in srgb, var(--accent-orange) 24%, #eaeaea); }
+.resource-mini:hover  { border-color: color-mix(in srgb, var(--accent-teal)   24%, #eaeaea); }
+
+.pill { display:inline-block; padding:.18rem .5rem; border-radius:999px; font-size:.78rem; font-weight:600; }
+.pill--teal   { background:#f1f6f5; border:1px solid #dfeeea; color:#2f5853; }
+.pill--purple { background:#f4f1f9; border:1px solid #e7e3f2; color:#52477a; }
+.pill--orange { background:#fcf3ef; border:1px solid #f3e0d7; color:#8e431f; }
+
+.callout {
+  border-left: 4px solid var(--accent-purple);
+  background: #faf9fd; padding: .8rem 1rem; border-radius: 8px;
+}

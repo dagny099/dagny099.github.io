@@ -1,0 +1,16 @@
+sections:
+  - key: projects
+    title: Projects
+    path: /projects/
+    children:
+      - { title: "Convoscope", path: "/projects/convoscope/" }
+      - { title: "Fitness Dashboard", path: "/projects/fitness-dashboard/" }
+  - key: thinking
+    title: Thinking
+    path: /thinking/
+  - key: resources
+    title: Resources & Guides
+    path: /resources/
+  - key: journey
+    title: My Journey
+    path: /my-journey/

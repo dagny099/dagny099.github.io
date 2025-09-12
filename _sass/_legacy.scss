@@ -1,0 +1,280 @@
+---
+# Legacy main.scss before 9/11/25
+# Only the main Sass file needs front matter (the dashes are enough)
+sitemap: false
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+// These two styles are to hide the page title on the home page
+.layout--home .page__hero--overlay .page__title {
+    display: none !important;  // Apply universally outside media queries
+  }
+  
+@media (min-width: 37.5em) {
+    .layout--home  .page__hero--overlay .page__title {
+      display: none !important;  // Apply within this specific media query
+    }
+  }
+
+/* Adjust space below*/
+.page__hero--overlay {
+  padding: 2em 0 0.5em 0;  // Adjust these values to control header height
+}
+  
+
+/* Customize grid layout for portfolio pages */
+/* Grid Container */
+.layout--collection .entries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust column width */
+    gap: 5px; /* Increase gap between items */
+    padding: 10px; /* Padding around the grid container */
+    width: 100%;
+    // border: 1px solid #ddd; /* Optional: Add border around the grid */
+  }
+  
+  /* Full-Width Grid Item */
+  .layout--collection .grid__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Center all elements horizontally */
+    width: 100%; /* Forces each item to take the full width of its column */
+    height: 100%; /* Forces each item to take full height within the grid */
+    box-sizing: border-box; /* Ensures padding doesn’t add to the item’s width */
+    overflow: hidden; /* Hide overflow if content exceeds item */
+    // text-align: center; /* Center text inside the grid item */
+    // border: 1px solid #fff; /* Optional: Add border around the grid */
+}
+  
+  /* Flexbox for the Article Inside Each Grid Item */
+  .layout--collection  .archive__item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%; /* Ensure article takes full height */
+  }
+  
+  /* Image Container */
+  .layout--collection  .archive__item-teaser {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    flex-shrink: 0; /* Prevents the image container from shrinking */
+  }
+  
+  .layout--collection  .archive__item-teaser img {
+    width: 100%;             /* Full width of the container */
+    height: auto;            /* Maintain aspect ratio */
+    object-fit: cover;       /* Ensure image covers container without cutting off */
+    display: block;          /* Prevent unwanted spacing below the image */
+    max-width: 90%;          /* Optional: Limit image width for visual balance */
+    border: 2px solid lightslategray;  /* Optional: Add border around the image */
+    }
+  
+  /* Headline and Excerpt Styling */
+  .layout--collection  .archive__item-title {
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+    text-align: center; /* Center text inside the grid item */
+}
+  
+.layout--collection  .archive__item-excerpt {
+    font-size: 0.8em;
+    margin: 10px;
+    flex-grow: 1; /* Allows the excerpt to expand if necessary */
+  }  
+      
+// -----------------------------------
+/* Custom padding for overlay content on wide portfolio pages */
+.portfolio-page.wide .page__hero--overlay {
+    padding: 25px 0 25px 0; 
+  }
+    
+/* Custom spacing for <p> elements inside the overlay on wide portfolio pages */
+.portfolio-page.wide .wrapper p {
+    margin: 15px 0 15px 0;  /* Adjust margin spacing */
+}
+  
+.portfolio-page.wide .wrapper   h1 {
+    margin-bottom: 10px;  /* Adjust margin spacing */
+}
+
+.portfolio-page   h2 {
+  margin-top: 0px; /* Adjust margin spacing */
+  padding-top: 0px;
+}
+
+
+// -----------------------------------
+// Custom styles for responsive images at different sizes
+.img-small {
+max-width: 350px;   // Max width for small images
+width: 100%;        // Makes image responsive
+height: auto;
+}
+
+.img-medium {
+max-width: 650px;   // Max width for medium images
+width: 100%;        // Makes image responsive
+height: auto;
+}
+
+.img-large {
+max-width: 950px;   // Max width for large images
+width: 100%;        // Makes image responsive
+height: auto;
+}
+
+.img-full {
+    width: 100%;
+    max-width: 1200px; // Optional max width to prevent oversizing on large screens
+    height: auto;
+  }
+  
+// Left sidebar spacing (if you're using it)
+.sidebar img {
+  margin-top: 10px; // Adjust top margin
+  margin-right: 25px; // Adjust right padding
+}
+
+.mermaid {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.toggle-block {
+  background: #f9f8f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.toggle-block summary {
+  font-weight: 600;
+  color: #3d6c67;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.toggle-content {
+  margin-top: 0.75rem;
+}
+
+.section-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+@media screen and (min-width: 768px) {
+  .section-wrapper {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Optional: section-specific tweaks */
+.section-wrapper.data-stories {
+  border-left: 4px solid #c0572a;
+}
+
+.section-wrapper.explorations {
+  border-left: 4px solid #3d6c67;
+}
+
+.section-wrapper.thinking {
+  border-left: 4px solid #6f5b91;
+}
+
+/*
+.breadcrumb {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  font-size: 0.9rem;
+  margin: 1.5rem auto;
+  padding: 0 1.25rem;
+  max-width: 960px;
+  color: #6f5b91;
+}
+*/
+
+.breadcrumb.fade-in {
+  opacity: 1;
+  transform: none;
+}
+
+.breadcrumb {
+  will-change: opacity, transform;
+}
+
+.breadcrumb a {
+  color: #6f5b91;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb .current {
+  color: #1c1c1c;
+  font-weight: 500;
+}
+
+
+
+/* Inherit color by section */
+
+.breadcrumb {
+  opacity: 0;
+  transform: translateY(8px);
+  font-size: 0.9rem;
+  margin: 1.5rem auto;
+  padding: 0 1.25rem;
+  max-width: 960px;
+  /* transition: color 0.3s ease; */
+  transition: color 0.6s ease, transform 0.6s ease;
+}
+
+.breadcrumb a,
+.breadcrumb .current {
+  text-decoration: none;
+}
+
+.breadcrumb.section-thinking a,
+.breadcrumb.section-thinking .current {
+  color: #6f5b91;
+}
+
+.breadcrumb.section-data-stories a,
+.breadcrumb.section-data-stories .current {
+  color: #c0572a;
+}
+
+.breadcrumb.section-explorations a,
+.breadcrumb.section-explorations .current {
+  color: #3d6c67;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
