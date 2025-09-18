@@ -1,0 +1,56 @@
+{% comment %}
+Feature row with dual CTAs using Material Symbols.
+Reads features from (in order): include.feature_row, page.feature_row, page.featured, page.features
+Place at: _includes/feature_row_dual.html
+{% endcomment %}
+
+{% assign _features = include.feature_row | default: page.feature_row | default: page.featured | default: page.features %}
+
+{% if _features %}
+<div class="feature__wrapper">
+  {% for f in _features %}
+  <div class="feature__item">
+    <div class="archive__item">
+
+      {% if f.image_path %}
+      <div class="archive__item-teaser">
+        <img src="{{ f.image_path | relative_url }}" alt="{{ f.alt | default: '' }}">
+      </div>
+      {% endif %}
+
+      <div class="archive__item-body">
+        {% if f.title %}
+          {% if f.url %}
+            <h2 class="archive__item-title"><a href="{{ f.url | relative_url }}">{{ f.title }}</a></h2>
+          {% else %}
+            <h2 class="archive__item-title">{{ f.title }}</h2>
+          {% endif %}
+        {% endif %}
+
+        {% if f.excerpt %}
+        <div class="archive__item-excerpt">
+          {{ f.excerpt | markdownify }}
+        </div>
+        {% endif %}
+
+        <div class="cta-row">
+          {% if f.url %}
+            <a class="btn--cta primary" href="{{ f.url | relative_url }}">
+              <span class="material-symbols-rounded" aria-hidden="true">folder</span>
+              <span>{{ f.btn_label | default: "Project" }}</span>
+            </a>
+          {% endif %}
+          {% if f.docs_url %}
+            <a class="btn--cta secondary" href="{{ f.docs_url }}" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-rounded" aria-hidden="true">description</span>
+              <span>{{ f.docs_label | default: "Docs" }}</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

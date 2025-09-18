@@ -1,6 +1,5 @@
 /* === Card System (Minimal Mistakes companion) =====================
-   Drop this file into: _sass/_cards.scss
-   Then import from assets/css/main.scss after theme imports:
+   Import from assets/css/main.scss after theme imports:
      @import "cards";
 ==================================================================*/
 
@@ -9,7 +8,7 @@
   --accent-purple:#6f5b91;
   --accent-orange:#c0572a;
   --ink-900:#0f172a; --ink-800:#1f2937;
-  --gray-300:#d1d5db; --gray-200:#e5e7eb; --gray-50:#f8fafc;
+  --gray-500:#6b7280; --gray-400:#9ca3af; --gray-300:#d1d5db; --gray-200:#e5e7eb; --gray-50:#f8fafc;
 }
 
 .cards{
@@ -17,6 +16,11 @@
   display: grid;
   gap: var(--gap);
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cards.cards--resource{ /* slightly denser grid for resources */
+  --gap: .85rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .card{
@@ -54,7 +58,11 @@
   font-size: clamp(1.05rem, calc(.95rem + .3vw), 1.25rem); }
 .card__excerpt{ margin: 0; color: var(--ink-800);
   font-size: clamp(.94rem, calc(.9rem + .15vw), 1rem); }
-.card__meta{ display:flex; flex-wrap:wrap; gap:.375rem; margin: .25rem 0 0 0; }
+
+/* subtle meta row for date + read time */
+.card__submeta{ margin-top: -.1rem; color: var(--gray-400); font-size: .85rem; }
+
+.card__meta{ display:flex; flex-wrap:wrap; gap:.375rem; margin: .2rem 0 0 0; }
 .pill{ padding:.15rem .5rem; border-radius:999px; font-size:.8rem; line-height:1.2; border:1px solid var(--gray-300); background:#fff; }
 .pill--topic{ background: #f6f7f9; border-color: #e2e4e8; }
 .pill--format{ background: transparent; }
@@ -62,24 +70,69 @@
 .pill--status{ background: color-mix(in oklab, var(--accent-orange) 12%, white); border-color: transparent; }
 
 .card__footer{ margin-top: auto; display:flex; align-items:center; gap:.5rem; }
+
+/* CTA (ghost teal by default; fills on hover) */
 .card__cta{
+  --cta: var(--accent-teal);
   align-self:flex-start;
   display:inline-flex; align-items:center; gap:.35rem;
-  padding:.45rem .7rem; border-radius:10px; text-decoration:none; font-weight:700;
-  background: var(--ink-900); color:#fff;
+  padding:.45rem .7rem; border-radius:999px; text-decoration:none; font-weight:700;
+  background: transparent; color: var(--cta);
+  border: 1.6px solid var(--cta);
+  font-size: .95rem;
+  transition: background-color .12s ease, color .12s ease, border-color .12s ease;
 }
-.card__cta:hover{ filter: brightness(1.05); }
+.card__cta:hover{ background: var(--cta); color:#fff; border-color: var(--cta); }
+.card--post .card__cta{ display:none; } /* posts rarely need a CTA in the grid */
 
-/* Variants ------------------------------------------------------*/
-.card--project .card__cta{ background: var(--accent-orange); }
-.card--post .card__cta{ background: var(--accent-purple); }
-.card--resource .card__cta{ background: var(--accent-teal); }
+/* Variant-specific CTA colors if desired */
+.card--project .card__cta{ --cta: var(--accent-teal); }
+.card--resource .card__cta{ --cta: var(--accent-teal); }
 
 /* Subtle variant-specific borders */
-.card--project{ border-color: color-mix(in oklab, var(--accent-orange) 22%, white); }
-.card--post{ border-color: color-mix(in oklab, var(--accent-purple) 22%, white); }
+.card--project{ border-color: color-mix(in oklab, var(--accent-orange) 18%, white); }
+.card--post{ border-color: color-mix(in oklab, var(--accent-purple) 18%, white); }
 .card--resource{ border-color: color-mix(in oklab, var(--accent-teal) 22%, white); }
 
 /* Link reset inside title */
 .card__title a{ text-decoration:none; color: inherit; }
 .card__title a:hover{ text-decoration: underline; }
+
+/* -------- Resource Compact Variant (icon header, slim) -------- */
+.card--resource.card--compact{
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.card--resource.card--compact .card__media{ display:none; }
+
+.card__iconhead{
+  display:flex; align-items:center; gap:.5rem;
+  padding: .6rem .8rem .2rem .8rem;
+}
+.card__icon{
+  inline-size: 28px; block-size: 28px;
+  display:inline-grid; place-items:center;
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--accent-teal) 15%, white);
+  color: var(--accent-teal);
+}
+.card__icon .fa, .card__icon .fas, .card__icon .far{ font-size: 16px; line-height: 1; }
+
+.card--resource.card--compact .card__body{
+  padding: .6rem .8rem .8rem .8rem;
+}
+.card--resource.card--compact .card__title{
+  font-size: clamp(1rem, calc(.95rem + .2vw), 1.1rem);
+  margin-top: .1rem;
+}
+.card--resource.card--compact .card__excerpt{
+  font-size: clamp(.9rem, calc(.88rem + .12vw), .98rem);
+  color: var(--ink-800);
+}
+.card--resource.card--compact .card__submeta{
+  font-size: .82rem; color: var(--gray-500);
+}
+.card--resource.card--compact .pill{ font-size: .78rem; padding: .1rem .45rem; }
+.card--resource.card--compact .card__footer .card__cta{
+  padding:.38rem .65rem; font-size: .92rem;
+}

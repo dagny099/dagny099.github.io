@@ -1,0 +1,24 @@
+<footer class="footer-custom" role="contentinfo" aria-label="Site footer">
+  <div class="footer-custom__inner">
+    <p class="footer-heading">Let’s connect</p>
+
+    {% if site.footer.links %}
+    <ul class="footer-social">
+      {% for link in site.footer.links %}
+      {% if link.label and link.url %}
+      <li>
+        <a href="{{ link.url }}" target="_blank" rel="nofollow noopener noreferrer" title="{{ link.label }}">
+          {% if link.icon %}
+            <i class="{{ link.icon }}" aria-hidden="true"></i>
+          {% endif %}
+          <span>{{ link.label }}</span>
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <p class="footer-legal">© {{ 'now' | date: '%Y' }} {{ site.name | default: site.title }}. All rights reserved.</p>
+  </div>
+</footer>

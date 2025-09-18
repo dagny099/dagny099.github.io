@@ -1,33 +1,67 @@
 {% comment %}
-Usage:
-{% include card.html
-   variant="project"                 # "project" | "post" | "resource"
-   title=page.title
-   url=page.url
-   excerpt=page.excerpt
-   image=page.image_path             # optional
-   pills=page.tags                   # optional array
-   cta_label="30-sec view"           # optional
-   cta_url=page.url                  # optional
-%}
+Generic card component with light varianting (Liquid-safe conditions).
+Params:
+- variant: "project" | "post" | "resource"
+- title, url, excerpt
+- image, image_alt
+- topic_pills: array (e.g., tags, stack, topics)
+- level: string (e.g., Beginner, Intermediate)
+- format: string (e.g., PDF, Template, Guide, Notebook)
+- status: string (e.g., Active, Archived, WIP)
+- date: date (for posts)
+- read: number (minutes)
+- icon: font-awesome class string (optional)
+- compact: true/false (for resource slim cards)
+- cta_label, cta_url
 {% endcomment %}
 
 {% assign _variant = include.variant | default: "project" %}
-<article class="card card--{{ _variant }}">
-  <div class="card__media">
-    {% if include.image %}<img src="{{ include.image }}" alt="">{% endif %}
-  </div>
+{% assign _compact = include.compact | default: false %}
+
+<article class="card card--{{ _variant }}{% if _compact %} card--compact{% endif %}">
+  {% if _variant == "resource" and _compact == true %}
+    <div class="card__iconhead">
+      <span class="card__icon">{% if include.icon %}<i class="{{ include.icon }}" aria-hidden="true"></i>{% else %}<i class="far fa-file-lines" aria-hidden="true"></i>{% endif %}</span>
+      {% if include.format %}<span class="pill pill--format">{{ include.format }}</span>{% endif %}
+      {% if include.level %}<span class="pill pill--level">{{ include.level }}</span>{% endif %}
+    </div>
+  {% else %}
+    <div class="card__media">
+      {% if include.image %}<img src="{{ include.image | relative_url }}" alt="{{ include.image_alt | default: '' }}">{% endif %}
+    </div>
+  {% endif %}
+
   <div class="card__body">
-    <h3 class="card__title">{% if include.url %}<a href="{{ include.url }}">{% endif %}{{ include.title }}{% if include.url %}</a>{% endif %}</h3>
+    <h3 class="card__title">{% if include.url %}<a href="{{ include.url | relative_url }}">{% endif %}{{ include.title }}{% if include.url %}</a>{% endif %}</h3>
     {% if include.excerpt %}<p class="card__excerpt">{{ include.excerpt }}</p>{% endif %}
-    {% if include.pills and include.pills != empty %}
-      <div class="card__meta">
-        {% for t in include.pills %}<span class="pill pill--topic">{{ t }}</span>{% endfor %}
+
+    {% if include.date or include.read %}
+      <div class="card__submeta">
+        {% if include.date %}{{ include.date | date: "%b %Y" }}{% endif %}{% if include.read %}{% if include.date %} · {% endif %}{{ include.read }} min{% endif %}
       </div>
     {% endif %}
+
+    {% assign _show_meta = false %}
+    {% if include.topic_pills %}{% assign _show_meta = true %}{% endif %}
+    {% if _compact != true and include.format %}{% assign _show_meta = true %}{% endif %}
+    {% if _compact != true and include.level %}{% assign _show_meta = true %}{% endif %}
+    {% if include.status %}{% assign _show_meta = true %}{% endif %}
+
+    {% if _show_meta %}
+      <div class="card__meta">
+        {% if include.topic_pills %}
+          {% for t in include.topic_pills %}<span class="pill pill--topic">{{ t }}</span>{% endfor %}
+        {% endif %}
+        {% if _compact != true and include.format %}<span class="pill pill--format">{{ include.format }}</span>{% endif %}
+        {% if _compact != true and include.level %}<span class="pill pill--level">{{ include.level }}</span>{% endif %}
+        {% if include.status %}<span class="pill pill--status">{{ include.status }}</span>{% endif %}
+      </div>
+    {% endif %}
+
     <div class="card__footer">
-      {% if include.cta_label %}
-        <a class="card__cta" href="{{ include.cta_url | default: include.url }}">{{ include.cta_label }}</a>
+      {% assign _cta = include.cta_label %}
+      {% if _cta %}
+        <a class="card__cta" href="{{ include.cta_url | default: include.url | relative_url }}">{{ _cta }}</a>
       {% endif %}
     </div>
   </div>

@@ -1,0 +1,21 @@
+{% comment %}
+Renders bottom nav tiles from /_data/navigation.yml (main array).
+Optional: pass exclude as a STRING or ARRAY (both work):
+  {% include section_tiles.html exclude="/contact/" %}
+  {% include section_tiles.html exclude=page.exclude_list %}
+The tile colors come from each item's `color` and `background-color`.
+{% endcomment %}
+
+<div class="section-tiles">
+  {% assign excludes = include.exclude %}
+  {% for i in site.data.navigation.main %}
+    {% unless excludes and excludes contains i.url %}
+      <a class="section-tile"
+         href="{{ i.url | relative_url }}"
+         style="--tile-color: {{ i.color }}; --tile-bg: {{ i['background-color'] }};">
+        <p class="t-title">{{ i.short | default: i.title }}</p>
+        {% if i.subtitle %}<p class="t-sub">{{ i.subtitle }}</p>{% endif %}
+      </a>
+    {% endunless %}
+  {% endfor %}
+</div>

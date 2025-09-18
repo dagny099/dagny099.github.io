@@ -1,0 +1,688 @@
+/* === Brand tokens (safe if redefined) === */
+:root{
+  --accent-teal:#3d6c67;
+  --accent-purple:#6f5b91;
+  --accent-orange:#c0572a;
+  --ink-900:#0f172a; --ink-800:#1f2937;
+  --gray-200:#e5e7eb; --gray-50:#f8fafc;
+}
+
+/* === Global page edge ===================== */
+/* One token to rule the insets site-wide */
+:root { --page-edge: clamp(1rem, 4vw, 3rem); }
+
+/* Keep your existing home-section using the same token */
+.home-section { padding-inline: var(--page-edge); }
+
+/* === Align masthead to the same edge ====== */
+/* Scope to the home page so other layouts keep their defaults */
+.home .masthead .masthead__inner-wrap {
+  padding-left: var(--page-edge);
+  padding-right: var(--page-edge);
+}
+
+/* === Align hero content to the same edge == */
+.home .page__hero--overlay .wrapper {
+  padding-left: var(--page-edge);
+  padding-right: var(--page-edge);
+}
+
+/* (Optional) Align the small caption in the hero’s bottom-right corner */
+.home .page__hero--overlay .page__meta,
+.home .page__hero--overlay .page__actions {
+  right: var(--page-edge);
+}
+
+/* === A) Hero & masthead alignment/behavior === */
+.layout--home .page__hero--overlay {
+  /* pad hero content to align with content grid; avoids hugging left edge */
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+/* Hide hero H1/large title to avoid brand duplication while keeping excerpt */
+.layout--home .page__hero--overlay .page__title {
+  position: absolute !important;
+  clip: rect(1px,1px,1px,1px);
+  height: 1px; width: 1px; overflow: hidden; /* accessible hide */
+}
+
+.home.layout--splash {
+  /* Hide hero title on the splash hero only on home */
+  .page__hero--overlay .page__title { display: none !important; }
+
+  /* Tighter hero padding on the splash banner */
+  .page__hero--overlay { padding: 1em; }
+}
+
+/* Masthead site title (your name) */
+.masthead .site-title {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  /* Responsive but safe for Jekyll’s older Sass:
+     wrap mixed units inside calc() when using clamp() */
+  font-size: clamp(1.125rem, calc(1rem + 0.6vw), 1.5rem);
+}
+
+/* Masthead spacing + single hover underline */
+.masthead .greedy-nav .visible-links > li > a {
+  padding-inline: .5rem; /* tighter than default */
+  position: relative;
+}
+
+
+/* keep your base show/hide */
+.masthead .greedy-nav .visible-links > li > a{ position: relative; }
+.masthead .greedy-nav .visible-links > li > a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-0.9rem;
+  height:4px; background: transparent;
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .18s ease, background-color .18s ease;
+}
+.masthead .greedy-nav .visible-links > li > a:is(:hover,:focus,[aria-current="page"])::after{
+  transform: scaleX(1);
+}
+
+/* per-section with :is(...) — NO newline/space before :is -- NOT WORKING */
+.masthead .greedy-nav .visible-links > li.masthead__menu-item > a[href^="/projects/"]:is(:hover,:focus,[aria-current="page"])::after   { background:#2a6f97 !important; }
+.masthead .greedy-nav .visible-links > li.masthead__menu-item > a[href^="/thinking/"]:is(:hover,:focus,[aria-current="page"])::after   { background:#6f5b91 !important; }
+.masthead .greedy-nav .visible-links > li.masthead__menu-item > a[href^="/resources/"]:is(:hover,:focus,[aria-current="page"])::after  { background:#3d6c67 !important; }
+.masthead .greedy-nav .visible-links > li.masthead__menu-item > a[href^="/my-journey/"]:is(:hover,:focus,[aria-current="page"])::after { background:#5f5449 !important; }
+.masthead .greedy-nav .visible-links > li.masthead__menu-item > a[href^="/contact/"]:is(:hover,:focus,[aria-current="page"])::after    { background:#0f766e !important; }
+
+
+/* === B) Home section headers (collapsible with custom chevron) === */
+.home-section {
+  margin: 2.25rem 0;
+  padding-inline: clamp(1rem, 4vw, 3rem); /* grid alignment */
+}
+
+/* Summary row (chevron + title) */
+.home-accordion > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  padding: .25rem 0 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.home-accordion > summary::-webkit-details-marker { display: none; }
+
+/* Chevron */
+.home-accordion > summary::before{
+  content: "";
+  inline-size: 1rem; block-size: 1rem; flex: 0 0 1rem;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M8.12 9.29L12 13.17l3.88-3.88 1.41 1.41L12 16l-5.29-5.29z'/></svg>")
+        no-repeat center / contain;
+  background: var(--ink-800);
+  transform: rotate(0deg);
+  transition: transform .18s ease-in-out;
+}
+.home-accordion[open] > summary::before { transform: rotate(180deg); }
+
+/* Heading inside summary */
+.home-accordion > summary h2{
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.25;
+  /* size tweak (choose one): */
+  font-size: 1rem; /* fixed, simple */
+  /* font-size: clamp(1rem, 0.4vw + 0.95rem, 1.25rem); */ /* responsive */
+  color: var(--ink-900);
+  /* accent rule on hover */
+  display: inline-block;                 /* underline width matches text */
+  border-bottom: 3px solid transparent;  /* becomes colored on hover */
+  transition: color .12s ease, border-color .12s ease;
+}
+
+/* === Section-colored hovers (colors come from :root CSS variables) === */
+/* Add data-section="projects|thinking|resources|my-journey|contact" to each <details> */
+.home-accordion[data-section="projects"]  summary > h2:hover {
+  color: var(--nav-projects-color);
+  border-bottom-color: var(--nav-projects-color);
+}
+.home-accordion[data-section="thinking"]  summary > h2:hover {
+  color: var(--nav-thinking-color);
+  border-bottom-color: var(--nav-thinking-color);
+}
+.home-accordion[data-section="resources"] summary > h2:hover {
+  color: var(--nav-resources-color);
+  border-bottom-color: var(--nav-resources-color);
+}
+.home-accordion[data-section="my-journey"] summary > h2:hover {
+  color: var(--nav-my-journey-color);
+  border-bottom-color: var(--nav-my-journey-color);
+}
+.home-accordion[data-section="contact"]   summary > h2:hover {
+  color: var(--nav-contact-color);
+  border-bottom-color: var(--nav-contact-color);
+}
+
+/* HR control (unchanged) */
+.home-divider {
+  border: 0;
+  border-top: 1px solid var(--gray-200);
+  margin: 2rem 0;
+}
+
+/* === C) Project cards & teaser placeholder === */
+/* Constrain feature_row images to 16:9 and add hover elevation */
+.feature__item .archive__item-teaser,
+.feature__wrapper .archive__item-teaser{
+  aspect-ratio: 16 / 9;
+  overflow: hidden; border-radius: 12px; background: var(--gray-50);
+}
+.feature__item .archive__item-teaser img,
+.feature__wrapper .archive__item-teaser img{ object-fit: cover; width: 100%; height: 100%; }
+
+.feature__item, .feature__wrapper .archive__item{
+  border-radius: 14px; transition: box-shadow .16s ease, transform .16s ease;
+}
+.feature__item:hover, .feature__wrapper .archive__item:hover{
+  box-shadow: 0 2px 12px rgba(0,0,0,.08); transform: translateY(-2px);
+}
+
+/* Neutral fallback when no teaser image is present */
+.archive__item-teaser:empty{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.02)),
+    #f4f6f8;
+  position: relative;
+}
+.archive__item-teaser:empty::after{
+  content:"";
+  position:absolute; inset:0; margin:auto; width:48px; height:48px;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M21 19V5a2 2 0 0 0-2-2H5C3.89 3 3 3.9 3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01 3.5-4.51L19 18H5l3.5-4.5zM9 8a2 2 0 1 1-.001 3.999A2 2 0 0 1 9 8z'/></svg>") no-repeat center / contain;
+  background: #b6bec8;
+}
+
+/* Remove stray leading dash before titles if produced by list styles */
+.feature__wrapper .archive__item-title,
+.feature__item .archive__item-title{ 
+  text-indent: 0; 
+}
+.feature__wrapper .archive__item-title::marker { content: ""; }
+
+/* --- Vertical rhythm tightening on feature cards --- */
+.feature__wrapper .archive__item-title { 
+  margin: .6rem 0 .25rem 0;
+}
+.feature__wrapper .archive__item-excerpt {
+  margin: 0 0 .75rem 0;
+  color: var(--ink-800);
+}
+.feature__wrapper .btn {
+  margin-top: .5rem;
+}
+
+/* Right-aligned subtle CTA under Featured */
+.home-cta--right { 
+  text-align: right;
+  padding-right: clamp(1rem, 4vw, 3rem);
+  margin-top: .5rem;
+}
+
+/* === D) Resource minis: teal-tinted cards + subtle link === */
+.resource-minis{
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 1rem;
+}
+.resource-mini{
+  display:flex; gap:.75rem; align-items:flex-start;
+  background: color-mix(in oklab, var(--accent-teal) 8%, white);
+  border: 1px solid color-mix(in oklab, var(--accent-teal) 18%, white);
+  border-radius: 14px; padding: .9rem 1rem;
+}
+.resource-mini__icon{ 
+  inline-size: 1.25rem; block-size: 1.25rem; color: var(--accent-teal);
+}
+.resource-mini h3{ margin: 0 0 .25rem 0; font-size: 1.05rem; }
+.resource-mini p{ margin: 0; color: var(--ink-800); }
+
+/* “Browse all resources” as text link with arrow */
+.link-more{
+  --_c: var(--accent-teal);
+  color: var(--_c); text-decoration: none; font-weight: 600;
+  position: relative; padding-right: 1.1rem;
+}
+.link-more::after{
+  content: "→"; position: absolute; right: 0; top: 0;
+  transition: transform .16s ease;
+}
+.link-more:hover::after{ transform: translateX(.2rem); }
+.home-cta{ margin-top: .75rem; }
+
+/* === E) Explore chips alignment (kept minimal) === */
+.explore-chips {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .75rem; padding-inline: clamp(1rem, 3vw, 2rem);
+}
+.chip {
+  display: flex; flex-direction: column; text-decoration: none;
+  background: #fff; border: 1px solid #eaeaea; border-radius: 12px; padding: .8rem 1rem;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+  transition: transform .06s ease, box-shadow .15s ease;
+}
+.chip:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+.chip__title { font-weight: 700; color: #ffffff; }
+.chip__desc { font-size: .92rem; color: ffffff; margin-top: .1rem; }
+
+.chip--projects  { background: #2a6f97;   border-color: color-mix(in srgb, var(--accent-teal) 14%, #ffffff); }
+.chip--thinking  { background: #6f5b91; border-color: color-mix(in srgb, var(--accent-purple) 24%, #ffffff); }
+.chip--resources { background: #3d6c67;  border-color: color-mix(in srgb, var(--accent-orange) 24%, #ffffff); }
+.chip--journey { background: #5f5449;  border-color: color-mix(in srgb, var(--accent-50) 24%, #ffffff); }
+
+/* === Typographic scale reinforcement (scoped) === */
+.layout--home { 
+  font-size: clamp(1rem, calc(0.95rem + 0.2vw), 1.0625rem);
+}
+
+/* === Feature wrapper panel (homepage only) ===================== */
+.home .feature__wrapper {
+  /* Generic fallback if no per-section rule applies */
+  background: #f7f7f7;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  padding: clamp(.75rem, 1.2vw, 1.25rem);
+  margin-block: .5rem 2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+
+/* If your <details> has data-section="projects", tint with nav.yml colors */
+.home .home-accordion[data-section="projects"] .feature__wrapper {
+  background: var(--nav-projects-bg, #eef6fb);
+  border-color: color-mix(in oklab, var(--nav-projects-color, #2a6f97) 18%, #fff);
+}
+
+/* Add variants if you later use a feature block for other sections */
+.home .home-accordion[data-section="resources"] .feature__wrapper {
+  background: var(--nav-resources-bg, #f4f9f8);
+  border-color: color-mix(in oklab, var(--nav-resources-color, #3d6c67) 18%, #fff);
+}
+.home .home-accordion[data-section="thinking"] .feature__wrapper {
+  background: var(--nav-thinking-bg, #f7f4fb);
+  border-color: color-mix(in oklab, var(--nav-thinking-color, #6f5b91) 18%, #fff);
+}
+
+/* Optional: make inner cards breathe a bit inside the panel */
+.home .feature__wrapper .feature__item {
+  padding-block: .25rem;
+}
+
+/* === Resources panel (homepage) ================================= */
+.home .home-accordion[data-section="resources"] .feature__wrapper {
+  /* Lightly tinted by the section color vars you exposed from nav.yml */
+  background: var(--nav-resources-bg, #f4f9f8);
+  border: 1px solid color-mix(in oklab,
+                              var(--nav-resources-color, #3d6c67) 14%,
+                              #fff);
+  border-radius: 16px;
+  padding: clamp(.75rem, 1.2vw, 1.25rem);
+  margin-block: .5rem 2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+
+/* Inner spacing so cards breathe inside the panel */
+.home .home-accordion[data-section="resources"] .feature__wrapper .feature__item {
+  padding-block: .25rem;
+}
+
+/* “Browse all resources” link INSIDE the panel */
+.home .home-accordion[data-section="resources"] .feature__wrapper .browse-all {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .35rem;
+  font-weight: 700;
+  color: var(--nav-resources-color, #3d6c67);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color .12s ease, border-color .12s ease, transform .12s ease;
+}
+
+/* Provide the arrow via CSS so text stays clean (no double arrows) */
+.home .home-accordion[data-section="resources"] .feature__wrapper .browse-all::after {
+  content: "→";
+  font-weight: 800;
+  transform: translateY(1px);
+}
+
+/* Hover affordance */
+.home .home-accordion[data-section="resources"] .feature__wrapper .browse-all:hover {
+  border-bottom-color: currentColor;
+  transform: translateX(1px);
+}
+
+/* === Home: bottom nav tiles ===================================== */
+.home .section-tiles{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(.6rem, 1vw, .9rem);
+  padding-inline: var(--page-edge, clamp(1rem, 4vw, 3rem));
+  margin: 1.25rem 0 3rem;
+  align-items: stretch;
+}
+
+.home .section-tile{
+  /* read from inline vars set by section_tiles.html */
+  --c: var(--tile-color, #2a6f97);
+  --bg: var(--tile-bg, #f7f7f7);
+  --fg: color-mix(in oklab, var(--c) 65%, #000);      /* title text */
+  --fg-sub: color-mix(in oklab, var(--c) 35%, #374151);/* subtitle */
+
+  display:grid;
+  align-content:center;
+  gap:.3rem;
+  min-block-size: 112px;
+
+  padding: .95rem 1.05rem;
+  border-radius: 16px;
+
+  background: var(--bg);
+  border: 1px solid color-mix(in oklab, var(--c) 22%, #fff);
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+
+  text-decoration: none;
+  position: relative;
+  transition:
+    transform .14s ease,
+    box-shadow .14s ease,
+    background-color .14s ease,
+    border-color .14s ease;
+}
+
+/* Accent underline (subtle, sits inside) */
+.home .section-tile::after{
+  content:"";
+  position:absolute;
+  inset: auto 1rem .6rem 1rem;
+  height: 3px;
+  border-radius: 3px;
+  background: color-mix(in oklab, var(--c) 40%, #fff);
+  opacity: .6;
+  transition: opacity .14s ease, transform .14s ease, background-color .14s ease;
+}
+
+/* Typography */
+.home .section-tile .t-title{
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  font-size: 1.125rem;
+  color: var(--fg);
+  line-height: 1.25;
+}
+.home .section-tile .t-sub{
+  margin: 0;
+  font-size: .95rem;
+  color: var(--fg-sub);
+  line-height: 1.35;
+}
+
+/* Hover & focus */
+.home .section-tile:hover,
+.home .section-tile:focus-visible{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+  border-color: color-mix(in oklab, var(--c) 36%, #fff);
+  background: color-mix(in oklab, var(--c) 10%, var(--bg)); /* a touch richer */
+  outline: none; /* use the underline as focus cue */
+}
+.home .section-tile:hover::after,
+.home .section-tile:focus-visible::after{
+  opacity: 1;
+  transform: translateY(-1px);
+  background: var(--c); /* bolder on interaction */
+}
+
+/* === Bottom nav tiles: square + thick top rule ================== */
+/* Remove rounding, remove bottom underline, add top accent strap.  */
+.home .section-tile{
+  --c: var(--tile-color, #2a6f97);
+  --bg: var(--tile-bg, #fff);
+  --fg: color-mix(in oklab, var(--c) 65%, #000);
+  --fg-sub: color-mix(in oklab, var(--c) 35%, #374151);
+
+  border-radius: 0;                 /* <-- no rounding */
+  background: #fff;                 /* crisper than tinted fill here */
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  padding: .95rem 1.05rem .9rem;
+  position: relative;
+}
+
+/* Kill the old bottom accent if you kept my earlier version */
+.home .section-tile::after{ content:none; }
+
+/* New top strap (section color) */
+.home .section-tile::before{
+  content:"";
+  position:absolute;
+  inset: 0 0 auto 0;   /* top edge */
+  height: 6px;         /* thickness of the strap */
+  background: var(--c);
+}
+
+/* Type colors remain derived from section color */
+.home .section-tile .t-title{ color: var(--fg); }
+.home .section-tile .t-sub  { color: var(--fg-sub); }
+
+/* Hover/focus: subtle lift and a whisper of tint */
+.home .section-tile:hover,
+.home .section-tile:focus-visible{
+  background: color-mix(in oklab, var(--c) 6%, #fff);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  outline: none; /* rely on lift+tint instead of a heavy outline */
+}
+
+/* Square off the outer panels; cards inside keep their own radius */
+.home .home-accordion:is([data-section="projects"], [data-section="resources"]) .feature__wrapper { border-radius: 0 !important; }
+
+/* Section accent tokens (already set for projects; add resources too) */
+.home .home-accordion[data-section="projects"]  { --section-accent: var(--nav-projects-color,  #2a6f97); }
+.home .home-accordion[data-section="resources"] { --section-accent: var(--nav-resources-color, #3d6c67); }
+
+/* CTA row: kill paragraph spacing + align pills */
+.home .feature__wrapper .cta-row{
+  display:flex; flex-wrap:wrap; gap:.5rem;
+  margin: .5rem 0 0 0;                 /* remove large P margins */
+}
+
+/* Soft, compact, tint-on-accent buttons (robust specificity) */
+.home .feature__wrapper .cta-row .btn--soft{
+  --c: var(--section-accent, #2a6f97);
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.44rem .72rem;                /* smaller than default .btn */
+  font-weight:700; font-size:.95rem; line-height:1;
+  border-radius:999px;
+  text-decoration:none; white-space:nowrap;
+  background: color-mix(in oklab, var(--c) 14%, #fff);
+  border: 1px solid color-mix(in oklab, var(--c) 28%, #fff);
+  color:   color-mix(in oklab, var(--c) 75%, #000);
+  box-shadow:none;                      /* beat theme shadows */
+  appearance:none;
+  transition: background-color .12s ease, border-color .12s ease, transform .12s ease;
+}
+.home .feature__wrapper .cta-row .btn--soft:hover{
+  background: color-mix(in oklab, var(--c) 22%, #fff);
+  border-color: color-mix(in oklab, var(--c) 40%, #fff);
+  transform: translateY(-1px);
+}
+
+/* Quieter companion button */
+.home .feature__wrapper .cta-row .btn--soft.alt{
+  background: color-mix(in oklab, var(--c) 8%, #fff);
+  border-color: color-mix(in oklab, var(--c) 18%, #fff);
+}
+
+/* Safety: ensure any legacy theme button styles don't creep in */
+.home .feature__wrapper .btn.btn--primary { padding:.44rem .72rem; border-radius:999px; }
+
+/* Square off the outer panels (Projects + Resources); inner cards keep radius */
+.home .home-accordion:is([data-section="projects"], [data-section="resources"]) .feature__wrapper {
+  border-radius: 0 !important;
+}
+
+/* equal columns */
+.home .feature__wrapper .cta-row{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem; margin-top:.6rem; }
+
+/* restyle existing anchors */
+.home .feature__wrapper .cta-row a.btn--soft{
+  --c: var(--section-accent, #2a6f97);
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  width:100%;
+  padding:.62rem .85rem;
+  font-weight:700; font-size:.95rem; line-height:1;
+  border:0; border-radius:12px; text-decoration:none;
+  background: var(--c); color:#fff; box-shadow:0 1px 0 rgba(0,0,0,.06);
+}
+.home .feature__wrapper .cta-row a.btn--soft.alt{
+  background: color-mix(in oklab, var(--c) 14%, #fff);
+  color: color-mix(in oklab, var(--c) 85%, #000);
+}
+
+/* icons by attribute (project is internal link; docs is external) */
+.home .feature__wrapper .cta-row a.btn--soft::before{
+  content:""; inline-size:1.1em; block-size:1.1em; background: currentColor;
+  mask: var(--icon) no-repeat center / contain;
+}
+
+/* Accents per section (used by buttons) */
+.home .home-accordion[data-section="projects"]  { --section-accent: var(--nav-projects-color,  #2a6f97); }
+.home .home-accordion[data-section="resources"] { --section-accent: var(--nav-resources-color, #3d6c67); }
+
+/* CTA row: two equal columns; collapses gracefully to one if only one link */
+.home .feature__wrapper .cta-row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: .6rem;
+  margin-top: .6rem;
+}
+
+/* Modern, borderless action buttons with icons */
+.home .feature__wrapper .btn--cta{
+  --c: var(--section-accent, #2a6f97);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  width: 100%;
+  padding: .62rem .9rem;
+  font-weight: 700;
+  font-size: .95rem;
+  line-height: 1;
+  border: 0;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, color .12s ease;
+}
+
+.home .feature__wrapper .btn--cta.primary{
+  background: var(--c);
+  color: #fff;
+}
+
+.home .feature__wrapper .btn--cta.secondary{
+  background: color-mix(in oklab, var(--c) 14%, #fff);
+  color: color-mix(in oklab, var(--c) 85%, #000);
+}
+
+.home .feature__wrapper .btn--cta:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+
+/* Icon sizing/tuning */
+.home .feature__wrapper .btn--cta .material-symbols-rounded{
+  font-variation-settings: 'wght' 600, 'opsz' 24;
+  font-size: 1.15em;
+  line-height: 0;
+}
+
+/* ===== Footer (custom) ========================================= */
+.page__footer { background: transparent; } /* let our footer own the paint */
+
+/* Strap color: pick one brand color (Resources teal works well) */
+.footer-custom{
+  --strap: var(--nav-resources-color, #3d6c67);
+  background: #0b2f39;                    /* slate-900 */
+  color: #e6f3f7;                         /* slate-200 */
+  border-top: 6px solid var(--strap);     /* crisp strap, not a box */
+  margin-top: 2.25rem;
+}
+
+/* Align to the global page edge */
+.footer-custom__inner{
+  padding: 1.1rem var(--page-edge, clamp(1rem, 4vw, 3rem)) 1.4rem;
+  text-align: center;
+  display: grid;
+  gap: .75rem;
+}
+
+/* Typographic hierarchy */
+.footer-heading{
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: #e2e8f0;
+}
+
+/* Social line: compact “pills”, tidy spacing, no underlines */
+.footer-social{
+  list-style: none; padding: 0; margin: .1rem 0 .2rem;
+  display: inline-flex; flex-wrap: wrap;
+  gap: .6rem .9rem; justify-content: center;
+}
+.footer-social a{
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .38rem .6rem;
+  background: rgba(255,255,255,.08);
+  border-radius: 999px;
+  color: #e2f1ff;
+  text-decoration: none; border: 0; box-shadow: none;
+  transition: background-color .12s ease, color .12s ease, transform .12s ease;
+}
+.footer-social a:hover{ background: rgba(255,255,255,.10); color: #fff; transform: translateY(-1px); }
+.footer-social i{ font-size: 1rem; line-height: 0; }   /* FA icons */
+.footer-legal{ color: #94a3b8; margin: 0; font-size: .92rem; }
+
+/* Footer FA icon brightness */
+.footer-custom{
+  /* tweak this once to taste */
+  --strap: #6f5b91; /* or your nav teal var */
+  --icon-accent: color-mix(in oklab, #f89960 85%, #fff);
+}
+
+.page__footer .footer-custom .footer-social i {
+  color: var(--icon-accent) !important;
+  opacity: 1 !important;
+}
+
+.page__footer .footer-custom .footer-social a:hover i {
+  color: #fff !important;   /* brighter on hover */
+}
+
+/* Tighter vertical rhythm between section tiles and footer */
+.home .section-tiles{ margin-bottom: 1.25rem; }
+
+/* Never underline H2s inside <summary> (links included) */
+summary h2,
+summary h2 a,
+summary h2 a:hover,
+summary h2 a:focus,
+summary h2 a:active{
+  text-decoration: none !important;
+  border-bottom: 0 !important;   /* some themes use this instead of underline */
+  box-shadow: none !important;    /* some themes fake underlines with shadow */
+  background-image: none !important; /* gradient-underlines etc. */
+  color: inherit;                 /* keep the heading color, not link blue */
+}
+
+/* In case a theme injects decorative pseudo-elements on the link */
+summary h2 a::before,
+summary h2 a::after{
+  content: none !important;
+}

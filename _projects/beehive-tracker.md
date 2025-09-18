@@ -1,34 +1,29 @@
 ---
-title: "Beehive Tracker"
-permalink: /projects/beehive-tracker/
 layout: single
-classes: wide
-category: ["Data Products & Interfaces","Graphs & Knowledge Systems"]
-tags: ["python","streamlit","neo4j","computer-vision","weather","knowledge-graph"]
-role: "Data Scientist & Builder"
-timeframe: "2024–2025"
-stack: ["Python","Streamlit","Neo4j","OpenCV","Weather API"]
-status: "Active"
-repo: "https://github.com/dagny099/beehive-tracker/tree/main"
-docs: "https://docs.barbhs.com/beehive-tracker/"
-teaser: /assets/images/beehive-card.jpg
+title: "Beehive Tracker — A living knowledge base"
+excerpt: "EXIF + weather + CV → structured apiculture insights; a friendly UI over a knowledge graph."
+date: 2024-10-10
+permalink: /projects/beehive-tracker/
+# Visuals
+teaser: /assets/images/teasers/beehive.jpg
+teaser_alt: "Beehive and field notes"
+# Meta (cards)
+tags: [knowledge-graph, cv]
+stack: [Python, Neo4j, FastAPI]
+status: WIP
+order: 20
+# CTA
+cta_label: "30-sec view"
+cta_url: /projects/beehive-tracker/
 ---
 
-**30‑second summary.** EXIF + weather + CV → a living beekeeping knowledge base. Friendly UI atop a graph that connects photos, conditions, and hive events.
+## Problem
+Apiary notes get trapped in photos and paper. Patterns (queen health, forage, pests) rarely make it into a system of record.
 
-<details><summary><strong>Read the 2‑minute overview</strong></summary>
+## Approach
+- Extract EXIF + local weather; light CV to detect frames (brood, pollen, mite checks).
+- Model as a graph: Hives, Inspections, Observations, Conditions.
+- Friendly UI for queries (“show inspections before swarm events”).
 
-**Problem.** Photos and notes pile up with no structure; hard to learn from seasons.  
-**Approach.** Extract EXIF, run light CV, enrich with weather, and store relationships in a graph for fast querying.  
-**Impact.** Faster pattern‑finding (foragers, brood trends); better timing for interventions.  
-**Governance.** Clear data model, exportable records, and documented provenance.
-
-</details>
-
-### Deep dive
-- **Problem.** Unstructured observations ≠ actionable knowledge.  
-- **Approach.** Pipeline from image → metadata → graph; timeline + filters UI.  
-- **Impact.** Season‑over‑season learning; shareable insights.  
-- **Governance.** Schema diagrams, versioned transforms, and environment setup.
-
-**Links.** [GitHub]({{ page.repo }}) · [Docs]({{ page.docs }})
+## Impact
+- Fewer missed signals, better seasonal prep, richer handoff notes.

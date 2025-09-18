@@ -12,90 +12,91 @@ header:
   overlay_filter: 0.78
   caption: "Austin, TX · Data Science · Knowledge Graphs · Human‑Centered AI"
 
-# Featured projects
+# Keep the same data structure you already had so it's a safe drop‑in.
+# We will render this via the new cards component below.
 feature_row:
   - image_path: /assets/images/teasers/fitness.jpg
     alt: "Fitness Dashboard"
     title: "Fitness Dashboard → Decisions, not dashboards"
     excerpt: "From CSV sprawl to weekly, explainable training insights—consistency metrics, deltas, and trend‑break detection."
     url: /projects/fitness-dashboard/
-    btn_label: "30-sec view"
-    btn_class: "btn--primary"
+    btn_label: "Project"
+    docs_url: https://docs.barbhs.com/fitness-dashboard/
+    docs_label: "Docs"
   - image_path: /assets/images/teasers/convoscope.jpg
     alt: "Convoscope"
     title: "Convoscope → AI that briefs you"
     excerpt: "Structures messy conversations into crisp briefs and next‑step checklists; retrieval without hallucination theater."
     url: /projects/convoscope/
-    btn_label: "30-sec view"
-    btn_class: "btn--primary"
+    btn_label: "Project"
+    docs_url: https://docs.barbhs.com/convoscope/
+    docs_label: "Docs"
   - image_path: /assets/images/teasers/beehive.jpg
     alt: "Beehive Tracker"
     title: "Beehive Tracker → A living knowledge base"
     excerpt: "EXIF + weather + CV → structured apiculture insights; a friendly UI over a knowledge graph."
     url: /projects/beehive-tracker/
-    btn_label: "30-sec view"
-    btn_class: "btn--primary"
+    btn_label: "Project"
+    docs_url: https://docs.barbhs.com/beehive-tracker/
+    docs_label: "Docs"
 ---
 
 <!-- =======================
-     Featured Work
+     Featured Work (cards)
      ======================= -->
 <div class="home-section">
-  <details class="home-accordion" markdown="1" open>
-    <summary><h2>Featured work</h2></summary>
-  {% include cards_grid.html variant="project" items=site.projects cta_label="30-sec view" image_key="image_path" %}
-  </details>
+<details class="home-accordion" data-section="projects" markdown="1" open>
+<summary><h2>Featured Projects</h2></summary>
 
-  <!-- right-aligned subtle text link under Featured -->
-  <p class="home-cta home-cta--right">
-    <a class="link-more" href="/projects/">View all projects</a>
-  </p>
+{% include feature_row_dual %}
+
+</details>
 </div>
 
 <!-- =======================
-     Resources & Guides (home minis)
+     Resources & Guides (keep minis for now)
      ======================= -->
 <div class="home-section">
-  <details class="home-accordion" markdown="1" open>
-    <summary><h2>Resources &amp; Guides</h2></summary>
+  <details class="home-accordion" data-section="resources" markdown="1" open>
+  <summary><h2>Resources &amp; Guides</h2></summary>
+  <div class="feature__wrapper">
 
-    <div class="resource-minis">
-      <article class="resource-mini">
-        <div class="resource-mini__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></div>
-        <div class="resource-mini__body">
-          <h3><a href="/resources/executive-brief/">Executive brief template</a></h3>
-          <p>Turn fuzzy threads into crisp, action‑ready briefs with surface links to evidence.</p>
-        </div>
-      </article>
+  <div class="resource-minis">
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/executive-brief/">Executive brief template</a></h3>
+        <p>Turn fuzzy threads into crisp, action‑ready briefs with surface links to evidence.</p>
+      </div>
+    </article>
 
-      <article class="resource-mini">
-        <div class="resource-mini__icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
-        <div class="resource-mini__body">
-          <h3><a href="/resources/dataset-cards/">Dataset &amp; prompt cards</a></h3>
-          <p>Lightweight governance you can actually keep—structure, versions, and reproducible envs.</p>
-        </div>
-      </article>
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/dataset-cards/">Dataset &amp; prompt cards</a></h3>
+        <p>Lightweight governance you can actually keep—structure, versions, and reproducible envs.</p>
+      </div>
+    </article>
 
-      <article class="resource-mini">
-        <div class="resource-mini__icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
-        <div class="resource-mini__body">
-          <h3><a href="/resources/streamlit-bridge/">Streamlit: DS to app, without drama</a></h3>
-          <p>From notebook to interactive app in hours. Pragmatic guide, patterns, and gotchas.</p>
-        </div>
-      </article>
-    </div>
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/streamlit-bridge/">Streamlit: DS to app, without drama</a></h3>
+        <p>From notebook to interactive app in hours. Pragmatic guide, patterns, and gotchas.</p>
+      </div>
+    </article>
+  </div>
 
-    <p class="home-cta">
-      <a class="link-more" href="/resources/">Browse all resources</a>
+    <p style="margin:.5rem 0 0 0.5rem;">
+      <a class="browse-all" href="/resources/">Browse all resources</a>
     </p>
+  </div>
   </details>
 </div>
 
-<hr class="home-divider" />
-
 <!-- =======================
-     Explore the site
-     ======================= -->
+     Explore (brand chips)
+     =======================
 <div class="home-section">
   <h2 class="sr-only">Explore the site</h2>
   <nav class="explore-chips" aria-label="Primary sections">
@@ -116,4 +117,7 @@ feature_row:
       <span class="chip__desc">Timeline &amp; pivots</span>
     </a>
   </nav>
-</div>
+</div> -->
+
+{% include section_tiles.html exclude="/contact/" %}
+<!-- {% include section_tiles.html  %} -->

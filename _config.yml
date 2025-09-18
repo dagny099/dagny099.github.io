@@ -127,6 +127,10 @@ collections:
     output: true
     permalink: /resources/:name/
 
+  thinking:
+    output: true
+    permalink: /thinking/:name/
+
 defaults:
   - scope: { path: "", type: pages }
     values:
@@ -146,12 +150,18 @@ defaults:
       author_profile: false
       teaser: /assets/images/site-default-teaser.jpg
 
+  - scope: { path: "", type: thinking }
+    values:
+      layout: single
+      classes: wide
+      author_profile: false
+      teaser: /assets/images/site-default-teaser.jpg
+
   - scope: { path: "", type: resources }
     values:
       layout: single
       classes: wide
       author_profile: false
-
 
   # posts
   - scope: { path: "", type: "posts" }

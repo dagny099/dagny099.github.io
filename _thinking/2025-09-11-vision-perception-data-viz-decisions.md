@@ -2,13 +2,20 @@
 layout: single
 title: "Vision, Perception, and Data Viz for Decision‑Making — Designing for How People Actually See"
 date: 2025-09-11 00:00:00 -0600
-categories: ["Thinking", "Data Visualization"]
+categories: ["thinking"]
 tags: ["perception","preattentive","gestalt","color","luminance","uncertainty","small-multiples","decision-support"]
 pin: true
 toc: true
 toc_sticky: true
 classes: wide
 excerpt_separator: "<!--more-->"
+# Cards metadata
+read_time: 6
+teaser: /assets/images/vision-hero.jpg
+teaser_alt: "Perception diagram with luminance and small multiples"
+# Route
+permalink: /thinking/vision-perception-data-viz-decisions/
+# Hero header (kept)
 header:
   overlay_image: /assets/images/vision-hero.jpg
   overlay_filter: 0.45

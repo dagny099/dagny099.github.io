@@ -1,35 +1,31 @@
 ---
-title: "Fitness Dashboard"
-permalink: /projects/fitness-dashboard/
 layout: single
-classes: wide
-category: ["Data Products & Interfaces","Analytics & Experimentation"]
-tags: ["python","streamlit","plotly","dashboard","time-series","evaluation"]
-role: "Data Scientist & Builder"
-timeframe: "2024–2025"
-stack: ["Python","Streamlit","Plotly","Pandas"]
-status: "Active"
-repo: "https://github.com/dagny099/your-fitness-repo"
-docs: ""
-teaser: /assets/images/fitness-card.jpg
+title: "Fitness Dashboard — Decisions, not dashboards"
+excerpt: "From CSV sprawl to weekly, explainable training insights—consistency metrics, deltas, and trend-break detection."
+date: 2024-11-15
+permalink: /projects/fitness-dashboard/
+# Visuals
+teaser: /assets/images/teasers/fitness.jpg
+teaser_alt: "Line chart and weekly training cards"
+# Meta (cards)
+tags: [analytics, habits]
+stack: [Python, Pandas, Altair]      # optional 
+status: Active
+order: 10                            # manual position in grids
+# CTA
+cta_label: "30-sec view"
+cta_url: /projects/fitness-dashboard/
 ---
 
-**30‑second summary.** From CSV sprawl to weekly, explainable training insights—consistency metrics, pace deltas, and trend‑break detection drive better decisions than “just another chart.”
+## Problem
+I had scattered CSVs and subjective training notes. No single weekly view, no trend break detection, and no way to keep promises to “future me.”
 
-<details><summary><strong>Read the 2‑minute overview</strong></summary>
+## Approach
+- Normalize inputs into a tidy model (sessions, metrics, deltas).
+- Compute **consistency** and **trend-breaks** with transparent rules.
+- Human-centered visuals that emphasize *decisions* rather than dashboards.
 
-**Problem.** Scattershot workout exports made it hard to answer simple questions: *Am I getting faster? Where did training slip?*  
-**Approach.** A Streamlit app that ingests exports, standardizes fields, classifies sessions (run/walk/hybrid), and surfaces weekly deltas and “what changed?” callouts.  
-**Impact.** Clear trend views and consistency prompts improved adherence and pace.  
-**Governance.** Reproducible env (Poetry/direnv), documented pipeline; data never leaves your machine.
-
-</details>
-
-### Deep dive
-**Problem → Approach → Impact → Governance**  
-- **Problem.** No feedback loop; manual spreadsheet gymnastics.  
-- **Approach.** ETL + metrics (weekly aggregates, z‑score outlier nudges), clean UI components.  
-- **Impact.** Faster insight cycle; more consistent training weeks.  
-- **Governance.** Versioned configs, environment management, README with setup in under 5 minutes.
-
-**Links.** [GitHub]({{ page.repo }}){% if page.docs %} · [Docs]({{ page.docs }}){% endif %}
+## Impact
+- Weekly ritual, not a one-off report.
+- Early warning on form/volume changes.
+- Reduced decision debt and easier experimentation.

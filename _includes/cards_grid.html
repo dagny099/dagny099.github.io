@@ -1,0 +1,60 @@
+{% comment %}
+Grid wrapper that maps collection/front-matter fields to card params.
+
+Params:
+- items: array (collection or custom list)
+- variant: "project" | "post" | "resource"
+- image_key: field to use for image (default "image", fallback to "teaser" or "image_path")
+- pills_key: field to use for topic pills (default "tags")
+- sort_by: field name to sort items by (optional)
+- sort_order: "asc" (default) or "desc"
+- limit: number of items to render (optional)
+- compact: true/false (enables slim variant; used for resources page)
+- cta_label: string (optional; can be provided per item as `cta_label`)
+{% endcomment %}
+
+{% assign _variant = include.variant | default: "project" %}
+{% assign _pills_key = include.pills_key | default: "tags" %}
+{% assign _image_key = include.image_key | default: "image" %}
+{% assign _compact = include.compact | default: false %}
+
+{% assign _items = include.items %}
+{% if include.sort_by %}{% assign _items = _items | sort: include.sort_by %}{% endif %}
+{% if include.sort_order == "desc" %}{% assign _items = _items | reverse %}{% endif %}
+
+<div class="cards cards--{{ _variant }}">
+  {% for it in _items limit: include.limit %}
+    {% capture _title %}{{ it.title | default: it.name }}{% endcapture %}
+    {% capture _url %}{{ it.url }}{% endcapture %}
+    {% capture _excerpt %}{{ it.excerpt }}{% endcapture %}
+    {% assign _topics = it[_pills_key] | default: it.stack %}
+    {% assign _level = it.level %}
+    {% assign _format = it.format | default: it.type %}
+    {% assign _status = it.status %}
+    {% assign _date = it.date %}
+    {% assign _read = it.read_time | default: it.minutes | default: it.read %}
+    {% assign _image = it[_image_key] | default: it.teaser | default: it.image_path %}
+    {% assign _image_alt = it.teaser_alt | default: it.image_alt %}
+    {% assign _cta_label = include.cta_label | default: it.cta_label %}
+    {% assign _cta_url = it.cta_url | default: it.url %}
+
+    {% assign _icon = "far fa-file-lines" %}
+    {% if _format %}
+      {% assign _f = _format | downcase %}
+      {% if _f == "pdf" %}{% assign _icon = "far fa-file-pdf" %}{% endif %}
+      {% if _f == "template" %}{% assign _icon = "far fa-clipboard" %}{% endif %}
+      {% if _f == "guide" %}{% assign _icon = "fas fa-book-open" %}{% endif %}
+      {% if _f == "notebook" %}{% assign _icon = "fas fa-book" %}{% endif %}
+      {% if _f == "slides" %}{% assign _icon = "far fa-file-powerpoint" %}{% endif %}
+      {% if _f == "sheet" %}{% assign _icon = "far fa-file-excel" %}{% endif %}
+      {% if _f == "video" %}{% assign _icon = "fas fa-video" %}{% endif %}
+    {% endif %}
+
+    {% include card.html
+       variant=_variant title=_title url=_url excerpt=_excerpt
+       image=_image image_alt=_image_alt
+       topic_pills=_topics level=_level format=_format status=_status
+       date=_date read=_read icon=_icon compact=_compact
+       cta_label=_cta_label cta_url=_cta_url %}
+  {% endfor %}
+</div>

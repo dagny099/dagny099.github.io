@@ -1,168 +1,402 @@
-/* === Brand tokens (safe if redefined) === */
+/* ==================================================================
+   _custom.organized.scss  —  Clean, grouped overrides for your site
+   ================================================================== */
+
+/* ------------------------------------------------------------------
+   custom/_tokens.scss — Design tokens & globals
+   ------------------------------------------------------------------ */
 :root{
-  --accent-teal:#3d6c67;
-  --accent-purple:#6f5b91;
-  --accent-orange:#c0572a;
-  --ink-900:#0f172a; --ink-800:#1f2937;
-  --gray-200:#e5e7eb; --gray-50:#f8fafc;
+  /* Global page edge gutter */
+  --page-edge: clamp(1rem, 4vw, 3rem);
+
+  /* Default nav underline thickness; color is set per-link */
+  --nav-underline-thickness: 4px;
 }
 
-/* === A) Hero & masthead alignment/behavior === */
-.layout--home .page__hero--overlay {
-  /* pad hero content to align with content grid; avoids hugging left edge */
-  padding-inline: clamp(1rem, 4vw, 3rem);
-}
-/* Hide hero H1/large title to avoid brand duplication while keeping excerpt */
-.layout--home .page__hero--overlay .page__title {
-  position: absolute !important;
-  clip: rect(1px,1px,1px,1px);
-  height: 1px; width: 1px; overflow: hidden; /* accessible hide */
+
+/* ------------------------------------------------------------------
+   custom/_nav.scss — Masthead & top navigation underline
+   ------------------------------------------------------------------ */
+
+/* Masthead site title (your name) */
+.masthead .site-title{
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  /* Safe for Jekyll’s older Sass: avoid unit math across types */
+  font-size: clamp(1.125rem, calc(1rem + 0.6vw), 1.5rem);
 }
 
-/* Masthead spacing + single hover underline */
-.masthead .greedy-nav .visible-links > li > a {
-  padding-inline: .5rem; /* tighter than default */
+/* Base underline show/hide */
+.masthead .greedy-nav .visible-links > li > a{
+  padding-inline: .5rem; /* a bit tighter than theme default */
   position: relative;
 }
 .masthead .greedy-nav .visible-links > li > a::after{
-  content:"";
-  position:absolute; left:0; right:0; bottom:-.35rem;
-  height:3px; transform: scaleX(0); transform-origin:left center;
-  background: var(--accent-teal);
-  transition: transform .18s ease-in-out;
+  content:""; position:absolute; left:0; right:0; bottom:-0.9rem;
+  height: var(--nav-underline-thickness);
+  background: transparent;            /* color set per-link below */
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .18s ease, background-color .18s ease;
 }
-.masthead .greedy-nav .visible-links > li > a:hover::after,
-.masthead .greedy-nav .visible-links > li.current > a::after,
-.masthead .greedy-nav .visible-links > li > a:focus-visible::after{
+.masthead .greedy-nav .visible-links > li > a:is(:hover,:focus,[aria-current="page"])::after{
   transform: scaleX(1);
 }
-/* Remove competing borders/indicators under nav at hover */
-.masthead .greedy-nav .visible-links > li > a:hover { border-bottom: none; }
 
-/* === B) Home section headers (collapsible with custom chevron) === */
-.home-section { 
-  margin: 2.25rem 0;
-  padding-inline: clamp(1rem, 4vw, 3rem); /* grid alignment */
+.home.layout--splash {
+  /* Hide hero title on the splash hero only on home */
+  .page__hero--overlay .page__title { display: none !important; }
+
+  /* Tighter hero padding on the splash banner */
+  .page__hero--overlay { padding: 1em; }
 }
-.home-accordion > summary {
+
+/* Per-section hardcoded colors — set directly on ::after.
+   This avoids specificity races and works regardless of page state. */
+.masthead .greedy-nav .visible-links > li > a[href^="/projects/"]::after   { background:#2a6f97 !important; }
+.masthead .greedy-nav .visible-links > li > a[href^="/thinking/"]::after   { background:#6f5b91 !important; }
+.masthead .greedy-nav .visible-links > li > a[href^="/resources/"]::after  { background:#3d6c67 !important; }
+.masthead .greedy-nav .visible-links > li > a[href^="/my-journey/"]::after { background:#5f5449 !important; }
+.masthead .greedy-nav .visible-links > li > a[href^="/contact/"]::after    { background:#0f766e !important; }
+
+/* Align masthead content to page edge */
+.masthead .masthead__inner-wrap{ padding-inline: var(--page-edge); }
+
+
+/* ------------------------------------------------------------------
+   custom/_home.scss — Home section headers & accordions
+   ------------------------------------------------------------------ */
+
+.home-section{ 
+  margin: 2.25rem 0;
+  padding-inline: var(--page-edge); /* grid alignment */
+}
+
+/* Collapsible header row */
+.home-accordion > summary{
   list-style: none; cursor: pointer; user-select: none;
   padding: .25rem 0 0; outline: none;
   display: flex; align-items: center; gap: .5rem;
 }
-.home-accordion > summary::-webkit-details-marker { display: none; }
+.home-accordion > summary::-webkit-details-marker{ display:none; }
+
+/* Inline SVG chevron for full control */
 .home-accordion > summary::before{
-  /* Inline SVG chevron for full control (no extra deps) */
   content:"";
   inline-size: 1rem; block-size: 1rem; flex: 0 0 1rem;
   mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M8.12 9.29L12 13.17l3.88-3.88 1.41 1.41L12 16l-5.29-5.29z'/></svg>") no-repeat center / contain;
-  background: var(--ink-800);
+  background: currentColor;
   transform: rotate(0deg);
   transition: transform .18s ease-in-out;
+  color: #0e7490; /* chevron tint */
 }
 .home-accordion[open] > summary::before{ transform: rotate(180deg); }
+
+/* Heading inside summary */
 .home-accordion > summary h2{
   margin: 0;
-  font-size: clamp(1.375rem, calc(1rem + 1.2vw), 1.75rem);
+  font-weight: 800;
   line-height: 1.25;
-  color: var(--ink-900);
-}
-.home-accordion:focus-within > summary { outline: 2px solid var(--accent-teal); outline-offset: 2px; }
-
-/* HR control */
-.home-divider{ border: 0; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
-
-/* === C) Project cards & teaser placeholder === */
-/* Constrain feature_row images to 16:9 and add hover elevation */
-.feature__item .archive__item-teaser,
-.feature__wrapper .archive__item-teaser{
-  aspect-ratio: 16 / 9;
-  overflow: hidden; border-radius: 12px; background: var(--gray-50);
-}
-.feature__item .archive__item-teaser img,
-.feature__wrapper .archive__item-teaser img{ object-fit: cover; width: 100%; height: 100%; }
-
-.feature__item, .feature__wrapper .archive__item{
-  border-radius: 14px; transition: box-shadow .16s ease, transform .16s ease;
-}
-.feature__item:hover, .feature__wrapper .archive__item:hover{
-  box-shadow: 0 2px 12px rgba(0,0,0,.08); transform: translateY(-2px);
+  color: var(--ink-900, #0b1324);
 }
 
-/* Neutral fallback when no teaser image is present */
-.archive__item-teaser:empty{
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.02)),
-    #f4f6f8;
-  position: relative;
+/* NEVER underline H2s inside summary (links included) */
+.home .home-accordion > summary h2,
+.home .home-accordion > summary h2 a,
+.home .home-accordion > summary h2 a:link,
+.home .home-accordion > summary h2 a:visited,
+.home .home-accordion > summary h2 a:hover,
+.home .home-accordion > summary h2 a:focus,
+.home .home-accordion > summary h2 a:active{
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  color: inherit !important;
 }
-.archive__item-teaser:empty::after{
-  content:"";
-  position:absolute; inset:0; margin:auto; width:48px; height:48px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M21 19V5a2 2 0 0 0-2-2H5C3.89 3 3 3.9 3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01 3.5-4.51L19 18H5l3.5-4.5zM9 8a2 2 0 1 1-.001 3.999A2 2 0 0 1 9 8z'/></svg>") no-repeat center / contain;
-  background: #b6bec8;
+/* Defensive: kill decorative pseudo-underline on theme links */
+.home .home-accordion > summary h2 a::before,
+.home .home-accordion > summary h2 a::after{ content:none !important; }
+
+/* Focus ring only on the summary row, not the whole details container */
+.home-accordion:focus-within > summary{ outline: 2px solid #0f766e; outline-offset: 2px; }
+
+/* Divider utility */
+.home-divider{ border: 0; border-top: 1px solid var(--gray-200, #e5e7eb); margin: 2rem 0; }
+
+/* Align hero wrapper to page edge */
+.page__hero--overlay .wrapper{ padding-inline: var(--page-edge); }
+
+
+/* ------------------------------------------------------------------
+   custom/_cards.scss — Feature panels & dual CTA buttons
+   ------------------------------------------------------------------ */
+
+/* Panel container: square outer, rounded inner cards */
+.home .home-accordion:is([data-section="projects"], [data-section="resources"]) .feature__wrapper{
+  background: #f9fafb;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 0;
+  padding: clamp(.75rem, 1.2vw, 1rem);
 }
 
-/* Remove stray leading dash before titles if produced by list styles */
-.feature__wrapper .archive__item-title,
-.feature__item .archive__item-title{ 
-  text-indent: 0; 
+/* Cards */
+.home .feature__wrapper .feature__item .archive__item{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  overflow: hidden;
+  transition: transform .12s ease, box-shadow .12s ease;
 }
-.feature__wrapper .archive__item-title::marker { content: ""; }
+.home .feature__wrapper .feature__item .archive__item:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+.home .feature__wrapper .archive__item-teaser{ border-bottom: 1px solid rgba(0,0,0,.05); }
 
-/* --- Vertical rhythm tightening on feature cards --- */
-.feature__wrapper .archive__item-title { 
-  margin: .6rem 0 .25rem 0;
+/* Section accents for CTAs */
+.home .home-accordion[data-section="projects"]  { --section-accent: #2a6f97; }
+.home .home-accordion[data-section="resources"] { --section-accent: #3d6c67; }
+
+/* Dual CTA row */
+.home .feature__wrapper .cta-row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: .6rem;
+  margin-top: .6rem;
 }
-.feature__wrapper .archive__item-excerpt {
-  margin: 0 0 .75rem 0;
-  color: var(--ink-800);
+.home .feature__wrapper .btn--cta{
+  --c: var(--section-accent, #0f766e);
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  width:100%;
+  padding:.62rem .9rem;
+  font-weight:700; font-size:.95rem; line-height:1;
+  border:0; border-radius:12px; text-decoration:none;
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, color .12s ease;
 }
-.feature__wrapper .btn {
-  margin-top: .5rem;
+.home .feature__wrapper .btn--cta.primary{  background: var(--c); color:#fff; }
+.home .feature__wrapper .btn--cta.secondary{
+  background: color-mix(in oklab, var(--c) 14%, #fff);
+  color: color-mix(in oklab, var(--c) 85%, #000);
+}
+.home .feature__wrapper .btn--cta:hover{ transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.10); }
+
+/* Material icons in CTAs */
+.home .feature__wrapper .btn--cta .material-symbols-rounded{
+  font-variation-settings: 'FILL' 1, 'wght' 650, 'opsz' 24, 'GRAD' 0;
+  font-size: 1.15em;
+  line-height: 0;
 }
 
-/* Right-aligned subtle CTA under Featured */
-.home-cta--right { 
-  text-align: right;
-  padding-right: clamp(1rem, 4vw, 3rem);
-  margin-top: .5rem;
-}
 
-/* === D) Resource minis: teal-tinted cards + subtle link === */
-.resource-minis{
-  display: grid; gap: 1rem;
+/* ------------------------------------------------------------------
+   custom/_tiles.scss — Bottom section tiles (nav cards)
+   ------------------------------------------------------------------ */
+
+.home .section-tiles{
+  display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  margin-top: 1rem;
+  gap: clamp(.6rem, 1vw, .9rem);
+  padding-inline: var(--page-edge);
+  margin: 1.25rem 0 1.5rem;
+  align-items: stretch;
 }
-.resource-mini{
-  display:flex; gap:.75rem; align-items:flex-start;
-  background: color-mix(in oklab, var(--accent-teal) 8%, white);
-  border: 1px solid color-mix(in oklab, var(--accent-teal) 18%, white);
-  border-radius: 14px; padding: .9rem 1rem;
-}
-.resource-mini__icon{ 
-  inline-size: 1.25rem; block-size: 1.25rem; color: var(--accent-teal);
-}
-.resource-mini h3{ margin: 0 0 .25rem 0; font-size: 1.05rem; }
-.resource-mini p{ margin: 0; color: var(--ink-800); }
 
-/* “Browse all resources” as text link with arrow */
-.link-more{
-  --_c: var(--accent-teal);
-  color: var(--_c); text-decoration: none; font-weight: 600;
-  position: relative; padding-right: 1.1rem;
+/* Square tiles with top strap */
+.home .section-tile{
+  --c: var(--tile-color, #2a6f97);
+  --bg: var(--tile-bg, #fff);
+  --fg: color-mix(in oklab, var(--c) 65%, #000);
+  --fg-sub: color-mix(in oklab, var(--c) 35%, #374151);
+  border-radius: 0;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  padding: .95rem 1.05rem .9rem;
+  position: relative;
+  display:grid; align-content:center; gap:.3rem; min-block-size: 112px;
 }
-.link-more::after{
-  content: "→"; position: absolute; right: 0; top: 0;
-  transition: transform .16s ease;
+.home .section-tile::before{
+  content:""; position:absolute; inset: 0 0 auto 0; height: 6px; background: var(--c);
 }
-.link-more:hover::after{ transform: translateX(.2rem); }
-.home-cta{ margin-top: .75rem; }
+.home .section-tile .t-title{ margin:0; font-weight:800; letter-spacing:-.01em; font-size:1.125rem; color:var(--fg); line-height:1.25; }
+.home .section-tile .t-sub{ margin:0; font-size:.95rem; color:var(--fg-sub); line-height:1.35; }
+.home .section-tile:hover{ background: color-mix(in oklab, var(--c) 6%, #fff); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
 
-/* === E) Explore chips alignment (kept minimal) === */
-.explore-chips{ padding-inline: clamp(1rem, 4vw, 3rem); }
 
-/* === Typographic scale reinforcement (scoped) === */
-.layout--home { 
-  font-size: clamp(1rem, calc(0.95rem + 0.2vw), 1.0625rem);
+/* ------------------------------------------------------------------
+   custom/_footer.scss — Custom footer appended to theme footer
+   ------------------------------------------------------------------ */
+
+/* Let our footer own the paint */
+.page__footer{ background: transparent; }
+/* Hide theme defaults if present */
+.page__footer .page__footer-follow,
+.page__footer .page__footer-copyright{ display:none; }
+
+.footer-custom{
+  --strap: #3d6c67; /* choose your brand strap */
+  --icon-accent: color-mix(in oklab, #c0572a 85%, #fff);
+  --icon-coin:   color-mix(in oklab, var(--strap) 28%, #0f172a);
+
+  background: #0f172a; color:#e2e8f0; border-top: 6px solid var(--strap);
+  margin-top: 2.25rem;
+}
+.footer-custom__inner{
+  padding: 1.1rem var(--page-edge) 1.4rem;
+  text-align: center; display:grid; gap:.75rem;
+}
+.footer-heading{ margin:0; font-weight:800; letter-spacing:-.01em; color:#e2e8f0; }
+.footer-social{
+  list-style:none; padding:0; margin:.1rem 0 .2rem;
+  display:inline-flex; flex-wrap:wrap; gap:.6rem .9rem; justify-content:center;
+}
+.footer-social a{
+  display:inline-flex; align-items:center; gap:.55rem; padding:.40rem .68rem;
+  background: rgba(255,255,255,.10); border-radius:999px;
+  color:#e2f1ff; text-decoration:none; border:0; box-shadow:none;
+  transition: background-color .12s ease, color .12s ease, transform .12s ease;
+}
+.footer-social a:hover{ background: rgba(255,255,255,.14); color:#fff; transform: translateY(-1px); }
+.footer-social .material-symbols-rounded{
+  font-variation-settings: 'FILL' 1, 'wght' 650, 'opsz' 24, 'GRAD' 0;
+  font-size: 1.2rem; line-height:1;
+  color: var(--icon-accent);
+  background: var(--icon-coin);
+  border-radius: .5rem; padding:.18rem .22rem;
+}
+.footer-social a:hover .material-symbols-rounded{ color:#fff; background: color-mix(in oklab, var(--strap) 36%, #0f172a); }
+.footer-legal{ color:#94a3b8; margin:0; font-size:.92rem; }
+
+@media (max-width: 900px){ .footer-custom__inner{ gap:.6rem; } }
+
+/* Font Awesome glyph fallback brightness (if still present) */
+.page__footer .footer-custom .footer-social i{
+  color: var(--icon-accent) !important;
+  opacity: 1 !important;
+}
+.page__footer .footer-custom .footer-social a:hover i{ color:#fff !important; }
+
+
+/* ------------------------------------------------------------------
+   custom/_links.scss — Home link underline policy
+   ------------------------------------------------------------------ */
+
+/* Keep home page links clean; rely on hover color & cards */
+.home .page__content a,
+.home .feature__wrapper a,
+.home .section-tiles a,
+.home .archive__item-title a,
+.home .page__title a{
+  text-decoration:none !important;
+  border-bottom:0 !important;
+  box-shadow:none !important;
+  background-image:none !important;
+}
+
+
+/* ------------------------------------------------------------------
+   custom/_utilities.scss — Tiny fixes & helpers
+   ------------------------------------------------------------------ */
+
+/* Remove ugly outline around entire <details> */
+.home .home-accordion{ outline:none; }
+.home .home-accordion:focus{ outline:none; }
+
+/* Ensure images inside teasers scale nicely */
+/* .archive__item-teaser img{ display:block; width:100%; height:auto; } */
+  .archive__item-teaser { margin: 0; }
+  .archive__item-teaser img {
+    width: 100%;
+    height: 180px;                  /* consistent band */
+    object-fit: cover;
+    display: block;
+  }
+
+
+/* ======================================================================
+   HOMEPAGE • Resources minis (scoped so it won't affect other pages)
+   ====================================================================== */
+
+/* 0) Ensure the Resources accordion itself has no ugly border */
+.home .home-accordion[data-section="resources"] {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 1) Group container (matches Featured Projects vibe) */
+.home .home-accordion[data-section="resources"] .feature__wrapper{
+  background: #f6faf9;                 /* very light teal-tinted surface */
+  border: 1px solid rgba(61,108,103,.15);
+  border-radius: 16px;
+  padding: 1rem;                        /* light interior padding */
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+}
+
+/* 2) Grid of slim cards */
+.home .resource-minis{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  padding: .25rem;                      /* small interior gutter */
+}
+
+/* 3) Individual mini-card */
+.home .resource-mini{
+  display: flex; align-items: flex-start; gap: .75rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 1rem 1.125rem;
+  box-shadow: 0 1px 10px rgba(0,0,0,.04);
+  transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.home .resource-mini:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  border-color: rgba(61,108,103,.25);
+}
+
+/* 4) Icon “coin” at left */
+.home .resource-mini__icon{
+  flex: 0 0 auto;
+  inline-size: 32px; block-size: 32px;
+  display: grid; place-items: center;
+  border-radius: 8px;
+  background: #e7f0ee;
+  color: #2e6a62;                       /* resources accent */
+}
+.home .resource-mini__icon i{ font-size: 18px; line-height: 1; }
+
+/* 5) Title + copy */
+.home .resource-mini h3{
+  margin: .1rem 0 .2rem;
+  font-size: 1.05rem; font-weight: 700;
+}
+.home .resource-mini h3 a{
+  text-decoration: none; color: inherit;
+  border-bottom: 2px solid transparent;
+}
+.home .resource-mini h3 a:hover{
+  border-bottom-color: rgba(61,108,103,.45);
+}
+.home .resource-mini p{
+  margin: 0; font-size: .94rem; line-height: 1.45; opacity: .9;
+}
+
+/* 6) “Browse all resources” link stays inside the group, aligned left */
+.home .home-accordion[data-section="resources"] .feature__wrapper > p{
+  margin: .35rem 0 0 .25rem;
+}
+.home .home-accordion[data-section="resources"] .browse-all{
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .35rem .6rem;
+  border-radius: 8px;
+  background: rgba(61,108,103,.08);
+  color: #22554f;
+  text-decoration: none;
+}
+.home .home-accordion[data-section="resources"] .browse-all:hover{
+  background: rgba(61,108,103,.14);
 }

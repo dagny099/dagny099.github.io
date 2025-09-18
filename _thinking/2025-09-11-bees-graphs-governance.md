@@ -2,13 +2,20 @@
 layout: single
 title: "Bees, Graphs, and Governance — Turning Unruly Observations into Evidence‑Ready Decisions"
 date: 2025-09-11 00:00:00 -0600
-categories: ["Thinking", "Governance"]
+categories: ["thinking"]
 tags: ["knowledge-graph","metadata","data-governance","ux-for-analytics","explainability"]
 pin: true
 toc: true
 toc_sticky: true
 classes: wide
 excerpt_separator: "<!--more-->"
+# Cards metadata
+read_time: 7
+teaser: /assets/images/bees-hero.jpg
+teaser_alt: "Beehive inspection photo with notes overlay"
+# Route (safe even if config permalink isn't category-based)
+permalink: /thinking/bees-graphs-governance/
+# Hero header (kept)
 header:
   overlay_image: /assets/images/bees-hero.jpg
   overlay_filter: 0.45

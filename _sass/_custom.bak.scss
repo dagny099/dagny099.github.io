@@ -56,10 +56,14 @@
 /* If you use the big hero on the homepage, make the body text readable width */
 .layout--home .page__lead { max-width: 62ch; }
 
-/* Optional: hide default page title when using hero overlay on home
-   (only if you’re showing your name in the hero already)
-*/
-.layout--home .page__hero--overlay .page__title { display: none; }
+.home.layout--splash {
+  /* Hide hero title on the splash hero only on home */
+  .page__hero--overlay .page__title { display: none !important; }
+
+  /* Tighter hero padding on the splash banner */
+  .page__hero--overlay { padding: 2em 0 .5em; }
+}
+
 
 /* ------------------------------
    3) Project detail pages (single)

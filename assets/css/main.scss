@@ -3,9 +3,18 @@ sitemap: false
 ---
 @charset "utf-8";
 
+
 /* 1) Minimal Mistakes skin + framework */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+/* Expose nav.yml colors as CSS variables */
+
+:root {
+  {% for item in site.data.navigation.main %}
+  --nav-{{ item.title | slugify }}-color: {{ item.color }};
+  --nav-{{ item.title | slugify }}-bg: {{ item["background-color"] }};
+  {% endfor %}
+}
 
 /* 2) Your site-specific styles (safe, scoped rules) */
 @import "custom";  // <- this now finds /_sass/_custom.scss
