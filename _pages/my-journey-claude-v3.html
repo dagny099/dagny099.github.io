@@ -92,72 +92,6 @@ permalink: /my-journey/
     opacity: 0.6;
     color: var(--accent-color, #e17b47);
   }
-  
-  /* Timeline card chips */
-  .card-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0,0,0,0.08);
-  }
-  
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.75rem;
-    background: color-mix(in oklab, var(--accent-color, #e17b47) 12%, white);
-    color: color-mix(in oklab, var(--accent-color, #e17b47) 85%, black);
-    border: 1px solid color-mix(in oklab, var(--accent-color, #e17b47) 25%, transparent);
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  
-  .chip:hover {
-    background: color-mix(in oklab, var(--accent-color, #e17b47) 20%, white);
-    border-color: color-mix(in oklab, var(--accent-color, #e17b47) 40%, transparent);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  
-  .chip-icon {
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-  
-  /* Chip type variants */
-  .chip.academic {
-    --chip-accent: #4a90e2;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
-  
-  .chip.professional {
-    --chip-accent: #50c878;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
-  
-  .chip.learning {
-    --chip-accent: #7b68ee;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
-  
-  .chip.context {
-    --chip-accent: #ff6b6b;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
   .timeline-card:hover, .lens:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
@@ -305,53 +239,38 @@ permalink: /my-journey/
       <div class="timeline-year">2009</div>
       <h3>Seeing Thought in Motion</h3>
       <p>At MIT, I studied how people's eyes move across visual scenes—tracking the split-second decisions that determine what captures attention. This research into human information processing would later inform everything from dashboard design to AI system architecture.</p>
-      
-      <div class="card-chips">
-        <a href="#" class="chip academic">
-          <span class="chip-icon">📄</span>
-          Visual Cognition Paper
-        </a>
-        <a href="#" class="chip academic">
-          <span class="chip-icon">🏛️</span>
-          MIT BCS Profile
-        </a>
-        <a href="#" class="chip context">
-          <span class="chip-icon">🧠</span>
-          Eye-Tracking Methods
-        </a>
-      </div>
     </div>
     <img src="https://via.placeholder.com/80x80/4a90e2/ffffff?text=MIT" alt="MIT research" class="card-image">
   </div>
 
   <div class="timeline-card transition">
     <div class="timeline-year">2013</div>
-    <h3>Building Systems for Real Questions</h3>
-    <p>Transitioning to UT Austin's HABLA lab revealed the complexity of applied research. Working on the NIH-funded Bilingual Outcomes study, I programmed experiments in MATLAB, built data pipelines for longitudinal tracking, and helped test hundreds of children to understand how bilingual language development differs from language impairment—research that directly informed clinical practice.</p>
+    <h3>When Research Meets Reality</h3>
+    <p>Transitioning from MIT's theoretical work to UT Austin's applied research lab, I built data systems for bilingual language studies. The shift was revelatory: technology works best when it amplifies human capability rather than replacing human judgment.</p>
     <div class="card-icon">🔬</div>
   </div>
 
-  <div class="timeline-card entrepreneurial card-with-image-right">
+  <div class="timeline-card entrepreneurial card-with-image-left">
     <div class="card-content">
       <div class="timeline-year">2015</div>
-      <h3>Healthcare from the Inside</h3>
-      <p>Starting BALEX Healthcare Services with my family revealed the messy reality behind healthcare data systems. Three years of wearing every hat—from software architect to compliance officer—taught me that successful health tech requires understanding both the regulatory landscape and the human stories behind every data point.</p>
+      <h3>The Healthcare Deep Dive</h3>
+      <p>Co-founded BALEX Healthcare Services with my family, managing everything from software architecture to regulatory compliance. Three years later, I'd worn every hat from developer to compliance officer. Healthcare taught me that behind every data point is a human story that matters.</p>
     </div>
     <img src="https://via.placeholder.com/80x80/50c878/ffffff?text=RX" alt="Healthcare" class="card-image">
   </div>
 
   <div class="timeline-card consulting">
     <div class="timeline-year">2017</div>
-    <h3>Requirements to Reality</h3>
-    <p>Consulting across healthcare and software industries revealed a consistent pattern: the best technical solutions fail without proper change management. I became skilled at requirements gathering, process documentation, and helping organizations bridge the gap between "what's technically possible" and "what people will actually adopt and sustain."</p>
+    <h3>Building Bridges</h3>
+    <p>Companies started hiring me to solve "data problems," but the real challenge was always communication—helping brilliant engineers and strategic business minds speak the same language. I found my role as an interpreter between technical possibility and business necessity.</p>
     <div class="card-icon">🌉</div>
   </div>
 
   <div class="timeline-card data-science card-with-image-right">
     <div class="card-content">
       <div class="timeline-year">2021</div>
-      <h3>Modern Data Strategy</h3>
-      <p>Supporting the SEC's Chief Librarian on data catalog initiatives brought everything full circle. Modern data science isn't just about building models—it's about treating data as an organizational asset that people can actually find and trust. My CDMP training in data governance combined with cognitive science insights helped create discovery systems that don't just work technically but actually make sense to the humans who use them.</p>
+      <h3>The Pattern Recognition Circle</h3>
+      <p>Working with federal clients on data strategy brought everything full circle. Machine learning, at its core, is pattern recognition—and after years studying how humans recognize patterns, building AI systems felt like a natural evolution of the same fundamental questions.</p>
     </div>
     <img src="https://via.placeholder.com/80x80/ff6b6b/ffffff?text=AI" alt="AI & Data Science" class="card-image">
   </div>
@@ -438,8 +357,19 @@ permalink: /my-journey/
     I'm currently working on projects at the intersection of knowledge graphs, AI, and meaningful data interfaces.
     I'm also seeking collaborative roles where human-centered thinking meets technical depth—places where asking 
     "but does this actually help people make better decisions?" isn't just welcomed, it's essential. Read what I've 
-    published so far on <a href="/projects/"> my Projects page</a>, a WIP. 
+    published so far on <a href="/projects/"> my</a> Projects page, which is always WIP. 
   </p>
   <p>If you're building something thoughtful, I'd love to talk.</p>
 </section>
 
+<!-- NOW & NEXT -->
+<section>
+  <h2 class="section-title">Now & Next</h2>
+  <p>
+    I'm currently working on projects at the intersection of knowledge graphs, AI, and meaningful data interfaces.
+    I'm also seeking collaborative roles where human-centered thinking meets technical depth—places where asking 
+    "but does this actually help people make better decisions?" isn't just welcomed, it's essential. Read what I've 
+    published so far on my Projects page, which is always WIP. 
+  </p>
+  <p>If you're building something thoughtful, I'd love to connect.</p>
+</section>

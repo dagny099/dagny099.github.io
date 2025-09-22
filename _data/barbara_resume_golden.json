@@ -1,0 +1,490 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generated_at": "2025-09-18T22:33:04.273083",
+    "schema_hint": "This JSON is designed for resume-driven UIs (cards, TimelineJS, filters).",
+    "source_files": [
+      "Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf",
+      "Hidalgo-Sotelo_Barbara_DataScientist_CloudML_Mozilla.pdf",
+      "RESUME INFORMATION.docx",
+      "COVER LETTERS HISTORICAL.docx"
+    ]
+  },
+  "profile": {
+    "name": "Barbara Hidalgo\u2011Sotelo, PhD",
+    "headline": "Data Scientist \u00b7 AI/ML & Data Strategy \u00b7 Cognitive Science PhD",
+    "location": "Austin, TX (USA)",
+    "email": "barbs@balex.com",
+    "phone": "+1-512-804-9995",
+    "website": "https://barbhs.com",
+    "linkedin": "https://www.linkedin.com/in/barbara-hidalgo-sotelo",
+    "summary": "MIT-trained data scientist and behavioral researcher with 6+ years of experience translating complex data into actionable insights and ML solutions across public sector, healthcare, and software. Blends rigorous experimental design with product-minded execution.",
+    "keywords": [
+      "machine learning",
+      "data engineering",
+      "analytics",
+      "NLP",
+      "knowledge graphs",
+      "data governance",
+      "UX for data",
+      "A/B testing",
+      "PowerBI",
+      "Python",
+      "SQL",
+      "Cloud (AWS/GCP/Azure)"
+    ]
+  },
+  "education": [
+    {
+      "degree": "PhD, Cognitive Science",
+      "institution": "Massachusetts Institute of Technology",
+      "location": "Cambridge, MA",
+      "start_date": "2005-09",
+      "end_date": "2010-06",
+      "highlights": [
+        "Dissertation modeled human gaze/attention across 900+ scenes",
+        "Teaching & TA experience; collaborative research in vision & cognition"
+      ],
+      "tags": [
+        "research",
+        "vision-science",
+        "statistics",
+        "bayesian-models"
+      ]
+    },
+    {
+      "degree": "BS, Electrical Engineering",
+      "institution": "The University of Texas at Austin",
+      "location": "Austin, TX",
+      "start_date": "1999-09",
+      "end_date": "2003-05",
+      "tags": [
+        "signal-processing",
+        "circuits"
+      ]
+    },
+    {
+      "degree": "BS, Biology",
+      "institution": "The University of Texas at Austin",
+      "location": "Austin, TX",
+      "start_date": "1999-09",
+      "end_date": "2003-05",
+      "tags": [
+        "neuroscience",
+        "physiology"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Microsoft Certified: Azure AI Engineer Associate",
+      "issuer": "Microsoft",
+      "date": "2024-06"
+    },
+    {
+      "name": "Certified Data Management Professional (CDMP) \u2013 Associate",
+      "issuer": "DAMA International",
+      "date": "2024-03"
+    },
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2023-06"
+    },
+    {
+      "name": "Open Knowledge Graph Certification",
+      "issuer": "EDM Council",
+      "date": "2022-11"
+    },
+    {
+      "name": "DCAM v2 Accredited",
+      "issuer": "EDM Council",
+      "date": "2021-10"
+    }
+  ],
+  "skills": {
+    "programming": [
+      "Python",
+      "SQL",
+      "R",
+      "MATLAB",
+      "JavaScript",
+      "Bash",
+      "Git",
+      "HTML/CSS"
+    ],
+    "ml": [
+      "scikit-learn",
+      "PyTorch",
+      "TensorFlow",
+      "time series",
+      "regression",
+      "classification",
+      "clustering",
+      "model interpretability"
+    ],
+    "data_viz_bi": [
+      "PowerBI",
+      "Tableau",
+      "Plotly",
+      "Matplotlib",
+      "Streamlit",
+      "Looker"
+    ],
+    "cloud_data": [
+      "AWS (S3, Lambda, SageMaker)",
+      "GCP (BigQuery)",
+      "Azure (ML Studio)",
+      "Snowflake",
+      "Redshift",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "DynamoDB",
+      "Airflow",
+      "Docker",
+      "Kubernetes",
+      "MLflow"
+    ],
+    "governance_nlp": [
+      "metadata pipelines",
+      "data catalog",
+      "DCAM",
+      "Open Knowledge Graph",
+      "Spacy",
+      "NLTK",
+      "LlamaIndex",
+      "LangChain"
+    ],
+    "methods": [
+      "experimental design",
+      "A/B testing",
+      "statistical inference",
+      "causal reasoning",
+      "lean six sigma",
+      "agile"
+    ]
+  },
+  "experience": [
+    {
+      "title": "Technical Consultant",
+      "employer": "Inflective, Inc.",
+      "employment_type": "Consulting",
+      "start_date": "2024-01",
+      "end_date": null,
+      "location": "Remote",
+      "domains": [
+        "enterprise transformation",
+        "analytics enablement",
+        "web analytics"
+      ],
+      "highlights": [
+        "Connected GA4 to Looker Studio for leadership dashboards; analyzed user behavior to drive UX/content strategy.",
+        "Documented business processes as workflow diagrams supporting ERP transition planning and cross-functional alignment."
+      ],
+      "outcomes": [
+        {
+          "metric": "visibility",
+          "value": "RT leadership view of engagement/campaign performance"
+        },
+        {
+          "metric": "alignment",
+          "value": "clear artifacts to coordinate ERP stakeholders"
+        }
+      ],
+      "skills": [
+        "GA4",
+        "Looker Studio",
+        "process mapping",
+        "stakeholder comms"
+      ],
+      "tags": [
+        "public-website",
+        "dashboards",
+        "ux-research"
+      ]
+    },
+    {
+      "title": "Data Scientist",
+      "employer": "Metric5 Consulting (SEC client)",
+      "employment_type": "Full-time",
+      "start_date": "2021-01",
+      "end_date": "2023-12",
+      "location": "Remote (DC client)",
+      "domains": [
+        "public sector",
+        "data governance",
+        "metadata"
+      ],
+      "highlights": [
+        "Built Python tools to streamline metadata export and automate reporting.",
+        "Created a real-time reporting utility integrating PowerBI with ServiceNow + COTS to reduce turnaround for data access requests.",
+        "Published an interactive metadata glossary to increase catalog adoption and simplify upkeep."
+      ],
+      "outcomes": [
+        {
+          "metric": "cycle-time",
+          "value": "\u2193 data-access turnaround (reported ~55%)"
+        },
+        {
+          "metric": "adoption",
+          "value": "\u2191 data-catalog traffic and glossary updates"
+        }
+      ],
+      "skills": [
+        "Python",
+        "PowerBI",
+        "ServiceNow",
+        "REST reverse\u2011engineering",
+        "documentation"
+      ],
+      "tags": [
+        "federal-data-strategy",
+        "self-serve-analytics"
+      ]
+    },
+    {
+      "title": "Project Manager",
+      "employer": "Inflective, Inc.",
+      "employment_type": "Contract",
+      "start_date": "2017-01",
+      "end_date": "2019-12",
+      "location": "Remote",
+      "domains": [
+        "healthcare ops",
+        "RPA/automation",
+        "process improvement"
+      ],
+      "highlights": [
+        "Led digital transformation optimizing processing of ~4M medical bills/year; introduced ML for document classification.",
+        "Co-led Lean Six-Sigma workshops identifying workflow improvements and change plans."
+      ],
+      "outcomes": [
+        {
+          "metric": "throughput",
+          "value": "\u2191 processing speed (~30%)"
+        },
+        {
+          "metric": "cost",
+          "value": "operational savings via automation & process redesign"
+        }
+      ],
+      "skills": [
+        "XGBoost",
+        "Python",
+        "Lean Six Sigma",
+        "requirements"
+      ],
+      "tags": [
+        "claims",
+        "classification",
+        "ops-analytics"
+      ]
+    },
+    {
+      "title": "Co\u2011Founder & Technical Lead",
+      "employer": "BALEX Healthcare Services",
+      "employment_type": "Founder",
+      "start_date": "2015-01",
+      "end_date": "2017-12",
+      "location": "Austin, TX",
+      "domains": [
+        "healthcare",
+        "EMR",
+        "compliance"
+      ],
+      "highlights": [
+        "Developed a home\u2011health EMR, data pipelines, and outcome reporting; led compliance readiness and vendor presentations."
+      ],
+      "skills": [
+        "SQL",
+        "data pipelines",
+        "clinical metrics",
+        "training"
+      ],
+      "tags": [
+        "startup",
+        "emr",
+        "home-health"
+      ]
+    },
+    {
+      "title": "Research Project Manager \u2013 Eye Tracking",
+      "employer": "MediaScience",
+      "employment_type": "Full-time",
+      "start_date": "2017-01",
+      "end_date": "2017-12",
+      "location": "Austin, TX",
+      "domains": [
+        "marketing science",
+        "biometrics"
+      ],
+      "highlights": [
+        "Analyzed eye\u2011tracking, GSR, and facial expression data; built automated analysis pipelines; delivered client reports."
+      ],
+      "skills": [
+        "Python",
+        "A/B testing",
+        "biometrics",
+        "stats"
+      ],
+      "tags": [
+        "media",
+        "experimentation"
+      ]
+    },
+    {
+      "title": "Business Management Consultant",
+      "employer": "Persis Consulting",
+      "employment_type": "Consulting",
+      "start_date": "2014-01",
+      "end_date": "2017-12",
+      "location": "Remote",
+      "domains": [
+        "product requirements",
+        "QA",
+        "training"
+      ],
+      "highlights": [
+        "Gathered requirements, coordinated between business & engineering, improved QA/QC processes, authored training."
+      ],
+      "skills": [
+        "requirements",
+        "QA",
+        "technical writing"
+      ],
+      "tags": [
+        "software-delivery",
+        "enablement"
+      ]
+    },
+    {
+      "title": "Research Engineer/Scientist",
+      "employer": "University of Texas at Austin",
+      "employment_type": "Research",
+      "start_date": "2013-01",
+      "end_date": "2016-12",
+      "location": "Austin, TX",
+      "domains": [
+        "speech processing",
+        "human subjects",
+        "tooling"
+      ],
+      "highlights": [
+        "Built data collection & analysis tools used by 12+ staff; developed algorithms for speech onset; created GUIs to speed analysis."
+      ],
+      "skills": [
+        "MATLAB",
+        "signal processing",
+        "GUI design",
+        "Python"
+      ],
+      "tags": [
+        "research",
+        "tooling"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "CodeConvo (LLM Chat Interface)",
+      "period": "2024",
+      "summary": "Streamlit chat with OpenAI integration, conversation management, topic extraction, and analytics.",
+      "stack": [
+        "Python",
+        "Streamlit",
+        "OpenAI API",
+        "AWS EC2"
+      ],
+      "links": [
+        {
+          "type": "demo",
+          "url": "https://codeconvo.barbhs.com"
+        }
+      ],
+      "tags": [
+        "genai",
+        "prompting",
+        "state"
+      ]
+    },
+    {
+      "name": "Workout Analytics Dashboard",
+      "period": "2024\u20132025",
+      "summary": "ETL to MySQL on AWS RDS; interactive trends & distributions for running/walking metrics.",
+      "stack": [
+        "Python",
+        "SQL",
+        "AWS RDS",
+        "Plotly",
+        "PowerBI/Streamlit"
+      ],
+      "links": [
+        {
+          "type": "demo",
+          "url": "https://workouts.barbhs.com"
+        }
+      ],
+      "tags": [
+        "etl",
+        "dashboards",
+        "fitness"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "title": "A combined source model of visual clutter (example: visual guidance & scene familiarity)",
+      "authors": [
+        "Ehinger",
+        "Hidalgo\u2011Sotelo",
+        "Torralba",
+        "Oliva"
+      ],
+      "venue": "Visual Cognition",
+      "year": 2009,
+      "notes": "Foundational work modeling human gaze/attention; widely cited."
+    }
+  ],
+  "display": {
+    "filters": {
+      "domains": [
+        "public sector",
+        "healthcare",
+        "enterprise transformation",
+        "research"
+      ],
+      "skills": [
+        "Python",
+        "SQL",
+        "PowerBI",
+        "PyTorch",
+        "Airflow",
+        "metadata",
+        "knowledge graphs"
+      ],
+      "tags": [
+        "dashboards",
+        "RPA",
+        "A/B testing",
+        "NLP",
+        "EMR"
+      ]
+    },
+    "style": {
+      "domainColors": {
+        "public sector": "#4f46e5",
+        "healthcare": "#059669",
+        "enterprise transformation": "#7c3aed",
+        "research": "#0ea5e9"
+      },
+      "tagColors": {
+        "dashboards": "#2563eb",
+        "RPA": "#dc2626",
+        "A/B testing": "#f59e0b",
+        "NLP": "#10b981",
+        "EMR": "#f97316"
+      }
+    }
+  }
+}

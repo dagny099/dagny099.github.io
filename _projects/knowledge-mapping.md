@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Beehive Analytics Platform"
-permalink: /projects/beehive-tracker/
+title: "Knowledge Network Mapping"
+permalink: /projects/knowledge-mapping/
 classes: [project, hero, wide]    
 author_profile: false
 read_time: false
 # Optional: right rail ToC for the deep dive (auto-generates from headings)
 toc: true
 toc_sticky: true
-order: 20
+order: 40
 
 # taxonomy
 tags: [knowledge-graph, cv]
@@ -33,7 +33,7 @@ header:
       class: "btn--light-outline"
 
 # For cards/site previews
-excerpt: 'When honey bees unexpectedly moved into our owl box, I started photographing everything. Four years later, I had hundreds of photos scattered across devices with unhelpful names like "IMG_2847.jpg." Experience told me that a little structure could transform this photo collection from digital clutter into actionable beekeeping intelligence. So I built a system that uses photo timestamps, computer vision, and weather data to automatically reconstruct our beekeeping story—turning raw documentation into structured intelligence, where proper cataloging unlocks insights that remain invisible in unorganized collections.'
+excerpt: "Fifteen years after publishing a paper on visual attention, I got curious about where those ideas had traveled. One nostalgic afternoon of data exploration became a full-scale research archaeology project. Starting with a single paper, I watched my citation network grow to over 8,000 documents, then built machine learning models to predict which papers should be talking to each other but aren't. The results revealed hidden bridges between research communities that made me wonder how many breakthrough collaborations we're missing."
 last_modified_at: 
 # CTAs
 url: /projects/beehive-tracker/

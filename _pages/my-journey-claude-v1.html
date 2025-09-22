@@ -1,0 +1,292 @@
+---
+layout: default
+title: "My Journey"
+breadcrumbs: true
+permalink: /my-journey/
+---
+
+<style>
+  section {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    will-change: opacity, transform;
+    padding: 2rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  section.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .timeline-card, .principle, .lens {
+    background-color: #fffdfb;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent-color, #e17b47);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .timeline-card:hover, .lens:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  }
+  .timeline-year {
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--accent-color, #e17b47);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1c1c1c;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  .principles-grid, .lenses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .principle {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #6c757d;
+    font-weight: 500;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .principle:hover {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+  .circle-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  /* Color scheme variables - easily customizable */
+  .academic { --accent-color: #3d6c67; }
+  .transition { --accent-color: #dd4844; }
+  .entrepreneurial { --accent-color: #289ccc; }
+  .consulting { --accent-color: #c0572a; }
+  .data-science { --accent-color: #7b68ee; }
+  
+  .lens h4 {
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+  }
+  .lens p {
+    color: #5a6c7d;
+    line-height: 1.5;
+  }
+  
+  /* Skills visualization placeholder */
+  .skills-chart {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 4px solid #6c757d;
+    text-align: center;
+    color: #6c757d;
+  }
+  
+  .cog-sci-influence {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .cog-sci-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--card-color, #6c757d);
+  }
+  .cog-sci-card h4 {
+    color: var(--card-color, #6c757d);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .experimental { --card-color: #4a90e2; }
+  .visual { --card-color: #7b68ee; }
+  .attention { --card-color: #50c878; }
+  .systems { --card-color: #e17b47; }
+
+  @media (max-width: 768px) {
+    .principles-grid, .lenses-grid {
+      grid-template-columns: 1fr;
+    }
+    section {
+      padding: 2rem 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      }),
+      { threshold: 0.1 }
+    );
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
+
+<!-- HERO -->
+<section style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+  <!-- Left: Title -->
+  <div style="flex: 1 1 300px;">
+    <h1 class="section-title">My Journey</h1>
+  </div>
+
+  <!-- Right: Circular Image -->
+  <div style="flex: 0 0 auto;">
+    <img src="/assets/images/bee_barb.png" alt="Barbara Hidalgo" class="circle-image">
+  </div>
+
+  <!-- Subtitle below -->
+  <div style="flex-basis: 100%; margin-top: 1rem;">
+    <p style="font-size: 1.1rem; color: #5a6c7d; line-height: 1.6;">
+      From MIT lab benches to enterprise boardrooms, the path of making data make sense to real people.
+      This page maps the connections — people, tools, and ideas — that have shaped how I think and build.
+    </p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <h2 class="section-title">The Path: From Mind to Machine to Meaning</h2>
+
+  <div class="timeline-card academic">
+    <div class="timeline-year">2003-2010</div>
+    <h3>The Academic Foundation</h3>
+    <p>Dual BS in Electrical Engineering and Biology at UT Austin, followed by PhD in Cognitive Science at MIT. Studied how humans process visual information across 900+ natural scenes—work that still influences how I approach data visualization and user experience design.</p>
+  </div>
+
+  <div class="timeline-card transition">
+    <div class="timeline-year">2010-2015</div>
+    <h3>The Translation Years</h3>
+    <p>Transitioned from academia to applied research at UT Austin's HABLA lab, building data pipelines for bilingual language studies. Discovered my passion for making complex data accessible to non-technical researchers.</p>
+  </div>
+
+  <div class="timeline-card entrepreneurial">
+    <div class="timeline-year">2015-2017</div>
+    <h3>The Entrepreneurial Leap</h3>
+    <p>Co-founded BALEX Healthcare Services, wearing every hat from compliance officer to software developer. Learned firsthand how data flows through real businesses and the critical importance of making it actionable for decision-makers.</p>
+  </div>
+
+  <div class="timeline-card consulting">
+    <div class="timeline-year">2017-2021</div>
+    <h3>The Consulting Evolution</h3>
+    <p>Consulted across healthcare and software industries, specializing in digital transformation. Developed expertise in translating between technical teams and business stakeholders—essentially becoming a data interpreter.</p>
+  </div>
+
+  <div class="timeline-card data-science">
+    <div class="timeline-year">2021-Present</div>
+    <h3>The Data Science Synthesis</h3>
+    <p>Evolved into a full-stack data scientist, combining cognitive science insights with modern ML/AI tools. Focus on creating data products that not only work technically but actually make sense to the humans who use them.</p>
+  </div>
+</section>
+
+<!-- THROUGHLINES -->
+<section>
+  <h2 class="section-title">Core Throughlines</h2>
+  <p>Three principles that have guided every career transition:</p>
+  <div class="principles-grid">
+    <div class="principle">Understanding the User<br><small>Whether studying human visual attention or designing dashboards, I start with how people actually process information</small></div>
+    <div class="principle">Building Bridges<br><small>From translating between psychology and computer science to connecting technical teams with business needs</small></div>
+    <div class="principle">Making Data Actionable<br><small>Data is only valuable when it leads to better decisions. My mission is turning insights into action.</small></div>
+  </div>
+</section>
+
+<!-- COGNITIVE SCIENCE INFLUENCE -->
+<section>
+  <h2 class="section-title">How Cognitive Science Shaped My Approach</h2>
+  <p>My MIT dissertation on visual attention patterns continues to influence how I approach data science:</p>
+  
+  <div class="cog-sci-influence">
+    <div class="cog-sci-card experimental">
+      <h4>Experimental Rigor</h4>
+      <p>Every analysis plan includes hypotheses, controls, and validation steps. Old habits from the lab die hard.</p>
+    </div>
+    
+    <div class="cog-sci-card visual">
+      <h4>Visual Processing Insights</h4>
+      <p>Understanding how humans scan and process visual information directly informs my dashboard and visualization design.</p>
+    </div>
+    
+    <div class="cog-sci-card attention">
+      <h4>Attention & Focus</h4>
+      <p>Research on attention allocation helps me design data products that guide users to the most important insights first.</p>
+    </div>
+    
+    <div class="cog-sci-card systems">
+      <h4>Systems Thinking</h4>
+      <p>David Marr's levels of analysis framework shapes how I approach complex data problems from multiple perspectives.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAYS OF SEEING -->
+<section>
+  <h2 class="section-title">Professional Lenses</h2>
+  <div class="lenses-grid">
+    <div class="lens">
+      <h4>Cognitive Science</h4>
+      <p>Gave me the foundation to understand how people attend, decide, and learn—essential for building interfaces that support thinking rather than hinder it.</p>
+    </div>
+    <div class="lens">
+      <h4>Data & AI</h4>
+      <p>Provided system-level perspective, from messy inputs to structured insight. Taught me that pipelines are just conversations in code.</p>
+    </div>
+    <div class="lens">
+      <h4>Business Consulting</h4>
+      <p>Showed me how technical solutions succeed or fail based on organizational readiness, communication, and change management.</p>
+    </div>
+    <div class="lens">
+      <h4>Product & Visual Design</h4>
+      <p>Taught me the value of hierarchy, clarity, and attention. Helps me communicate complex ideas in ways that feel intuitive and humane.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS EVOLUTION PLACEHOLDER -->
+<section>
+  <h2 class="section-title">Skills Evolution</h2>
+  <div class="skills-chart">
+    <h3>Interactive Chart Coming Soon</h3>
+    <p>Visualization showing the progression from academic research → applied data science → AI strategy</p>
+    <p><em>Academic Research → Data Engineering → ML/AI → Business Strategy → Human-Centered Design</em></p>
+  </div>
+</section>
+
+<!-- NOW & NEXT -->
+<section>
+  <h2 class="section-title">What's Next</h2>
+  <p>
+    I'm excited about roles at the intersection of AI/ML and human-centered design. Current interests include explainable AI, 
+    data product strategy, and making enterprise data accessible to everyone—not just data scientists.
+  </p>
+  <p>
+    Recent projects span cloud analytics dashboards, generative AI interfaces, and knowledge graph systems. 
+    All built with accessibility, clarity, and scale in mind.
+  </p>
+  <p style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; border-left: 4px solid #e17b47;">
+    <strong>Looking for your next data science partner?</strong> I bring a unique combination of research rigor, 
+    technical depth, and human-centered thinking to every project. Let's talk about how cognitive science 
+    principles can improve your data strategy.
+  </p>
+</section>

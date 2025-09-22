@@ -9,8 +9,9 @@
   /* Global page edge gutter */
   --page-edge: clamp(1rem, 4vw, 3rem);
 
-  /* Default nav underline thickness; color is set per-link */
-  --nav-underline-thickness: 4px;
+  /* Default nav underline thickness */
+  --nav-underline-thickness: 3px;
+  --nav-underline: #e55723; 
 }
 
 
@@ -20,27 +21,48 @@
 
 /* Masthead site title (your name) */
 .masthead .site-title{
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.01em;
   /* Safe for Jekyll’s older Sass: avoid unit math across types */
-  font-size: clamp(1.125rem, calc(1rem + 0.6vw), 1.5rem);
+  font-size: clamp(1.12rem, calc(1rem + 0.6vw), 1.4rem);
 }
 
-/* Base underline show/hide */
-.masthead .greedy-nav .visible-links > li > a{
-  padding-inline: .5rem; /* a bit tighter than theme default */
-  position: relative;
+/* 1) Nuke the theme’s hover underline no matter how it’s drawn */
+.masthead .greedy-nav .visible-links > li > a:hover,
+.masthead .greedy-nav .visible-links > li > a:focus{
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
 }
+/* IMPORTANT: also kill any theme pseudo underline */
+.masthead .greedy-nav .visible-links > li > a:hover::before{
+  content: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* give the link some bottom room for the underline */
+.masthead .greedy-nav .visible-links > li > a{
+  position: relative;
+  padding-inline: .4rem;
+}
+
+/* draw your underline *inside* the link box */
 .masthead .greedy-nav .visible-links > li > a::after{
-  content:""; position:absolute; left:0; right:0; bottom:-0.9rem;
-  height: var(--nav-underline-thickness);
-  background: transparent;            /* color set per-link below */
+  content:"";
+  position:absolute; left:0; right:0; bottom: .05rem; /* was -0.9rem */
+  height: var(--nav-underline-thickness, 3px);
+  background: transparent;
   transform: scaleX(0); transform-origin: left center;
   transition: transform .18s ease, background-color .18s ease;
 }
 .masthead .greedy-nav .visible-links > li > a:is(:hover,:focus,[aria-current="page"])::after{
   transform: scaleX(1);
+  background: var(--nav-underline, #e55723);
 }
+
 
 .home.layout--splash {
   /* Hide hero title on the splash hero only on home */
@@ -49,14 +71,6 @@
   /* Tighter hero padding on the splash banner */
   .page__hero--overlay { padding: 1em; }
 }
-
-/* Per-section hardcoded colors — set directly on ::after.
-   This avoids specificity races and works regardless of page state. */
-.masthead .greedy-nav .visible-links > li > a[href^="/projects/"]::after   { background:#2a6f97 !important; }
-.masthead .greedy-nav .visible-links > li > a[href^="/thinking/"]::after   { background:#6f5b91 !important; }
-.masthead .greedy-nav .visible-links > li > a[href^="/resources/"]::after  { background:#3d6c67 !important; }
-.masthead .greedy-nav .visible-links > li > a[href^="/my-journey/"]::after { background:#5f5449 !important; }
-.masthead .greedy-nav .visible-links > li > a[href^="/contact/"]::after    { background:#0f766e !important; }
 
 /* Align masthead content to page edge */
 .masthead .masthead__inner-wrap{ padding-inline: var(--page-edge); }
@@ -155,7 +169,7 @@
 .home .feature__wrapper .archive__item-teaser{ border-bottom: 1px solid rgba(0,0,0,.05); }
 
 /* Section accents for CTAs */
-.home .home-accordion[data-section="projects"]  { --section-accent: #2a6f97; }
+.home .home-accordion[data-section="projects"]  { --section-accent: #0e7490; } /* was #2a6f97 */
 .home .home-accordion[data-section="resources"] { --section-accent: #3d6c67; }
 
 /* Dual CTA row */
@@ -163,8 +177,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: .6rem;
-  margin-top: .6rem;
-}
+  margin: .6rem .4rem;
+} 
 .home .feature__wrapper .btn--cta{
   --c: var(--section-accent, #0f766e);
   display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
@@ -225,59 +239,96 @@
 .home .section-tile:hover{ background: color-mix(in oklab, var(--c) 6%, #fff); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
 
 
-/* ------------------------------------------------------------------
-   custom/_footer.scss — Custom footer appended to theme footer
-   ------------------------------------------------------------------ */
+/* 1) Make the footer itself paint the full-bleed bar */
+.page__footer{
+  --strap: #3d6c67; /* brand strap */
+  background: #0f172a;
+  border-top: 6px solid var(--strap);
+}
 
-/* Let our footer own the paint */
-.page__footer{ background: transparent; }
-/* Hide theme defaults if present */
+/* Remove the theme's inner width clamp + side padding */
+.page__footer .wrap,
+.page__footer__inner{
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Hide theme's default footer bits (you already did this) */
 .page__footer .page__footer-follow,
 .page__footer .page__footer-copyright{ display:none; }
 
+/* 2) Your custom footer content (no extra background/border here) */
 .footer-custom{
-  --strap: #3d6c67; /* choose your brand strap */
-  --icon-accent: color-mix(in oklab, #c0572a 85%, #fff);
-  --icon-coin:   color-mix(in oklab, var(--strap) 28%, #0f172a);
-
-  background: #0f172a; color:#e2e8f0; border-top: 6px solid var(--strap);
-  margin-top: 2.25rem;
+  color:#e2e8f0;
+  margin-top: 0; /* avoid gap above the bar */
 }
 .footer-custom__inner{
   padding: 1.1rem var(--page-edge) 1.4rem;
-  text-align: center; display:grid; gap:.75rem;
+  display: grid;
+  gap: .75rem;
+  text-align: center;
 }
-.footer-heading{ margin:0; font-weight:800; letter-spacing:-.01em; color:#e2e8f0; }
+
+/* Heading */
+.footer-heading{
+  margin:0;
+  font-weight:800;
+  letter-spacing:-.01em;
+  color:#e2e8f0;
+}
+
+/* Social pills */
 .footer-social{
   list-style:none; padding:0; margin:.1rem 0 .2rem;
   display:inline-flex; flex-wrap:wrap; gap:.6rem .9rem; justify-content:center;
 }
 .footer-social a{
-  display:inline-flex; align-items:center; gap:.55rem; padding:.40rem .68rem;
-  background: rgba(255,255,255,.10); border-radius:999px;
-  color:#e2f1ff; text-decoration:none; border:0; box-shadow:none;
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.40rem .68rem;
+  background: rgba(255,255,255,.10);
+  border-radius:999px; border:0; box-shadow:none;
+  color:#e2f1ff; text-decoration:none;
   transition: background-color .12s ease, color .12s ease, transform .12s ease;
 }
-.footer-social a:hover{ background: rgba(255,255,255,.14); color:#fff; transform: translateY(-1px); }
+.footer-social a:hover{
+  background: rgba(255,255,255,.14); color:#fff; transform: translateY(-1px);
+}
+
+/* Icon coin + accent */
 .footer-social .material-symbols-rounded{
+  --icon-accent: color-mix(in oklab, #c0572a 85%, #fff);
+  --icon-coin:   color-mix(in oklab, var(--strap) 28%, #0f172a);
   font-variation-settings: 'FILL' 1, 'wght' 650, 'opsz' 24, 'GRAD' 0;
   font-size: 1.2rem; line-height:1;
   color: var(--icon-accent);
   background: var(--icon-coin);
   border-radius: .5rem; padding:.18rem .22rem;
 }
-.footer-social a:hover .material-symbols-rounded{ color:#fff; background: color-mix(in oklab, var(--strap) 36%, #0f172a); }
+.footer-social a:hover .material-symbols-rounded{
+  color:#fff; background: color-mix(in oklab, var(--strap) 36%, #0f172a);
+}
+
+/* Legal line */
 .footer-legal{ color:#94a3b8; margin:0; font-size:.92rem; }
 
-@media (max-width: 900px){ .footer-custom__inner{ gap:.6rem; } }
+@media (max-width:900px){
+  .footer-custom__inner{ gap:.6rem; }
+}
 
-/* Font Awesome glyph fallback brightness (if still present) */
+/* Font Awesome fallback brightness (if present) */
 .page__footer .footer-custom .footer-social i{
-  color: var(--icon-accent) !important;
+  color: color-mix(in oklab, #c0572a 85%, #fff) !important;
   opacity: 1 !important;
 }
 .page__footer .footer-custom .footer-social a:hover i{ color:#fff !important; }
 
+/* (Optional) Sticky footer on short pages — uncomment if desired */
+/*
+.page{ min-height:100svh; display:flex; flex-direction:column; }
+.initial-content{ flex:1 0 auto; }
+.page__footer{ flex:0 0 auto; }
+*/
 
 /* ------------------------------------------------------------------
    custom/_links.scss — Home link underline policy
@@ -400,3 +451,144 @@
 .home .home-accordion[data-section="resources"] .browse-all:hover{
   background: rgba(61,108,103,.14);
 }
+
+/* Styling for role-cards on my Experience page */
+
+.role-card {border-radius:.75rem;padding:1rem;background:#0b0b0b1a;}
+.tag {display:inline-block;margin:.125rem .375rem 0 0;padding:.1rem .5rem;border-radius:999px;font-size:.8rem}
+.role-card[data-domain="public sector"] {--c:#4f46e5;}
+.role-card[data-domain="healthcare"]     {--c:#059669;}
+.role-card[data-domain="enterprise transformation"] {--c:#7c3aed;}
+.role-card[data-domain="research"]       {--c:#0ea5e9;}
+.role-card {border:1px solid color-mix(in oklab, var(--c, #444) 40%, transparent);}
+.tag {background: color-mix(in oklab, var(--c, #4f46e5) 20%, #fff0); border:1px solid color-mix(in oklab, var(--c, #4f46e5) 50%, #0000);}
+
+/* Add this to the .timeline-card styles */
+.timeline-card {
+  position: relative;
+}
+
+/* Option 1: University logos */
+.academic::after {
+  content: '🤘'; /* Hook 'em Horns emoji, or use background-image for actual logo */
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+/* Option 2: Circular progress dots */
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: -8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: 0 0 0 3px white, 0 0 0 4px var(--accent-color);
+}
+
+/* Option 3: Phase icons with Font Awesome */
+.academic::after { content: '\f19d'; font-family: 'Font Awesome 5 Free'; } /* graduation cap */
+.entrepreneurial::after { content: '\f0eb'; font-family: 'Font Awesome 5 Free'; } /* lightbulb */
+.consulting::after { content: '\f0c0'; font-family: 'Font Awesome 5 Free'; } /* users */
+.data-science::after { content: '\f080'; font-family: 'Font Awesome 5 Free'; } /* chart */
+
+/* Make footer sit at the bottom */
+.cards .card{ display:flex; flex-direction:column; }
+.cards .card__body{ display:flex; flex-direction:column; height:100%; }
+.cards .card__footer{ margin-top:auto; padding:.75rem 1rem 1rem; container-type:inline-size; }
+
+/* Two CTAs centered L/R; buttons hug text */
+/* Kill the theme's flex on project card footers */
+.card--project .card__footer{
+  display: block;         /* override theme's display:flex */
+  justify-content: initial;
+  align-items: initial;
+  margin-top: auto;
+  padding: .75rem 1rem 1rem;
+}
+
+/* Your dual-CTA layout (stays the same, now it can center) */
+.card--project .card__footer .cta-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* left half / right half */
+  justify-items: center;           /* center each button within its half */
+  gap: .75rem;
+  margin: 0;
+}
+
+/* Buttons hug text but remain centered in their half */
+.card--project .card__footer .btn--cta{
+  width: auto;
+  text-decoration: none !important;   /* beat global link underline */
+}
+
+/* Single-button case stays centered and a nice width */
+.card--project .card__footer .cta-row > *:only-child{
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+.card__footer .btn--cta{
+  width:auto; text-decoration:none!important;
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.62rem .9rem; border:0; border-radius:12px;
+  font-weight:700; font-size:.95rem; line-height:1;
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.card__footer .btn--cta.primary{ background:var(--section-accent, #2a6f97); color:#fff; }
+.card__footer .btn--cta.secondary{
+  background:color-mix(in oklab, var(--section-accent, #2a6f97) 14%, #fff);
+  color:color-mix(in oklab, var(--section-accent, #2a6f97) 85%, #000);
+}
+.card__footer .btn--cta:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.10); }
+.card__footer .btn--cta .material-symbols-rounded{
+  font-variation-settings:'FILL' 1, 'wght' 650, 'opsz' 24, 'GRAD' 0;
+  font-size:1.15em; line-height:0;
+}
+
+
+/* Narrow cards: stack so both CTAs are always visible */
+@media (max-width: 420px){
+  .card--project .card__footer .cta-row{ grid-template-columns: 1fr; }
+}
+
+/* Keep homepage feature-row behavior intact */
+.home .feature__wrapper .cta-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.6rem; margin:.6rem .4rem; }
+.home .feature__wrapper .btn--cta{ --c: var(--section-accent, #0f766e); }
+
+/* Top-nav icon colors (search + hamburger) */
+.masthead {
+  --nav-icon: #0e7490;          /* default icon color */
+  --nav-icon-hover: #e55723;    /* hover/focus color */
+}
+
+.masthead .search__toggle,
+.masthead .greedy-nav__toggle{
+  color: var(--nav-icon);        /* drives currentColor */
+}
+
+/* keep the SVG using currentColor (defensive) */
+.masthead .search__toggle .icon,
+.masthead .search__toggle .icon path{ fill: currentColor; }
+
+/* hamburger bars use currentColor via background-color */
+.masthead .greedy-nav__toggle .navicon,
+.masthead .greedy-nav__toggle .navicon:before,
+.masthead .greedy-nav__toggle .navicon:after{
+  background-color: currentColor;
+}
+
+/* hover/focus */
+.masthead .search__toggle:hover,
+.masthead .search__toggle:focus,
+.masthead .greedy-nav__toggle:hover,
+.masthead .greedy-nav__toggle:focus{
+  color: var(--nav-icon-hover);
+}
+
+

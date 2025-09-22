@@ -58,11 +58,19 @@ Params:
       </div>
     {% endif %}
 
-    <div class="card__footer">
+    {% if include.variant == "project" and (include.url or include.docs_url) %}
+      {% include card_footer_dual.html
+        url=include.url
+        btn_label=include.btn_label
+        docs_url=include.docs_url
+        docs_label=include.docs_label %}
+    {% else %}
       {% assign _cta = include.cta_label %}
       {% if _cta %}
-        <a class="card__cta" href="{{ include.cta_url | default: include.url | relative_url }}">{{ _cta }}</a>
+        <div class="card__footer">
+          <a class="card__cta" href="{{ include.cta_url | default: include.url | relative_url }}">{{ _cta }}</a>
+        </div>
       {% endif %}
-    </div>
+    {% endif %}
   </div>
 </article>

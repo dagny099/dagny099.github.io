@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Convoscope"
+title: "Conversational AI Management"
 permalink: /projects/convoscope/
 classes: [project, hero, wide]    
 author_profile: false
@@ -8,6 +8,7 @@ read_time: false
 # Optional: right rail ToC for the deep dive (auto-generates from headings)
 toc: true
 toc_sticky: true
+order: 30
 
 # taxonomy
 tags: [governance, nlp, python, retrieval, summarization, ui-ux]
@@ -21,7 +22,7 @@ header:
  # banner image for the big hero at the top of the page
   overlay_image: /assets/images/projects/convoscope/hero.jpg   # swap in a real banner
   overlay_filter: 0.25
-  caption: "Briefs you can act on."
+  caption: "Configure your LLM to taste"
   actions:
     - label: "View Repo"
       url: https://github.com/dagny099/convoscope
@@ -42,8 +43,13 @@ gallery:
     title: "Evidence"
 
 # For cards/site previews
-excerpt: "Turns messy, multi-channel conversations into crisp briefs and next-step checklists—evidence-linked, explainable, and ready for action."
+excerpt: "Building data science projects means constantly iterating on ideas, and I found myself having the same types of conversations with AI tools repeatedly without any way to track patterns or build on previous insights. Instead of being locked into one provider's approach, I wanted the flexibility to switch between OpenAI, Anthropic, and Google models based on the task. More importantly, I wanted to analyze these conversations—tracking how my questioning evolves and building a personal knowledge base from AI interactions that reveals patterns in human-AI dialogue."
 last_modified_at: 
+# CTAs
+url: /projects/convoscope/
+btn_label: "Project"
+docs_url: https://docs.barbhs.com/convoscope/
+docs_label: "Docs"
 ---
 
 <!-- Project meta grid (fast facts) -->

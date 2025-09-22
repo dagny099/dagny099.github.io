@@ -2,6 +2,7 @@
 layout: splash
 classes: home
 title: "Barbara Hidalgo-Sotelo"
+author_profile: false
 excerpt: >
   Data scientist with a governance mindset who turns fuzzy
   business priorities into <strong>shippable, explainable</strong> AI. I sit with
@@ -17,24 +18,24 @@ header:
 feature_row:
   - image_path: /assets/images/teasers/fitness.jpg
     alt: "Fitness Dashboard"
-    title: "Fitness Dashboard → Decisions, not dashboards"
-    excerpt: "From CSV sprawl to weekly, explainable training insights—consistency metrics, deltas, and trend‑break detection."
+    title: "Self-Hosted Workout Intelligence"
+    excerpt: "What happens when your carefully tracked fitness data gets 'contaminated' by a dog? Built ML models and analytics dashboards to extract meaningful insights from messy real-world data—discovering that imperfect tracking led to unexpected levels of  consistency 🏃🐕"
     url: /projects/fitness-dashboard/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/fitness-dashboard/
     docs_label: "Docs"
   - image_path: /assets/images/teasers/convoscope.jpg
     alt: "Convoscope"
-    title: "Convoscope → AI that briefs you"
-    excerpt: "Structures messy conversations into crisp briefs and next‑step checklists; retrieval without hallucination theater."
+    title: "Conversational AI Management"
+    excerpt: "Building data science projects means constantly iterating with AI tools, but I kept losing valuable conversations and insights. Built a multi-provider chat interface that lets me switch between provider models while maintaining conversation history and analytics 🗂️"
     url: /projects/convoscope/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/convoscope/
     docs_label: "Docs"
   - image_path: /assets/images/teasers/beehive.jpg
     alt: "Beehive Tracker"
-    title: "Beehive Tracker → A living knowledge base"
-    excerpt: "EXIF + weather + CV → structured apiculture insights; a friendly UI over a knowledge graph."
+    title: "Beehive Analytics Platform"
+    excerpt: "Transforms unstructured beehive photos into structured insights using Google Cloud Vision API, weather data integration, and temporal clustering. Automatically extracts metadata, detects hive components, and creates interactive timelines from chaotic photo collections 🐝" 
     url: /projects/beehive-tracker/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/beehive-tracker/

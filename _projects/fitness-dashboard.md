@@ -1,20 +1,45 @@
 ---
 layout: single
-title: "Fitness Dashboard — Decisions, not dashboards"
-excerpt: "From CSV sprawl to weekly, explainable training insights—consistency metrics, deltas, and trend-break detection."
-date: 2024-11-15
+title: "Self-Hosted Workout Intelligence"
 permalink: /projects/fitness-dashboard/
-# Visuals
-teaser: /assets/images/teasers/fitness.jpg
-teaser_alt: "Line chart and weekly training cards"
-# Meta (cards)
+classes: [project, hero, wide]    
+author_profile: false
+read_time: false
+# Optional: right rail ToC for the deep dive (auto-generates from headings)
+toc: true
+toc_sticky: true
+order: 10
+
+# taxonomy
 tags: [analytics, habits]
 stack: [Python, Pandas, Altair]      # optional 
 status: Active
-order: 10                            # manual position in grids
-# CTA
-cta_label: "30-sec view"
-cta_url: /projects/fitness-dashboard/
+
+# Make the header a true hero
+header:
+  # card image used on /projects/ (and any archive grids)
+  teaser: /assets/images/projects/hivetracker/card.jpg
+
+ # banner image for the big hero at the top of the page
+  overlay_image: /assets/images/projects/hivetracker/hero.jpg   # swap in a real banner
+  overlay_filter: 0.25
+  caption: "A little bit of metadata can go a long way"
+  actions:
+    - label: "View Repo"
+      url: https://github.com/dagny099/beehive-tracker/
+      class: "btn--primary"
+    - label: "Read Docs"
+      url: https://docs.barbhs.com/beehive-tracker/
+      class: "btn--light-outline"
+
+# For cards/site previews
+excerpt: 'For years, I meticulously tracked every run. Metrics are, of course, paramount to a former athlete and current data scientist. But a puppy landing on my doorstep transformed my exercise world overnight. What started as pristine running data became (an irritainingly unlabeled) mix of actual runs but more frequent dog walks. It’s spurned my quest to make my exercise data meaningful again. From developing classification models to distinguish runs from walks and dashboards to explore how adding a four-legged training partner redefined what "consistency" actually means, this exploration of *the Choco effect* is an open field of study 🐕'
+last_modified_at: 
+# CTAs
+url: /projects/fitness-dashboard/
+btn_label: "Project"
+docs_url: https://docs.barbhs.com/fitness-dashboard/
+docs_label: "Docs"
 ---
 
 ## Problem
