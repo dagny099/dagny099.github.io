@@ -1,46 +1,108 @@
 ---
 layout: splash
 classes: home
-title: "Barbara Hidalgo-Sotelo"
+title: "Barbara Hidalgo-Sotelo, PhD"
 author_profile: false
 excerpt: >
-  Data scientist with a governance mindset who turns fuzzy
-  business priorities into <strong>shippable, explainable</strong> AI. I sit with
-  doers and execs, translate priorities into plans, and iterate
-  with clear checkpoints.
-header:
-  overlay_color: "#000000"
-  overlay_filter: 0.78
-  caption: "Austin, TX · Data Science · Knowledge Graphs · Human‑Centered AI"
+  Exploring messy data, intelligent systems, and what it means to make meaning.<br>
+  <span style="font-size: 0.9em; opacity: 0.9;">Through the lens of a cognitive scientist turned data builder</span>
 
-# Keep the same data structure you already had so it's a safe drop‑in.
-# We will render this via the new cards component below.
+  <p class="hero-ctas hero-ctas--pinned">
+  <a class="btn hero-btn hero-btn--primary" href="/projects/">View Projects</a>
+  <a class="btn hero-btn hero-btn--ghost" href="/contact/">Contact</a>
+  </p>
+
+header:
+  overlay_filter: 0.7;
+  overlay_color: "#1e3a5f"
+  caption: Austin, TX · Data Scientist · PhD Cognitive Science, MIT · Human-Centered AI · Explainable Systems
+
+# Updated project descriptions with cognitive angles
 feature_row:
-  - image_path: /assets/images/teasers/fitness.jpg
+  - image_path: /assets/images/teasers/proj-fitness-v1-1024x768.jpg
     alt: "Fitness Dashboard"
     title: "Self-Hosted Workout Intelligence"
-    excerpt: "What happens when your carefully tracked fitness data gets 'contaminated' by a dog? Built ML models and analytics dashboards to extract meaningful insights from messy real-world data—discovering that imperfect tracking led to unexpected levels of  consistency 🏃🐕"
+    excerpt: >
+      <strong>Attention patterns reveal signal in 14 years of messy data.</strong><br><br>
+      When my running data collided with daily dog walks, every workout got mislabeled as a "run"—even the 30 minute sniff walks. 
+      I built a full pipeline (auto csv export → <i class="fab fa-aws"></i> λ → <i class="fas fa-database"></i> → <i class="fas fa-chart-line"></i>) 
+      that classifies runs vs. walks using ML, with built-in model retraining for transparency. 
+      <br><br>
+      <em>Cognitive insight: Humans recognize patterns through contrast and repetition—this system leverages both to surface the real story in behavioral data.</em>
     url: /projects/fitness-dashboard/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/fitness-dashboard/
     docs_label: "Docs"
-  - image_path: /assets/images/teasers/convoscope.jpg
+    
+  - image_path: /assets/images/teasers/proj-convo-v1-1024x768.jpg
     alt: "Convoscope"
     title: "Conversational AI Management"
-    excerpt: "Building data science projects means constantly iterating with AI tools, but I kept losing valuable conversations and insights. Built a multi-provider chat interface that lets me switch between provider models while maintaining conversation history and analytics 🗂️"
+    excerpt: >
+      <strong>Multi-modal comparison designed for cognitive load management.</strong><br><br>
+      Hopping between AI providers while losing track of what worked where felt increasingly inefficient. Convoscope is my solution: 
+      one interface, <i class='fas fa-robot'></i> multiple models (OpenAI, Anthropic, Google), <i class='fas fa-save'></i> persistent 
+      conversation history, and automatic topic extraction. It's a flexible workspace for comparing outputs side-by-side.
+      <br><br>
+      <em>Cognitive insight: Working memory can only hold 7±2 items—by offloading comparison to visual space, we free cognitive resources for actual thinking.</em>
     url: /projects/convoscope/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/convoscope/
     docs_label: "Docs"
-  - image_path: /assets/images/teasers/beehive.jpg
+    
+  - image_path: /assets/images/teasers/proj-beehive-v1-1024x768.jpg
     alt: "Beehive Tracker"
     title: "Beehive Analytics Platform"
-    excerpt: "Transforms unstructured beehive photos into structured insights using Google Cloud Vision API, weather data integration, and temporal clustering. Automatically extracts metadata, detects hive components, and creates interactive timelines from chaotic photo collections 🐝" 
+    excerpt: >
+      <strong>Computer vision meets human memory to structure 4 years of visual documentation.</strong><br><br>
+      Four years of unlabeled bee photos became a living knowledge base by combining <i class='fas fa-camera'></i> EXIF metadata, 
+      Google Cloud Vision, and <i class='fas fa-cloud-sun'></i> weather APIs. The result: a knowledge graph with a query UI that 
+      surfaces patterns—when swarms happened, which seasons were productive, what weather preceded problems.
+      <br><br>
+      <em>Cognitive insight: Human memory is associative, not chronological—this system mirrors how beekeepers actually recall and connect observations.</em>
     url: /projects/beehive-tracker/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/beehive-tracker/
     docs_label: "Docs"
 ---
+
+<div class="home-section">
+
+I'm Barbara Hidalgo-Sotelo, a data scientist with a **PhD in cognitive science from MIT**. 
+My research on visual attention—how humans find meaning in complex visual scenes—has been 
+<a href="https://scholar.google.com/citations?user=nQG25vkAAAAJ" target="_blank">cited 430+ times</a> 
+and continues to shape how I approach every data problem. 
+
+I build systems that make complex data work for real people—across healthcare, federal consulting, 
+and the cloud. My focus: turning technical capability into tools teams actually use, designed for 
+how humans actually think.
+
+</div>
+
+<!-- =======================
+     How I Think Section (NEW)
+     ======================= -->
+<div class="home-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 3rem 2rem; border-radius: 12px; margin: 2rem 0;">
+  <h2 style="text-align: center; margin-bottom: 1.5rem;">🧠 How I Think About Data</h2>
+  
+  <div style="max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8;">
+    <p style="font-size: 1.1em; margin-bottom: 1rem;">
+      My <strong>MIT research on visual attention</strong> taught me that humans don't just see data—they construct meaning from patterns.
+    </p>
+    <p style="font-size: 1.05em; margin-bottom: 1rem;">
+      This cognitive lens shapes everything I build: dashboards designed for how eyes actually scan, 
+      ML systems that explain their reasoning, and data products that work the way humans think.
+    </p>
+    <p style="font-size: 1em;">
+      Every interface I design, every model I train, every visualization I create is informed by 
+      <strong>years of tracking eye movements</strong> and studying how humans process information.
+    </p>
+    
+    <div style="margin-top: 2rem;">
+      <a href="/my-journey/#cognitive-foundation" class="btn btn--primary">Learn About My Approach</a>
+      <a href="/thinking/why-dashboards-fail/" class="btn btn--light">Read: Why Dashboards Fail</a>
+    </div>
+  </div>
+</div>
 
 <!-- =======================
      Featured Work (cards)
@@ -55,26 +117,87 @@ feature_row:
 </div>
 
 <!-- =======================
-     Resources & Guides (keep minis for now)
+     Cognitive Principles (NEW)
+     ======================= -->
+<div class="home-section" style="margin: 3rem 0;">
+  <h2 style="text-align: center; margin-bottom: 2rem;">Cognitive Principles in Practice</h2>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto;">
+    
+    <div class="principle-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #4a90e2; text-align: center; transition: transform 0.3s;">
+      <div style="font-size: 2.5rem; margin-bottom: 1rem;">👁️</div>
+      <h3 style="color: #4a90e2; margin-bottom: 0.8rem;">Vision Drives Understanding</h3>
+      <p style="color: #6c757d; margin-bottom: 1rem; min-height: 60px;">
+        Design for scanning, not reading. Your brain decides what matters in 200ms.
+      </p>
+      <a href="/resources/visual-decision-making/" style="color: #4a90e2; text-decoration: none; font-weight: 500;">
+        See the Perception Guide →
+      </a>
+    </div>
+    
+    <div class="principle-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #50c878; text-align: center; transition: transform 0.3s;">
+      <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧠</div>
+      <h3 style="color: #50c878; margin-bottom: 0.8rem;">Attention is Limited</h3>
+      <p style="color: #6c757d; margin-bottom: 1rem; min-height: 60px;">
+        Use it wisely. Humans can track 7±2 things—design within this constraint.
+      </p>
+      <a href="/projects/convoscope/" style="color: #50c878; text-decoration: none; font-weight: 500;">
+        See Convoscope Example →
+      </a>
+    </div>
+    
+    <div class="principle-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #e17b47; text-align: center; transition: transform 0.3s;">
+      <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔄</div>
+      <h3 style="color: #e17b47; margin-bottom: 0.8rem;">Patterns Beat Numbers</h3>
+      <p style="color: #6c757d; margin-bottom: 1rem; min-height: 60px;">
+        Humans think in stories. Show the narrative, not just the statistics.
+      </p>
+      <a href="/projects/fitness-dashboard/" style="color: #e17b47; text-decoration: none; font-weight: 500;">
+        See Fitness Story →
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+<!-- =======================
+     Resources & Guides
      ======================= -->
 <div class="home-section">
   <details class="home-accordion" data-section="resources" markdown="1" open>
-  <summary><h2>Resources &amp; Guides</h2></summary>
+  <summary><h2>Resources & Guides</h2></summary>
+  
+  <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+    <p style="text-align: center; font-size: 1.05em; color: #495057; margin: 0;">
+      <strong>Built on Cognitive Foundations:</strong> These aren't just templates—they're tools designed 
+      with human cognition in mind. Each resource applies insights from visual perception, attention, 
+      and memory research to solve real data problems.
+    </p>
+  </div>
+  
   <div class="feature__wrapper">
 
   <div class="resource-minis">
     <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/visual-decision-making/">Vision & Perception Cheatsheet</a></h3>
+        <p>One-pager turning perception science into practical defaults for dashboards and briefs.</p>
+      </div>
+    </article>
+
+    <article class="resource-mini">
       <div class="resource-mini__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></div>
       <div class="resource-mini__body">
-        <h3><a href="/resources/executive-brief/">Executive brief template</a></h3>
-        <p>Turn fuzzy threads into crisp, action‑ready briefs with surface links to evidence.</p>
+        <h3><a href="/resources/executive-brief/">Executive Brief Template</a></h3>
+        <p>Turn fuzzy threads into crisp, action-ready briefs with evidence links—designed for executive attention spans.</p>
       </div>
     </article>
 
     <article class="resource-mini">
       <div class="resource-mini__icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
       <div class="resource-mini__body">
-        <h3><a href="/resources/dataset-cards/">Dataset &amp; prompt cards</a></h3>
+        <h3><a href="/resources/dataset-cards/">Dataset & Prompt Cards</a></h3>
         <p>Lightweight governance you can actually keep—structure, versions, and reproducible envs.</p>
       </div>
     </article>
@@ -82,7 +205,7 @@ feature_row:
     <article class="resource-mini">
       <div class="resource-mini__icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
       <div class="resource-mini__body">
-        <h3><a href="/resources/streamlit-bridge/">Streamlit: DS to app, without drama</a></h3>
+        <h3><a href="/resources/streamlit-bridge/">Streamlit: DS to App, Without Drama</a></h3>
         <p>From notebook to interactive app in hours. Pragmatic guide, patterns, and gotchas.</p>
       </div>
     </article>
@@ -96,29 +219,67 @@ feature_row:
 </div>
 
 <!-- =======================
-     Explore (brand chips)
-     =======================
-<div class="home-section">
-  <h2 class="sr-only">Explore the site</h2>
-  <nav class="explore-chips" aria-label="Primary sections">
-    <a class="chip chip--projects" href="/projects/">
-      <span class="chip__title">Projects</span>
-      <span class="chip__desc">Case studies &amp; systems</span>
-    </a>
-    <a class="chip chip--thinking" href="/thinking/">
-      <span class="chip__title">Thinking</span>
-      <span class="chip__desc">Essays &amp; working notes</span>
-    </a>
-    <a class="chip chip--resources" href="/resources/">
-      <span class="chip__title">Resources</span>
-      <span class="chip__desc">Guides &amp; templates</span>
-    </a>
-    <a class="chip chip--journey" href="/my-journey/">
-      <span class="chip__title">My Journey</span>
-      <span class="chip__desc">Timeline &amp; pivots</span>
-    </a>
-  </nav>
-</div> -->
+     What I'm Exploring (NEW mini section)
+     ======================= -->
+<div class="home-section" style="background: white; border: 1px solid #e9ecef; border-radius: 12px; padding: 2rem; margin: 2rem 0;">
+  <h3 style="text-align: center; color: #495057; margin-bottom: 1.5rem;">🔬 Currently Exploring</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      AI Explainability
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Knowledge Graphs
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Human-AI Collaboration
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Attention Mechanisms in LLMs
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Data Product Design
+    </span>
+  </div>
+  <p style="text-align: center; margin-top: 1.5rem; color: #6c757d;">
+    Interested in discussing any of these? <a href="/contact/">Let's connect</a>
+  </p>
+</div>
 
 {% include section_tiles.html exclude="/contact/" %}
-<!-- {% include section_tiles.html  %} -->
+
+<style>
+/* Add hover effects for principle cards */
+.principle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Ensure resource mini icons align with cognitive theme */
+.resource-mini__icon {
+  color: #4a90e2;
+}
+
+/* Add subtle animation to the cognitive principles section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.principle-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.principle-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.principle-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+</style>
