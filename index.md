@@ -4,8 +4,7 @@ classes: home
 title: "Barbara Hidalgo-Sotelo, PhD"
 author_profile: false
 excerpt: >
-  Exploring messy data, intelligent systems, and what it means to make meaning.<br>
-  <span style="font-size: 0.9em; opacity: 0.9;">Through the lens of a cognitive scientist turned data builder</span>
+  Exploring messy data, intelligent systems, and what it means to make meaning—through the lens of a cognitive scientist who builds things people actually use.
 
   <p class="hero-ctas hero-ctas--pinned">
   <a class="btn hero-btn hero-btn--primary" href="/projects/">View Projects</a>
@@ -64,42 +63,35 @@ feature_row:
     docs_url: https://docs.barbhs.com/beehive-tracker/
     docs_label: "Docs"
 ---
-
+<!--
 <div class="home-section">
+<b>I'm Barbara Hidalgo-Sotelo, a data scientist with a PhD in cognitive science from MIT.</b> My research on visual attention—how humans find meaning in complex visual scenes—has been 
+<a href="https://scholar.google.com/citations?user=nQG25vkAAAAJ" target="_blank">cited 430+ times</a> and continues to shape how I approach every data problem.
 
-I'm Barbara Hidalgo-Sotelo, a data scientist with a **PhD in cognitive science from MIT**. 
-My research on visual attention—how humans find meaning in complex visual scenes—has been 
-<a href="https://scholar.google.com/citations?user=nQG25vkAAAAJ" target="_blank">cited 430+ times</a> 
-and continues to shape how I approach every data problem. 
+Here's what that looks like in practice: When I build metadata tools, I don't just make them technically correct—I design them to match how people actually recall information, through association and context rather than alphabetical lists. When I develop dashboards, I think about where eyes naturally land first and what questions people are actually trying to answer under cognitive load.
 
-I build systems that make complex data work for real people—across healthcare, federal consulting, 
-and the cloud. My focus: turning technical capability into tools teams actually use, designed for 
-how humans actually think.
-
+<b>I solve data problems through a cognitive lens</b>—across healthcare, federal consulting, and cloud platforms. Not just technically capable, but designing for how attention works, how memory organizes, and how understanding happens in layers.
 </div>
+      Every interface I design, every model I train, every visualization I create is informed by 
+      <strong>years of tracking eye movements</strong> and studying how humans process information.
 
+-->
 <!-- =======================
      How I Think Section (NEW)
      ======================= -->
-<div class="home-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 3rem 2rem; border-radius: 12px; margin: 2rem 0;">
-  <h2 style="text-align: center; margin-bottom: 1.5rem;">🧠 How I Think About Data</h2>
+<div class="home-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 0.05rem; border-radius: 12px; margin: 0;">
+  <h2 style="text-align: center; margin: 1rem;">🧠 How I Think About Data</h2>
   
-  <div style="max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8;">
-    <p style="font-size: 1.1em; margin-bottom: 1rem;">
-      My <strong>MIT research on visual attention</strong> taught me that humans don't just see data—they construct meaning from patterns.
-    </p>
-    <p style="font-size: 1.05em; margin-bottom: 1rem;">
-      This cognitive lens shapes everything I build: dashboards designed for how eyes actually scan, 
-      ML systems that explain their reasoning, and data products that work the way humans think.
-    </p>
-    <p style="font-size: 1em;">
-      Every interface I design, every model I train, every visualization I create is informed by 
-      <strong>years of tracking eye movements</strong> and studying how humans process information.
+  <div style="max-width: 850px; margin: 0 auto; text-align: center; line-height: 1.4;">
+    <p style="font-size: 0.9em; margin-bottom: 1.5rem;">
+      My <strong>MIT research on visual attention</strong> taught me that humans don't just see data—they construct meaning from patterns. <br><br>
+      <b>I solve data problems through a cognitive lens</b>—across healthcare, federal consulting, and cloud platforms. These solutions aren't just technically sound, but designed with human cognition in mind: how attention functions, how memory organizes, and how understanding builds in layers.<br><br>      
+      This cognitive approach shapes everything I build: from dashboards optimized for natural eye movements to ML systems that explain their reasoning, and data products that work the way humans think.
     </p>
     
-    <div style="margin-top: 2rem;">
+    <div style="margin: 1rem;">
       <a href="/my-journey/#cognitive-foundation" class="btn btn--primary">Learn About My Approach</a>
-      <a href="/thinking/why-dashboards-fail/" class="btn btn--light">Read: Why Dashboards Fail</a>
+     <!-- <a href="/thinking/why-dashboards-fail/" class="btn btn--light">Read: Why Dashboards Fail</a> -->
     </div>
   </div>
 </div>
