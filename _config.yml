@@ -140,9 +140,12 @@ defaults:
   - scope: { path: "", type: posts }
     values:
       layout: single
+      classes: wide
+      author_profile: false
       read_time: true
       share: true
       related: true
+  
   - scope: { path: "", type: projects }
     values:
       layout: single

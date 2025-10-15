@@ -26,10 +26,10 @@ header:
   caption: "A little bit of metadata can go a long way"
   actions:
     - label: "View Repo"
-      url: https://github.com/dagny099/beehive-tracker/
+      url: https://github.com/dagny099/fitness-dashboard/
       class: "btn--primary"
     - label: "Read Docs"
-      url: https://docs.barbhs.com/beehive-tracker/
+      url: https://docs.barbhs.com/fitness-dashboard/
       class: "btn--light-outline"
 
 # For cards/site previews

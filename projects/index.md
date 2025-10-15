@@ -68,50 +68,50 @@ classes: wide
 ## 🎯 Currently Shipping
 *Active projects where cognitive principles meet production code*
 
-### Fitness Intelligence Platform <span class="cognitive-badge">Attention Patterns</span>
+### Fitness Intelligence Platform <span class="cognitive-badge">Behavioral Patterns</span>
 **Cognitive Principle**: Pattern recognition through contrast and repetition
 
 When 14 years of running data collided with dog walks, I discovered that human behavior naturally clusters into 3 categories—not the 10+ my app offered. The ML classifier doesn't just sort workouts; it mirrors how humans actually categorize effort levels when cognitive load is high (like during exercise).
 
 **Technical**: Python, AWS Lambda, MySQL, Streamlit  
 **Cognitive Insight**: The 7±2 rule emerges naturally in behavioral data  
-[→ View Project](/projects/fitness-dashboard/) | [→ Live Demo](https://fitness.barbhs.com) | [→ GitHub](https://github.com/dagny099/fitness)
+[→ View Project](/projects/fitness-dashboard/) | [→ Live Demo](https://workouts.barbhs.com) | [→ GitHub](https://github.com/dagny099/fitness-dashboard) |  [→ Documentation](https://docs.barbhs.com/fitness-dashboard/)
 
 ---
 
-### Convoscope: Multi-Modal AI Comparison <span class="cognitive-badge">Working Memory</span>
+### Convoscope: Multi-Modal AI Comparison <span class="cognitive-badge">Model Evaluation</span>
 **Cognitive Principle**: Cognitive load management through progressive disclosure
 
 Comparing AI outputs revealed a fundamental limit: humans can effectively compare 3 options, tolerate 5, and get overwhelmed by 7+. This interface respects working memory constraints while managing infinite AI possibilities.
 
 **Technical**: Streamlit, OpenAI/Anthropic/Google APIs, PostgreSQL  
 **Cognitive Insight**: Side-by-side comparison reduces cognitive load vs. sequential evaluation  
-[→ View Project](/projects/convoscope/) | [→ Documentation](https://docs.barbhs.com/convoscope/)
+[→ View Project](/projects/convoscope/)  | [→ Live Demo](https://convoscope.barbhs.com) | [→ GitHub](https://github.com/dagny099/convoscope) | [→ Documentation](https://docs.barbhs.com/convoscope/)
 
 ---
 
-### Beehive Knowledge Graph <span class="cognitive-badge">Associative Memory</span>
+### Beehive Knowledge Graph <span class="cognitive-badge">Metadata Integration</span>
 **Cognitive Principle**: Human memory is associative, not chronological
 
 Four years of photos became queryable knowledge by modeling how beekeepers actually recall events—through associations (weather→outcomes) rather than dates. The system's 7 relationship types emerged naturally from how humans connect observations.
 
 **Technical**: Neo4j, Google Cloud Vision, Python, Weather APIs  
 **Cognitive Insight**: Domain expertise is about relationships, not isolated facts  
-[→ View Project](/projects/beehive-tracker/) | [→ Documentation](https://docs.barbhs.com/beehive/)
+[→ View Project](/projects/beehive-tracker/)  | [→ Live Demo](https://beestory.barbhs.com) | [→ GitHub](https://github.com/dagny099/beehive-tracker) | [→ Documentation](https://docs.barbhs.com/beehive-tracker/)
 
 ---
 
 ## 🔬 Research & Exploration
 *Where cognitive science theory meets data science practice*
 
-### Academic Citation Network Prediction <span class="cognitive-badge">Attention Networks</span>
+### Academic Citation Network Prediction <span class="cognitive-badge">Knowledge Graph</span>
 **Cognitive Principle**: Attention mechanisms in knowledge discovery
 
 Using TransE to predict missing citations in a network of 8,000 papers. The model learns "attention patterns" in research—which ideas researchers notice and which they overlook, despite relevance.
 
 **Technical**: Graph Neural Networks, PyTorch, Neo4j, Semantic Scholar API  
 **Cognitive Insight**: Academic attention follows predictable patterns, just like visual attention  
-[→ Data Story](/data-stories/citation-link-prediction/) | [→ Jupyter Notebooks](https://github.com/dagny099/citation)
+[→ Data Story](/data-stories/citation-link-prediction/)  | [→ Live Demo](https://cartography.barbhs.com) | [→ GitHub](https://github.com/dagny099/citation-compass) | [→ Documentation - Coming Soon](https://docs.barbhs.com/citation-network/) | [→ Jupyter Notebooks - Coming Soon](https://github.com/dagny099/citation-notebook-Intro)
 
 ---
 
@@ -123,14 +123,17 @@ Using TransE to predict missing citations in a network of 8,000 papers. The mode
 
 Built a distributed sensor network that taught me: streaming data is only valuable if humans can process it at the speed it arrives. Led to my focus on progressive disclosure and attention management.
 
-[→ 6-Part Series](/posts/sensor-fleet/)
+[→ 6-Part Series](/posts//temp-sensor-00/)
 
 ### Digital Portfolio Workshop Series (2024)  
 **Cognitive Principle**: Information architecture as cognitive architecture
 
 Teaching others to build portfolio sites revealed how cognitive principles apply to personal branding and content organization.
 
-[→ 4-Part Series](/posts/getting-started-with-github-pages/)
+[→ Part 1 of 4 Series](/posts/getting-started-with-github-pages/)
+[→ Part 2 of 4 Series](/posts/understanding-your-jekyll-site/)
+[→ Part 3 of 4 Series](/posts/deploy-jekyll-gh-actions/)
+[→ Part 4 of 4 Series](/posts/post-deployment-reflextions/)
 
 ---
 
