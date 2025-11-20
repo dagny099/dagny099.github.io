@@ -5,6 +5,7 @@ permalink: /data-stories/exercise-dashboard/
 layout: single
 section: data-stories
 tags: [trend analysis, data visualization]
+classes: wide
 ---
 
 # The Choco Effect: How a Dog Transformed My Running Data
