@@ -1,0 +1,38 @@
+---
+id: site_map_overview_v1
+title: Site Map Overview (Top-Level Navigation)
+project: dagny099_github_io
+visibility: public
+status: stable
+last_updated: 2025-11-21
+tags: [sitemap, overview, navigation]
+sequence:
+  group: "site-architecture-post"
+  order: 0
+description: >
+  High-level sitemap showing only the primary navigation sections and major content hubs.
+---
+graph TB
+Home[🏠 Home<br/>barbhs.com]
+
+    %% Main Navigation Hubs
+    Home --> Projects[📊 Projects]
+    Home --> Thinking[💭 Thinking]
+    Home --> Resources[📚 Resources]
+    Home --> DataStories[📖 Data Stories]
+    Home --> Journey[🚶 My Journey]
+    Home --> Blog[📝 Blog Archive]
+    Home --> About[👤 About]
+    Home --> Contact[📧 Contact]
+
+    %% Secondary / Legacy
+    Home --> Portfolio[🗂️ Portfolio *Legacy]
+    Home --> Experience[💼 Experience]
+    Home --> Research[🔬 Research]
+    Home --> Gallery[🎨 Gallery]
+
+    classDef hub fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:1.5px;
+
+    class Projects,Thinking,Resources,DataStories,Journey,Blog,About,Contact hub;
+    class Portfolio,Experience,Research,Gallery legacy;

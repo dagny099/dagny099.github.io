@@ -99,7 +99,12 @@ footer:
 include: [".htaccess", "_pages"]
 
 # Build
-markdown: kramdown
+markdown:
+  kramdown:
+    input: GFM
+    syntax_highlighter: rougify
+
+mermaid: true
 highlighter: rouge
 excerpt_separator: "\n\n"
 

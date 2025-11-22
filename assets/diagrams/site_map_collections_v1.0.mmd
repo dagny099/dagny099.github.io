@@ -1,0 +1,68 @@
+---
+id: site_map_collections_v1
+title: Collections & Data Stories
+project: dagny099_github_io
+visibility: public
+status: stable
+last_updated: 2025-11-21
+tags: [sitemap, collections, projects, data-stories]
+sequence:
+  group: "site-architecture-post"
+  order: 1
+description: >
+  Focused sitemap showing the modern content collections (Projects, Thinking, Resources, Data Stories)
+  and their key items, plus the legacy Portfolio collection.
+---
+graph TB
+    Home[🏠 Home]
+
+    Home --> Projects[📊 Projects]
+    Home --> Thinking[💭 Thinking]
+    Home --> Resources[📚 Resources]
+    Home --> DataStories[📖 Data Stories]
+    Home --> Portfolio[🗂️ Portfolio *Legacy]
+
+    %% Projects
+    Projects --> P1[Self-Hosted Workout Intelligence<br/>Active]
+    Projects --> P2[Beehive Analytics Platform<br/>WIP]
+    Projects --> P3[Convoscope: Conversational AI<br/>Active]
+    Projects --> P4[Knowledge Network Mapping<br/>WIP]
+
+    %% Thinking
+    Thinking --> T1[📌 Bees, Graphs & Governance]
+    Thinking --> T2[📌 7±2 is Everywhere]
+    Thinking --> T3[📌 Vision & Data Viz]
+    Thinking --> T4[RAG Without the Theater]
+
+    %% Resources
+    Resources --> R1[Vision & Perception Cheatsheet]
+    Resources --> R2[Bridge to Web Apps]
+    Resources --> R3[Executive Brief Template]
+    Resources --> R4[Dataset & Prompt Cards]
+    Resources --> R5[Project Starter Kit]
+    Resources --> R6[Interactive Web Apps Guide]
+
+    %% Data Stories
+    DataStories --> DS1[Hive Photo Metadata Tracker]
+    DataStories --> DS2[Exercise Dashboard: The Choco Effect]
+    DataStories --> DS3[Knowledge Cartography]
+
+    %% Legacy Portfolio (just list titles, no extra depth)
+    Portfolio --> PF1[Build Your Own Webpage]
+    Portfolio --> PF2[IoT Real-Time Viz Workflow]
+    Portfolio --> PF3[Academic Citation Networks]
+    Portfolio --> PF4[CareerCraft Job Assistant]
+    Portfolio --> PF5[Personal Workout Analytics]
+    Portfolio --> PF6[CodeConvo LLM Interface]
+
+    classDef collection fill:#e1f5ff,stroke:#0077b6,stroke-width:2px;
+    classDef dataStory fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px;
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:1.5px;
+    classDef pinned fill:#d1e7dd,stroke:#0a3622,stroke-width:1.5px;
+    classDef wip fill:#f8d7da,stroke:#842029,stroke-width:1.5px;
+
+    class Projects,Thinking,Resources collection;
+    class DataStories,DS1,DS2,DS3 dataStory;
+    class Portfolio,PF1,PF2,PF3,PF4,PF5,PF6 legacy;
+    class T1,T2,T3 pinned;
+    class P2,P4 wip;

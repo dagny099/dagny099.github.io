@@ -1,287 +1,143 @@
-# Site Architecture & Content Sitemap
+---
+title: "Site Architecture & Content Sitemap"
+permalink: /site-architecture/
+layout: single
+classes: wide extra-wide
+#sidebar:
+#  nav: "diagram-workflow"   # key defined in _data/navigation.yml
+#toc: true
+#toc_label: "Navigation"
+#toc_icon: "map"
+#breadcrumbs: false
+---
+<div style="height: 1px; background: #e5e5e5; margin:1rem 0;"></div>
 
-This diagram provides a visual representation of all content and categories in the repository, showing how pages are connected and organized within the site's structure.
+This page is a **visual guide** to how content is organized on barbhs.com.  
+I use diagrams (rendered from Mermaid and exported as SVG) to keep the site structure understandable both for myself and for visitors.
 
-## Site Structure Diagram (Interactive - Click nodes to visit pages)
+Below, you’ll see a layered approach:
+1. A high-level [**top‑level structure**](#1-toplevel-site-structure-highlevel-overview) diagram  
+2. Focused diagrams for [**modern collections**](#2-content-hubs-projects-data-stories-thinking-resources) and [**blog architecture**](#3-blog-architecture-series-individual-posts-and-archives)  
+3. An [**interactive full sitemap**](#4-full-detailed-sitemap-with-clickable-links-) that exposes all the detail
 
-```mermaid
-graph TB
-    %% Root
-    Home[🏠 Home Page<br/>barbhs.com]
+I try to keep this page current, which doesn't always happen, but see Last Updated date at the bottom. See also this post about how to generate these diagrams and related workflow tips.
 
-    %% Main Navigation
-    Home --> Projects[📊 Projects]
-    Home --> Thinking[💭 Thinking]
-    Home --> Resources[📚 Resources]
-    Home --> DataStories[📖 Data Stories]
-    Home --> Journey[🚶 My Journey]
-    Home --> Contact[📧 Contact]
-    Home --> Blog[📝 Blog Archive]
-    Home --> About[👤 About]
+<div style="height: 1px; background: #e5e5e5; margin:1rem 0;"></div>
 
-    %% Projects Collection (4 items)
-    Projects --> P1[Self-Hosted Workout Intelligence<br/>Active]
-    Projects --> P2[Beehive Analytics Platform<br/>WIP]
-    Projects --> P3[Convoscope: Conversational AI<br/>Active]
-    Projects --> P4[Knowledge Network Mapping<br/>WIP]
+## 1. Top‑Level Site Structure: High‑Level Overview 
 
-    %% Thinking Collection (4 items)
-    Thinking --> T1[📌 Bees, Graphs & Governance<br/>Foundational]
-    Thinking --> T2[📌 7±2 is Everywhere: Chunking<br/>Cognitive Science]
-    Thinking --> T3[📌 Vision & Data Viz<br/>Decision-Making]
-    Thinking --> T4[RAG Without the Theater<br/>AI Governance]
+This diagram shows only the **primary navigation hubs** and major content areas.  
+It’s the fastest way to understand what lives where on barbhs.com and what's being transitioned.
 
-    %% Resources Collection (6 items)
-    Resources --> R1[Vision & Perception Cheatsheet<br/>PDF]
-    Resources --> R2[Bridge to Web Apps<br/>Streamlit/Plotly Guide]
-    Resources --> R3[Executive Brief Template<br/>Beginner]
-    Resources --> R4[Dataset & Prompt Cards<br/>Intermediate]
-    Resources --> R5[Project Starter Kit<br/>Data Science]
-    Resources --> R6[Interactive Web Apps Guide<br/>PDF]
+<div class="diagram-full-width" style="text-align:center; margin: 2rem 0;" >
+  <a href="{{ '/assets/diagrams/site_map_overview_v1.0.svg' | relative_url }}" target="_blank">
+    <img src="{{ '/assets/diagrams/site_map_overview_v1.0.svg' | relative_url }}"
+         alt="Full site map"
+         style="max-width:100%; height:auto;">
+  </a>
+  <p style="font-size:0.85rem; color:#444;">Click to open the high-resolution diagram in a new tab.</p>
+</div>
 
-    %% Data Stories (3 items)
-    DataStories --> DS1[Hive Photo Metadata Tracker<br/>Computer Vision & APIs]
-    DataStories --> DS2[Exercise Dashboard<br/>The Choco Effect]
-    DataStories --> DS3[Knowledge Cartography<br/>Citation Link Prediction]
+{: style="text-align: left; font-size:.75em;"}
+Color convention for diagram nodes:  
+🟣 <span style="color: purple;">**Home** </span><br>
+🔵 <span style="color: blue;">**Modern Collections/Hubs:**  Projects, Data Stories, Thinking, Resources</span><br>
+🟠 <span style="color: orange;">**Legacy Collections:** Portfolio and Supplementary Content (content being migrated, as of Nov 2025)</span><br>
 
-    %% My Journey
-    Journey --> J1[Career Timeline<br/>Vision Science → Data Systems]
 
-    %% Additional Static Pages
-    Home --> Portfolio[🗂️ Portfolio<br/>Legacy Collection]
-    Home --> Experience[💼 Experience]
-    Home --> Research[🔬 Research]
-    Home --> Gallery[🎨 Gallery]
+## 2. Content Hubs: Projects, Data Stories, Thinking, Resources 
 
-    %% Portfolio (Legacy - 6 items)
-    Portfolio --> PF1[Build Your Own Webpage]
-    Portfolio --> PF2[IoT Real-Time Viz Workflow]
-    Portfolio --> PF3[Academic Citation Networks]
-    Portfolio --> PF4[CareerCraft Job Assistant]
-    Portfolio --> PF5[Personal Workout Analytics]
-    Portfolio --> PF6[CodeConvo LLM Interface]
+The **heart of the site** is a set of modern content collections:
+- **Projects** –> Hands‑on, end‑to‑end builds with demos and documenation  
+- **Data Stories** –> Narrative-style, visual walkthroughs of real datasets  
+- **Thinking** –> Essays and conceptual pieces  
+- **Resources** – reusable templates, guides, and references  
 
-    %% Experience Page Elements
-    Experience --> EX1[Filterable Roles<br/>Interactive Timeline]
+The diagram below zooms into these collections and their key items, plus the legacy Portfolio.
 
-    %% Research Page Elements
-    Research --> RES1[📄 Academic Papers<br/>4 publications]
-    Research --> RES2[📋 Conference Posters<br/>8 posters]
+<div class="diagram-full-width" style="text-align:center; margin: 2rem 0;">
+  <a href="{{ '/assets/diagrams/site_map_collections_v1.0.svg' | relative_url }}" target="_blank">
+    <img src="{{ '/assets/diagrams/site_map_collections_v1.0.svg' | relative_url }}"
+         alt="Full site map"
+         style="max-width:100%; height:150px;">
+  </a>
+  <p style="font-size:0.85rem; color:#444;">Click to open the high-resolution diagram in a new tab.</p>
+</div>
 
-    %% Gallery
-    Gallery --> G1[Midjourney AI Art<br/>3 galleries]
+{: style="text-align: left; font-size:.75em;"}
+Color convention for diagram nodes:  
+🔵 <span style="color: blue;">**Content hubs:** Projects, Data Stories Thinking, Resources</span><br>
+🟣 <span style="color: purple;">**Data Stories:** Technical narratives and case studies</span><br>
+🟢 <span style="color: green;">**Thinking:** Writing, e.g. essays and conceptual pieces</span><br>
+🔴 <span style="color: red;">**WIP:** Projects, mostly, in progress but sharable-state</span><br>
+🟠 <span style="color: orange;">**Legacy Content:** Largely blogs including series and individual posts</span><br>
 
-    %% Blog Structure - Expanded with Series
-    Blog --> BlogSeries1[📂 Website Building Series]
-    Blog --> BlogSeries2[📂 Sensor Fleet Series]
-    Blog --> BlogIndividual[📂 Individual Posts]
-    Blog --> Archives[Archives<br/>Tags & Categories]
 
-    %% Website Building Series (4 posts)
-    BlogSeries1 --> WS1[Part 1: Getting Started<br/>GitHub Pages]
-    BlogSeries1 --> WS2[Part 2: Understanding Jekyll<br/>Static Site Builders]
-    BlogSeries1 --> WS3[Part 3: GitHub Actions<br/>CI/CD]
-    BlogSeries1 --> WS4[Part 4: Reflections<br/>Post-Deployment]
+## 3. Blog Architecture: Series, Individual Posts, and Archives 
 
-    %% Sensor Fleet Series (7 posts)
-    BlogSeries2 --> SF0[Intro: Sensor Fleet<br/>Arduino/MQTT]
-    BlogSeries2 --> SF1[Part 1: IoT Setup]
-    BlogSeries2 --> SF2[Part 2: MQTT Broker]
-    BlogSeries2 --> SF3[Part 3: Data Pipeline]
-    BlogSeries2 --> SF4[Part 4: Heroku Deploy]
-    BlogSeries2 --> SF5[Part 5: Kafka Streams]
-    BlogSeries2 --> SF6[Part 6: Visualization]
+The **Blog** is the longest-running part of the site and contains:
+- multi‑part **series** (like Website Building and Sensor Fleet),
+- **individual posts** (e.g., project write‑ups, reflections),
+- and archive pages (by tag and category).
 
-    %% Individual Blog Posts
-    BlogIndividual --> IND1[Taming Mermaid Diagrams<br/>2025-11]
-    BlogIndividual --> IND2[AWS CCP Certification<br/>2023-06]
-    BlogIndividual --> IND3[3D Printing Exploration<br/>2023-02]
-    BlogIndividual --> IND4[Stock Ticker Webapp<br/>2022-09]
+This diagram shows how the pieces fit together:
 
-    %% Archives
-    Archives --> TagArchive[Tag Archive]
-    Archives --> CategoryArchive[Category Archive]
+<div class="diagram-full-width" style="text-align:center; margin: 2rem 0;">
+  <a href="{{ '/assets/diagrams/site_map_blog_architecture_v1.0.svg' | relative_url }}" target="_blank">
+    <img src="{{ '/assets/diagrams/site_map_blog_architecture_v1.0.svg' | relative_url }}"
+         alt="Blog architecture diagram showing series, individual posts, and archives"
+         style="max-width:100%; height:auto;">
+  </a>
+  <p style="font-size:0.85rem; color:#444;">Click to open the full blog architecture diagram in a new tab.</p>
+</div>
 
-    %% Clickable Links
-    click Home "https://barbhs.com" "Visit Home Page"
-    click Projects "https://barbhs.com/projects/" "View Projects"
-    click Thinking "https://barbhs.com/thinking/" "Read Essays"
-    click Resources "https://barbhs.com/resources/" "Browse Resources"
-    click DataStories "https://barbhs.com/data-stories/" "Explore Data Stories"
-    click Journey "https://barbhs.com/my-journey/" "My Career Journey"
-    click Blog "https://barbhs.com/blog/" "Read Blog"
-    click About "https://barbhs.com/about/" "About Me"
-    click Portfolio "https://barbhs.com/portfolio/" "View Portfolio"
-    click Experience "https://barbhs.com/experience/" "Professional Experience"
-    click Research "https://barbhs.com/research/" "Academic Research"
-    click Gallery "https://barbhs.com/gallery/" "Art Gallery"
+## 4. Full Detailed Sitemap, with Clickable Links 🔗
 
-    click DS1 "https://barbhs.com/data-stories/hive-photo-metadata-tracker/" "Hive Photo Tracker"
-    click DS2 "https://barbhs.com/data-stories/exercise-dashboard/" "Exercise Dashboard"
-    click DS3 "https://barbhs.com/data-stories/citation-link-prediction/" "Citation Networks"
+The diagrams above give you **usable mental models** without overwhelming detail.  
+If you’d like to see everything at once, the full sitemap below exposes all the nodes and links.
 
-    click WS1 "https://barbhs.com/blog/getting-started-with-github-pages/" "Part 1"
-    click WS2 "https://barbhs.com/blog/understanding-your-jekyll-site/" "Part 2"
-    click WS3 "https://barbhs.com/blog/deploy-jekyll-gh-actions/" "Part 3"
-    click WS4 "https://barbhs.com/blog/post-deployment-reflextions/" "Part 4"
+One cool think about the diagram is that (many) of the nodes are **clickable links!** 
+Hover over nodes to see tooltips with additional context:
 
-    click SF0 "https://barbhs.com/blog/sensor-fleet-intro/" "Sensor Fleet Intro"
-    click SF1 "https://barbhs.com/blog/sensor-fleet-part-1/" "Part 1"
-    click SF2 "https://barbhs.com/blog/sensor-fleet-part-2/" "Part 2"
-    click SF3 "https://barbhs.com/blog/sensor-fleet-part-3/" "Part 3"
-    click SF4 "https://barbhs.com/blog/sensor-fleet-part-4/" "Part 4"
-    click SF5 "https://barbhs.com/blog/sensor-fleet-part-5/" "Part 5"
-    click SF6 "https://barbhs.com/blog/sensor-fleet-part-6/" "Part 6"
+  <div class="diagram-full-width" style="text-align:center; margin:2rem 0;">
+    <a href="{{ '/assets/diagrams/site_map_full_v1.0.svg' | relative_url }}" target="_blank">
+      <img src="{{ '/assets/diagrams/site_map_full_v1.0.svg' | relative_url }}"
+           alt="Full detailed sitemap of barbhs.com"
+           style="max-width:100%; height:auto;">
+    </a>
+    <p style="font-size:0.85rem; color:#444;">Open the full‑size sitemap in a new tab to zoom and explore every branch.</p>
+  </div>
 
-    click IND1 "https://barbhs.com/blog/taming-mermaid-diagrams/" "Mermaid Post"
-    click IND2 "https://barbhs.com/blog/aws-ccp-certification/" "AWS CCP"
-    click IND3 "https://barbhs.com/blog/3d-printing-exploration/" "3D Printing"
-    click IND4 "https://barbhs.com/blog/stock-ticker-comparison/" "Stock Ticker"
 
-    click TagArchive "https://barbhs.com/tags/" "Browse by Tag"
-    click CategoryArchive "https://barbhs.com/categories/" "Browse by Category"
+<div style="height: 1px; background: #e5e5e5; margin:2rem 0;"></div>
 
-    %% Styling
-    classDef collection fill:#e1f5ff,stroke:#0077b6,stroke-width:2px
-    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:2px
-    classDef pinned fill:#d1e7dd,stroke:#0a3622,stroke-width:2px
-    classDef wip fill:#f8d7da,stroke:#842029,stroke-width:2px
-    classDef dataStory fill:#e7d4ff,stroke:#5a189a,stroke-width:2px
-    classDef blogPost fill:#fff4e6,stroke:#d97706,stroke-width:2px
+## How I Maintain This Map
 
-    class Projects,Thinking,Resources collection
-    class DataStories,DS1,DS2,DS3 dataStory
-    class Portfolio legacy
-    class T1,T2,T3 pinned
-    class P2,P4 wip
-    class BlogSeries1,BlogSeries2,BlogIndividual,WS1,WS2,WS3,WS4,SF0,SF1,SF2,SF3,SF4,SF5,SF6,IND1,IND2,IND3,IND4 blogPost
-```
+<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> account_tree</span>
+This sitemap isn’t a one‑off artifact; it’s part of my content workflow:  
+- I keep the **Mermaid source files** for each diagram in a `/diagrams/` folder.  
+- I export updated **SVGs** whenever the structure changes.  
+- I treat this page as a **living document** that evolves as the site does.  
 
-## Content Hierarchy Overview
+<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> bookmark_check</span>
+In practice, when I...  
+- Add a major new section (e.g., a new collection or series), <mark>I update the relevant diagram and regenerate the SVG</mark>.  
+- Refactor navigation, this page is where <mark>I sanity‑check whether the new structure is still coherent.</mark>. 
 
-### Primary Navigation (Main Menu)
-1. **Projects** → `/projects/` - Data products & AI systems (4 active/WIP items)
-2. **Thinking** → `/thinking/` - Essays on cognition, data, AI (4 items, 3 pinned)
-3. **Resources** → `/resources/` - Templates & guides (6 downloadable items)
-4. **Data Stories** → `/data-stories/` - Technical narratives & case studies (3 items)
-5. **My Journey** → `/my-journey/` - Career narrative & timeline
-6. **Contact** → Social links & email
+<div style="height: 1px; background: #e5e5e5; margin:1rem 0;"></div>
 
-### Secondary Pages (Footer/Utility)
-- **Blog** → `/blog/` - Post archive with pagination (16 posts in 2 series + individual posts)
-- **Portfolio** → `/portfolio/` - Legacy project showcase (6 items, being migrated)
-- **Experience** → `/experience/` - Filterable professional roles
-- **Research** → `/research/` - Academic publications (4 papers, 8 posters)
-- **About** → `/about/` - Professional bio & highlights
-- **Gallery** → `/gallery/` - Midjourney AI art collections
+{: .text-center}
+If you’re building your own site or knowledge base, I recommend:  
+<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> keyboard_arrow_right</span>
+Starting with a **high‑level diagram** like the one at the top of this page  
+<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> keyboard_arrow_right</span>
+Adding **focused sub‑maps** for your most important content hubs  
+<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> keyboard_arrow_right</span>
+Keeping one **full, detailed sitemap** off to the side for periodic review  
 
-### Data Stories Collection (3 items)
-1. **Hive Photo Metadata Tracker** - Computer vision & APIs for beehive monitoring
-2. **Exercise Dashboard: The Choco Effect** - Trend analysis & data visualization
-3. **Knowledge Cartography** - Citation link prediction using graph neural networks
-
-### Blog Posts by Series
-#### Website Building Series (4 posts - 2024)
-1. Part 1: Getting Started with GitHub Pages
-2. Part 2: Understanding Jekyll & Static Site Builders
-3. Part 3: GitHub Actions for CI/CD
-4. Part 4: Post-Deployment Reflections
-
-#### Sensor Fleet Series (7 posts - 2021)
-1. Intro: Arduino/MQTT setup
-2. Part 1-6: IoT pipeline, MQTT broker, Heroku deployment, Kafka streams, visualization
-
-#### Individual Posts (4 posts - 2022-2025)
-- Taming Mermaid Diagrams Across Projects (2025-11)
-- AWS CCP Certification (2023-06)
-- 3D Printing Exploration (2023-02)
-- Stock Ticker Webapp Comparison (2022-09)
-
-## Site Organization Principles
-
-### Content Migration Strategy
-- **Modern Collections**: Projects, Thinking, Resources, Data Stories (current focus)
-- **Legacy Collection**: Portfolio (being phased out, content migrating to Projects)
-- **Static Pages**: Experience, Research, About, Gallery (supplementary content)
-- **Blog**: 16 posts organized into series (Website Building, Sensor Fleet) + individual posts
-
-### Content Themes
-1. **Vision & Perception Science** - Academic research foundation (MIT PhD)
-2. **Data Systems & Knowledge Graphs** - Technical architecture
-3. **AI/NLP Integration & Governance** - Modern AI practices
-4. **Data Products & Analytics** - User-centered design
-5. **Technical Skills & DevOps** - Implementation guides
-
-### URL Structure
-```
-/                              → Home page
-/projects/                     → Projects collection index
-/projects/{title}/             → Individual project pages
-/thinking/                     → Thinking collection index
-/thinking/{title}/             → Individual essays
-/resources/                    → Resources collection index
-/resources/{title}/            → Individual resource pages
-/data-stories/                 → Data Stories index
-/data-stories/{title}/         → Individual data story pages
-/my-journey/                   → Career timeline
-/portfolio/                    → Legacy portfolio grid
-/portfolio/{title}/            → Legacy project pages
-/experience/                   → Professional experience
-/research/                     → Academic publications
-/about/                        → About page
-/blog/                         → Blog archive
-/blog/page/{n}/                → Paginated blog (3 per page)
-/blog/{title}/                 → All blog posts (standardized)
-/topics/                       → Topic taxonomy page
-/tags/                         → Tag archive
-/categories/                   → Category archive
-/gallery/                      → AI art galleries
-```
-
-## Target Audiences
-- Data scientists transitioning to product roles
-- Technical professionals building personal brands
-- Teams implementing AI governance practices
-- Career-changers documenting learning journeys
-
-## Technical Implementation
-- **Theme**: Minimal Mistakes v4.27.1 (Remote theme)
-- **Hosting**: GitHub Pages with custom domain (barbhs.com)
-- **Collections**: 3 modern collections + Data Stories pages + 1 legacy portfolio
-- **Navigation**: Masthead menu via `_data/navigation.yml`
-- **Content**: 49+ markdown files across collections, posts, and data stories
-- **Blog Posts**: 16 posts (4 Website series, 7 Sensor Fleet series, 4 individual posts)
-- **Features**: Search (Lunr.js), Analytics (Google), Breadcrumbs, Responsive design
-
-## Color Legend for Diagram
-
-The sitemap uses color coding to categorize content types:
-
-- 🔵 **Blue** (Collections) - Modern content hubs: Projects, Thinking, Resources
-- 🟣 **Purple** (Data Stories) - Technical narratives and case studies
-- 🟡 **Yellow** (Legacy) - Portfolio items being migrated to Projects
-- 🟢 **Green** (Pinned) - Foundational thinking pieces
-- 🔴 **Red** (WIP) - Work-in-progress projects
-- 🟠 **Orange** (Blog Posts) - All blog content including series and individual posts
-
-## Interactive Features
-
-The Mermaid diagram includes **clickable links** on nodes! When viewing this sitemap on GitHub or any platform that renders Mermaid diagrams (like GitHub Pages, GitLab, VS Code with Mermaid extension), you can:
-
-- Click any node to visit the corresponding page on barbhs.com
-- Hover over nodes to see tooltips with additional context
-- Use the diagram as a visual navigation tool for the entire site
-
-**Note**: Interactive links work in:
-- GitHub README/markdown files
-- GitHub Pages
-- GitLab
-- VS Code (with Mermaid extension)
-- Mermaid Live Editor (mermaid.live)
-- Documentation platforms supporting Mermaid
+{: .text-center}
+It’s a small investment that makes your content ecosystem much easier to grow and maintain.
 
 ---
 
 *Last updated: 2025-11-21*
-*Generated for: dagny099.github.io repository*
-*Diagram includes: 4 Projects, 4 Thinking pieces, 6 Resources, 3 Data Stories, 16 Blog posts, 6 Portfolio items, and all static pages*

@@ -106,3 +106,13 @@ sidebar-pub:
       - title: "Posters"
         url: /research/#posters
       - title: "Demos"
+
+diagram-workflow:
+  - title: Top‑Level Site Structure
+    url: /site-architecture#1-toplevel-site-structure-highlevel-overview
+  - title: Step 1 – Diagrams Folder
+    url: /site-architecture#2-content-hubs-projects-data-stories-thinking-resources
+  - title: Step 2 – Naming
+    url: /site-architecture#3-blog-architecture-series-individual-posts-and-archives
+  - title: Metadata & Frontmatter
+    url: /site-architecture#4-full-detailed-sitemap-with-clickable-links-

@@ -330,6 +330,27 @@
 .initial-content{ flex:1 0 auto; }
 .page__footer{ flex:0 0 auto; }
 */
+.tight-block { line-height:1.35; margin:0.5rem 0 1rem 0; }
+.tight-block ul { margin:0.2rem 0; line-height:1.3; }
+.tight-block li { margin-bottom:0.25rem; }
+
+/* ------------------------------------------------------------------
+   Full-width ONLY for the diagram sections
+   ------------------------------------------------------------------ */
+.extra-wide .page__content {
+  max-width: 1600px;   // try 1500–1800px depending on your taste
+}
+
+.diagram-full-width {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  max-width: 100vw;
+}
+
+.diagram-full-width img,
+.diagram-full-width svg {
+  width: 100%;
+}
 
 /* ------------------------------------------------------------------
    custom/_links.scss — Home link underline policy
