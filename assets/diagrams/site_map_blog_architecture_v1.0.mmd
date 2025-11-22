@@ -1,0 +1,56 @@
+---
+id: site_map_blog_architecture_v1
+title: Blog Architecture & Series
+project: dagny099_github_io
+visibility: public
+status: stable
+last_updated: 2025-11-21
+tags: [sitemap, blog, series, archives]
+sequence:
+  group: "site-architecture-post"
+  order: 2
+description: >
+  Focused sitemap of the blog: series, individual posts, and archive pages.
+---
+graph TB
+    Blog[📝 Blog Archive]
+
+    Blog --> BlogSeries1[📂 Website Building Series]
+    Blog --> BlogSeries2[📂 Sensor Fleet Series]
+    Blog --> BlogIndividual[📂 Individual Posts]
+    Blog --> Archives[Archives<br/>Tags & Categories]
+
+    %% Website Building Series
+    BlogSeries1 --> WS1[Part 1: Getting Started<br/>GitHub Pages]
+    BlogSeries1 --> WS2[Part 2: Understanding Jekyll]
+    BlogSeries1 --> WS3[Part 3: GitHub Actions for CI/CD]
+    BlogSeries1 --> WS4[Part 4: Post-Deployment Reflections]
+
+    %% Sensor Fleet Series
+    BlogSeries2 --> SF0[Intro: Sensor Fleet<br/>Arduino/MQTT]
+    BlogSeries2 --> SF1[Part 1: IoT Setup]
+    BlogSeries2 --> SF2[Part 2: MQTT Broker]
+    BlogSeries2 --> SF3[Part 3: Data Pipeline]
+    BlogSeries2 --> SF4[Part 4: Heroku Deploy]
+    BlogSeries2 --> SF5[Part 5: Kafka Streams]
+    BlogSeries2 --> SF6[Part 6: Visualization]
+
+    %% Individual Posts
+    BlogIndividual --> IND1[Taming Mermaid Diagrams Across Projects]
+    BlogIndividual --> IND2[AWS CCP Certification]
+    BlogIndividual --> IND3[3D Printing Exploration]
+    BlogIndividual --> IND4[Stock Ticker Webapp]
+
+    %% Archives
+    Archives --> TagArchive[Tag Archive]
+    Archives --> CategoryArchive[Category Archive]
+
+    classDef blogHub fill:#fff4e6,stroke:#d97706,stroke-width:2px;
+    classDef series fill:#ffedd5,stroke:#c05621,stroke-width:1.5px;
+    classDef post fill:#fefcbf,stroke:#b7791f,stroke-width:1px;
+    classDef archive fill:#e0f2f1,stroke:#00695c,stroke-width:1.5px;
+
+    class Blog blogHub;
+    class BlogSeries1,BlogSeries2,BlogIndividual series;
+    class WS1,WS2,WS3,WS4,SF0,SF1,SF2,SF3,SF4,SF5,SF6,IND1,IND2,IND3,IND4 post;
+    class Archives,TagArchive,CategoryArchive archive;

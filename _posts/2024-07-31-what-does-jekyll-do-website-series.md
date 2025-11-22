@@ -3,7 +3,10 @@ layout: single
 title: "Digital Home Base Workshop Part 2- Under the Hood: Understanding Your Site's Engine"
 sitemap:
     priority: 0.5
-permalink: /posts/understanding-your-jekyll-site/
+permalink: /blog/understanding-your-jekyll-site/
+redirect_from:
+  - /posts/understanding-your-jekyll-site/
+  - /tutorial/understanding-your-jekyll-site/
 header:
   overlay_image: "/assets/images/midjourney/reimagined-offices/office-of-my-imagination-below-sea-ar4by3.png"
 excerpt: "Explore Jekyll's inner workings, understand how it transforms your content into a smooth-running website, and learn how to fine-tune its performance"
