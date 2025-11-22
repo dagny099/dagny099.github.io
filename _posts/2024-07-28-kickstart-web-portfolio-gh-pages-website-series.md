@@ -3,7 +3,10 @@ layout: single
 title: "Digital Home Base Workshop Part 1- Assembly Required: Getting Started with GitHub Pages"
 sitemap:
     priority: 0.5
-permalink: /posts/getting-started-with-github-pages/
+permalink: /blog/getting-started-with-github-pages/
+redirect_from:
+  - /posts/getting-started-with-github-pages/
+  - /tutorial/getting-started-with-github-pages/
 header:
   overlay_image: "/assets/images/midjourney/wall-worthy/inceptiony-girl-central-grandiose-scifi-feel.png"
 excerpt: "Learn how to create a beautiful, professional website using GitHub Pages – perfect for data professionals who love version control and markdown."

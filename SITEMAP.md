@@ -120,23 +120,23 @@ graph TB
     click DS2 "https://barbhs.com/data-stories/exercise-dashboard/" "Exercise Dashboard"
     click DS3 "https://barbhs.com/data-stories/citation-link-prediction/" "Citation Networks"
 
-    click WS1 "https://barbhs.com/posts/getting-started-with-github-pages/" "Part 1"
-    click WS2 "https://barbhs.com/posts/understanding-your-jekyll-site/" "Part 2"
-    click WS3 "https://barbhs.com/posts/deploy-jekyll-gh-actions/" "Part 3"
-    click WS4 "https://barbhs.com/posts/post-deployment-reflextions/" "Part 4"
+    click WS1 "https://barbhs.com/blog/getting-started-with-github-pages/" "Part 1"
+    click WS2 "https://barbhs.com/blog/understanding-your-jekyll-site/" "Part 2"
+    click WS3 "https://barbhs.com/blog/deploy-jekyll-gh-actions/" "Part 3"
+    click WS4 "https://barbhs.com/blog/post-deployment-reflextions/" "Part 4"
 
-    click SF0 "https://barbhs.com/temp-sensor-00/" "Sensor Fleet Intro"
-    click SF1 "https://barbhs.com/temp-sensor-01/" "Part 1"
-    click SF2 "https://barbhs.com/temp-sensor-02/" "Part 2"
-    click SF3 "https://barbhs.com/temp-sensor-03/" "Part 3"
-    click SF4 "https://barbhs.com/temp-sensor-04/" "Part 4"
-    click SF5 "https://barbhs.com/temp-sensor-05/" "Part 5"
-    click SF6 "https://barbhs.com/temp-sensor-06/" "Part 6"
+    click SF0 "https://barbhs.com/blog/sensor-fleet-intro/" "Sensor Fleet Intro"
+    click SF1 "https://barbhs.com/blog/sensor-fleet-part-1/" "Part 1"
+    click SF2 "https://barbhs.com/blog/sensor-fleet-part-2/" "Part 2"
+    click SF3 "https://barbhs.com/blog/sensor-fleet-part-3/" "Part 3"
+    click SF4 "https://barbhs.com/blog/sensor-fleet-part-4/" "Part 4"
+    click SF5 "https://barbhs.com/blog/sensor-fleet-part-5/" "Part 5"
+    click SF6 "https://barbhs.com/blog/sensor-fleet-part-6/" "Part 6"
 
-    click IND1 "https://barbhs.com/posts/organized-mermaid-life/" "Mermaid Post"
-    click IND2 "https://barbhs.com/posts/earned_aws_ccp/" "AWS CCP"
-    click IND3 "https://barbhs.com/print3d-00/" "3D Printing"
-    click IND4 "https://barbhs.com/stock-ticker-00/" "Stock Ticker"
+    click IND1 "https://barbhs.com/blog/taming-mermaid-diagrams/" "Mermaid Post"
+    click IND2 "https://barbhs.com/blog/aws-ccp-certification/" "AWS CCP"
+    click IND3 "https://barbhs.com/blog/3d-printing-exploration/" "3D Printing"
+    click IND4 "https://barbhs.com/blog/stock-ticker-comparison/" "Stock Ticker"
 
     click TagArchive "https://barbhs.com/tags/" "Browse by Tag"
     click CategoryArchive "https://barbhs.com/categories/" "Browse by Category"
@@ -231,9 +231,8 @@ graph TB
 /about/                        → About page
 /blog/                         → Blog archive
 /blog/page/{n}/                → Paginated blog (3 per page)
-/posts/{title}/                → Website Building series posts
-/temp-sensor-{n}/              → Sensor Fleet series posts
-/{category}/{title}/           → Individual blog posts
+/blog/{title}/                 → All blog posts (standardized)
+/topics/                       → Topic taxonomy page
 /tags/                         → Tag archive
 /categories/                   → Category archive
 /gallery/                      → AI art galleries

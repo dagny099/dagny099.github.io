@@ -68,6 +68,8 @@ main:
 footer-nav:
   - title: "Explore"
     children:
+      - title: "Topics"
+        url: /topics/
       - title: "Blog"
         url: /blog/
       - title: "Research"

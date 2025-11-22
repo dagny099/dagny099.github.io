@@ -107,7 +107,7 @@ sass:
   sass_dir: _sass
   style: compressed
 
-permalink: /:categories/:title/
+permalink: /blog/:title/
 
 plugins:
   - jekyll-remote-theme
@@ -115,6 +115,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-redirect-from
 # (remove jekyll-paginate-v2 for now to match GH Pages)
 
 # Collections

@@ -4,7 +4,10 @@ title: "Digital Home Base Workshop Part 3- Automate Your Site with GitHub Action
 sitemap:
     priority: 0.5
 classes: [wide]
-permalink: /posts/deploy-jekyll-gh-actions/
+permalink: /blog/deploy-jekyll-gh-actions/
+redirect_from:
+  - /posts/deploy-jekyll-gh-actions/
+  - /tutorial/deploy-jekyll-gh-actions/
 header:
   overlay_image: "/assets/images/midjourney/reimagined-offices/office-of-my-imagination-robotic-arm-building_arsq.png"
 excerpt: "Every good engine needs a monitoring system. Learn how to install a proper CI/CD pipeline that watches your engine's performance, catches issues before they become problems, and keeps everything running smoothly"

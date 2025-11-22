@@ -1,7 +1,10 @@
 ---
 layout: single
 title: "Sensor Fleet Part 4"
-permalink: /temp-sensor-04/
+permalink: /blog/sensor-fleet-part-4/
+redirect_from:
+  - /temp-sensor-04/
+  - /data science/sensor-fleet-part-4/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
 excerpt: "Environment Sensing, Visualizing"

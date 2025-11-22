@@ -3,7 +3,10 @@ layout: single
 title: "Recreational 3D Printing"
 sitemap:
     priority: 0.5
-permalink: /print3d-00/
+permalink: /blog/3d-printing-exploration/
+redirect_from:
+  - /print3d-00/
+  - /3d printing/recreational-3d-printing/
 header:
   overlay_image: "/assets/images/M5-calib-mini-v0.jpg"
 excerpt: "Exploring the prototyping possibilities "
