@@ -5,32 +5,40 @@ main:
     url: /projects/
     color: "#2a6f97"
     background-color: "#eef6fb"
-    subtitle: "Case studies with a 30-sec summary → 2-min overview → deep dive."
-    description: "Portfolio of data products, AI systems, and knowledge graphs."
+    subtitle: "Systems and products I've built."
+    description: "Data products, AI systems, and knowledge graphs in production."
+
+  - title: "Data Stories"
+    short: "Stories"
+    url: /data-stories/
+    color: "#5a189a"
+    background-color: "#f4f0fb"
+    subtitle: "Technical narratives with interactive visualizations."
+    description: "Case studies told through data, from problem to insight."
 
   - title: "Thinking"
     short: "Thinking"
     url: /thinking/
     color: "#6f5b91"
     background-color: "#f7f4fb"
-    subtitle: "Foundational posts are pinned; everything else is living research."
-    description: "Essays and working notes on cognition, data, and AI."
+    subtitle: "Essays on cognition, data systems, and AI governance."
+    description: "Foundational posts are pinned; everything else is living research."
 
   - title: "Resources"
     short: "Resources"
     url: /resources/
     color: "#3d6c67"
     background-color: "#f4f9f8"
-    subtitle: "Plug-and-play PDFs and checklists for faster collaboration."
-    description: "Guides, templates, and reproducible starter kits."
+    subtitle: "Plug-and-play templates, guides, and starter kits."
+    description: "Checklists and PDFs for faster collaboration."
 
   - title: "My Journey"
     short: "Journey"
     url: /my-journey/
     color: "#5f5449"
     background-color: "#faf7f2"
-    subtitle: "Cognitive → data → product — framed as human change & systems."
-    description: "A human timeline of learning, pivots, and shipped work."
+    subtitle: "From vision science to data products — a human timeline."
+    description: "Career pivots, learning, and shipped work over time."
 
   - title: "Contact"
     short: "Contact"
@@ -55,6 +63,35 @@ main:
 #     url: /blog/     
 #   # - title: "Contact"
 #   #  url: /contact/
+
+# Footer navigation for content discovery
+footer-nav:
+  - title: "Explore"
+    children:
+      - title: "Topics"
+        url: /topics/
+      - title: "Blog"
+        url: /blog/
+      - title: "Research"
+        url: /research/
+      - title: "Experience"
+        url: /experience/
+      - title: "Gallery"
+        url: /gallery/
+  - title: "Archives"
+    children:
+      - title: "Tags"
+        url: /tags/
+      - title: "Categories"
+        url: /categories/
+      - title: "All Posts"
+        url: /blog/
+  - title: "About"
+    children:
+      - title: "About Me"
+        url: /about/
+      - title: "Site Architecture"
+        url: /site-architecture/
 
 # sidebar navigation list sample
 sidebar-pub:

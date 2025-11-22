@@ -1,7 +1,10 @@
 ---
 layout: archive
 title: "Sensor Fleet Part 2"
-permalink: /temp-sensor-02/
+permalink: /blog/sensor-fleet-part-2/
+redirect_from:
+  - /temp-sensor-02/
+  - /data science/sensor-fleet-part-2/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
   actions:

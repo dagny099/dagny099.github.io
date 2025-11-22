@@ -3,7 +3,10 @@ layout: single
 title: "Woot! Earned my AWS CCP badge"
 sitemap:
     priority: 0.5
-permalink: /posts/earned_aws_ccp/
+permalink: /blog/aws-ccp-certification/
+redirect_from:
+  - /posts/earned_aws_ccp/
+  - /cloudML/woot-earned-my-aws-ccp-badge/
 header:
   overlay_image: "/assets/images/M5-calib-mini-v0.jpg"
 excerpt: "AWS Cloud Certified Professional"  #displayed on index.html and blog.html

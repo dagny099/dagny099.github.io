@@ -1,7 +1,10 @@
 ---
 layout: single
 title: "Sensor Fleet"
-permalink: /temp-sensor-00/
+permalink: /blog/sensor-fleet-intro/
+redirect_from:
+  - /temp-sensor-00/
+  - /data science/sensor-fleet/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
 excerpt: "Environment Sensing, Visualizing"

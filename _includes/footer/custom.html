@@ -1,24 +1,96 @@
 <footer class="footer-custom" role="contentinfo" aria-label="Site footer">
   <div class="footer-custom__inner">
-    <p class="footer-heading">Let’s connect</p>
 
-    {% if site.footer.links %}
-    <ul class="footer-social">
-      {% for link in site.footer.links %}
-      {% if link.label and link.url %}
-      <li>
-        <a href="{{ link.url }}" target="_blank" rel="nofollow noopener noreferrer" title="{{ link.label }}">
-          {% if link.icon %}
-            <i class="{{ link.icon }}" aria-hidden="true"></i>
+    <!-- Content Navigation -->
+    {% if site.data.navigation.footer-nav %}
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-nav__sections">
+        {% for section in site.data.navigation.footer-nav %}
+        <div class="footer-nav__section">
+          <h3 class="footer-nav__heading">{{ section.title }}</h3>
+          {% if section.children %}
+          <ul class="footer-nav__list">
+            {% for child in section.children %}
+            <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+            {% endfor %}
+          </ul>
           {% endif %}
-          <span>{{ link.label }}</span>
-        </a>
-      </li>
-      {% endif %}
-      {% endfor %}
-    </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </nav>
     {% endif %}
+
+    <!-- Social Links -->
+    <div class="footer-social-section">
+      <p class="footer-heading">Let's connect</p>
+
+      {% if site.footer.links %}
+      <ul class="footer-social">
+        {% for link in site.footer.links %}
+        {% if link.label and link.url %}
+        <li>
+          <a href="{{ link.url }}" target="_blank" rel="nofollow noopener noreferrer" title="{{ link.label }}">
+            {% if link.icon %}
+              <i class="{{ link.icon }}" aria-hidden="true"></i>
+            {% endif %}
+            <span>{{ link.label }}</span>
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
 
     <p class="footer-legal">© {{ 'now' | date: '%Y' }} {{ site.name | default: site.title }}. All rights reserved.</p>
   </div>
 </footer>
+
+<style>
+  .footer-nav {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .footer-nav__sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-nav__heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+
+  .footer-nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav__list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-nav__list a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .footer-nav__list a:hover {
+    color: #2a6f97;
+  }
+
+  .footer-social-section {
+    margin-top: 1.5rem;
+  }
+</style>
