@@ -3,10 +3,13 @@ layout: single
 title: "Digital Home Base Workshop Part 4- A Data Scientist's Reflections of Workshop to Web"
 sitemap:
     priority: 0.5
-permalink: /posts/post-deployment-reflextions/
+permalink: /blog/post-deployment-reflextions/
+redirect_from:
+  - /posts/post-deployment-reflextions/
+  - /tutorial/post-deployment-reflextions/
 header:
   overlay_image: "/assets/images/midjourney/wall-worthy/sq-celestial-reflections.png"
-excerpt: What started as a simple website project turned into valuable insights about how we approach and document technical processes. Join me for some "aha!" moments about automation, visibility, and technical documentation. 
+excerpt: What started as a simple website project turned into valuable insights about how we approach and document technical processes. Join me for some "aha!" moments about automation, visibility, and technical documentation.
 excerpt_display: false
 tags: [reflection]
 classes: [wide]
