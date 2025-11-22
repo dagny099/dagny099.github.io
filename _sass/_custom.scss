@@ -412,6 +412,12 @@
   .page__hero--overlay .hero-ctas--pinned{
     position: static;
     margin-top: .75rem;
+    margin-bottom: 0.5rem;  /* space before caption */
+  }
+
+  /* Add bottom padding to hero wrapper so caption doesn't overlap buttons */
+  .home.layout--splash .page__hero--overlay .wrapper{
+    padding-bottom: 2rem;  /* space for the absolutely-positioned caption */
   }
 }
 
