@@ -1,17 +1,22 @@
 ---
-title: "Research"
-excerpt: "Eye movements, scene familiarity, modeling attention."
+title: "Research & Publications"
+excerpt: "Eye movements, scene familiarity, and computational models of attention from my MIT cognitive science research."
 permalink: /research/
 header:
-  opacity: "0.4"
-  overlay_image: "/assets/images/flowers_02.jpg"
+  overlay_color: "#1e3a5f"
+  overlay_filter: 0.7
 author_profile: false
-# classes: wide
 sidebar:
   - image: /assets/images/model_img_th.jpg
     image_alt: "Street scene with example of eye fixations"
     nav: sidebar-pub
 ---
+
+<p style="margin-bottom: 1.5rem;">
+  <a href="/my-journey/" style="color: #4a90e2;">← Back to My Journey</a> &nbsp;|&nbsp;
+  <a href="https://scholar.google.com/citations?user=nQG25vkAAAAJ" target="_blank" style="color: #50c878;">Google Scholar (430+ citations)</a>
+</p>
+
 ## Big Picture
 {: style="margin-top: 0px; padding-top: 0px;"}
 Eye movements are such a natural and universal behavior that most people don't ever think about how they happen or even THAT they happen. When you want to watch something, or drive somewhere, or when you want nothing at all- eye movements are happening **constantly**. In fact, people change their gaze several times per *second*, every waking hour of every day.
