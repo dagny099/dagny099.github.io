@@ -10,13 +10,13 @@ excerpt_display: true
 tags: [mermaid, diagrams, documentation, workflow, streamlit]
 classes: wide
 categories: [tutorial]
-#author_profile: false
 pagination: 
   enabled: true
 #toc: true
 #toc_label: "Table of Contents"
 #toc_icon: "list"
 #toc_sticky: true
+#author_profile: false
 ---
 
 # Taming Mermaid Diagrams Across Projects

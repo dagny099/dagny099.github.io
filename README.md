@@ -2,7 +2,11 @@
 
 Hola! 👋 Thanks for visting the GitHub repository for my personal website. This is where I host the code for my personal website, which serves as my portfolio and blog.
 
-## About This Site
+## Visit My Website
+
+You can check out my website at: https://barbhs.com
+
+## About My Site
 
 This website is my digital hub where I share projects, articles, and my musings as a data scientist. It's built with [Jekyll](https://jekyllrb.com/), a static site generator, uses the [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) theme, and is hosted on [GitHub Pages](https://pages.github.com/).  
 
@@ -12,9 +16,6 @@ This website is my digital hub where I share projects, articles, and my musings 
 - 📝 Blog where I write about data science, knowledge organization, and on occasion current events
 - 🐝  Custom design to reflect my personal interests
 
-## Visit My Website
-
-You can check out my website at: https://barbhs.com
 
 ## How It's Built
 
