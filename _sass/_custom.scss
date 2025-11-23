@@ -573,6 +573,55 @@
 .cards .card__body{ display:flex; flex-direction:column; height:100%; }
 .cards .card__footer{ margin-top:auto; padding:.75rem 1rem 1rem; container-type:inline-size; }
 
+.about-endnote {
+  max-width: 700px;
+  margin: 4rem auto 2rem;
+  padding-left: 1rem;
+  border-left: 3px solid #d3542c; /* warm, but NOT the same orange as your cards */
+}
+
+.endnote-heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.75rem;
+  color: #1c1c1c;
+}
+
+.endnote-body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #4a4a4a;
+  margin: 0 0 1.25rem;
+  max-width: 580px;
+}
+
+.endnote-link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c94822;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.endnote-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #f0b39e;
+  transition: background 0.2s ease;
+}
+
+.endnote-link:hover::after {
+  background-color: #c94822;
+}
+
+
+
 /* Two CTAs centered L/R; buttons hug text */
 /* Kill the theme's flex on project card footers */
 .card--project .card__footer{

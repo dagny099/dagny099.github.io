@@ -18,7 +18,7 @@ minimal_mistakes_skin: "air"
 locale: "en-US"
 title: "Barbara Hidalgo-Sotelo"      # was empty via YAML anchor
 name: "Barbara Hidalgo-Sotelo"
-description: "A digital footprint under my control."
+description: "Exploring messy data, intelligent systems, and what it means to make meaning—through the lens of a cognitive scientist who builds things people actually use."
 url: "https://barbhs.com"
 baseurl: ""                           # empty string, not null
 repository: "dagny099/dagny099.github.io"
@@ -39,6 +39,14 @@ analytics:
   provider: google-gtag
   google:
     tracking_id: "G-VPLSBQSHER"
+
+# Social/Schema.org configuration for structured data
+social:
+  type: Person
+  name: "Barbara Hidalgo-Sotelo, PhD"
+  links:
+    - "https://www.linkedin.com/in/barbara-hidalgo-sotelo/"
+    - "https://github.com/dagny099"
 
 author:
   name: "Dr. Barbara"
