@@ -1,0 +1,5 @@
+# Python dependencies for sitemap generator
+# Install with: pip install -r scripts/requirements.txt
+
+python-frontmatter>=1.0.0
+PyYAML>=6.0
