@@ -88,8 +88,12 @@ footer-nav:
         url: /blog/
   - title: "About"
     children:
-      - title: "About Me"
-        url: /about/
+      - title: "My Journey"
+        url: /my-journey/
+      - title: "Experience"
+        url: /experience/
+      - title: "Research"
+        url: /research/
       - title: "Site Architecture"
         url: /site-architecture/
 

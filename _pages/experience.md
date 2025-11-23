@@ -3,7 +3,15 @@ title: "Experience"
 layout: single
 classes: wide
 permalink: /experience/
+header:
+  overlay_color: "#1e3a5f"
+  overlay_filter: 0.7
+excerpt: "Detailed role history with highlights and technology tags."
 ---
+
+<p style="text-align: center; margin-bottom: 1.5rem;">
+  <a href="/my-journey/" style="color: #4a90e2;">← Back to My Journey</a> for the narrative version
+</p>
 
 <div id="filters" class="filters">
   <strong>Filter:</strong>
