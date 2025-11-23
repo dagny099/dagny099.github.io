@@ -47,8 +47,18 @@ CONTENT_DIRS = {
     "thinking": "_thinking",
     "resources": "_resources",
     "data_stories": "data-stories",
-    "pages": "_pages"
+    "pages": "_pages",
+    "portfolio": "_portfolio",  # Legacy collection (being migrated to Projects)
 }
+
+# Key static pages that use HTML (not auto-scanned from _pages)
+# These are important navigation pages that should appear in the sitemap
+KEY_STATIC_PAGES = [
+    {"title": "Get In Touch", "permalink": "/get-in-touch/", "content_type": "page"},
+    {"title": "My Journey", "permalink": "/my-journey/", "content_type": "page"},
+    {"title": "Data Stories", "permalink": "/data-stories/", "content_type": "index"},
+    {"title": "Topics", "permalink": "/topics/", "content_type": "page"},
+]
 
 # Color definitions for different content types (Mermaid CSS classes)
 COLORS = {
@@ -93,6 +103,11 @@ def parse_markdown_file(filepath: Path) -> Optional[Dict]:
         with open(filepath, 'r', encoding='utf-8') as f:
             post = frontmatter.load(f)
 
+        # Skip unpublished content (published: false in front matter)
+        if post.get("published") is False:
+            print(f"    Skipping unpublished: {filepath.name}")
+            return None
+
         # Extract relevant metadata
         metadata = {
             "title": post.get("title", filepath.stem),
@@ -102,7 +117,8 @@ def parse_markdown_file(filepath: Path) -> Optional[Dict]:
             "status": post.get("status", ""),
             "excerpt": post.get("excerpt", ""),
             "layout": post.get("layout", ""),
-            "filepath": str(filepath)
+            "filepath": str(filepath),
+            "published": post.get("published", True),  # Track for reference
         }
 
         return metadata
@@ -173,6 +189,8 @@ def get_content_type(filepath: Path) -> str:
         return "resource"
     elif "data-stories" in path_str:
         return "data_story"
+    elif "_portfolio" in path_str:
+        return "portfolio"
     elif "_pages" in path_str:
         return "page"
     else:
@@ -202,7 +220,9 @@ def scan_content_directory(repo_root: Path) -> Dict[str, List[Dict]]:
         "thinking": [],
         "resources": [],
         "data_stories": [],
-        "pages": []
+        "pages": [],
+        "portfolio": [],  # Legacy collection
+        "static_pages": [],  # Key HTML pages from KEY_STATIC_PAGES
     }
 
     print("Scanning content directories...")
@@ -214,8 +234,8 @@ def scan_content_directory(repo_root: Path) -> Dict[str, List[Dict]]:
             print(f"  Warning: {dir_path} not found, skipping")
             continue
 
-        # Find all markdown files
-        md_files = list(full_path.glob("*.md"))
+        # Find all markdown AND html files
+        md_files = list(full_path.glob("*.md")) + list(full_path.glob("*.html"))
         print(f"  Found {len(md_files)} files in {dir_path}")
 
         for md_file in md_files:
@@ -231,6 +251,18 @@ def scan_content_directory(repo_root: Path) -> Dict[str, List[Dict]]:
 
                 # Add to appropriate category
                 content_inventory[content_type].append(metadata)
+
+    # Add key static pages (HTML pages that aren't auto-scanned)
+    print(f"  Adding {len(KEY_STATIC_PAGES)} key static pages")
+    for static_page in KEY_STATIC_PAGES:
+        content_inventory["static_pages"].append({
+            "title": static_page["title"],
+            "permalink": static_page["permalink"],
+            "content_type": static_page["content_type"],
+            "detected_status": "",
+            "tags": [],
+            "categories": [],
+        })
 
     return content_inventory
 
@@ -318,6 +350,7 @@ def generate_mermaid_diagram(content_inventory: Dict[str, List[Dict]]) -> str:
     lines.append("    Home --> Thinking[💭 Thinking]")
     lines.append("    Home --> Resources[📚 Resources]")
     lines.append("    Home --> Blog[📝 Blog Archive]")
+    lines.append("    Home --> Portfolio[📁 Portfolio<br/>Legacy]")
     lines.append("")
 
     # Generate nodes for each content type
@@ -363,6 +396,16 @@ def generate_mermaid_diagram(content_inventory: Dict[str, List[Dict]]) -> str:
             node_mapping[node_id] = item["permalink"]
         lines.append("")
 
+    # Portfolio (Legacy collection)
+    if content_inventory["portfolio"]:
+        lines.append("    %% Portfolio Collection (Legacy)")
+        for idx, item in enumerate(content_inventory["portfolio"], 1):
+            node_id = generate_node_id("PORT", idx)
+            label = format_node_label(item["title"], item["detected_status"])
+            lines.append(f"    Portfolio --> {node_id}[{label}]")
+            node_mapping[node_id] = item["permalink"]
+        lines.append("")
+
     # Blog Posts (organized by series if detected)
     if content_inventory["posts"]:
         lines.append("    %% Blog Posts")
@@ -379,6 +422,7 @@ def generate_mermaid_diagram(content_inventory: Dict[str, List[Dict]]) -> str:
     lines.append(f'    click Thinking "{SITE_URL}/thinking/" "Read Essays"')
     lines.append(f'    click Resources "{SITE_URL}/resources/" "Browse Resources"')
     lines.append(f'    click Blog "{SITE_URL}/blog/" "Read Blog"')
+    lines.append(f'    click Portfolio "{SITE_URL}/portfolio/" "View Legacy Portfolio"')
     lines.append("")
 
     for node_id, permalink in node_mapping.items():
@@ -395,11 +439,13 @@ def generate_mermaid_diagram(content_inventory: Dict[str, List[Dict]]) -> str:
     lines.append("    classDef pinned fill:#d1e7dd,stroke:#0a3622,stroke-width:2px")
     lines.append("    classDef wip fill:#f8d7da,stroke:#842029,stroke-width:2px")
     lines.append("    classDef blogPost fill:#fff4e6,stroke:#d97706,stroke-width:2px")
+    lines.append("    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:2px")
     lines.append("")
 
     lines.append("    class Projects,Thinking,Resources collection")
     lines.append("    class DataStories dataStory")
     lines.append("    class BlogPosts blogPost")
+    lines.append("    class Portfolio legacy")
     lines.append("```")
 
     return "\n".join(lines)

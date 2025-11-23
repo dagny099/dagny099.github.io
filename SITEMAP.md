@@ -11,150 +11,85 @@ graph TB
 
     %% Main Navigation
     Home --> Projects[📊 Projects]
+    Home --> DataStories[📖 Data Stories]
     Home --> Thinking[💭 Thinking]
     Home --> Resources[📚 Resources]
-    Home --> DataStories[📖 Data Stories]
-    Home --> Journey[🚶 My Journey]
-    Home --> Contact[📧 Contact]
     Home --> Blog[📝 Blog Archive]
-    Home --> About[👤 About]
+    Home --> Portfolio[📁 Portfolio<br/>Legacy]
 
-    %% Projects Collection (4 items)
-    Projects --> P1[Self-Hosted Workout Intelligence<br/>Active]
-    Projects --> P2[Beehive Analytics Platform<br/>WIP]
-    Projects --> P3[Convoscope: Conversational AI<br/>Active]
-    Projects --> P4[Knowledge Network Mapping<br/>WIP]
+    %% Projects Collection
+    Projects --> PROJ1[Knowledge Network Mapping<br/>🚧 WIP]
+    Projects --> PROJ2[Conversational AI Management]
+    Projects --> PROJ3[Self-Hosted Workout Intelligence<br/>✅ Active]
+    Projects --> PROJ4[Beehive Analytics Platform<br/>🚧 WIP]
 
-    %% Thinking Collection (4 items)
-    Thinking --> T1[📌 Bees, Graphs & Governance<br/>Foundational]
-    Thinking --> T2[📌 7±2 is Everywhere: Chunking<br/>Cognitive Science]
-    Thinking --> T3[📌 Vision & Data Viz<br/>Decision-Making]
-    Thinking --> T4[RAG Without the Theater<br/>AI Governance]
+    %% Data Stories
+    DataStories --> DS1[Knowledge Cartography: Finding Lost Cousins in the Academic Family Tree]
+    DataStories --> DS2[Exercise Dashboard]
+    DataStories --> DS3[Hive Photo Metadata Tracker]
 
-    %% Resources Collection (6 items)
-    Resources --> R1[Vision & Perception Cheatsheet<br/>PDF]
-    Resources --> R2[Bridge to Web Apps<br/>Streamlit/Plotly Guide]
-    Resources --> R3[Executive Brief Template<br/>Beginner]
-    Resources --> R4[Dataset & Prompt Cards<br/>Intermediate]
-    Resources --> R5[Project Starter Kit<br/>Data Science]
-    Resources --> R6[Interactive Web Apps Guide<br/>PDF]
+    %% Thinking Collection
+    Thinking --> THINK1[Vision, Perception, and Data Viz for Decision‑Making — Designing for How People Actually See]
+    Thinking --> THINK2[Bees, Graphs, and Governance — Turning Unruly Observations into Evidence‑Ready Decisions]
+    Thinking --> THINK3[7+-2 is Everywhere: Chunking is all you need]
+    Thinking --> THINK4[RAG Without the Theater — Evidence‑Linked Retrieval Patterns You Can Defend]
 
-    %% Data Stories (3 items)
-    DataStories --> DS1[Hive Photo Metadata Tracker<br/>Computer Vision & APIs]
-    DataStories --> DS2[Exercise Dashboard<br/>The Choco Effect]
-    DataStories --> DS3[Knowledge Cartography<br/>Citation Link Prediction]
+    %% Resources Collection
+    Resources --> RES1[The Data Scientist’s Bridge to Interactive Web Apps<br/>✅ Active]
+    Resources --> RES2[The Data Scientist’s Bridge to Interactive Web Apps (PDF)<br/>✅ Active]
+    Resources --> RES3[New Data Science Project Starter Kit]
+    Resources --> RES4[Executive Brief Template]
+    Resources --> RES5[Vision & Perception for Decision Viz (Crib Sheet, PDF)]
+    Resources --> RES6[Dataset & Prompt Cards]
 
-    %% My Journey
-    Journey --> J1[Career Timeline<br/>Vision Science → Data Systems]
+    %% Portfolio Collection (Legacy)
+    Portfolio --> PORT1[CareerCraft: Job Application Assistant]
+    Portfolio --> PORT2[A Personal Workout Analytics Dashboard<br/>✅ Active]
+    Portfolio --> PORT3[Build Your Own Webpage with Hosting]
+    Portfolio --> PORT4[Academic Citation Network Link Prediction using PyTorch]
+    Portfolio --> PORT5[An IoT Workflow for Real-Time Data Visualilzation]
+    Portfolio --> PORT6[Down the AI Rabbit Hole: Beyond Basic LLM Chats]
 
-    %% Additional Static Pages
-    Home --> Portfolio[🗂️ Portfolio<br/>Legacy Collection]
-    Home --> Experience[💼 Experience]
-    Home --> Research[🔬 Research]
-    Home --> Gallery[🎨 Gallery]
-
-    %% Portfolio (Legacy - 6 items)
-    Portfolio --> PF1[Build Your Own Webpage]
-    Portfolio --> PF2[IoT Real-Time Viz Workflow]
-    Portfolio --> PF3[Academic Citation Networks]
-    Portfolio --> PF4[CareerCraft Job Assistant]
-    Portfolio --> PF5[Personal Workout Analytics]
-    Portfolio --> PF6[CodeConvo LLM Interface]
-
-    %% Experience Page Elements
-    Experience --> EX1[Filterable Roles<br/>Interactive Timeline]
-
-    %% Research Page Elements
-    Research --> RES1[📄 Academic Papers<br/>4 publications]
-    Research --> RES2[📋 Conference Posters<br/>8 posters]
-
-    %% Gallery
-    Gallery --> G1[Midjourney AI Art<br/>3 galleries]
-
-    %% Blog Structure - Expanded with Series
-    Blog --> BlogSeries1[📂 Website Building Series]
-    Blog --> BlogSeries2[📂 Sensor Fleet Series]
-    Blog --> BlogIndividual[📂 Individual Posts]
-    Blog --> Archives[Archives<br/>Tags & Categories]
-
-    %% Website Building Series (4 posts)
-    BlogSeries1 --> WS1[Part 1: Getting Started<br/>GitHub Pages]
-    BlogSeries1 --> WS2[Part 2: Understanding Jekyll<br/>Static Site Builders]
-    BlogSeries1 --> WS3[Part 3: GitHub Actions<br/>CI/CD]
-    BlogSeries1 --> WS4[Part 4: Reflections<br/>Post-Deployment]
-
-    %% Sensor Fleet Series (7 posts)
-    BlogSeries2 --> SF0[Intro: Sensor Fleet<br/>Arduino/MQTT]
-    BlogSeries2 --> SF1[Part 1: IoT Setup]
-    BlogSeries2 --> SF2[Part 2: MQTT Broker]
-    BlogSeries2 --> SF3[Part 3: Data Pipeline]
-    BlogSeries2 --> SF4[Part 4: Heroku Deploy]
-    BlogSeries2 --> SF5[Part 5: Kafka Streams]
-    BlogSeries2 --> SF6[Part 6: Visualization]
-
-    %% Individual Blog Posts
-    BlogIndividual --> IND1[Taming Mermaid Diagrams<br/>2025-11]
-    BlogIndividual --> IND2[AWS CCP Certification<br/>2023-06]
-    BlogIndividual --> IND3[3D Printing Exploration<br/>2023-02]
-    BlogIndividual --> IND4[Stock Ticker Webapp<br/>2022-09]
-
-    %% Archives
-    Archives --> TagArchive[Tag Archive]
-    Archives --> CategoryArchive[Category Archive]
+    %% Blog Posts
+    Blog --> BlogPosts[16 Blog Posts]
 
     %% Clickable Links
     click Home "https://barbhs.com" "Visit Home Page"
     click Projects "https://barbhs.com/projects/" "View Projects"
+    click DataStories "https://barbhs.com/data-stories/" "Explore Data Stories"
     click Thinking "https://barbhs.com/thinking/" "Read Essays"
     click Resources "https://barbhs.com/resources/" "Browse Resources"
-    click DataStories "https://barbhs.com/data-stories/" "Explore Data Stories"
-    click Journey "https://barbhs.com/my-journey/" "My Career Journey"
     click Blog "https://barbhs.com/blog/" "Read Blog"
-    click About "https://barbhs.com/about/" "About Me"
-    click Portfolio "https://barbhs.com/portfolio/" "View Portfolio"
-    click Experience "https://barbhs.com/experience/" "Professional Experience"
-    click Research "https://barbhs.com/research/" "Academic Research"
-    click Gallery "https://barbhs.com/gallery/" "Art Gallery"
+    click Portfolio "https://barbhs.com/portfolio/" "View Legacy Portfolio"
 
-    click DS1 "https://barbhs.com/data-stories/hive-photo-metadata-tracker/" "Hive Photo Tracker"
-    click DS2 "https://barbhs.com/data-stories/exercise-dashboard/" "Exercise Dashboard"
-    click DS3 "https://barbhs.com/data-stories/citation-link-prediction/" "Citation Networks"
-
-    click WS1 "https://barbhs.com/blog/getting-started-with-github-pages/" "Part 1"
-    click WS2 "https://barbhs.com/blog/understanding-your-jekyll-site/" "Part 2"
-    click WS3 "https://barbhs.com/blog/deploy-jekyll-gh-actions/" "Part 3"
-    click WS4 "https://barbhs.com/blog/post-deployment-reflextions/" "Part 4"
-
-    click SF0 "https://barbhs.com/blog/sensor-fleet-intro/" "Sensor Fleet Intro"
-    click SF1 "https://barbhs.com/blog/sensor-fleet-part-1/" "Part 1"
-    click SF2 "https://barbhs.com/blog/sensor-fleet-part-2/" "Part 2"
-    click SF3 "https://barbhs.com/blog/sensor-fleet-part-3/" "Part 3"
-    click SF4 "https://barbhs.com/blog/sensor-fleet-part-4/" "Part 4"
-    click SF5 "https://barbhs.com/blog/sensor-fleet-part-5/" "Part 5"
-    click SF6 "https://barbhs.com/blog/sensor-fleet-part-6/" "Part 6"
-
-    click IND1 "https://barbhs.com/blog/taming-mermaid-diagrams/" "Mermaid Post"
-    click IND2 "https://barbhs.com/blog/aws-ccp-certification/" "AWS CCP"
-    click IND3 "https://barbhs.com/blog/3d-printing-exploration/" "3D Printing"
-    click IND4 "https://barbhs.com/blog/stock-ticker-comparison/" "Stock Ticker"
-
-    click TagArchive "https://barbhs.com/tags/" "Browse by Tag"
-    click CategoryArchive "https://barbhs.com/categories/" "Browse by Category"
+    click PROJ1 "https://barbhs.com/projects/knowledge-mapping/" "Proj1"
+    click PROJ2 "https://barbhs.com/projects/convoscope/" "Proj2"
+    click PROJ3 "https://barbhs.com/projects/fitness-dashboard/" "Proj3"
+    click PROJ4 "https://barbhs.com/projects/beehive-tracker/" "Proj4"
+    click DS1 "https://barbhs.com/data-stories/citation-link-prediction/" "Ds1"
+    click DS2 "https://barbhs.com/data-stories/exercise-dashboard/" "Ds2"
+    click DS3 "https://barbhs.com/data-stories/hive-photo-metadata-tracker/" "Ds3"
+    click THINK1 "https://barbhs.com/thinking/vision-perception-data-viz-decisions/" "Think1"
+    click THINK2 "https://barbhs.com/thinking/bees-graphs-governance/" "Think2"
+    click THINK3 "https://barbhs.com/thinking/why-dashboards-fail/" "Think3"
+    click RES1 "https://barbhs.com/resources/streamlit-bridge/" "Res1"
+    click RES3 "https://barbhs.com/resources/starter-kit/" "Res3"
+    click RES4 "https://barbhs.com/resources/executive-brief/" "Res4"
+    click RES5 "https://barbhs.com/resources/visual-decision-making/" "Res5"
+    click RES6 "https://barbhs.com/resources/dataset-cards/" "Res6"
 
     %% Styling
     classDef collection fill:#e1f5ff,stroke:#0077b6,stroke-width:2px
-    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:2px
+    classDef dataStory fill:#e7d4ff,stroke:#5a189a,stroke-width:2px
     classDef pinned fill:#d1e7dd,stroke:#0a3622,stroke-width:2px
     classDef wip fill:#f8d7da,stroke:#842029,stroke-width:2px
-    classDef dataStory fill:#e7d4ff,stroke:#5a189a,stroke-width:2px
     classDef blogPost fill:#fff4e6,stroke:#d97706,stroke-width:2px
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:2px
 
     class Projects,Thinking,Resources collection
-    class DataStories,DS1,DS2,DS3 dataStory
+    class DataStories dataStory
+    class BlogPosts blogPost
     class Portfolio legacy
-    class T1,T2,T3 pinned
-    class P2,P4 wip
-    class BlogSeries1,BlogSeries2,BlogIndividual,WS1,WS2,WS3,WS4,SF0,SF1,SF2,SF3,SF4,SF5,SF6,IND1,IND2,IND3,IND4 blogPost
 ```
 
 ## Content Hierarchy Overview

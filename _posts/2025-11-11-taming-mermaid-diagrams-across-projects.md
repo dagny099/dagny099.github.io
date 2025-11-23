@@ -1,7 +1,7 @@
 ---
 layout: single
-title: Taming Mermaid Diagrams Across Projects
-subtitle: From scattered snippets to a reusable visual library
+title: How I Organized My Mermaid Life
+subtitle: A cross project workflow for humans with too many ideas
 permalink: /blog/taming-mermaid-diagrams/
 redirect_from:
   - /posts/organized-mermaid-life/
@@ -13,16 +13,16 @@ excerpt_display: true
 tags: [mermaid, diagrams, documentation, workflow, streamlit]
 classes: wide
 categories: [tutorial]
-#author_profile: false
 pagination: 
   enabled: true
+#author_profile: false
 #toc: true
 #toc_label: "Table of Contents"
 #toc_icon: "list"
 #toc_sticky: true
 ---
 
-# Taming Mermaid Diagrams Across Projects
+# How I Organized My Mermaid Life
 
 <div style="font-variant: small-caps; font-size: 0.9rem; color:#555; margin-top:3rem;">
 OVERVIEW

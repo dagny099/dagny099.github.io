@@ -1,3 +1,25 @@
+---
+layout: single
+title: Git Workflow for Keeping Organized
+subtitle: Part 0 of The Data Scientist's CLI Handbook Series
+permalink: /blog/git-workflow-getting-started/
+header:
+  overlay_image: /assets/images/blog/aws-cli-banner.jpg
+  overlay_filter: 0.5
+  #caption: 
+#excerpt: 
+#excerpt_display: false
+tags: [git]
+#categories: [tutorial]
+#pagination: 
+#  enabled: true
+#author_profile: false
+#toc: true
+#toc_label: "Table of Contents"
+#toc_icon: "list"
+#toc_sticky: true
+published: false
+---
 # Git Workflow for Keeping Organized
 
 This workflow keeps my production branch (`main`) clean while allowing continuous development on `dev_branch`, with further experimentation through feature branches.
