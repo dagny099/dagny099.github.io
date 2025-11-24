@@ -24,14 +24,6 @@ main:
     subtitle: "Essays on cognition, data systems, and AI governance."
     description: "Foundational posts are pinned; everything else is living research."
 
-  - title: "Resources"
-    short: "Resources"
-    url: /resources/
-    color: "#3d6c67"
-    background-color: "#f4f9f8"
-    subtitle: "Plug-and-play templates, guides, and starter kits."
-    description: "Checklists and PDFs for faster collaboration."
-
   - title: "My Journey"
     short: "Journey"
     url: /my-journey/
@@ -39,6 +31,14 @@ main:
     background-color: "#faf7f2"
     subtitle: "From vision science to data products — a human timeline."
     description: "Career pivots, learning, and shipped work over time."
+
+  - title: "Resources"
+    short: "Resources"
+    url: /resources/
+    color: "#3d6c67"
+    background-color: "#f4f9f8"
+    subtitle: "Plug-and-play templates, guides, and starter kits."
+    description: "Checklists and PDFs for faster collaboration."
 
   - title: "Contact"
     short: "Contact"

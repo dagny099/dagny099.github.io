@@ -7,7 +7,7 @@ tags: ["perception","preattentive","gestalt","color","luminance","uncertainty","
 pin: true
 toc: true
 toc_sticky: true
-classes: wide
+#classes: wide
 excerpt_separator: "<!--more-->"
 # Cards metadata
 read_time: 6

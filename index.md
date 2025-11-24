@@ -158,15 +158,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 <div class="home-section">
   <details class="home-accordion" data-section="resources" markdown="1" open>
   <summary><h2>Resources & Guides</h2></summary>
-  
-  <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-    <p style="text-align: center; font-size: 1.05em; color: #495057; margin: 0;">
-      <strong>Built on Cognitive Foundations:</strong> These aren't just templates—they're tools designed 
-      with human cognition in mind. Each resource applies insights from visual perception, attention, 
-      and memory research to solve real data problems.
-    </p>
-  </div>
-  
+   
   <div class="feature__wrapper">
 
   <div class="resource-minis">
