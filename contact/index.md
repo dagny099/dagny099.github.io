@@ -18,11 +18,25 @@ excerpt: >
     Open to <strong>Data Scientist</strong>, <strong>AI Consultant</strong>, and <strong>AI Strategist</strong> roles,
     plus collaborative projects at the intersection of data products, knowledge graphs, and pragmatic MLOps.
   </p>
+  <p>
+    Hiring? Download my latest <a href="/assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf" target="_blank" rel="noopener">resume (PDF)</a>
+    or explore my detailed <a href="/about/">journey</a> to see how I build data products end to end.
+  </p>
 </div>
 
 ## Reach Out
 
 <div class="contact-cards">
+  <a href="/assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf" target="_blank" rel="noopener" class="contact-card contact-card--resume">
+    <div class="contact-card__icon">
+      <i class="fas fa-file-alt" aria-hidden="true"></i>
+    </div>
+    <div class="contact-card__body">
+      <h3>Resume (PDF)</h3>
+      <span>Latest experience & case studies</span>
+    </div>
+  </a>
+
   <a href="mailto:barbs@barbhs.com" class="contact-card contact-card--email">
     <div class="contact-card__icon">
       <i class="fas fa-envelope" aria-hidden="true"></i>
@@ -155,6 +169,14 @@ excerpt: >
 }
 .contact-card--email:hover {
   border-color: rgba(14, 116, 144, 0.3);
+}
+
+.contact-card--resume .contact-card__icon {
+  background: #f4f0ff;
+  color: #6b21a8;
+}
+.contact-card--resume:hover {
+  border-color: rgba(107, 33, 168, 0.3);
 }
 
 .contact-card--linkedin .contact-card__icon {
