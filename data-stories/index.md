@@ -2,27 +2,32 @@
 title: "Data Stories"
 permalink: /data-stories/
 layout: single
-classes: wide
+classes: [wide, story-page]
 description: "Narrative, visual walkthroughs of real datasets, projects, and experiments."
 redirect_from:
   - /data-stories.html
 ---
 
+<div class="page-shell section-stack">
+  <section class="soft-hero content-slab">
+    <p class="eyebrow">Data Stories</p>
+    <h1>Evidence you can scroll</h1>
+    <p class="section-intro">Narrative walkthroughs, visual demos, and experiments. Each story pairs the build with the cognitive principle it proves in the real world.</p>
+  </section>
 
-{% include section-header.html %}
+  {% assign all_pages = site.pages | where_exp: "item", "item.url contains '/data-stories/'" %}
+  {% assign data_stories = all_pages | where_exp: "item", "item.url != page.url" %}
 
-<!-- STORY CARDS GRID -->
-<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 3rem 2rem; background-color: #ffffff;">
-
-{% assign all_pages = site.pages | where_exp: "item", "item.url contains '/data-stories/'" %}
-{% assign data_stories = all_pages | where_exp: "item", "item.url != page.url" %}
-    
-  {% for story in data_stories %}
-  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
-    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">{{ story.title }}</h2>
-    <p>{{ story.description }}</p>
-    <a href="{{ story.url | relative_url }}" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
-  </div>
+  <div class="cards-grid story-grid">
+    {% for story in data_stories %}
+      <article class="card-surface">
+        {% if story.date %}
+          <p class="card-meta">{{ story.date | date: "%b %Y" }}</p>
+        {% endif %}
+        <h2 class="card-title"><a class="text-link" href="{{ story.url | relative_url }}">{{ story.title }}</a></h2>
+        <p class="card-lede">{{ story.description | default: story.excerpt }}</p>
+        <a class="text-link" href="{{ story.url | relative_url }}">Read the story →</a>
+      </article>
     {% endfor %}
-
-</section>
+  </div>
+</div>

@@ -116,7 +116,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 <div class="home-section" style="margin: 3rem 0;">
   <h2 style="text-align: center; margin-bottom: 2rem;">Cognitive Principles in Practice</h2>
   
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; grid-auto-rows: 1fr; align-items: stretch; max-width: 1000px; margin: 0 auto;">
     
     <div class="principle-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #4a90e2; text-align: center; transition: transform 0.3s;">
       <div style="font-size: 2.5rem; margin-bottom: 1rem;">👁️</div>
