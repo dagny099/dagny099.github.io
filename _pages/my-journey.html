@@ -9,266 +9,9 @@ toc_icon: "list"
 toc_sticky: true
 ---
 
-<style>
-  section {
-    opacity: 0;
-    transform: translateX(-60px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    will-change: opacity, transform;
-    padding: 4rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  section.visible {
-    opacity: 1;
-    transform: none;
-  }
-  .timeline-card, .principle, .lens {
-    background-color: #fffdfb;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    margin-bottom: 2rem;
-    border-left: 4px solid var(--accent-color, #e17b47);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-  }
-  
-  /* Timeline dots that connect vertically */
-  .timeline-card::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: -10px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--accent-color, #e17b47);
-    border: 3px solid white;
-    box-shadow: 0 0 0 1px var(--accent-color, #e17b47);
-    z-index: 2;
-  }
-  
-  /* Connecting line between dots */
-  .timeline-card:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 3rem;
-    left: -6px;
-    width: 2px;
-    height: calc(100% + 1rem);
-    background: linear-gradient(to bottom, var(--accent-color, #e17b47), rgba(225, 123, 71, 0.3));
-    z-index: 1;
-  }
-  
-  /* Card content layouts */
-  .card-with-image-right {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-  
-  .card-content {
-    flex: 1;
-  }
-  
-  .card-image {
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    object-fit: cover;
-    opacity: 0.7;
-  }
-  
-  .card-with-image-left {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    flex-direction: row-reverse;
-  }
-  
-  .card-icon {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 1.5rem;
-    opacity: 0.6;
-    color: var(--accent-color, #e17b47);
-  }
-  
-  /* Timeline card chips */
-  .card-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0,0,0,0.08);
-  }
-  
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.75rem;
-    background: color-mix(in oklab, var(--accent-color, #e17b47) 12%, white);
-    color: color-mix(in oklab, var(--accent-color, #e17b47) 85%, black);
-    border: 1px solid color-mix(in oklab, var(--accent-color, #e17b47) 25%, transparent);
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  
-  .chip:hover {
-    background: color-mix(in oklab, var(--accent-color, #e17b47) 20%, white);
-    border-color: color-mix(in oklab, var(--accent-color, #e17b47) 40%, transparent);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  
-  .chip-icon {
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-  
-  /* Chip type variants */
-  .chip.academic {
-    --chip-accent: #4a90e2;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
-  
-  .chip.professional {
-    --chip-accent: #50c878;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
-  
-  .chip.learning {
-    --chip-accent: #7b68ee;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
-  
-  .chip.context {
-    --chip-accent: #ff6b6b;
-    background: color-mix(in oklab, var(--chip-accent) 12%, white);
-    color: color-mix(in oklab, var(--chip-accent) 85%, black);
-    border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
-  }
-  .timeline-card:hover, .lens:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  }
-  .timeline-year {
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--accent-color, #e17b47);
-    margin-bottom: 0.5rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: #1c1c1c;
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-  .principles-grid, .lenses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  .principle {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-left: 4px solid #6c757d;
-    font-weight: 500;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    transition: all 0.3s ease;
-  }
-  .principle:hover {
-    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  }
-  .circle-image {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  }
-  
-  /* Color scheme variables - easily customizable */
-  .academic { --accent-color: #4a90e2; }
-  .transition { --accent-color: #7b68ee; }
-  .entrepreneurial { --accent-color: #50c878; }
-  .consulting { --accent-color: #e17b47; }
-  .data-science { --accent-color: #ff6b6b; }
-  
-  .lens h4 {
-    color: #2c3e50;
-    margin-bottom: 0.75rem;
-  }
-  .lens p {
-    color: #5a6c7d;
-    line-height: 1.5;
-  }
-  
-  /* Skills visualization placeholder */
-  .skills-chart {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 10px;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-left: 4px solid #6c757d;
-    text-align: center;
-    color: #6c757d;
-  }
-  
-  .cog-sci-influence {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  .cog-sci-card {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 3px solid var(--card-color, #6c757d);
-  }
-  .cog-sci-card h4 {
-    color: var(--card-color, #6c757d);
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
-  .experimental { --card-color: #4a90e2; }
-  .visual { --card-color: #7b68ee; }
-  .attention { --card-color: #50c878; }
-  .systems { --card-color: #e17b47; }
-
-  @media (max-width: 768px) {
-    .principles-grid, .lenses-grid {
-      grid-template-columns: 1fr;
-    }
-    section {
-      padding: 2rem 1rem;
-    }
-  }
-</style>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll(".journey-page section");
     const observer = new IntersectionObserver(
       entries => entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("visible");
@@ -279,23 +22,24 @@ toc_sticky: true
   });
 </script>
 
+<div class="journey-page">
 <!-- HERO -->
-<section style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+<section class="journey-hero">
   <!-- Left: Title -->
-  <div style="flex: 1 1 300px;">
+  <div class="journey-hero__text">
     <h1 class="section-title">The Cognitive Scientist Who Builds Data Systems</h1>
   </div>
 
   <!-- Right: Circular Image -->
-  <div style="flex: 0 0 auto;">
+  <div class="journey-hero__image">
     <img src="/assets/images/biopic/bhs_forweb.png" alt="Barbara Hidalgo-Sotelo" class="circle-image">
   </div>
 
   <!-- Subtitle below -->
-  <div style="flex-basis: 100%; margin-top: 1rem;">
-    <p style="font-size: 1.1rem; color: #5a6c7d; line-height: 1.6;">
+  <div class="journey-hero__subtitle">
+    <p class="journey-subtitle">
     <strong>I’m a cognitive scientist who builds human-centered data systems.</strong><br>
-    My MIT eye-tracking research (hundreds of citations) taught me how people actually see, remember, and decide. 
+    My MIT eye-tracking research (hundreds of citations) taught me how people actually see, remember, and decide.
     Today I use those principles to design AI workflows and data platforms that reduce cognitive load and drive action.
     <br><br>
     <strong>Short version: technology should work the way humans think.</strong>
@@ -643,5 +387,4 @@ toc_sticky: true
   </a>
 </section>
 
-
-</html>
+</div>
