@@ -29,7 +29,7 @@ excerpt: >
     </div>
     <div class="contact-card__body">
       <h3>Email</h3>
-      <span>barb@barbhs.com</span>
+      <span>barbs@balex.com</span>
     </div>
   </a>
 
@@ -39,11 +39,11 @@ excerpt: >
     </div>
     <div class="contact-card__body">
       <h3>LinkedIn</h3>
-      <span>/in/barbarahidalgo</span>
+      <span>/in/barbara-hidalgo-sotelo</span>
     </div>
   </a>
 
-  <a href="https://github.com/dagny099" target="_blank" rel="noopener" class="contact-card contact-card--github">
+  <!-- <a href="https://github.com/dagny099" target="_blank" rel="noopener" class="contact-card contact-card--github">
     <div class="contact-card__icon">
       <i class="fab fa-github" aria-hidden="true"></i>
     </div>
@@ -52,7 +52,7 @@ excerpt: >
       <span>dagny099</span>
     </div>
   </a>
-</div>
+</div> -->
 
 ---
 
