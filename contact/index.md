@@ -59,7 +59,8 @@ excerpt: >
     </div>
   </a>
 
-  <!-- <a href="https://github.com/dagny099" target="_blank" rel="noopener" class="contact-card contact-card--github">
+  <!--
+  <a href="https://github.com/dagny099" target="_blank" rel="noopener" class="contact-card contact-card--github">
     <div class="contact-card__icon">
       <i class="fab fa-github" aria-hidden="true"></i>
     </div>
@@ -68,7 +69,8 @@ excerpt: >
       <span>dagny099</span>
     </div>
   </a>
-</div> -->
+  -->
+</div>
 
 ---
 

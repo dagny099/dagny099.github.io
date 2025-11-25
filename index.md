@@ -113,44 +113,36 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 <!-- =======================
      Cognitive Principles (NEW)
      ======================= -->
-<div class="home-section" style="margin: 3rem 0;">
-  <h2 style="text-align: center; margin-bottom: 2rem;">Cognitive Principles in Practice</h2>
-  
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; grid-auto-rows: 1fr; align-items: stretch; max-width: 1000px; margin: 0 auto;">
-    
-    <div class="principle-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #4a90e2; text-align: center; transition: transform 0.3s;">
-      <div style="font-size: 2.5rem; margin-bottom: 1rem;">👁️</div>
-      <h3 style="color: #4a90e2; margin-bottom: 0.8rem;">Vision Drives Understanding</h3>
-      <p style="color: #6c757d; margin-bottom: 1rem; min-height: 60px;">
+<div class="home-section home-section--principles">
+  <h2 class="home-section__heading">Cognitive Principles in Practice</h2>
+
+  <div class="principles-grid">
+    <div class="principle-card principle-card--vision">
+      <div class="principle-card__icon" aria-hidden="true">👁️</div>
+      <h3>Vision Drives Understanding</h3>
+      <p>
         Design for scanning, not reading. Your brain decides what matters in 200ms.
       </p>
-      <a href="/resources/visual-decision-making/" style="color: #4a90e2; text-decoration: none; font-weight: 500;">
-        See the Perception Guide →
-      </a>
+      <a href="/resources/visual-decision-making/">See the Perception Guide →</a>
     </div>
-    
-    <div class="principle-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #50c878; text-align: center; transition: transform 0.3s;">
-      <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧠</div>
-      <h3 style="color: #50c878; margin-bottom: 0.8rem;">Attention is Limited</h3>
-      <p style="color: #6c757d; margin-bottom: 1rem; min-height: 60px;">
+
+    <div class="principle-card principle-card--attention">
+      <div class="principle-card__icon" aria-hidden="true">🧠</div>
+      <h3>Attention is Limited</h3>
+      <p>
         Use it wisely. Humans can track 7±2 things—design within this constraint.
       </p>
-      <a href="/projects/convoscope/" style="color: #50c878; text-decoration: none; font-weight: 500;">
-        See Convoscope Example →
-      </a>
+      <a href="/projects/convoscope/">See Convoscope Example →</a>
     </div>
-    
-    <div class="principle-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 4px solid #e17b47; text-align: center; transition: transform 0.3s;">
-      <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔄</div>
-      <h3 style="color: #e17b47; margin-bottom: 0.8rem;">Patterns Beat Numbers</h3>
-      <p style="color: #6c757d; margin-bottom: 1rem; min-height: 60px;">
+
+    <div class="principle-card principle-card--patterns">
+      <div class="principle-card__icon" aria-hidden="true">🔄</div>
+      <h3>Patterns Beat Numbers</h3>
+      <p>
         Humans think in stories. Show the narrative, not just the statistics.
       </p>
-      <a href="/projects/fitness-dashboard/" style="color: #e17b47; text-decoration: none; font-weight: 500;">
-        See Fitness Story →
-      </a>
+      <a href="/projects/fitness-dashboard/">See Fitness Story →</a>
     </div>
-    
   </div>
 </div>
 
