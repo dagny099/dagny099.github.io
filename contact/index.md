@@ -13,6 +13,8 @@ excerpt: >
   and collaborative projects that make complex information accessible.
 ---
 
+<div class="page-shell section-stack contact-page">
+
 <div class="contact-intro">
   <p>
     Open to <strong>Data Scientist</strong>, <strong>AI Consultant</strong>, and <strong>AI Strategist</strong> roles,
@@ -57,7 +59,8 @@ excerpt: >
     </div>
   </a>
 
-  <!-- <a href="https://github.com/dagny099" target="_blank" rel="noopener" class="contact-card contact-card--github">
+  <!--
+  <a href="https://github.com/dagny099" target="_blank" rel="noopener" class="contact-card contact-card--github">
     <div class="contact-card__icon">
       <i class="fab fa-github" aria-hidden="true"></i>
     </div>
@@ -66,7 +69,8 @@ excerpt: >
       <span>dagny099</span>
     </div>
   </a>
-</div> -->
+  -->
+</div>
 
 ---
 
@@ -96,6 +100,8 @@ excerpt: >
       <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
     </button>
   </form>
+</div>
+
 </div>
 
 <style>
