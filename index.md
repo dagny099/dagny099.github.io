@@ -8,12 +8,11 @@ layout: splash
 classes: home
 author_profile: false
 excerpt: >
-  Exploring messy data, intelligent systems, and what it means to make meaning—
-  through the lens of a cognitive scientist who builds things people actually use.
+  Making meaning out of messy data. I apply cognitive science to build AI and data systems that work the way humans think.
 
   <p class="hero-ctas hero-ctas--pinned">
-  <a class="btn hero-btn hero-btn--primary" href="/projects/">View Projects</a>
-  <a class="btn hero-btn hero-btn--ghost" href="/contact/">Contact</a>
+  <a class="btn hero-btn hero-btn--primary" href="/my-journey/">My Journey&nbsp; <i class="fas fa-shoe-prints"></i></a>
+  <a class="btn hero-btn hero-btn--ghost" href="/contact/"> Get in Touch&nbsp;<i class="fas fa-paper-plane"></i></a>
   </p>
 
 header:
@@ -89,13 +88,11 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   
   <div style="max-width: 850px; margin: 0 auto; text-align: center; line-height: 1.4;">
     <p style="font-size: 0.9em; margin-bottom: 1.5rem;">
-      My <strong>MIT research on visual attention</strong> taught me that humans don't just see data—they construct meaning from patterns. <br><br>
-      <b>I solve data problems through a cognitive lens</b>—across healthcare, federal consulting, and cloud platforms. These solutions aren't just technically sound, but designed with human cognition in mind: how attention functions, how memory organizes, and how understanding builds in layers.<br><br>      
-      This cognitive approach shapes everything I build: from dashboards optimized for natural eye movements to ML systems that explain their reasoning, and data products that work the way humans think.
+      My research at MIT taught me that humans don’t just see data—they construct meaning. I design solutions with this in mind, optimizing dashboards for natural eye movement and building ML systems that can explain their reasoning.
     </p>
     
     <div style="margin: 1rem;">
-      <a href="/my-journey/#cognitive-foundation" class="btn btn--primary">Learn About My Approach</a>
+      <a href="/my-journey/#cognitive-foundation" class="btn btn--primary">My Approach</a>
      <!-- <a href="/thinking/why-dashboards-fail/" class="btn btn--light">Read: Why Dashboards Fail</a> -->
     </div>
   </div>
