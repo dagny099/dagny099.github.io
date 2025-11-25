@@ -13,6 +13,8 @@ excerpt: >
   and collaborative projects that make complex information accessible.
 ---
 
+<div class="page-shell section-stack contact-page">
+
 <div class="contact-intro">
   <p>
     Open to <strong>Data Scientist</strong>, <strong>AI Consultant</strong>, and <strong>AI Strategist</strong> roles,
@@ -96,6 +98,8 @@ excerpt: >
       <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
     </button>
   </form>
+</div>
+
 </div>
 
 <style>
