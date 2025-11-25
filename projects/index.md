@@ -6,55 +6,11 @@ permalink: /projects/
 classes: wide
 ---
 
-<style>
-.projects-header {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 2rem;
-  border-radius: 12px;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-.filter-nav {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
-.filter-btn {
-  padding: 0.5rem 1rem;
-  background: white;
-  border: 1px solid #dee2e6;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.filter-btn.active {
-  background: #4a90e2;
-  color: white;
-  border-color: #4a90e2;
-}
-.project-section {
-  margin-bottom: 4rem;
-}
-.cognitive-badge {
-  display: inline-block;
-  background: #4a90e2;
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  margin-left: 0.5rem;
-}
-</style>
+<div class="content-shell projects-page">
 
 <div class="projects-header">
   <h1>Systems That Think Like Humans Think</h1>
-  <p style="max-width: 700px; margin: 1rem auto; color: #495057;">
-    Each project applies cognitive science principles to real-world data challenges. 
-    From visual attention patterns to memory organization, these aren't just technical 
-    builds—they're explorations of how human cognition can shape better systems.
-  </p>
+  <p class="section-lead">Each project applies cognitive science principles to real-world data challenges. From visual attention patterns to memory organization, these aren't just technical builds—they're explorations of how human cognition can shape better systems.</p>
 </div>
 
 <!-- Progressive Disclosure Navigation -->
@@ -145,3 +101,5 @@ Every project here demonstrates the same truth: **the best technical solution co
 Whether it's chunking workout data into 3 categories, limiting AI comparisons to working memory capacity, or organizing beehive observations like human memory works—the pattern is consistent. Technology succeeds when it aligns with how humans naturally think.
 
 **Want to discuss building something that works the way humans think?** [Let's connect →](/contact/)
+
+</div>

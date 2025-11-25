@@ -11,18 +11,23 @@ redirect_from:
 
 {% include section-header.html %}
 
-<!-- STORY CARDS GRID -->
-<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 3rem 2rem; background-color: #ffffff;">
-
-{% assign all_pages = site.pages | where_exp: "item", "item.url contains '/data-stories/'" %}
-{% assign data_stories = all_pages | where_exp: "item", "item.url != page.url" %}
-    
-  {% for story in data_stories %}
-  <div style="border: 1px solid #eaeaea; border-radius: 12px; padding: 1.5rem; background-color: #fffdfb; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
-    <h2 style="font-size: 1.25rem; font-family: 'Inter', sans-serif; color: #c0572a;">{{ story.title }}</h2>
-    <p>{{ story.description }}</p>
-    <a href="{{ story.url | relative_url }}" style="color: #6f5b91; font-weight: bold; text-decoration: none;">Read more →</a>
+<div class="content-shell data-stories-page">
+  <div class="content-hero">
+    <h1>Data Stories</h1>
+    <p>Guided walkthroughs of real datasets, projects, and experiments—designed to read like narratives instead of dashboards.</p>
   </div>
-    {% endfor %}
 
-</section>
+  <!-- STORY CARDS GRID -->
+  {% assign all_pages = site.pages | where_exp: "item", "item.url contains '/data-stories/'" %}
+  {% assign data_stories = all_pages | where_exp: "item", "item.url != page.url" %}
+
+  <div class="card-grid">
+  {% for story in data_stories %}
+    <article class="content-card">
+      <h2>{{ story.title }}</h2>
+      <p class="section-lead">{{ story.description }}</p>
+      <a href="{{ story.url | relative_url }}" class="card-link">Read more →</a>
+    </article>
+  {% endfor %}
+  </div>
+</div>
