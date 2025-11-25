@@ -26,12 +26,12 @@ excerpt: >
   </p>
 </div>
 
-## Reach Out
+<h2 class="contact-section__title">Reach Out</h2>
 
-<div class="contact-cards">
+<div class="contact-cards" aria-label="Contact methods">
   <a href="/assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf" target="_blank" rel="noopener" class="contact-card contact-card--resume">
-    <div class="contact-card__icon">
-      <i class="fas fa-file-alt" aria-hidden="true"></i>
+    <div class="contact-card__icon" aria-hidden="true">
+      <i class="fas fa-file-alt"></i>
     </div>
     <div class="contact-card__body">
       <h3>Resume (PDF)</h3>
@@ -40,18 +40,18 @@ excerpt: >
   </a>
 
   <a href="mailto:barbs@barbhs.com" class="contact-card contact-card--email">
-    <div class="contact-card__icon">
-      <i class="fas fa-envelope" aria-hidden="true"></i>
+    <div class="contact-card__icon" aria-hidden="true">
+      <i class="fas fa-envelope"></i>
     </div>
     <div class="contact-card__body">
       <h3>Email</h3>
-      <span>barbs@balex.com</span>
+      <span>barbs@barbhs.com</span>
     </div>
   </a>
 
   <a href="https://www.linkedin.com/in/barbara-hidalgo-sotelo/" target="_blank" rel="noopener" class="contact-card contact-card--linkedin">
-    <div class="contact-card__icon">
-      <i class="fab fa-linkedin" aria-hidden="true"></i>
+    <div class="contact-card__icon" aria-hidden="true">
+      <i class="fab fa-linkedin"></i>
     </div>
     <div class="contact-card__body">
       <h3>LinkedIn</h3>
@@ -59,22 +59,20 @@ excerpt: >
     </div>
   </a>
 
-  <!--
   <a href="https://github.com/dagny099" target="_blank" rel="noopener" class="contact-card contact-card--github">
-    <div class="contact-card__icon">
-      <i class="fab fa-github" aria-hidden="true"></i>
+    <div class="contact-card__icon" aria-hidden="true">
+      <i class="fab fa-github"></i>
     </div>
     <div class="contact-card__body">
       <h3>GitHub</h3>
       <span>dagny099</span>
     </div>
   </a>
-  -->
 </div>
 
----
+<hr class="contact-divider" />
 
-## Send a Message
+<h2 class="contact-section__title">Send a Message</h2>
 
 <div class="contact-form-wrapper">
   <p class="form-intro">Have a question or want to discuss a project? Drop me a note below.</p>
@@ -117,6 +115,12 @@ excerpt: >
   font-size: 1.1rem;
   line-height: 1.6;
   color: #495057;
+}
+
+.contact-section__title {
+  text-align: center;
+  color: #1a1a2e;
+  margin: 0 0 1rem;
 }
 
 /* Contact method cards */
@@ -217,6 +221,13 @@ excerpt: >
   margin: 0 0 1.5rem;
 }
 
+.contact-divider {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 2.5rem auto;
+  max-width: 720px;
+}
+
 /* Form grid for name/email */
 .form-grid {
   display: grid;
@@ -292,17 +303,14 @@ excerpt: >
   transform: translateY(-1px);
 }
 
-/* Divider styling */
-.contact-page hr {
-  border: 0;
-  border-top: 1px solid #e5e7eb;
-  margin: 2.5rem 0;
-}
+/* Small-screen spacing */
+@media (max-width: 720px) {
+  .contact-section__title {
+    margin-bottom: 0.75rem;
+  }
 
-/* Section headers */
-.contact-page h2 {
-  text-align: center;
-  color: #1a1a2e;
-  margin-bottom: 0.5rem;
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
 }
 </style>
