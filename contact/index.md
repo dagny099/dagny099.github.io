@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Let's Connect"
+description: "Get in touch with Barbara Hidalgo-Sotelo for data science, cognitive systems, and AI strategy work."
 permalink: /contact/
 classes: wide contact-page
 author_profile: false

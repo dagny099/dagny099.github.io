@@ -1,19 +1,13 @@
 ---
 title: "Data Stories"
 permalink: /data-stories/
-layout: default
+layout: single
+classes: wide
+description: "Narrative, visual walkthroughs of real datasets, projects, and experiments."
+redirect_from:
+  - /data-stories.html
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Barbara Hidalgo-Sotelo</title>
-  {% include head.html %}
-</head>
-<body>
-
-<main>
 
 {% include section-header.html %}
 
@@ -32,6 +26,3 @@ layout: default
     {% endfor %}
 
 </section>
-</main>
-</body>
-</html>

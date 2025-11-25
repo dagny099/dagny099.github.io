@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Resources & Guides"
+description: "Reusable templates, guides, briefs, and cheatsheets for building data– and cognition–aware systems."
 permalink: /resources/
 classes: wide
 author_profile: false

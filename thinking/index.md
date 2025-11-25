@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Thinking in Public"
+description: "Essays and conceptual explorations merging cognitive science with modern AI, system design, and data work."
 permalink: /thinking/
 classes: wide
 ---

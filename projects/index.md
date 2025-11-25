@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Projects"
+description: "A portfolio of technical builds and cognitive science–informed systems, from AI evaluation tools to behavioral data platforms and knowledge graphs."
 permalink: /projects/
 classes: wide
 ---

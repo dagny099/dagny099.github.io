@@ -1,10 +1,15 @@
 ---
+title: "Barbara Hidalgo-Sotelo, PhD — Cognitive Scientist & Data Scientist" #"Barbara Hidalgo-Sotelo, PhD"
+description: >
+  Cognitive scientist and data scientist exploring messy data, intelligent systems,
+  and how people make meaning. Projects, data stories, and resources on human-centered AI,
+  visualization, and knowledge systems.
 layout: splash
 classes: home
-title: "Barbara Hidalgo-Sotelo, PhD"
 author_profile: false
 excerpt: >
-  Exploring messy data, intelligent systems, and what it means to make meaning—through the lens of a cognitive scientist who builds things people actually use.
+  Exploring messy data, intelligent systems, and what it means to make meaning—
+  through the lens of a cognitive scientist who builds things people actually use.
 
   <p class="hero-ctas hero-ctas--pinned">
   <a class="btn hero-btn hero-btn--primary" href="/projects/">View Projects</a>
