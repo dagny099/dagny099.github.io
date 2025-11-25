@@ -23,7 +23,7 @@ excerpt: >
 ## Reach Out
 
 <div class="contact-cards">
-  <a href="mailto:barb@barbhs.com" class="contact-card contact-card--email">
+  <a href="mailto:barbs@barbhs.com" class="contact-card contact-card--email">
     <div class="contact-card__icon">
       <i class="fas fa-envelope" aria-hidden="true"></i>
     </div>
@@ -33,7 +33,7 @@ excerpt: >
     </div>
   </a>
 
-  <a href="https://www.linkedin.com/in/barbarahidalgo" target="_blank" rel="noopener" class="contact-card contact-card--linkedin">
+  <a href="https://www.linkedin.com/in/barbara-hidalgo-sotelo/" target="_blank" rel="noopener" class="contact-card contact-card--linkedin">
     <div class="contact-card__icon">
       <i class="fab fa-linkedin" aria-hidden="true"></i>
     </div>
