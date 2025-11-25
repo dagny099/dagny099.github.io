@@ -607,7 +607,8 @@ h1, h2, h3, h4, h5, h6{
 /* 2) Grid of slim cards */
 .home .resource-minis{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 330px));
+  justify-content: center;
   gap: 1rem;
   padding: .25rem;                      /* small interior gutter */
 }
@@ -838,6 +839,13 @@ h1, h2, h3, h4, h5, h6{
 .masthead .search__toggle,
 .masthead .greedy-nav__toggle{
   color: var(--nav-icon);        /* drives currentColor */
+}
+
+/* Match masthead background with page surface */
+.masthead {
+  background: #fbfbfb;
+  border-bottom: 1px solid var(--surface-border);
+  box-shadow: none;
 }
 
 /* keep the SVG using currentColor (defensive) */
