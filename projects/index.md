@@ -116,6 +116,60 @@ classes: [wide, project-page]
           <a class="text-link" href="https://docs.barbhs.com/citation-network/">Documentation →</a>
         </div>
       </article>
+
+      <article class="project-card" data-tags="attention,perception">
+        <div class="project-card__heading">
+          <h3 class="card-title">ChronoScope: AI-Powered Timeline Builder</h3>
+          <span class="pill">Timeline Extraction</span>
+        </div>
+        <p class="card-lede">Transforms resumes and letters into an interactive timeline that mirrors how people recall life events.</p>
+        <ul class="project-highlights">
+          <li><strong>What you'll see:</strong> Drag-and-drop documents that become a navigable timeline plus a relationship graph.</li>
+          <li><strong>Tech:</strong> Python, Streamlit, OpenAI, Plotly, TimelineJS.</li>
+          <li><strong>Cognitive insight:</strong> Time-based anchors and spatial layout reduce memory load when scanning careers.</li>
+        </ul>
+        <div class="project-links">
+          <a class="text-link" href="/projects/chronoscope/">Case study →</a>
+          <a class="text-link" href="https://github.com/dagny099/chrono-scope">GitHub →</a>
+          <a class="text-link" href="https://chronoscope-docs.github.io">Documentation →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-tags="memory,learning">
+        <div class="project-card__heading">
+          <h3 class="card-title">Poolula: RAG-Powered Business Intelligence</h3>
+          <span class="pill pill--accent">RAG Evaluation</span>
+        </div>
+        <p class="card-lede">Evaluation-first chatbot that answers financial and compliance questions with verifiable sources.</p>
+        <ul class="project-highlights">
+          <li><strong>What you'll see:</strong> Natural-language queries that return cited SQL+doc answers and a preflight accuracy score.</li>
+          <li><strong>Tech:</strong> FastAPI, SQLModel, ChromaDB, Claude, SQLite/PostgreSQL.</li>
+          <li><strong>Cognitive insight:</strong> Trust comes from evidence; showing provenance reduces decision friction.</li>
+        </ul>
+        <div class="project-links">
+          <a class="text-link" href="/projects/poolula-platform/">Case study →</a>
+          <a class="text-link" href="https://github.com/dagny099/poolula-platform">GitHub →</a>
+          <a class="text-link" href="https://docs.barbhs.com/poolula-platform/">Documentation →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-tags="memory,perception">
+        <div class="project-card__heading">
+          <h3 class="card-title">Digital Memory Chest</h3>
+          <span class="pill">Narrative Assembly</span>
+        </div>
+        <p class="card-lede">AI-assisted tribute builder that organizes photos, voice notes, and videos into a cohesive story.</p>
+        <ul class="project-highlights">
+          <li><strong>What you'll see:</strong> Automated transcription, tagging, and timeline views families can share securely.</li>
+          <li><strong>Tech:</strong> Python, Streamlit, Whisper, CLIP, SQLModel.</li>
+          <li><strong>Cognitive insight:</strong> Grouping memories by theme and time makes emotionally heavy content easier to process.</li>
+        </ul>
+        <div class="project-links">
+          <a class="text-link" href="/projects/digital-memory-chest/">Case study →</a>
+          <a class="text-link" href="https://github.com/dagny099/digital-memory-chest">GitHub →</a>
+          <a class="text-link" href="https://github.com/dagny099/digital-memory-chest/tree/main/docs">Documentation →</a>
+        </div>
+      </article>
     </div>
   </section>
 
