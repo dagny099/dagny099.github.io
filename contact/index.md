@@ -108,17 +108,21 @@ excerpt: >
    ============================================= */
 
 /* Intro section */
+.contact-page .page-shell {
+  max-width: 1100px;
+}
+
 .contact-intro {
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto 2rem;
-  text-align: center;
+  text-align: left;
   font-size: 1.1rem;
   line-height: 1.6;
   color: #495057;
 }
 
 .contact-section__title {
-  text-align: center;
+  text-align: left;
   color: #1a1a2e;
   margin: 0 0 1rem;
 }
@@ -207,8 +211,8 @@ excerpt: >
 
 /* Form wrapper card */
 .contact-form-wrapper {
-  max-width: 640px;
-  margin: 1.5rem auto 0;
+  max-width: 860px;
+  margin: 1.5rem 0 0;
   padding: 2rem;
   background: #f8f9fa;
   border: 1px solid rgba(0,0,0,0.06);
@@ -216,7 +220,7 @@ excerpt: >
 }
 
 .form-intro {
-  text-align: center;
+  text-align: left;
   color: #6c757d;
   margin: 0 0 1.5rem;
 }
