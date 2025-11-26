@@ -107,18 +107,24 @@ excerpt: >
    Contact Page Styles
    ============================================= */
 
+.contact-page .page-shell {
+  max-width: 1180px;
+}
+
 /* Intro section */
 .contact-intro {
-  max-width: 720px;
+  max-width: 900px;
   margin: 0 auto 2rem;
-  text-align: center;
+  text-align: left;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #495057;
+  display: grid;
+  gap: 0.75rem;
 }
 
 .contact-section__title {
-  text-align: center;
+  text-align: left;
   color: #1a1a2e;
   margin: 0 0 1rem;
 }
@@ -126,8 +132,8 @@ excerpt: >
 /* Contact method cards */
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
   margin: 1.5rem 0 2.5rem;
 }
 
@@ -207,7 +213,7 @@ excerpt: >
 
 /* Form wrapper card */
 .contact-form-wrapper {
-  max-width: 640px;
+  max-width: 780px;
   margin: 1.5rem auto 0;
   padding: 2rem;
   background: #f8f9fa;
@@ -216,7 +222,7 @@ excerpt: >
 }
 
 .form-intro {
-  text-align: center;
+  text-align: left;
   color: #6c757d;
   margin: 0 0 1.5rem;
 }
