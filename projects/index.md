@@ -175,6 +175,67 @@ classes: [wide, project-page]
 
   <section class="section-stack">
     <div class="section-heading">
+      <p class="eyebrow">🧠 More Builds &amp; Evaluations</p>
+      <p class="section-intro">Additional systems that translate cognition into better retrieval, summarization, and decision support.</p>
+    </div>
+    <div class="project-grid">
+      <article class="project-card" data-tags="memory,attention">
+        <div class="project-card__heading">
+          <h3 class="card-title">ChronoScope: AI-Powered Timeline Builder</h3>
+          <span class="pill">Temporal Extraction</span>
+        </div>
+        <p class="card-lede">Turns resumes and letters into interactive timelines with confidence scores so dates and events stay trustworthy.</p>
+        <ul class="project-highlights">
+          <li><strong>What you'll see:</strong> Local-first document parsing plus validation that flags uncertain extractions.</li>
+          <li><strong>Tech:</strong> Python, Streamlit, PyMuPDF, TimelineJS.</li>
+          <li><strong>Cognitive insight:</strong> Time-based narratives help people anchor memory and spot gaps faster.</li>
+        </ul>
+        <div class="project-links">
+          <a class="text-link" href="/projects/chronoscope/">Case study →</a>
+          <a class="text-link" href="https://github.com/dagny099/chrono-scope">GitHub →</a>
+          <a class="text-link" href="https://chronoscope-docs.github.io">Documentation →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-tags="memory,learning">
+        <div class="project-card__heading">
+          <h3 class="card-title">Poolula Platform: RAG-Powered BI</h3>
+          <span class="pill">RAG Evaluation</span>
+        </div>
+        <p class="card-lede">Natural-language BI with a built-in test harness so answers are measured before they're trusted.</p>
+        <ul class="project-highlights">
+          <li><strong>What you'll see:</strong> Structured SQL answers blended with document citations and accuracy scores.</li>
+          <li><strong>Tech:</strong> FastAPI, SQLModel, ChromaDB, Claude.</li>
+          <li><strong>Cognitive insight:</strong> Trust emerges when evidence is surfaced alongside the response.</li>
+        </ul>
+        <div class="project-links">
+          <a class="text-link" href="/projects/poolula-platform/">Case study →</a>
+          <a class="text-link" href="https://github.com/dagny099/poolula-platform">GitHub →</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-tags="attention,learning">
+        <div class="project-card__heading">
+          <h3 class="card-title">CareerCraft: Job Application Assistant</h3>
+          <span class="pill">Applied GenAI</span>
+        </div>
+        <p class="card-lede">Guides applicants through tailored cover letters with ATS gap analysis to reduce cognitive overload.</p>
+        <ul class="project-highlights">
+          <li><strong>What you'll see:</strong> Iterative GPT prompts plus keyword scoring before applications go out.</li>
+          <li><strong>Tech:</strong> Streamlit, OpenAI API, AWS EC2.</li>
+          <li><strong>Cognitive insight:</strong> Progressive disclosure lets people focus on one improvement at a time.</li>
+        </ul>
+        <div class="project-links">
+          <a class="text-link" href="/projects/careercraft/">Case study →</a>
+          <a class="text-link" href="https://careercraft.barbhs.com">Live demo →</a>
+          <a class="text-link" href="https://github.com/dagny099/assistant_author">GitHub →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-stack">
+    <div class="section-heading">
       <p class="eyebrow">📚 Foundational Builds</p>
       <p class="section-intro">Earlier systems that shaped my approach to attention management, progressive disclosure, and information architecture.</p>
     </div>

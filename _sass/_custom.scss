@@ -132,12 +132,12 @@ h1, h2, h3, h4, h5, h6{
   border-radius: 14px;
   background: #fff;
   box-shadow: 0 10px 32px rgba(0,0,0,0.06);
-  padding: 1.25rem 1.35rem;
+  padding: 1.4rem 1.5rem;
   display:grid;
-  gap:.65rem;
+  gap:.8rem;
 }
 
-.project-card__heading{ display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem; }
+.project-card__heading{ display:flex; align-items:flex-start; justify-content:space-between; gap:.85rem; }
 .project-highlights{ margin:0; padding-left:1.1rem; display:grid; gap:.4rem; color: var(--ink-500); }
 .project-links{ display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; }
 .project-card.is-hidden{ display:none; }

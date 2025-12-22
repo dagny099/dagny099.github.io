@@ -112,6 +112,10 @@ excerpt: >
 }
 
 /* Intro section */
+.contact-page .page-shell {
+  max-width: 1100px;
+}
+
 .contact-intro {
   max-width: 900px;
   margin: 0 auto 2rem;
@@ -213,8 +217,8 @@ excerpt: >
 
 /* Form wrapper card */
 .contact-form-wrapper {
-  max-width: 780px;
-  margin: 1.5rem auto 0;
+  max-width: 860px;
+  margin: 1.5rem 0 0;
   padding: 2rem;
   background: #f8f9fa;
   border: 1px solid rgba(0,0,0,0.06);
