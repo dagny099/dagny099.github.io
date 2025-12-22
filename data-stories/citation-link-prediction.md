@@ -1,13 +1,16 @@
 ---
-title: "Knowledge Cartography: Finding Lost Cousins in the Academic Family Tree"
-description: "Using graph neural networks to discover hidden connections between papers that should have met but never did."
+title: "Using graph neural networks to discover hidden connections between papers that should have met but never did"
+description: "A decade or so after our Visual Attention paper, I couldn't stop wondering: <b>Where did those ideas travel? What unexpected paths did they take?</b>"
 permalink: /data-stories/citation-link-prediction/
 layout: single
 section: data-stories
 tags: [graph neural networks, pytorch, neo4j]
+classes: [story-page]   
+breadcrumbs: false
+author_profile: false
 ---
-
-# Knowledge Cartography: Finding Lost Cousins in the Academic Family Tree
+<br>
+# Finding Lost Cousins in the Academic Family Tree
 ## Part 1: When Your Old Paper Becomes a Treasure Map
 
 *How a 15-year-old paper on visual attention became the seed for mapping hidden connections across 8,000 papers, revealing the invisible bridges between parallel research universes.*

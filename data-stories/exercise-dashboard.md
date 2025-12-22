@@ -1,13 +1,15 @@
 ---
-title: "Exercise Dashboard"
-description: "Fitness visualization dashboard integrating local and cloud-stored exercise metrics using Streamlit and AWS RDS."
+title: "How My Quest for Clean(-is) Workout Metrics Spawned S3->λ Automation, ML Classification, and Reporting Wins"
+description: "A personalized Fitness dashboard was born from a getting a puppy, growing my devops chops, and a mad qty of stubborness. A messy journey, but lots of fun :)"
 permalink: /data-stories/exercise-dashboard/
 layout: single
 section: data-stories
 tags: [trend analysis, data visualization]
-classes: wide
+classes: [story-page]   
+breadcrumbs: false
+author_profile: false
 ---
-
+<br>
 # The Choco Effect: How a Dog Transformed My Running Data
 <img src="{{ '/assets/images/choco_puppy_with-stick.png' | relative_url }}" alt="Button hover demo" style="float:right; margin: 0em 0em 1em 1em; max-width:250px; height:auto;">
 

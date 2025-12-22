@@ -145,55 +145,59 @@ collections:
     output: true
     permalink: /thinking/:name/
 
-defaults:
-  - scope: { path: "", type: pages }
-    values:
-      layout: single
-      author_profile: false
+  # data-stories:
+  #   output: true
+  #   permalink: /data-stories/:name/
 
-  - scope: { path: "", type: posts }
-    values:
-      layout: single
-      classes: wide
-      author_profile: false
-      read_time: true
-      share: true
-      related: true
-  
-  - scope: { path: "", type: projects }
-    values:
-      layout: single
-      classes: wide
-      author_profile: false
-      teaser: /assets/images/site-default-teaser.jpg
 
-  - scope: { path: "", type: thinking }
-    values:
-      layout: single
-      classes: wide
-      author_profile: false
-      teaser: /assets/images/site-default-teaser.jpg
-
-  - scope: { path: "", type: resources }
-    values:
-      layout: single
-      classes: wide
-      author_profile: false
-
-  # posts
-  - scope: { path: "", type: "posts" }
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      share: true
-      related: true
-
-  # pages
-  - scope: { path: "", type: "pages" }
-    values:
-      layout: single
-      author_profile: true
+defaults:                                                                                                                                                                                  
+  # All pages                                                                                                                                                                              
+  - scope: { path: "", type: pages }                                                                                                                                                       
+    values:                                                                                                                                                                                
+      layout: single                                                                                                                                                                       
+      author_profile: true                                                                                                                                                                 
+                                                                                                                                                                                            
+  # All posts                                                                                                                                                                              
+  - scope: { path: "", type: posts }                                                                                                                                                       
+    values:                                                                                                                                                                                
+      layout: single                                                                                                                                                                       
+      classes: wide                                                                                                                                                                        
+      author_profile: true                                                                                                                                                                 
+      read_time: true                                                                                                                                                                      
+      share: true                                                                                                                                                                          
+      related: true                                                                                                                                                                        
+                                                                                                                                                                                            
+  # Projects collection                                                                                                                                                                    
+  - scope: { path: "", type: projects }                                                                                                                                                    
+    values:                                                                                                                                                                                
+      layout: single                                                                                                                                                                       
+      classes: wide                                                                                                                                                                        
+      author_profile: false                                                                                                                                                                
+      teaser: /assets/images/site-default-teaser.jpg                                                                                                                                       
+                                                                                                                                                                                            
+  # Thinking collection                                                                                                                                                                    
+  - scope: { path: "", type: thinking }                                                                                                                                                    
+    values:                                                                                                                                                                                
+      layout: single                                                                                                                                                                       
+      classes: wide                                                                                                                                                                        
+      author_profile: false                                                                                                                                                                
+      teaser: /assets/images/site-default-teaser.jpg                                                                                                                                       
+                                                                                                                                                                                            
+  # Resources collection                                                                                                                                                                   
+  - scope: { path: "", type: resources }                                                                                                                                                   
+    values:                                                                                                                                                                                
+      layout: single                                                                                                                                                                       
+      classes: wide                                                                                                                                                                        
+      author_profile: false                                                                                                                                                                
+                                                                                                                                                                                            
+  # # Data Stories collection                                                                                                                                                                
+  # - scope: { path: "", type: data-stories }                                                                                                                                                
+  #   values:                                                                                                                                                                                
+  #     layout: single                                                                                                                                                                       
+  #     classes: [wide, story-page]                                                                                                                                                          
+  #     author_profile: false                                                                                                                                                                
+  #     show_title: false  # This prevents double title                                                                                                                                      
+  #     teaser: /assets/images/site-default-teaser.jpg                                                                                                                                       
 
 # Archives via Liquid (GH Pages-friendly)
 category_archive:

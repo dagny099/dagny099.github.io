@@ -1,14 +1,16 @@
 ---
-title: "Hive Photo Metadata Tracker"
-description: "Combines Cloud Vision API + weather data to annotate and visualize beehive photo uploads over time."
+title: "Becoming a Backyard Beekeeper: a small step for ecological health, and the metadata chaos it spawned"
+description: "The idea had been calling me for yrs: Build a Knowledge Graph from my hive data, and the bees will come. They did! And left again. But the Graph lives on!"
 permalink: /data-stories/hive-photo-metadata-tracker/
 layout: single
 section: data-stories
 tags: [computer vision, api]
+classes: [story-page]   
+breadcrumbs: false
+author_profile: false
 ---
-
-# From Owl Box to Data Pipeline: A Beekeeper's Digital Journey
-## Part 1: When Bees Meet Computer Vision
+<br>
+# Hive Tracker Part 1: When an Owl Box turned into a Beehive and Spawned a Data Management Professional's Metaphorical Playground
 
 *How an unexpected visitor in our backyard owl box led to years of photos, a lot of honey, and eventually a machine learning pipeline that can tell the difference between brood and breakfast.*
 
