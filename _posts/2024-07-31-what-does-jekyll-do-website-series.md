@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Digital Home Base Workshop Part 2- Under the Hood: Understanding Your Site's Engine"
+subtitle: "How Jekyll transforms Markdown into a responsive website"
 sitemap:
     priority: 0.5
 permalink: /blog/understanding-your-jekyll-site/

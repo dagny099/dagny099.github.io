@@ -10,7 +10,8 @@ header:
   overlay_image: "/assets/images/midjourney/wall-worthy/sq-celestial-reflections.png"
 excerpt: Treat Mermaid diagrams like <b>visual source code</b>   with a home, structure, and a tiny bit of automation.
 excerpt_display: true
-tags: [mermaid, diagrams, documentation, workflow, streamlit]
+tags: [documentation, diagrams, workflow, visual-code, tutorial]
+stack: [Mermaid.js, Streamlit, Markdown, Git]
 classes: wide
 categories: [tutorial]
 pagination: 

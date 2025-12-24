@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Sensor Fleet Part 5"
+subtitle: "Secure your IoT project with custom MQTT broker and webapp authentication"
 permalink: /blog/sensor-fleet-part-5/
 redirect_from:
   - /temp-sensor-05/

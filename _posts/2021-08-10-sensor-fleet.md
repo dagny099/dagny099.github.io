@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Sensor Fleet"
+subtitle: "Building an Arduino-powered IoT fleet to track temperature and optimize home cooling costs"
 permalink: /blog/sensor-fleet-intro/
 redirect_from:
   - /temp-sensor-00/

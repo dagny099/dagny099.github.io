@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Sensor Fleet Part 3"
+subtitle: "Automate your data pipeline with crontab and deploy to AWS"
 permalink: /blog/sensor-fleet-part-3/
 redirect_from:
   - /temp-sensor-03/

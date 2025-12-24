@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Digital Home Base Workshop Part 1- Assembly Required: Getting Started with GitHub Pages"
+date: 2024-07-28
 sitemap:
     priority: 0.5
 permalink: /blog/getting-started-with-github-pages/
@@ -12,7 +13,8 @@ header:
 excerpt: "Learn how to create a beautiful, professional website using GitHub Pages – perfect for data professionals who love version control and markdown."
 excerpt_display: false
 classes: [wide]
-tags: [digital home, github pages]
+tags: [static-site, portfolio, website-building, tutorial]
+stack: [Jekyll, GitHub Pages, Markdown, Git]
 categories: [tutorial]
 pagination: 
   enabled: true

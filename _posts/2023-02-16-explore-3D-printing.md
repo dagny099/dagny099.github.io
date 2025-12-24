@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Recreational 3D Printing"
+subtitle: "Exploring at-home additive manufacturing with the AnkerMake M5"
 sitemap:
     priority: 0.5
 permalink: /blog/3d-printing-exploration/

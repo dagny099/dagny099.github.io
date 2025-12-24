@@ -9,7 +9,8 @@ header:
   #caption: 
 excerpt: Level up your data skills by moving beyond jupyter notebooks. Learn how to build robust, repeatable data infrastructure using the tools of modern data engineering.
 excerpt_display: true
-tags: [aws, data engineering, cli, rds, python, tutorial,]
+tags: [aws, data-engineering, cloud, database, tutorial]
+stack: [AWS CLI, AWS RDS, MySQL, Python, IAM]
 classes: wide
 categories: [tutorial]
 pagination: 

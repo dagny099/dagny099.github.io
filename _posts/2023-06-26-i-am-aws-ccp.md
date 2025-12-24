@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Woot! Earned my AWS CCP badge"
+subtitle: "My journey to becoming an AWS Cloud Certified Professional"
 sitemap:
     priority: 0.5
 permalink: /blog/aws-ccp-certification/

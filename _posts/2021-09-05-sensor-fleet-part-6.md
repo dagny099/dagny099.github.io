@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Sensor Fleet Part 6"
+subtitle: "Real-time data streaming with Apache Kafka"
 permalink: /blog/sensor-fleet-part-6/
 redirect_from:
   - /temp-sensor-06/

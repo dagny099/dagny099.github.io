@@ -1,14 +1,17 @@
 ---
 layout: single
 title: "Sensor Fleet Part 1"
+subtitle: "Build a sensor and publish data with Arduino, MQTT, and MySQL"
+date: 2021-08-11
 permalink: /blog/sensor-fleet-part-1/
 redirect_from:
   - /temp-sensor-01/
   - /data science/sensor-fleet-part-1/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
-excerpt: "Environment Sensing, Visualizing"
-tags: [arduino, temp sensor, mqtt]
+excerpt: "Build an Arduino-powered temperature sensor that publishes data via MQTT, stores readings in MySQL, and creates the foundation for a fleet of IoT sensors"
+tags: [iot, sensors, real-time-data, tutorial]
+stack: [Arduino, MQTT, MySQL, Python]
 categories: [data science]
 ---
 # Objective

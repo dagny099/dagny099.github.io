@@ -1,10 +1,11 @@
 ---
 title: "An IoT Workflow for Real-Time Data Visualilzation"
-excerpt: ""
+excerpt: "Build a fleet of Arduino temperature sensors with MQTT data streaming, MySQL storage, and an interactive Heroku dashboard for real-time visualization"
 date: 2024-05-15 # Change this to control the order
 classes: [portfolio-page]
 category: Project
-tags: [arduino, temp sensor, mqtt]
+tags: [iot, data-visualization, real-time-data, temperature-monitoring]
+stack: [Arduino, MQTT, MySQL, Python, Heroku]
 toc: true
 toc_sticky: true  
 toc_label: "ToC"  

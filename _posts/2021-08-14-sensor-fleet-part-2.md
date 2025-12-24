@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Sensor Fleet Part 2"
+subtitle: "Grow your sensor fleet and create a Heroku dashboard to visualize the data"
 permalink: /blog/sensor-fleet-part-2/
 redirect_from:
   - /temp-sensor-02/

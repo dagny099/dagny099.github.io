@@ -162,5 +162,107 @@ When modifying the script:
 
 ---
 
+## Metadata Validation Script
+
+**File:** `validate_metadata.py`
+
+Ensures consistent, high-quality metadata across all content collections by validating front matter fields, excerpt quality, and taxonomy standards.
+
+### Quick Start
+
+```bash
+# Install dependencies (one time)
+pip install pyyaml
+
+# Validate all collections
+python scripts/validate_metadata.py
+
+# Validate specific collection
+python scripts/validate_metadata.py --collection posts
+```
+
+### What It Checks
+
+**All Content:**
+- ✓ Required fields present (title, excerpt, tags)
+- ⚠️ Recommended fields (subtitles, header images, last_modified_at)
+- ✓ Excerpt length (ideal: 150-300 characters)
+- ✓ Tag formatting (hyphens instead of spaces)
+- ✓ Date formatting (YYYY-MM-DD)
+
+**Collection-Specific Requirements:**
+
+| Collection | Required | Recommended |
+|------------|----------|-------------|
+| **Posts** | layout, title, date, excerpt, tags, categories | subtitle, header.overlay_image, stack |
+| **Projects** | layout, title, permalink, excerpt, tags, stack, status, header | header.teaser, header.actions |
+| **Data Stories** | title, excerpt, permalink, date, tags, stack, header | header.teaser, last_modified_at |
+
+### Validation Rules
+
+**Excerpt Quality:**
+- ❌ Too short (< 50 chars): Insufficient for previews
+- ✅ Ideal (150-300 chars): Perfect for search results
+- ⚠️ Too long (> 400 chars): Gets truncated
+
+**Tag Standards:**
+```yaml
+# ❌ Bad - spaces cause URL issues
+tags: [data science, machine learning]
+
+# ✅ Good - hyphens create clean URLs
+tags: [data-science, machine-learning]
+```
+
+**Stack vs Tags:**
+- **tags**: Concepts (e.g., `iot`, `tutorial`, `data-visualization`)
+- **stack**: Technologies (e.g., `Python`, `Arduino`, `AWS RDS`)
+
+### Example Output
+
+```
+================================================================================
+METADATA VALIDATION REPORT
+================================================================================
+
+Total files checked: 42
+Files with issues:   3
+Files OK:            39
+
+────────────────────────────────────────────────────────────────────────────────
+⚠️  POSTS (3 files with issues)
+────────────────────────────────────────────────────────────────────────────────
+
+📄 _posts/2022-09-16-example.md
+   • Missing recommended: subtitle, header.overlay_image
+   • Excerpt too short (45 chars, recommend 150-300)
+   • Tags with spaces (use hyphens): ['data science']
+
+================================================================================
+⚠️  Found issues in 3 files
+================================================================================
+```
+
+### When to Run
+
+Run this script:
+- **Before committing** major content changes
+- **Monthly** to catch metadata drift
+- **After adding** new content
+- **When updating** metadata standards
+
+### Troubleshooting
+
+**"YAML parsing error"**
+- Check for unescaped special characters
+- Ensure proper indentation (spaces, not tabs)
+- Quote strings with colons: `title: "Project: Phase 1"`
+
+**"Collection path does not exist"**
+- Use collection name without underscore: `posts`, not `_posts`
+- Run from site root directory
+
+---
+
 *Part of the dagny099.github.io repository*
 *Maintained by Barbara Hidalgo-Sotelo*

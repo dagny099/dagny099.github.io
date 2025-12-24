@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Sensor Fleet Part 4"
+subtitle: "Enrich your dashboard with local weather data from NOAA"
 permalink: /blog/sensor-fleet-part-4/
 redirect_from:
   - /temp-sensor-04/

@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Digital Home Base Workshop Part 4- A Data Scientist's Reflections of Workshop to Web"
+subtitle: "Lessons learned about automation, visibility, and technical documentation"
 sitemap:
     priority: 0.5
 permalink: /blog/post-deployment-reflextions/

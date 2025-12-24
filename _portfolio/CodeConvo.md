@@ -5,7 +5,8 @@ date: 2024-01-15 # Edited this to control order of appearance on Portfolio colle
 breadcrumbs: true
 classes: [portfolio-page]
 category: Project
-tags: [NLP, GenAI, OpenAI, App Design, Streamlit, AWS, EC2]
+tags: [nlp, genai, llm-chat, conversation-management, app-design]
+stack: [Python, Streamlit, OpenAI API, LlamaIndex, AWS EC2]
 toc: true
 toc_sticky: true  
 toc_label: "ToC"  
