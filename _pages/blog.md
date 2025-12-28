@@ -1,7 +1,7 @@
 ---
 layout: posts
 title: "Blog"
-excerpt: "Excerpt text shows up here"
+excerpt: "Technical tutorials, data science insights, and lessons learned from building real-world systems - from IoT sensors to web applications"
 permalink: /blog/
 header:
   opacity: "0.4"

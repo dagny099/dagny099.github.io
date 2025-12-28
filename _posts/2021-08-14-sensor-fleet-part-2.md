@@ -2,6 +2,8 @@
 layout: archive
 title: "Sensor Fleet Part 2"
 subtitle: "Grow your sensor fleet and create a Heroku dashboard to visualize the data"
+date: 2021-08-14
+last_modified_at: 2021-08-14
 permalink: /blog/sensor-fleet-part-2/
 redirect_from:
   - /temp-sensor-02/
@@ -11,8 +13,9 @@ header:
   actions:
     - label: "Dashboard"
       url: "http://barb-iot-temp.herokuapp.com/"
-excerpt: "Environment Sensing, Visualizing"
-tags: [arduino, temp sensor, mqtt]
+excerpt: "Scale from one sensor to a fleet and build a Heroku-hosted dashboard to visualize temperature data in real-time. Learn to add multiple Arduino sensors, handle MQTT subscriptions, and deploy a web dashboard."
+tags: [arduino, temp-sensor, mqtt, dashboard, heroku]
+stack: [Arduino, MQTT, MySQL, Python, Heroku, Dash]
 categories: [data science]
 ---
 ## Part 2: Grow the fleet, View the data

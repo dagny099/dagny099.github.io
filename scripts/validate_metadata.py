@@ -28,7 +28,9 @@ class MetadataValidator:
         'portfolio': ['title', 'excerpt', 'date', 'tags', 'header'],
         'data-stories': ['title', 'excerpt', 'permalink', 'date', 'tags', 'stack', 'header'],
         'thinking': ['layout', 'title', 'date', 'excerpt', 'tags', 'toc'],
-        'resources': ['layout', 'title', 'permalink', 'excerpt', 'tags', 'format', 'level']
+        'resources': ['layout', 'title', 'permalink', 'excerpt', 'tags', 'format', 'level'],
+        'pages': ['layout', 'title', 'permalink'],
+        'drafts': ['layout', 'title', 'excerpt']
     }
 
     # Recommended fields
@@ -36,6 +38,8 @@ class MetadataValidator:
         'posts': ['subtitle', 'header.overlay_image', 'stack', 'last_modified_at'],
         'projects': ['last_modified_at', 'header.teaser', 'header.actions'],
         'data-stories': ['last_modified_at', 'header.teaser'],
+        'pages': ['excerpt', 'header'],
+        'drafts': ['tags', 'date', 'subtitle'],
         'all': ['last_modified_at']
     }
 
@@ -90,8 +94,10 @@ class MetadataValidator:
                 file_issues.append(f"Missing required field: {field}")
 
         # Check recommended fields
-        recommended = self.RECOMMENDED_FIELDS.get(collection, [])
+        recommended = self.RECOMMENDED_FIELDS.get(collection, []).copy()
         recommended.extend(self.RECOMMENDED_FIELDS.get('all', []))
+        # Remove duplicates while preserving order
+        recommended = list(dict.fromkeys(recommended))
         missing_recommended = []
         for field in recommended:
             value = self.get_nested_value(front_matter, field)
@@ -137,29 +143,41 @@ class MetadataValidator:
 
     def validate_collection(self, collection: str) -> List[Dict]:
         """Validate all files in a collection."""
-        collection_path = self.base_path / f"_{collection}" if collection != 'posts' else self.base_path / f"_{collection}"
-
-        # Handle data-stories which is not prefixed with underscore
-        if collection == 'data-stories':
+        # Handle special path cases
+        if collection == 'posts':
+            collection_path = self.base_path / '_posts'
+        elif collection == 'data-stories':
             collection_path = self.base_path / 'data-stories'
+        elif collection == 'pages':
+            collection_path = self.base_path / '_pages'
+        elif collection == 'drafts':
+            collection_path = self.base_path / '_drafts'
+        else:
+            collection_path = self.base_path / f"_{collection}"
 
         if not collection_path.exists():
             print(f"Warning: Collection path {collection_path} does not exist")
             return []
 
         results = []
-        for md_file in collection_path.glob('*.md'):
-            if md_file.name == 'index.md':
-                continue
+        # For pages, check both .md and .html files
+        file_patterns = ['*.md']
+        if collection == 'pages':
+            file_patterns.append('*.html')
 
-            result = self.validate_file(md_file, collection)
-            if result['issues']:
-                results.append(result)
-                self.stats['files_with_issues'] += 1
-            else:
-                self.stats['files_ok'] += 1
+        for pattern in file_patterns:
+            for file in collection_path.glob(pattern):
+                if file.name == 'index.md':
+                    continue
 
-            self.stats['total_files'] += 1
+                result = self.validate_file(file, collection)
+                if result['issues']:
+                    results.append(result)
+                    self.stats['files_with_issues'] += 1
+                else:
+                    self.stats['files_ok'] += 1
+
+                self.stats['total_files'] += 1
 
         return results
 
@@ -207,7 +225,7 @@ def main():
 
     validator = MetadataValidator(args.base_path)
 
-    collections = ['posts', 'projects', 'portfolio', 'data-stories', 'thinking', 'resources']
+    collections = ['posts', 'projects', 'portfolio', 'data-stories', 'thinking', 'resources', 'pages', 'drafts']
 
     if args.collection:
         collections = [args.collection]

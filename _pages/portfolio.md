@@ -1,5 +1,6 @@
 ---
 title: Portfolio
+excerpt: "Data science projects, research in vision science, and skills demonstrations showcasing technical capabilities across IoT, machine learning, and web development"
 layout: collection
 # layout: portfolio-custom
 permalink: /portfolio/

@@ -1,5 +1,6 @@
 ---
 title: "About"
+excerpt: "Data scientist and software consultant with interdisciplinary experience in machine learning, UX/UI, and cognitive science - MIT researcher, marathon runner, bilingual Toastmaster"
 layout: single
 breadcrumbs: true
 permalink: /about/

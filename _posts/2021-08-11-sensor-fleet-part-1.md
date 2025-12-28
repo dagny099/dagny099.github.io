@@ -3,6 +3,7 @@ layout: single
 title: "Sensor Fleet Part 1"
 subtitle: "Build a sensor and publish data with Arduino, MQTT, and MySQL"
 date: 2021-08-11
+last_modified_at: 2021-08-11
 permalink: /blog/sensor-fleet-part-1/
 redirect_from:
   - /temp-sensor-01/

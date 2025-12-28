@@ -1,7 +1,9 @@
 ---
 layout: single
 title: "Digital Home Base Workshop Part 1- Assembly Required: Getting Started with GitHub Pages"
+subtitle: "Build a professional portfolio site using GitHub Pages and Jekyll - version control for data professionals"
 date: 2024-07-28
+last_modified_at: 2024-07-28
 sitemap:
     priority: 0.5
 permalink: /blog/getting-started-with-github-pages/

@@ -1,14 +1,16 @@
 ---
 layout: single
 title: "Vision, Perception, and Data Viz for Decision‑Making — Designing for How People Actually See"
+subtitle: "Leveraging preattentive processing and gestalt principles for perceptually efficient data visualization"
 date: 2025-09-11 00:00:00 -0600
+last_modified_at: 2025-01-15
 categories: ["thinking"]
 tags: ["perception","preattentive","gestalt","color","luminance","uncertainty","small-multiples","decision-support"]
+excerpt: "Great charts aren't pretty; they're perceptually efficient. Use preattentive cues, luminance over hue, and small multiples to answer one question per view—with uncertainty visible. Design for decisions, not decoration."
 pin: true
 toc: true
 toc_sticky: true
 #classes: wide
-excerpt_separator: "<!--more-->"
 # Cards metadata
 read_time: 6
 teaser: /assets/images/vision-hero.jpg

@@ -3,6 +3,7 @@ layout: single
 title: Git Workflow for Keeping Organized
 subtitle: Part 0 of The Data Scientist's CLI Handbook Series
 date: 2024-06-15
+last_modified_at: 2024-06-15
 permalink: /blog/git-workflow-getting-started/
 header:
   overlay_image: /assets/images/blog/aws-cli-banner.jpg
@@ -11,7 +12,8 @@ header:
 excerpt: "A practical Git workflow for data scientists managing development across multiple machines while keeping production deployments clean and organized"
 excerpt_display: false
 tags: [git]
-#categories: [tutorial]
+stack: [Git, GitHub]
+categories: [tutorial]
 #pagination: 
 #  enabled: true
 #author_profile: false

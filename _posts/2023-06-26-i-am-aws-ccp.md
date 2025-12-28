@@ -2,6 +2,8 @@
 layout: single
 title: "Woot! Earned my AWS CCP badge"
 subtitle: "My journey to becoming an AWS Cloud Certified Professional"
+date: 2023-06-26
+last_modified_at: 2023-06-26
 sitemap:
     priority: 0.5
 permalink: /blog/aws-ccp-certification/
@@ -10,8 +12,9 @@ redirect_from:
   - /cloudML/woot-earned-my-aws-ccp-badge/
 header:
   overlay_image: "/assets/images/M5-calib-mini-v0.jpg"
-excerpt: "AWS Cloud Certified Professional"  #displayed on index.html and blog.html
+excerpt: "Celebrating my AWS Cloud Practitioner certification journey, including exam tips, study recommendations from CloudWolf, and insights into the Well Architected Framework and AWS support plans that proved essential for success"
 tags: [AWS]
+stack: [AWS]
 categories: [cloudML]
 pagination: 
   enabled: true

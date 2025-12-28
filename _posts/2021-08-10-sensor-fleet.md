@@ -2,14 +2,17 @@
 layout: single
 title: "Sensor Fleet"
 subtitle: "Building an Arduino-powered IoT fleet to track temperature and optimize home cooling costs"
+date: 2021-08-10
+last_modified_at: 2021-08-10
 permalink: /blog/sensor-fleet-intro/
 redirect_from:
   - /temp-sensor-00/
   - /data science/sensor-fleet/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
-excerpt: "Environment Sensing, Visualizing"
-tags: [arduino, temp sensor, mqtt]
+excerpt: "Build a fleet of Arduino-powered temperature sensors to collect heating and cooling data from different rooms. This series teaches Arduino programming, MQTT messaging, MySQL databases, and data visualization for under $25 per sensor."
+tags: [arduino, temp-sensor, mqtt, iot]
+stack: [Arduino, MQTT, MySQL, Python]
 categories: [data science]
 ---
 # Story

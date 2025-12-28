@@ -1,21 +1,18 @@
 ---
-title: "Vision & Perception for Decision Viz (Crib Sheet, PDF)"
-permalink: /resources/visual-decision-making/
 layout: single
-classes: wide
+title: "Vision & Perception for Decision Viz Crib Sheet"
+subtitle: "One-page reference turning perception science into practical dashboard defaults"
+permalink: /resources/visual-decision-making/
+excerpt: "A one-pager that turns perception science into practical defaults for dashboards and exec briefs. Pre-flight checklist for preattentive processing and visual hierarchy."
 date: 2025-09-10
-last_modified_at: 2025-09-11T10:30:00-05:00
+last_modified_at: 2025-09-11
 tags: [viz, perception, preattentive, executive-brief]
 categories: ["Designing for Decisions"]
+format: Checklist
+level: Beginner
 header:
   teaser: /assets/resources/vision/teaser.jpg
-  overlay_image: /assets/resources/vision/teaser.jpg
-excerpt: "A one-pager that turns perception science into practical defaults for dashboards and exec briefs."
-# Optional links (used by the buttons include below)
 download_url: /assets/resources/vision_perception_cheatsheet.pdf
-repo_url:
-notebook_url:
-demo_url:
 ---
 
 A crisp PDF that pairs with the **Canon** post on perception.  

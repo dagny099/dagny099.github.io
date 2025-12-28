@@ -1,21 +1,18 @@
 ---
 layout: single
 title: "Executive Brief Template"
-excerpt: "Turn fuzzy threads into crisp, action-ready briefs with surface links to evidence."
-date: 2024-12-01
+subtitle: "One-page template for action-ready leadership briefs with evidence links"
 permalink: /resources/executive-brief/
-# Visuals
-teaser: /assets/images/resources/executive-brief.jpg
-teaser_alt: "Brief template cover"
-# Meta (cards)
+excerpt: "Turn fuzzy threads into crisp, action-ready briefs with surface links to evidence. Tight one-page brief with problem, options, decision, and evidence."
+date: 2024-12-01
+last_modified_at: 2025-01-12
 tags: [governance, templates]
+categories: ["Designing for Decisions"]
 format: Template
 level: Beginner
-pages: 2
-updated: 2025-01-12
-# Download/Link
-cta_label: "Download"
-cta_url: /assets/downloads/executive-brief-template.pdf
+header:
+  teaser: /assets/images/resources/executive-brief.jpg
+download_url: /assets/downloads/executive-brief-template.pdf
 ---
 
 ## What’s inside

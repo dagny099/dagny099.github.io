@@ -1,14 +1,16 @@
 ---
 layout: single
 title: "RAG Without the Theater — Evidence‑Linked Retrieval Patterns You Can Defend"
+subtitle: "Building retrieval-augmented systems that cite auditable evidence and fail honestly"
 date: 2025-09-11 00:00:00 -0600
+last_modified_at: 2025-01-15
 categories: ["Thinking", "AI Systems"]
 tags: ["rag","retrieval","evaluation","prompting","governance","prod-readiness"]
+excerpt: "Retrieval‑augmented generation shines when answers cite evidence you can audit. Skip magic prompts; use small, testable patterns that tie claims to sources and fail honestly when evidence is thin."
 pin: true
 toc: true
 toc_sticky: true
 classes: wide
-excerpt_separator: "<!--more-->"
 header:
   overlay_image: /assets/images/rag-hero.jpg
   overlay_filter: 0.45

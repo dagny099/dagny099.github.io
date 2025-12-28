@@ -1,9 +1,11 @@
 ---
 layout: single
 title: "Color & Contrast Accessibility Checklist"
+subtitle: "WCAG-compliant pre-flight checklist for accessible data visualization"
 permalink: /resources/color-contrast-checklist/
 excerpt: "A pre-flight checklist for ensuring your visualizations are readable by everyone—including the 8% of men with color vision deficiency."
 date: 2025-01-15
+last_modified_at: 2025-01-15
 tags: [viz, perception, accessibility, checklist]
 categories: ["Designing for Decisions"]
 format: Checklist
