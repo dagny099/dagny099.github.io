@@ -14,7 +14,8 @@ This website is my digital hub where I share projects, articles, and my musings 
 
 - 📊 Portfolio showcasing my data science projects
 - 📝 Blog where I write about data science, knowledge organization, and on occasion current events
-- 🐝  Custom design to reflect my personal interests
+- 🐝 Custom design to reflect my personal interests
+- ✓ Metadata validation script to ensure content quality and SEO optimization
 
 
 ## How It's Built
@@ -35,6 +36,29 @@ Back in 2020, I was searching for a way to have a digital "home base" that would
 I recommend anyone with a similar requirement set for their webpage to do the GitHub Pages exercise on [GitHub Skills](https://github.com/skills/github-pages).
 
 
+## Metadata Validation
+
+This repository includes a Python script to validate content metadata and ensure consistency across all blog posts, portfolio items, and data stories. Good metadata improves SEO, social media sharing, and content organization.
+
+**Quick start:**
+```bash
+# Validate all content
+python scripts/validate_metadata.py
+
+# Validate specific collection
+python scripts/validate_metadata.py --collection posts
+```
+
+The script checks for:
+- Required fields (title, excerpt, tags, dates)
+- Excerpt length (150-300 chars is ideal for SEO)
+- Tag formatting (hyphens not spaces)
+- Date format consistency (YYYY-MM-DD)
+- Technology stack for technical content
+- Header images for visual content
+
+For more details on metadata best practices, see the [metadata validation script documentation](scripts/README.md) or read the blog post on [why metadata matters](/blog/metadata-matters/).
+
 ## Local Development
 
 If you're interested in how this site is set up or want to use it as a template for your own:
@@ -44,6 +68,12 @@ If you're interested in how this site is set up or want to use it as a template 
 3. Run `bundle install` to install dependencies
 4. Run `bundle exec jekyll serve` to start the local server
 5. Visit `http://localhost:4000` in your browser
+
+**Before committing new content:**
+```bash
+# Validate your metadata
+python scripts/validate_metadata.py
+```
 
 ## Questions or Suggestions?
 

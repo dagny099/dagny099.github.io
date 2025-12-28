@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Schema.org Examples</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .tab {
+            padding: 12px 24px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 4px 4px 0 0;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .tab:hover {
+            background: #dee2e6;
+        }
+        .tab.active {
+            background: white;
+            border-bottom: 2px solid white;
+            margin-bottom: -2px;
+        }
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 0 4px 4px 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .yaml-section, .schema-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 4px solid #4A90E2;
+        }
+        .schema-section {
+            border-left-color: #9C27B0;
+        }
+        h3 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+        .keyword { color: #66d9ef; }
+        .string { color: #a6e22e; }
+        .number { color: #ae81ff; }
+        .property { color: #f92672; }
+        .description {
+            background: #e7f3ff;
+            padding: 15px;
+            border-left: 4px solid #0366d6;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .description h4 {
+            margin-top: 0;
+            color: #0366d6;
+            font-size: 14px;
+        }
+        .description p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #24292e;
+        }
+        .mapping {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        .mapping-arrow {
+            margin: 0 15px;
+            color: #6c757d;
+            font-weight: bold;
+        }
+        .yaml-field {
+            background: #4A90E2;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        .schema-field {
+            background: #9C27B0;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            .split {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('article')">Article Schema</button>
+            <button class="tab" onclick="showTab('howto')">HowTo Schema</button>
+            <button class="tab" onclick="showTab('software')">Software Schema</button>
+        </div>
+
+        <!-- Article Tab -->
+        <div id="article" class="tab-content active">
+            <div class="description">
+                <h4>📝 Article Schema</h4>
+                <p><strong>Used for:</strong> Regular blog posts and articles</p>
+                <p><strong>What it enables:</strong> Google can show publication dates, author info, and images in search results. Makes your content eligible for Google News and Discover.</p>
+                <p><strong>Example post:</strong> "Getting Started with GitHub Pages"</p>
+            </div>
+
+            <div class="split">
+                <div class="yaml-section">
+                    <h3>Your YAML Front Matter</h3>
+                    <pre>---
+<span class="property">title:</span> <span class="string">"Getting Started with GitHub Pages"</span>
+<span class="property">subtitle:</span> <span class="string">"Launch a free website in minutes"</span>
+<span class="property">excerpt:</span> <span class="string">"A beginner-friendly guide to creating your first GitHub Pages site..."</span>
+<span class="property">tags:</span> [github-pages, tutorial, web-development]
+<span class="property">date:</span> 2024-07-28
+<span class="property">header:</span>
+  <span class="property">overlay_image:</span> /assets/images/hero.jpg
+---</pre>
+
+                    <h3 style="margin-top: 25px;">Field Mapping</h3>
+                    <div class="mapping">
+                        <span class="yaml-field">title</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">headline</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">subtitle</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">alternativeHeadline</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">excerpt</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">description</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">date</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">datePublished</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">tags</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">keywords</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">overlay_image</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">image</span>
+                    </div>
+                </div>
+
+                <div class="schema-section">
+                    <h3>Generated Schema.org JSON-LD</h3>
+                    <pre>{
+  <span class="property">"@context":</span> <span class="string">"https://schema.org"</span>,
+  <span class="property">"@type":</span> <span class="string">"Article"</span>,
+  <span class="property">"headline":</span> <span class="string">"Getting Started with GitHub Pages"</span>,
+  <span class="property">"alternativeHeadline":</span> <span class="string">"Launch a free website in minutes"</span>,
+  <span class="property">"description":</span> <span class="string">"A beginner-friendly guide..."</span>,
+  <span class="property">"image":</span> <span class="string">"https://barbhs.com/assets/images/hero.jpg"</span>,
+  <span class="property">"datePublished":</span> <span class="string">"2024-07-28T00:00:00-06:00"</span>,
+  <span class="property">"author":</span> {
+    <span class="property">"@type":</span> <span class="string">"Person"</span>,
+    <span class="property">"name":</span> <span class="string">"Dr. Barbara"</span>
+  },
+  <span class="property">"keywords":</span> <span class="string">"github-pages, tutorial, web-development"</span>
+}</pre>
+                    <p style="font-size: 13px; color: #6c757d; margin-top: 15px;">
+                        ℹ️ This JSON-LD is embedded in your page's &lt;head&gt; section. It's invisible to readers but readable by search engines.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HowTo Tab -->
+        <div id="howto" class="tab-content">
+            <div class="description">
+                <h4>🛠️ HowTo Schema</h4>
+                <p><strong>Used for:</strong> Tutorial posts (automatically detected when categories or tags include "tutorial")</p>
+                <p><strong>What it enables:</strong> Google can show your tutorial as a step-by-step guide with rich formatting. May appear in "How-to" search features.</p>
+                <p><strong>Example post:</strong> "Sensor Fleet Part 1"</p>
+            </div>
+
+            <div class="split">
+                <div class="yaml-section">
+                    <h3>Your YAML Front Matter</h3>
+                    <pre>---
+<span class="property">title:</span> <span class="string">"Sensor Fleet Part 1"</span>
+<span class="property">subtitle:</span> <span class="string">"Build a sensor with Arduino, MQTT, and MySQL"</span>
+<span class="property">excerpt:</span> <span class="string">"Build an Arduino-powered temperature sensor..."</span>
+<span class="property">tags:</span> [iot, arduino, mqtt, tutorial]
+<span class="property">stack:</span> [Arduino, MQTT, MySQL, Python]
+<span class="property">categories:</span> [tutorial]
+<span class="property">date:</span> 2021-08-11
+---</pre>
+
+                    <h3 style="margin-top: 25px;">What Makes it HowTo?</h3>
+                    <p style="font-size: 14px; color: #495057; line-height: 1.6;">
+                        When your post has <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px;">categories: [tutorial]</code> or <code style="background: #e9ecef; padding: 2px 6px; border-radius: 3px;">tags: [tutorial]</code>, the schema automatically switches from "Article" to "HowTo".
+                    </p>
+                </div>
+
+                <div class="schema-section">
+                    <h3>Generated Schema.org JSON-LD</h3>
+                    <pre>{
+  <span class="property">"@context":</span> <span class="string">"https://schema.org"</span>,
+  <span class="property">"@type":</span> <span class="string">"HowTo"</span>,
+  <span class="property">"headline":</span> <span class="string">"Sensor Fleet Part 1"</span>,
+  <span class="property">"alternativeHeadline":</span> <span class="string">"Build a sensor with Arduino..."</span>,
+  <span class="property">"description":</span> <span class="string">"Build an Arduino-powered..."</span>,
+  <span class="property">"datePublished":</span> <span class="string">"2021-08-11T00:00:00-05:00"</span>,
+  <span class="property">"author":</span> {
+    <span class="property">"@type":</span> <span class="string">"Person"</span>,
+    <span class="property">"name":</span> <span class="string">"Dr. Barbara"</span>
+  },
+  <span class="property">"keywords":</span> <span class="string">"iot, arduino, mqtt, tutorial"</span>,
+  <span class="property">"about":</span> [
+    { <span class="property">"@type":</span> <span class="string">"Thing"</span>, <span class="property">"name":</span> <span class="string">"Arduino"</span> },
+    { <span class="property">"@type":</span> <span class="string">"Thing"</span>, <span class="property">"name":</span> <span class="string">"MQTT"</span> },
+    { <span class="property">"@type":</span> <span class="string">"Thing"</span>, <span class="property">"name":</span> <span class="string">"MySQL"</span> }
+  ],
+  <span class="property">"step":</span> [
+    {
+      <span class="property">"@type":</span> <span class="string">"HowToSection"</span>,
+      <span class="property">"name":</span> <span class="string">"Sensor Fleet Part 1"</span>
+    }
+  ]
+}</pre>
+                    <p style="font-size: 13px; color: #6c757d; margin-top: 15px;">
+                        ℹ️ Notice the "about" field uses your <code>stack</code> array to tell search engines what technologies the tutorial covers.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Software Tab -->
+        <div id="software" class="tab-content">
+            <div class="description">
+                <h4>💻 SoftwareSourceCode Schema</h4>
+                <p><strong>Used for:</strong> Projects in your <code>_projects</code> collection</p>
+                <p><strong>What it enables:</strong> Google understands this is a software project. Shows programming languages, status, and makes it eligible for developer-focused search features.</p>
+                <p><strong>Example project:</strong> "Convoscope (Multi-Provider AI Chat)"</p>
+            </div>
+
+            <div class="split">
+                <div class="yaml-section">
+                    <h3>Your YAML Front Matter</h3>
+                    <pre>---
+<span class="property">title:</span> <span class="string">"Multi-Provider AI Chat"</span>
+<span class="property">excerpt:</span> <span class="string">"Multi-provider chat app with automatic fallback..."</span>
+<span class="property">tags:</span> [llm, multi-provider, chat, model-comparison]
+<span class="property">stack:</span> [Python, Streamlit, LiteLLM, OpenAI, Anthropic]
+<span class="property">status:</span> Active
+<span class="property">collection:</span> projects
+---</pre>
+
+                    <h3 style="margin-top: 25px;">Field Mapping</h3>
+                    <div class="mapping">
+                        <span class="yaml-field">title</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">name</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">excerpt</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">description</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">stack</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">programmingLanguage</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">status</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">creativeWorkStatus</span>
+                    </div>
+                    <div class="mapping">
+                        <span class="yaml-field">tags</span>
+                        <span class="mapping-arrow">→</span>
+                        <span class="schema-field">keywords</span>
+                    </div>
+                </div>
+
+                <div class="schema-section">
+                    <h3>Generated Schema.org JSON-LD</h3>
+                    <pre>{
+  <span class="property">"@context":</span> <span class="string">"https://schema.org"</span>,
+  <span class="property">"@type":</span> <span class="string">"SoftwareSourceCode"</span>,
+  <span class="property">"name":</span> <span class="string">"Multi-Provider AI Chat"</span>,
+  <span class="property">"description":</span> <span class="string">"Multi-provider chat app..."</span>,
+  <span class="property">"author":</span> {
+    <span class="property">"@type":</span> <span class="string">"Person"</span>,
+    <span class="property">"name":</span> <span class="string">"Dr. Barbara"</span>
+  },
+  <span class="property">"programmingLanguage":</span> [
+    <span class="string">"Python"</span>,
+    <span class="string">"Streamlit"</span>,
+    <span class="string">"LiteLLM"</span>,
+    <span class="string">"OpenAI"</span>,
+    <span class="string">"Anthropic"</span>
+  ],
+  <span class="property">"creativeWorkStatus":</span> <span class="string">"Active"</span>,
+  <span class="property">"keywords":</span> <span class="string">"llm, multi-provider, chat, model-comparison"</span>,
+  <span class="property">"url":</span> <span class="string">"https://barbhs.com/projects/convoscope/"</span>
+}</pre>
+                    <p style="font-size: 13px; color: #6c757d; margin-top: 15px;">
+                        ℹ️ The <code>collection: projects</code> field triggers SoftwareSourceCode schema instead of Article.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 ---
 title: "Gallery"
-# layout: single
+layout: single
+excerpt: "Visual explorations and AI-generated artwork created with Midjourney"
 # breadcrumbs: false
 categories:
   - gallery-images

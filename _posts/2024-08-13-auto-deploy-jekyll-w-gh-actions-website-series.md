@@ -1,6 +1,9 @@
 ---
 layout: single
 title: "Digital Home Base Workshop Part 3- Automate Your Site with GitHub Actions"
+subtitle: "Set up continuous deployment with GitHub Actions for seamless Jekyll builds"
+date: 2024-08-13
+last_modified_at: 2024-08-13
 sitemap:
     priority: 0.5
 classes: [wide]
@@ -12,7 +15,8 @@ header:
   overlay_image: "/assets/images/midjourney/reimagined-offices/office-of-my-imagination-robotic-arm-building_arsq.png"
 excerpt: "Every good engine needs a monitoring system. Learn how to install a proper CI/CD pipeline that watches your engine's performance, catches issues before they become problems, and keeps everything running smoothly"
 excerpt_display: false
-tags: [cicd, github actions]
+tags: [cicd, automation, deployment, devops]
+stack: [GitHub Actions, Jekyll, YAML, Git]
 categories: [tutorial]
 pagination: 
   enabled: true

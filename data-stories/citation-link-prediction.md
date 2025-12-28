@@ -1,13 +1,20 @@
 ---
 title: "Using graph neural networks to discover hidden connections between papers that should have met but never did"
-description: "A decade or so after our Visual Attention paper, I couldn't stop wondering: <b>Where did those ideas travel? What unexpected paths did they take?</b>"
+excerpt: "A decade or so after our Visual Attention paper, I couldn't stop wondering: <b>Where did those ideas travel? What unexpected paths did they take?</b>"
 permalink: /data-stories/citation-link-prediction/
+date: 2024-11-15
+last_modified_at: 2024-12-21
 layout: single
 section: data-stories
-tags: [graph neural networks, pytorch, neo4j]
-classes: [story-page]   
+tags: [graph-neural-networks, link-prediction, academic-research, knowledge-discovery]
+stack: [PyTorch, Neo4j, Python, Plotly, Semantic Scholar API]
+classes: [story-page]
 breadcrumbs: false
 author_profile: false
+header:
+  overlay_image: /assets/visualizations/knowledge-cartography/network_growth_stages.png
+  overlay_filter: 0.5
+  teaser: /assets/visualizations/knowledge-cartography/seed_paper_fig9.png
 ---
 <br>
 # Finding Lost Cousins in the Academic Family Tree

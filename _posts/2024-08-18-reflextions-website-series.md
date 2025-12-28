@@ -1,6 +1,9 @@
 ---
 layout: single
 title: "Digital Home Base Workshop Part 4- A Data Scientist's Reflections of Workshop to Web"
+subtitle: "Lessons learned about automation, visibility, and technical documentation"
+date: 2024-08-18
+last_modified_at: 2024-08-18
 sitemap:
     priority: 0.5
 permalink: /blog/post-deployment-reflextions/

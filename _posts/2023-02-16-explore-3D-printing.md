@@ -1,6 +1,9 @@
 ---
 layout: single
 title: "Recreational 3D Printing"
+subtitle: "Exploring at-home additive manufacturing with the AnkerMake M5"
+date: 2023-02-16
+last_modified_at: 2023-02-16
 sitemap:
     priority: 0.5
 permalink: /blog/3d-printing-exploration/
@@ -9,8 +12,9 @@ redirect_from:
   - /3d printing/recreational-3d-printing/
 header:
   overlay_image: "/assets/images/M5-calib-mini-v0.jpg"
-excerpt: "Exploring the prototyping possibilities "
-tags: [3d models, stl files, prototyping]
+excerpt: "Exploring at-home additive manufacturing with the AnkerMake M5 3D printer, from initial Kickstarter curiosity to hands-on learning about slicer settings, STL model editing with TinkerCad, and discovering motivating first prints"
+tags: [3d-models, stl-files, prototyping]
+stack: [AnkerMake M5, TinkerCad]
 categories: [3d printing]
 pagination: 
   enabled: true

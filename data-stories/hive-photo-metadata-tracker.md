@@ -1,13 +1,20 @@
 ---
-title: "Becoming a Backyard Beekeeper: a small step for ecological health, and the metadata chaos it spawned"
-description: "The idea had been calling me for yrs: Build a Knowledge Graph from my hive data, and the bees will come. They did! And left again. But the Graph lives on!"
-permalink: /data-stories/hive-photo-metadata-tracker/
 layout: single
+title: "Becoming a Backyard Beekeeper: a small step for ecological health, and the metadata chaos it spawned"
+permalink: /data-stories/hive-photo-metadata-tracker/
+header:
+  overlay_image: /assets/images/bees_pollen.jpg
+  overlay_filter: 0.5
+  teaser: /assets/images/bees_pollen_th.jpg
+excerpt: "The idea had been calling me for yrs: Build a Knowledge Graph from my hive data, and the bees will come. They did! And left again. But the Graph lives on!"
+tags: [computer-vision, image-analysis, metadata-extraction, knowledge-graph]
+stack: [Python, Google Cloud Vision API, Neo4j, Plotly, EXIF]
+classes: [story-page]
 section: data-stories
-tags: [computer vision, api]
-classes: [story-page]   
 breadcrumbs: false
 author_profile: false
+date: 2024-09-10
+last_modified_at: 2024-12-21
 ---
 <br>
 # Hive Tracker Part 1: When an Owl Box turned into a Beehive and Spawned a Data Management Professional's Metaphorical Playground

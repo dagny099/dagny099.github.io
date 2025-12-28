@@ -1,14 +1,18 @@
 ---
 layout: single
 title: "Sensor Fleet Part 6"
+subtitle: "Real-time data streaming with Apache Kafka"
+date: 2021-09-05
+last_modified_at: 2021-09-05
 permalink: /blog/sensor-fleet-part-6/
 redirect_from:
   - /temp-sensor-06/
   - /data science/sensor-fleet-part-6/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
-excerpt: "Environment Sensing, Visualizing"
-tags: [arduino, temp sensor, mqtt]
+excerpt: "Move beyond klugy real-time updates to production-grade data streaming with Apache Kafka. Learn to set up Kafka brokers, configure producers and consumers, and stream IoT sensor data at scale."
+tags: [arduino, temp-sensor, mqtt, kafka, streaming]
+stack: [Arduino, MQTT, Apache Kafka, Python]
 categories: [data science]
 ---
 ## Part 6: Streaming with Kafka

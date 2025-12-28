@@ -1,5 +1,6 @@
 ---
 title: "Site Architecture & Content Sitemap"
+excerpt: "Visual guide to site organization using Mermaid diagrams - how content hubs, blog series, and collections connect on barbhs.com"
 permalink: /site-architecture/
 layout: single
 classes: wide extra-wide

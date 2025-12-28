@@ -1,14 +1,16 @@
 ---
 layout: single
 title: "7+-2 is Everywhere: Chunking is all you need"
+subtitle: "How working memory limits shape effective interfaces across fitness, beekeeping, and AI tools"
 date: 2025-09-11 00:00:00 -0600
+last_modified_at: 2025-01-15
 categories: ["thinking"]
 tags: ["visual-working-memory","data-visualization","visual-attention","ux-for-analytics"]
+excerpt: "Long-context models can hold a million tokens. People can't. The bottleneck has shifted from storage to sensemaking. Across 2,593 workouts, 400+ beehive inspections, and an AI comparison UI, the same pattern repeats: we act effectively when we see three to seven meaningful chunks."
 pin: true
 toc: true
 toc_sticky: true
 classes: wide
-excerpt_separator: "<!--more-->"
 # Cards metadata
 read_time: 7
 teaser: /assets/images/bees-hero.jpg

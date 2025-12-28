@@ -1,14 +1,18 @@
 ---
 layout: single
 title: "Sensor Fleet Part 5"
+subtitle: "Secure your IoT project with custom MQTT broker and webapp authentication"
+date: 2021-08-27
+last_modified_at: 2021-08-27
 permalink: /blog/sensor-fleet-part-5/
 redirect_from:
   - /temp-sensor-05/
   - /data science/sensor-fleet-part-5/
 header:
   overlay_image: "/assets/images/tempsensor_pic_th.jpg"
-excerpt: "Environment Sensing, Visualizing"
-tags: [arduino, temp sensor, mqtt]
+excerpt: "Lock down your IoT deployment by creating a custom MQTT broker with authentication and adding password protection to your web dashboard. Learn security best practices for production IoT systems."
+tags: [arduino, temp-sensor, mqtt, security, authentication]
+stack: [Arduino, MQTT, Mosquitto, Python, Dash]
 categories: [data science]
 ---
 ## Part 5: Address Security Concerns

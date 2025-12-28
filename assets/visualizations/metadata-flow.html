@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Metadata Flow Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        #chart {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+    <script>
+        // Metadata flow from content to search engines
+        var data = [{
+            type: "sankey",
+            orientation: "h",
+            node: {
+                pad: 15,
+                thickness: 20,
+                line: {
+                    color: "white",
+                    width: 0.5
+                },
+                label: [
+                    // Layer 1: Content Source
+                    "Blog Post",
+                    "Project Page",
+                    "Data Story",
+
+                    // Layer 2: Metadata Fields
+                    "title + subtitle",
+                    "excerpt (150-300 chars)",
+                    "tags (concepts)",
+                    "stack (technologies)",
+                    "date + last_modified",
+                    "header images",
+
+                    // Layer 3: Schema.org Types
+                    "Article Schema",
+                    "HowTo Schema",
+                    "SoftwareSourceCode Schema",
+
+                    // Layer 4: Impact
+                    "Google Rich Snippets",
+                    "Search Ranking Boost",
+                    "Social Media Cards",
+                    "Discoverability"
+                ],
+                color: [
+                    // Content types (blue shades)
+                    "#4A90E2", "#5B9BD5", "#6FA8DC",
+
+                    // Metadata fields (green shades)
+                    "#81C784", "#66BB6A", "#4CAF50", "#388E3C", "#2E7D32", "#1B5E20",
+
+                    // Schema types (purple shades)
+                    "#9C27B0", "#7B1FA2", "#6A1B9A",
+
+                    // Impact (orange/gold)
+                    "#FF9800", "#F57C00", "#E65100", "#FFB74D"
+                ]
+            },
+            link: {
+                source: [
+                    // Blog posts generate metadata
+                    0, 0, 0, 0, 0, 0,
+                    // Projects generate metadata
+                    1, 1, 1, 1, 1, 1,
+                    // Data stories generate metadata
+                    2, 2, 2, 2, 2, 2,
+
+                    // Metadata feeds into schemas
+                    3, 4, 5, 7, 8,  // → Article Schema
+                    3, 4, 5, 7, 8,  // → HowTo Schema
+                    3, 4, 6, 7, 8,  // → SoftwareSourceCode Schema
+
+                    // Schemas drive impact
+                    9, 9, 9,    // Article Schema impact
+                    10, 10, 10,  // HowTo Schema impact
+                    11, 11, 11   // SoftwareSourceCode impact
+                ],
+                target: [
+                    // Content → Metadata
+                    3, 4, 5, 7, 8, 8,  // Blog post
+                    3, 4, 6, 7, 8, 8,  // Project
+                    3, 4, 5, 6, 7, 8,  // Data story
+
+                    // Metadata → Schema
+                    9, 9, 9, 9, 9,     // → Article
+                    10, 10, 10, 10, 10, // → HowTo
+                    11, 11, 11, 11, 11, // → Software
+
+                    // Schema → Impact
+                    12, 13, 14,  // Article impact
+                    12, 13, 16,  // HowTo impact
+                    12, 15, 16   // Software impact
+                ],
+                value: [
+                    // Content → Metadata (weight = importance)
+                    10, 10, 8, 7, 6, 5,   // Blog
+                    10, 10, 10, 7, 6, 5,  // Project
+                    10, 10, 8, 8, 6, 7,   // Data story
+
+                    // Metadata → Schema
+                    5, 5, 3, 3, 3,     // Article
+                    5, 5, 3, 3, 3,     // HowTo
+                    5, 5, 4, 3, 3,     // Software
+
+                    // Schema → Impact
+                    8, 7, 6,   // Article
+                    9, 8, 5,   // HowTo
+                    7, 6, 8    // Software
+                ],
+                color: [
+                    // Content → Metadata (light blue)
+                    "#B3D9FF", "#B3D9FF", "#B3D9FF", "#B3D9FF", "#B3D9FF", "#B3D9FF",
+                    "#C5E0FF", "#C5E0FF", "#C5E0FF", "#C5E0FF", "#C5E0FF", "#C5E0FF",
+                    "#D4E9FF", "#D4E9FF", "#D4E9FF", "#D4E9FF", "#D4E9FF", "#D4E9FF",
+
+                    // Metadata → Schema (light green)
+                    "#C8E6C9", "#C8E6C9", "#C8E6C9", "#C8E6C9", "#C8E6C9",
+                    "#DCEDC8", "#DCEDC8", "#DCEDC8", "#DCEDC8", "#DCEDC8",
+                    "#E8F5E9", "#E8F5E9", "#E8F5E9", "#E8F5E9", "#E8F5E9",
+
+                    // Schema → Impact (light orange)
+                    "#FFE0B2", "#FFE0B2", "#FFE0B2",
+                    "#FFE0B2", "#FFE0B2", "#FFE0B2",
+                    "#FFE0B2", "#FFE0B2", "#FFE0B2"
+                ]
+            }
+        }];
+
+        var layout = {
+            font: {
+                size: 12,
+                family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+            },
+            margin: {
+                l: 20,
+                r: 20,
+                t: 40,
+                b: 20
+            },
+            paper_bgcolor: '#f8f9fa',
+            plot_bgcolor: '#f8f9fa'
+        };
+
+        Plotly.newPlot('chart', data, layout, {
+            displayModeBar: false,
+            responsive: true
+        });
+    </script>
+</body>
+</html>

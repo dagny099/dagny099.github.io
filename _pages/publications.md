@@ -1,4 +1,5 @@
 ---
+layout: single
 title: "Research & Publications"
 excerpt: "Eye movements, scene familiarity, and computational models of attention from my MIT cognitive science research."
 permalink: /research/

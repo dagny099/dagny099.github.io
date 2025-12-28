@@ -1,14 +1,18 @@
 ---
 layout: single
 title: "DIY Stock Ticker to Learn Python Frameworks"
+subtitle: "Comparing Dash, Flask, and Streamlit by building the same webapp three ways"
+date: 2022-09-16
+last_modified_at: 2022-09-16
 sitemap:
     priority: 0.5
 permalink: /blog/stock-ticker-comparison/
 redirect_from:
   - /stock-ticker-00/
   - /data science/diy-stock-ticker-to-learn-python-frameworks/
-excerpt: "Comparing Python Webapp Frameworks"
-tags: [python, webapps, dash, flask, streamlit]
+excerpt: "Learning Python web frameworks (Dash, Flask, Streamlit) by building the same stock ticker webapp three different ways to compare approaches and capabilities"
+tags: [webapps, framework-comparison, tutorial, data-visualization]
+stack: [Python, Dash, Flask, Streamlit, Plotly, Heroku]
 categories: [data science]
 ---
 ## Stock Ticker example

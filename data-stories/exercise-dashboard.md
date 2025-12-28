@@ -1,13 +1,20 @@
 ---
 title: "How My Quest for Clean(-is) Workout Metrics Spawned S3->λ Automation, ML Classification, and Reporting Wins"
-description: "A personalized Fitness dashboard was born from a getting a puppy, growing my devops chops, and a mad qty of stubborness. A messy journey, but lots of fun :)"
+excerpt: "A personalized Fitness dashboard was born from getting a puppy, growing my devops chops, and a mad qty of stubbornness. A messy journey, but lots of fun :)"
 permalink: /data-stories/exercise-dashboard/
+date: 2024-10-20
+last_modified_at: 2024-12-21
 layout: single
 section: data-stories
-tags: [trend analysis, data visualization]
-classes: [story-page]   
+tags: [trend-analysis, data-visualization, machine-learning, fitness-tracking]
+stack: [Python, AWS S3, AWS Lambda, Plotly, MapMyRun API]
+classes: [story-page]
 breadcrumbs: false
 author_profile: false
+header:
+  overlay_image: /assets/images/choco-portrait.jpg
+  overlay_filter: 0.5
+  teaser: /assets/images/choco-graduation.jpg
 ---
 <br>
 # The Choco Effect: How a Dog Transformed My Running Data

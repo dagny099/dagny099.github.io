@@ -4,7 +4,8 @@ excerpt: "An interactive dashboard of my workouts backed by AWS Relational Datab
 date: 2024-02-15 # Change this to control the order
 classes: [portfolio-page]
 category: Project
-tags: [Data Science, Data Visualization, SQL, Streamlit, AWS, RDS]
+tags: [data-science, data-visualization, fitness-analytics, etl-pipeline]
+stack: [Python, MySQL, Streamlit, AWS RDS, MapMyRun API]
 toc: true
 toc_sticky: true  
 toc_label: "ToC"  

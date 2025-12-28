@@ -1,5 +1,6 @@
 ---
 title: "Explore by Topic"
+excerpt: "Browse work organized by expertise area: cognitive science, knowledge graphs, AI governance, data visualization, DevOps, and technical tutorials"
 permalink: /topics/
 layout: single
 classes: wide

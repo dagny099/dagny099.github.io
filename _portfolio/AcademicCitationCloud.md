@@ -1,10 +1,11 @@
 ---
 title: "Academic Citation Network Link Prediction using PyTorch"
-excerpt: ""
+excerpt: "Using graph neural networks to predict hidden connections in an 8,000-paper citation network, discovering research that should have cited each other but never did"
 date: 2024-06-15 # Change this to control the order
 classes: [wide, portfolio-page]
 category: Project
-tags: [arduino, temp sensor, mqtt]
+tags: [graph-neural-networks, link-prediction, citation-analysis, machine-learning, knowledge-graphs]
+stack: [PyTorch, Neo4j, Python, Semantic Scholar API]
 # permalink: /temp-sensor-00/
 header:
   overlay_color: "#4649e5"

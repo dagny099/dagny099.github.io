@@ -1,14 +1,17 @@
 ---
 layout: single
 title: "Bees, Graphs, and Governance — Turning Unruly Observations into Evidence‑Ready Decisions"
+subtitle: "Transforming messy beehive observations into evidence-ready decisions through knowledge graphs"
 date: 2025-09-11 00:00:00 -0600
+last_modified_at: 2025-01-15
 categories: ["thinking"]
 tags: ["knowledge-graph","metadata","data-governance","ux-for-analytics","explainability"]
+stack: [Neo4j, Python, EXIF, NOAA API]
+excerpt: "A beehive is a data system: noisy observations, seasonal dynamics, tight feedback loops. By treating photos, weather, and notes as first-class, related entities (a graph), we turn anecdotes into evidence-ready decisions. The same pattern hardens enterprise analytics: clearer lineage, less hand-waving, more trust."
 pin: true
 toc: true
 toc_sticky: true
 classes: wide
-excerpt_separator: "<!--more-->"
 # Cards metadata
 read_time: 7
 teaser: /assets/images/bees-hero.jpg

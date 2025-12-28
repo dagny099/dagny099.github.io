@@ -2,6 +2,8 @@
 layout: single
 title: A Step-by-Step Guide to Launching an RDS Database with the AWS CLI
 subtitle: Part 2 of The Data Scientist's CLI Handbook Series
+date: 2024-06-20
+last_modified_at: 2024-06-20
 permalink: /blog/aws-cli-tutorial-launch-rds-for-ec2-access/
 header:
   overlay_image: /assets/images/blog/aws-cli-banner.jpg
@@ -9,7 +11,8 @@ header:
   #caption: 
 excerpt: Level up your data skills by moving beyond jupyter notebooks. Learn how to build robust, repeatable data infrastructure using the tools of modern data engineering.
 excerpt_display: true
-tags: [aws, data engineering, cli, rds, python, tutorial,]
+tags: [aws, data-engineering, cloud, database, tutorial]
+stack: [AWS CLI, AWS RDS, MySQL, Python, IAM]
 classes: wide
 categories: [tutorial]
 pagination: 

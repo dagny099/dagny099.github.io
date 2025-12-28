@@ -10,17 +10,17 @@ header:
   overlay_image: "/assets/images/midjourney/wall-worthy/sq-celestial-reflections.png"
 excerpt: Treat Mermaid diagrams like <b>visual source code</b>   with a home, structure, and a tiny bit of automation.
 excerpt_display: true
-tags: [mermaid, diagrams, documentation, workflow, streamlit]
+tags: [documentation, diagrams, workflow, visual-code, tutorial]
+stack: [Mermaid.js, Streamlit, Markdown, Git]
 classes: wide
 categories: [tutorial]
-pagination: 
-  enabled: true
+date: 2025-01-11
+last_modified_at: 2025-02-16
 #author_profile: false
 #toc: true
 #toc_label: "Table of Contents"
 #toc_icon: "list"
 #toc_sticky: true
-#author_profile: false
 ---
 
 # How I Organized My Mermaid Life
