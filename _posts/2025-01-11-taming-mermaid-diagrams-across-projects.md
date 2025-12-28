@@ -14,14 +14,13 @@ tags: [documentation, diagrams, workflow, visual-code, tutorial]
 stack: [Mermaid.js, Streamlit, Markdown, Git]
 classes: wide
 categories: [tutorial]
-pagination: 
-  enabled: true
+date: 2025-01-11
+last_modified_at: 2025-02-16
 #author_profile: false
 #toc: true
 #toc_label: "Table of Contents"
 #toc_icon: "list"
 #toc_sticky: true
-#author_profile: false
 ---
 
 # How I Organized My Mermaid Life
