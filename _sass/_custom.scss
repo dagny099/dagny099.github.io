@@ -206,6 +206,68 @@ h1, h2, h3, h4, h5, h6{
 .series-stat__label{ margin: 0; font-size: .85rem; color: var(--ink-500); text-transform: uppercase; letter-spacing: .08em; }
 .series-stat__value{ margin: .25rem 0 0; font-weight: 700; color: var(--ink-900); }
 
+/* ------------------------------------------------------------------
+   Writing index tabs
+   ------------------------------------------------------------------ */
+.writing-index__intro{
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.writing-tabs-wrap{
+  background: #f4f6f8;
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.writing-tabs__label{
+  margin: 0 0 .75rem;
+  font-size: .9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-500);
+}
+
+.writing-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.writing-tab{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #d7dde5;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.writing-tab:hover,
+.writing-tab:focus{
+  transform: translateY(-1px);
+  border-color: #94a3b8;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+}
+
+.writing-section{
+  margin-top: 2.75rem;
+}
+
+.writing-section .taxonomy__index{
+  margin-top: .75rem;
+}
+
 .series-section{ display:grid; gap: 1.5rem; }
 
 .series-toc{
@@ -1034,4 +1096,3 @@ h1, h2, h3, h4, h5, h6{
 .masthead .greedy-nav__toggle:focus{
   color: var(--nav-icon-hover);
 }
-
