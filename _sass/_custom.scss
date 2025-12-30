@@ -731,12 +731,14 @@ h1, h2, h3, h4, h5, h6{
   }
 }
 
-/* Mobile: un-pin and stack under the headline */
-@media (max-width: 640px){
+/* Narrow desktop/tablet: un-pin and stack under the headline */
+@media (max-width: 1200px){
   .page__hero--overlay .hero-ctas--pinned{
     position: static;
     margin-top: .75rem;
     margin-bottom: 0.5rem;  /* space before caption */
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   /* Add bottom padding to hero wrapper so caption doesn't overlap buttons */
@@ -1034,4 +1036,3 @@ h1, h2, h3, h4, h5, h6{
 .masthead .greedy-nav__toggle:focus{
   color: var(--nav-icon-hover);
 }
-
