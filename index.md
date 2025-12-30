@@ -111,6 +111,40 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </div>
 
 <!-- =======================
+     Featured Writing
+     ======================= -->
+<div class="home-section home-section--writing">
+  <h2 class="home-section__heading">Featured Writing</h2>
+
+  <div class="writing-grid">
+    <article class="writing-card">
+      <span class="writing-card__label">Data Story</span>
+      <h3><a href="/data-stories/exercise-dashboard/">The Choco Effect: Workout Data with a New Dog</a></h3>
+      <p>How a decade of messy runs became an ML-classified story about consistency and change.</p>
+      <a class="writing-card__cta" href="/data-stories/exercise-dashboard/">Read the data story →</a>
+    </article>
+
+    <article class="writing-card">
+      <span class="writing-card__label">Tutorial</span>
+      <h3><a href="/blog/stock-ticker-comparison/">DIY Stock Ticker: Dash vs Flask vs Streamlit</a></h3>
+      <p>A hands-on comparison of Python web frameworks by building the same app three ways.</p>
+      <a class="writing-card__cta" href="/blog/stock-ticker-comparison/">Read the tutorial →</a>
+    </article>
+
+    <article class="writing-card">
+      <span class="writing-card__label">Thinking</span>
+      <h3><a href="/thinking/vision-perception-data-viz-decisions/">Designing Data Viz for How People Actually See</a></h3>
+      <p>Preattentive cues, luminance, and small multiples for decision-ready charts.</p>
+      <a class="writing-card__cta" href="/thinking/vision-perception-data-viz-decisions/">Read the essay →</a>
+    </article>
+  </div>
+
+  <p class="writing-footer">
+    <a class="browse-all" href="/blog/">Browse all writing</a>
+  </p>
+</div>
+
+<!-- =======================
      Cognitive Principles (NEW)
      ======================= -->
 <div class="home-section home-section--principles">
