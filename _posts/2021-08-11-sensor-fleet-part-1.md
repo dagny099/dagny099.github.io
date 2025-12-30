@@ -21,6 +21,13 @@ This project shows you how to build a fleet of IoT temperature sensors that you 
 * Do different rooms in my house have similar cooling profiles?
 * What's the relationship between how hot it is outside and how much electricity is used?
 
+<div class="series-callout series-callout--sensor">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Sensor Fleet</strong> · Part 1 of 6</p>
+  <p class="series-callout__lede">Need the full roadmap? The series landing page keeps every part in order.</p>
+  <a class="text-link" href="/series/sensor-fleet/">Visit the series landing page →</a>
+</div>
+
 ## Part 1: Build a sensor, Publish the data
 After this post, you'll be able to:
 * Publish temperature sensor measurements powered by an Arduino

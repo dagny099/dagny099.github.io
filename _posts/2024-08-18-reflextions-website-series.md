@@ -23,6 +23,13 @@ pagination:
 
 *This is the fourth post in my website-building series, but it's a bit different. Instead of a how-to guide, it's a pause for reflection – because sometimes the most valuable learning happens when we stop to think about what we **think** we learned versus what we **actually** learned.* 
 
+<div class="series-callout series-callout--website">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Make Your Own Website</strong> · Part 4 of 4</p>
+  <p class="series-callout__lede">Catch up on earlier parts or revisit the full roadmap.</p>
+  <a class="text-link" href="/series/website-building/">Visit the series landing page →</a>
+</div>
+
 ## 🤔 The Moment of Truth 
 
 **What I Thought Was Happening:** Before diving into GitHub Actions, my mental model was simple:  

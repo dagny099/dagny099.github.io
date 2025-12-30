@@ -20,6 +20,12 @@ After this post, you'll be able to:
 - Query a NOAA based weather station to pull local weather data
 - Add outdoor temp as a feature to optionally display on your dashboard
 
+<div class="series-callout series-callout--sensor">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Sensor Fleet</strong> · Part 4 of 6</p>
+  <p class="series-callout__lede">Track every part of the build from the series landing page.</p>
+  <a class="text-link" href="/series/sensor-fleet/">Visit the series landing page →</a>
+</div>
 
 Image placeholder:
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/babybees_01.jpg" alt="baby bees" width="250" height="250">

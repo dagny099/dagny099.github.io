@@ -24,6 +24,13 @@ pagination:
 
 *Welcome to Part 3 of our "Make Your Own Website" learning series! Just stumbled upon this? No worries\!  If you're a fellow data enthusiast wondering whether you should bother with a personal website (spoiler: you should), Check out [Post 1](/posts/getting-started-with-github-pages/) to learn why having your own portfolio site matters and how to get started quickly, or [Post 2]( /posts/understanding-your-jekyll-site/) for a deep dive into Jekyll site builders and common pitfalls.* 
 
+<div class="series-callout series-callout--website">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Make Your Own Website</strong> · Part 3 of 4</p>
+  <p class="series-callout__lede">Jump to the series landing page for the full table of contents and next steps.</p>
+  <a class="text-link" href="/series/website-building/">Visit the series landing page →</a>
+</div>
+
 In this guide, I’ll walk you through how to set up **continuous deployment** for your Jekyll-based GitHub Pages site using GitHub Actions. Whether you’re completely new to CI/CD (Continuous Integration / Continuous Deployment) or just want a more seamless workflow, you’re in the right place.
 
 ![image-center]({{ site.url }}{{ site.baseurl }}/assets/images/series-website/build-process-w-gh-actions.png){: .align-center}

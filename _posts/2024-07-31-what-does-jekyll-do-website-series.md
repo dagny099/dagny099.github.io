@@ -25,6 +25,13 @@ pagination:
 ![image-right]({{ site.url }}{{ site.baseurl }}/assets/images/series-website/mermaid-diagram-website-post-1-jekyll-build.png){: .align-right style="max-width:400px"}
 If you've followed our [first guide](/posts/getting-started-with-github-pages/), you've already got a working website. Now let's peek under the hood and understand how Jekyll transforms your content into a beautiful, responsive website. Why? Because understanding your tools makes you a better craftsperson! 
 
+<div class="series-callout series-callout--website">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Make Your Own Website</strong> · Part 2 of 4</p>
+  <p class="series-callout__lede">Want the full roadmap? The series landing page keeps every part in one place.</p>
+  <a class="text-link" href="/series/website-building/">Visit the series landing page →</a>
+</div>
+
 Pretty neat, right? Jekyll takes your Markdown files, applies your chosen theme, and creates a complete website. 
 
 Let's break down each component 🛠️

@@ -20,6 +20,12 @@ After this post, you'll be able to:
 - Automate data ingestion (hello, crontab)
 - Deploy the project on AWS instance (optional but nice)
 
+<div class="series-callout series-callout--sensor">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Sensor Fleet</strong> · Part 3 of 6</p>
+  <p class="series-callout__lede">Use the series landing page to navigate the full build.</p>
+  <a class="text-link" href="/series/sensor-fleet/">Visit the series landing page →</a>
+</div>
 
 Image placeholder:
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/babybees_01.jpg" alt="baby bees" width="250" height="250">

@@ -20,6 +20,13 @@ After this post, you'll be able to:
 - Create your own MQTT broker
 - Add a password to your webapp
 
+<div class="series-callout series-callout--sensor">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Sensor Fleet</strong> · Part 5 of 6</p>
+  <p class="series-callout__lede">Jump back to the series landing page for the full roadmap.</p>
+  <a class="text-link" href="/series/sensor-fleet/">Visit the series landing page →</a>
+</div>
+
 ## Part 6: Streaming with Kafka
 So far, the realtime part of this has been klugy. Let's do this for real with Apache Kafka.
 [In development]

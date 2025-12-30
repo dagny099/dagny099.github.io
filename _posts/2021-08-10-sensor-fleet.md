@@ -19,6 +19,13 @@ categories: [data science]
 ## What's my motivation?
 Texas is HOT. ACs work overtime and electricity bills soar. In a nutshell, this was the motivation for wanting to see how cheaply and easily I could build a small temperature sensor to collect heating and cooling data from different rooms in the house. This has been a really fun project and taught me **a lot**, including how to use to program an Arduino, design a lightweight data pipeline, and build a visualization dashboard to see my data.
 
+<div class="series-callout series-callout--sensor">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Sensor Fleet</strong> · 7-part IoT build series</p>
+  <p class="series-callout__lede">Use the landing page to jump between hardware, messaging, storage, and dashboard steps.</p>
+  <a class="text-link" href="/series/sensor-fleet/">Visit the series landing page →</a>
+</div>
+
 This project is a fun thing to do as a useful DIY project, for those interested in building "something that works" fairly quickly and easily. See Parts 1-2.
 
 Aspiring data scientists are another potential audience for this project, because it's great practice in thinking through the steps of a problem while generating your own (useful!) dataset. See Parts 1-5.

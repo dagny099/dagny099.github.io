@@ -24,6 +24,13 @@ pagination:
 
 As a data scientist, you're probably comfortable with Jupyter notebooks and GitHub repositories. But let's be honest – sending someone a repo link isn't exactly the most elegant way to showcase your work. What if you could have a beautiful, professional website that's as easy to update as pushing to a repository? Enter GitHub Pages.
 
+<div class="series-callout series-callout--website">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Make Your Own Website</strong> · 4-part tutorial series</p>
+  <p class="series-callout__lede">Start here, then use the landing page to jump between parts or see the full roadmap.</p>
+  <a class="text-link" href="/series/website-building/">Visit the series landing page →</a>
+</div>
+
 ## Digital Home Base Motivations
 
 Back in 2020, I was drowning in a sea of options for building my online presence. WordPress felt bloated, Medium wasn't customizable enough, and hand-coding a responsive website seemed like overkill. That's when I discovered GitHub Pages, and it turned out to be the perfect solution for a data professional's needs.

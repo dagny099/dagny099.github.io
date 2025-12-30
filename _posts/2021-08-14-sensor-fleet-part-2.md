@@ -25,6 +25,13 @@ After this post, you'll be able to:
 * Create a Heroku web app to visualize the data
 * Create an interactive graph to visualize the smoothened data measurements.
 
+<div class="series-callout series-callout--sensor">
+  <p class="series-callout__eyebrow">Series hub</p>
+  <p><strong>Sensor Fleet</strong> · Part 2 of 6</p>
+  <p class="series-callout__lede">Follow the full series arc or jump to any part from the landing page.</p>
+  <a class="text-link" href="/series/sensor-fleet/">Visit the series landing page →</a>
+</div>
+
 Image placeholder:
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/babybees_01.jpg" alt="baby bees" width="250" height="250">
 
