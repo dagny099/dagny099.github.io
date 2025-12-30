@@ -276,13 +276,64 @@ h1, h2, h3, h4, h5, h6{
 
 /* Masthead site title (your name) */
 .masthead{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background: #fbfbfb; /* match page background so the bar blends in */
-  box-shadow: inset 0 -1px 0 var(--surface-border);
+  box-shadow: inset 0 -1px 0 var(--surface-border), 0 8px 20px rgba(15, 23, 42, 0.06);
+  padding: 0.75rem 1rem;
 }
 
 /* Ensure the nav bar itself matches the surrounding page background */
 .masthead .greedy-nav{
   background: #fbfbfb;
+}
+
+.masthead__inner-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .masthead__inner-wrap{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.masthead__logo{
+  flex: 0 0 auto;
+  margin-bottom: 0.4rem;
+  border-radius: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .masthead__logo{
+    margin-bottom: 0;
+  }
+}
+
+.custom-nav{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+.custom-nav a{
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.custom-nav a:hover{
+  color: #c0572a;
 }
 
 .masthead .site-title{
@@ -1035,3 +1086,58 @@ h1, h2, h3, h4, h5, h6{
   color: var(--nav-icon-hover);
 }
 
+/* ------------------------------------------------------------------
+   Writing index tabs
+   ------------------------------------------------------------------ */
+.writing-tabs{
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0 2.25rem;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.writing-tabs__intro .section-intro{
+  margin: .25rem 0 0;
+}
+
+.writing-tabs__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.writing-tabs .btn{
+  text-decoration: none;
+  border: 1px solid color-mix(in oklab, var(--ink-900) 12%, #fff);
+  background: color-mix(in oklab, var(--ink-900) 4%, #fff);
+  color: var(--ink-700);
+  font-weight: 700;
+  padding: .55rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.writing-tabs .btn.is-primary{
+  background: var(--accent-amber);
+  color: #fff;
+  border-color: color-mix(in oklab, var(--accent-amber) 70%, #000);
+  box-shadow: 0 10px 22px rgba(229, 87, 35, 0.28);
+}
+
+.writing-tabs .btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.16);
+}
+
+.writing-section{
+  margin-top: 2.75rem;
+}
+
+.writing-section .taxonomy__index{
+  margin-top: .75rem;
+}
