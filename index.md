@@ -111,6 +111,49 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </div>
 
 <!-- =======================
+     Featured Writing (NEW)
+     ======================= -->
+<div class="home-section home-section--writing">
+  <h2 class="home-section__heading">Featured Writing</h2>
+  <p class="home-section__subheading">
+    A mix of tutorials, data storytelling, and thinking in public—built to show how I approach messy problems.
+  </p>
+
+  <div class="featured-writing">
+    <article class="featured-writing__card">
+      <p class="featured-writing__badge">Data Story</p>
+      <h3><a href="/data-stories/exercise-dashboard/">The Choco Effect: Workout Data & Habit Shifts</a></h3>
+      <p>
+        A long-form narrative about how a dog changed 14 years of workouts, and what the data reveals about consistency.
+      </p>
+      <a class="featured-writing__link" href="/data-stories/exercise-dashboard/">Read the story →</a>
+    </article>
+
+    <article class="featured-writing__card">
+      <p class="featured-writing__badge featured-writing__badge--thinking">Thinking</p>
+      <h3><a href="/thinking/rag-without-the-theater/">RAG Without the Theater</a></h3>
+      <p>
+        Evidence-linked retrieval patterns you can defend—grounded answers, honest fallbacks, and auditable citations.
+      </p>
+      <a class="featured-writing__link" href="/thinking/rag-without-the-theater/">Read the essay →</a>
+    </article>
+
+    <article class="featured-writing__card">
+      <p class="featured-writing__badge featured-writing__badge--tutorial">Tutorial</p>
+      <h3><a href="/blog/stock-ticker-comparison/">DIY Stock Ticker: Dash vs. Flask vs. Streamlit</a></h3>
+      <p>
+        Learn Python web frameworks by building the same stock ticker app three ways and comparing trade-offs.
+      </p>
+      <a class="featured-writing__link" href="/blog/stock-ticker-comparison/">Read the tutorial →</a>
+    </article>
+  </div>
+
+  <p class="featured-writing__cta">
+    <a class="browse-all" href="/blog/">Browse all writing</a>
+  </p>
+</div>
+
+<!-- =======================
      Cognitive Principles (NEW)
      ======================= -->
 <div class="home-section home-section--principles">
@@ -259,5 +302,74 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
 .principle-card:nth-child(3) {
   animation-delay: 0.2s;
+}
+
+.home-section--writing {
+  background: #f9fbfd;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.75rem;
+}
+
+.home-section--writing .home-section__heading {
+  margin-top: 0;
+  text-align: center;
+}
+
+.home-section--writing .home-section__subheading {
+  margin: 0.5rem auto 1.5rem;
+  max-width: 680px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.featured-writing {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.featured-writing__card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.featured-writing__badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4338ca;
+  background: #e0e7ff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  width: fit-content;
+  margin: 0;
+}
+
+.featured-writing__badge--thinking {
+  color: #7c3aed;
+  background: #ede9fe;
+}
+
+.featured-writing__badge--tutorial {
+  color: #0f766e;
+  background: #ccfbf1;
+}
+
+.featured-writing__link {
+  margin-top: auto;
+  font-weight: 600;
+}
+
+.featured-writing__cta {
+  margin: 1.25rem 0 0;
+  text-align: center;
 }
 </style>
