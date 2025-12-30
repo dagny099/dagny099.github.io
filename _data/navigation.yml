@@ -8,6 +8,14 @@ main:
     subtitle: "A guided tour of my writing and thinking."
     description: "Curated highlights across data stories, essays, and tutorials."
 
+  - title: "Writing"
+    short: "Writing"
+    url: /writing/
+    color: "#3b4a73"
+    background-color: "#f2f4fb"
+    subtitle: "Essays, data stories, tutorials, and series."
+    description: "Explore the ideas, methods, and builds behind the work."
+
   - title: "Projects"
     short: "Projects"
     url: /projects/
@@ -78,6 +86,8 @@ footer-nav:
     children:
       - title: "Start Here"
         url: /start-here/
+      - title: "Writing"
+        url: /writing/
       - title: "Topics"
         url: /topics/
       - title: "Blog"
