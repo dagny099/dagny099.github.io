@@ -9,3 +9,5 @@ header:
 pagination: 
   enabled: true
 ---
+
+New here? Start with the curated tour on the [Start Here](/start-here/) page for a quick path through my best tutorials, data stories, and thinking essays.

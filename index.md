@@ -149,6 +149,8 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   </div>
 
   <p class="featured-writing__cta">
+    <a class="browse-all" href="/start-here/">Start here</a>
+    <span aria-hidden="true"> · </span>
     <a class="browse-all" href="/blog/">Browse all writing</a>
   </p>
 </div>
