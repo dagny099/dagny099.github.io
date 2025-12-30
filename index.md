@@ -116,12 +116,12 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 <div class="home-section home-section--writing">
   <h2 class="home-section__heading">Featured Writing</h2>
   <p class="home-section__subheading">
-    A mix of tutorials, data storytelling, and thinking in public—built to show how I approach messy problems.
+    A mix of notes &amp; experiments, data narratives, and essays &amp; perspectives—built to show how I approach messy problems.
   </p>
 
   <div class="featured-writing">
     <article class="featured-writing__card">
-      <p class="featured-writing__badge">Data Story</p>
+      <p class="featured-writing__badge">Data Narrative</p>
       <h3><a href="/data-stories/exercise-dashboard/">The Choco Effect: Workout Data & Habit Shifts</a></h3>
       <p>
         A long-form narrative about how a dog changed 14 years of workouts, and what the data reveals about consistency.
@@ -130,7 +130,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </article>
 
     <article class="featured-writing__card">
-      <p class="featured-writing__badge featured-writing__badge--thinking">Thinking</p>
+      <p class="featured-writing__badge featured-writing__badge--thinking">Essays &amp; Perspectives</p>
       <h3><a href="/thinking/rag-without-the-theater/">RAG Without the Theater</a></h3>
       <p>
         Evidence-linked retrieval patterns you can defend—grounded answers, honest fallbacks, and auditable citations.
@@ -139,7 +139,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </article>
 
     <article class="featured-writing__card">
-      <p class="featured-writing__badge featured-writing__badge--tutorial">Tutorial</p>
+      <p class="featured-writing__badge featured-writing__badge--tutorial">Notes &amp; Experiments</p>
       <h3><a href="/blog/stock-ticker-comparison/">DIY Stock Ticker: Dash vs. Flask vs. Streamlit</a></h3>
       <p>
         Learn Python web frameworks by building the same stock ticker app three ways and comparing trade-offs.

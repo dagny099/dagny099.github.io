@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Writing"
-description: "Essays, data stories, tutorials, and series that show how I think and build."
+description: "Essays & perspectives, data narratives, notes & experiments, and series that show how I think and build."
 permalink: /writing/
 classes: [wide, writing-page]
 ---
@@ -20,8 +20,8 @@ classes: [wide, writing-page]
 
   <section class="section-stack">
     <div class="section-heading">
-      <p class="eyebrow">🧠 Thinking</p>
-      <p class="section-intro">Essays that connect cognitive science to data systems, AI, and interface design.</p>
+      <p class="eyebrow">🧠 Essays &amp; Perspectives</p>
+      <p class="section-intro">Essays and personal perspectives that connect cognitive science to data systems, AI, and interface design. Why this matters: these pieces reveal the mental models guiding every build.</p>
     </div>
     <div class="cards-grid thinking-grid">
       <article class="card-surface">
@@ -42,13 +42,13 @@ classes: [wide, writing-page]
         <p class="card-lede">Evidence-linked retrieval patterns you can defend and operationalize.</p>
       </article>
     </div>
-    <p class="featured-writing__cta"><a class="browse-all" href="/thinking/">View all Thinking essays</a></p>
+    <p class="featured-writing__cta"><a class="browse-all" href="/thinking/">View all Essays &amp; Perspectives</a></p>
   </section>
 
   <section class="section-stack">
     <div class="section-heading">
-      <p class="eyebrow">📊 Data Stories</p>
-      <p class="section-intro">Narrative, visual walkthroughs of real datasets and builds.</p>
+      <p class="eyebrow">📊 Data Narratives</p>
+      <p class="section-intro">Narrative, visual walkthroughs of real datasets and builds. Why this matters: each story makes the reasoning behind the work visible and repeatable.</p>
     </div>
     <div class="cards-grid story-grid">
       <article class="card-surface">
@@ -69,13 +69,13 @@ classes: [wide, writing-page]
         <p class="card-lede">Mapping academic citations with graph neural networks and story-first analysis.</p>
       </article>
     </div>
-    <p class="featured-writing__cta"><a class="browse-all" href="/data-stories/">View all Data Stories</a></p>
+    <p class="featured-writing__cta"><a class="browse-all" href="/data-stories/">View all Data Narratives</a></p>
   </section>
 
   <section class="section-stack">
     <div class="section-heading">
-      <p class="eyebrow">🧰 Tutorials</p>
-      <p class="section-intro">Hands-on guides that show the mechanics behind the work.</p>
+      <p class="eyebrow">🧪 Notes &amp; Experiments</p>
+      <p class="section-intro">Hands-on guides, experiments, and build notes that show the mechanics behind the work. Why this matters: it captures the learning path, not just the polished result.</p>
     </div>
     <div class="cards-grid">
       <article class="card-surface">
@@ -96,13 +96,13 @@ classes: [wide, writing-page]
         <p class="card-lede">A practical study path with takeaways for cloud strategy and vocabulary.</p>
       </article>
     </div>
-    <p class="featured-writing__cta"><a class="browse-all" href="/blog/">View all Blog posts</a></p>
+    <p class="featured-writing__cta"><a class="browse-all" href="/blog/">View all Notes &amp; Experiments</a></p>
   </section>
 
   <section class="section-stack">
     <div class="section-heading">
       <p class="eyebrow">📚 Series</p>
-      <p class="section-intro">Multi-part deep dives that show end-to-end systems thinking.</p>
+      <p class="section-intro">Multi-part deep dives that show end-to-end systems thinking. Why this matters: you can follow the full arc from first principles to shipped systems.</p>
     </div>
     <div class="cards-grid">
       <article class="card-surface">

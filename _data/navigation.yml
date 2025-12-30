@@ -6,14 +6,14 @@ main:
     color: "#1d4ed8"
     background-color: "#eff6ff"
     subtitle: "A guided tour of my writing and thinking."
-    description: "Curated highlights across data stories, essays, and tutorials."
+    description: "Curated highlights across data narratives, essays, and notes."
 
   - title: "Writing"
     short: "Writing"
     url: /writing/
     color: "#3b4a73"
     background-color: "#f2f4fb"
-    subtitle: "Essays, data stories, tutorials, and series."
+    subtitle: "Essays, data narratives, notes, and series."
     description: "Explore the ideas, methods, and builds behind the work."
 
   - title: "Projects"
@@ -24,16 +24,16 @@ main:
     subtitle: "Systems and products I've built."
     description: "Data products, AI systems, and knowledge graphs in production."
 
-  - title: "Data Stories"
-    short: "Stories"
+  - title: "Data Narratives"
+    short: "Narratives"
     url: /data-stories/
     color: "#5a189a"
     background-color: "#f4f0fb"
     subtitle: "Technical narratives with interactive visualizations."
     description: "Case studies told through data, from problem to insight."
 
-  - title: "Thinking"
-    short: "Thinking"
+  - title: "Essays & Perspectives"
+    short: "Essays"
     url: /thinking/
     color: "#6f5b91"
     background-color: "#f7f4fb"
@@ -90,7 +90,7 @@ footer-nav:
         url: /writing/
       - title: "Topics"
         url: /topics/
-      - title: "Blog"
+      - title: "Notes & Experiments"
         url: /blog/
       - title: "Research"
         url: /research/
@@ -104,7 +104,7 @@ footer-nav:
         url: /tags/
       - title: "Categories"
         url: /categories/
-      - title: "All Posts"
+      - title: "Notes & Experiments"
         url: /blog/
   - title: "About"
     children:

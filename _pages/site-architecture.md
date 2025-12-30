@@ -18,7 +18,7 @@ I use diagrams (rendered from Mermaid and exported as SVG) to keep the site stru
 
 Below, you’ll see a layered approach:
 1. A high-level [**top‑level structure**](#1-toplevel-site-structure-highlevel-overview) diagram  
-2. Focused diagrams for [**modern collections**](#2-content-hubs-projects-data-stories-thinking-resources) and [**blog architecture**](#3-blog-architecture-series-individual-posts-and-archives)  
+2. Focused diagrams for [**modern collections**](#content-hubs) and [**notes & experiments architecture**](#notes-experiments-architecture)  
 3. An [**interactive full sitemap**](#4-full-detailed-sitemap-with-clickable-links-) that exposes all the detail
 
 I try to keep this page current, which doesn't always happen, but see Last Updated date at the bottom. See also this post about how to generate these diagrams and related workflow tips.
@@ -42,16 +42,16 @@ It’s the fastest way to understand what lives where on barbhs.com and what's b
 {: style="text-align: left; font-size:.75em;"}
 Color convention for diagram nodes:  
 🟣 <span style="color: purple;">**Home** </span><br>
-🔵 <span style="color: blue;">**Modern Collections/Hubs:**  Projects, Data Stories, Thinking, Resources</span><br>
+🔵 <span style="color: blue;">**Modern Collections/Hubs:**  Projects, Data Narratives, Essays &amp; Perspectives, Resources</span><br>
 🟠 <span style="color: orange;">**Legacy Collections:** Portfolio and Supplementary Content (content being migrated, as of Nov 2025)</span><br>
 
 
-## 2. Content Hubs: Projects, Data Stories, Thinking, Resources 
+## 2. Content Hubs: Projects, Data Narratives, Essays &amp; Perspectives, Resources {#content-hubs}
 
 The **heart of the site** is a set of modern content collections:
 - **Projects** –> Hands‑on, end‑to‑end builds with demos and documenation  
-- **Data Stories** –> Narrative-style, visual walkthroughs of real datasets  
-- **Thinking** –> Essays and conceptual pieces  
+- **Data Narratives** –> Narrative-style, visual walkthroughs of real datasets  
+- **Essays &amp; Perspectives** –> Essays and conceptual pieces  
 - **Resources** – reusable templates, guides, and references  
 
 The diagram below zooms into these collections and their key items, plus the legacy Portfolio.
@@ -67,16 +67,16 @@ The diagram below zooms into these collections and their key items, plus the leg
 
 {: style="text-align: left; font-size:.75em;"}
 Color convention for diagram nodes:  
-🔵 <span style="color: blue;">**Content hubs:** Projects, Data Stories Thinking, Resources</span><br>
-🟣 <span style="color: purple;">**Data Stories:** Technical narratives and case studies</span><br>
-🟢 <span style="color: green;">**Thinking:** Writing, e.g. essays and conceptual pieces</span><br>
+🔵 <span style="color: blue;">**Content hubs:** Projects, Data Narratives, Essays &amp; Perspectives, Resources</span><br>
+🟣 <span style="color: purple;">**Data Narratives:** Technical narratives and case studies</span><br>
+🟢 <span style="color: green;">**Essays &amp; Perspectives:** Writing, e.g. essays and conceptual pieces</span><br>
 🔴 <span style="color: red;">**WIP:** Projects, mostly, in progress but sharable-state</span><br>
 🟠 <span style="color: orange;">**Legacy Content:** Largely blogs including series and individual posts</span><br>
 
 
-## 3. Blog Architecture: Series, Individual Posts, and Archives 
+## 3. Notes &amp; Experiments Architecture: Series, Individual Posts, and Archives {#notes-experiments-architecture}
 
-The **Blog** is the longest-running part of the site and contains:
+The **Notes &amp; Experiments** archive is the longest-running part of the site and contains:
 - multi‑part **series** (like Website Building and Sensor Fleet),
 - **individual posts** (e.g., project write‑ups, reflections),
 - and archive pages (by tag and category).
@@ -86,10 +86,10 @@ This diagram shows how the pieces fit together:
 <div class="diagram-full-width" style="text-align:center; margin: 2rem 0;">
   <a href="{{ '/assets/diagrams/site_map_blog_architecture_v1.0.svg' | relative_url }}" target="_blank">
     <img src="{{ '/assets/diagrams/site_map_blog_architecture_v1.0.svg' | relative_url }}"
-         alt="Blog architecture diagram showing series, individual posts, and archives"
+         alt="Notes & experiments architecture diagram showing series, individual posts, and archives"
          style="max-width:100%; height:auto;">
   </a>
-  <p style="font-size:0.85rem; color:#444;">Click to open the full blog architecture diagram in a new tab.</p>
+  <p style="font-size:0.85rem; color:#444;">Click to open the full notes &amp; experiments architecture diagram in a new tab.</p>
 </div>
 
 ## 4. Full Detailed Sitemap, with Clickable Links 🔗

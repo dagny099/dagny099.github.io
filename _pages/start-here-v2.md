@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "Start Here"
-description: "A curated path through my writing: data stories, essays, and practical tutorials."
+description: "A curated path through my writing: data narratives, essays, and practical notes."
 permalink: /start-here/
 breadcrumbs: false
 classes: [wide, start-here-page]
@@ -26,7 +26,7 @@ classes: [wide, start-here-page]
     </div>
     <div class="cards-grid thinking-grid">
       <article class="card-surface">
-        <p class="card-meta">Thinking · 10 min</p>
+        <p class="card-meta">Essays &amp; Perspectives · 10 min</p>
         <h2 class="card-title"><a class="text-link" href="/thinking/vision-perception-data-viz-decisions/">Vision, Perception, and Data Viz for Decision-Making</a></h2>
         <p class="card-lede">A practical guide to designing charts that respect attention, reduce cognitive load, and make decisions easier.</p>
         <div class="meta-line">
@@ -37,7 +37,7 @@ classes: [wide, start-here-page]
       </article>
 
       <article class="card-surface">
-        <p class="card-meta">Data Story · 15 min</p>
+        <p class="card-meta">Data Narrative · 15 min</p>
         <h2 class="card-title"><a class="text-link" href="/data-stories/exercise-dashboard/">The Choco Effect: Workout Data & Habit Shifts</a></h2>
         <p class="card-lede">A long-form narrative that turns 14 years of training data into a story about consistency, behavior, and design.</p>
         <div class="meta-line">
@@ -48,7 +48,7 @@ classes: [wide, start-here-page]
       </article>
 
       <article class="card-surface">
-        <p class="card-meta">Thinking · 10 min</p>
+        <p class="card-meta">Essays &amp; Perspectives · 10 min</p>
         <h2 class="card-title"><a class="text-link" href="/thinking/bees-graphs-governance/">Bees, Graphs, and Governance</a></h2>
         <p class="card-lede">Why knowledge graphs, metadata, and governance systems work best when they mirror how humans connect ideas.</p>
         <div class="meta-line">
@@ -62,7 +62,7 @@ classes: [wide, start-here-page]
 
   <section class="section-stack">
     <div class="section-heading">
-      <p class="eyebrow">📊 Data Stories</p>
+      <p class="eyebrow">📊 Data Narratives</p>
       <p class="section-intro">Long-form, visual walkthroughs that combine analysis, narrative, and build details.</p>
     </div>
     <div class="cards-grid story-grid">
@@ -91,7 +91,7 @@ classes: [wide, start-here-page]
 
   <section class="section-stack">
     <div class="section-heading">
-      <p class="eyebrow">🧰 Tutorials & Series</p>
+      <p class="eyebrow">🧪 Notes &amp; Experiments</p>
       <p class="section-intro">Hands-on guides that show how I build systems—from infrastructure to interface.</p>
     </div>
     <div class="cards-grid">
@@ -125,15 +125,15 @@ classes: [wide, start-here-page]
     </div>
     <div class="cards-grid">
       <article class="card-surface">
-        <h2 class="card-title"><a class="text-link" href="/blog/">All Blog Posts</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/blog/">Notes &amp; Experiments</a></h2>
         <p class="card-lede">Tutorials, experiments, and build notes in chronological order.</p>
-        <a class="text-link" href="/blog/">Browse the blog →</a>
+        <a class="text-link" href="/blog/">Browse notes &amp; experiments →</a>
       </article>
 
       <article class="card-surface">
-        <h2 class="card-title"><a class="text-link" href="/thinking/">Thinking in Public</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/thinking/">Essays &amp; Perspectives</a></h2>
         <p class="card-lede">Essays on perception, data systems, and AI governance.</p>
-        <a class="text-link" href="/thinking/">Browse thinking essays →</a>
+        <a class="text-link" href="/thinking/">Browse essays &amp; perspectives →</a>
       </article>
 
       <article class="card-surface">
