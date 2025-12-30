@@ -107,14 +107,16 @@ classes: [wide, writing-page]
     <div class="cards-grid">
       <article class="card-surface">
         <p class="card-meta">Website Building Series</p>
-        <h2 class="card-title"><a class="text-link" href="/blog/getting-started-with-github-pages/">Make Your Own Website</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/series/website-building/">Make Your Own Website</a></h2>
         <p class="card-lede">From zero to published, with a clear explanation of how Jekyll works.</p>
+        <a class="text-link" href="/series/website-building/">View the series →</a>
       </article>
 
       <article class="card-surface">
         <p class="card-meta">IoT pipeline series</p>
-        <h2 class="card-title"><a class="text-link" href="/blog/sensor-fleet-intro/">Sensor Fleet: IoT Temperature Monitoring</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/series/sensor-fleet/">Sensor Fleet: IoT Temperature Monitoring</a></h2>
         <p class="card-lede">Arduino sensors, MQTT, pipelines, and visualization in a cohesive build.</p>
+        <a class="text-link" href="/series/sensor-fleet/">View the series →</a>
       </article>
 
       <article class="card-surface">

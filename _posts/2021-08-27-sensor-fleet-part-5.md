@@ -15,6 +15,8 @@ tags: [arduino, temp-sensor, mqtt, security, authentication]
 stack: [Arduino, MQTT, Mosquitto, Python, Dash]
 categories: [data science]
 ---
+<div class="series-callout">Part 5 of the <a href="/series/sensor-fleet/">Sensor Fleet: Temperature Monitoring</a> series. Visit the series page for the full table of contents.</div>
+
 ## Part 5: Address Security Concerns
 After this post, you'll be able to:
 - Create your own MQTT broker

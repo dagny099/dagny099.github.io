@@ -22,6 +22,8 @@ pagination:
   enabled: true
 ---
 
+<div class="series-callout">Part 1 of the <a href="/series/website-building/">Make Your Own Website</a> series. Follow the full path or jump to the series overview.</div>
+
 As a data scientist, you're probably comfortable with Jupyter notebooks and GitHub repositories. But let's be honest – sending someone a repo link isn't exactly the most elegant way to showcase your work. What if you could have a beautiful, professional website that's as easy to update as pushing to a repository? Enter GitHub Pages.
 
 ## Digital Home Base Motivations

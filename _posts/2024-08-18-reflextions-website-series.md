@@ -21,6 +21,8 @@ pagination:
   enabled: true
 ---
 
+<div class="series-callout">Part 4 of the <a href="/series/website-building/">Make Your Own Website</a> series. Visit the series page for the full table of contents.</div>
+
 *This is the fourth post in my website-building series, but it's a bit different. Instead of a how-to guide, it's a pause for reflection – because sometimes the most valuable learning happens when we stop to think about what we **think** we learned versus what we **actually** learned.* 
 
 ## 🤔 The Moment of Truth 

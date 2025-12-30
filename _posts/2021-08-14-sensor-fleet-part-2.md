@@ -18,6 +18,8 @@ tags: [arduino, temp-sensor, mqtt, dashboard, heroku]
 stack: [Arduino, MQTT, MySQL, Python, Heroku, Dash]
 categories: [data science]
 ---
+<div class="series-callout">Part 2 of the <a href="/series/sensor-fleet/">Sensor Fleet: Temperature Monitoring</a> series. Visit the series page for the full table of contents.</div>
+
 ## Part 2: Grow the fleet, View the data
 After this post, you'll be able to:
 * Add additional sensors to your fleet

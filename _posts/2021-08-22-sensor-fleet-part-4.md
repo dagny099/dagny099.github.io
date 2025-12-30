@@ -15,6 +15,8 @@ tags: [arduino, temp-sensor, noaa-api, weather-data, dashboard]
 stack: [Arduino, MQTT, Python, NOAA API, Dash]
 categories: [data science]
 ---
+<div class="series-callout">Part 4 of the <a href="/series/sensor-fleet/">Sensor Fleet: Temperature Monitoring</a> series. Visit the series page for the full table of contents.</div>
+
 ## Part 4: Insight Generation with Local Weather
 After this post, you'll be able to:
 - Query a NOAA based weather station to pull local weather data

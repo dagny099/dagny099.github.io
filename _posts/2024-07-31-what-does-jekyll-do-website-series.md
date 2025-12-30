@@ -21,6 +21,8 @@ categories: [tutorial]
 pagination: 
   enabled: true
 ---
+<div class="series-callout">Part 2 of the <a href="/series/website-building/">Make Your Own Website</a> series. Visit the series page for the full table of contents.</div>
+
 ## How Jekyll Brings Your Site to Life
 ![image-right]({{ site.url }}{{ site.baseurl }}/assets/images/series-website/mermaid-diagram-website-post-1-jekyll-build.png){: .align-right style="max-width:400px"}
 If you've followed our [first guide](/posts/getting-started-with-github-pages/), you've already got a working website. Now let's peek under the hood and understand how Jekyll transforms your content into a beautiful, responsive website. Why? Because understanding your tools makes you a better craftsperson! 

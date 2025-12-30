@@ -15,6 +15,8 @@ tags: [arduino, temp-sensor, mqtt, iot]
 stack: [Arduino, MQTT, MySQL, Python]
 categories: [data science]
 ---
+<div class="series-callout">Series overview: <a href="/series/sensor-fleet/">Sensor Fleet: Temperature Monitoring</a>. Start here, then jump into Part 1.</div>
+
 # Story
 ## What's my motivation?
 Texas is HOT. ACs work overtime and electricity bills soar. In a nutshell, this was the motivation for wanting to see how cheaply and easily I could build a small temperature sensor to collect heating and cooling data from different rooms in the house. This has been a really fun project and taught me **a lot**, including how to use to program an Arduino, design a lightweight data pipeline, and build a visualization dashboard to see my data.

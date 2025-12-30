@@ -15,6 +15,8 @@ tags: [iot, sensors, real-time-data, tutorial]
 stack: [Arduino, MQTT, MySQL, Python]
 categories: [data science]
 ---
+<div class="series-callout">Part 1 of the <a href="/series/sensor-fleet/">Sensor Fleet: Temperature Monitoring</a> series. Visit the series page for the full table of contents.</div>
+
 # Objective
 This project shows you how to build a fleet of IoT temperature sensors that you can use to answer potentially burning questions, like:
 * Do I trust thermostat reading on my wall?

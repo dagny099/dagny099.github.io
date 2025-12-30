@@ -15,6 +15,8 @@ tags: [arduino, temp-sensor, mqtt, aws, automation]
 stack: [Arduino, MQTT, MySQL, Python, AWS EC2, crontab]
 categories: [data science]
 ---
+<div class="series-callout">Part 3 of the <a href="/series/sensor-fleet/">Sensor Fleet: Temperature Monitoring</a> series. Visit the series page for the full table of contents.</div>
+
 ## Part 3: Data Pipeline, Automated
 After this post, you'll be able to:
 - Automate data ingestion (hello, crontab)
