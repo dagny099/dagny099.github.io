@@ -111,6 +111,86 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </div>
 
 <!-- =======================
+     Featured Writing
+     ======================= -->
+<div class="home-section">
+  <details class="home-accordion" data-section="writing" markdown="1" open>
+    <summary><h2>Featured Writing</h2></summary>
+    <p class="home-section__intro">
+      Tutorials, data stories, and thinking pieces that show how I build, analyze, and reason.
+    </p>
+
+    <div class="feature__wrapper feature__wrapper--writing">
+      <div class="feature__item">
+        <article class="archive__item writing-card">
+          <div class="writing-card__meta">
+            <span class="writing-card__badge writing-card__badge--tutorial">Tutorial</span>
+          </div>
+          <h3 class="archive__item-title">
+            <a href="/blog/stock-ticker-comparison/">DIY Stock Ticker to Learn Python Frameworks</a>
+          </h3>
+          <p class="archive__item-excerpt">
+            Comparing Dash, Flask, and Streamlit by building the same stock ticker webapp three ways.
+          </p>
+          <div class="cta-row">
+            <a class="btn--cta primary" href="/blog/stock-ticker-comparison/">
+              <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
+              <span>Read</span>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="feature__item">
+        <article class="archive__item writing-card">
+          <div class="writing-card__meta">
+            <span class="writing-card__badge writing-card__badge--story">Data Story</span>
+          </div>
+          <h3 class="archive__item-title">
+            <a href="/data-stories/exercise-dashboard/">The Choco Effect: How a Dog Transformed My Running Data</a>
+          </h3>
+          <p class="archive__item-excerpt">
+            A personalized fitness dashboard born from puppy chaos, data cleaning, and ML-driven classification.
+          </p>
+          <div class="cta-row">
+            <a class="btn--cta primary" href="/data-stories/exercise-dashboard/">
+              <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
+              <span>Read</span>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="feature__item">
+        <article class="archive__item writing-card">
+          <div class="writing-card__meta">
+            <span class="writing-card__badge writing-card__badge--thinking">Thinking</span>
+          </div>
+          <h3 class="archive__item-title">
+            <a href="/thinking/rag-without-the-theater/">RAG Without the Theater — Evidence‑Linked Retrieval Patterns You Can Defend</a>
+          </h3>
+          <p class="archive__item-excerpt">
+            Practical patterns for retrieval systems that cite evidence, fail honestly, and stay auditable.
+          </p>
+          <div class="cta-row">
+            <a class="btn--cta primary" href="/thinking/rag-without-the-theater/">
+              <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
+              <span>Read</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="writing-links">
+      <a href="/blog/">Tutorials &amp; series</a>
+      <a href="/data-stories/">Data stories</a>
+      <a href="/thinking/">Thinking</a>
+    </div>
+  </details>
+</div>
+
+<!-- =======================
      Cognitive Principles (NEW)
      ======================= -->
 <div class="home-section home-section--principles">
@@ -259,5 +339,65 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
 .principle-card:nth-child(3) {
   animation-delay: 0.2s;
+}
+
+.home .feature__wrapper--writing {
+  margin-top: 1rem;
+}
+
+.home .writing-card {
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.home .writing-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.home .writing-card__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.home .writing-card__badge--tutorial {
+  color: #1e3a8a;
+  background: #dbeafe;
+}
+
+.home .writing-card__badge--story {
+  color: #5b21b6;
+  background: #ede9fe;
+}
+
+.home .writing-card__badge--thinking {
+  color: #0f766e;
+  background: #ccfbf1;
+}
+
+.home .writing-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.75rem 0.5rem 0;
+}
+
+.home .writing-links a {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.home .writing-links a:hover {
+  color: #0f766e;
 }
 </style>
