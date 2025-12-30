@@ -1,5 +1,13 @@
 # /_data/navigation.yml
 main:
+  - title: "Start Here"
+    short: "Start"
+    url: /start-here/
+    color: "#1d4ed8"
+    background-color: "#eff6ff"
+    subtitle: "A curated path through the work."
+    description: "The fastest way to understand what I build and why it matters."
+
   - title: "Projects"
     short: "Projects"
     url: /projects/
@@ -68,6 +76,8 @@ main:
 footer-nav:
   - title: "Explore"
     children:
+      - title: "Start Here"
+        url: /start-here/
       - title: "Topics"
         url: /topics/
       - title: "Blog"
