@@ -173,7 +173,111 @@ h1, h2, h3, h4, h5, h6{
 .project-page .page-shell,
 .journey-page .page-shell{ max-width: var(--content-max); }
 
-.story-page .page__title{ display: none !important; }                                                                                                                                      
+.story-page .page__title{ display: none !important; }                                                                                                                                       
+
+/* ------------------------------------------------------------------
+   Series landing pages
+   ------------------------------------------------------------------ */
+.series-page{
+  --series-accent: #2563eb;
+  --series-hero-bg: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(14,116,144,0.12) 100%);
+  --series-border: rgba(37,99,235,0.25);
+}
+
+.series-page--sensor{
+  --series-accent: #c2410c;
+  --series-hero-bg: linear-gradient(135deg, rgba(194,65,12,0.10) 0%, rgba(16,185,129,0.12) 100%);
+  --series-border: rgba(194,65,12,0.25);
+}
+
+.series-hero{
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  background: var(--series-hero-bg);
+  border-color: var(--series-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.series-hero::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(255,255,255,0.65), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4), transparent 55%);
+  pointer-events: none;
+}
+
+.series-page--web .series-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(37,99,235,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37,99,235,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.series-hero__content,
+.series-hero__aside{
+  position: relative;
+  z-index: 1;
+}
+
+.series-hero__aside h2{ margin-top: 0; }
+.series-hero__aside ul{
+  margin: .6rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--ink-500);
+  display: grid;
+  gap: .4rem;
+}
+
+.series-lede{ margin: .5rem 0 0; color: var(--ink-500); font-size: 1.05rem; }
+
+.series-hero__cta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.series-page .btn--primary{
+  background: var(--series-accent);
+  border-color: var(--series-accent);
+}
+
+.series-page .btn--primary:hover{
+  filter: brightness(0.95);
+}
+
+.series-toc__grid{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.series-toc__grid .card-surface{
+  border-left: 4px solid var(--series-accent);
+}
+
+.series-page--sensor .series-toc__grid .card-surface{
+  border-left-style: dashed;
+}
+
+.series-snapshot{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
 
 
 /* ------------------------------------------------------------------
@@ -940,5 +1044,3 @@ h1, h2, h3, h4, h5, h6{
 .masthead .greedy-nav__toggle:focus{
   color: var(--nav-icon-hover);
 }
-
-

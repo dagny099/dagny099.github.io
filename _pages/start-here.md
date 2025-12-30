@@ -96,16 +96,16 @@ classes: [wide, start-here-page]
     <div class="cards-grid">
       <article class="card-surface">
         <p class="card-meta">Website Building Series</p>
-        <h2 class="card-title"><a class="text-link" href="/blog/getting-started-with-github-pages/">Getting Started with GitHub Pages</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/series/website-building/">Getting Started with GitHub Pages</a></h2>
         <p class="card-lede">A step-by-step series on launching a personal site, understanding Jekyll, and automating deployments.</p>
-        <a class="text-link" href="/blog/getting-started-with-github-pages/">Start the series →</a>
+        <a class="text-link" href="/series/website-building/">Start the series →</a>
       </article>
 
       <article class="card-surface">
         <p class="card-meta">IoT + data pipeline series</p>
-        <h2 class="card-title"><a class="text-link" href="/blog/sensor-fleet-intro/">Sensor Fleet: IoT Temperature Monitoring</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/series/sensor-fleet/">Sensor Fleet: IoT Temperature Monitoring</a></h2>
         <p class="card-lede">A full-stack tutorial series covering Arduino sensors, MQTT, pipelines, deployment, and visualization.</p>
-        <a class="text-link" href="/blog/sensor-fleet-intro/">Start the series →</a>
+        <a class="text-link" href="/series/sensor-fleet/">Start the series →</a>
       </article>
 
       <article class="card-surface">
