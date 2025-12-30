@@ -1,8 +1,9 @@
 ---
-layout: single
+layout: archive
 title: "Start Here"
 description: "A curated path through my writing: data stories, essays, and practical tutorials."
 permalink: /start-here/
+breadcrumbs: false
 classes: [wide, start-here-page]
 ---
 
