@@ -216,6 +216,59 @@ h1, h2, h3, h4, h5, h6{
   gap: 1.1rem;
 }
 
+/* ------------------------------------------------------------------
+   Writing index
+   ------------------------------------------------------------------ */
+.writing-hero{
+  display: grid;
+  gap: 1.5rem;
+}
+
+.writing-hero__content p{
+  margin-bottom: 0;
+}
+
+.writing-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  padding: .85rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(15, 116, 152, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+
+.writing-tab{
+  text-decoration: none;
+  font-weight: 700;
+  color: #0f4960;
+  background: #ffffff;
+  border: 1px solid rgba(15, 116, 152, 0.2);
+  border-radius: 999px;
+  padding: .5rem 1rem;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.writing-tab:hover,
+.writing-tab:focus{
+  border-color: rgba(15, 116, 152, 0.5);
+  box-shadow: 0 8px 18px rgba(15, 116, 152, 0.15);
+  transform: translateY(-1px);
+}
+
+.writing-section{
+  margin-top: 3rem;
+}
+
+.writing-section .taxonomy__index{
+  margin-top: .75rem;
+}
+
+.writing-section .archive__subtitle{
+  margin-bottom: .25rem;
+}
+
 .series-toc__item{
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -1034,4 +1087,3 @@ h1, h2, h3, h4, h5, h6{
 .masthead .greedy-nav__toggle:focus{
   color: var(--nav-icon-hover);
 }
-
