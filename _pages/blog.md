@@ -1,7 +1,7 @@
 ---
 layout: posts
-title: "Blog"
-excerpt: "Technical tutorials, data science insights, and lessons learned from building real-world systems - from IoT sensors to web applications"
+title: "Notes & Experiments"
+excerpt: "Field notes on tutorials, experiments, and lessons learned from building real-world systems. Why this matters: it documents the practical trade-offs behind the work."
 permalink: /blog/
 header:
   opacity: "0.4"

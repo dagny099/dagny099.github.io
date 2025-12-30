@@ -1,16 +1,16 @@
 ---
 layout: single
-title: "Thinking in Public"
-description: "Essays and conceptual explorations merging cognitive science with modern AI, system design, and data work."
+title: "Essays & Perspectives"
+description: "Essays and personal perspectives merging cognitive science with modern AI, system design, and data work."
 permalink: /thinking/
 classes: [wide, thinking-page]
 ---
 
 <div class="page-shell section-stack">
   <section class="soft-hero content-slab">
-    <p class="eyebrow">Essays</p>
+    <p class="eyebrow">Essays &amp; Perspectives</p>
     <h1>The Cognitive Data Science Lens</h1>
-    <p class="section-intro">Structured thinking on perception, attention, memory, and learning. These pieces show the mental models behind the builds on this site.</p>
+    <p class="section-intro">Structured thinking on perception, attention, memory, and learning. Why this matters: these pieces show the mental models behind the builds on this site.</p>
     <div class="meta-line">
       <span class="pill pill--accent">Canon</span>
       <span class="pill">Decision support</span>
