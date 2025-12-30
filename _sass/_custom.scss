@@ -206,6 +206,28 @@ h1, h2, h3, h4, h5, h6{
 .series-stat__label{ margin: 0; font-size: .85rem; color: var(--ink-500); text-transform: uppercase; letter-spacing: .08em; }
 .series-stat__value{ margin: .25rem 0 0; font-weight: 700; color: var(--ink-900); }
 
+/* ------------------------------------------------------------------
+   Writing index tabs
+   ------------------------------------------------------------------ */
+.writing-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.writing-tabs .btn{
+  text-decoration: none;
+}
+
+.writing-section{
+  margin-top: 2.75rem;
+}
+
+.writing-section .taxonomy__index{
+  margin-top: .75rem;
+}
+
 .series-section{ display:grid; gap: 1.5rem; }
 
 .series-toc{
@@ -1034,4 +1056,3 @@ h1, h2, h3, h4, h5, h6{
 .masthead .greedy-nav__toggle:focus{
   color: var(--nav-icon-hover);
 }
-
