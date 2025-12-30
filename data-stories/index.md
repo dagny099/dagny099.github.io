@@ -1,5 +1,5 @@
 ---
-title: "Data Stories"
+title: "Data Narratives"
 permalink: /data-stories/
 layout: single
 classes: [wide, story-page]
@@ -10,9 +10,9 @@ redirect_from:
 
 <div class="page-shell section-stack">
   <section class="soft-hero content-slab">
-    <p class="eyebrow">Data Stories</p>
+    <p class="eyebrow">Data Narratives</p>
     <h1>Guided walkthroughs you can explore</h1>
-    <p class="section-intro">Narrative walkthroughs, visual demos, and experiments. Each story pairs the build with the cognitive principle it proves in the real world.</p>
+    <p class="section-intro">Narrative walkthroughs, visual demos, and experiments. Why this matters: each story pairs the build with the cognitive principle it proves in the real world.</p>
   </section>
 
   {% assign all_pages = site.pages | where_exp: "item", "item.url contains '/data-stories/'" %}

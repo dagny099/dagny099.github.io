@@ -1,6 +1,6 @@
 ---
 title: "Explore by Topic"
-excerpt: "Browse work organized by expertise area: cognitive science, knowledge graphs, AI governance, data visualization, DevOps, and technical tutorials"
+excerpt: "Browse work organized by expertise area: cognitive science, knowledge graphs, AI governance, data visualization, DevOps, and technical notes"
 permalink: /topics/
 layout: single
 classes: wide
@@ -17,7 +17,7 @@ Browse my work organized by expertise area. Each topic spans multiple content ty
 
 Understanding how humans process visual information and make decisions.
 
-**Thinking:**
+**Essays &amp; Perspectives:**
 - [Vision & Data Viz for Decision-Making](/thinking/vision-perception-dataviz/) — How perception science informs effective data visualization
 - [7±2 is Everywhere: Chunking](/thinking/chunking/) — Cognitive limits and information design
 
@@ -32,7 +32,7 @@ Understanding how humans process visual information and make decisions.
 
 Graph databases, network analysis, and knowledge representation systems.
 
-**Thinking:**
+**Essays &amp; Perspectives:**
 - [Bees, Graphs & Governance](/thinking/bees-graphs-governance/) 📌 *Pinned* — Foundational piece on knowledge organization and governance
 -
  [Knowledge Cartography](/data-stories/citation-link-prediction/) — Predicting academic citation networks with graph neural networks
@@ -49,7 +49,7 @@ Graph databases, network analysis, and knowledge representation systems.
 
 Modern AI practices, retrieval systems, and responsible AI governance.
 
-**Thinking:**
+**Essays &amp; Perspectives:**
 - [RAG Without the Theater](/thinking/rag-without-theater/) — Practical evaluation and governance for RAG systems
 
 **Projects:**
@@ -70,7 +70,7 @@ User-facing analytics, dashboards, and data-driven storytelling.
 - [Self-Hosted Workout Intelligence](/projects/workout-intelligence/) ✅ *Active* — Personal analytics dashboard with habit tracking
 - [Hive Photo Metadata Tracker](/data-stories/hive-photo-tracker/) — Computer vision & APIs for beehive monitoring
 
-**Data Stories:**
+**Data Narratives:**
 - [Exercise Dashboard: The Choco Effect](/data-stories/exercise-dashboard/) — Trend analysis and data visualization
 
 **Resources:**
@@ -85,7 +85,7 @@ User-facing analytics, dashboards, and data-driven storytelling.
 
 IoT pipelines, CI/CD, deployment automation, and technical implementation.
 
-**Blog Series:**
+**Notes &amp; Experiments Series:**
 - [Sensor Fleet Series](/blog/sensor-fleet-intro/) (7 parts) — Complete IoT temperature monitoring system
   - Arduino sensor setup
   - MQTT broker configuration
@@ -94,7 +94,7 @@ IoT pipelines, CI/CD, deployment automation, and technical implementation.
   - Kafka streaming
   - Security hardening
 
-**Individual Posts:**
+**Notes &amp; Experiments:**
 - [GitHub Actions for Jekyll](/blog/deploy-jekyll-gh-actions/) — CI/CD automation for static sites
 - [Taming Mermaid Diagrams](/blog/taming-mermaid-diagrams/) — Workflow for managing technical diagrams
 
@@ -106,7 +106,7 @@ IoT pipelines, CI/CD, deployment automation, and technical implementation.
 
 Step-by-step guides, learning resources, and knowledge sharing.
 
-**Blog Series:**
+**Notes &amp; Experiments Series:**
 - [Website Building Series](/blog/getting-started-with-github-pages/) (4 parts) — Complete guide to building your digital home
   - Part 1: Getting Started with GitHub Pages
   - Part 2: Understanding Jekyll
@@ -117,7 +117,7 @@ Step-by-step guides, learning resources, and knowledge sharing.
 - [Project Starter Kit](/resources/project-starter-kit/) — Templates and checklists for launching data projects
 - [Bridge to Web Apps](/resources/bridge-to-web-apps/) — Hands-on guide for data scientists building web apps
 
-**Individual Posts:**
+**Notes &amp; Experiments:**
 - [AWS CCP Certification](/blog/aws-ccp-certification/) — Cloud certification journey
 - [Stock Ticker Comparison](/blog/stock-ticker-comparison/) — Comparing Python web frameworks (Flask, Dash, Streamlit)
 - [3D Printing Exploration](/blog/3d-printing-exploration/) — Prototyping and maker projects
@@ -131,10 +131,10 @@ Step-by-step guides, learning resources, and knowledge sharing.
 Looking for something specific? Browse by format:
 
 - [**Projects**](/projects/) — Systems and products I've built
-- [**Data Stories**](/data-stories/) — Technical narratives with visualizations
-- [**Thinking**](/thinking/) — Essays on cognition, data, and AI
+- [**Data Narratives**](/data-stories/) — Technical narratives with visualizations
+- [**Essays &amp; Perspectives**](/thinking/) — Essays on cognition, data, and AI
 - [**Resources**](/resources/) — Templates, guides, and starter kits
-- [**Blog**](/blog/) — Tutorials and technical deep-dives
+- [**Notes &amp; Experiments**](/blog/) — Tutorials and technical deep-dives
 
 Or explore by:
 - [**All Tags**](/tags/) — Browse all content tags

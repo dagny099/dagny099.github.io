@@ -6,7 +6,7 @@ sections:
       - { title: "Convoscope", path: "/projects/convoscope/" }
       - { title: "Fitness Dashboard", path: "/projects/fitness-dashboard/" }
   - key: thinking
-    title: Thinking
+    title: Essays & Perspectives
     path: /thinking/
   - key: resources
     title: Resources & Guides
