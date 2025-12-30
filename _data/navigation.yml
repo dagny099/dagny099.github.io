@@ -1,5 +1,21 @@
 # /_data/navigation.yml
 main:
+  - title: "Start Here"
+    short: "Start"
+    url: /start-here/
+    color: "#1d4ed8"
+    background-color: "#eff6ff"
+    subtitle: "A guided tour of my writing and thinking."
+    description: "Curated highlights across data stories, essays, and tutorials."
+
+  - title: "Writing"
+    short: "Writing"
+    url: /writing/
+    color: "#0f766e"
+    background-color: "#ecfdf5"
+    subtitle: "Essays, data stories, tutorials, and series."
+    description: "A single hub for long-form thinking and hands-on guides."
+
   - title: "Projects"
     short: "Projects"
     url: /projects/
@@ -68,6 +84,10 @@ main:
 footer-nav:
   - title: "Explore"
     children:
+      - title: "Start Here"
+        url: /start-here/
+      - title: "Writing"
+        url: /writing/
       - title: "Topics"
         url: /topics/
       - title: "Blog"
