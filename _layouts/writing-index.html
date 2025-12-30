@@ -1,0 +1,93 @@
+---
+layout: archive
+---
+
+<div class="writing-index">
+  <section class="writing-hero content-slab">
+    <div class="writing-hero__intro">
+      {{ content }}
+    </div>
+    <nav id="writing-tabs" class="writing-tabs" aria-label="Writing sections">
+      <a class="writing-tab is-active" href="#all-writing">All Writing</a>
+      <a class="writing-tab" href="#tutorials">Tutorials</a>
+      <a class="writing-tab" href="#data-stories">Data Stories</a>
+      <a class="writing-tab" href="#thinking">Thinking</a>
+    </nav>
+    <p class="writing-hero__hint">Jump to a section, or scroll for the full archive.</p>
+  </section>
+
+  {% assign entries_layout = page.entries_layout | default: 'list' %}
+  {% assign visible_posts = site.posts | where_exp: "item", "item.hidden != true" %}
+
+  <section id="all-writing" class="taxonomy__section writing-section">
+    <div class="section-heading">
+      <h2 class="archive__subtitle">All Writing</h2>
+      <p class="section-intro">Every blog post, tutorial, and series update in chronological order.</p>
+    </div>
+
+    {% assign postsByYear = visible_posts | group_by_exp: 'post', 'post.date | date: "%Y"' %}
+    <ul class="taxonomy__index">
+      {% for year in postsByYear %}
+        <li>
+          <a href="#year-{{ year.name }}">
+            <strong>{{ year.name }}</strong> <span class="taxonomy__count">{{ year.items | size }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% for year in postsByYear %}
+      <section id="year-{{ year.name }}" class="taxonomy__section">
+        <h3 class="archive__subtitle">{{ year.name }}</h3>
+        <div class="entries-{{ entries_layout }}">
+          {% for post in year.items %}
+            {% include archive-single.html type=entries_layout %}
+          {% endfor %}
+        </div>
+        <a href="#writing-tabs" class="back-to-top">Back to Writing tabs &uarr;</a>
+      </section>
+    {% endfor %}
+  </section>
+
+  {% assign tutorial_posts = visible_posts | where_exp: "item", "item.categories contains 'tutorial'" | sort: "date" | reverse %}
+  <section id="tutorials" class="taxonomy__section writing-section">
+    <div class="section-heading">
+      <h2 class="archive__subtitle">Tutorials</h2>
+      <p class="section-intro">Hands-on guides and build logs for shipping real projects.</p>
+    </div>
+    <div class="entries-{{ entries_layout }}">
+      {% for post in tutorial_posts %}
+        {% include archive-single.html type=entries_layout %}
+      {% endfor %}
+    </div>
+    <a href="#writing-tabs" class="back-to-top">Back to Writing tabs &uarr;</a>
+  </section>
+
+  {% assign data_stories = site.pages | where: "section", "data-stories" | where_exp: "item", "item.url != '/data-stories/'" | sort: "date" | reverse %}
+  <section id="data-stories" class="taxonomy__section writing-section">
+    <div class="section-heading">
+      <h2 class="archive__subtitle">Data Stories</h2>
+      <p class="section-intro">Narrative case studies driven by datasets, analysis, and visualization.</p>
+    </div>
+    <div class="entries-{{ entries_layout }}">
+      {% for post in data_stories %}
+        {% include archive-single.html type=entries_layout %}
+      {% endfor %}
+    </div>
+    <a href="#writing-tabs" class="back-to-top">Back to Writing tabs &uarr;</a>
+  </section>
+
+  {% assign thinking_posts = site.thinking | sort: "date" | reverse %}
+  <section id="thinking" class="taxonomy__section writing-section">
+    <div class="section-heading">
+      <h2 class="archive__subtitle">Thinking</h2>
+      <p class="section-intro">Long-form essays and reflections on systems, strategy, and sensemaking.</p>
+    </div>
+    <div class="entries-{{ entries_layout }}">
+      {% for post in thinking_posts %}
+        {% include archive-single.html type=entries_layout %}
+      {% endfor %}
+    </div>
+    <a href="#writing-tabs" class="back-to-top">Back to Writing tabs &uarr;</a>
+  </section>
+</div>

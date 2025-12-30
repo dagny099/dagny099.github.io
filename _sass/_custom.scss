@@ -206,6 +206,70 @@ h1, h2, h3, h4, h5, h6{
 .series-stat__label{ margin: 0; font-size: .85rem; color: var(--ink-500); text-transform: uppercase; letter-spacing: .08em; }
 .series-stat__value{ margin: .25rem 0 0; font-weight: 700; color: var(--ink-900); }
 
+/* ------------------------------------------------------------------
+   Writing index tabs
+   ------------------------------------------------------------------ */
+.writing-hero{
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8f9fb 0%, #eef2f7 100%);
+}
+
+.writing-hero__intro p{
+  margin: 0;
+  color: var(--ink-500);
+  font-size: 1.05rem;
+}
+
+.writing-hero__hint{
+  margin: 0;
+  color: var(--ink-500);
+  font-size: .95rem;
+}
+
+.writing-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.writing-tab{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--ink-900) 12%, transparent);
+  background: #fff;
+  color: var(--ink-700);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.writing-tab:hover{
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--accent-amber) 45%, transparent);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.14);
+}
+
+.writing-tab.is-active{
+  background: color-mix(in oklab, var(--accent-amber) 18%, #fff);
+  border-color: color-mix(in oklab, var(--accent-amber) 50%, transparent);
+  color: color-mix(in oklab, var(--accent-amber) 70%, #111);
+}
+
+.writing-section{
+  margin-top: 3rem;
+}
+
+.writing-section .taxonomy__index{
+  margin-top: .75rem;
+}
+
 .series-section{ display:grid; gap: 1.5rem; }
 
 .series-toc{
@@ -1034,4 +1098,3 @@ h1, h2, h3, h4, h5, h6{
 .masthead .greedy-nav__toggle:focus{
   color: var(--nav-icon-hover);
 }
-
