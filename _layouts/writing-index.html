@@ -1,0 +1,113 @@
+---
+layout: archive
+---
+
+{% assign all_posts = site.posts | where_exp: "item", "item.hidden != true" %}
+{% assign tutorial_posts = all_posts | where_exp: "post", "post.categories contains 'tutorial' or post.tags contains 'tutorial'" %}
+{% assign all_pages = site.pages | where_exp: "item", "item.url contains '/data-stories/'" %}
+{% assign data_stories = all_pages | where_exp: "item", "item.url != '/data-stories/'" %}
+{% assign thinking_posts = site.thinking | where_exp: "item", "item.hidden != true" %}
+{% assign all_writing = all_posts | concat: data_stories | concat: thinking_posts | sort: "date" | reverse %}
+
+<div id="page-title"></div>
+<div class="page-shell section-stack">
+  <section class="soft-hero content-slab">
+    <p class="eyebrow">Writing</p>
+    <h1>{{ page.title }}</h1>
+    <p class="section-intro">{{ page.excerpt }}</p>
+    <div class="meta-line">
+      <span class="pill">All Writing {{ all_writing | size }}</span>
+      <span class="pill">Tutorials {{ tutorial_posts | size }}</span>
+      <span class="pill">Data Stories {{ data_stories | size }}</span>
+      <span class="pill">Thinking {{ thinking_posts | size }}</span>
+    </div>
+    <nav class="meta-line">
+      <a class="pill" href="#all-writing">All Writing</a>
+      <a class="pill" href="#tutorials">Tutorials</a>
+      <a class="pill" href="#data-stories">Data Stories</a>
+      <a class="pill" href="#thinking">Thinking</a>
+    </nav>
+  </section>
+
+  <section id="all-writing" class="section-stack">
+    <div class="section-heading">
+      <p class="eyebrow">All Writing</p>
+      <p class="section-intro">A blended feed of tutorials, data stories, and essays.</p>
+    </div>
+    <div class="cards-grid">
+      {% for item in all_writing limit: 12 %}
+        {% assign item_type = "Blog" %}
+        {% if item.collection == "thinking" %}
+          {% assign item_type = "Thinking" %}
+        {% elsif item.url contains "/data-stories/" %}
+          {% assign item_type = "Data Story" %}
+        {% elsif item.categories contains "tutorial" or item.tags contains "tutorial" %}
+          {% assign item_type = "Tutorial" %}
+        {% endif %}
+        <article class="card-surface">
+          <p class="card-meta">
+            {% if item.date %}{{ item.date | date: "%b %Y" }} · {% endif %}{{ item_type }}
+          </p>
+          <h2 class="card-title"><a class="text-link" href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+          <p class="card-lede">{{ item.description | default: item.excerpt }}</p>
+        </article>
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="tutorials" class="section-stack">
+    <div class="section-heading">
+      <p class="eyebrow">Tutorials</p>
+      <p class="section-intro">Step-by-step guides, series, and practical workflows.</p>
+    </div>
+    <div class="entries-list">
+      {% assign tutorials_sorted = tutorial_posts | sort: "date" | reverse %}
+      {% for post in tutorials_sorted %}
+        {% include archive-single.html type="list" %}
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="data-stories" class="section-stack">
+    <div class="section-heading">
+      <p class="eyebrow">Data Stories</p>
+      <p class="section-intro">Long-form narratives that pair a dataset with a story arc.</p>
+    </div>
+    <div class="cards-grid story-grid">
+      {% assign data_stories_sorted = data_stories | sort: "date" | reverse %}
+      {% for story in data_stories_sorted %}
+        <article class="card-surface">
+          {% if story.date %}
+            <p class="card-meta">{{ story.date | date: "%b %Y" }}</p>
+          {% endif %}
+          <h2 class="card-title"><a class="text-link" href="{{ story.url | relative_url }}">{{ story.title }}</a></h2>
+          <p class="card-lede">{{ story.description | default: story.excerpt }}</p>
+          <a class="text-link" href="{{ story.url | relative_url }}">Read the story →</a>
+        </article>
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+
+  <section id="thinking" class="section-stack">
+    <div class="section-heading">
+      <p class="eyebrow">Thinking</p>
+      <p class="section-intro">Essays on cognition, data systems, and AI governance.</p>
+    </div>
+    <div class="cards-grid thinking-grid">
+      {% assign thinking_sorted = thinking_posts | sort: "date" | reverse %}
+      {% for post in thinking_sorted %}
+        <article class="card-surface">
+          {% if post.date %}
+            <p class="card-meta">{{ post.date | date: "%b %Y" }}</p>
+          {% endif %}
+          <h2 class="card-title"><a class="text-link" href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p class="card-lede">{{ post.description | default: post.excerpt }}</p>
+        </article>
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">Back to Top &uarr;</a>
+  </section>
+</div>

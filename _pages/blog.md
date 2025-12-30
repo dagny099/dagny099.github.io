@@ -1,7 +1,7 @@
 ---
-layout: posts
-title: "Blog"
-excerpt: "Technical tutorials, data science insights, and lessons learned from building real-world systems - from IoT sensors to web applications"
+layout: writing-index
+title: "Writing"
+excerpt: "Tutorials, data stories, and thinking pieces that show how I build, analyze, and learn in public."
 permalink: /blog/
 header:
   opacity: "0.4"
