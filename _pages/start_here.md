@@ -1,20 +1,18 @@
 ---
-layout: archive
 title: "Start Here"
 description: "A curated path through my writing: data stories, essays, and practical tutorials."
 permalink: /start-here/
-breadcrumbs: false
-author_profile: false
 classes: [wide, start-here-page]
 
 ---
 
+<div class="page-shell section-stack">
 <section class="soft-hero content-slab">
 <p class="eyebrow">Start Here</p>
 <h1>A guided tour of how I think, build, and communicate</h1>
 <p class="section-intro">If you’re new here, this is the shortest path to the work that best represents me. Each pick is a strong signal for hiring managers, collaborators, and curious readers—clear reasoning, thoughtful systems, and human-centered storytelling.</p>
 </section>
-
+</div>
 ---
 
 <section class="section-stack">

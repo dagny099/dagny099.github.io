@@ -1,5 +1,4 @@
 ---
-layout: single
 title: "Writing"
 description: "Essays & perspectives, data narratives, notes & experiments, and series that show how I think and build."
 permalink: /writing/
@@ -11,11 +10,11 @@ classes: [wide, writing-page]
     <p class="eyebrow">Writing</p>
     <h1>A home for how I think, build, and explain</h1>
     <p class="section-intro">This hub gathers my essays, data stories, tutorials, and long-form series. If you want to understand how I approach problems, this is the clearest trail: warm, rigorous, and grounded in real systems.</p>
-    <div class="meta-line">
+    <!-- div class="meta-line">
       <span class="pill pill--accent">Curated paths</span>
       <span class="pill">Practical depth</span>
       <span class="pill">Human-centered</span>
-    </div>
+    </div -->
   </section>
 
   <section class="section-stack">

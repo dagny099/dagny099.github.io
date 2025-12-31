@@ -24,22 +24,6 @@ main:
     subtitle: "Systems and products I've built."
     description: "Data products, AI systems, and knowledge graphs in production."
 
-  - title: "Data Narratives"
-    short: "Narratives"
-    url: /data-stories/
-    color: "#5a189a"
-    background-color: "#f4f0fb"
-    subtitle: "Technical narratives with interactive visualizations."
-    description: "Case studies told through data, from problem to insight."
-
-  - title: "Essays & Perspectives"
-    short: "Essays"
-    url: /thinking/
-    color: "#6f5b91"
-    background-color: "#f7f4fb"
-    subtitle: "Essays on cognition, data systems, and AI governance."
-    description: "Foundational posts are pinned; everything else is living research."
-
   - title: "My Journey"
     short: "Journey"
     url: /my-journey/
@@ -84,28 +68,24 @@ main:
 footer-nav:
   - title: "Explore"
     children:
-      - title: "Start Here"
-        url: /start-here/
+      - title: "Site Architecture"
+        url: /site-architecture/
+      - title: "Blog"
+        url: /blog/
       - title: "Writing"
         url: /writing/
-      - title: "Topics"
-        url: /topics/
-      - title: "Notes & Experiments"
-        url: /blog/
-      - title: "Research"
-        url: /research/
-      - title: "Experience"
-        url: /experience/
-      - title: "Gallery"
-        url: /gallery/
+      - title: "Resources"
+        url: /resources/
   - title: "Archives"
     children:
+      - title: "Topics"
+        url: /topics/
       - title: "Tags"
         url: /tags/
       - title: "Categories"
         url: /categories/
-      - title: "Notes & Experiments"
-        url: /blog/
+      - title: "Gallery"
+        url: /gallery/
   - title: "About"
     children:
       - title: "My Journey"
@@ -114,8 +94,8 @@ footer-nav:
         url: /experience/
       - title: "Research"
         url: /research/
-      - title: "Site Architecture"
-        url: /site-architecture/
+      - title: "Work/Projects"
+        url: /projects/
 
 # sidebar navigation list sample
 sidebar-pub:

@@ -266,7 +266,8 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   </p>
 </div>
 
-{% include section_tiles.html exclude="/contact/" %}
+<!-- THIS IS COOOL THAT THE section_tiles are an include!>
+<!-- {% include section_tiles.html exclude="/contact/" %} -->
 
 <style>
 /* Add hover effects for principle cards */
@@ -333,11 +334,11 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-  padding: 1.25rem;
+  padding: 1rem 0.5rem 0.5rem 1rem;
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .featured-writing__badge {
@@ -369,7 +370,8 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 }
 
 .featured-writing__cta {
-  margin: 1.25rem 0 0;
   text-align: center;
+  padding: 1rem 0 0 0;
 }
+
 </style>

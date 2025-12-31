@@ -1,5 +1,4 @@
 ---
-layout: single
 title: "Projects"
 description: "A portfolio of technical builds and cognitive science–informed systems, from AI evaluation tools to behavioral data platforms and knowledge graphs."
 permalink: /projects/
@@ -11,11 +10,11 @@ classes: [wide, project-page]
     <p class="eyebrow">Portfolio</p>
     <h1>Systems That Think Like Humans Think</h1>
     <p class="card-lede">Applied cognitive science across data products, model evaluation tools, and knowledge graphs. Each build makes complex information easier to see, compare, and act on.</p>
-    <div class="meta-line">
+    <!-- div class="meta-line">
       <span class="pill pill--accent">Shipping builds</span>
       <span class="pill">Behaviorally informed UX</span>
       <span class="pill">Evidence you can show</span>
-    </div>
+    </div -->
   </section>
 
   <nav class="filter-nav" aria-label="Project filters">
