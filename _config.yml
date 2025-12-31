@@ -141,6 +141,10 @@ collections:
     output: true
     permalink: /resources/:name/
 
+  snippets:
+    output: true
+    permalink: /snippets/:name/
+
   thinking:
     output: true
     permalink: /thinking/:name/
@@ -176,6 +180,15 @@ defaults:
       author_profile: false                                                                                                                                                                
       teaser: /assets/images/site-default-teaser.jpg                                                                                                                                       
                                                                                                                                                                                             
+  # Snippets collection (Tackboard)
+  - scope: { path: "", type: snippets }
+    values:
+      layout: snippet
+      classes: wide
+      author_profile: false
+      share: false
+      comments: false
+
   # Thinking collection                                                                                                                                                                    
   - scope: { path: "", type: thinking }                                                                                                                                                    
     values:                                                                                                                                                                                
