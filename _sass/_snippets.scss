@@ -230,6 +230,18 @@
   border-left-color: color-mix(in oklab, #2563eb 65%, transparent) !important;
 }
 
+.layout--snippet .page__title,
+.layout--snippet .page__title a {
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+.layout--snippet .snippet__takeaway .snippet__label {
+  color: inherit !important;
+}
+
 .layout--snippet .snippet-chip,
 .layout--snippet .snippet-tag {
   color: var(--ink-900, #0f172a) !important;
@@ -360,6 +372,11 @@
   .snippet {
     forced-color-adjust: none;
     color-scheme: light;
+  }
+
+  .snippets-board__hint,
+  .snippets-board h2 {
+    color: var(--ink-900, #0f172a) !important;
   }
 
   .layout--snippet .page__title,
