@@ -64,7 +64,7 @@ Based on extensive testing across this site, here are the metadata fields that m
 title: "Descriptive Title"
 excerpt: "150-300 character summary with key concepts"
 tags: [concept-1, concept-2, topic-3]  # Use hyphens, not spaces!
-date: YYYY-MM-DD
+date: YYYY-MM-DD (or YYYY-MM-DD HH:MM:SS ±ZZZZ)
 ```
 
 ### Recommended Fields
@@ -112,9 +112,10 @@ In my experience, as one's site grows, metadata quality tends to drift. To preve
 - ✓ Required fields are present
 - ✓ Excerpt length is search-friendly (150-300 chars)
 - ✓ Tags use hyphens (not spaces)
-- ✓ Dates are properly formatted
+- ✓ Dates are properly formatted (YYYY-MM-DD or full timestamps)
 - ✓ Technical content has a `stack` field
 - ✓ Narrative content has header images
+- ✓ Snippets use inbox/garden status values
 
 Here’s how to run it:
 
