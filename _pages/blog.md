@@ -1,6 +1,6 @@
 ---
 layout: writing-index
-title: "Writing"
+title: "Chronological Writing"
 excerpt: "Tutorials, data stories, and long-form thinking—your front door to everything I publish."
 permalink: /blog/
 author_profile: false

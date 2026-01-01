@@ -435,4 +435,4 @@ python analyze_photos.py --input-dir /path/to/photos --output timeline.html
 
 ---
 
-*Barbara is a Certified Data Management Professional (CDMP) who discovered that the intersection of data science and beekeeping produces both honey and insights. Follow her journey at [barbhs.com] and try the photo analyzer at [hivetracker.barbhs.com].*
+*I'm a Certified Data Management Professional (CDMP) who discovered that the intersection of data science and beekeeping produces both honey and insights. Follow my journey at [barbhs.com] and try the photo analyzer at [hivetracker.barbhs.com].*

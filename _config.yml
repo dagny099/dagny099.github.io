@@ -159,6 +159,7 @@ defaults:
   - scope: { path: "", type: pages }                                                                                                                                                       
     values:                                                                                                                                                                                
       layout: archive                                                                                                                                                                       
+      classes: wide                                                                                                                                                                        
       author_profile: false                                                                                                                                                                 
       breadcrumbs: false
                                                                                                                                                                                             

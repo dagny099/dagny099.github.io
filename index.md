@@ -122,34 +122,34 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   <div class="featured-writing">
     <article class="featured-writing__card">
       <p class="featured-writing__badge">Data Narrative</p>
-      <h3><a href="/data-stories/exercise-dashboard/">The Choco Effect: Workout Data & Habit Shifts</a></h3>
+      <h3><a href="/data-stories/hive-photo-metadata-tracker/">The Beekeeper’s Time Machine</a></h3>
       <p>
-        A long-form narrative about how a dog changed 14 years of workouts, and what the data reveals about consistency.
+      Explore how extracting timestamps and visual features from years of my own hive photos lets me travel through inspection history, revealing rhythms, surprises, and insights that would otherwise remain hidden. 
       </p>
-      <a class="featured-writing__link" href="/data-stories/exercise-dashboard/">Read the story →</a>
+      <a class="featured-writing__link" href="/data-stories/hive-photo-metadata-tracker/">Read the story →</a>
     </article>
 
     <article class="featured-writing__card">
-      <p class="featured-writing__badge featured-writing__badge--thinking">Essays &amp; Perspectives</p>
-      <h3><a href="/thinking/rag-without-the-theater/">RAG Without the Theater</a></h3>
+      <p class="featured-writing__badge featured-writing__badge--tutorial">Tutorials &amp; Guides</p>
+      <h3><a href="/series/website-building/">Building a Sustainable Digital Home</a></h3>
       <p>
-        Evidence-linked retrieval patterns you can defend—grounded answers, honest fallbacks, and auditable citations.
+      A supportive, skills-forward series that helps you launch a personal website, automate publishing, document your process, and build a platform you’ll actually want to keep using over time.
       </p>
-      <a class="featured-writing__link" href="/thinking/rag-without-the-theater/">Read the essay →</a>
+      <a class="featured-writing__link" href="/series/website-building/">Open the guide →</a>
     </article>
 
     <article class="featured-writing__card">
-      <p class="featured-writing__badge featured-writing__badge--tutorial">Notes &amp; Experiments</p>
-      <h3><a href="/blog/stock-ticker-comparison/">DIY Stock Ticker: Dash vs. Flask vs. Streamlit</a></h3>
+      <p class="featured-writing__badge featured-writing__badge--thinking">Applied Thinking</p>
+      <h3><a href="/blog/taming-mermaid-diagrams/">Making Mermaid Diagrams Work for You</a></h3>
       <p>
-        Learn Python web frameworks by building the same stock ticker app three ways and comparing trade-offs.
+      Cut through the chaos of tangled graph drawings with practical tips and structured approaches that bring confidence to crafting Mermaid diagrams that actually convey what you mean.
       </p>
-      <a class="featured-writing__link" href="/blog/stock-ticker-comparison/">Read the tutorial →</a>
+      <a class="featured-writing__link" href="/blog/taming-mermaid-diagrams/">Read the post →</a>
     </article>
   </div>
 
   <p class="featured-writing__cta">
-    <a class="browse-all" href="/blog/">Browse all writing</a>
+    <a class="browse-all" href="/writing/">Browse all writing</a>
   </p>
 </div>
 
