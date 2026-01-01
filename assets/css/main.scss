@@ -19,6 +19,7 @@ sitemap: false
 /* 2) Your site-specific styles (safe, scoped rules) */
 @import "custom";  // <- this now finds /_sass/_custom.scss
 @import "cards";
+ "snippets";
 
 /* 3) (Optional) Bring back old overrides gradually */
 // @import "legacy";
