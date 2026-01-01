@@ -81,6 +81,10 @@
   box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
 }
 
+.snippet-card:hover .snippet-card__title {
+  color: inherit;
+}
+
 .snippet-card__header {
   display: flex;
   flex-direction: column;
@@ -154,7 +158,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --snippet-card-bg: #1f2937;
+    --snippet-card-bg: #2b3445;
     --snippet-card-text: #f8fafc;
     --snippet-muted-text: #cbd5e1;
   }
@@ -163,6 +167,10 @@
     background: var(--snippet-card-bg);
     border: 1px solid rgba(148, 163, 184, 0.2);
     color: var(--snippet-card-text);
+  }
+
+  .snippet-card:hover {
+    background: #343f54;
   }
 
   .snippet-chip {
@@ -245,6 +253,10 @@
 }
 
 .layout--snippet .snippet__takeaway .snippet__label {
+  color: inherit !important;
+}
+
+.layout--snippet .snippet__label {
   color: inherit !important;
 }
 
