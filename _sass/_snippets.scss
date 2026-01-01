@@ -18,11 +18,13 @@
 
 .snippets-board__header {
   margin-bottom: 0.85rem;
+  color-scheme: light;
+  forced-color-adjust: none;
 }
 
 .snippets-board__hint {
   margin: 0.25rem 0 0;
-  color: var(--ink-700, #1f2937);
+  color: var(--ink-900, #0f172a);
   font-size: 0.9rem;
 }
 
@@ -191,7 +193,11 @@
   }
 
   .snippets-board h2 {
-    color: #f8fafc;
+    color: var(--ink-900, #0f172a);
+  }
+
+  .snippets-board__hint {
+    color: var(--ink-900, #0f172a);
   }
 }
 
