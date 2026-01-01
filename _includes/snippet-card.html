@@ -1,0 +1,56 @@
+{%- comment -%}
+Snippet card include. Adjust card layout + fields here without touching the board page.
+Usage: {% include snippet-card.html snippet=snippet %}
+{%- endcomment -%}
+
+{% assign snippet = include.snippet %}
+{% assign snippet_status = snippet.status | default: "inbox" | downcase %}
+{% assign highlight_preview = snippet.highlight | default: "" | markdownify | strip_html | strip_newlines %}
+{% assign takeaway_preview = snippet.takeaway | default: "" | markdownify | strip_html | strip_newlines %}
+
+<article class="snippet-card"
+  data-status="{{ snippet_status }}"
+  data-type="{{ snippet.source_type | default: '' | downcase | slugify }}"
+  data-tags="{{ snippet.tags | join: '|' | downcase }}"
+  data-topics="{{ snippet.topics | join: '|' | downcase }}">
+  <a class="snippet-card__link" href="{{ snippet.url | relative_url }}">
+    <div class="snippet-card__header">
+      <h3 class="snippet-card__title">{{ snippet.title }}</h3>
+      <div class="snippet-card__chips">
+        <span class="snippet-chip snippet-chip--status snippet-chip--{{ snippet_status }}">{{ snippet_status | capitalize }}</span>
+        {% if snippet.source_type %}
+          <span class="snippet-chip snippet-chip--type">{{ snippet.source_type }}</span>
+        {% endif %}
+        {% if snippet.impact %}
+          <span class="snippet-chip snippet-chip--impact">Impact {{ snippet.impact }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if highlight_preview != "" %}
+      <p class="snippet-card__highlight">“{{ highlight_preview | truncate: 180 }}”</p>
+    {% endif %}
+
+    {% if takeaway_preview != "" %}
+      <p class="snippet-card__takeaway">{{ takeaway_preview | truncate: 180 }}</p>
+    {% endif %}
+
+    <div class="snippet-card__meta">
+      {% comment %}Source line keeps cards scannable; tweak label or order here.{% endcomment %}
+      {% if snippet.source_title or snippet.source_creator %}
+        <div class="snippet-card__source">
+          {{ snippet.source_title | default: "Source" }}
+          {% if snippet.source_creator %}
+            <span class="snippet-card__source-creator">— {{ snippet.source_creator }}</span>
+          {% endif %}
+          {% if snippet.source_locator %}
+            <span class="snippet-card__source-locator">· {{ snippet.source_locator }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+      {% if snippet.date %}
+        <time class="snippet-card__date" datetime="{{ snippet.date | date_to_xmlschema }}">{{ snippet.date | date: "%b %-d, %Y" }}</time>
+      {% endif %}
+    </div>
+  </a>
+</article>
