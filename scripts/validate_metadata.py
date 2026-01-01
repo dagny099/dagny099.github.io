@@ -6,7 +6,6 @@ Validates front matter consistency across posts, projects, and other collections
 Usage:
     python scripts/validate_metadata.py
     python scripts/validate_metadata.py --collection posts
-    python scripts/validate_metadata.py --fix-issues
 """
 
 import os
@@ -16,6 +15,7 @@ from pathlib import Path
 from typing import Dict, List, Set, Tuple
 from collections import defaultdict
 import argparse
+from datetime import date, datetime
 
 
 class MetadataValidator:
@@ -23,30 +23,45 @@ class MetadataValidator:
 
     # Required fields by collection type
     REQUIRED_FIELDS = {
-        'posts': ['layout', 'title', 'date', 'excerpt', 'tags', 'categories'],
-        'projects': ['layout', 'title', 'permalink', 'excerpt', 'tags', 'stack', 'status', 'header'],
-        'portfolio': ['title', 'excerpt', 'date', 'tags', 'header'],
-        'data-stories': ['title', 'excerpt', 'permalink', 'date', 'tags', 'stack', 'header'],
-        'thinking': ['layout', 'title', 'date', 'excerpt', 'tags', 'toc'],
-        'resources': ['layout', 'title', 'permalink', 'excerpt', 'tags', 'format', 'level'],
-        'pages': ['layout', 'title', 'permalink'],
-        'drafts': ['layout', 'title', 'excerpt']
+        'posts': ['title', 'date', 'excerpt', 'tags', 'categories'],
+        'projects': ['title', 'permalink', 'excerpt', 'tags', 'stack', 'status', 'header'],
+        'data-stories': ['layout', 'title', 'excerpt', 'permalink', 'date', 'tags', 'stack', 'header'],
+        'thinking': ['title', 'date', 'excerpt', 'tags', 'categories', 'permalink', 'header'],
+        'resources': ['title', 'permalink', 'excerpt', 'date', 'tags', 'format', 'level'],
+        'snippets': ['title', 'date', 'status', 'source_type', 'source_title', 'highlight'],
+        'pages': ['title', 'permalink'],
+        'drafts': ['title', 'excerpt']
     }
 
     # Recommended fields
     RECOMMENDED_FIELDS = {
-        'posts': ['subtitle', 'header.overlay_image', 'stack', 'last_modified_at'],
-        'projects': ['last_modified_at', 'header.teaser', 'header.actions'],
+        'posts': ['subtitle', 'header.overlay_image', 'header.teaser', 'stack', 'last_modified_at'],
+        'projects': ['last_modified_at', 'header.teaser', 'header.actions', 'docs_url', 'docs_label'],
         'data-stories': ['last_modified_at', 'header.teaser'],
+        'thinking': ['subtitle', 'last_modified_at', 'header.overlay_image', 'teaser'],
+        'resources': ['subtitle', 'last_modified_at', 'header.teaser', 'download_url', 'categories', 'cognitive_principle'],
+        'snippets': ['last_modified_at', 'takeaway', 'tags', 'topics', 'source_creator', 'source_url', 'source_locator', 'impact', 'header.teaser'],
         'pages': ['excerpt', 'header'],
         'drafts': ['tags', 'date', 'subtitle'],
-        'all': ['last_modified_at']
+        'all': []
     }
 
     def __init__(self, base_path: str = '.'):
         self.base_path = Path(base_path)
         self.issues = defaultdict(list)
         self.stats = defaultdict(int)
+        self.collection_paths = {
+            'posts': self.base_path / '_posts',
+            'projects': self.base_path / '_projects',
+            'portfolio': self.base_path / '_portfolio',
+            'snippets': self.base_path / '_snippets',
+            'thinking': self.base_path / '_thinking',
+            'resources': self.base_path / '_resources',
+            'data-stories': self.base_path / 'data-stories',
+            'pages': self.base_path / '_pages',
+            'drafts': self.base_path / '_drafts'
+        }
+        self.excluded_files = {'index.md', 'README.md', 'TEMPLATE.md'}
 
     def extract_front_matter(self, file_path: Path) -> Tuple[Dict, str]:
         """Extract YAML front matter from a markdown file."""
@@ -76,6 +91,25 @@ class MetadataValidator:
             else:
                 return None
         return value
+
+    def validate_list_field(self, field_name: str, value, file_issues: List[str]):
+        """Validate list fields (tags, topics, categories) for type and formatting."""
+        if value is None:
+            return
+        if not isinstance(value, list):
+            file_issues.append(f"Field '{field_name}' should be a list")
+            return
+        non_strings = [item for item in value if not isinstance(item, str)]
+        if non_strings:
+            file_issues.append(f"Field '{field_name}' should contain only strings")
+
+    def is_valid_date(self, value) -> bool:
+        """Validate date strings or parsed YAML date/datetime objects."""
+        if isinstance(value, (date, datetime)):
+            return True
+        date_str = str(value)
+        pattern = r'^\d{4}-\d{2}-\d{2}(?:[ T]\d{2}:\d{2}:\d{2})?(?:\s*(?:Z|[+-]\d{2}:?\d{2}))?$'
+        return re.match(pattern, date_str) is not None
 
     def validate_file(self, file_path: Path, collection: str) -> Dict:
         """Validate a single file's metadata."""
@@ -113,27 +147,34 @@ class MetadataValidator:
             if isinstance(excerpt, str):
                 # Strip HTML tags for length calculation
                 plain_text = re.sub(r'<[^>]+>', '', excerpt)
-                if len(plain_text) < 50:
+                if len(plain_text) < 150:
                     file_issues.append(f"Excerpt too short ({len(plain_text)} chars, recommend 150-300)")
-                elif len(plain_text) > 400:
+                elif len(plain_text) > 300:
                     file_issues.append(f"Excerpt too long ({len(plain_text)} chars, recommend 150-300)")
 
         # Validate tags (should use hyphens, not spaces)
-        if 'tags' in front_matter and isinstance(front_matter['tags'], list):
-            bad_tags = [tag for tag in front_matter['tags'] if isinstance(tag, str) and ' ' in tag]
+        tags_value = front_matter.get('tags')
+        self.validate_list_field('tags', tags_value, file_issues)
+        if isinstance(tags_value, list):
+            bad_tags = [tag for tag in tags_value if isinstance(tag, str) and ' ' in tag]
             if bad_tags:
                 file_issues.append(f"Tags with spaces (use hyphens): {bad_tags}")
 
-        # Check for stack field in technical content
-        if collection in ['posts', 'projects', 'portfolio', 'data-stories']:
-            if 'stack' not in front_matter:
-                file_issues.append("Missing 'stack' field for technology tracking")
+        topics_value = front_matter.get('topics')
+        self.validate_list_field('topics', topics_value, file_issues)
+        categories_value = front_matter.get('categories')
+        self.validate_list_field('categories', categories_value, file_issues)
 
         # Validate dates
         if 'date' in front_matter:
-            date_str = str(front_matter['date'])
-            if not re.match(r'\d{4}-\d{2}-\d{2}', date_str):
-                file_issues.append(f"Invalid date format: {date_str} (use YYYY-MM-DD)")
+            date_value = front_matter['date']
+            if not self.is_valid_date(date_value):
+                file_issues.append(f"Invalid date format: {date_value} (use YYYY-MM-DD or YYYY-MM-DD HH:MM:SS ±ZZZZ)")
+
+        if collection == 'snippets' and 'status' in front_matter:
+            status = front_matter['status']
+            if status not in {'inbox', 'garden'}:
+                file_issues.append(f"Invalid snippet status: {status} (use inbox or garden)")
 
         return {
             'file': str(file_path.relative_to(self.base_path)),
@@ -143,21 +184,11 @@ class MetadataValidator:
 
     def validate_collection(self, collection: str) -> List[Dict]:
         """Validate all files in a collection."""
-        # Handle special path cases
-        if collection == 'posts':
-            collection_path = self.base_path / '_posts'
-        elif collection == 'data-stories':
-            collection_path = self.base_path / 'data-stories'
-        elif collection == 'pages':
-            collection_path = self.base_path / '_pages'
-        elif collection == 'drafts':
-            collection_path = self.base_path / '_drafts'
-        else:
-            collection_path = self.base_path / f"_{collection}"
+        collection_path = self.collection_paths.get(collection, self.base_path / f"_{collection}")
 
         if not collection_path.exists():
             print(f"Warning: Collection path {collection_path} does not exist")
-            return []
+            return None
 
         results = []
         # For pages, check both .md and .html files
@@ -166,8 +197,8 @@ class MetadataValidator:
             file_patterns.append('*.html')
 
         for pattern in file_patterns:
-            for file in collection_path.glob(pattern):
-                if file.name == 'index.md':
+            for file in collection_path.rglob(pattern):
+                if file.name in self.excluded_files:
                     continue
 
                 result = self.validate_file(file, collection)
@@ -225,17 +256,18 @@ def main():
 
     validator = MetadataValidator(args.base_path)
 
-    collections = ['posts', 'projects', 'portfolio', 'data-stories', 'thinking', 'resources', 'pages', 'drafts']
+    collections = ['posts', 'projects', 'snippets', 'data-stories', 'thinking', 'resources', 'pages', 'drafts']
 
-    if args.collection:
-        collections = [args.collection]
+        if args.collection:
+            collections = [args.collection]
 
     all_results = {}
     for collection in collections:
         print(f"Validating {collection}...")
         results = validator.validate_collection(collection)
-        if results:
-            all_results[collection] = results
+        if results is None:
+            continue
+        all_results[collection] = results
 
     validator.print_report(all_results)
 

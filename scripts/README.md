@@ -184,26 +184,29 @@ python scripts/validate_metadata.py --collection posts
 ### What It Checks
 
 **All Content:**
-- ✓ Required fields present (title, excerpt, tags)
+- ✓ Required fields present (title, excerpt, tags, dates)
 - ⚠️ Recommended fields (subtitles, header images, last_modified_at)
 - ✓ Excerpt length (ideal: 150-300 characters)
 - ✓ Tag formatting (hyphens instead of spaces)
-- ✓ Date formatting (YYYY-MM-DD)
+- ✓ Date formatting (YYYY-MM-DD or full timestamp)
 
 **Collection-Specific Requirements:**
 
 | Collection | Required | Recommended |
 |------------|----------|-------------|
-| **Posts** | layout, title, date, excerpt, tags, categories | subtitle, header.overlay_image, stack |
-| **Projects** | layout, title, permalink, excerpt, tags, stack, status, header | header.teaser, header.actions |
-| **Data Stories** | title, excerpt, permalink, date, tags, stack, header | header.teaser, last_modified_at |
+| **Posts** | title, date, excerpt, tags, categories | subtitle, header.overlay_image, header.teaser, stack |
+| **Projects** | title, permalink, excerpt, tags, stack, status, header | header.teaser, header.actions, docs_url |
+| **Thinking** | title, date, excerpt, tags, categories, permalink, header | subtitle, header.overlay_image, teaser |
+| **Resources** | title, permalink, excerpt, date, tags, format, level | subtitle, download_url, cognitive_principle |
+| **Data Stories** | layout, title, excerpt, permalink, date, tags, stack, header | header.teaser, last_modified_at |
+| **Snippets** | title, date, status, source_type, source_title, highlight | takeaway, tags, topics, impact |
 
 ### Validation Rules
 
 **Excerpt Quality:**
-- ❌ Too short (< 50 chars): Insufficient for previews
+- ❌ Too short (< 150 chars): Insufficient for previews
 - ✅ Ideal (150-300 chars): Perfect for search results
-- ⚠️ Too long (> 400 chars): Gets truncated
+- ⚠️ Too long (> 300 chars): Gets truncated
 
 **Tag Standards:**
 ```yaml
@@ -217,6 +220,13 @@ tags: [data-science, machine-learning]
 **Stack vs Tags:**
 - **tags**: Concepts (e.g., `iot`, `tutorial`, `data-visualization`)
 - **stack**: Technologies (e.g., `Python`, `Arduino`, `AWS RDS`)
+
+**Snippet Status:**
+```yaml
+# ✅ Valid statuses
+status: inbox
+status: garden
+```
 
 ### Example Output
 

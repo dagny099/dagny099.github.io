@@ -65,7 +65,7 @@ The script checks for:
 - Required fields (title, excerpt, tags, dates)
 - Excerpt length (150-300 chars is ideal for SEO)
 - Tag formatting (hyphens not spaces)
-- Date format consistency (YYYY-MM-DD)
+- Date format consistency (YYYY-MM-DD or full timestamp)
 - Technology stack for technical content
 - Header images for visual content
 
