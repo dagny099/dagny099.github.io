@@ -1,6 +1,24 @@
 {% assign snippet = include.snippet %}
 {% assign snippet_status = snippet.status | default: "inbox" %}
 {% assign snippet_source_type = snippet.source_type | default: "source" %}
+{% assign source_type_icon = "far fa-file-lines" %}
+{% if snippet_source_type == "podcast" %}
+  {% assign source_type_icon = "fas fa-microphone" %}
+{% elsif snippet_source_type == "book" %}
+  {% assign source_type_icon = "fas fa-book" %}
+{% elsif snippet_source_type == "video" %}
+  {% assign source_type_icon = "fas fa-video" %}
+{% elsif snippet_source_type == "article" %}
+  {% assign source_type_icon = "far fa-file-alt" %}
+{% elsif snippet_source_type == "talk" %}
+  {% assign source_type_icon = "fas fa-chalkboard-teacher" %}
+{% elsif snippet_source_type == "course" %}
+  {% assign source_type_icon = "fas fa-graduation-cap" %}
+{% elsif snippet_source_type == "newsletter" %}
+  {% assign source_type_icon = "far fa-envelope" %}
+{% elsif snippet_source_type == "thread" %}
+  {% assign source_type_icon = "fas fa-comments" %}
+{% endif %}
 {% assign tag_data = snippet.tags | join: "," %}
 {% assign topic_data = snippet.topics | join: "," %}
 
@@ -22,7 +40,10 @@ Card layout for the snippets board. Adjust the structure below to show more/less
         {{ snippet_status | capitalize }}
       </span>
       {% if snippet_source_type %}
-        <span class="snippet-chip snippet-chip--type">{{ snippet_source_type | capitalize }}</span>
+        <span class="snippet-chip snippet-chip--type">
+          <i class="snippet-chip__icon {{ source_type_icon }}" aria-hidden="true"></i>
+          {{ snippet_source_type | capitalize }}
+        </span>
       {% endif %}
       {% if snippet.impact %}
         <span class="snippet-chip snippet-chip--impact">Impact {{ snippet.impact }}</span>
