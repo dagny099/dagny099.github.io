@@ -24,7 +24,7 @@ Tweak the class names or ordering below to customize how snippets render.
       {{ snippet_status | capitalize }}
     </span>
     {% if snippet_source_type %}
-      <span class="snippet-chip snippet-chip--type">
+      <span class="snippet-chip snippet-chip--type" data-type="{{ snippet_source_type | slugify }}">
         {{ snippet_source_type | capitalize }}
       </span>
     {% endif %}
