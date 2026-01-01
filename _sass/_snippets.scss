@@ -12,6 +12,8 @@
 
 .snippets-board {
   margin: 2.2rem 0 2.6rem;
+  color-scheme: light;
+  forced-color-adjust: none;
 }
 
 .snippets-board__header {
@@ -64,6 +66,8 @@
   box-shadow: var(--snippet-card-shadow);
   text-decoration: none;
   color: var(--snippet-card-text);
+  color-scheme: light;
+  forced-color-adjust: none;
   break-inside: avoid-column;
   page-break-inside: avoid;
   -webkit-column-break-inside: avoid;
@@ -193,6 +197,8 @@
 
 .snippet {
   margin-top: 1.5rem;
+  color-scheme: light;
+  forced-color-adjust: none;
 }
 
 .layout--single .page__title,
@@ -251,6 +257,15 @@
   color: var(--ink-900, #0f172a);
 }
 
+.snippet__content {
+  color: var(--ink-700, #1f2937);
+}
+
+.snippet__content p,
+.snippet__content li {
+  color: inherit;
+}
+
 .snippet__tags {
   margin-top: 1.6rem;
   display: flex;
@@ -287,6 +302,15 @@
 
   .snippet__takeaway {
     color: #e2e8f0;
+  }
+
+  .snippet__content {
+    color: #e2e8f0;
+  }
+
+  .snippet__content p,
+  .snippet__content li {
+    color: inherit;
   }
 
   .snippet-tag {
