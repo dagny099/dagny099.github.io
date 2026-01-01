@@ -1,0 +1,60 @@
+{% assign snippet = include.snippet %}
+{% assign snippet_status = snippet.status | default: "inbox" %}
+{% assign snippet_source_type = snippet.source_type | default: "source" %}
+{% assign tag_data = snippet.tags | join: "," %}
+{% assign topic_data = snippet.topics | join: "," %}
+
+{% comment %}
+Card layout for the snippets board. Adjust the structure below to show more/less metadata.
+{% endcomment %}
+
+<a class="snippet-card"
+  href="{{ snippet.url | absolute_url }}"
+  data-status="{{ snippet_status | slugify }}"
+  data-source-type="{{ snippet_source_type | slugify }}"
+  {% if tag_data %}data-tags="{{ tag_data | downcase | replace: ' ', '-' }}"{% endif %}
+  {% if topic_data %}data-topics="{{ topic_data | downcase | replace: ' ', '-' }}"{% endif %}
+>
+  <div class="snippet-card__header">
+    <h3 class="snippet-card__title">{{ snippet.title }}</h3>
+    <div class="snippet-card__chips">
+      <span class="snippet-chip snippet-chip--status snippet-chip--{{ snippet_status | slugify }}">
+        {{ snippet_status | capitalize }}
+      </span>
+      {% if snippet_source_type %}
+        <span class="snippet-chip snippet-chip--type">{{ snippet_source_type | capitalize }}</span>
+      {% endif %}
+      {% if snippet.impact %}
+        <span class="snippet-chip snippet-chip--impact">Impact {{ snippet.impact }}</span>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if snippet.highlight %}
+    <p class="snippet-card__highlight">
+      “{{ snippet.highlight | markdownify | strip_html | truncatewords: 24 }}”
+    </p>
+  {% endif %}
+
+  {% if snippet.takeaway %}
+    <p class="snippet-card__takeaway">
+      {{ snippet.takeaway | markdownify | strip_html | truncatewords: 24 }}
+    </p>
+  {% endif %}
+
+  <div class="snippet-card__meta">
+    {% if snippet.source_title or snippet.source_creator %}
+      <span class="snippet-card__source">
+        {% if snippet.source_title %}
+          {{ snippet.source_title }}
+        {% endif %}
+        {% if snippet.source_creator %}
+          — {{ snippet.source_creator }}
+        {% endif %}
+      </span>
+    {% endif %}
+    {% if snippet.date %}
+      <span class="snippet-card__date">{{ snippet.date | date: "%b %d, %Y" }}</span>
+    {% endif %}
+  </div>
+</a>
