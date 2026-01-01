@@ -45,7 +45,7 @@ excerpt: >
     </div>
     <div class="contact-card__body">
       <h3>Email</h3>
-      <span>barbs@barbhs.com</span>
+      <span>barbs@<br />barbhs.com</span>
     </div>
   </a>
 
@@ -70,7 +70,6 @@ excerpt: >
   </a>
 </div>
 
-<hr class="contact-divider" />
 
 <h2 class="contact-section__title">Send a Message</h2>
 
@@ -109,12 +108,12 @@ excerpt: >
 
 /* Intro section */
 .contact-page .page-shell {
-  max-width: 1100px;
+  max-width: 1400px;
 }
 
 .contact-intro {
-  max-width: 900px;
-  margin: 0 auto 2rem;
+  max-width: 1000px;
+  margin: 0 auto 1rem;
   text-align: left;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -174,6 +173,8 @@ excerpt: >
 .contact-card__body span {
   font-size: 0.9rem;
   color: #6c757d;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Card accent colors */
@@ -211,7 +212,7 @@ excerpt: >
 
 /* Form wrapper card */
 .contact-form-wrapper {
-  max-width: 860px;
+  max-width: 950px;
   margin: 1.5rem 0 0;
   padding: 2rem;
   background: #f8f9fa;

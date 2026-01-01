@@ -1,8 +1,10 @@
 ---
-title: "Writing"
+layout: single
+title: ""
 description: "Essays & perspectives, data narratives, notes & experiments, and series that show how I think and build."
 permalink: /writing/
 classes: [wide, writing-page]
+show_title: false
 ---
 
 <div class="page-shell section-stack">
@@ -151,3 +153,7 @@ classes: [wide, writing-page]
     </div>
   </section>
 </div>
+
+.writing-page.layout--single .page__inner-wrap > header {
+  display: none;
+}

@@ -1025,6 +1025,14 @@ h1, h2, h3, h4, h5, h6{
   text-decoration: none !important;   /* beat global link underline */
 }
 
+/* Make single-page content align left by removing right-float layout */
+.layout--single .page {
+  float: none;
+  width: 100%;
+  padding-right: 0;
+}
+
+
 /* Single-button case stays centered and a nice width */
 .card--project .card__footer .cta-row > *:only-child{
   grid-column: 1 / -1;

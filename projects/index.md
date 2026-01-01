@@ -1,8 +1,10 @@
 ---
-title: "Projects"
+layout: single
+title: ""
 description: "A portfolio of technical builds and cognitive science–informed systems, from AI evaluation tools to behavioral data platforms and knowledge graphs."
 permalink: /projects/
 classes: [wide, project-page]
+show_title: false
 ---
 
 <div class="page-shell section-stack">
