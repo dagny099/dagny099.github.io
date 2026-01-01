@@ -9,6 +9,19 @@ Tweak the class names or ordering below to customize how snippets render.
 
 {% assign snippet_status = page.status | default: "inbox" %}
 {% assign snippet_source_type = page.source_type | default: "source" %}
+{% assign snippet_icon = "fa-link" %}
+{% case snippet_source_type %}
+  {% when "article" %}
+    {% assign snippet_icon = "fa-newspaper" %}
+  {% when "podcast" %}
+    {% assign snippet_icon = "fa-podcast" %}
+  {% when "book" %}
+    {% assign snippet_icon = "fa-book-open" %}
+  {% when "video" %}
+    {% assign snippet_icon = "fa-play-circle" %}
+  {% when "talk" %}
+    {% assign snippet_icon = "fa-microphone" %}
+{% endcase %}
 
 <div class="snippet">
   <div class="snippet__meta">
@@ -25,6 +38,7 @@ Tweak the class names or ordering below to customize how snippets render.
     </span>
     {% if snippet_source_type %}
       <span class="snippet-chip snippet-chip--type">
+        <i class="fas {{ snippet_icon }}" aria-hidden="true"></i>
         {{ snippet_source_type | capitalize }}
       </span>
     {% endif %}
