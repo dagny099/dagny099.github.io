@@ -1,0 +1,248 @@
+// Snippet board styles (Tackboard). Update the CSS variables below to tune spacing and feel.
+:root {
+  --snippet-card-radius: 14px;
+  --snippet-card-padding: 1.25rem;
+  --snippet-card-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  --snippet-card-border: 1px solid rgba(148, 163, 184, 0.35);
+  --snippet-chip-radius: 999px;
+  --snippet-card-bg: #ffffff;
+  --snippet-card-text: #1f2937;
+  --snippet-card-muted: rgba(71, 85, 105, 0.92);
+  --snippet-card-highlight: rgba(30, 41, 59, 0.92);
+}
+
+.snippets-board {
+  margin: 2.5rem 0 3rem;
+}
+
+.snippets-board__header {
+  margin-bottom: 1rem;
+}
+
+.snippets-board__hint {
+  margin: 0.25rem 0 0;
+  color: rgba(71, 85, 105, 0.85);
+  font-size: 0.95rem;
+}
+
+.snippets-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+  column-fill: balance;
+}
+
+@media (min-width: 640px) {
+  .snippets-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .snippets-grid {
+    column-count: 3;
+  }
+}
+
+.snippet-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  padding: var(--snippet-card-padding);
+  border-radius: var(--snippet-card-radius);
+  border: var(--snippet-card-border);
+  background: var(--snippet-card-bg);
+  box-shadow: var(--snippet-card-shadow);
+  text-decoration: none;
+  color: var(--snippet-card-text);
+  break-inside: avoid;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.snippet-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+}
+
+.snippet-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.snippet-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.snippet-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.snippet-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--snippet-chip-radius);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  background: rgba(148, 163, 184, 0.2);
+  color: #1e293b;
+}
+
+.snippet-chip--garden {
+  background: rgba(16, 185, 129, 0.2);
+  color: #065f46;
+}
+
+.snippet-chip--inbox {
+  background: rgba(251, 191, 36, 0.24);
+  color: #92400e;
+}
+
+.snippet-chip--impact {
+  background: rgba(59, 130, 246, 0.18);
+  color: #1e3a8a;
+}
+
+.snippet-card__highlight,
+.snippet-card__takeaway {
+  margin: 0.85rem 0 0;
+  color: var(--snippet-card-highlight);
+  font-size: 0.9rem;
+}
+
+.snippet-card__highlight {
+  font-style: italic;
+}
+
+.snippet-card__meta {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--snippet-card-muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --snippet-card-bg: #0f172a;
+    --snippet-card-text: #e2e8f0;
+    --snippet-card-muted: rgba(226, 232, 240, 0.82);
+    --snippet-card-highlight: rgba(226, 232, 240, 0.9);
+  }
+
+  .snippet-card {
+    background: var(--snippet-card-bg);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    color: var(--snippet-card-text);
+  }
+
+  .snippet-chip {
+    background: rgba(148, 163, 184, 0.2);
+    color: #e2e8f0;
+  }
+
+  .snippet-chip--garden {
+    background: rgba(16, 185, 129, 0.25);
+    color: #a7f3d0;
+  }
+
+  .snippet-chip--inbox {
+    background: rgba(251, 191, 36, 0.25);
+    color: #fde68a;
+  }
+
+  .snippet-chip--impact {
+    background: rgba(96, 165, 250, 0.25);
+    color: #bfdbfe;
+  }
+
+  .snippet-card__highlight,
+  .snippet-card__takeaway,
+  .snippet-card__meta,
+  .snippets-board__hint {
+    color: var(--snippet-card-muted);
+  }
+}
+
+.snippet {
+  margin-top: 1.5rem;
+}
+
+.snippet__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.snippet__source {
+  margin: 0 0 1.2rem;
+  font-size: 0.95rem;
+  color: rgba(51, 65, 85, 0.95);
+}
+
+.snippet__source-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.snippet__highlight {
+  margin: 0 0 1rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid rgba(59, 130, 246, 0.5);
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 0 12px 12px 0;
+  color: #1f2937;
+}
+
+.snippet__highlight p {
+  margin: 0;
+}
+
+.snippet__takeaway {
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.snippet__tags {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.snippet-tag {
+  background: rgba(148, 163, 184, 0.2);
+  color: rgba(30, 41, 59, 0.92);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--snippet-chip-radius);
+  font-size: 0.7rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .snippet__source {
+    color: rgba(226, 232, 240, 0.8);
+  }
+
+  .snippet__highlight {
+    background: rgba(59, 130, 246, 0.2);
+    border-left-color: rgba(96, 165, 250, 0.7);
+    color: #e2e8f0;
+  }
+
+  .snippet-tag {
+    background: rgba(148, 163, 184, 0.25);
+    color: rgba(226, 232, 240, 0.9);
+  }
+
+  .snippet__takeaway {
+    color: #e2e8f0;
+  }
+}
