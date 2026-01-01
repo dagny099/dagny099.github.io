@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero_v2.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+{% assign breadcrumbs_enabled = site.breadcrumbs %}
+{% if page.breadcrumbs != null %}
+  {% assign breadcrumbs_enabled = page.breadcrumbs %}
+{% endif %}
+{% if page.url != "/" and breadcrumbs_enabled %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page snippet" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | replace: '|', '&#124;' | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+
+    <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+        <header>
+          {% if page.title -%}
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="{{ page.url | absolute_url }}" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+          </h1>
+          {%- endif %}
+          {% include page__meta.html %}
+        </header>
+      {% endunless %}
+
+      <section class="page__content" itemprop="text">
+        {% comment %}Snippets metadata blocks - edit these to customize the layout.{% endcomment %}
+        {% if page.status or page.source_type or page.impact %}
+          <div class="snippet__chips">
+            {% if page.status %}
+              <span class="snippet-chip snippet-chip--status">{{ page.status | capitalize }}</span>
+            {% endif %}
+            {% if page.source_type %}
+              <span class="snippet-chip snippet-chip--type">{{ page.source_type }}</span>
+            {% endif %}
+            {% if page.impact %}
+              <span class="snippet-chip snippet-chip--impact">Impact {{ page.impact }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if page.source_title or page.source_creator or page.source_locator or page.source_url %}
+          <p class="snippet__source">
+            <span class="snippet__source-label">Source:</span>
+            {% if page.source_title %}
+              <span class="snippet__source-title">{{ page.source_title }}</span>
+            {% endif %}
+            {% if page.source_creator %}
+              <span class="snippet__source-creator">by {{ page.source_creator }}</span>
+            {% endif %}
+            {% if page.source_locator %}
+              <span class="snippet__source-locator">({{ page.source_locator }})</span>
+            {% endif %}
+            {% if page.source_url %}
+              <a class="snippet__source-link" href="{{ page.source_url }}" rel="noopener" target="_blank">Source link</a>
+            {% endif %}
+          </p>
+        {% endif %}
+
+        {% if page.highlight %}
+          <blockquote class="snippet__highlight">
+            {{ page.highlight | markdownify | remove: "<p>" | remove: "</p>" }}
+          </blockquote>
+        {% endif %}
+
+        {% if page.takeaway %}
+          <p class="snippet__takeaway">{{ page.takeaway }}</p>
+        {% endif %}
+
+        {{ content }}
+
+        {% if page.tags %}
+          <div class="snippet__tags">
+            {% for tag in page.tags %}
+              <span class="snippet-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </section>
+
+      <footer class="page__meta">
+        {% if site.data.ui-text[site.locale].meta_label %}
+          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+        {% endif %}
+        {% include page__date.html %}
+      </footer>
+
+      {% if page.share %}{% include social-share.html %}{% endif %}
+    </div>
+  </article>
+</div>

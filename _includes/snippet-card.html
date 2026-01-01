@@ -1,0 +1,58 @@
+{% comment %}
+  Snippet card include.
+  Customize the layout by reordering blocks or adding new metadata.
+{% endcomment %}
+{% assign snippet = include.snippet %}
+<a class="snippet-card"
+  href="{{ snippet.url | relative_url }}"
+  data-status="{{ snippet.status | default: '' | downcase }}"
+  data-type="{{ snippet.source_type | default: '' | downcase }}"
+  data-tags="{{ snippet.tags | join: ',' | downcase }}"
+  data-topics="{{ snippet.topics | join: ',' | downcase }}">
+  <div class="snippet-card__inner">
+    <div class="snippet-card__header">
+      <h3 class="snippet-card__title">{{ snippet.title }}</h3>
+      <div class="snippet-card__chips">
+        {% if snippet.status %}
+          <span class="snippet-chip snippet-chip--status">{{ snippet.status | capitalize }}</span>
+        {% endif %}
+        {% if snippet.source_type %}
+          <span class="snippet-chip snippet-chip--type">{{ snippet.source_type }}</span>
+        {% endif %}
+        {% if snippet.impact %}
+          <span class="snippet-chip snippet-chip--impact">Impact {{ snippet.impact }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if snippet.highlight %}
+      <blockquote class="snippet-card__highlight">
+        {{ snippet.highlight | markdownify | strip_html | truncatewords: 28 }}
+      </blockquote>
+    {% endif %}
+
+    {% if snippet.takeaway %}
+      <p class="snippet-card__takeaway">{{ snippet.takeaway | truncatewords: 24 }}</p>
+    {% endif %}
+
+    {% if snippet.source_title or snippet.source_creator or snippet.source_locator %}
+      <p class="snippet-card__source">
+        {% if snippet.source_title %}
+          <span class="snippet-card__source-title">{{ snippet.source_title }}</span>
+        {% endif %}
+        {% if snippet.source_creator %}
+          <span class="snippet-card__source-creator">by {{ snippet.source_creator }}</span>
+        {% endif %}
+        {% if snippet.source_locator %}
+          <span class="snippet-card__source-locator">({{ snippet.source_locator }})</span>
+        {% endif %}
+      </p>
+    {% endif %}
+
+    <p class="snippet-card__meta">
+      {% if snippet.date %}
+        <time datetime="{{ snippet.date | date_to_xmlschema }}">{{ snippet.date | date: "%b %-d, %Y" }}</time>
+      {% endif %}
+    </p>
+  </div>
+</a>
