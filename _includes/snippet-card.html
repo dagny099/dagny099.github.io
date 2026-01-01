@@ -22,7 +22,9 @@ Card layout for the snippets board. Adjust the structure below to show more/less
         {{ snippet_status | capitalize }}
       </span>
       {% if snippet_source_type %}
-        <span class="snippet-chip snippet-chip--type">{{ snippet_source_type | capitalize }}</span>
+        <span class="snippet-chip snippet-chip--type" data-type="{{ snippet_source_type | slugify }}">
+          {{ snippet_source_type | capitalize }}
+        </span>
       {% endif %}
       {% if snippet.impact %}
         <span class="snippet-chip snippet-chip--impact">Impact {{ snippet.impact }}</span>
@@ -32,13 +34,13 @@ Card layout for the snippets board. Adjust the structure below to show more/less
 
   {% if snippet.highlight %}
     <p class="snippet-card__highlight">
-      “{{ snippet.highlight | markdownify | strip_html | truncatewords: 24 }}”
+      “{{ snippet.highlight | markdownify | strip_html | truncatewords: 18 }}”
     </p>
   {% endif %}
 
   {% if snippet.takeaway %}
     <p class="snippet-card__takeaway">
-      {{ snippet.takeaway | markdownify | strip_html | truncatewords: 24 }}
+      {{ snippet.takeaway | markdownify | strip_html | truncatewords: 16 }}
     </p>
   {% endif %}
 
