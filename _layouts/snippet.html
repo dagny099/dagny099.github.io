@@ -1,0 +1,105 @@
+---
+layout: single
+---
+
+{% comment %}
+Custom snippet layout that plugs into Minimal Mistakes' "single" layout.
+Tweak the class names or ordering below to customize how snippets render.
+{% endcomment %}
+
+{% assign snippet_status = page.status | default: "inbox" %}
+{% assign snippet_source_type = page.source_type | default: "source" %}
+{% assign snippet_icon = "fa-link" %}
+{% case snippet_source_type %}
+  {% when "article" %}
+    {% assign snippet_icon = "fa-newspaper" %}
+  {% when "podcast" %}
+    {% assign snippet_icon = "fa-podcast" %}
+  {% when "book" %}
+    {% assign snippet_icon = "fa-book-open" %}
+  {% when "video" %}
+    {% assign snippet_icon = "fa-play-circle" %}
+  {% when "talk" %}
+    {% assign snippet_icon = "fa-microphone" %}
+{% endcase %}
+
+<div class="snippet">
+  <div class="snippet__meta">
+    {% if page.date %}
+      <span>Added {{ page.date | date: "%b %-d, %Y" }}</span>
+    {% endif %}
+    {% if page.last_modified_at %}
+      <span>· Updated {{ page.last_modified_at | date: "%b %-d, %Y" }}</span>
+    {% endif %}
+  </div>
+  <div class="snippet__chips">
+    <span class="snippet-chip snippet-chip--status snippet-chip--{{ snippet_status | slugify }}">
+      {{ snippet_status | capitalize }}
+    </span>
+    {% if snippet_source_type %}
+      <span class="snippet-chip snippet-chip--type">
+        <i class="fas {{ snippet_icon }}" aria-hidden="true"></i>
+        {{ snippet_source_type | capitalize }}
+      </span>
+    {% endif %}
+    {% if page.impact %}
+      <span class="snippet-chip snippet-chip--impact">
+        Impact {{ page.impact }}
+      </span>
+    {% endif %}
+  </div>
+
+  {% if page.source_title or page.source_creator or page.source_locator or page.source_url %}
+    <p class="snippet__source">
+      <span class="snippet__label">Source:</span>
+      {% if page.source_title %}
+        {% if page.source_url %}
+          <a href="{{ page.source_url }}" class="snippet__source-link" rel="noopener">
+            {{ page.source_title }}
+          </a>
+        {% else %}
+          <span class="snippet__source-title">{{ page.source_title }}</span>
+        {% endif %}
+      {% endif %}
+      {% if page.source_creator %}
+        <span class="snippet__source-creator">— {{ page.source_creator }}</span>
+      {% endif %}
+      {% if page.source_locator %}
+        <span class="snippet__source-locator">• {{ page.source_locator }}</span>
+      {% endif %}
+      {% unless page.source_title %}
+        {% if page.source_url %}
+          <a href="{{ page.source_url }}" class="snippet__source-link" rel="noopener">
+            {{ page.source_url }}
+          </a>
+        {% endif %}
+      {% endunless %}
+    </p>
+  {% endif %}
+
+  {% if page.highlight %}
+    <blockquote class="snippet__highlight">
+      {{ page.highlight | markdownify }}
+    </blockquote>
+  {% endif %}
+
+  {% if page.takeaway %}
+    <p class="snippet__takeaway">
+      <span class="snippet__label">Takeaway:</span>
+      {{ page.takeaway | markdownify | remove: "<p>" | remove: "</p>" }}
+    </p>
+  {% endif %}
+
+  <div class="snippet__content">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+    <div class="snippet__tags">
+      {% comment %}Use these pills for tags; swap for links if you add tag pages later.{% endcomment %}
+      {% for tag in page.tags %}
+        <span class="snippet-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

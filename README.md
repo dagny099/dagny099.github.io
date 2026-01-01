@@ -16,6 +16,18 @@ This website is my digital hub where I share projects, articles, and my musings 
 - 📝 Blog where I write about data science, knowledge organization, and on occasion current events
 - 🐝 Custom design to reflect my personal interests
 - ✓ Metadata validation script to ensure content quality and SEO optimization
+- 🧩 Snippets collection (added 12/31/25) for short, reusable insights
+
+## Adding a new snippet
+
+Snippets live in the `_snippets/` collection and render to `/snippets/`. To add one:
+
+1. Duplicate `_snippets/TEMPLATE.md`.
+2. Fill in the front matter (title, date, status, source metadata, highlight, takeaway, tags/topics).
+3. Write a brief reflection in the body (optional).
+4. Save the file with a descriptive name and refresh the site.
+
+Snippets start as `status: inbox` and move to `status: garden` once synthesized.
 
 
 ## How It's Built
@@ -78,4 +90,3 @@ python scripts/validate_metadata.py
 ## Questions or Suggestions?
 
 Feel free to open an issue if you have any questions about this repository or suggestions for my website. I'm always open to feedback and new ideas!
-
