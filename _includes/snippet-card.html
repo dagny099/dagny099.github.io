@@ -1,0 +1,45 @@
+{% assign snippet = include.snippet | default: page %}
+{% assign status = snippet.status | default: "inbox" %}
+
+<article
+  class="snippet-card"
+  data-status="{{ status }}"
+  data-type="{{ snippet.source_type | default: "" }}"
+  data-tags="{{ snippet.tags | join: "," }}"
+  data-topics="{{ snippet.topics | join: "," }}">
+  {%- comment -%}Wrap the entire card in a single link for a big tap target.{%- endcomment -%}
+  <a class="snippet-card__link" href="{{ snippet.url | relative_url }}">
+    <div class="snippet-card__header">
+      <h3 class="snippet-card__title">{{ snippet.title }}</h3>
+      <div class="snippet-card__chips">
+        {%- comment -%}Add/remove chips here to match your frontmatter schema.{%- endcomment -%}
+        <span class="snippet-card__chip snippet-card__chip--status snippet-card__chip--{{ status }}">{{ status | capitalize }}</span>
+        {% if snippet.source_type %}
+          <span class="snippet-card__chip snippet-card__chip--type">{{ snippet.source_type | replace: "-", " " | capitalize }}</span>
+        {% endif %}
+        {% if snippet.impact %}
+          <span class="snippet-card__chip snippet-card__chip--impact">Impact {{ snippet.impact }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if snippet.highlight %}
+      <p class="snippet-card__highlight">{{ snippet.highlight | markdownify | strip_html | truncatewords: 28 }}</p>
+    {% endif %}
+
+    {% if snippet.takeaway %}
+      <p class="snippet-card__takeaway">{{ snippet.takeaway | markdownify | strip_html | truncatewords: 26 }}</p>
+    {% endif %}
+
+    <div class="snippet-card__meta">
+      {% if snippet.source_url %}
+        <span class="snippet-card__source">{{ snippet.source_title | default: snippet.source_url }}</span>
+      {% elsif snippet.source_title %}
+        <span class="snippet-card__source">{{ snippet.source_title }}</span>
+      {% endif %}
+      {% if snippet.date %}
+        <time datetime="{{ snippet.date | date_to_xmlschema }}">{{ snippet.date | date: "%b %-d, %Y" }}</time>
+      {% endif %}
+    </div>
+  </a>
+</article>

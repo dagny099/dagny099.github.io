@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page snippet" itemscope itemtype="https://schema.org/CreativeWork">
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+
+    <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+        <header>
+          {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+
+          <p class="snippet__meta">
+            {% if page.date %}Added {{ page.date | date: "%b %-d, %Y" }}{% endif %}
+            {% if page.last_modified_at %} · Updated {{ page.last_modified_at | date: "%b %-d, %Y" }}{% endif %}
+          </p>
+        </header>
+      {% endunless %}
+
+      <section class="page__content" itemprop="text">
+        {% assign status = page.status | default: "inbox" %}
+
+        <div class="snippet__chips">
+          {%- comment -%}Customize chip labels/colors in _sass/snippets.scss.{%- endcomment -%}
+          <span class="snippet__chip snippet__chip--status snippet__chip--{{ status }}">{{ status | capitalize }}</span>
+          {% if page.source_type %}
+            <span class="snippet__chip snippet__chip--type">{{ page.source_type | replace: "-", " " | capitalize }}</span>
+          {% endif %}
+          {% if page.impact %}
+            <span class="snippet__chip snippet__chip--impact">Impact {{ page.impact }}</span>
+          {% endif %}
+        </div>
+
+        {% if page.source_title or page.source_url or page.source_creator or page.source_locator %}
+          <p class="snippet__source">
+            <strong>Source:</strong>
+            {% if page.source_url %}
+              <a href="{{ page.source_url }}" rel="noopener">{{ page.source_title | default: page.source_url }}</a>
+            {% elsif page.source_title %}
+              {{ page.source_title }}
+            {% endif %}
+            {% if page.source_creator %} · {{ page.source_creator }}{% endif %}
+            {% if page.source_locator %} · {{ page.source_locator }}{% endif %}
+          </p>
+        {% endif %}
+
+        {% if page.highlight %}
+          {% comment %}Highlight block is styled in _sass/snippets.scss.{% endcomment %}
+          <blockquote class="snippet__highlight">{{ page.highlight | markdownify }}</blockquote>
+        {% endif %}
+
+        {% if page.takeaway %}
+          <p class="snippet__takeaway"><strong>Takeaway:</strong> {{ page.takeaway | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        {% endif %}
+
+        {{ content }}
+
+        {% if page.tags and page.tags.size > 0 %}
+          <div class="snippet__tags">
+            {% comment %}Use tags for quick scanning; edit pill styles in _sass/snippets.scss.{% endcomment %}
+            {% for tag in page.tags %}
+              <span class="snippet__tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </section>
+    </div>
+  </article>
+</div>
