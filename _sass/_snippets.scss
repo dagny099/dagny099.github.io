@@ -3,9 +3,9 @@
   --snippet-card-radius: 14px;
   --snippet-card-padding: 1.25rem;
   --snippet-card-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-  --snippet-card-border: 1px solid rgba(148, 163, 184, 0.35);
+  --snippet-card-border: 1px solid rgba(148, 163, 184, 0.3);
   --snippet-chip-radius: 999px;
-  --snippet-card-bg: #f8fafc;
+  --snippet-card-bg: #ffffff;
   --snippet-card-text: #0f172a;
   --snippet-muted-text: #475569;
 }
@@ -21,11 +21,12 @@
 .snippets-board__hint {
   margin: 0.25rem 0 0;
   color: var(--snippet-muted-text);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .snippets-board h2 {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
+  color: #0f172a;
 }
 
 .snippets-grid {
@@ -76,7 +77,7 @@
 
 .snippet-card__title {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: inherit;
 }
 
@@ -91,7 +92,7 @@
   align-items: center;
   padding: 0.2rem 0.65rem;
   border-radius: var(--snippet-chip-radius);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.02em;
   background: rgba(148, 163, 184, 0.2);
   color: #0f172a;
@@ -116,7 +117,7 @@
 .snippet-card__takeaway {
   margin: 0.85rem 0 0;
   color: var(--snippet-card-text);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 .snippet-card__highlight {
@@ -128,15 +129,21 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--snippet-muted-text);
 }
 
 @media (prefers-color-scheme: dark) {
+  :root {
+    --snippet-card-bg: #1f2937;
+    --snippet-card-text: #f8fafc;
+    --snippet-muted-text: #cbd5e1;
+  }
+
   .snippet-card {
-    background: #111827;
+    background: var(--snippet-card-bg);
     border: 1px solid rgba(148, 163, 184, 0.2);
-    color: #f1f5f9;
+    color: var(--snippet-card-text);
   }
 
   .snippet-chip {
@@ -163,7 +170,11 @@
   .snippet-card__takeaway,
   .snippet-card__meta,
   .snippets-board__hint {
-    color: rgba(226, 232, 240, 0.88);
+    color: var(--snippet-card-text);
+  }
+
+  .snippets-board h2 {
+    color: #f8fafc;
   }
 }
 
@@ -171,11 +182,22 @@
   margin-top: 1.5rem;
 }
 
+.snippet__meta {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
 .snippet__chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.snippet__label {
+  font-weight: 600;
+  color: #0f172a;
 }
 
 .snippet__source {
@@ -224,8 +246,16 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .snippet__source {
+  .snippet__meta {
     color: rgba(226, 232, 240, 0.9);
+  }
+
+  .snippet__label {
+    color: #f8fafc;
+  }
+
+  .snippet__source {
+    color: rgba(226, 232, 240, 0.92);
   }
 
   .snippet__highlight {

@@ -11,6 +11,14 @@ Tweak the class names or ordering below to customize how snippets render.
 {% assign snippet_source_type = page.source_type | default: "source" %}
 
 <div class="snippet">
+  <div class="snippet__meta">
+    {% if page.date %}
+      <span>Added {{ page.date | date: "%b %-d, %Y" }}</span>
+    {% endif %}
+    {% if page.last_modified_at %}
+      <span>· Updated {{ page.last_modified_at | date: "%b %-d, %Y" }}</span>
+    {% endif %}
+  </div>
   <div class="snippet__chips">
     <span class="snippet-chip snippet-chip--status snippet-chip--{{ snippet_status | slugify }}">
       {{ snippet_status | capitalize }}
@@ -29,7 +37,7 @@ Tweak the class names or ordering below to customize how snippets render.
 
   {% if page.source_title or page.source_creator or page.source_locator or page.source_url %}
     <p class="snippet__source">
-      <span class="snippet__source-label">Source:</span>
+      <span class="snippet__label">Source:</span>
       {% if page.source_title %}
         {% if page.source_url %}
           <a href="{{ page.source_url }}" class="snippet__source-link" rel="noopener">
@@ -63,6 +71,7 @@ Tweak the class names or ordering below to customize how snippets render.
 
   {% if page.takeaway %}
     <p class="snippet__takeaway">
+      <span class="snippet__label">Takeaway:</span>
       {{ page.takeaway | markdownify | remove: "<p>" | remove: "</p>" }}
     </p>
   {% endif %}
