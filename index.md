@@ -103,7 +103,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
      ======================= -->
 <div class="home-section">
 <details class="home-accordion" data-section="projects" markdown="1" open>
-<summary><h2>Featured Projects</h2></summary>
+<summary  style="text-align: center;"><h2>Featured Projects</h2></summary>
 
 {% include feature_row_dual %}
 
