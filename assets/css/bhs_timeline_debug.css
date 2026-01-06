@@ -1,0 +1,97 @@
+/* =========================================================
+   TimelineJS (KnightLab timeline3) - Override Pack
+   Purpose:
+   1) PROVE the CSS is loading (diagnostic outline)
+   2) Fix "cramped" slide layout by overriding inline widths
+   3) Improve typography + spacing
+   ========================================================= */
+
+/* ---------- 0) DIAGNOSTIC: remove later ----------
+   If you do NOT see a faint outline around the timeline,
+   your CSS is not loading (or is cached). */
+.tl-timeline {
+  outline: 6px solid rgba(255, 0, 200, 0.25) !important;
+}
+
+/* ---------- 1) Layout: stop the 400px squeeze ----------
+   These elements often get inline width/max-width styles.
+   We override them with !important on purpose. */
+
+.tl-slide-content {
+  /* override inline width: 400px; */
+  width: min(1100px, 92vw) !important;
+
+  /* override inline padding-left/right */
+  padding-left: clamp(24px, 4vw, 72px) !important;
+  padding-right: clamp(24px, 4vw, 72px) !important;
+}
+
+.tl-slide-content-container {
+  /* this container is flex; give media + text breathing room */
+  align-items: flex-start !important;
+  gap: clamp(24px, 4vw, 72px) !important;
+}
+
+/* Media column: allow it to be bigger than 400px when space permits */
+.tl-media {
+  max-width: min(560px, 46vw) !important;
+}
+
+/* Text column: widen + keep readable measure */
+.tl-text {
+  max-width: min(560px, 46vw) !important;
+}
+
+/* ---------- 2) Typography polish ---------- */
+
+.tl-headline {
+  line-height: 1.05 !important;
+  margin-bottom: 0.35rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+.tl-headline-date {
+  margin-top: 0.25rem !important;
+  opacity: 0.75 !important;
+}
+
+/* Paragraph spacing + readability */
+.tl-text-content p {
+  margin-top: 0.9rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.55 !important;
+  max-width: 52ch !important;
+}
+
+/* Credits/captions can inherit cramped widths via inline styles */
+.tl-credit,
+.tl-caption {
+  width: auto !important;
+  max-width: 100% !important;
+  opacity: 0.8 !important;
+}
+
+/* ---------- 3) Responsive: stack on smaller screens ---------- */
+@media (max-width: 900px) {
+  .tl-slide-content-container {
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+
+  .tl-media,
+  .tl-text {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .tl-slide-content {
+    width: 100% !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .tl-text-content p {
+    max-width: 70ch !important;
+  }
+}
+
