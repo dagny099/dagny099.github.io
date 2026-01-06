@@ -1,61 +1,445 @@
+/* ==========================================================================
+   bhs_timeline.css — Portfolio-style override for TimelineJS (KnightLab)
+   Drop-in custom CSS (loaded AFTER timeline.css).
+   Goals:
+   - calmer “portfolio” typography + spacing
+   - more breathing room after headline/date
+   - more separation between media and text
+   - subtle cards, soft shadows, refined navigation
+   ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+/* ------------------------------
+   Design tokens
+------------------------------ */
+:root {
+  /* Typography */
+  --tl-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --tl-font-serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino,
+    Garamond, Georgia, serif;
 
-/* Base timeline style */
-.tl-timeline {
-  background-color: #FAFAFA;
+  /* Colors */
+  --tl-bg: #fbfbfc;
+  --tl-bg-elev: #ffffff;
+  --tl-ink: #0f172a;          /* slate-900-ish */
+  --tl-ink-muted: #475569;    /* slate-600-ish */
+  --tl-ink-soft: #64748b;     /* slate-500-ish */
+  --tl-border: rgba(15, 23, 42, 0.10);
+  --tl-border-strong: rgba(15, 23, 42, 0.16);
+
+  /* Accent (portfolio “brand” color) */
+  --tl-accent: #c2410c;       /* burnt orange */
+  --tl-accent-soft: rgba(194, 65, 12, 0.12);
+  --tl-accent-strong: rgba(194, 65, 12, 0.22);
+
+  /* Shadows / radius */
+  --tl-radius-sm: 12px;
+  --tl-radius-md: 18px;
+  --tl-radius-lg: 26px;
+  --tl-shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.08);
+  --tl-shadow-md: 0 14px 40px rgba(15, 23, 42, 0.10);
+
+  /* Spacing */
+  --tl-pad-slide-x: clamp(24px, 5vw, 88px);
+  --tl-pad-slide-y: clamp(22px, 3.5vw, 64px);
+  --tl-gap-media-text: clamp(22px, 3.5vw, 54px);
+  --tl-text-max: 62ch;
 }
 
-/* Slide container */
-.tl-slide {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  background-color: white;
+/* Optional: dark mode that still feels “portfolio” */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tl-bg: #0b1220;
+    --tl-bg-elev: rgba(255, 255, 255, 0.06);
+    --tl-ink: rgba(255, 255, 255, 0.92);
+    --tl-ink-muted: rgba(255, 255, 255, 0.72);
+    --tl-ink-soft: rgba(255, 255, 255, 0.60);
+    --tl-border: rgba(255, 255, 255, 0.12);
+    --tl-border-strong: rgba(255, 255, 255, 0.18);
+    --tl-shadow-sm: 0 10px 28px rgba(0, 0, 0, 0.45);
+    --tl-shadow-md: 0 18px 60px rgba(0, 0, 0, 0.55);
+    --tl-accent-soft: rgba(234, 88, 12, 0.18);
+    --tl-accent-strong: rgba(234, 88, 12, 0.28);
+    --tl-accent: #fb923c; /* warmer orange for dark */
+  }
 }
 
-/* Headline styling */
-.tl-headline {
-  font-family: 'Lora', serif;
-  font-weight: 700;
-  color: #1C3A55;
+/* ------------------------------
+   Base surface + smoothing
+------------------------------ */
+html,
+body {
+  background: var(--tl-bg) !important;
+  color: var(--tl-ink) !important;
+  font-family: var(--tl-font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Date label styling */
-.tl-headline-date {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  color: #2D3E50;
+/* Keep the whole embed feeling like a portfolio page */
+#timeline-embed,
+.tl-timeline,
+.tl-storyslider,
+.tl-slider-container-mask,
+.tl-slider-container,
+.tl-slider-item-container {
+  background: transparent !important;
 }
 
-/* Body text styling */
-.tl-text p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333333;
+/* Subtle overall backdrop */
+.tl-slider-background {
+  background: radial-gradient(
+      1200px 700px at 20% 10%,
+      var(--tl-accent-soft),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(2, 132, 199, 0.10),
+      transparent 55%
+    ),
+    var(--tl-bg) !important;
 }
 
-/* Media credit and caption */
-.tl-credit {
-  font-size: 12px;
-  color: #666666;
-  font-style: italic;
+/* ------------------------------
+   Slide layout + spacing
+------------------------------ */
+
+/* Override inline padding on .tl-slide-content (it’s set inline by TimelineJS) */
+.tl-slide .tl-slide-content {
+  padding-left: var(--tl-pad-slide-x) !important;
+  padding-right: var(--tl-pad-slide-x) !important;
+  padding-top: var(--tl-pad-slide-y) !important;
+  padding-bottom: var(--tl-pad-slide-y) !important;
+
+  /* Most layouts are flex; this gives real separation between text & media */
+  gap: var(--tl-gap-media-text) !important;
+  align-items: flex-start !important;
 }
 
-.tl-caption {
-  font-size: 14px;
-  color: #555555;
+/* Add a gentle “card” container feeling */
+.tl-slide-content-container {
+  padding: 0 !important;
 }
 
-/* Timeline navigation styling */
-.tl-menubar, .tl-timegroup {
-  background-color: #2D3E50;
-  color: white;
+/* For extra polish: keep content from feeling too wide on huge screens */
+.tl-slide .tl-text {
+  max-width: var(--tl-text-max);
 }
 
-/* Marker customization */
-.tl-marker {
-  background-color: #1C3A55;
-  border-radius: 50%;
+/* Make the slide feel like a portfolio section */
+.tl-slide .tl-slide-scrollable-container {
+  /* keep scrolling smooth inside slides without harsh edges */
+  scrollbar-gutter: stable both-edges;
 }
+
+.tl-slide .tl-slide-background {
+  background: transparent !important;
+}
+
+/* ------------------------------
+   Typography (headlines, dates, body)
+------------------------------ */
+
+/* Headline container spacing: this is where you asked for extra space */
+.tl-text-headline-container {
+  margin-bottom: 18px !important; /* extra breathing room after headline+date */
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid var(--tl-border) !important;
+}
+
+/* Headline: portfolio style */
+.tl-text .tl-headline,
+.tl-slide .tl-headline {
+  font-family: var(--tl-font-serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.10 !important;
+  color: var(--tl-ink) !important;
+
+  /* Make sure the headline has space *below* it */
+  margin: 0 0 14px 0 !important;
+}
+
+/* Date: calm, compact, and clearly separated */
+.tl-text .tl-headline-date,
+.tl-slide .tl-headline-date {
+  font-family: var(--tl-font-sans) !important;
+  font-weight: 600 !important;
+  color: var(--tl-ink-muted) !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+
+  margin: 0 !important;
+  padding-top: 2px !important;
+}
+
+/* Body copy: comfortable reading */
+.tl-text .tl-text-content,
+.tl-text .tl-text-content p {
+  font-family: var(--tl-font-sans) !important;
+  color: var(--tl-ink-muted) !important;
+  line-height: 1.65 !important;
+  font-size: 16px !important;
+}
+
+.tl-text .tl-text-content p {
+  margin: 0 0 12px 0 !important;
+}
+
+.tl-text .tl-text-content p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Links: portfolio accent */
+.tl-text a {
+  color: var(--tl-accent) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid var(--tl-accent-strong) !important;
+}
+.tl-text a:hover,
+.tl-text a:focus {
+  border-bottom-color: var(--tl-accent) !important;
+  text-decoration: none !important;
+}
+
+/* ------------------------------
+   Media: spacing + “card” treatment
+------------------------------ */
+
+/* Add space between media and text even if the layout isn't flex-gap */
+.tl-layout-landscape .tl-media {
+  margin-left: var(--tl-gap-media-text) !important;
+}
+
+/* Make media container feel like a clean portfolio card */
+.tl-media .tl-media-content-container {
+  background: var(--tl-bg-elev) !important;
+  border: 1px solid var(--tl-border) !important;
+  border-radius: var(--tl-radius-lg) !important;
+  box-shadow: var(--tl-shadow-sm) !important;
+
+  /* Inner padding creates a “framed” feel around logos/images */
+  padding: 18px !important;
+}
+
+/* Images: soften edges, prevent harsh scaling */
+.tl-media .tl-media-item,
+.tl-media img,
+.tl-media iframe,
+.tl-media video {
+  border-radius: calc(var(--tl-radius-lg) - 10px) !important;
+  display: block !important;
+  max-width: 100% !important;
+}
+
+/* Caption / credit: subtle and aligned */
+.tl-media .tl-credit,
+.tl-media .tl-caption {
+  color: var(--tl-ink-soft) !important;
+  font-family: var(--tl-font-sans) !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+
+  margin-top: 10px !important;
+  padding-top: 10px !important;
+  border-top: 1px solid var(--tl-border) !important;
+  width: auto !important; /* override inline width */
+}
+
+/* If slide is text-only, make it feel intentional */
+.tl-slide.tl-slide-text-only .tl-text {
+  background: var(--tl-bg-elev) !important;
+  border: 1px solid var(--tl-border) !important;
+  border-radius: var(--tl-radius-lg) !important;
+  box-shadow: var(--tl-shadow-sm) !important;
+  padding: 22px 22px 20px 22px !important;
+}
+
+/* ------------------------------
+   Navigation arrows (prev/next)
+------------------------------ */
+.tl-slidenav-previous,
+.tl-slidenav-next {
+  background: var(--tl-bg-elev) !important;
+  border: 1px solid var(--tl-border) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--tl-shadow-sm) !important;
+  transition: transform 160ms ease, box-shadow 160ms ease,
+    border-color 160ms ease !important;
+}
+
+.tl-slidenav-previous:hover,
+.tl-slidenav-next:hover {
+  transform: translateY(-1px);
+  border-color: var(--tl-border-strong) !important;
+  box-shadow: var(--tl-shadow-md) !important;
+}
+
+/* Make the arrow icon feel crisp */
+.tl-slidenav-icon {
+  filter: saturate(0.9);
+  opacity: 0.9;
+}
+
+/* Nav titles: clamp and soften */
+.tl-slidenav-title {
+  color: var(--tl-ink) !important;
+  font-weight: 700 !important;
+}
+.tl-slidenav-description {
+  color: var(--tl-ink-muted) !important;
+}
+
+/* ------------------------------
+   Time navigation (bottom timeline)
+------------------------------ */
+
+/* Clean baseline */
+.tl-timenav {
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.02)) !important;
+  border-top: 1px solid var(--tl-border) !important;
+}
+
+/* Group headers (Education / Research / Professional / Personal) */
+.tl-timegroup-message {
+  font-family: var(--tl-font-sans) !important;
+  font-weight: 700 !important;
+  color: var(--tl-ink-muted) !important;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 11px !important;
+}
+
+/* Time axis ticks */
+.tl-timeaxis .tl-timeaxis-tick-text {
+  font-family: var(--tl-font-sans) !important;
+  color: var(--tl-ink-soft) !important;
+  font-weight: 600 !important;
+}
+
+/* Markers: soften and modernize */
+.tl-timemarker-content-container {
+  border-radius: 999px !important;
+  border: 1px solid var(--tl-border) !important;
+  background: var(--tl-bg-elev) !important;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Marker headline */
+.tl-timemarker .tl-headline {
+  font-family: var(--tl-font-sans) !important;
+  font-weight: 700 !important;
+  color: var(--tl-ink) !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Active marker: accent treatment */
+.tl-timemarker-active .tl-timemarker-content-container {
+  border-color: var(--tl-accent) !important;
+  box-shadow: 0 10px 24px rgba(194, 65, 12, 0.18) !important;
+}
+
+/* Timespan highlight */
+.tl-timemarker-timespan-content {
+  background: var(--tl-accent-soft) !important;
+}
+
+/* Timeline line */
+.tl-timenav-line {
+  background: var(--tl-border-strong) !important;
+  opacity: 0.8 !important;
+}
+
+/* ------------------------------
+   Menubar (zoom, go end, return)
+------------------------------ */
+.tl-menubar {
+  background: transparent !important;
+}
+
+.tl-menubar-button {
+  background: var(--tl-bg-elev) !important;
+  border: 1px solid var(--tl-border) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--tl-shadow-sm) !important;
+  transition: transform 160ms ease, box-shadow 160ms ease,
+    border-color 160ms ease !important;
+}
+
+.tl-menubar-button:hover {
+  transform: translateY(-1px);
+  border-color: var(--tl-border-strong) !important;
+  box-shadow: var(--tl-shadow-md) !important;
+}
+
+/* ------------------------------
+   Attribution (optional polish)
+------------------------------ */
+.tl-attribution {
+  opacity: 0.78 !important;
+}
+.tl-attribution a {
+  color: var(--tl-ink-soft) !important;
+  text-decoration: none !important;
+}
+.tl-attribution a:hover {
+  color: var(--tl-ink-muted) !important;
+}
+
+/* ------------------------------
+   Responsive: stack media below text on narrow screens
+------------------------------ */
+@media (max-width: 900px) {
+  .tl-slide .tl-slide-content {
+    /* ensure comfortable padding */
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  /* On narrow widths, Timeline often stacks; ensure spacing is lovely */
+  .tl-layout-landscape .tl-media {
+    margin-left: 0 !important;
+    margin-top: 18px !important;
+    max-width: 100% !important;
+  }
+
+  .tl-media .tl-media-content-container {
+    padding: 14px !important;
+    border-radius: var(--tl-radius-md) !important;
+  }
+}
+
+/* ------------------------------
+   Motion accessibility
+------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .tlanimate,
+  .tl-animate,
+  .tl-animate-opacity {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ------------------------------
+   Small quality-of-life tweaks
+------------------------------ */
+
+/* Prevent overly-wide captions set by inline width */
+.tl-media .tl-credit,
+.tl-media .tl-caption {
+  max-width: 100% !important;
+}
+
+/* Make icons feel a little more refined */
+.tl-icon-image,
+.tl-icon-imageblank {
+  opacity: 0.85;
+}
+
+/* If you want slightly “tighter” slides, reduce these:
+   --tl-pad-slide-x / --tl-pad-slide-y / --tl-gap-media-text
+*/
+
