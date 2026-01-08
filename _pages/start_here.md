@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Start Here"
+title: ""
 description: "A curated path through my writing: data stories, essays, and practical tutorials."
 permalink: /start-here/
 classes: [wide, start-here-page]
