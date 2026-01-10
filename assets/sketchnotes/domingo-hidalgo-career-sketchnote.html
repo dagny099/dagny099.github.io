@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domingo Hidalgo: Career Journey & Legacy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Permanent+Marker&family=Cabin+Sketch:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fef9e7 0%, #fdf2e9 100%);
+            font-family: 'Architects Daughter', cursive;
+            padding: 40px 20px;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 3px solid #34495e;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 4px dashed #3498db;
+        }
+        
+        .header h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0px #ecf0f1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.4em;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        
+        .header .dates {
+            font-size: 1.2em;
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #3498db 0%, #e74c3c 100%);
+            border-radius: 3px;
+        }
+        
+        .era {
+            margin-bottom: 60px;
+        }
+        
+        .era-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .era-title {
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 2em;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 30px;
+            border: 3px solid;
+            border-radius: 50px;
+            background: white;
+            position: relative;
+            z-index: 2;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+        }
+        
+        .era.naval { border-left: 8px solid #16a085; }
+        .era.naval .era-title { color: #16a085; border-color: #16a085; }
+        
+        .era.ibm { border-left: 8px solid #2980b9; }
+        .era.ibm .era-title { color: #2980b9; border-color: #2980b9; }
+        
+        .era.sematech { border-left: 8px solid #8e44ad; }
+        .era.sematech .era-title { color: #8e44ad; border-color: #8e44ad; }
+        
+        .era.balex { border-left: 8px solid #c0392b; }
+        .era.balex .era-title { color: #c0392b; border-color: #c0392b; }
+        
+        .milestone {
+            position: relative;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .milestone:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .milestone:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .milestone-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: 0 0 0 4px white;
+        }
+        
+        .milestone-content {
+            width: 45%;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #34495e;
+            position: relative;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        }
+        
+        .milestone:nth-child(odd) .milestone-content {
+            margin-right: 55%;
+        }
+        
+        .milestone:nth-child(even) .milestone-content {
+            margin-left: 55%;
+        }
+        
+        .milestone-year {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.3em;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .milestone-title {
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .milestone-desc {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+        
+        .milestone-impact {
+            background: #fff9e6;
+            border-left: 4px solid #f39c12;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        
+        .milestone-impact strong {
+            color: #e67e22;
+            font-size: 1.1em;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 20px;
+            padding: 5px 12px;
+            margin: 5px 5px 0 0;
+            font-size: 0.85em;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .legacy {
+            margin-top: 60px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+            border: 3px solid #34495e;
+        }
+        
+        .legacy h2 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .legacy-card {
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid white;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+        }
+        
+        .legacy-card h3 {
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 1.5em;
+            color: #8e44ad;
+            margin-bottom: 15px;
+        }
+        
+        .legacy-card p {
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px dashed #3498db;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5em;
+            color: #e74c3c;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .arrow {
+            font-size: 2em;
+            color: #3498db;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .milestone {
+                flex-direction: column !important;
+            }
+            
+            .milestone-content {
+                width: 100% !important;
+                margin: 0 0 0 40px !important;
+            }
+            
+            .milestone-dot {
+                left: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Domingo S. Hidalgo Lopez</h1>
+            <div class="subtitle">From Ocean Tankers to Silicon Chips</div>
+            <div class="dates">1956 - 2018 | Venezuela → USA → Global Impact</div>
+        </div>
+
+        <div class="timeline">
+            <!-- NAVAL ARCHITECTURE ERA -->
+            <div class="era naval">
+                <div class="era-header">
+                    <div class="era-title">⚓ Naval Architecture Era (1978-1984)</div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1978</div>
+                        <div class="milestone-title">🎓 University of Michigan</div>
+                        <div class="milestone-desc">
+                            Bachelor of Science in Naval Architecture & Marine Engineering
+                        </div>
+                        <div class="tag">Foundation</div>
+                        <div class="tag">Engineering</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1979-1981</div>
+                        <div class="milestone-title">🔧 LAGOVEN - Venezuela</div>
+                        <div class="milestone-desc">
+                            <strong>Assistant Fleet Engineer</strong> in Cabimas<br>
+                            <strong>Staff Naval Architect</strong> in Caracas<br>
+                            Fleet expansion feasibility, tanker specifications, global bidding
+                        </div>
+                        <div class="tag">Oil & Gas</div>
+                        <div class="tag">Maritime</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1981-1984</div>
+                        <div class="milestone-title">🚢 Japan - Shipbuilding Superintendent</div>
+                        <div class="milestone-desc">
+                            Supervised construction of <strong>FIVE large oil tankers</strong> in Chiba, Innoshima, and Yokohama
+                        </div>
+                        <div class="milestone-impact">
+                            <strong>⚡ Impact:</strong> Delivered Venezuela's expanded tanker fleet, managed multi-million dollar projects across three Japanese shipyards
+                        </div>
+                        <div class="tag">Leadership</div>
+                        <div class="tag">International</div>
+                        <div class="tag">Project Management</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">↓ Career Pivot to Software ↓</div>
+
+            <!-- COMPUTER SCIENCE TRANSITION -->
+            <div class="era ibm">
+                <div class="era-header">
+                    <div class="era-title">💻 IBM Era (1985-1994)</div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1985</div>
+                        <div class="milestone-title">🎓 Texas State University</div>
+                        <div class="milestone-desc">
+                            Master of Science in Computer Science
+                        </div>
+                        <div class="tag">Career Transition</div>
+                        <div class="tag">Software Engineering</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1987-1989</div>
+                        <div class="milestone-title">💾 IBM DB2 - Senior Developer</div>
+                        <div class="milestone-desc">
+                            Designed and developed <strong>multi-language application development tools</strong> for DB2
+                        </div>
+                        <div class="milestone-impact">
+                            <strong>📜 Patent:</strong> "Program Source Code Translator" (US 5,230,049)
+                        </div>
+                        <div class="tag">Database Systems</div>
+                        <div class="tag">Innovation</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1989-1991</div>
+                        <div class="milestone-title">🏗️ IBM - Staff Software Architect</div>
+                        <div class="milestone-desc">
+                            Designed new processing model for DB2 on AIX<br>
+                            Worked with research labs on <strong>parallel SQL processing</strong>
+                        </div>
+                        <div class="tag">Architecture</div>
+                        <div class="tag">Research</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1991-1994</div>
+                        <div class="milestone-title">🌐 IBM DCE Team - Staff Architect</div>
+                        <div class="milestone-desc">
+                            Designed porting solutions for <strong>Distributed Computing Environment (DCE)</strong>
+                        </div>
+                        <div class="milestone-impact">
+                            <strong>🌍 Global Impact:</strong> Contributed to technologies that became STANDARD PARTS OF INTERNET INFRASTRUCTURE:
+                            <ul style="margin-top: 10px;">
+                                <li>RPC (Remote Procedure Call)</li>
+                                <li>Naming Services</li>
+                                <li>MIT Kerberos Security</li>
+                            </ul>
+                        </div>
+                        <div class="tag">Internet Infrastructure</div>
+                        <div class="tag">Security</div>
+                        <div class="tag">Distributed Systems</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">↓ Semiconductor Revolution ↓</div>
+
+            <!-- SEMATECH ERA -->
+            <div class="era sematech">
+                <div class="era-header">
+                    <div class="era-title">⚡ SEMATECH - Industry Standard Creator (1994-1995)</div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1994-1995</div>
+                        <div class="milestone-title">🔬 CIM Framework - Proof of Concept</div>
+                        <div class="milestone-desc">
+                            Created proof-of-concept for <strong>CIM Framework</strong> specification (originally from Texas Instruments for DoD)<br>
+                            Built semiconductor fab simulation to test implementation
+                        </div>
+                        <div class="milestone-impact">
+                            <strong>🏆 LEGACY:</strong> This CIM Framework became a <strong>SEMI INDUSTRY STANDARD</strong> and the foundation for IBM's worldwide-used SiView MES system
+                        </div>
+                        <div class="tag">Industry Standard</div>
+                        <div class="tag">Semiconductor</div>
+                        <div class="tag">Innovation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">↓ Entrepreneurship & Consulting ↓</div>
+
+            <!-- BALEX ERA -->
+            <div class="era balex">
+                <div class="era-header">
+                    <div class="era-title">🚀 BALEX Corporation Era (1995-2018)</div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">December 1995</div>
+                        <div class="milestone-title">🏢 Founded BALEX Corporation</div>
+                        <div class="milestone-desc">
+                            President, Architect & Developer<br>
+                            BALEX Software Systems, Inc. & BALEX HealthCare Services
+                        </div>
+                        <div class="tag">Founder</div>
+                        <div class="tag">Entrepreneur</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">1996-1998</div>
+                        <div class="milestone-title">🏭 IBM SiView - Core Architecture</div>
+                        <div class="milestone-desc">
+                            <strong>Led small team</strong> in design, development & integration of CIM Framework - the BACKBONE of IBM's SiView MES<br>
+                            Designed Distributed Objects Framework & Transaction Management
+                        </div>
+                        <div class="milestone-impact">
+                            <strong>🌏 GLOBAL DEPLOYMENT:</strong> SiView became the leading MES for semiconductor manufacturing, used in Giga-Fabs worldwide, achieving 1,300+ days of nonstop operation
+                        </div>
+                        <div class="tag">MES</div>
+                        <div class="tag">Global Impact</div>
+                        <div class="tag">Team Lead</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">2001-2003</div>
+                        <div class="milestone-title">📊 IBM Fishkill - Data Collection System</div>
+                        <div class="milestone-desc">
+                            Created <strong>Data Collection System (DCS)</strong> for IBM's new semiconductor fab in Fishkill, NY<br>
+                            Real-time data backbone for MES, APC subsystems, and subscribers
+                        </div>
+                        <div class="milestone-impact">
+                            <strong>🔄 Integration:</strong> DCS became integral part of SiView, in use in many fabs worldwide
+                        </div>
+                        <div class="tag">Real-time Systems</div>
+                        <div class="tag">Manufacturing</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">2003-2005</div>
+                        <div class="milestone-title">🔌 AMD Integration</div>
+                        <div class="milestone-desc">
+                            Integrated MES with mainframe financial systems<br>
+                            Created gateways for MES-Equipment Control integration
+                        </div>
+                        <div class="tag">Systems Integration</div>
+                        <div class="tag">ERP</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">2006-2010</div>
+                        <div class="milestone-title">🏥 BALEX HealthCare - EMR System</div>
+                        <div class="milestone-desc">
+                            Created in-house <strong>Electronic Medical Records system</strong> for Home Health Agencies<br>
+                            Deep dive into healthcare industry
+                        </div>
+                        <div class="milestone-impact">
+                            <strong>💼 Business Launch:</strong> Opened successful Home Health Agency using proprietary EMR system
+                        </div>
+                        <div class="tag">Healthcare IT</div>
+                        <div class="tag">EMR</div>
+                        <div class="tag">Business Development</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">2010-2018</div>
+                        <div class="milestone-title">📈 Enterprise Project Management</div>
+                        <div class="milestone-desc">
+                            Developed web-based project management system<br>
+                            Used in large <strong>ERP conversion projects</strong> in US and internationally
+                        </div>
+                        <div class="tag">Project Management</div>
+                        <div class="tag">ERP</div>
+                        <div class="tag">Web Technologies</div>
+                    </div>
+                </div>
+
+                <div class="milestone">
+                    <div class="milestone-dot"></div>
+                    <div class="milestone-content">
+                        <div class="milestone-year">2015</div>
+                        <div class="milestone-title">💳 Mastercard - Vert.x Prototypes</div>
+                        <div class="milestone-desc">
+                            Developed prototypes demonstrating <strong>Java Vert.x Framework</strong> suitability for future Mastercard projects
+                        </div>
+                        <div class="tag">Fintech</div>
+                        <div class="tag">Modern Frameworks</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEGACY SECTION -->
+        <div class="legacy">
+            <h2>🌟 Lasting Legacy & Global Impact</h2>
+            
+            <div class="legacy-grid">
+                <div class="legacy-card">
+                    <div class="icon">🏭</div>
+                    <h3>Semiconductor Manufacturing</h3>
+                    <p>
+                        His work on SEMATECH CIM Framework and IBM SiView MES continues to power semiconductor fabs worldwide. The systems he architected achieved 1,300+ days of nonstop operation and remain the industry standard for chip manufacturing.
+                    </p>
+                </div>
+                
+                <div class="legacy-card">
+                    <div class="icon">🌐</div>
+                    <h3>Internet Infrastructure</h3>
+                    <p>
+                        Contributions to DCE (Distributed Computing Environment) helped create fundamental building blocks of the internet: RPC, naming services, and Kerberos security - technologies still in use today across the globe.
+                    </p>
+                </div>
+                
+                <div class="legacy-card">
+                    <div class="icon">🏥</div>
+                    <h3>Healthcare Innovation</h3>
+                    <p>
+                        Pioneered EMR systems for home health agencies and successfully launched a healthcare business, demonstrating the ability to not just build technology but create sustainable businesses around it.
+                    </p>
+                </div>
+                
+                <div class="legacy-card">
+                    <div class="icon">📜</div>
+                    <h3>Intellectual Property</h3>
+                    <p>
+                        Holder of multiple IBM patents including groundbreaking work in database command processing and program source code translation that influenced future compiler and database technologies.
+                    </p>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Years of Engineering Excellence</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Oil Tankers Delivered</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">IBM Patents</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Global Semiconductor Fabs Using His Work</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">23</span>
+                    <span class="stat-label">Years Running BALEX</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">🌍</span>
+                    <span class="stat-label">Venezuela → USA → Japan → Worldwide Impact</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center; padding: 30px; background: #ecf0f1; border-radius: 15px; border: 2px dashed #95a5a6;">
+            <p style="font-size: 1.3em; color: #2c3e50; line-height: 1.8;">
+                <strong>From naval architect designing oil tankers in Japan,<br>
+                to software architect creating systems that power the world's semiconductor fabs,<br>
+                to entrepreneur building healthcare solutions —</strong><br><br>
+                <span style="font-family: 'Permanent Marker', cursive; font-size: 1.4em; color: #e74c3c;">
+                    Domingo Hidalgo's journey exemplifies the power of continuous learning,<br>
+                    technical excellence, and global impact.
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
