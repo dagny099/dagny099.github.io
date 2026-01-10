@@ -83,6 +83,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 <!-- =======================
      How I Think Section (NEW)
      ======================= -->
+
 <div class="home-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 0.05rem; border-radius: 12px; margin: 0;">
   <h2 style="text-align: center; margin: 1rem;">🧠 How I Think About Data</h2>
   

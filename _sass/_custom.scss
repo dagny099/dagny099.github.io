@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .page-shell{
-  max-width: var(--content-max);
+  max-width: 1100px;
   margin: 0 auto;
   padding: clamp(1.5rem, 3vw, 2.75rem) var(--page-edge);
 }
@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5, h6{
 .story-page .page-shell,
 .thinking-page .page-shell,
 .project-page .page-shell,
-.journey-page .page-shell{ max-width: var(--content-max); }
+.journey-page .page-shell{ max-width: 1200px; }
 
 .story-page .page__title{ display: none !important; }                                                                                                                                      
 
@@ -1151,4 +1151,56 @@ h1, h2, h3, h4, h5, h6{
 
 .writing-section .taxonomy__index{
   margin-top: .75rem;
+}
+
+
+/* ============================
+   My Journey: heading system
+   ============================ */
+
+.journey-page {
+  /* Choose ONE heading font for the whole page */
+  --journey-heading-font: var(--font-heading); /* keeps your site consistent */
+  --journey-heading-color: #2c3e50;
+}
+
+/* Hero title */
+.journey-page .journey-hero-title {
+  font-family: var(--journey-heading-font);
+  color: var(--journey-heading-color);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+}
+
+/* Section titles */
+.journey-page .journey-section-title {
+  font-family: var(--journey-heading-font);
+  color: var(--journey-heading-color);
+  font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 1rem;
+}
+
+/* Card / subhead consistency inside the page */
+.journey-page .timeline-card h3,
+.journey-page .principle h3,
+.journey-page .about-endnote h3,
+.journey-page .lens h4 {
+  font-family: var(--journey-heading-font);
+  color: var(--journey-heading-color);
+}
+
+.journey-page .timeline-card h3,
+.journey-page .principle h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.journey-page .lens h4 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
 }

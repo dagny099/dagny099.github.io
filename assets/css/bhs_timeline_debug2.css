@@ -1,0 +1,70 @@
+/* -----------------------------------------------------------
+   BHS Timeline Debug + Layout Overrides
+   Purpose: make it OBVIOUS when custom CSS is loading,
+   then fix the “cramped” slide layout.
+----------------------------------------------------------- */
+
+/* 1) OBVIOUS VISUAL PROOF your CSS loaded */
+.tl-timeline {
+  outline: 6px solid rgba(255, 0, 0, 0.35) !important;
+}
+
+.tl-slide {
+  outline: 3px solid rgba(0, 140, 255, 0.25) !important;
+}
+
+/* 2) Improve cramped layout (inline styles require !important) */
+.tl-slide-content-container {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
+.tl-slide-content {
+  width: min(1200px, 92vw) !important;
+  padding-left: 72px !important;
+  padding-right: 72px !important;
+}
+
+/* 3) Give text/media more breathing room */
+.tl-text,
+.tl-media {
+  max-width: none !important;
+}
+
+.tl-media {
+  flex: 0 0 52% !important;
+  max-width: 52% !important;
+}
+
+.tl-text {
+  flex: 0 0 48% !important;
+  max-width: 48% !important;
+}
+
+/* 4) Typography: less cramped */
+.tl-headline {
+  line-height: 1.05 !important;
+  font-size: clamp(28px, 4vw, 64px) !important;
+}
+
+.tl-text-content p {
+  font-size: 18px !important;
+  line-height: 1.55 !important;
+  max-width: 65ch;
+}
+
+/* 5) Small screens: stack more gracefully */
+@media (max-width: 900px) {
+  .tl-slide-content {
+    width: 94vw !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .tl-media,
+  .tl-text {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+

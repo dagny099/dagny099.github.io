@@ -18,7 +18,7 @@ classes: [journey-page]
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     will-change: opacity, transform;
     padding: clamp(2.5rem, 4vw, 3.5rem) var(--page-edge);
-    max-width: var(--content-max);
+    /* max-width: 1200px;  this caps width to themes content, often 900-1000 (--content-max); */
     margin: 0 auto;
     background: #fff;
     border: 1px solid rgba(0,0,0,0.05);
@@ -179,13 +179,15 @@ classes: [journey-page]
     color: var(--accent-color, #e17b47);
     margin-bottom: 0.5rem;
   }
-  .section-title {
+  /* .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     color: #1c1c1c;
     margin-bottom: 1rem;
     text-align: left;
   }
+  */
+
   .principles-grid, .lenses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -274,6 +276,83 @@ classes: [journey-page]
       padding: 2rem 1rem;
     }
   }
+
+  /* --- Hero compaction --- */
+.journey-page .journey-hero {
+  padding: 2.1rem var(--page-edge);
+}
+
+/* .journey-page .journey-hero .section-title {
+  font-size: 1.75rem;     
+  margin-bottom: 0.65rem;
+} */
+
+.journey-page .hero-lede {
+  font-size: 1.0rem;       /* down from 1.1rem */
+  line-height: 1.55;
+  color: #5a6c7d;
+  margin: 0.25rem 0 0.9rem;
+}
+
+.journey-page .hero-short {
+  font-size: 0.95rem;
+  color: #5a6c7d;
+  margin: 0.85rem 0 0;
+}
+
+/* Chips row: visual without height explosion */
+.journey-page .hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.journey-timeline .timeline-intro {
+  color: #5a6c7d;
+}
+
+.journey-timeline .timeline-embed {
+  margin-top: 1.5rem;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.journey-timeline iframe {
+  width: 100%;
+  display: block;
+  border: 0;
+}
+
+.jump-link {
+  margin: 0.5rem 0 0;
+  text-align: right;
+}
+
+.jump-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: #5a6c7d;
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.jump-link a:hover {
+  color: #1f4a64; /* or your theme accent */
+  border-bottom-color: rgba(31,74,100,0.55);
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -120px;     /* header height */
+  height: 0;
+  visibility: hidden;
+}
+
 </style>
 
 <script>
@@ -291,10 +370,10 @@ classes: [journey-page]
 
 <div class="page-shell section-stack">
 <!-- HERO -->
-<section style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
-  <!-- Left: Title -->
+<section class="journey-hero" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+  <!-- HERO -->
   <div style="flex: 1 1 300px;">
-    <h1 class="section-title">The Cognitive Scientist Who Builds Data Systems</h1>
+    <h1 class="journey-hero-title">The Cognitive Scientist Who Builds Data Systems</h1>
   </div>
 
   <!-- Right: Circular Image -->
@@ -303,22 +382,60 @@ classes: [journey-page]
   </div>
 
   <!-- Subtitle below -->
-  <div style="flex-basis: 100%; margin-top: 1rem;">
-    <p style="font-size: 1.1rem; color: #5a6c7d; line-height: 1.6;">
-    <strong>I’m a cognitive scientist who builds human-centered data systems.</strong><br>
-    My MIT eye-tracking research (hundreds of citations) taught me how people actually see, remember, and decide. 
-    Today I use those principles to design AI workflows and data platforms that reduce cognitive load and drive action.
-    <br><br>
-    <strong>Short version: technology should work the way humans think.</strong>
+  <div style="flex-basis: 100%; margin-top: 0.75rem;">
+    <p class="hero-lede">
+      <strong>I’m a cognitive scientist who builds human-centered data systems.</strong>
+      My MIT eye-tracking research taught me how people actually see, remember, and decide.
+      Today I use those principles to design AI workflows and data platforms that reduce cognitive load and drive action.
+    </p>
+
+    <div class="hero-chips">
+      <span class="chip academic"><span class="chip-icon">🎓</span>MIT Cognitive Science</span>
+      <span class="chip professional"><span class="chip-icon">🧠</span>Human-Centered AI</span>
+      <span class="chip learning"><span class="chip-icon">🕸️</span>Knowledge Graphs & RAG</span>
+    </div>
+
+    <p class="hero-short">
+      <strong>Short version:</strong> technology should work the way humans think.
+    </p>
+    <p class="jump-link">
+      <a href="#journey-timeline" aria-label="Jump to the timeline">
+        Jump to timeline <span aria-hidden="true">↓</span>
+      </a>
     </p>
   </div>
 </section>
 
-<!-- <Visual suggestion: Eye-tracking heatmap from my MIT research or a figure from a published papers>> -->
+<!-- TimelineJS of a Visual Timeline. (broad strokes) -->
+ <section class="journey-timeline">
+<span id="journey-timeline" class="anchor"></span>
+  <h2 class="journey-section-title">At-a-Glance: Education & Big Moves</h2>
+  <p class="timeline-intro">
+    A quick visual snapshot of the milestones that shaped my path — from UT Austin and MIT to
+    data science and consulting.
+  </p>
+
+  <div class="timeline-embed">
+    <iframe
+      src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vTIz_QSIlc25C50KKxKpS1T4ROr-09sgQP0L2cLQQsEAGvAjzHPWPyQgsT2avXiNAbONHEBKAWRK61Z&width=100%25&height=520&theme=https%3A%2F%2Fbarbhs.com%2Fassets%2Fcss%2Fbhs_timeline_debug.css"
+      width="100%"
+      height="520"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p class="jump-link">
+    <a href="#journey-turns" aria-label="Jump to details">
+      Jump to Details <span aria-hidden="true">↓</span>
+    </a>
+  </p>
+</section>
+
 
 <!-- TIMELINE -->
 <section>
-  <h2 class="section-title">The Big Turns</h2>
+<span id="journey-turns" class="anchor"></span>
+  <h2 class="journey-section-title">The Big Turns</h2>
 
   <div class="timeline-card academic card-with-image-right">
     <div class="card-content">
