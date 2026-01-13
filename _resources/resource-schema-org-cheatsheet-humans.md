@@ -3,7 +3,8 @@ layout: single
 title: "Schema.org Cheatsheet (Humans Edition)"
 subtitle: "A plain-language guide to the metadata layer that helps search engines understand your pages"
 permalink: /resources/schema-org-cheatsheet-humans/
-toc: true
+status: draft
+published: false
 ---
 
 A one-page guide for non-technical readers: what Schema.org is, why it matters, what to write, and how to do a quick health check.

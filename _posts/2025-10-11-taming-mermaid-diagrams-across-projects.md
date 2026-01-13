@@ -2,6 +2,7 @@
 layout: single
 title: How I Organized My Mermaid Life
 subtitle: A cross project workflow for humans with too many ideas
+date: 2025-10-11
 permalink: /blog/taming-mermaid-diagrams/
 redirect_from:
   - /posts/organized-mermaid-life/
@@ -12,22 +13,15 @@ excerpt: Treat Mermaid diagrams like <b>visual source code</b>   with a home, st
 excerpt_display: true
 tags: [documentation, diagrams, workflow, visual-code, tutorial]
 stack: [Mermaid.js, Streamlit, Markdown, Git]
-classes: wide
+classes: [wide]
 categories: [tutorial]
-date: 2025-01-11
-last_modified_at: 2025-02-16
-#author_profile: false
 #toc: true
 #toc_label: "Table of Contents"
 #toc_icon: "list"
 #toc_sticky: true
 ---
 
-# How I Organized My Mermaid Life
-
-<div style="font-variant: small-caps; font-size: 0.9rem; color:#555; margin-top:3rem;">
-OVERVIEW
-</div>
+## Overview
 
 <img src="{{ '/assets/diagrams/scattered_vs_structured_diagram_workflow_v1.svg' | relative_url }}" alt="diagrams everywhere" style="float:left; margin: 1em 2em 1em 2em; max-width:500px; height:auto;">
 

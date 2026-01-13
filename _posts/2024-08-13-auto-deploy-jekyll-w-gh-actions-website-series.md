@@ -3,7 +3,6 @@ layout: single
 title: "Digital Home Base Workshop Part 3- Automate Your Site with GitHub Actions"
 subtitle: "Set up continuous deployment with GitHub Actions for seamless Jekyll builds"
 date: 2024-08-13
-last_modified_at: 2024-08-13
 sitemap:
     priority: 0.5
 classes: [wide]

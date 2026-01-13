@@ -16,18 +16,7 @@ This website is my digital hub where I share projects, articles, and my musings 
 - 📝 Blog where I write about data science, knowledge organization, and on occasion current events
 - 🐝 Custom design to reflect my personal interests
 - ✓ Metadata validation script to ensure content quality and SEO optimization
-- 🧩 Snippets collection (added 12/31/25) for short, reusable insights
-
-## Adding a new snippet
-
-Snippets live in the `_snippets/` collection and render to `/snippets/`. To add one:
-
-1. Duplicate `_snippets/TEMPLATE.md`.
-2. Fill in the front matter (title, date, status, source metadata, highlight, takeaway, tags/topics).
-3. Write a brief reflection in the body (optional).
-4. Save the file with a descriptive name and refresh the site.
-
-Snippets start as `status: inbox` and move to `status: garden` once synthesized.
+- 🧩 Snippets collection (added 12/11/25) for short, reusable insights
 
 
 ## How It's Built
@@ -78,7 +67,7 @@ If you're interested in how this site is set up or want to use it as a template 
 1. Clone this repository
 2. Make sure you have Jekyll installed (see [Jekyll Installation Guide](https://jekyllrb.com/docs/installation/))
 3. Run `bundle install` to install dependencies
-4. Run `bundle exec jekyll serve` to start the local server
+4. Run `bundle exec jekyll serve` or `bundle exec jekyll serve --port 4000` to start the local server
 5. Visit `http://localhost:4000` in your browser
 
 **Before committing new content:**

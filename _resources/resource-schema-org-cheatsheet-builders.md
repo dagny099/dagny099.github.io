@@ -3,7 +3,8 @@ layout: single
 title: "Schema.org Cheatsheet (Builders Edition)"
 subtitle: "YAML → JSON-LD mapping, schema-type rules, and a 2-minute validation workflow"
 permalink: /resources/schema-org-cheatsheet-builders/
-toc: true
+status: draft
+published: false
 ---
 
 A one-page reference for how this site turns YAML front matter into Schema.org JSON-LD, plus quick ways to verify it's working.

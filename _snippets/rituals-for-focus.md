@@ -1,8 +1,10 @@
 ---
 title: "Rituals beat willpower for deep work"
+section: snippets
 date: 2024-03-05
 last_modified_at: 2024-03-05
 status: inbox
+published: false
 source_type: book
 source_title: "Deep Work"
 source_creator: "Cal Newport"
@@ -18,4 +20,5 @@ header:
 related: []
 ---
 
-Try a 5-minute pre-work checklist and track whether the first 20 minutes feel smoother.
+Developed by Francesco Cirillo in the 1980s, it uses a tomato-shaped kitchen timer (Pomodoro in Italian) to structure work and combat procrastination through focused sprints and regular rest, helping users maintain concentration and manage time pressure.
+

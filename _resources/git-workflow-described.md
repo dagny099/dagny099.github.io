@@ -21,7 +21,9 @@ categories: [tutorial]
 #toc_label: "Table of Contents"
 #toc_icon: "list"
 #toc_sticky: true
+status: draft
 published: false
+
 ---
 # Git Workflow for Keeping Organized
 

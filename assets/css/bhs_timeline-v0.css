@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Base timeline style */
+.tl-timeline {
+  background-color: #FAFAFA;
+}
+
+/* Slide container */
+.tl-slide {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  background-color: white;
+}
+
+/* Headline styling */
+.tl-headline {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  color: #1C3A55;
+}
+
+/* Date label styling */
+.tl-headline-date {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: #2D3E50;
+}
+
+/* Body text styling */
+.tl-text p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+}
+
+/* Media credit and caption */
+.tl-credit {
+  font-size: 12px;
+  color: #666666;
+  font-style: italic;
+}
+
+.tl-caption {
+  font-size: 14px;
+  color: #555555;
+}
+
+/* Timeline navigation styling */
+.tl-menubar, .tl-timegroup {
+  background-color: #2D3E50;
+  color: white;
+}
+
+/* Marker customization */
+.tl-marker {
+  background-color: #1C3A55;
+  border-radius: 50%;
+}

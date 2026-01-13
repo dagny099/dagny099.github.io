@@ -1,6 +1,22 @@
-# Understanding Your Schema.org Implementation
-
-This document explains how Schema.org structured data works on your site and how to verify it's working correctly.
+---
+layout: single
+title: "Understanding Your Schema.org Implementation"
+subtitle: "This document explains how Schema.org structured data works on your site and how to verify it's working correctly."
+date: 2025-12-01
+last_modified_at: 2025-12-23
+sitemap:
+    priority: 0.5
+permalink: /resources/explainer-schema-org-website/
+excerpt: "Understand how Schema.org is implmented on a website like this one :)"
+tags: [connected-data, schema.org, seo]
+categories: [""]
+format: Explainer
+level: Beginner
+# header:
+#   teaser: /assets/resources/vision/teaser.jpg
+#download_url: /assets/resources/checklist_color_contrast.pdf
+#cognitive_principle: "Perception & Visual Processing"
+---
 
 ## What is Schema.org?
 
@@ -137,6 +153,7 @@ A: Edit `_includes/schema.html` to add additional schema properties. Refer to ht
 - [Google Search Central - Structured Data](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
 - [JSON-LD specification](https://json-ld.org/)
 
+IN PROGRESS: A one-pager to help me remember how Schema.org impacts my site. 
 ---
 
-*Last updated: December 27, 2024*
+*Last updated: December 23, 2025*

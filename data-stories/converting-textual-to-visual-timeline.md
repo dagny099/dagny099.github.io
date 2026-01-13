@@ -1,10 +1,29 @@
-# ChronoScope Data Story: Turning Text into Visuals, Part 1 - Draft Jan-2-26
+---
+layout: single
+section: data-stories
+title: "ChronoScope Data Story: Turning Text into Visuals, Part 1"
+permalink: /data-stories/building-personal-resume-2026/
+date: 2026-01-02
+last_modified_at: 2026-01-02
+header:
+  overlay_image: /assets/images/bees_pollen.jpg
+  overlay_filter: 0.5
+  teaser: /assets/images/bees_pollen_th.jpg
+excerpt: ""
+tags: []
+stack: []
+classes: [story-page]
+breadcrumbs: false
+author_profile: false
+status: draft  
+published: false
+
+---
 
 **Working Title:** 
 - “Building a Personal Timeline From my Resume(s) and Unlocking Knowledge from the Data"
 - “Getting more from visuals than words: What I Learned by Letting LLMs Munch 10 of my Resumes"
 
----
 
 ## Story Arc Summary
 

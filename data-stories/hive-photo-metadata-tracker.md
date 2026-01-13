@@ -1,5 +1,6 @@
 ---
 layout: single
+section: data-stories
 title: "Becoming a Backyard Beekeeper: a small step for ecological health, and the metadata chaos it spawned"
 permalink: /data-stories/hive-photo-metadata-tracker/
 header:
@@ -10,7 +11,6 @@ excerpt: "The idea had been calling me for yrs: Build a Knowledge Graph from my 
 tags: [computer-vision, image-analysis, metadata-extraction, knowledge-graph]
 stack: [Python, Google Cloud Vision API, Neo4j, Plotly, EXIF]
 classes: [story-page]
-section: data-stories
 breadcrumbs: false
 author_profile: false
 date: 2024-09-10

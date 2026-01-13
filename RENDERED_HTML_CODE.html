@@ -1,0 +1,1100 @@
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><!----><title>Barbara Hidalgo-Sotelo, PhD — Cognitive Scientist &amp; Data Scientist</title>
+<meta name="description" content="Cognitive scientist and data scientist exploring messy data, intelligent systems, and how people make meaning. Projects, data stories, and resources on human-centered AI, visualization, and knowledge systems.">
+
+
+  <meta name="author" content="Dr. Barbara">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Barbara Hidalgo-Sotelo">
+<meta property="og:title" content="Barbara Hidalgo-Sotelo, PhD — Cognitive Scientist &amp; Data Scientist">
+<meta property="og:url" content="http://localhost:4001/">
+
+
+  <meta property="og:description" content="Cognitive scientist and data scientist exploring messy data, intelligent systems, and how people make meaning. Projects, data stories, and resources on human-centered AI, visualization, and knowledge systems.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4001/">
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:4001/#website",
+      "url": "http://localhost:4001/",
+      "name": "Barbara Hidalgo-Sotelo",
+      "description": "Exploring messy data, intelligent systems, and what it means to make meaning—through the lens of a cognitive scientist who builds things people actually use.",
+      "publisher": {
+        "@id": "http://localhost:4001/#person"
+      },"potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "http://localhost:4001/?s={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "http://localhost:4001/#person",
+      "name": "Barbara Hidalgo-Sotelo, PhD",
+      "url": "http://localhost:4001/",
+      "sameAs": ["https://www.linkedin.com/in/barbara-hidalgo-sotelo/","https://github.com/dagny099"]
+    }
+    ,
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "http://localhost:4001/#navigation",
+      "name": "Main Navigation",
+      "hasPart": [
+        
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Start Here",
+          "url": "http://localhost:4001/start-here/"
+        },
+        
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Writing",
+          "url": "http://localhost:4001/writing/"
+        },
+        
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Projects",
+          "url": "http://localhost:4001/projects/"
+        },
+        
+        {
+          "@type": "SiteNavigationElement",
+          "name": "My Journey",
+          "url": "http://localhost:4001/my-journey/"
+        },
+        
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Resources",
+          "url": "http://localhost:4001/resources/"
+        },
+        
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Contact",
+          "url": "http://localhost:4001/contact/"
+        }
+        
+      ]
+    }
+    
+  ]
+}
+</script>
+
+<meta name="google-site-verification" content="LDB7M809YFjVa-4kLD3w4JZx7UgViTqKZLo0IGye3PU" /> 
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+<!-- begin _includes/schema.html -->
+<!-- Schema.org structured data for rich snippets in search results --><!-- end _includes/schema.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Barbara Hidalgo-Sotelo Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPLSBQSHER"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPLSBQSHER');
+</script>
+
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<!--NOTE: Page.title configuration lives in _includes/seo.html-->
+
+
+
+    <!-- 
+<style>
+.home-cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1rem; padding: 2rem 0;
+}
+.home-card{
+  display:block; background: var(--card-bg, #fff);
+  border-radius: 12px; padding: 1rem 1.25rem;
+  text-decoration:none; box-shadow: 0 1px 8px rgba(0,0,0,.05);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+.home-card:hover{ transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.home-card__title{ font-weight: 700; font-size: 1.05rem; margin-bottom: .25rem; }
+.home-card__subtitle{ font-size: .95rem; opacity:.9; margin-bottom:.35rem; }
+.home-card__desc{ font-size: .9rem; opacity:.82; line-height: 1.45; }
+</style>
+ -->
+<!-- start custom head snippets -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--splash home" dir="ltr">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/swirl_barb_logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Barbara Hidalgo-Sotelo
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/start-here/" title="Curated highlights across data narratives, essays, and notes.">Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a href="/writing/" title="Explore the ideas, methods, and builds behind the work.">Writing</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/" title="Data products, AI systems, and knowledge graphs in production.">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/my-journey/" title="Career pivots, learning, and shipped work over time.">My Journey</a>
+            </li><li class="masthead__menu-item">
+              <a href="/resources/" title="Checklists and PDFs for faster collaboration.">Resources</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/" title="Simple form + email. Low friction.">Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="background-color: #1e3a5f; background-image: linear-gradient(rgba(0, 0, 0, 0.7;), rgba(0, 0, 0, 0.7;)), url('');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Barbara Hidalgo-Sotelo, PhD — Cognitive Scientist &amp; Data Scientist
+
+        
+      </h1>
+      
+        <p class="page__lead">Making meaning out of messy data. I apply cognitive science to build AI and data systems that work the way humans think.
+<p class="hero-ctas hero-ctas--pinned"> <a class="btn hero-btn hero-btn--primary" href="/my-journey/">My Journey&nbsp; <i class="fas fa-shoe-prints"></i></a> <a class="btn hero-btn hero-btn--ghost" href="/contact/"> Get in Touch&nbsp;<i class="fas fa-paper-plane"></i></a> 
+</p>
+      
+      
+
+
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Austin, TX · Data Scientist · PhD Cognitive Science, MIT · Human-Centered AI · Explainable Systems
+</span>
+  
+</div>
+
+
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Barbara Hidalgo-Sotelo, PhD — Cognitive Scientist &amp; Data Scientist">
+    <meta itemprop="description" content="Making meaning out of messy data. I apply cognitive science to build AI and data systems that work the way humans think. My Journey&nbsp;   Get in Touch&nbsp; ">
+    
+    
+
+    <section class="page__content" itemprop="text">
+      <!--
+<div class="home-section">
+<b>I'm Barbara Hidalgo-Sotelo, a data scientist with a PhD in cognitive science from MIT.</b> My research on visual attention—how humans find meaning in complex visual scenes—has been 
+<a href="https://scholar.google.com/citations?user=nQG25vkAAAAJ" target="_blank">cited 430+ times</a> and continues to shape how I approach every data problem.
+
+Here's what that looks like in practice: When I build metadata tools, I don't just make them technically correct—I design them to match how people actually recall information, through association and context rather than alphabetical lists. When I develop dashboards, I think about where eyes naturally land first and what questions people are actually trying to answer under cognitive load.
+
+<b>I solve data problems through a cognitive lens</b>—across healthcare, federal consulting, and cloud platforms. Not just technically capable, but designing for how attention works, how memory organizes, and how understanding happens in layers.
+</div>
+      Every interface I design, every model I train, every visualization I create is informed by 
+      <strong>years of tracking eye movements</strong> and studying how humans process information.
+
+-->
+<!-- =======================
+     How I Think Section (NEW)
+     ======================= -->
+
+<div class="home-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 0.05rem; border-radius: 12px; margin: 0;">
+  <h2 style="text-align: center; margin: 1rem;">🧠 How I Think About Data</h2>
+  
+  <div style="max-width: 850px; margin: 0 auto; text-align: center; line-height: 1.4;">
+    <p style="font-size: 0.9em; margin-bottom: 1.5rem;">
+      My research at MIT taught me that humans don’t just see data—they construct meaning. I design solutions with this in mind, optimizing dashboards for natural eye movement and building ML systems that can explain their reasoning.
+    </p>
+    
+    <div style="margin: 1rem;">
+      <a href="/my-journey/#cognitive-foundation" class="btn btn--primary">My Approach</a>
+     <!-- <a href="/thinking/why-dashboards-fail/" class="btn btn--light">Read: Why Dashboards Fail</a> -->
+    </div>
+  </div>
+</div>
+
+<!-- =======================
+     Featured Writing
+     ======================= -->
+<div class="home-section home-section--writing">
+  <h2 class="home-section__heading">Featured Writing</h2>
+  <p class="home-section__subheading">
+    A mix of notes &amp; experiments, data narratives, and essays &amp; perspectives—built to show how I approach messy problems.
+  </p>
+
+  <div class="featured-writing">
+    <article class="featured-writing__card">
+      <p class="featured-writing__badge">Data Narrative</p>
+      <h3><a href="/data-stories/hive-photo-metadata-tracker/">The Beekeeper’s Time Machine</a></h3>
+      <p>
+      Explore how extracting timestamps and visual features from years of my own hive photos lets me travel through inspection history, revealing rhythms, surprises, and insights that would otherwise remain hidden. 
+      </p>
+      <a class="featured-writing__link" href="/data-stories/hive-photo-metadata-tracker/">Read the story →</a>
+    </article>
+
+    <article class="featured-writing__card">
+      <p class="featured-writing__badge featured-writing__badge--tutorial">Tutorials &amp; Guides</p>
+      <h3><a href="/series/website-building/">Building a Sustainable Digital Home</a></h3>
+      <p>
+      A supportive, skills-forward series that helps you launch a personal website, automate publishing, document your process, and build a platform you’ll actually want to keep using over time.
+      </p>
+      <a class="featured-writing__link" href="/series/website-building/">Open the guide →</a>
+    </article>
+
+    <article class="featured-writing__card">
+      <p class="featured-writing__badge featured-writing__badge--thinking">Applied Thinking</p>
+      <h3><a href="/blog/taming-mermaid-diagrams/">Making Mermaid Diagrams Work for You</a></h3>
+      <p>
+      Cut through the chaos of tangled graph drawings with practical tips and structured approaches that bring confidence to crafting Mermaid diagrams that actually convey what you mean.
+      </p>
+      <a class="featured-writing__link" href="/blog/taming-mermaid-diagrams/">Read the post →</a>
+    </article>
+  </div>
+
+  <p class="featured-writing__cta">
+    <a class="browse-all" href="/writing/">Browse all writing</a>
+  </p>
+</div>
+
+<!-- =======================
+     Cognitive Principles (NEW)
+     ======================= -->
+<div class="home-section home-section--principles">
+  <h2 class="home-section__heading">Cognitive Principles in Practice</h2>
+
+  <div class="principles-grid">
+    <div class="principle-card principle-card--vision">
+      <div class="principle-card__icon" aria-hidden="true">👁️</div>
+      <h3>Vision Drives Understanding</h3>
+      <p>
+        Design for scanning, not reading. Your brain decides what matters in 200ms.
+      </p>
+      <a href="/resources/visual-decision-making/">See the Perception Guide →</a>
+    </div>
+
+    <div class="principle-card principle-card--attention">
+      <div class="principle-card__icon" aria-hidden="true">🧠</div>
+      <h3>Attention is Limited</h3>
+      <p>
+        Use it wisely. Humans can track 7±2 things—design within this constraint.
+      </p>
+      <a href="/projects/convoscope/">See Convoscope Example →</a>
+    </div>
+
+    <div class="principle-card principle-card--patterns">
+      <div class="principle-card__icon" aria-hidden="true">🔄</div>
+      <h3>Patterns Beat Numbers</h3>
+      <p>
+        Humans think in stories. Show the narrative, not just the statistics.
+      </p>
+      <a href="/projects/fitness-dashboard/">See Fitness Story →</a>
+    </div>
+  </div>
+</div>
+
+<!-- =======================
+     Featured Work (cards)
+     ======================= -->
+<div class="home-section">
+<details class="home-accordion" data-section="projects" open="">
+    <summary style="text-align: center;"><h2>Featured Projects</h2></summary>
+
+    <div class="feature__wrapper">
+  
+  <div class="feature__item">
+    <div class="archive__item">
+
+      
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teasers/proj-fitness-v1-1024x768.jpg" alt="Fitness Dashboard" />
+      </div>
+      
+
+      <div class="archive__item-body">
+        
+          
+            <h2 class="archive__item-title"><a href="/projects/fitness-dashboard/">Self-Hosted Workout Intelligence</a></h2>
+          
+        
+
+        
+        <div class="archive__item-excerpt">
+          <p><strong>Attention patterns reveal signal in 14 years of messy data.</strong><br /><br /> When my running data collided with daily dog walks, every workout got mislabeled as a “run”—even the 30 minute sniff walks.  I built a full pipeline (auto csv export → <i class="fab fa-aws"></i> λ → <i class="fas fa-database"></i> → <i class="fas fa-chart-line"></i>)  that classifies runs vs. walks using ML, with built-in model retraining for transparency.  <br /><br /> <em>Cognitive insight: Humans recognize patterns through contrast and repetition—this system leverages both to surface the real story in behavioral data.</em></p>
+
+        </div>
+        
+
+        <div class="cta-row">
+          
+            <a class="btn--cta primary" href="/projects/fitness-dashboard/">
+              <span class="material-symbols-rounded" aria-hidden="true">folder</span>
+              <span>Project</span>
+            </a>
+          
+          
+            <a class="btn--cta secondary" href="https://docs.barbhs.com/fitness-dashboard/" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-rounded" aria-hidden="true">description</span>
+              <span>Docs</span>
+            </a>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="feature__item">
+    <div class="archive__item">
+
+      
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teasers/proj-convo-v1-1024x768.jpg" alt="Convoscope" />
+      </div>
+      
+
+      <div class="archive__item-body">
+        
+          
+            <h2 class="archive__item-title"><a href="/projects/convoscope/">Conversational AI Management</a></h2>
+          
+        
+
+        
+        <div class="archive__item-excerpt">
+          <p><strong>Multi-modal comparison designed for cognitive load management.</strong><br /><br /> Hopping between AI providers while losing track of what worked where felt increasingly inefficient. Convoscope is my solution:  one interface, <i class="fas fa-robot"></i> multiple models (OpenAI, Anthropic, Google), <i class="fas fa-save"></i> persistent  conversation history, and automatic topic extraction. It’s a flexible workspace for comparing outputs side-by-side. <br /><br /> <em>Cognitive insight: Working memory can only hold 7±2 items—by offloading comparison to visual space, we free cognitive resources for actual thinking.</em></p>
+
+        </div>
+        
+
+        <div class="cta-row">
+          
+            <a class="btn--cta primary" href="/projects/convoscope/">
+              <span class="material-symbols-rounded" aria-hidden="true">folder</span>
+              <span>Project</span>
+            </a>
+          
+          
+            <a class="btn--cta secondary" href="https://docs.barbhs.com/convoscope/" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-rounded" aria-hidden="true">description</span>
+              <span>Docs</span>
+            </a>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <div class="feature__item">
+    <div class="archive__item">
+
+      
+      <div class="archive__item-teaser">
+        <img src="/assets/images/teasers/proj-beehive-v1-1024x768.jpg" alt="Beehive Tracker" />
+      </div>
+      
+
+      <div class="archive__item-body">
+        
+          
+            <h2 class="archive__item-title"><a href="/projects/beehive-tracker/">Beehive Analytics Platform</a></h2>
+          
+        
+
+        
+        <div class="archive__item-excerpt">
+          <p><strong>Computer vision meets human memory to structure 4 years of visual documentation.</strong><br /><br /> Four years of unlabeled bee photos became a living knowledge base by combining <i class="fas fa-camera"></i> EXIF metadata,  Google Cloud Vision, and <i class="fas fa-cloud-sun"></i> weather APIs. The result: a knowledge graph with a query UI that  surfaces patterns—when swarms happened, which seasons were productive, what weather preceded problems. <br /><br /> <em>Cognitive insight: Human memory is associative, not chronological—this system mirrors how beekeepers actually recall and connect observations.</em></p>
+
+        </div>
+        
+
+        <div class="cta-row">
+          
+            <a class="btn--cta primary" href="/projects/beehive-tracker/">
+              <span class="material-symbols-rounded" aria-hidden="true">folder</span>
+              <span>Project</span>
+            </a>
+          
+          
+            <a class="btn--cta secondary" href="https://docs.barbhs.com/beehive-tracker/" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-rounded" aria-hidden="true">description</span>
+              <span>Docs</span>
+            </a>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+</div>
+
+  </details>
+</div>
+
+<!-- =======================
+     Resources & Guides
+     ======================= -->
+<div class="home-section">
+  <details class="home-accordion" data-section="resources" open="">
+    <summary><h2>Resources &amp; Guides</h2></summary>
+
+    <div class="feature__wrapper">
+
+  <div class="resource-minis">
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/visual-decision-making/">Vision &amp; Perception Cheatsheet</a></h3>
+        <p>One-pager turning perception science into practical defaults for dashboards and briefs.</p>
+      </div>
+    </article>
+
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-file-alt" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/executive-brief/">Executive Brief Template</a></h3>
+        <p>Turn fuzzy threads into crisp, action-ready briefs with evidence links—designed for executive attention spans.</p>
+      </div>
+    </article>
+
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/dataset-cards/">Dataset &amp; Prompt Cards</a></h3>
+        <p>Lightweight governance you can actually keep—structure, versions, and reproducible envs.</p>
+      </div>
+    </article>
+
+    <article class="resource-mini">
+      <div class="resource-mini__icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+      <div class="resource-mini__body">
+        <h3><a href="/resources/streamlit-bridge/">Streamlit: DS to App, Without Drama</a></h3>
+        <p>From notebook to interactive app in hours. Pragmatic guide, patterns, and gotchas.</p>
+      </div>
+    </article>
+  </div>
+
+    <p style="margin:.5rem 0 0 0.5rem;">
+      <a class="browse-all" href="/resources/">Browse all resources</a>
+    </p>
+  </div>
+  </details>
+</div>
+
+<!-- TimelineJS of a Visual Timeline. (broad strokes) -->
+<div class="home-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 0.05rem; border-radius: 12px; margin: 0;">
+ <section class="journey-timeline">
+<span id="journey-timeline" class="anchor"></span>
+  <h2 class="journey-section-title">At-a-Glance: Education &amp; Big Moves</h2>
+  <p class="timeline-intro">
+    A quick visual snapshot of the milestones that shaped my path — from UT Austin and MIT to
+    data science and consulting.
+  </p>
+
+  <div class="timeline-embed">
+    <iframe src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vTIz_QSIlc25C50KKxKpS1T4ROr-09sgQP0L2cLQQsEAGvAjzHPWPyQgsT2avXiNAbONHEBKAWRK61Z&amp;width=100%25&amp;height=520&amp;theme=https%3A%2F%2Fbarbhs.com%2Fassets%2Fcss%2Fbhs_timeline_debug.css" width="100%" height="520" frameborder="0" allowfullscreen=""></iframe>
+  </div>
+  <p class="jump-link">
+    <a href="/my-journey" aria-label="Read more at My Journey">
+      Read more at My Journey aria-hidden="true"&gt;↓&lt;/span&gt;
+    </a>
+  </p>
+</section>
+</div>
+
+<!-- =======================
+     What I'm Exploring (NEW mini section)
+     ======================= -->
+<div class="home-section" style="background: white; border: 1px solid #e9ecef; border-radius: 12px; padding: 2rem; margin: 2rem 0;">
+  <h3 style="text-align: center; color: #495057; margin-bottom: 1.5rem;">🔬 Currently Exploring</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      AI Explainability
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Knowledge Graphs
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Human-AI Collaboration
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Attention Mechanisms in LLMs
+    </span>
+    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
+      Data Product Design
+    </span>
+  </div>
+  <p style="text-align: center; margin-top: 1.5rem; color: #6c757d;">
+    Interested in discussing any of these? <a href="/contact/">Let's connect</a>
+  </p>
+</div>
+
+<!-- THIS IS COOOL THAT THE section_tiles are an include!>
+<!-- 
+
+<div class="section-tiles">
+  
+  
+    
+      <a class="section-tile"
+         href="/start-here/"
+         style="--tile-color: #1d4ed8; --tile-bg: #eff6ff;">
+        <p class="t-title">Start</p>
+        <p class="t-sub">A guided tour of my writing and thinking.</p>
+      </a>
+    
+  
+    
+      <a class="section-tile"
+         href="/writing/"
+         style="--tile-color: #3b4a73; --tile-bg: #f2f4fb;">
+        <p class="t-title">Writing</p>
+        <p class="t-sub">Essays, data narratives, notes, and series.</p>
+      </a>
+    
+  
+    
+      <a class="section-tile"
+         href="/projects/"
+         style="--tile-color: #2a6f97; --tile-bg: #eef6fb;">
+        <p class="t-title">Projects</p>
+        <p class="t-sub">Systems and products I've built.</p>
+      </a>
+    
+  
+    
+      <a class="section-tile"
+         href="/my-journey/"
+         style="--tile-color: #5f5449; --tile-bg: #faf7f2;">
+        <p class="t-title">Journey</p>
+        <p class="t-sub">From vision science to data products — a human timeline.</p>
+      </a>
+    
+  
+    
+      <a class="section-tile"
+         href="/resources/"
+         style="--tile-color: #3d6c67; --tile-bg: #f4f9f8;">
+        <p class="t-title">Resources</p>
+        <p class="t-sub">Plug-and-play templates, guides, and starter kits.</p>
+      </a>
+    
+  
+    
+  
+</div>
+ -->
+
+<style>
+/* Add hover effects for principle cards */
+.principle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Ensure resource mini icons align with cognitive theme */
+.resource-mini__icon {
+  color: #4a90e2;
+}
+
+/* Add subtle animation to the cognitive principles section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.principle-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.principle-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.principle-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.home-section--writing {
+  background: #f9fbfd;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.75rem;
+}
+
+.home-section--writing .home-section__heading {
+  margin-top: 0;
+  text-align: center;
+}
+
+.home-section--writing .home-section__subheading {
+  margin: 0.5rem auto 1.5rem;
+  max-width: 680px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.featured-writing {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.featured-writing__card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1rem 0.5rem 0.5rem 1rem;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featured-writing__badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4338ca;
+  background: #e0e7ff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  width: fit-content;
+  margin: 0;
+}
+
+.featured-writing__badge--thinking {
+  color: #7c3aed;
+  background: #ede9fe;
+}
+
+.featured-writing__badge--tutorial {
+  color: #0f766e;
+  background: #ccfbf1;
+}
+
+.featured-writing__link {
+  margin-top: auto;
+  font-weight: 600;
+}
+
+.featured-writing__cta {
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+
+</style>
+
+
+    </section>
+  </article>
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <footer class="footer-custom" role="contentinfo" aria-label="Site footer">
+  <div class="footer-custom__inner">
+
+    <!-- Content Navigation -->
+    
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-nav__sections">
+        
+        <div class="footer-nav__section">
+          <h3 class="footer-nav__heading">Explore</h3>
+          
+          <ul class="footer-nav__list">
+            
+            <li><a href="/site-architecture/">Site Architecture</a></li>
+            
+            <li><a href="/blog/">Blog</a></li>
+            
+            <li><a href="/writing/">Writing</a></li>
+            
+            <li><a href="/resources/">Resources</a></li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="footer-nav__section">
+          <h3 class="footer-nav__heading">Archives</h3>
+          
+          <ul class="footer-nav__list">
+            
+            <li><a href="/topics/">Topics</a></li>
+            
+            <li><a href="/tags/">Tags</a></li>
+            
+            <li><a href="/categories/">Categories</a></li>
+            
+            <li><a href="/gallery/">Gallery</a></li>
+            
+          </ul>
+          
+        </div>
+        
+        <div class="footer-nav__section">
+          <h3 class="footer-nav__heading">About</h3>
+          
+          <ul class="footer-nav__list">
+            
+            <li><a href="/my-journey/">My Journey</a></li>
+            
+            <li><a href="/experience/">Experience</a></li>
+            
+            <li><a href="/research/">Research</a></li>
+            
+            <li><a href="/projects/">Work/Projects</a></li>
+            
+          </ul>
+          
+        </div>
+        
+      </div>
+    </nav>
+    
+
+    <!-- Social Links -->
+    <div class="footer-social-section">
+      <p class="footer-heading">Let's connect</p>
+
+      
+      <ul class="footer-social">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li>
+          <a href="https://github.com/dagny099" target="_blank" rel="nofollow noopener noreferrer" title="GitHub">
+            
+              <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+            
+            <span>GitHub</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="https://linkedin.com/in/barbarahidalgo" target="_blank" rel="nofollow noopener noreferrer" title="LinkedIn">
+            
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a href="mailto:barbs@balex.com" target="_blank" rel="nofollow noopener noreferrer" title="Email">
+            
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            
+            <span>Email</span>
+          </a>
+        </li>
+        
+        
+      </ul>
+      
+    </div>
+
+    <p class="footer-legal">© 2026 Barbara Hidalgo-Sotelo. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer-nav {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .footer-nav__sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-nav__heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+
+  .footer-nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav__list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-nav__list a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .footer-nav__list a:hover {
+    color: #2a6f97;
+  }
+
+  .footer-social-section {
+    margin-top: 1.5rem;
+  }
+</style>
+
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/dagny099" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://linkedin.com/in/barbarahidalgo" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="mailto:barbs@balex.com" rel="nofollow noopener noreferrer"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a></li>
+        
+      
+    
+
+    <!-- TODO: Test out the feed
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 Barbara Hidalgo-Sotelo. </div>
+
+      </footer>
+    </div>
+
+    <script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#faf7f2',
+      edgeLabelBackground: '#ffffff',
+      nodeBorder: '#c0572a',
+      primaryTextColor: '#3d3d3d',
+      lineColor: '#6f5b91',
+      nodeTextColor: '#3d3d3d',
+      fontFamily: 'Inter, sans-serif'
+    }
+  });
+  await mermaid.run({
+      querySelector: '.language-mermaid',
+    });
+
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const breadcrumb = document.querySelector(".breadcrumb");
+    if (breadcrumb) {
+      requestAnimationFrame(() => {
+        breadcrumb.classList.add("fade-in");
+      });
+    }
+  });
+</script>
+
+
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

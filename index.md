@@ -100,19 +100,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </div>
 
 <!-- =======================
-     Featured Work (cards)
-     ======================= -->
-<div class="home-section">
-<details class="home-accordion" data-section="projects" markdown="1" open>
-<summary  style="text-align: center;"><h2>Featured Projects</h2></summary>
-
-{% include feature_row_dual %}
-
-</details>
-</div>
-
-<!-- =======================
-     Featured Writing (NEW)
+     Featured Writing
      ======================= -->
 <div class="home-section home-section--writing">
   <h2 class="home-section__heading">Featured Writing</h2>
@@ -149,7 +137,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </article>
   </div>
 
-  <p class="featured-writing__cta">
+  <p class="featured-writing__cta" style="text-align:center; margin: 1rem 0 0 0;" >
     <a class="browse-all" href="/writing/">Browse all writing</a>
   </p>
 </div>
@@ -163,36 +151,48 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   <div class="principles-grid">
     <div class="principle-card principle-card--vision">
       <div class="principle-card__icon" aria-hidden="true">👁️</div>
-      <h3>Vision Drives Understanding</h3>
+      <h3>Metadata Matters</h3>
       <p>
-        Design for scanning, not reading. Your brain decides what matters in 200ms.
+        Just as our brains rely on associations to retrieve memories, the web relies on metadata to surface meaning from the void.
       </p>
-      <a href="/resources/visual-decision-making/">See the Perception Guide →</a>
+      <a href="/blog/metadata-matters/">More on metadata, the digital equivalent of cognitive context →</a>
     </div>
 
     <div class="principle-card principle-card--attention">
       <div class="principle-card__icon" aria-hidden="true">🧠</div>
-      <h3>Attention is Limited</h3>
+      <h3>Cognitive Offloading</h3>
       <p>
-        Use it wisely. Humans can track 7±2 things—design within this constraint.
+        Leverage preattentive attributes—like position and luminance—to design dashboards that respect the brain's  processing limits.
       </p>
-      <a href="/projects/convoscope/">See Convoscope Example →</a>
+      <a href="/thinking/vision-perception-data-viz-decisions/">Designing for How People Actually See →</a>
     </div>
 
     <div class="principle-card principle-card--patterns">
-      <div class="principle-card__icon" aria-hidden="true">🔄</div>
-      <h3>Patterns Beat Numbers</h3>
+      <div class="principle-card__icon" aria-hidden="true">🏃🏽‍♀️</div>
+      <h3>Grow from Messiness</h3>
       <p>
-        Humans think in stories. Show the narrative, not just the statistics.
+        Life rarely fits into neat database schemas. I used ML on my real-world exercise data, granting me trust in my own metrics again.
       </p>
-      <a href="/projects/fitness-dashboard/">See Fitness Story →</a>
+      <a href="data-stories/exercise-dashboard/">Why perfect data is not a prereq for a healthy system →</a>
     </div>
   </div>
 </div>
 
 <!-- =======================
-     Resources & Guides
+     Featured Work (cards)
      ======================= -->
+<div class="home-section">
+<details class="home-accordion" data-section="projects" markdown="1" open>
+<summary  style="text-align: center;"><h2>Featured Projects</h2></summary>
+
+{% include feature_row_dual %}
+
+</details>
+</div>
+
+<!-- =======================
+     Resources & Guides #TODO ASAP - Combine the Archive stuff linked below with the newer stuff on Resources page
+     ======================= 
 <div class="home-section">
   <details class="home-accordion" data-section="resources" markdown="1" open>
   <summary><h2>Resources & Guides</h2></summary>
@@ -238,6 +238,33 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </p>
   </div>
   </details>
+</div>. -->
+
+<!-- TimelineJS of a Visual Timeline. (broad strokes) -->
+<div class="home-section home-section--writing">
+ <section class="journey-timeline">
+<span id="journey-timeline" class="anchor"></span>
+  <h2 class="journey-section-title" style="text-align:center; margin-top: 0px;">At-a-Glance: Education & Big Moves</h2>
+  <p class="timeline-intro"  style="text-align:center; font-size: 0.9em;">
+    Quick visual timeline of the milestones that shaped my path — from UT Austin and MIT to
+    data science and consulting.
+  </p>
+
+  <div class="timeline-embed">
+    <iframe
+      src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vTIz_QSIlc25C50KKxKpS1T4ROr-09sgQP0L2cLQQsEAGvAjzHPWPyQgsT2avXiNAbONHEBKAWRK61Z&width=100%25&height=520&theme=https%3A%2F%2Fbarbhs.com%2Fassets%2Fcss%2Fbhs_timeline_debug.css"
+      width="100%"
+      height="520"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p style="text-align:center; margin-top: 1rem;" >
+    <a class="browse-all" href="/my-journey#journey-turns" aria-label="Read more at My Journey">
+      Read more at My Journey
+    </a>
+  </p>
+</section>
 </div>
 
 <!-- =======================

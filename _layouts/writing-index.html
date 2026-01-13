@@ -53,7 +53,7 @@ classes: [wide, writing-page]
     {% endfor %}
   </section>
 
-  {% assign tutorial_posts = visible_posts | where_exp: "item", "item.categories contains 'tutorial'" | sort: "date" | reverse %}
+  {% assign tutorial_posts = visible_posts | where_exp: "item", "item.categories contains 'tutorial'" %}
   <section id="tutorials" class="taxonomy__section writing-section">
     <div class="section-heading">
       <h2 class="archive__subtitle">Tutorials</h2>
@@ -67,7 +67,7 @@ classes: [wide, writing-page]
     <a href="#writing-tabs" class="back-to-top">Back to Writing tabs &uarr;</a>
   </section>
 
-  {% assign data_stories = site.pages | where: "section", "data-stories" | where_exp: "item", "item.url != '/data-stories/'" | sort: "date" | reverse %}
+  {% assign data_stories = site.pages | where: "section", "data-stories" | where_exp: "item", "item.url != '/data-stories/'" %}
   <section id="data-stories" class="taxonomy__section writing-section">
     <div class="section-heading">
       <h2 class="archive__subtitle">Data Stories</h2>
@@ -81,7 +81,7 @@ classes: [wide, writing-page]
     <a href="#writing-tabs" class="back-to-top">Back to Writing tabs &uarr;</a>
   </section>
 
-  {% assign thinking_posts = site.thinking | sort: "date" | reverse %}
+  {% assign thinking_posts = site.thinking %}
   <section id="thinking" class="taxonomy__section writing-section">
     <div class="section-heading">
       <h2 class="archive__subtitle">Thinking</h2>

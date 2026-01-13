@@ -2,6 +2,7 @@
 layout: single
 title: "Why Metadata Matters"
 subtitle: "The invisible infrastructure that makes content discoverable"
+date: 2025-11-7
 permalink: /blog/metadata-matters/
 header:
   overlay_image: "/assets/images/metadata-tissue-viz-001.png"
@@ -10,11 +11,7 @@ excerpt: "Metadata is the connective tissue between your content and the world. 
 tags: [metadata, seo, schema-org, content-strategy, documentation]
 stack: [Schema.org, Python, Jekyll, YAML]
 categories: [tutorial]
-date: 2025-11-15
-last_modified_at: 2025-12-23
 ---
-
-# Why Metadata Matters
 
 If you've ever wondered why some blog posts show up beautifully in Google search results with rich snippets, star ratings, or publication dates, while others look like plain text—the answer is **metadata**. 
 
