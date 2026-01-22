@@ -1,0 +1,73 @@
+---
+id: site_map_collections_v1.2
+title: Collections & Content Hubs
+project: dagny099_github_io
+visibility: public
+status: stable
+last_updated: 2026-01-20
+tags: [sitemap, collections, projects, data-stories]
+sequence:
+  group: "site-architecture-post"
+  order: 1
+description: >
+  Focused sitemap showing the modern content collections (Projects, Thinking, Resources)
+  and section-based content (Data Stories), plus the legacy Portfolio collection.
+  Note: Data Stories uses section frontmatter, not a Jekyll collection.
+---
+graph TB
+    Home[🏠 Home]
+
+    Home --> Projects[📊 Projects Collection]
+    Home --> Thinking[💭 Thinking Collection]
+    Home --> Resources[📚 Resources Collection]
+    Home --> DataStories[📖 Data Stories<br/>section-based pages]
+    Home --> Portfolio[🗂️ Portfolio<br/>*Legacy Collection]
+
+    %% Projects Collection (8 projects)
+    Projects --> P1[Self-Hosted Workout Intelligence]
+    Projects --> P2[Multi-Provider AI Chat<br/>Convoscope]
+    Projects --> P3[Beehive Analytics Platform]
+    Projects --> P4[ChronoScope: Timeline Builder]
+    Projects --> P5[Digital Memory Chest]
+    Projects --> P6[CareerCraft Job Assistant]
+    Projects --> P7[Midjourney Image Tracker]
+    Projects --> P8[Poolula: RAG Business Intelligence]
+
+    %% Thinking Collection (4 essays)
+    Thinking --> T1[📌 Bees, Graphs & Governance]
+    Thinking --> T2[📌 Chunking is All You Need]
+    Thinking --> T3[📌 Vision, Perception & Data Viz]
+    Thinking --> T4[📌 RAG Without the Theater]
+
+    %% Resources Collection (7 items)
+    Resources --> R1[Color Contrast Checklist]
+    Resources --> R2[Git Workflow Guide]
+    Resources --> R3[Question Encoding Cribsheet]
+    Resources --> R4[Schema.org Cheatsheet: Builders]
+    Resources --> R5[Schema.org Cheatsheet: Humans]
+    Resources --> R6[Understanding Schema for Websites]
+    Resources --> R7[Small Multiples Template]
+
+    %% Data Stories (section-based, not collection)
+    DataStories --> DS1[Hive Photo Metadata Tracker]
+    DataStories --> DS2[Exercise Dashboard:<br/>The Choco Effect]
+    DataStories --> DS3[Knowledge Cartography:<br/>Citation Networks]
+    DataStories --> DS4[Converting Textual to Visual Timeline]
+
+    %% Legacy Portfolio (6 items)
+    Portfolio --> PF1[Build Your Own Webpage]
+    Portfolio --> PF2[IoT Real-Time Viz Workflow<br/>Sensor Fleet]
+    Portfolio --> PF3[Academic Citation Cloud]
+    Portfolio --> PF4[CareerCraft Job Assistant]
+    Portfolio --> PF5[Personal Workout Dashboard]
+    Portfolio --> PF6[CodeConvo LLM Interface]
+
+    classDef collection fill:#e1f5ff,stroke:#0077b6,stroke-width:2px;
+    classDef sectionBased fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,stroke-dasharray:3 3;
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:1.5px;
+    classDef pinned fill:#d1e7dd,stroke:#0a3622,stroke-width:1.5px;
+
+    class Projects,Thinking,Resources collection;
+    class DataStories,DS1,DS2,DS3,DS4 sectionBased;
+    class Portfolio,PF1,PF2,PF3,PF4,PF5,PF6 legacy;
+    class T1,T2,T3,T4 pinned;

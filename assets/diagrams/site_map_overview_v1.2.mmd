@@ -1,0 +1,44 @@
+---
+id: site_map_overview_v1.2
+title: Site Map Overview (Top-Level Navigation)
+project: dagny099_github_io
+visibility: public
+status: stable
+last_updated: 2026-01-20
+tags: [sitemap, overview, navigation]
+sequence:
+  group: "site-architecture-post"
+  order: 0
+description: >
+  High-level sitemap showing only the primary navigation sections and major content hubs.
+  Reflects current IA with Writing as central content hub.
+---
+graph TB
+Home[🏠 Home<br/>barbhs.com]
+
+    %% Main Navigation (Top Nav Bar)
+    Home --> StartHere[🧭 Start Here]
+    Home --> Writing[✍️ Writing]
+    Home --> Projects[📊 Projects]
+    Home --> Journey[🚶 My Journey]
+    Home --> Resources[📚 Resources]
+    Home --> Contact[📧 Contact]
+
+    %% Writing Hub aggregates content types
+    Writing --> Thinking[💭 Essays & Perspectives]
+    Writing --> DataStories[📖 Data Narratives]
+    Writing --> Blog[📝 Notes & Experiments]
+
+    %% Footer / Secondary Navigation
+    Home -.-> Portfolio[🗂️ Portfolio]
+    Home -.-> Experience[💼 Experience]
+    Home -.-> Research[🔬 Research]
+    Home -.-> Gallery[🎨 Gallery]
+
+    classDef primary fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
+    classDef contentHub fill:#f0f4ff,stroke:#4f46e5,stroke-width:2px;
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:1.5px,stroke-dasharray:5 5;
+
+    class StartHere,Writing,Projects,Journey,Resources,Contact primary;
+    class Thinking,DataStories,Blog contentHub;
+    class Portfolio,Experience,Research,Gallery legacy;

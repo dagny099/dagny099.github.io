@@ -1,0 +1,62 @@
+---
+id: site_map_blog_architecture_v1.2
+title: Notes & Experiments Architecture
+project: dagny099_github_io
+visibility: public
+status: stable
+last_updated: 2026-01-20
+tags: [sitemap, blog, series, archives]
+sequence:
+  group: "site-architecture-post"
+  order: 2
+description: >
+  Blog architecture showing series, recent individual posts, and archive pages.
+  Accessed primarily via Writing hub at /writing/
+---
+graph TB
+    Blog[📝 Notes & Experiments<br/>/blog/]
+
+    Blog --> BlogSeries1[📂 Website Building Series]
+    Blog --> BlogSeries2[📂 Sensor Fleet Series]
+    Blog --> BlogRecent[📂 Recent Posts 2022-2025]
+    Blog --> Archives[📂 Archives<br/>Tags & Categories]
+
+    %% Website Building Series (4 posts - 2024)
+    BlogSeries1 --> WS1[Part 1: Getting Started<br/>GitHub Pages]
+    BlogSeries1 --> WS2[Part 2: Understanding Jekyll]
+    BlogSeries1 --> WS3[Part 3: GitHub Actions for CI/CD]
+    BlogSeries1 --> WS4[Part 4: Post-Deployment Reflections]
+
+    %% Sensor Fleet Series (7 posts - 2021)
+    BlogSeries2 --> SF0[Intro: Sensor Fleet<br/>Arduino/MQTT]
+    BlogSeries2 --> SF1[Part 1: IoT Setup]
+    BlogSeries2 --> SF2[Part 2: MQTT Broker]
+    BlogSeries2 --> SF3[Part 3: Data Pipeline]
+    BlogSeries2 --> SF4[Part 4: Heroku Deploy]
+    BlogSeries2 --> SF5[Part 5: Kafka Streams]
+    BlogSeries2 --> SF6[Part 6: Visualization]
+
+    %% Recent Individual Posts (2022-2025)
+    BlogRecent --> IND1[Getting Started AWS CLI<br/>Dec 2025]
+    BlogRecent --> IND2[Metadata Matters<br/>Nov 2025]
+    BlogRecent --> IND3[Taming Mermaid Diagrams<br/>Oct 2025]
+    BlogRecent --> IND4[Poetry for Python<br/>Mar 2025]
+    BlogRecent --> IND5[AWS CCP Certification<br/>2023]
+    BlogRecent --> IND6[3D Printing Exploration<br/>2023]
+    BlogRecent --> IND7[Stock Ticker Webapp<br/>2022]
+
+    %% Archives
+    Archives --> TagArchive[Tag Archive]
+    Archives --> CategoryArchive[Category Archive]
+
+    classDef blogHub fill:#fff4e6,stroke:#d97706,stroke-width:2px;
+    classDef series fill:#ffedd5,stroke:#c05621,stroke-width:1.5px;
+    classDef post fill:#fefcbf,stroke:#b7791f,stroke-width:1px;
+    classDef archive fill:#e0f2f1,stroke:#00695c,stroke-width:1.5px;
+    classDef recent fill:#dbeafe,stroke:#1e40af,stroke-width:1px;
+
+    class Blog blogHub;
+    class BlogSeries1,BlogSeries2,BlogRecent series;
+    class WS1,WS2,WS3,WS4,SF0,SF1,SF2,SF3,SF4,SF5,SF6,IND5,IND6,IND7 post;
+    class IND1,IND2,IND3,IND4 recent;
+    class Archives,TagArchive,CategoryArchive archive;

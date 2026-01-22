@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes & Experiments Architecture - barbhs.com</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+        .header h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; font-size: 0.95rem; }
+        .controls {
+            background: #f8f9fa;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            background: #d97706;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: #b45309; transform: translateY(-1px); }
+        .diagram-container {
+            width: 100%;
+            height: calc(100vh - 220px);
+            min-height: 600px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        #mermaid-diagram { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        .info {
+            background: #fff4e6;
+            padding: 1rem 2rem;
+            border-top: 1px solid #fde68a;
+            font-size: 0.9rem;
+        }
+        .info strong { color: #92400e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Notes & Experiments Architecture</h1>
+            <p>Blog series, individual posts, and archives</p>
+        </div>
+
+        <div class="controls">
+            <button class="btn" onclick="panZoom.zoomIn()">🔍 Zoom In</button>
+            <button class="btn" onclick="panZoom.zoomOut()">🔍 Zoom Out</button>
+            <button class="btn" onclick="panZoom.reset()">↻ Reset</button>
+            <button class="btn" onclick="panZoom.fit()">⛶ Fit</button>
+        </div>
+
+        <div class="diagram-container">
+            <div id="mermaid-diagram" class="mermaid">
+graph TB
+    Blog[📝 Notes & Experiments<br/>/blog/]
+
+    Blog --> BlogSeries1[📂 Website Building Series]
+    Blog --> BlogSeries2[📂 Sensor Fleet Series]
+    Blog --> BlogRecent[📂 Recent Posts 2022-2025]
+    Blog --> Archives[📂 Archives<br/>Tags & Categories]
+
+    BlogSeries1 --> WS1[Part 1: Getting Started<br/>GitHub Pages]
+    BlogSeries1 --> WS2[Part 2: Understanding Jekyll]
+    BlogSeries1 --> WS3[Part 3: GitHub Actions for CI/CD]
+    BlogSeries1 --> WS4[Part 4: Post-Deployment Reflections]
+
+    BlogSeries2 --> SF0[Intro: Sensor Fleet<br/>Arduino/MQTT]
+    BlogSeries2 --> SF1[Part 1: IoT Setup]
+    BlogSeries2 --> SF2[Part 2: MQTT Broker]
+    BlogSeries2 --> SF3[Part 3: Data Pipeline]
+    BlogSeries2 --> SF4[Part 4: Heroku Deploy]
+    BlogSeries2 --> SF5[Part 5: Kafka Streams]
+    BlogSeries2 --> SF6[Part 6: Visualization]
+
+    BlogRecent --> IND1[Getting Started AWS CLI<br/>Dec 2025]
+    BlogRecent --> IND2[Metadata Matters<br/>Nov 2025]
+    BlogRecent --> IND3[Taming Mermaid Diagrams<br/>Oct 2025]
+    BlogRecent --> IND4[Poetry for Python<br/>Mar 2025]
+    BlogRecent --> IND5[AWS CCP Certification<br/>2023]
+    BlogRecent --> IND6[3D Printing Exploration<br/>2023]
+    BlogRecent --> IND7[Stock Ticker Webapp<br/>2022]
+
+    Archives --> TagArchive[Tag Archive]
+    Archives --> CategoryArchive[Category Archive]
+
+    classDef blogHub fill:#fff4e6,stroke:#d97706,stroke-width:2px;
+    classDef series fill:#ffedd5,stroke:#c05621,stroke-width:1.5px;
+    classDef post fill:#fefcbf,stroke:#b7791f,stroke-width:1px;
+    classDef archive fill:#e0f2f1,stroke:#00695c,stroke-width:1.5px;
+    classDef recent fill:#dbeafe,stroke:#1e40af,stroke-width:1px;
+
+    class Blog blogHub;
+    class BlogSeries1,BlogSeries2,BlogRecent series;
+    class WS1,WS2,WS3,WS4,SF0,SF1,SF2,SF3,SF4,SF5,SF6,IND5,IND6,IND7 post;
+    class IND1,IND2,IND3,IND4 recent;
+    class Archives,TagArchive,CategoryArchive archive;
+            </div>
+        </div>
+
+        <div class="info">
+            <strong>Note:</strong> The blog is primarily accessed through the <a href="https://barbhs.com/writing/" target="_blank">Writing hub</a>, which aggregates Essays & Perspectives, Data Narratives, and Notes & Experiments into one content discovery page.
+        </div>
+    </div>
+
+    <script>
+        let panZoom;
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: false, htmlLabels: true, curve: 'basis' }, securityLevel: 'loose' });
+
+        setTimeout(() => {
+            const svgElement = document.querySelector('#mermaid-diagram svg');
+            if (svgElement) {
+                panZoom = svgPanZoom(svgElement, {
+                    zoomEnabled: true,
+                    controlIconsEnabled: false,
+                    fit: true,
+                    center: true,
+                    minZoom: 0.5,
+                    maxZoom: 3,
+                    zoomScaleSensitivity: 0.4
+                });
+                svgElement.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    if (e.deltaY < 0) { panZoom.zoomIn(); } else { panZoom.zoomOut(); }
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

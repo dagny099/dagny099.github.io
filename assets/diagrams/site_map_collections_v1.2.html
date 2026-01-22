@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections & Content Hubs - barbhs.com</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #0077b6 0%, #0096c7 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+        .header h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; font-size: 0.95rem; }
+        .controls {
+            background: #f8f9fa;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            background: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: #005f8c; transform: translateY(-1px); }
+        .diagram-container {
+            width: 100%;
+            height: calc(100vh - 220px);
+            min-height: 600px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        #mermaid-diagram { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        .legend {
+            background: #f0f4ff;
+            padding: 1rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+        }
+        .legend-item { display: inline-block; margin-right: 1.5rem; margin-top: 0.5rem; }
+        .legend-color { display: inline-block; width: 20px; height: 12px; border-radius: 3px; margin-right: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Collections & Content Hubs</h1>
+            <p>Projects, Thinking, Resources, Data Stories, and Legacy Portfolio </p>
+        </div>
+
+        <div class="controls">
+            <button class="btn" onclick="panZoom.zoomIn()">🔍 Zoom In</button>
+            <button class="btn" onclick="panZoom.zoomOut()">🔍 Zoom Out</button>
+            <button class="btn" onclick="panZoom.reset()">↻ Reset</button>
+            <button class="btn" onclick="panZoom.fit()">⛶ Fit</button>
+        </div>
+
+        <div class="diagram-container">
+            <div id="mermaid-diagram" class="mermaid">
+graph TB
+    Home[🏠 Home]
+
+    Home --> Projects[📊 Projects Collection]
+    Home --> Thinking[💭 Thinking Collection]
+    Home --> Resources[📚 Resources Collection]
+    Home --> DataStories[📖 Data Stories<br/>section-based pages]
+    Home --> Portfolio[🗂️ Portfolio<br/>*Legacy Collection]
+
+    Projects --> P1[Self-Hosted Workout Intelligence]
+    Projects --> P2[Multi-Provider AI Chat<br/>Convoscope]
+    Projects --> P3[Beehive Analytics Platform]
+    Projects --> P4[ChronoScope: Timeline Builder]
+    Projects --> P5[Digital Memory Chest]
+    Projects --> P6[CareerCraft Job Assistant]
+    Projects --> P7[Midjourney Image Tracker]
+    Projects --> P8[Poolula: RAG Business Intelligence]
+
+    Thinking --> T1[📌 Bees, Graphs & Governance]
+    Thinking --> T2[📌 Chunking is All You Need]
+    Thinking --> T3[📌 Vision, Perception & Data Viz]
+    Thinking --> T4[📌 RAG Without the Theater]
+
+    Resources --> R1[Color Contrast Checklist]
+    Resources --> R2[Git Workflow Guide]
+    Resources --> R3[Question Encoding Cribsheet]
+    Resources --> R4[Schema.org Cheatsheet: Builders]
+    Resources --> R5[Schema.org Cheatsheet: Humans]
+    Resources --> R6[Understanding Schema for Websites]
+    Resources --> R7[Small Multiples Template]
+
+    DataStories --> DS1[Hive Photo Metadata Tracker]
+    DataStories --> DS2[Exercise Dashboard:<br/>The Choco Effect]
+    DataStories --> DS3[Knowledge Cartography:<br/>Citation Networks]
+    DataStories --> DS4[Converting Textual to Visual Timeline]
+
+    Portfolio --> PF1[Build Your Own Webpage]
+    Portfolio --> PF2[IoT Real-Time Viz Workflow<br/>Sensor Fleet]
+    Portfolio --> PF3[Academic Citation Cloud]
+    Portfolio --> PF4[CareerCraft Job Assistant]
+    Portfolio --> PF5[Personal Workout Dashboard]
+    Portfolio --> PF6[CodeConvo LLM Interface]
+
+    classDef collection fill:#e1f5ff,stroke:#0077b6,stroke-width:2px;
+    classDef sectionBased fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,stroke-dasharray:3 3;
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:1.5px;
+    classDef pinned fill:#d1e7dd,stroke:#0a3622,stroke-width:1.5px;
+
+    class Projects,Thinking,Resources collection;
+    class DataStories,DS1,DS2,DS3,DS4 sectionBased;
+    class Portfolio,PF1,PF2,PF3,PF4,PF5,PF6 legacy;
+    class T1,T2,T3,T4 pinned;
+            </div>
+        </div>
+
+        <div class="legend">
+            <strong>Legend:</strong>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #e1f5ff; border: 2px solid #0077b6;"></span>
+                Jekyll Collections (Projects, Thinking, Resources)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #f3e5f5; border: 2px dashed #6a1b9a;"></span>
+                Section-based pages (Data Stories)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #fff3cd; border: 1.5px solid #856404;"></span>
+                Legacy collection (Portfolio)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #d1e7dd; border: 1.5px solid #0a3622;"></span>
+                Pinned essays
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let panZoom;
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: false, htmlLabels: true, curve: 'basis' }, securityLevel: 'loose' });
+
+        setTimeout(() => {
+            const svgElement = document.querySelector('#mermaid-diagram svg');
+            if (svgElement) {
+                panZoom = svgPanZoom(svgElement, {
+                    zoomEnabled: true,
+                    controlIconsEnabled: false,
+                    fit: true,
+                    center: true,
+                    minZoom: 0.5,
+                    maxZoom: 3,
+                    zoomScaleSensitivity: 0.4
+                });
+                svgElement.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    if (e.deltaY < 0) { panZoom.zoomIn(); } else { panZoom.zoomOut(); }
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

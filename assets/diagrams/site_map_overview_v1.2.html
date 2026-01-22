@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Overview - barbhs.com</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #0277bd 0%, #0288d1 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+        .header h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; font-size: 0.95rem; }
+        .controls {
+            background: #f8f9fa;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            background: #0277bd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: #01579b; transform: translateY(-1px); }
+        .diagram-container {
+            width: 100%;
+            height: calc(100vh - 220px);
+            min-height: 600px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        #mermaid-diagram { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        .legend {
+            background: #f0f9ff;
+            padding: 1rem 2rem;
+            border-top: 1px solid #bae6fd;
+            font-size: 0.85rem;
+        }
+        .legend-item { display: inline-block; margin-right: 1.5rem; margin-top: 0.5rem; }
+        .legend-color { display: inline-block; width: 20px; height: 12px; border-radius: 3px; margin-right: 0.5rem; }
+        .legend-line { display: inline-block; width: 30px; height: 2px; margin-right: 0.5rem; position: relative; top: -3px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗺️ Site Overview - Top-Level Navigation</h1>
+            <p>Primary navigation structure showing main content hubs and footer items </p>
+        </div>
+
+        <div class="controls">
+            <button class="btn" onclick="panZoom.zoomIn()">🔍 Zoom In</button>
+            <button class="btn" onclick="panZoom.zoomOut()">🔍 Zoom Out</button>
+            <button class="btn" onclick="panZoom.reset()">↻ Reset</button>
+            <button class="btn" onclick="panZoom.fit()">⛶ Fit</button>
+        </div>
+
+        <div class="diagram-container">
+            <div id="mermaid-diagram" class="mermaid">
+graph TB
+Home[🏠 Home<br/>barbhs.com]
+
+    %% Main Navigation (Top Nav Bar)
+    Home --> StartHere[🧭 Start Here]
+    Home --> Writing[✍️ Writing]
+    Home --> Projects[📊 Projects]
+    Home --> Journey[🚶 My Journey]
+    Home --> Resources[📚 Resources]
+    Home --> Contact[📧 Contact]
+
+    %% Writing Hub aggregates content types
+    Writing --> Thinking[💭 Essays & Perspectives]
+    Writing --> DataStories[📖 Data Narratives]
+    Writing --> Blog[📝 Notes & Experiments]
+
+    %% Footer / Secondary Navigation
+    Home -.-> Portfolio[🗂️ Portfolio]
+    Home -.-> Experience[💼 Experience]
+    Home -.-> Research[🔬 Research]
+    Home -.-> Gallery[🎨 Gallery]
+
+    classDef primary fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
+    classDef contentHub fill:#f0f4ff,stroke:#4f46e5,stroke-width:2px;
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:1.5px,stroke-dasharray:5 5;
+
+    class StartHere,Writing,Projects,Journey,Resources,Contact primary;
+    class Thinking,DataStories,Blog contentHub;
+    class Portfolio,Experience,Research,Gallery legacy;
+            </div>
+        </div>
+
+        <div class="legend">
+            <strong>Navigation Structure:</strong>
+            <div class="legend-item">
+                <span class="legend-line" style="background: #0277bd; height: 2px;"></span>
+                <strong>Solid lines:</strong> Main navigation (top nav bar)
+            </div>
+            <div class="legend-item">
+                <span class="legend-line" style="background: #856404; height: 2px; background-image: linear-gradient(to right, #856404 50%, transparent 50%); background-size: 10px 2px;"></span>
+                <strong>Dashed lines:</strong> Footer/secondary navigation
+            </div>
+            <br>
+            <strong style="margin-top: 0.75rem; display: inline-block;">Content Types:</strong>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #e1f5fe; border: 2px solid #0277bd;"></span>
+                Primary navigation items
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #f0f4ff; border: 2px solid #4f46e5;"></span>
+                Content hubs (under Writing)
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background: #fff3cd; border: 1.5px dashed #856404;"></span>
+                Legacy/footer items
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let panZoom;
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            securityLevel: 'loose'
+        });
+
+        setTimeout(() => {
+            const svgElement = document.querySelector('#mermaid-diagram svg');
+            if (svgElement) {
+                panZoom = svgPanZoom(svgElement, {
+                    zoomEnabled: true,
+                    controlIconsEnabled: false,
+                    fit: true,
+                    center: true,
+                    minZoom: 0.5,
+                    maxZoom: 3,
+                    zoomScaleSensitivity: 0.4
+                });
+                svgElement.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    if (e.deltaY < 0) { panZoom.zoomIn(); } else { panZoom.zoomOut(); }
+                });
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -153,7 +153,3 @@ show_title: false
     </div>
   </section>
 </div>
-
-.writing-page.layout--single .page__inner-wrap > header {
-  display: none;
-}

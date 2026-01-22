@@ -1,0 +1,139 @@
+---
+id: site_map_full_v1.2
+title: Full Detailed Sitemap (Interactive)
+project: dagny099_github_io
+visibility: public
+status: stable
+last_updated: 2026-01-20
+tags: [sitemap, full, interactive, clickable]
+sequence:
+  group: "site-architecture-post"
+  order: 3
+description: >
+  Complete sitemap with clickable links showing all content across collections, pages, and posts.
+  Best viewed in interactive HTML format with zoom/pan controls.
+---
+graph TB
+    %% Root
+    Home[🏠 Home Page<br/>barbhs.com]
+
+    %% Main Navigation
+    Home --> StartHere[🧭 Start Here]
+    Home --> Writing[✍️ Writing Hub]
+    Home --> Projects[📊 Projects]
+    Home --> Journey[🚶 My Journey]
+    Home --> Resources[📚 Resources]
+    Home --> Contact[📧 Contact]
+
+    %% Writing Hub breakdown
+    Writing --> Thinking[💭 Essays & Perspectives]
+    Writing --> DataStories[📖 Data Narratives]
+    Writing --> Blog[📝 Notes & Experiments]
+
+    %% Projects Collection (8 items)
+    Projects --> PROJ1[Self-Hosted Workout<br/>Intelligence]
+    Projects --> PROJ2[Multi-Provider AI Chat<br/>Convoscope]
+    Projects --> PROJ3[Beehive Analytics Platform]
+    Projects --> PROJ4[ChronoScope:<br/>Timeline Builder]
+    Projects --> PROJ5[Digital Memory Chest]
+    Projects --> PROJ6[CareerCraft:<br/>Job Assistant]
+    Projects --> PROJ7[Midjourney Image Tracker]
+    Projects --> PROJ8[Poolula: RAG BI Platform]
+
+    %% Thinking Collection (4 essays)
+    Thinking --> THINK1[Vision, Perception &<br/>Data Viz]
+    Thinking --> THINK2[Bees, Graphs &<br/>Governance]
+    Thinking --> THINK3[Chunking is All<br/>You Need]
+    Thinking --> THINK4[RAG Without<br/>the Theater]
+
+    %% Data Stories (4 stories)
+    DataStories --> DS1[Hive Photo<br/>Metadata Tracker]
+    DataStories --> DS2[Exercise Dashboard:<br/>The Choco Effect]
+    DataStories --> DS3[Knowledge Cartography]
+    DataStories --> DS4[Timeline Builder]
+
+    %% Resources Collection (7 items)
+    Resources --> RES1[Color Contrast Checklist]
+    Resources --> RES2[Git Workflow Guide]
+    Resources --> RES3[Question Encoding<br/>Cribsheet]
+    Resources --> RES4[Schema.org for Builders]
+    Resources --> RES5[Schema.org for Humans]
+    Resources --> RES6[Understanding Schema]
+    Resources --> RES7[Small Multiples Template]
+
+    %% Blog Posts (18 posts total)
+    Blog --> BlogSeries[📂 Series 11 posts]
+    Blog --> BlogIndividual[📂 Individual 7 posts]
+
+    BlogSeries --> WebSeries[Website Building<br/>4 posts]
+    BlogSeries --> SensorSeries[Sensor Fleet<br/>7 posts]
+
+    BlogIndividual --> Post1[Getting Started AWS CLI]
+    BlogIndividual --> Post2[Metadata Matters]
+    BlogIndividual --> Post3[Taming Mermaid Diagrams]
+    BlogIndividual --> Post4[Poetry for Python]
+    BlogIndividual --> Post5[AWS CCP Certification]
+    BlogIndividual --> Post6[3D Printing Exploration]
+    BlogIndividual --> Post7[Stock Ticker Webapp]
+
+    %% Footer/Secondary Navigation
+    Home -.-> Portfolio[🗂️ Portfolio<br/>Legacy 6 items]
+    Home -.-> Experience[💼 Experience]
+    Home -.-> Research[🔬 Research]
+    Home -.-> Gallery[🎨 Gallery]
+
+    %% Portfolio items
+    Portfolio -.-> PF1[Build Your Webpage]
+    Portfolio -.-> PF2[Sensor Fleet IoT]
+    Portfolio -.-> PF3[Citation Networks]
+    Portfolio -.-> PF4[Job Assistant]
+    Portfolio -.-> PF5[Workout Analytics]
+    Portfolio -.-> PF6[CodeConvo Interface]
+
+    %% Clickable Links
+    click Home "https://barbhs.com" "Visit Home"
+    click StartHere "https://barbhs.com/start-here/" "Start Here"
+    click Writing "https://barbhs.com/writing/" "Writing Hub"
+    click Projects "https://barbhs.com/projects/" "Projects"
+    click Journey "https://barbhs.com/my-journey/" "My Journey"
+    click Resources "https://barbhs.com/resources/" "Resources"
+    click Contact "https://barbhs.com/contact/" "Contact"
+    click Thinking "https://barbhs.com/thinking/" "Essays"
+    click DataStories "https://barbhs.com/data-stories/" "Data Stories"
+    click Blog "https://barbhs.com/blog/" "Blog"
+    click Portfolio "https://barbhs.com/portfolio/" "Portfolio"
+
+    click PROJ1 "https://barbhs.com/projects/fitness-dashboard/" "Workout Intelligence"
+    click PROJ2 "https://barbhs.com/projects/convoscope/" "Convoscope"
+    click PROJ3 "https://barbhs.com/projects/beehive-tracker/" "Beehive Platform"
+    click PROJ4 "https://barbhs.com/projects/chronoscope/" "ChronoScope"
+    click PROJ5 "https://barbhs.com/projects/digital-memory-chest/" "Memory Chest"
+    click PROJ6 "https://barbhs.com/projects/careercraft/" "CareerCraft"
+    click PROJ7 "https://barbhs.com/projects/midjourney-tracker/" "Midjourney Tracker"
+    click PROJ8 "https://barbhs.com/projects/poolula/" "Poolula Platform"
+
+    click DS1 "https://barbhs.com/data-stories/hive-photo-metadata-tracker/" "Hive Tracker"
+    click DS2 "https://barbhs.com/data-stories/exercise-dashboard/" "Choco Effect"
+    click DS3 "https://barbhs.com/data-stories/citation-link-prediction/" "Knowledge Cartography"
+    click DS4 "https://barbhs.com/data-stories/converting-textual-to-visual-timeline/" "Timeline Builder"
+
+    click THINK1 "https://barbhs.com/thinking/vision-perception-data-viz-decisions/" "Vision & Data Viz"
+    click THINK2 "https://barbhs.com/thinking/bees-graphs-governance/" "Bees & Graphs"
+    click THINK3 "https://barbhs.com/thinking/chunking-is-all-you-need/" "Chunking"
+    click THINK4 "https://barbhs.com/thinking/rag-without-the-theater/" "RAG Patterns"
+
+    %% Styling
+    classDef primary fill:#e1f5fe,stroke:#0277bd,stroke-width:2px;
+    classDef contentHub fill:#f0f4ff,stroke:#4f46e5,stroke-width:2px;
+    classDef collection fill:#e1f5ff,stroke:#0077b6,stroke-width:2px;
+    classDef sectionBased fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px,stroke-dasharray:3 3;
+    classDef legacy fill:#fff3cd,stroke:#856404,stroke-width:1.5px,stroke-dasharray:5 5;
+    classDef pinned fill:#d1e7dd,stroke:#0a3622,stroke-width:1.5px;
+    classDef post fill:#fefcbf,stroke:#b7791f,stroke-width:1px;
+
+    class StartHere,Writing,Projects,Journey,Resources,Contact primary;
+    class Thinking,Blog contentHub;
+    class DataStories,DS1,DS2,DS3,DS4 sectionBased;
+    class Portfolio,PF1,PF2,PF3,PF4,PF5,PF6,Experience,Research,Gallery legacy;
+    class THINK1,THINK2,THINK3,THINK4 pinned;
+    class Post1,Post2,Post3,Post4,Post5,Post6,Post7,WebSeries,SensorSeries post;
