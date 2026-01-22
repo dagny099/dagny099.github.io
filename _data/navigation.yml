@@ -10,7 +10,7 @@ main:
 
   - title: "Writing"
     short: "Writing"
-    url: /writing/
+    url: /blog/
     color: "#3b4a73"
     background-color: "#f2f4fb"
     subtitle: "Essays, data narratives, notes, and series."
