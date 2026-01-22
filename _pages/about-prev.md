@@ -1,11 +1,11 @@
 ---
+layout: single
 title: "About"
 excerpt: "Data scientist and software consultant with interdisciplinary experience in machine learning, UX/UI, and cognitive science - MIT researcher, marathon runner, bilingual Toastmaster"
-layout: single
-breadcrumbs: true
-permalink: /about/
 header:
   overlay_image: "/assets/images/bullcrick-photo-01.jpg"
+permalink: /about/
+published: false
 ---
 ## BIOGRAPHY 
 {: style="margin-top: 0px; padding-top: 0px;"} 

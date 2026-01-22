@@ -2,6 +2,7 @@
 layout: single
 title: "RAG Without the Theater — Evidence‑Linked Retrieval Patterns You Can Defend"
 subtitle: "Building retrieval-augmented systems that cite auditable evidence and fail honestly"
+permalink: /thinking/rag-approaches-observations/
 date: 2025-09-11 00:00:00 -0600
 last_modified_at: 2025-01-15
 categories: ["Thinking", "AI Systems"]

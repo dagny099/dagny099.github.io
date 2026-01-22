@@ -5,10 +5,7 @@ date: 2024-04-15
 classes: [portfolio-page]
 category: Project
 tags: [NLP, GenAI, App Design, Streamlit, Heroku]
-toc: true
-toc_sticky: true  
-toc_label: "Contents"  
-toc_icon: "sitemap"
+published: false
 header:
   overlay_color: "#122d50"
   teaser: assets/images/portfolio_thumbnail_desertMJ.jpg

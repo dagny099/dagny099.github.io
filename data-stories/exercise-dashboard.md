@@ -11,10 +11,10 @@ stack: [Python, AWS S3, AWS Lambda, Plotly, MapMyRun API]
 classes: [story-page]
 breadcrumbs: false
 author_profile: false
-header:
-  overlay_image: /assets/images/choco-portrait.jpg
-  overlay_filter: 0.5
-  teaser: /assets/images/choco-graduation.jpg
+# header:
+#   overlay_image: /assets/images/choco-portrait.jpg
+#   overlay_filter: 0.5
+#   teaser: /assets/images/choco-graduation.jpg
 ---
 <br>
 # The Choco Effect: How a Dog Transformed My Running Data

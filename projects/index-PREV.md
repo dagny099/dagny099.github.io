@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Projects"
-permalink: /projects/
+permalink: /projects-v2/
 classes: wide
 ---
 <style>

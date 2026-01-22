@@ -1,6 +1,7 @@
 ---
 title: "Academic Citation Network Link Prediction using PyTorch"
 excerpt: "Using graph neural networks to predict hidden connections in an 8,000-paper citation network, discovering research that should have cited each other but never did"
+published: false
 date: 2024-06-15 # Change this to control the order
 classes: [wide, portfolio-page]
 category: Project

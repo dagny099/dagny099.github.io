@@ -1,15 +1,12 @@
 ---
 title: "An IoT Workflow for Real-Time Data Visualilzation"
 excerpt: "Build a fleet of Arduino temperature sensors with MQTT data streaming, MySQL storage, and an interactive Heroku dashboard for real-time visualization"
+published: false
 date: 2024-05-15 # Change this to control the order
 classes: [portfolio-page]
 category: Project
 tags: [iot, data-visualization, real-time-data, temperature-monitoring]
 stack: [Arduino, MQTT, MySQL, Python, Heroku]
-toc: true
-toc_sticky: true  
-toc_label: "ToC"  
-toc_icon: "sitemap"   
 header:
   overlay_color: "#4649e5"
   teaser: /assets/images/portfolio/dashboard-v2_th.jpg  #assets/images/portfolio/eyemodel_Viz_teaser.jpg

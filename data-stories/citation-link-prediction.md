@@ -11,10 +11,10 @@ stack: [PyTorch, Neo4j, Python, Plotly, Semantic Scholar API]
 classes: [story-page]
 breadcrumbs: false
 author_profile: false
-header:
-  overlay_image: /assets/visualizations/knowledge-cartography/network_growth_stages.png
-  overlay_filter: 0.5
-  teaser: /assets/visualizations/knowledge-cartography/seed_paper_fig9.png
+# header:
+#   overlay_image: /assets/visualizations/knowledge-cartography/network_growth_stages.png
+#   overlay_filter: 0.5
+#   teaser: /assets/visualizations/knowledge-cartography/seed_paper_fig9.png
 ---
 <br>
 # Finding Lost Cousins in the Academic Family Tree

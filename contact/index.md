@@ -21,7 +21,7 @@ excerpt: >
     plus collaborative projects at the intersection of data products, knowledge graphs, and pragmatic MLOps.
   </p>
   <p>
-    Hiring? Download my latest <a href="/assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf" target="_blank" rel="noopener">resume (PDF)</a>
+    Hiring? Download my latest <a href="/assets/docs/Hidalgo-Sotelo_Barbara_RESUME.pdf" target="_blank" rel="noopener">resume (PDF)</a>
     or explore my detailed <a href="/about/">journey</a> to see how I build data products end to end.
   </p>
 </div>
@@ -29,7 +29,7 @@ excerpt: >
 <h2 class="contact-section__title">Reach Out</h2>
 
 <div class="contact-cards" aria-label="Contact methods">
-  <a href="/assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf" target="_blank" rel="noopener" class="contact-card contact-card--resume">
+  <a href="/assets/docs/barb-resume-2026.pdf" target="_blank" rel="noopener" class="contact-card contact-card--resume">
     <div class="contact-card__icon" aria-hidden="true">
       <i class="fas fa-file-alt"></i>
     </div>

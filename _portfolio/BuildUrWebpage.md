@@ -2,13 +2,10 @@
 title: "Build Your Own Webpage with Hosting"
 excerpt: "Step-by-step instructions to build your own personal website with free hosting and custom domain"
 date: 2024-03-15 # Change this to control the order
+published: false
 classes: [portfolio-page]
 category: Project
 tags: [Web Design, Static Site Generators]
-toc: true
-toc_sticky: true  # Optional: makes the TOC stay visible while scrolling
-toc_label: "ToC"  # Optional: customize the TOC title
-toc_icon: "sitemap"   # Optional: adds an icon from Font Awesome
 header:
   image: assets/images/
   overlay_color: "#06402B"

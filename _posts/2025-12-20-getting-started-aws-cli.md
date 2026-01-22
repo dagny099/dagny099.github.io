@@ -1,7 +1,7 @@
 ---
 layout: single
-title: A Step-by-Step Guide to Launching an RDS Database with the AWS CLI
-subtitle: Part 1 of The Data Scientist's CLI Handbook Series
+title: "The Data Scientist's Toolkit: Learn to use the AWS CLI for Service Management"
+subtitle: "A Step-by-Step Guide to Launching an RDS Database with the AWS CLI"
 date: 2025-12-20
 permalink: /blog/aws-cli-tutorial-launch-rds-for-ec2-access/
 header:
@@ -25,8 +25,6 @@ pagination:
 
 # A Step-by-Step Guide to Launching an RDS Database with the AWS CLI
 
-*This is a part of The Data Scientist's CLI Handbook, currently being re-organized and posted. Stay tuned for updates to this series*
-
 As data scientists, we're masters of our domain. We crunch numbers, build models, and turn raw data into compelling narratives. But what happens when your model is ready for production? Where does the data come from, and where does it live?
 
 More and more, the line between data science and data engineering is blurring. To truly own the entire data lifecycle, you need to speak the language of the cloud. Today, we’re going to do just that. We’ll ditch the GUI and embrace the command line to spin up our very own AWS RDS (Relational Database Service) database.
@@ -39,8 +37,8 @@ Why bother? Because building infrastructure via the CLI (Command Line Interface)
 
 This isn’t just an academic exercise; it’s a career superpower. Grab your coffee and let’s build something.
 
-*Visual Suggestion: A stylized, graphical representation of a data pipeline flow, showing an EC2 instance connecting to an RDS database, which in turn feeds a web application.*
-
+<!-- *Visual Suggestion: A stylized, graphical representation of a data pipeline flow, showing an EC2 instance connecting to an RDS database, which in turn feeds a web application.*
+-->
 ---
 
 ### Pre-Req: Install the AWS CLI
@@ -168,7 +166,7 @@ aws ec2 authorize-security-group-ingress \
 
 This is much more secure than opening the port to the entire internet\!
 
-*Visual Suggestion: A simple network diagram showing two boxes labeled "EC2 Security Group" and "RDS Security Group." An arrow originates from the EC2 box, points to the RDS box, and is labeled "Allow traffic on Port 3306."*
+<!-- *Visual Suggestion: A simple network diagram showing two boxes labeled "EC2 Security Group" and "RDS Security Group." An arrow originates from the EC2 box, points to the RDS box, and is labeled "Allow traffic on Port 3306."*. -->
 
 -----
 
@@ -218,3 +216,5 @@ You'll get back something like: `sweat-db.random-chars.us-east-1.rds.amazonaws.c
 Congratulations\! You've just provisioned a secure, cloud-native database entirely from the command line. You didn't just click buttons; you defined resources, configured networking, and secured access like a true data engineer.
 
 The next step is to prove it works. In a follow-up post, we'll SSH into our EC2 instance, install a MySQL client, and use the endpoint you just retrieved to connect to our new database. Stay tuned\!
+
+*This is a part of The Data Scientist's CLI Handbook, currently being re-organized and posted. Stay tuned for updates to this series*

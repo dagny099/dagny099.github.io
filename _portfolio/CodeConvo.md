@@ -2,15 +2,11 @@
 title: "Down the AI Rabbit Hole: Beyond Basic LLM Chats"
 excerpt: "A versatile chat interface with customizable AI behavior and exportable conversation insights"
 date: 2024-01-15 # Edited this to control order of appearance on Portfolio collections
-breadcrumbs: true
+published: false
 classes: [portfolio-page]
 category: Project
 tags: [nlp, genai, llm-chat, conversation-management, app-design]
 stack: [Python, Streamlit, OpenAI API, LlamaIndex, AWS EC2]
-toc: true
-toc_sticky: true  
-toc_label: "ToC"  
-toc_icon: "sitemap"    # also nice: compass, clipboard-list
 header:
   overlay_color: "#333"
   teaser: assets/images/portfolio/codeconvo_screenshot_th3.png

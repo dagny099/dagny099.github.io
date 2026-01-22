@@ -3,10 +3,10 @@ layout: single
 section: data-stories
 title: "Becoming a Backyard Beekeeper: a small step for ecological health, and the metadata chaos it spawned"
 permalink: /data-stories/hive-photo-metadata-tracker/
-header:
-  overlay_image: /assets/images/bees_pollen.jpg
-  overlay_filter: 0.5
-  teaser: /assets/images/bees_pollen_th.jpg
+# header:
+#   overlay_image: /assets/images/bees_pollen.jpg
+#   overlay_filter: 0.5
+#   teaser: /assets/images/bees_pollen_th.jpg
 excerpt: "The idea had been calling me for yrs: Build a Knowledge Graph from my hive data, and the bees will come. They did! And left again. But the Graph lives on!"
 tags: [computer-vision, image-analysis, metadata-extraction, knowledge-graph]
 stack: [Python, Google Cloud Vision API, Neo4j, Plotly, EXIF]

@@ -7,13 +7,14 @@ permalink: /blog/taming-mermaid-diagrams/
 redirect_from:
   - /posts/organized-mermaid-life/
   - /tutorial/taming-mermaid-diagrams-across-projects/
-header:
-  overlay_image: "/assets/images/midjourney/wall-worthy/sq-celestial-reflections.png"
+# header:
+#   overlay_image: "/assets/images/midjourney/wall-worthy/sq-celestial-reflections.png"
 excerpt: Treat Mermaid diagrams like <b>visual source code</b>   with a home, structure, and a tiny bit of automation.
 excerpt_display: true
 tags: [documentation, diagrams, workflow, visual-code, tutorial]
 stack: [Mermaid.js, Streamlit, Markdown, Git]
-classes: [wide]
+#classes: [wide]
+read_time: false 
 categories: [tutorial]
 #toc: true
 #toc_label: "Table of Contents"

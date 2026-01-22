@@ -6,10 +6,7 @@ classes: [portfolio-page]
 category: Project
 tags: [data-science, data-visualization, fitness-analytics, etl-pipeline]
 stack: [Python, MySQL, Streamlit, AWS RDS, MapMyRun API]
-toc: true
-toc_sticky: true  
-toc_label: "ToC"  
-toc_icon: "sitemap"   # also nice: compass, clipboard-list
+published: false
 header:
   image: assets/images/
   overlay_color: "#6b7fa1"
