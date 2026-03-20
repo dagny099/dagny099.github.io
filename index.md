@@ -10,15 +10,16 @@ author_profile: false
 excerpt: >
   Making meaning out of messy data. I apply cognitive science to build AI and data systems that work the way humans think.
 
-  <p class="hero-ctas hero-ctas--pinned">
+  <p class="hero-ctas hero-ctas--centered">
   <a class="btn hero-btn hero-btn--primary" href="/my-journey/">My Journey&nbsp; <i class="fas fa-shoe-prints"></i></a>
   <a class="btn hero-btn hero-btn--ghost" href="/contact/"> Get in Touch&nbsp;<i class="fas fa-paper-plane"></i></a>
   </p>
 
 header:
   overlay_filter: 0.7;
-  overlay_color: "#1e3a5f"
+  overlay_color: "#4a3a5f"
   caption: Austin, TX · Data Scientist · PhD Cognitive Science, MIT · Human-Centered AI · Explainable Systems
+  profile_image: /assets/images/biopic/bhs-new-headshot-v1.png
 
 # Updated project descriptions with cognitive angles
 feature_row:

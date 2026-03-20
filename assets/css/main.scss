@@ -26,11 +26,11 @@ sitemap: false
 
 /* Force gradient background on hero */
 .page__hero--overlay {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+  background: linear-gradient(135deg, #2c3e50 0%, #3d4f61 100%) !important;
   background-color: transparent !important;
 }
 
 /* Target the overlay specifically */
 .page__hero--overlay::before {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+  background: linear-gradient(135deg, #2c3e50 0%, #3d4f61 100%) !important;
 }

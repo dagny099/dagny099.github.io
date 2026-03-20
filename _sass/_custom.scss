@@ -618,7 +618,7 @@ h1, h2, h3, h4, h5, h6{
 /* 1) Make the footer itself paint the full-bleed bar */
 .page__footer{
   --strap: #3d6c67; /* brand strap */
-  background: #0f172a;
+  background: #2c3e50;
   border-top: 6px solid var(--strap);
 }
 
@@ -796,6 +796,30 @@ h1, h2, h3, h4, h5, h6{
   /* Add bottom padding to hero wrapper so caption doesn't overlap buttons */
   .home.layout--splash .page__hero--overlay .wrapper{
     padding-bottom: 2rem;  /* space for the absolutely-positioned caption */
+  }
+}
+
+/* Left-aligned CTA buttons below the excerpt */
+.page__hero--overlay .hero-ctas--centered{
+  margin: 1.25rem 0 0;
+  display: flex;
+  gap: .75rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* On mobile, stack buttons for better touch targets */
+@media (max-width: 600px){
+  .page__hero--overlay .hero-ctas--centered{
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .page__hero--overlay .hero-ctas--centered .hero-btn{
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
   }
 }
 
@@ -1203,4 +1227,63 @@ h1, h2, h3, h4, h5, h6{
 .journey-page .lens h4 {
   font-size: 1.1rem;
   margin: 0 0 0.75rem;
+}
+
+/* ------------------------------------------------------------------
+   Hero Profile Image
+   ------------------------------------------------------------------ */
+
+/* When profile image is present, make wrapper flexbox */
+.page__hero--overlay .wrapper--with-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Content area (title, excerpt, buttons) */
+.page__hero--overlay .hero-content {
+  flex: 1 1 300px;
+  min-width: 0; /* prevent flex item overflow */
+}
+
+/* Profile image container */
+.page__hero--overlay .hero-profile {
+  flex: 0 0 auto;
+}
+
+/* The circular image itself */
+.page__hero--overlay .hero-profile__image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page__hero--overlay .hero-profile__image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile: stack vertically, center image */
+@media (max-width: 768px) {
+  .page__hero--overlay .wrapper--with-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .page__hero--overlay .hero-profile {
+    order: -1; /* move image to top on mobile */
+    margin-bottom: 1rem;
+  }
+
+  .page__hero--overlay .hero-profile__image {
+    width: 140px;
+    height: 140px;
+  }
 }
