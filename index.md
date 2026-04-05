@@ -12,6 +12,7 @@ excerpt: >
 
   <p class="hero-ctas hero-ctas--centered">
   <a class="btn hero-btn hero-btn--primary" href="/my-journey/">My Journey&nbsp; <i class="fas fa-shoe-prints"></i></a>
+  <a class="btn hero-btn hero-btn--ghost" href="https://twin.barbhs.com" target="_blank" rel="noopener">Meet My Digital Twin&nbsp;<i class="fas fa-brain"></i></a>
   <a class="btn hero-btn hero-btn--ghost" href="/contact/"> Get in Touch&nbsp;<i class="fas fa-paper-plane"></i></a>
   </p>
 
@@ -98,6 +99,20 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
      <!-- <a href="/thinking/why-dashboards-fail/" class="btn btn--light">Read: Why Dashboards Fail</a> -->
     </div>
   </div>
+</div>
+
+<!-- =======================
+     Digital Twin Spotlight
+     ======================= -->
+<div class="home-section" style="background: #f5f1ff; border: 1px solid #ddd2ff; border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1rem;">
+  <h2 class="home-section__heading" style="margin-top: 0; text-align: center;">Try My Digital Twin</h2>
+  <p style="text-align: center; margin: 0 auto 0.75rem auto; max-width: 860px;">
+    Curious how I think through messy ideas? I built an AI trained on my work, writing, and thinking.
+    It can help you explore my frameworks, ask project-specific questions, and brainstorm in my style.
+  </p>
+  <p style="text-align: center; margin: 0;">
+    <a class="btn btn--primary" href="https://twin.barbhs.com" target="_blank" rel="noopener">Open Digital Twin ↗</a>
+  </p>
 </div>
 
 <!-- =======================
