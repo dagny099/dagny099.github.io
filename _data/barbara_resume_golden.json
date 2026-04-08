@@ -1,32 +1,30 @@
 {
   "meta": {
-    "version": "1.0.0",
-    "generated_at": "2025-09-18T22:33:04.273083",
+    "version": "2.0.0",
+    "generated_at": "2026-04-08T00:00:00.000000",
     "schema_hint": "This JSON is designed for resume-driven UIs (cards, TimelineJS, filters).",
     "source_files": [
-      "Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf",
-      "Hidalgo-Sotelo_Barbara_DataScientist_CloudML_Mozilla.pdf",
-      "RESUME INFORMATION.docx",
-      "COVER LETTERS HISTORICAL.docx"
+      "Hidalgo-Sotelo_Barbara_RESUME.pdf",
+      "Master Resume Comprehensive - Jan 2026.docx"
     ]
   },
   "profile": {
-    "name": "Barbara Hidalgo\u2011Sotelo, PhD",
-    "headline": "Data Scientist \u00b7 AI/ML & Data Strategy \u00b7 Cognitive Science PhD",
+    "name": "Barbara Hidalgo‑Sotelo, PhD",
+    "headline": "Data Scientist · AI/ML & Data Strategy · Cognitive Science PhD",
     "location": "Austin, TX (USA)",
     "email": "barbs@balex.com",
     "phone": "+1-512-804-9995",
     "website": "https://barbhs.com",
     "linkedin": "https://www.linkedin.com/in/barbara-hidalgo-sotelo",
-    "summary": "MIT-trained data scientist and behavioral researcher with 6+ years of experience translating complex data into actionable insights and ML solutions across public sector, healthcare, and software. Blends rigorous experimental design with product-minded execution.",
+    "summary": "MIT-trained data scientist and cognitive scientist with 6+ years delivering end-to-end ML/AI solutions across professional services, public sector, and healthcare. Blends rigorous experimental design with product-minded execution, translating complex data into actionable insights.",
     "keywords": [
       "machine learning",
       "data engineering",
       "analytics",
-      "NLP",
+      "GenAI",
+      "RAG systems",
       "knowledge graphs",
       "data governance",
-      "UX for data",
       "A/B testing",
       "PowerBI",
       "Python",
@@ -82,7 +80,7 @@
       "date": "2024-06"
     },
     {
-      "name": "Certified Data Management Professional (CDMP) \u2013 Associate",
+      "name": "Certified Data Management Professional (CDMP) – Associate",
       "issuer": "DAMA International",
       "date": "2024-03"
     },
@@ -90,11 +88,6 @@
       "name": "AWS Certified Cloud Practitioner",
       "issuer": "Amazon Web Services",
       "date": "2023-06"
-    },
-    {
-      "name": "Open Knowledge Graph Certification",
-      "issuer": "EDM Council",
-      "date": "2022-11"
     },
     {
       "name": "DCAM v2 Accredited",
@@ -117,11 +110,23 @@
       "scikit-learn",
       "PyTorch",
       "TensorFlow",
+      "XGBoost",
       "time series",
       "regression",
       "classification",
       "clustering",
       "model interpretability"
+    ],
+    "genai": [
+      "LangChain",
+      "LlamaIndex",
+      "OpenAI GPT",
+      "Anthropic Claude",
+      "RAG patterns",
+      "GraphRAG",
+      "embeddings",
+      "prompt engineering",
+      "evaluation frameworks"
     ],
     "data_viz_bi": [
       "PowerBI",
@@ -129,28 +134,25 @@
       "Plotly",
       "Matplotlib",
       "Streamlit",
-      "Looker"
+      "Looker Studio"
     ],
     "cloud_data": [
-      "AWS (S3, Lambda, SageMaker)",
-      "GCP (BigQuery)",
-      "Azure (ML Studio)",
+      "AWS (S3, Lambda, EC2, RDS, Bedrock)",
+      "Azure (AI Studio, ML Studio)",
+      "GCP (BigQuery, Cloud Vision API)",
       "Snowflake",
-      "Redshift",
       "PostgreSQL",
       "MySQL",
       "MongoDB",
-      "DynamoDB",
-      "Airflow",
-      "Docker",
-      "Kubernetes",
-      "MLflow"
+      "Neo4j",
+      "ChromaDB",
+      "Docker"
     ],
     "governance_nlp": [
       "metadata pipelines",
       "data catalog",
       "DCAM",
-      "Open Knowledge Graph",
+      "knowledge graphs",
       "Spacy",
       "NLTK",
       "LlamaIndex",
@@ -171,45 +173,73 @@
       "employer": "Inflective, Inc.",
       "employment_type": "Consulting",
       "start_date": "2024-01",
-      "end_date": null,
+      "end_date": "2025-05",
       "location": "Remote",
       "domains": [
         "enterprise transformation",
-        "analytics enablement",
-        "web analytics"
+        "program delivery"
       ],
       "highlights": [
-        "Connected GA4 to Looker Studio for leadership dashboards; analyzed user behavior to drive UX/content strategy.",
-        "Documented business processes as workflow diagrams supporting ERP transition planning and cross-functional alignment."
+        "Partnered with stakeholders to assess program status and risks; communicated progress to support delivery timelines.",
+        "Resolved cross-functional delivery issues between business and technical teams."
+      ],
+      "outcomes": [],
+      "skills": [
+        "program coordination",
+        "stakeholder communication",
+        "Jira",
+        "Confluence"
+      ],
+      "tags": [
+        "change-management",
+        "delivery"
+      ]
+    },
+    {
+      "title": "Independent AI Engineering",
+      "employer": "Self-Directed Portfolio Work",
+      "employment_type": "Project-Based",
+      "start_date": "2024-05",
+      "end_date": null,
+      "location": "Remote",
+      "domains": [
+        "AI engineering",
+        "GenAI applications"
+      ],
+      "highlights": [
+        "Built Python-based GenAI applications using RAG/GraphRAG patterns with focus on retrieval quality and traceability.",
+        "Developed local-first systems with modular architecture supporting rapid iteration and future productionization.",
+        "Strengthened engineering fundamentals: Git workflows, documentation, structured evaluation, and repeatable pipelines."
       ],
       "outcomes": [
         {
-          "metric": "visibility",
-          "value": "RT leadership view of engagement/campaign performance"
-        },
-        {
-          "metric": "alignment",
-          "value": "clear artifacts to coordinate ERP stakeholders"
+          "metric": "projects",
+          "value": "4 production-ready GenAI applications (GraphRAG, Poolula, ChronoScope, ConvoScope)"
         }
       ],
       "skills": [
-        "GA4",
-        "Looker Studio",
-        "process mapping",
-        "stakeholder comms"
+        "Python",
+        "LangChain",
+        "LlamaIndex",
+        "Neo4j",
+        "ChromaDB",
+        "FastAPI",
+        "Streamlit",
+        "RAG patterns"
       ],
       "tags": [
-        "public-website",
-        "dashboards",
-        "ux-research"
+        "genai",
+        "rag",
+        "knowledge-graphs",
+        "portfolio"
       ]
     },
     {
       "title": "Data Scientist",
       "employer": "Metric5 Consulting (SEC client)",
       "employment_type": "Full-time",
-      "start_date": "2021-01",
-      "end_date": "2023-12",
+      "start_date": "2021-04",
+      "end_date": "2023-01",
       "location": "Remote (DC client)",
       "domains": [
         "public sector",
@@ -217,25 +247,26 @@
         "metadata"
       ],
       "highlights": [
-        "Built Python tools to streamline metadata export and automate reporting.",
-        "Created a real-time reporting utility integrating PowerBI with ServiceNow + COTS to reduce turnaround for data access requests.",
-        "Published an interactive metadata glossary to increase catalog adoption and simplify upkeep."
+        "Built Python tools to streamline metadata export and automate reporting workflows.",
+        "Created POC reporting utility integrating PowerBI with ServiceNow and enterprise data catalog to improve data access request handling.",
+        "Collaborated with technical teams in standards-driven environment supporting version control and automated testing."
       ],
       "outcomes": [
         {
           "metric": "cycle-time",
-          "value": "\u2193 data-access turnaround (reported ~55%)"
+          "value": "↓ data-access turnaround (~25%)"
         },
         {
           "metric": "adoption",
-          "value": "\u2191 data-catalog traffic and glossary updates"
+          "value": "↑ data-catalog traffic and metadata maintenance"
         }
       ],
       "skills": [
         "Python",
         "PowerBI",
         "ServiceNow",
-        "REST reverse\u2011engineering",
+        "PostgreSQL",
+        "REST APIs",
         "documentation"
       ],
       "tags": [
@@ -244,36 +275,38 @@
       ]
     },
     {
-      "title": "Project Manager",
+      "title": "Technical Consultant & Project Manager",
       "employer": "Inflective, Inc.",
       "employment_type": "Contract",
-      "start_date": "2017-01",
-      "end_date": "2019-12",
+      "start_date": "2017-08",
+      "end_date": "2019-05",
       "location": "Remote",
       "domains": [
         "healthcare ops",
-        "RPA/automation",
-        "process improvement"
+        "process improvement",
+        "analytics"
       ],
       "highlights": [
         "Led digital transformation optimizing processing of ~4M medical bills/year; introduced ML for document classification.",
-        "Co-led Lean Six-Sigma workshops identifying workflow improvements and change plans."
+        "Designed Python/scikit-learn classification model to automate medical bill categorization with performance comparable to human coders.",
+        "Co-led Lean Six-Sigma workshops identifying workflow improvements and reducing error rates by ~25%."
       ],
       "outcomes": [
         {
           "metric": "throughput",
-          "value": "\u2191 processing speed (~30%)"
+          "value": "↑ processing speed (~30%)"
         },
         {
-          "metric": "cost",
-          "value": "operational savings via automation & process redesign"
+          "metric": "accuracy",
+          "value": "92% ML classification accuracy matching human performance"
         }
       ],
       "skills": [
-        "XGBoost",
         "Python",
+        "scikit-learn",
+        "XGBoost",
         "Lean Six Sigma",
-        "requirements"
+        "Jira"
       ],
       "tags": [
         "claims",
@@ -282,59 +315,7 @@
       ]
     },
     {
-      "title": "Co\u2011Founder & Technical Lead",
-      "employer": "BALEX Healthcare Services",
-      "employment_type": "Founder",
-      "start_date": "2015-01",
-      "end_date": "2017-12",
-      "location": "Austin, TX",
-      "domains": [
-        "healthcare",
-        "EMR",
-        "compliance"
-      ],
-      "highlights": [
-        "Developed a home\u2011health EMR, data pipelines, and outcome reporting; led compliance readiness and vendor presentations."
-      ],
-      "skills": [
-        "SQL",
-        "data pipelines",
-        "clinical metrics",
-        "training"
-      ],
-      "tags": [
-        "startup",
-        "emr",
-        "home-health"
-      ]
-    },
-    {
-      "title": "Research Project Manager \u2013 Eye Tracking",
-      "employer": "MediaScience",
-      "employment_type": "Full-time",
-      "start_date": "2017-01",
-      "end_date": "2017-12",
-      "location": "Austin, TX",
-      "domains": [
-        "marketing science",
-        "biometrics"
-      ],
-      "highlights": [
-        "Analyzed eye\u2011tracking, GSR, and facial expression data; built automated analysis pipelines; delivered client reports."
-      ],
-      "skills": [
-        "Python",
-        "A/B testing",
-        "biometrics",
-        "stats"
-      ],
-      "tags": [
-        "media",
-        "experimentation"
-      ]
-    },
-    {
-      "title": "Business Management Consultant",
+      "title": "Technical Consultant",
       "employer": "Persis Consulting",
       "employment_type": "Consulting",
       "start_date": "2014-01",
@@ -346,12 +327,14 @@
         "training"
       ],
       "highlights": [
-        "Gathered requirements, coordinated between business & engineering, improved QA/QC processes, authored training."
+        "Documented software requirements and supported Agile delivery for healthcare and private-sector clients.",
+        "Managed QA/QC testing and created end-user training materials to improve software reliability and adoption."
       ],
       "skills": [
         "requirements",
         "QA",
-        "technical writing"
+        "technical writing",
+        "Agile"
       ],
       "tags": [
         "software-delivery",
@@ -359,11 +342,65 @@
       ]
     },
     {
+      "title": "Co‑Founder & Technical Lead",
+      "employer": "BALEX Healthcare Services",
+      "employment_type": "Founder",
+      "start_date": "2015-01",
+      "end_date": "2017-12",
+      "location": "Austin, TX",
+      "domains": [
+        "healthcare",
+        "EMR",
+        "compliance"
+      ],
+      "highlights": [
+        "Developed a home‑health EMR, data pipelines, and outcome reporting system.",
+        "Led compliance readiness and vendor presentations; managed clinical workflow design."
+      ],
+      "skills": [
+        "SQL",
+        "data pipelines",
+        "clinical metrics",
+        "HIPAA compliance"
+      ],
+      "tags": [
+        "startup",
+        "emr",
+        "home-health"
+      ]
+    },
+    {
+      "title": "Research Project Manager – Biometrics",
+      "employer": "MediaScience",
+      "employment_type": "Full-time",
+      "start_date": "2017-02",
+      "end_date": "2017-07",
+      "location": "Austin, TX",
+      "domains": [
+        "marketing science",
+        "biometrics"
+      ],
+      "highlights": [
+        "Analyzed eye‑tracking, GSR, and facial expression data; built automated analysis pipelines.",
+        "Delivered client reports using hypothesis testing and A/B testing methodologies."
+      ],
+      "skills": [
+        "Python",
+        "A/B testing",
+        "biometrics",
+        "statistics"
+      ],
+      "tags": [
+        "media",
+        "experimentation"
+      ]
+    },
+    {
       "title": "Research Engineer/Scientist",
       "employer": "University of Texas at Austin",
       "employment_type": "Research",
       "start_date": "2013-01",
-      "end_date": "2016-12",
+      "end_date": "2016-06",
       "location": "Austin, TX",
       "domains": [
         "speech processing",
@@ -371,13 +408,14 @@
         "tooling"
       ],
       "highlights": [
-        "Built data collection & analysis tools used by 12+ staff; developed algorithms for speech onset; created GUIs to speed analysis."
+        "Built data collection & analysis tools used by 12+ staff; developed algorithms for speech onset detection.",
+        "Engineered secure data pipelines for longitudinal studies with 1,000+ participants."
       ],
       "skills": [
         "MATLAB",
+        "Python",
         "signal processing",
-        "GUI design",
-        "Python"
+        "ETL pipelines"
       ],
       "tags": [
         "research",
@@ -387,13 +425,65 @@
   ],
   "projects": [
     {
-      "name": "CodeConvo (LLM Chat Interface)",
+      "name": "GraphRAG with Podcasts",
       "period": "2024",
-      "summary": "Streamlit chat with OpenAI integration, conversation management, topic extraction, and analytics.",
+      "summary": "Knowledge graph + vector retrieval for podcast Q&A with timestamp/citation-style grounding for traceability.",
+      "stack": [
+        "Neo4j Aura",
+        "Python",
+        "LangChain",
+        "OpenAI embeddings"
+      ],
+      "links": [],
+      "tags": [
+        "graphrag",
+        "knowledge-graphs",
+        "retrieval"
+      ]
+    },
+    {
+      "name": "Poolula Platform",
+      "period": "2024",
+      "summary": "Modular RAG system with evaluation harness combining structured data layer and document retrieval with tool-style routing.",
+      "stack": [
+        "FastAPI",
+        "SQLModel",
+        "ChromaDB",
+        "LangChain",
+        "OpenAI/Anthropic APIs"
+      ],
+      "links": [],
+      "tags": [
+        "rag",
+        "evaluation",
+        "modular-architecture"
+      ]
+    },
+    {
+      "name": "ChronoScope",
+      "period": "2024",
+      "summary": "Resume timeline extraction & visualization with Streamlit, generating interactive Plotly timelines and TimelineJS-ready exports.",
+      "stack": [
+        "Streamlit",
+        "OpenAI API",
+        "Plotly",
+        "Python"
+      ],
+      "links": [],
+      "tags": [
+        "genai",
+        "visualization",
+        "timeline"
+      ]
+    },
+    {
+      "name": "ConvoScope (LLM Chat Interface)",
+      "period": "2024",
+      "summary": "Production-ready GenAI application with conversation management, real-time streaming, and topic extraction across multiple AI providers.",
       "stack": [
         "Python",
         "Streamlit",
-        "OpenAI API",
+        "OpenAI/Anthropic/Google APIs",
         "AWS EC2"
       ],
       "links": [
@@ -404,20 +494,20 @@
       ],
       "tags": [
         "genai",
-        "prompting",
-        "state"
+        "multi-provider",
+        "production"
       ]
     },
     {
       "name": "Workout Analytics Dashboard",
-      "period": "2024\u20132025",
+      "period": "2024–2025",
       "summary": "ETL to MySQL on AWS RDS; interactive trends & distributions for running/walking metrics.",
       "stack": [
         "Python",
         "SQL",
         "AWS RDS",
         "Plotly",
-        "PowerBI/Streamlit"
+        "Streamlit"
       ],
       "links": [
         {
@@ -437,7 +527,7 @@
       "title": "A combined source model of visual clutter (example: visual guidance & scene familiarity)",
       "authors": [
         "Ehinger",
-        "Hidalgo\u2011Sotelo",
+        "Hidalgo‑Sotelo",
         "Torralba",
         "Oliva"
       ],
@@ -451,6 +541,7 @@
       "domains": [
         "public sector",
         "healthcare",
+        "AI engineering",
         "enterprise transformation",
         "research"
       ],
@@ -458,16 +549,17 @@
         "Python",
         "SQL",
         "PowerBI",
-        "PyTorch",
-        "Airflow",
+        "LangChain",
+        "Neo4j",
+        "RAG patterns",
         "metadata",
         "knowledge graphs"
       ],
       "tags": [
         "dashboards",
-        "RPA",
+        "genai",
         "A/B testing",
-        "NLP",
+        "classification",
         "EMR"
       ]
     },
@@ -475,14 +567,15 @@
       "domainColors": {
         "public sector": "#4f46e5",
         "healthcare": "#059669",
+        "AI engineering": "#dc2626",
         "enterprise transformation": "#7c3aed",
         "research": "#0ea5e9"
       },
       "tagColors": {
         "dashboards": "#2563eb",
-        "RPA": "#dc2626",
+        "genai": "#dc2626",
         "A/B testing": "#f59e0b",
-        "NLP": "#10b981",
+        "classification": "#10b981",
         "EMR": "#f97316"
       }
     }
