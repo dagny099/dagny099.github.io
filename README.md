@@ -17,6 +17,7 @@ This website is my digital hub where I share projects, articles, and my musings 
 - 🐝 Custom design to reflect my personal interests
 - ✓ Metadata validation script to ensure content quality and SEO optimization
 - 🧩 Snippets collection (added 12/11/25) for short, reusable insights
+- 💼 **JSON-powered resume architecture** (added 04/08/26) - single source of truth for professional experience
 
 
 ## How It's Built
@@ -59,6 +60,28 @@ The script checks for:
 - Header images for visual content
 
 For more details on metadata best practices, see the [metadata validation script documentation](scripts/README.md) or read the blog post on [why metadata matters](/blog/metadata-matters/).
+
+## Resume Data Architecture
+
+This site uses a **data-driven resume system** where professional experience is stored in a single JSON file (`_data/barbara_resume_golden.json`) that serves as the source of truth for multiple outputs:
+
+- 🌐 **[/experience/](/experience/)** - Dynamic filtering of work history with tags and domains
+- 📄 **PDF Resume** - Professional summary document
+- 📊 **Future outputs** - TimelineJS visualizations, API endpoints, automated LinkedIn sync
+
+**Why this approach?**
+- ✅ Single source of truth prevents version drift
+- ✅ Structured data enables automation and filtering
+- ✅ Version controlled via Git
+- ✅ Easy to query, transform, and generate outputs
+
+**Key files:**
+- `_data/barbara_resume_golden.json` - Main data file (490 lines, 8 sections)
+- `_data/barbara_resume_golden_SCHEMA.json` - JSON Schema for validation
+- `_pages/experience.md` - Template that renders the experience page
+- `_resources/resume-data-schema.md` - Full documentation
+
+**Learn more:** [Resume Data Schema Documentation](/resources/resume-data-schema/)
 
 ## Local Development
 

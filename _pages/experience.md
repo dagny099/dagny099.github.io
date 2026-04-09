@@ -40,6 +40,11 @@ excerpt: "Detailed role history with highlights and technology tags."
   {% endfor %}
 </div>
 
+<p style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; font-size: 0.9rem; color: #6c757d;">
+  Curious about the data architecture powering this page?
+  <a href="/resources/resume-data-schema/" style="color: #4a90e2; text-decoration: none;">View the JSON schema documentation →</a>
+</p>
+
 <script>
   const chips=[...document.querySelectorAll('.chip')];
   chips.forEach(c=>c.addEventListener('click',()=>{

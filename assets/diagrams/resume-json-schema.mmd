@@ -1,0 +1,40 @@
+graph TB
+    subgraph "barbara_resume_golden.json"
+        ROOT[📄 Resume Data File]
+    end
+
+    ROOT --> META[🔖 meta - Version & Timestamps]
+    ROOT --> PROFILE[👤 profile - Contact & Summary]
+    ROOT --> EDUCATION[🎓 education - Degrees Array]
+    ROOT --> CERTS[📜 certifications - Credentials Array]
+    ROOT --> SKILLS[⚡ skills - 6 Categories]
+    ROOT --> EXPERIENCE[💼 experience - Work History Array]
+    ROOT --> PROJECTS[🚀 projects - Portfolio Array]
+    ROOT --> PUBS[📚 publications - Research Array]
+    ROOT --> DISPLAY[🎨 display - UI Configuration]
+
+    PROFILE --> P1[name, headline, location, email, phone, website, linkedin, summary, keywords]
+
+    EDUCATION --> E1[degree, institution, location, dates, highlights, tags]
+
+    SKILLS --> S1[programming, ml, genai, data_viz_bi]
+    SKILLS --> S2[cloud_data, governance_nlp, methods]
+
+    EXPERIENCE --> EXP1["🔑 title, employer, employment_type, start_date, end_date, location"]
+    EXPERIENCE --> EXP2["📍 domains (for filtering), highlights (first 3 shown), outcomes, skills, tags"]
+
+    PROJECTS --> PR1[name, period, summary, stack, links, tags]
+
+    DISPLAY --> D1[filters - domains, skills, tags]
+    DISPLAY --> D2[style - domainColors, tagColors]
+
+    style ROOT fill:#e1f5ff,stroke:#0077b5,stroke-width:3px
+    style EXPERIENCE fill:#fff4e6,stroke:#ff9800,stroke-width:3px
+    style DISPLAY fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
+    style EXP1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style EXP2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style PROFILE fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
+    style SKILLS fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
+
+    classDef arrayNode fill:#fce4ec,stroke:#e91e63,stroke-width:2px
+    class EDUCATION,CERTS,PROJECTS,PUBS arrayNode

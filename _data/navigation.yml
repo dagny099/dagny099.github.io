@@ -92,6 +92,8 @@ footer-nav:
         url: /my-journey/
       - title: "Experience"
         url: /experience/
+      - title: "Resume Data Schema"
+        url: /resources/resume-data-schema/
       - title: "Research"
         url: /research/
       - title: "Work/Projects"
