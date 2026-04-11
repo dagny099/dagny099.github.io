@@ -8,14 +8,6 @@ main:
     subtitle: "A guided tour of my writing and thinking."
     description: "Curated highlights across data narratives, essays, and notes."
 
-  - title: "Writing"
-    short: "Writing"
-    url: /blog/
-    color: "#3b4a73"
-    background-color: "#f2f4fb"
-    subtitle: "Essays, data narratives, notes, and series."
-    description: "Explore the ideas, methods, and builds behind the work."
-
   - title: "Projects"
     short: "Projects"
     url: /projects/
@@ -24,6 +16,14 @@ main:
     subtitle: "Systems and products I've built."
     description: "Data products, AI systems, and knowledge graphs in production."
 
+  - title: "Services"
+    short: "Services"
+    url: https://sensemaking-ai.com
+    color: "#3b4a73"
+    background-color: "#f2f4fb"
+    subtitle: "Data and AI Strategy Consulting Services"
+    description: "AI Strategy | RAG Systems | Knowlege Graphs | Data Coaching"
+
   - title: "My Journey"
     short: "Journey"
     url: /my-journey/
@@ -31,6 +31,14 @@ main:
     background-color: "#faf7f2"
     subtitle: "From vision science to data products — a human timeline."
     description: "Career pivots, learning, and shipped work over time."
+
+  - title: "Writing"
+    short: "Writing"
+    url: /blog/
+    color: "#3b4a73"
+    background-color: "#f2f4fb"
+    subtitle: "Essays, data narratives, notes, and series."
+    description: "Explore the ideas, methods, and builds behind the work."
 
   - title: "Resources"
     short: "Resources"
