@@ -11,7 +11,6 @@ excerpt: >
   Making meaning out of messy data. I apply cognitive science to build AI and data systems that work the way humans think.
 
   <p class="hero-ctas hero-ctas--centered">
-  <a class="btn hero-btn hero-btn--primary" href="https://sensemaking-ai.com/" target="_blank" rel="noopener"> See Services&nbsp; <i class="fas fa-hands-helping"></i></a>
   <a class="btn hero-btn hero-btn--ghost" href="https://twin.barbhs.com" target="_blank" rel="noopener">Ask My Twin&nbsp;&nbsp; <i class="far fa-comment-dots"></i></a>
   <a class="btn hero-btn hero-btn--ghost" href="/contact/"> Let's Connect &nbsp;<i class="fas fa-paper-plane"></i></a>
   </p>
