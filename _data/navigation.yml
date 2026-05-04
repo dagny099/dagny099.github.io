@@ -16,9 +16,9 @@ main:
     subtitle: "Systems and products I've built."
     description: "Data products, AI systems, and knowledge graphs in production."
 
-  - title: "Services"
+  - title: "Work With Me"
     short: "Services"
-    url: https://sensemaking-ai.com
+    url: /work-with-me/
     color: "#3b4a73"
     background-color: "#f2f4fb"
     subtitle: "Data and AI Strategy Consulting Services"
