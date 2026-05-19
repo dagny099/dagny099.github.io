@@ -18,7 +18,7 @@ classes: [graphrag-reference-page]
 <title>From Vectors to a Graph — Digital Twin Migration Reference</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&family=Bricolage+Grotesque:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #F5F1EA;
@@ -37,9 +37,9 @@ classes: [graphrag-reference-page]
   --graph-bg-strong: #C9DFD7;
   --amber: #B07820;
   --amber-bg: #F8EDD5;
-  --display: 'Fraunces', Georgia, serif;
-  --body: 'Newsreader', Georgia, serif;
-  --sans: 'Bricolage Grotesque', system-ui, sans-serif;
+  --display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -49,30 +49,30 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: linear-gradient(180deg, #F6F0E8, #EDF4EF);
   color: var(--ink);
   font-family: var(--body);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.56;
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .page {
-  max-width: 100%;
-  margin: 0;
-  padding: 24px 0 48px;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 36px 28px 64px;
   position: relative;
 }
 
 /* ─── Header ─── */
 header {
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 48px;
-  margin-bottom: 64px;
-  max-width: 760px;
+  border-bottom: none;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  max-width: 100%;
 }
 .eyebrow {
   font-family: var(--sans);
@@ -85,26 +85,25 @@ header {
 }
 h1 {
   font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(40px, 6vw, 68px);
-  line-height: 1.02;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.15;
   letter-spacing: -0.02em;
-  margin: 0 0 24px;
-  font-variation-settings: "opsz" 144;
+  margin: 0 0 8px;
 }
 h1 em {
   font-style: italic;
   color: var(--graph);
-  font-weight: 300;
+  font-weight: 600;
 }
 .lede {
   font-family: var(--body);
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1.45;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.56;
   color: var(--ink-soft);
-  margin: 0 0 32px;
-  max-width: 640px;
+  margin: 0 0 18px;
+  max-width: 980px;
 }
 .meta {
   font-family: var(--sans);
@@ -159,47 +158,57 @@ nav.toc a:hover { color: var(--graph); }
 
 main { max-width: 100%; }
 
-/* ─── Sections ─── */
-section { margin-bottom: 88px; scroll-margin-top: 32px; }
+/* ─── Sections as cards ─── */
+section {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  padding: 24px 28px;
+  margin-bottom: 18px;
+  scroll-margin-top: 32px;
+  box-shadow: 0 8px 24px rgba(40, 49, 58, 0.06);
+}
 
 h2 {
   font-family: var(--display);
-  font-weight: 400;
-  font-size: 38px;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  margin: 0 0 24px;
-  font-variation-settings: "opsz" 72;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  color: var(--amber);
 }
 h2 .num {
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.14em;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--ink-faint);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-transform: uppercase;
 }
 h3 {
   font-family: var(--body);
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 1.3;
-  margin: 40px 0 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.35;
+  margin: 24px 0 8px;
+  color: var(--graph);
   letter-spacing: -0.005em;
 }
 h4 {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
-  margin: 32px 0 12px;
+  margin: 22px 0 8px;
 }
 
-p { margin: 0 0 16px; }
+p { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.56; }
+p strong { color: var(--ink); }
 p + p { margin-top: 0; }
 
 strong { font-weight: 600; }
@@ -236,6 +245,7 @@ a:hover { border-bottom-color: var(--graph); }
 .callout.chroma .label { color: var(--chroma); }
 .callout.graph .label { color: var(--graph); }
 .callout.amber .label { color: var(--amber); }
+.callout p { color: var(--ink); line-height: 1.55; }
 .callout p:last-child { margin-bottom: 0; }
 
 /* ─── Tables ─── */
@@ -328,9 +338,9 @@ pre .fn { color: #F5C9A1; }
 }
 @media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
 .split > div {
-  background: var(--bg-card);
-  border-radius: 8px;
-  padding: 24px;
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 22px;
   border: 1px solid var(--rule);
 }
 .split .chroma-card { border-top: 3px solid var(--chroma); }
@@ -348,11 +358,11 @@ pre .fn { color: #F5C9A1; }
 
 /* ─── Decision cards ─── */
 .decision {
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px solid var(--rule);
-  border-radius: 10px;
-  padding: 24px 28px;
-  margin: 16px 0;
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin: 14px 0;
   position: relative;
 }
 .decision .num-badge {
@@ -371,8 +381,9 @@ pre .fn { color: #F5C9A1; }
 }
 .decision h3 {
   margin: 4px 0 16px;
-  font-size: 20px;
-  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
 }
 .decision .row {
   display: grid;
@@ -432,11 +443,11 @@ pre .fn { color: #F5C9A1; }
 
 /* ─── Schema diagram ─── */
 .schema-wrap {
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px solid var(--rule);
-  border-radius: 10px;
-  padding: 32px;
-  margin: 24px 0;
+  border-radius: 12px;
+  padding: 28px;
+  margin: 18px 0;
 }
 .schema-caption {
   font-family: var(--sans);
@@ -449,13 +460,13 @@ pre .fn { color: #F5C9A1; }
 
 /* ─── Formula display ─── */
 .formula-display {
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px solid var(--rule);
-  border-radius: 8px;
-  padding: 24px;
-  margin: 24px 0;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 18px 0;
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 2.2;
 }
 .formula-display .weight {
@@ -493,15 +504,7 @@ ul li::marker { color: var(--ink-faint); }
 .tag.graph { background: var(--graph-bg-strong); color: var(--graph); }
 
 /* ─── Section divider ─── */
-.divider {
-  text-align: center;
-  margin: 80px 0;
-  color: var(--ink-faint);
-  font-family: var(--display);
-  font-size: 24px;
-  letter-spacing: 1em;
-  padding-left: 1em;
-}
+.divider { display: none; }
 
 /* ─── Footnote / sidenote feel ─── */
 .note {
@@ -521,26 +524,25 @@ ul li::marker { color: var(--ink-faint); }
   margin: 24px 0;
 }
 .stat {
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px solid var(--rule);
-  border-radius: 8px;
-  padding: 18px 20px;
+  border-radius: 18px;
+  padding: 18px;
 }
 .stat .big {
   font-family: var(--display);
-  font-size: 36px;
-  font-weight: 400;
+  font-size: 28px;
+  font-weight: 750;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--graph);
-  font-variation-settings: "opsz" 144;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .stat .lab {
   font-family: var(--sans);
   font-size: 12px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
@@ -587,9 +589,9 @@ ul li::marker { color: var(--ink-faint); }
 .example-merge {
   font-family: var(--mono);
   font-size: 13px;
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px solid var(--rule);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 10px 14px;
   margin: 8px 0;
   line-height: 1.7;
@@ -602,50 +604,79 @@ ul li::marker { color: var(--ink-faint); }
 .example-merge .canonical { color: var(--graph); font-weight: 600; }
 .example-merge .variant { color: var(--ink-soft); }
 
-/* ─── Data quality strip (under header) ─── */
-.data-strip {
+/* ─── Top KPI strip (under header) ─── */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 14px 0 14px;
+}
+.kpi {
   background: var(--bg-card);
   border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: 12px 20px;
-  margin-top: 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: center;
-  font-family: var(--sans);
-  font-size: 13px;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(40, 49, 58, 0.06);
 }
-.data-strip .strip-label {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.kpi .label {
+  font-size: 12px;
   color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   font-weight: 600;
-  border-right: 1px solid var(--rule);
-  padding-right: 16px;
 }
-.data-strip .strip-item {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
+.kpi .value {
+  font-size: 28px;
+  font-weight: 750;
+  margin-top: 8px;
+  color: var(--graph);
+  letter-spacing: -0.01em;
 }
-.data-strip .strip-num {
-  font-family: var(--display);
-  font-size: 18px;
-  font-weight: 500;
+.kpi .sub {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+@media (max-width: 720px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+
+.warn {
+  border-left: 4px solid var(--amber);
+  padding: 12px 14px;
+  background: #FFF6E8;
+  border-radius: 12px;
+  color: #534436;
+  font-size: 13px;
+  margin: 6px 0 18px;
+}
+.warn strong { color: var(--amber); }
+
+/* ─── Inline "Jump to" pill bar ─── */
+.jumpbar {
+  background: #F4EDE1;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+.jumpbar strong {
   color: var(--ink);
+  margin-right: 8px;
 }
-.data-strip .strip-text { color: var(--ink-soft); }
-.data-strip .strip-flag { color: var(--amber); font-weight: 500; }
+.jumpbar a {
+  color: var(--graph);
+  text-decoration: none;
+  margin-right: 16px;
+  border-bottom: none;
+}
+.jumpbar a:hover { text-decoration: underline; }
 
 /* ─── Collapsible placeholder ─── */
 details.placeholder {
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px dashed var(--rule);
   border-radius: 8px;
   padding: 16px 20px;
-  margin: 24px 0;
+  margin: 18px 0;
 }
 details.placeholder summary {
   font-family: var(--sans);
@@ -690,11 +721,11 @@ details.placeholder .pending-tag {
 
 /* ─── Entity browser ─── */
 .browser {
-  background: var(--bg-card);
+  background: var(--bg);
   border: 1px solid var(--rule);
-  border-radius: 10px;
-  padding: 24px;
-  margin: 24px 0;
+  border-radius: 12px;
+  padding: 22px;
+  margin: 18px 0;
 }
 .filter-bar {
   display: flex;
@@ -862,35 +893,34 @@ details.placeholder .pending-tag {
     <span class="dot"></span>
     <span>Feature branch: <code style="font-size:12px">graphrag-migration</code></span>
   </div>
-  <div class="data-strip" title="Snapshot of canonical_entities.json — updates each canonicalization run">
-    <span class="strip-label">Data snapshot</span>
-    <span class="strip-item"><span class="strip-num">167</span><span class="strip-text">canonical entities</span></span>
-    <span class="strip-item"><span class="strip-num">121</span><span class="strip-text">sections</span></span>
-    <span class="strip-item"><span class="strip-num">1.92×</span><span class="strip-text">canonicalization compression</span></span>
-    <span class="strip-item"><span class="strip-num">16</span><span class="strip-text">zero-mention sections</span></span>
-    <span class="strip-item"><span class="strip-flag">2 quality flags pending review</span></span>
-  </div>
 </header>
 
-<div class="layout">
+<div class="kpis" title="Snapshot of canonical_entities.json — updates each canonicalization run">
+  <div class="kpi"><div class="label">Canonical entities</div><div class="value">167</div><div class="sub">57 skills · 42 methods · 46 techs · 22 concepts</div></div>
+  <div class="kpi"><div class="label">Sections</div><div class="value">121</div><div class="sub">Across 13 KB doc types</div></div>
+  <div class="kpi"><div class="label">Canonicalization compression</div><div class="value">1.92×</div><div class="sub">279 raw → 167 canonical</div></div>
+  <div class="kpi"><div class="label">Zero-mention sections</div><div class="value">16</div><div class="sub">13% of total</div></div>
+</div>
 
-<nav class="toc">
-  <div class="toc-label">Contents</div>
-  <ol>
-    <li><a href="#tldr">In one paragraph</a></li>
-    <li><a href="#why">Why migrate</a></li>
-    <li><a href="#moves">Three moves</a></li>
-    <li><a href="#schema">The schema</a></li>
-    <li><a href="#two-paths">Same query, two paths</a></li>
-    <li><a href="#scoring">Hybrid scoring</a></li>
-    <li><a href="#decisions">Architectural decisions</a></li>
-    <li><a href="#simple-queries">Simple queries</a></li>
-    <li><a href="#demo-queries">Demo queries</a></li>
-    <li><a href="#metrics">Metrics defined</a></li>
-    <li><a href="#glossary">Glossary</a></li>
-    <li><a href="#adjust">Adjust later</a></li>
-  </ol>
-</nav>
+<div class="warn"><strong>2 quality flags pending review.</strong> Acronym Title-Casing in canonical names and cross-type pool overlap — both addressed in section 12 (<em>Adjust later</em>) with root cause and proposed fix.</div>
+
+<div class="jumpbar">
+  <strong>Jump to:</strong>
+  <a href="#tldr">TL;DR</a>
+  <a href="#why">Why migrate</a>
+  <a href="#moves">Three moves</a>
+  <a href="#schema">Schema</a>
+  <a href="#two-paths">Two paths</a>
+  <a href="#scoring">Hybrid scoring</a>
+  <a href="#decisions">Decisions</a>
+  <a href="#simple-queries">Simple queries</a>
+  <a href="#demo-queries">Demo queries</a>
+  <a href="#metrics">Metrics</a>
+  <a href="#glossary">Glossary</a>
+  <a href="#adjust">Adjust later</a>
+</div>
+
+<div class="layout">
 
 <main>
 
@@ -1067,7 +1097,7 @@ details.placeholder .pending-tag {
   </table>
   </div>
 
-  <h3 style="margin-top: 56px;">By the numbers — what's actually in the graph</h3>
+  <h3 style="margin-top: 32px;">By the numbers — what's actually in the graph</h3>
   <p>Real counts from <code>canonical_entities.json</code> as of the most recent canonicalization run. These numbers are the actual order of magnitude you're operating at — useful both for tuning decisions and for talking about the system honestly.</p>
 
   <div class="stat-grid">
@@ -1245,7 +1275,7 @@ details.placeholder .pending-tag {
     </div>
   </details>
 
-  <h3 style="margin-top:48px;">Browse the canonical entities</h3>
+  <h3 style="margin-top:28px;">Browse the canonical entities</h3>
   <p>Live data from <code>canonical_entities.json</code> — all 167 canonical entity nodes. Search across names and alt_labels, or filter by type. Click any row to see full alt_labels and (for concepts) the description.</p>
 
   <div class="browser">
