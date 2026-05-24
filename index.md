@@ -101,7 +101,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
       </div>
 
       <p class="current-feature__actions">
-        <a class="btn btn--primary" href="https://github.com/dagny099/semantic-web-curriculum" target="_blank" rel="noopener">Explore the curriculum ↗</a>
+        <a class="btn btn--primary" href="https://curriculum.barbhs.com" target="_blank" rel="noopener">Explore the curriculum ↗</a>
       </p>
     </div>
 
