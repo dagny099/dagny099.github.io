@@ -115,39 +115,6 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </div>
 
 <!-- =======================
-     How I Think Section (NEW)
-     ======================= -->
-
-<div class="home-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 0.05rem; border-radius: 12px; margin: 0;">
-  <h2 style="text-align: center; margin: 1rem;">🧠 How I Think About Data</h2>
-  
-  <div style="max-width: 850px; margin: 0 auto; text-align: center; line-height: 1.4;">
-    <p style="font-size: 0.9em; margin-bottom: 1.5rem;">
-      My research at MIT taught me that humans don’t just see data—they construct meaning. I design solutions with this in mind, optimizing dashboards for natural eye movement and building ML systems that can explain their reasoning.
-    </p>
-    
-    <div style="margin: 1rem;">
-      <a href="/my-journey/#cognitive-foundation" class="btn btn--primary">My Approach</a>
-     <!-- <a href="/thinking/why-dashboards-fail/" class="btn btn--light">Read: Why Dashboards Fail</a> -->
-    </div>
-  </div>
-</div>
-
-<!-- =======================
-     Digital Twin Spotlight
-     ======================= -->
-<div class="home-section" style="background: #f5f1ff; border: 1px solid #ddd2ff; border-radius: 12px; padding: 1rem 1.25rem; margin-top: 1rem;">
-  <h2 class="home-section__heading" style="margin-top: 0; text-align: center;">Try My Digital Twin</h2>
-  <p style="text-align: center; margin: 0 auto 0.75rem auto; max-width: 860px;">
-    Curious how I think through messy ideas? I built an AI trained on my work, writing, and thinking.
-    It can help you explore my frameworks, ask project-specific questions, and brainstorm in my style.
-  </p>
-  <p style="text-align: center; margin: 0;">
-    <a class="btn btn--primary" href="https://twin.barbhs.com" target="_blank" rel="noopener">Open Digital Twin ↗</a>
-  </p>
-</div>
-
-<!-- =======================
      Featured Writing
      ======================= -->
 <div class="home-section home-section--writing">
@@ -188,6 +155,35 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   <p class="featured-writing__cta" style="text-align:center; margin: 1rem 0 0 0;" >
     <a class="browse-all" href="/writing/">Browse all writing</a>
   </p>
+</div>
+
+<!-- =======================
+     My Approach + Digital Twin (merged row)
+     ======================= -->
+<div class="home-section home-section--duo">
+  <div class="duo-row">
+    <div class="duo-row__card duo-row__card--approach">
+      <p class="duo-row__eyebrow">How I think about data</p>
+      <h3 class="duo-row__title">Cognitive science shapes everything I build</h3>
+      <p class="duo-row__body">
+        My research at MIT taught me that humans don't just see data — they construct meaning. I optimize dashboards for natural eye movement, build ML systems that explain their reasoning, and design for how attention and memory actually work.
+      </p>
+      <p class="duo-row__actions">
+        <a class="duo-row__link" href="/my-journey/#cognitive-foundation">Read about my approach →</a>
+      </p>
+    </div>
+
+    <div class="duo-row__card duo-row__card--twin">
+      <p class="duo-row__eyebrow">Interactive</p>
+      <h3 class="duo-row__title">Ask my Digital Twin</h3>
+      <p class="duo-row__body">
+        Curious how I think through messy problems? I built an AI grounded in my work, writing, and frameworks. Ask it anything — explore projects, brainstorm ideas, or test my reasoning.
+      </p>
+      <p class="duo-row__actions">
+        <a class="btn btn--primary duo-row__btn" href="https://twin.barbhs.com" target="_blank" rel="noopener">Open Digital Twin ↗</a>
+      </p>
+    </div>
+  </div>
 </div>
 
 <!-- =======================
@@ -315,34 +311,6 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </section>
 </div>
 
-<!-- =======================
-     What I'm Exploring (NEW mini section)
-     ======================= -->
-<div class="home-section" style="background: white; border: 1px solid #e9ecef; border-radius: 12px; padding: 2rem; margin: 2rem 0;">
-  <h3 style="text-align: center; color: #495057; margin-bottom: 1.5rem;">🔬 Currently Exploring</h3>
-  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
-      AI Explainability
-    </span>
-    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
-      Knowledge Graphs
-    </span>
-    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
-      Human-AI Collaboration
-    </span>
-    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
-      Attention Mechanisms in LLMs
-    </span>
-    <span style="background: #f8f9fa; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.95em;">
-      Data Product Design
-    </span>
-  </div>
-  <p style="text-align: center; margin-top: 1.5rem; color: #6c757d;">
-    Interested in discussing any of these? <a href="/contact/">Let's connect</a>
-  </p>
-</div>
-
-<!-- THIS IS COOOL THAT THE section_tiles are an include!>
 <!-- {% include section_tiles.html exclude="/contact/" %} -->
 
 <style>
