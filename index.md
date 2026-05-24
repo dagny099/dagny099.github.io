@@ -83,6 +83,39 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
 -->
 <!-- =======================
+     Currently
+     ======================= -->
+<div class="home-section home-section--currently">
+  <div class="current-feature">
+    <div class="current-feature__content">
+      <p class="current-feature__eyebrow">Currently</p>
+      <h2 class="current-feature__title">Publishing a 12-week Semantic Web curriculum in public</h2>
+      <p class="current-feature__body">
+        Exploring where formal knowledge representation and LLM reasoning complement each other — and where they don’t.
+      </p>
+
+      <div class="current-feature__topics" aria-label="Curriculum themes">
+        <span>12 weeks</span>
+        <span>Knowledge representation</span>
+        <span>LLM reasoning</span>
+        <span>Working in public</span>
+      </div>
+
+      <p class="current-feature__actions">
+        <a class="btn btn--primary" href="https://github.com/dagny099/semantic-web-curriculum" target="_blank" rel="noopener">Explore the curriculum ↗</a>
+      </p>
+    </div>
+
+    <div class="current-feature__sidebar" aria-label="Why this series matters">
+      <p class="current-feature__sidebar-label">Why this series</p>
+      <p>
+        Some AI problems need probability. Others need structure. This curriculum is a running notebook on how to tell the difference.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- =======================
      How I Think Section (NEW)
      ======================= -->
 

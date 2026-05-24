@@ -401,6 +401,114 @@ h1, h2, h3, h4, h5, h6{
   padding-inline: var(--page-edge); /* grid alignment */
 }
 
+.home-section--currently{
+  margin-top: 1.5rem;
+}
+
+.home .current-feature{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(1.2rem, 2vw, 1.75rem);
+  border-radius: 18px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(14, 116, 144, 0.14), transparent 32%),
+    linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 900px){
+  .home .current-feature{
+    grid-template-columns: minmax(0, 2.2fr) minmax(240px, .95fr);
+    align-items: stretch;
+  }
+}
+
+.home .current-feature__content{
+  display: grid;
+  gap: .8rem;
+  align-content: start;
+}
+
+.home .current-feature__eyebrow{
+  margin: 0;
+  color: #0f766e;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.home .current-feature__title{
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(1.55rem, 2vw, 2.2rem);
+  line-height: 1.08;
+}
+
+.home .current-feature__body{
+  margin: 0;
+  max-width: 60ch;
+  color: var(--ink-700);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.home .current-feature__topics{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+}
+
+.home .current-feature__topics span{
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 118, 110, 0.14);
+  color: #23576d;
+  font-size: .88rem;
+  font-weight: 650;
+}
+
+.home .current-feature__actions{
+  margin: .2rem 0 0;
+}
+
+.home .current-feature__actions .btn{
+  margin: 0;
+  border-radius: 999px;
+  padding-inline: 1.1rem;
+}
+
+.home .current-feature__sidebar{
+  display: grid;
+  gap: .6rem;
+  align-content: start;
+  padding: 1rem 1.05rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.84);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.home .current-feature__sidebar-label{
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.home .current-feature__sidebar p{
+  margin: 0;
+  line-height: 1.55;
+}
+
 .home-section__heading{
   text-align: center;
   margin: 0 0 1.5rem;
