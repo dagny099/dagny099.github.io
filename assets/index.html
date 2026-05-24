@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Documentation — Barbara Hidalgo-Sotelo</title>
+  <meta name="description" content="Technical documentation for AI, data science, and knowledge graph projects by Barbara Hidalgo-Sotelo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-primary: #2c2c2a;
+      --text-secondary: #5a5a56;
+      --text-tertiary: #8a8a84;
+      --bg-primary: #fafaf8;
+      --bg-card: #ffffff;
+      --bg-tag: #f0efe8;
+      --border: #e4e3dc;
+      --accent: #3d6b5e;
+      --accent-light: #e8f0ec;
+      --accent-hover: #2e5248;
+      --warm: #c4956a;
+      --warm-light: #f5efe8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .site-header a {
+      text-decoration: none;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .site-header img {
+      height: 36px;
+      width: auto;
+    }
+
+    .site-header .wordmark {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .site-header nav a {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-left: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .site-header nav a:hover { color: var(--accent); }
+
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    .divider {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .grid-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-image-placeholder {
+      width: 100%;
+      height: 200px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-image-placeholder .pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.07;
+      background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0);
+      background-size: 20px 20px;
+    }
+
+    .card-image-placeholder svg {
+      width: 56px;
+      height: 56px;
+      opacity: 0.35;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-body {
+      padding: 1.25rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: var(--bg-tag);
+      color: var(--text-tertiary);
+    }
+
+    .card-tag.platform { background: var(--accent-light); color: var(--accent); }
+
+    .card h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .card-link svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover .card-link svg {
+      transform: translateX(3px);
+    }
+
+    .card-status {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .card-status .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4caf50;
+    }
+
+    .site-footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+    }
+
+    .site-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.8rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .site-header { flex-direction: column; gap: 0.75rem; }
+      .site-header nav a:first-child { margin-left: 0; }
+      .site-footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="https://barbhs.com">
+      <img src="https://www.barbhs.com/assets/images/swirl_barb_logo.png" alt="Barbara Hidalgo-Sotelo logo">
+      <span class="wordmark">Barbara Hidalgo-Sotelo</span>
+    </a>
+    <nav>
+      <a href="https://barbhs.com/projects/">Projects</a>
+      <a href="https://barbhs.com/blog/">Writing</a>
+      <a href="https://status.barbhs.com" target="_blank">System status</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Project documentation</h1>
+    <p>Technical docs for the AI, data science, and knowledge graph projects I build and maintain. Each site covers architecture decisions, data models, deployment notes, and lessons learned.</p>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <section class="grid-section">
+    <div class="card-grid">
+
+      <a href="/fitness-dashboard/" class="card">
+        <div class="card-image-placeholder" style="background: linear-gradient(135deg, #e8f0ec 0%, #d4e4da 100%); color: var(--accent);">
+          <div class="pattern"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="card-tag">ML pipeline</span>
+            <span class="card-tag">time series</span>
+            <span class="card-tag platform">AWS Lambda</span>
+          </div>
+          <h2>Fitness dashboard</h2>
+          <p>14 years of workout data, an ML classifier that separates runs from dog walks, and a full ETL pipeline from CSV export to interactive dashboard.</p>
+          <div class="card-footer">
+            <span class="card-link">Read docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-status"><span class="dot"></span> Live</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/convoscope/" class="card">
+        <div class="card-image-placeholder" style="background: linear-gradient(135deg, #f0ece8 0%, #e4dcd4 100%); color: var(--warm);">
+          <div class="pattern"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="card-tag">Multi-LLM</span>
+            <span class="card-tag">Conversation AI</span>
+            <span class="card-tag platform">Streamlit</span>
+          </div>
+          <h2>ConvoScope</h2>
+          <p>A unified interface for comparing outputs across OpenAI, Anthropic, and Google models — with persistent history and automatic topic extraction.</p>
+          <div class="card-footer">
+            <span class="card-link">Read docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-status"><span class="dot"></span> Live</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/beehive-tracker/" class="card">
+        <div class="card-image-placeholder" style="background: linear-gradient(135deg, #f5efe8 0%, #ebe0d2 100%); color: #b08650;">
+          <div class="pattern"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="card-tag">Computer vision</span>
+            <span class="card-tag">Knowledge graph</span>
+            <span class="card-tag platform">Neo4j</span>
+          </div>
+          <h2>Beehive analytics</h2>
+          <p>Computer vision and metadata extraction turn four years of hive inspection photos into a queryable knowledge graph with weather correlation.</p>
+          <div class="card-footer">
+            <span class="card-link">Read docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-status"><span class="dot"></span> Live</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/chronoscope/" class="card">
+        <div class="card-image-placeholder" style="background: linear-gradient(135deg, #e8ecf0 0%, #d4dce6 100%); color: #506a82;">
+          <div class="pattern"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="card-tag">NLP</span>
+            <span class="card-tag">Timeline extraction</span>
+            <span class="card-tag platform">GCP</span>
+          </div>
+          <h2>ChronoScope</h2>
+          <p>Extracts temporal events from unstructured text and visualizes them as interactive timelines — surfacing narrative structure from documents.</p>
+          <div class="card-footer">
+            <span class="card-link">Read docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-status"><span class="dot"></span> Live</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- TEMPLATE: Copy this card and customize for new documentation sites
+      <a href="/your-project-slug/" class="card">
+        <div class="card-image-placeholder" style="background: linear-gradient(135deg, #f0ece8 0%, #e4dcd4 100%); color: #8a7a6a;">
+          <div class="pattern"></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="card-tag">Tag 1</span>
+            <span class="card-tag platform">Platform</span>
+          </div>
+          <h2>Project name</h2>
+          <p>Short description of what this project does and what the docs cover.</p>
+          <div class="card-footer">
+            <span class="card-link">Read docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="card-status"><span class="dot"></span> Live</span>
+          </div>
+        </div>
+      </a>
+      -->
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>&copy; 2026 Barbara Hidalgo-Sotelo</span>
+    <span>
+      <a href="https://barbhs.com">Main site</a> &middot;
+      <a href="https://status.barbhs.com" target="_blank">System status</a> &middot;
+      <a href="https://github.com/dagny099" target="_blank">GitHub</a>
+    </span>
+  </footer>
+
+</body>
+</html>

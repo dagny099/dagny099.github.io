@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Resume Data Schema for barbara_resume_golden.json",
+  "description": "Schema for resume-driven UIs (cards, filters, TimlineJS)",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "version": {"type": "string"},
+        "generated_at": {"type": "string", "format": "date-time"},
+        "schema_hint": {"type": "string"},
+        "source_files": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "headline": {"type": "string"},
+        "location": {"type": "string"},
+        "email": {"type": "string", "format": "email"},
+        "phone": {"type": "string"},
+        "website": {"type": "string", "format": "uri"},
+        "linkedin": {"type": "string", "format": "uri"},
+        "summary": {"type": "string"},
+        "keywords": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "degree": {"type": "string"},
+          "institution": {"type": "string"},
+          "location": {"type": "string"},
+          "start_date": {"type": "string", "description": "Format: YYYY-MM"},
+          "end_date": {"type": "string", "description": "Format: YYYY-MM"},
+          "highlights": {"type": "array", "items": {"type": "string"}},
+          "tags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "issuer": {"type": "string"},
+          "date": {"type": "string", "description": "Format: YYYY-MM"}
+        }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "properties": {
+        "programming": {"type": "array", "items": {"type": "string"}},
+        "ml": {"type": "array", "items": {"type": "string"}},
+        "data_viz_bi": {"type": "array", "items": {"type": "string"}},
+        "cloud_data": {"type": "array", "items": {"type": "string"}},
+        "governance_nlp": {"type": "array", "items": {"type": "string"}},
+        "methods": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "experience": {
+      "type": "array",
+      "description": "THIS IS WHAT POPULATES /experience/ PAGE - MOST IMPORTANT SECTION",
+      "items": {
+        "type": "object",
+        "required": ["title", "employer", "start_date", "domains", "highlights", "tags"],
+        "properties": {
+          "title": {"type": "string", "description": "Job title"},
+          "employer": {"type": "string", "description": "Company/organization name"},
+          "employment_type": {
+            "type": "string",
+            "enum": ["Full-time", "Contract", "Consulting", "Founder", "Research"],
+            "description": "Type of employment"
+          },
+          "start_date": {"type": "string", "description": "Format: YYYY-MM"},
+          "end_date": {
+            "type": ["string", "null"],
+            "description": "Format: YYYY-MM, or null for current role"
+          },
+          "location": {"type": "string"},
+          "domains": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Categories for filtering (e.g., 'public sector', 'healthcare')"
+          },
+          "highlights": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Bullet points - first 3 are shown on experience page"
+          },
+          "outcomes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "metric": {"type": "string"},
+                "value": {"type": "string"}
+              }
+            },
+            "description": "Optional: measurable outcomes"
+          },
+          "skills": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Technologies/tools used in this role"
+          },
+          "tags": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Additional categorization tags"
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "period": {"type": "string"},
+          "summary": {"type": "string"},
+          "stack": {"type": "array", "items": {"type": "string"}},
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {"type": "string", "enum": ["demo", "repo", "docs"]},
+                "url": {"type": "string", "format": "uri"}
+              }
+            }
+          },
+          "tags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "publications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {"type": "string"},
+          "authors": {"type": "array", "items": {"type": "string"}},
+          "venue": {"type": "string"},
+          "year": {"type": "integer"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "display": {
+      "type": "object",
+      "description": "Configuration for filtering and styling the experience page",
+      "properties": {
+        "filters": {
+          "type": "object",
+          "properties": {
+            "domains": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Domain filter buttons shown on /experience/ page"
+            },
+            "skills": {"type": "array", "items": {"type": "string"}},
+            "tags": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "style": {
+          "type": "object",
+          "properties": {
+            "domainColors": {
+              "type": "object",
+              "additionalProperties": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}
+            },
+            "tagColors": {
+              "type": "object",
+              "additionalProperties": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

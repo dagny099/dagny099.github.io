@@ -1,0 +1,43 @@
+flowchart LR
+    subgraph sources["📁 Source Files"]
+        PDF["Resume PDF - Hidalgo-Sotelo_Barbara_RESUME.pdf"]
+        DOCX["Comprehensive Resume - Master Resume.docx"]
+    end
+
+    subgraph data["💾 Data Layer"]
+        JSON["barbara_resume_golden.json - Single Source of Truth - 490 lines, 8 sections"]
+        SCHEMA["Schema Definition - barbara_resume_golden_SCHEMA.json"]
+    end
+
+    subgraph website["🌐 Website Pages"]
+        EXP["/experience/ - Dynamic filtering - 8 roles displayed"]
+        ABOUT["/about/ - Profile & summary"]
+        CONTACT["/contact/ - Resume download"]
+        JOURNEY["/my-journey/ - Timeline view"]
+    end
+
+    subgraph outputs["📤 Potential Outputs"]
+        TIMELINE["TimelineJS - Visual timeline"]
+        API["JSON API - Structured data"]
+        LINKEDIN["LinkedIn Sync - Auto-update"]
+    end
+
+    PDF -.->|manual update| JSON
+    DOCX -.->|manual update| JSON
+    SCHEMA -.->|validates| JSON
+
+    JSON -->|experience array| EXP
+    JSON -->|profile section| ABOUT
+    JSON -->|profile + PDF link| CONTACT
+    JSON -->|all sections| JOURNEY
+
+    JSON -.->|future| TIMELINE
+    JSON -.->|future| API
+    JSON -.->|future| LINKEDIN
+
+    style JSON fill:#fff4e6,stroke:#ff9800,stroke-width:4px,color:#000
+    style EXP fill:#e8f5e9,stroke:#4caf50,stroke-width:3px
+    style sources fill:#f3f4f6,stroke:#6b7280,stroke-width:2px
+    style data fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    style website fill:#dbeafe,stroke:#3b82f6,stroke-width:2px
+    style outputs fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,stroke-dasharray: 5 5

@@ -1,0 +1,268 @@
+---
+layout: default
+title: "Comparing Models"
+excerpt: "What I learned by running the same 58-question Digital Twin evaluation set across two LLMs with the same retrieval, knowledge base, and prompt"
+breadcrumbs: true
+permalink: /compare-models/
+toc: true
+toc_label: "Evaluation Overview"
+toc_icon: "chart-line"
+toc_sticky: true
+classes: [compare-models-page]
+---
+
+<!doctype html><html><head><meta charset='utf-8'><title>Digital Twin Model Evaluation: GPT-4.1 vs Gemini 2.5 Flash</title>
+<style>
+:root{--bg:#fbf8f1;--card:#fffdf9;--ink:#24313a;--muted:#65747d;--teal:#2f7f7b;--amber:#c88b4a;--line:#ded8cc;--plum:#7D455A;}
+body{margin:0;background:linear-gradient(180deg,#f6f0e8,#edf4ef);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);}
+.wrap{max-width:1220px;margin:0 auto;padding:36px 28px 64px;}
+h1{font-size:34px;margin:0 0 8px;letter-spacing:-.02em;} h2{font-size:22px;margin: 0px 0 12px;color:var(--amber);} h3{font-size:16px;margin:18px 0 8px;color:var(--teal);} p{line-height:1.56;color:var(--muted);max-width:980px;}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0 30px;} .kpi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(40,49,58,.06);}
+.kpi .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;} .kpi .value{font-size:28px;font-weight:750;margin-top:8px;color:var(--teal);} .small{font-size:12px;color:var(--muted);}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;margin:18px 0;box-shadow:0 8px 24px rgba(40,49,58,.06);}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:10px 0 18px;} th{text-align:left;background:#edf2ec;color:#24313a;padding:9px;border-bottom:1px solid var(--line);} td{vertical-align:top;padding:8px 9px;border-bottom:1px solid #ebe5dc;line-height:1.35;} tr:nth-child(even) td{background:#f9f6ef;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;} .badge{display:inline-block;border-radius:999px;padding:3px 9px;background:#e2f0ec;color:#266864;font-size:12px;font-weight:650;} .warn{border-left:4px solid var(--amber);padding:12px 14px;background:#fff6e8;border-radius:12px;color:#534436;}
+ol.qlist{color:var(--muted);line-height:1.7;padding-left:22px;} ol.qlist li{margin-bottom:4px;}
+.toc{background:#f4ede1;border-radius:14px;padding:14px 18px;margin:16px 0 28px;font-size:14px;} .toc a{color:var(--teal);text-decoration:none;margin-right:18px;} .toc a:hover{text-decoration:underline;}
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;} .method-item{font-size:13px;color:var(--muted);line-height:1.5;} .method-item strong{color:var(--ink);}
+</style></head><body><div class='wrap'>
+
+<h1>Digital Twin Evaluation: GPT-4.1 vs Gemini 2.5 Flash</h1>
+<p>Paired comparison across 58 questions, holding retrieval, system prompt, vector store, top-k, and temperature constant. Companion artifact to the blog post; intended for readers who want the numbers and the methodology behind them. Run date: May 11, 2026.</p>
+
+<div class='toc'>
+  <strong>Jump to:</strong>
+  <a href='#executive'>Executive readout</a>
+  <a href='#methodology'>Methodology</a>
+  <a href='#subset'>Portfolio-critical 15</a>
+  <a href='#rubric'>Scoring rubric</a>
+  <a href='#summary'>Run-level summary</a>
+  <a href='#breakdowns'>Breakdowns</a>
+  <a href='#samples'>Sample responses</a>
+  <a href='#limits'>Limitations</a>
+</div>
+
+<div class='kpis'>
+  <div class='kpi'><div class='label'>Questions compared</div><div class='value'>58</div></div>
+  <div class='kpi'><div class='label'>Mean word delta</div><div class='value'>+44.4</div><div class='small'>GPT minus Gemini</div></div>
+  <div class='kpi'><div class='label'>Mean content overlap</div><div class='value'>0.21</div><div class='small'>Jaccard on content words</div></div>
+  <div class='kpi'><div class='label'>Cost ratio</div><div class='value'>2.7x</div><div class='small'>GPT / Gemini</div></div>
+</div>
+
+<div class='card' id='executive'>
+  <h2>Executive readout</h2>
+  <p><strong>GPT-4.1 behaved like the more expansive portfolio guide.</strong> It was longer on 44 of 58 questions, used more follow-up invitations, and more often turned retrieved facts into a fuller narrative answer.</p>
+  <p><strong>Gemini 2.5 Flash behaved like the more concise answerer.</strong> It was shorter on most questions, much cheaper, and often serviceable on closed factual prompts. Its main weakness is not that it missed the fact; it more often under-developed the answer relative to the Digital Twin's intended voice and purpose.</p>
+  <p><strong>The retrieval layer is not the explanation for the differences.</strong> Top-k and question set were held constant, and chunk similarity stats are essentially identical. The variation is in how each model used the same retrieved context.</p>
+  <div class='warn'>The evaluator score and notes columns in the uploaded CSVs are present but empty, so this report does not treat those as evidence. Human scoring against the rubric below is the planned next step, applied to the 15-question portfolio-critical subset.</div>
+</div>
+
+<div class='card' id='methodology'>
+  <h2>Methodology</h2>
+  <p>Two runs of the same 58-question evaluation set, held constant on retrieval (Chroma vector store, top-k = 4), system prompt, and temperature (0.6). Only the model varied. Metrics fall into three buckets: behavioral counts, lexical overlap, and cost.</p>
+  <div class='method-grid'>
+    <div class='method-item'><strong>Follow-up flag count.</strong> Per-response binary detection of phrases inviting continued conversation. Heuristic match against a small dictionary of openers and closers (for example "happy to share more," "want to know about").</div>
+    <div class='method-item'><strong>Follow-up phrase count.</strong> Same dictionary but counting total occurrences, not capped at one per response.</div>
+    <div class='method-item'><strong>Warm opener count.</strong> Heuristic match against opening phrases like "That's a great question."</div>
+    <div class='method-item'><strong>Linked answer count.</strong> Responses containing one or more markdown or URL links.</div>
+    <div class='method-item'><strong>Markdown intensity.</strong> Strong = three or more markdown elements (headers, lists, bolds). Light = one or two. None = plain prose.</div>
+    <div class='method-item'><strong>Project term count.</strong> Mentions of a fixed list of portfolio project and concept names (see Project / concept mention counts).</div>
+    <div class='method-item'><strong>Jaccard overlap.</strong> Set-similarity score on content words (stopwords removed) between the paired GPT and Gemini responses. Higher means the two answers used more of the same vocabulary.</div>
+    <div class='method-item'><strong>Must-cover lexical coverage.</strong> Fraction of expected-term tokens that appear in the response. A smoke test for grounding, not a correctness measure.</div>
+    <div class='method-item'><strong>Estimated cost.</strong> Token counts multiplied by published per-million-token pricing as of the run date. Provider tokenizers differ, so dollar cost is more interpretable than raw token counts.</div>
+    <div class='method-item'><strong>Readability.</strong> Flesch-Kincaid grade and Flesch reading ease, applied to each response and averaged across the run.</div>
+  </div>
+</div>
+
+<div class='card' id='subset'>
+  <h2>The 15-question portfolio-critical subset</h2>
+  <p>The full 58-question set is too large to score by hand after every change. These 15 questions are my first-pass quality check for whether the Twin can make a strong, grounded impression across career, project, and technical conversations.</p>
+  <ol class='qlist'>
+    <li>What problems does Barbara solve?</li>
+    <li>Walk me through a project.</li>
+    <li>How was this Digital Twin built?</li>
+    <li>How does your cognitive science background shape your AI work?</li>
+    <li>What kinds of problems get you excited?</li>
+    <li>What are your biggest strengths?</li>
+    <li>How do you approach problem-solving?</li>
+    <li>How do you handle ambiguity?</li>
+    <li>How do you document your projects?</li>
+    <li>How do you approach ML model development?</li>
+    <li>Tell me about Resume Explorer.</li>
+    <li>Tell me about Concept Cartographer.</li>
+    <li>Tell me about the Beehive Photo Metadata Tracker.</li>
+    <li>What role are you looking for next?</li>
+    <li>Why should someone hire you?</li>
+  </ol>
+</div>
+
+<div class='card' id='rubric'>
+  <h2>Scoring rubric</h2>
+  <p>Six dimensions, each scored from 1 (weak) to 5 (strong). Total possible score per response: 30. This rubric structure is the scaffold for the next round of human-scored evaluation. The dimensions are deliberately separable so a response can be accurate but bland, or specific but ungrounded, and the rubric will say so.</p>
+  <table>
+    <thead><tr><th>Dimension</th><th>What it asks</th><th>Low score (1-2)</th><th>High score (4-5)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Accuracy</strong></td><td>Did the response get the facts right?</td><td>Contains a factual error or invented detail.</td><td>Every claim is supported by the knowledge base or known true.</td></tr>
+      <tr><td><strong>Specificity</strong></td><td>Did it avoid generic AI or career language?</td><td>Could describe any AI consultant.</td><td>Uses specifics only Barbara could provide.</td></tr>
+      <tr><td><strong>Voice fidelity</strong></td><td>Did it sound like Barbara?</td><td>Reads like a generic chatbot.</td><td>Reads like Barbara wrote it.</td></tr>
+      <tr><td><strong>Strategic usefulness</strong></td><td>Would this help a recruiter or peer understand her value?</td><td>Answers the question but doesn't advance the conversation.</td><td>Turns the answer into an invitation to explore further.</td></tr>
+      <tr><td><strong>Grounding</strong></td><td>Did it stay tied to retrieved or source material?</td><td>Drifts into plausible-but-unsourced claims.</td><td>Every concrete claim traces to a chunk.</td></tr>
+      <tr><td><strong>Follow-up quality</strong></td><td>Did the next-step invitation feel specific and natural?</td><td>Generic or absent. "Let me know if you have more questions."</td><td>Specific to the answer, opening a useful direction.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class='card' id='summary'>
+  <h2>Run-level quantitative summary</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>GPT-4.1</th><th>Gemini 2.5 Flash</th><th>GPT minus Gemini</th></tr></thead>
+    <tbody>
+      <tr><td>Mean words per response</td><td>225.5</td><td>181.2</td><td>+44.4</td></tr>
+      <tr><td>Median words per response</td><td>225.0</td><td>198.0</td><td>+27.0</td></tr>
+      <tr><td>SD of words</td><td>103.5</td><td>93.5</td><td>+10.1</td></tr>
+      <tr><td>Min words</td><td>5</td><td>26</td><td>-21</td></tr>
+      <tr><td>Max words</td><td>438</td><td>385</td><td>+53</td></tr>
+      <tr><td>Mean sentences</td><td>10.4</td><td>9.5</td><td>+0.8</td></tr>
+      <tr><td>Mean words per sentence</td><td>22.5</td><td>18.7</td><td>+3.8</td></tr>
+      <tr><td>Mean Flesch-Kincaid grade</td><td>12.2</td><td>11.3</td><td>+0.9</td></tr>
+      <tr><td>Mean Flesch reading ease</td><td>47.7</td><td>47.5</td><td>+0.2</td></tr>
+      <tr><td>Type-token ratio</td><td>0.86</td><td>0.87</td><td>-0.01</td></tr>
+      <tr><td>Follow-up flag count</td><td>40</td><td>10</td><td>+30</td></tr>
+      <tr><td>Follow-up phrase count</td><td>49</td><td>20</td><td>+29</td></tr>
+      <tr><td>Warm opener count</td><td>6</td><td>18</td><td>-12</td></tr>
+      <tr><td>Linked answer count</td><td>14</td><td>10</td><td>+4</td></tr>
+      <tr><td>Strong markdown count</td><td>30</td><td>23</td><td>+7</td></tr>
+      <tr><td>Light markdown count</td><td>15</td><td>32</td><td>-17</td></tr>
+      <tr><td>No markdown count</td><td>13</td><td>3</td><td>+10</td></tr>
+      <tr><td>Mean project term count</td><td>1.93</td><td>1.57</td><td>+0.36</td></tr>
+      <tr><td>Mean must-cover lexical coverage</td><td>0.51</td><td>0.48</td><td>+0.04</td></tr>
+      <tr><td>Completion tokens</td><td>17,145</td><td>32,897</td><td>-15,752</td></tr>
+      <tr><td>Prompt tokens</td><td>397,713</td><td>421,279</td><td>-23,566</td></tr>
+      <tr><td>Total tokens</td><td>414,858</td><td>454,176</td><td>-39,318</td></tr>
+      <tr><td>Estimated cost USD</td><td>$0.489</td><td>$0.181</td><td>+$0.309</td></tr>
+    </tbody>
+  </table>
+  <p class='small'>Token counts are not directly comparable across providers because each tokenizer is different. Gemini reported more completion tokens despite shorter word counts. Word count and estimated dollar cost are the more interpretable comparisons.</p>
+</div>
+
+<div class='card' id='breakdowns'>
+  <h2>Breakdown by question type</h2>
+  <p>Higher-level partition of the 58 questions into three types: bounded-open (most of the set), closed-fact (biographical, credentials), and open-persona (the playful one).</p>
+  <table>
+    <thead><tr><th>Question type</th><th>N</th><th>GPT mean words</th><th>Gemini mean words</th><th>Delta words</th><th>Jaccard</th><th>GPT followups</th><th>Gemini followups</th></tr></thead>
+    <tbody>
+      <tr><td>bounded_open</td><td>46</td><td>245.5</td><td>202.7</td><td>+42.8</td><td>0.20</td><td>31</td><td>10</td></tr>
+      <tr><td>closed_fact</td><td>11</td><td>147.9</td><td>99.4</td><td>+48.5</td><td>0.22</td><td>9</td><td>0</td></tr>
+      <tr><td>open_persona</td><td>1</td><td>162.0</td><td>93.0</td><td>+69.0</td><td>0.13</td><td>0</td><td>0</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class='card'>
+  <h2>Breakdown by intent</h2>
+  <p>Finer-grained partition. Sorted by N descending; intents with only one question (the bottom rows) carry no statistical weight but are included for completeness.</p>
+  <table>
+    <thead><tr><th>Intent</th><th>N</th><th>GPT mean words</th><th>Gemini mean words</th><th>Delta words</th><th>Jaccard</th><th>GPT followups</th><th>Gemini followups</th><th>GPT cover</th><th>Gemini cover</th></tr></thead>
+    <tbody>
+      <tr><td>technical_overview</td><td>8</td><td>240.5</td><td>187.4</td><td>+53.1</td><td>0.18</td><td>7</td><td>1</td><td>0.56</td><td>0.45</td></tr>
+      <tr><td>career_history_fact</td><td>5</td><td>177.6</td><td>138.8</td><td>+38.8</td><td>0.24</td><td>5</td><td>0</td><td>0.50</td><td>0.49</td></tr>
+      <tr><td>working_style</td><td>5</td><td>289.6</td><td>200.2</td><td>+89.4</td><td>0.16</td><td>3</td><td>0</td><td>0.31</td><td>0.33</td></tr>
+      <tr><td>education_fact</td><td>4</td><td>106.5</td><td>55.0</td><td>+51.5</td><td>0.16</td><td>3</td><td>0</td><td>0.85</td><td>0.88</td></tr>
+      <tr><td>methodology</td><td>3</td><td>362.0</td><td>244.3</td><td>+117.7</td><td>0.21</td><td>2</td><td>0</td><td>0.43</td><td>0.31</td></tr>
+      <tr><td>project_walkthrough</td><td>3</td><td>303.0</td><td>288.3</td><td>+14.7</td><td>0.23</td><td>3</td><td>2</td><td>0.59</td><td>0.55</td></tr>
+      <tr><td>tool_encouragement</td><td>3</td><td>78.7</td><td>49.0</td><td>+29.7</td><td>0.14</td><td>1</td><td>1</td><td>0.13</td><td>0.14</td></tr>
+      <tr><td>knowledge_graph_overview</td><td>2</td><td>355.0</td><td>351.5</td><td>+3.5</td><td>0.28</td><td>1</td><td>0</td><td>0.62</td><td>0.58</td></tr>
+      <tr><td>motivation</td><td>2</td><td>209.0</td><td>204.5</td><td>+4.5</td><td>0.24</td><td>0</td><td>0</td><td>0.77</td><td>0.65</td></tr>
+      <tr><td>personal_background</td><td>2</td><td>180.5</td><td>121.0</td><td>+59.5</td><td>0.23</td><td>1</td><td>0</td><td>0.81</td><td>0.75</td></tr>
+      <tr><td>product_architecture</td><td>2</td><td>313.5</td><td>201.0</td><td>+112.5</td><td>0.28</td><td>2</td><td>0</td><td>0.66</td><td>0.66</td></tr>
+      <tr><td>tool_dice</td><td>2</td><td>23.0</td><td>36.5</td><td>-13.5</td><td>0.08</td><td>1</td><td>1</td><td>0.10</td><td>0.20</td></tr>
+      <tr><td>career_next_step</td><td>1</td><td>205.0</td><td>171.0</td><td>+34.0</td><td>0.17</td><td>1</td><td>0</td><td>0.50</td><td>0.20</td></tr>
+      <tr><td>communication_bridge</td><td>1</td><td>351.0</td><td>338.0</td><td>+13.0</td><td>0.16</td><td>1</td><td>0</td><td>0.25</td><td>0.50</td></tr>
+      <tr><td>credential_fact</td><td>1</td><td>119.0</td><td>139.0</td><td>-20.0</td><td>0.34</td><td>1</td><td>0</td><td>0.83</td><td>0.83</td></tr>
+      <tr><td>evaluation_capability</td><td>1</td><td>298.0</td><td>206.0</td><td>+92.0</td><td>0.29</td><td>0</td><td>0</td><td>0.82</td><td>0.82</td></tr>
+      <tr><td>hallucination_reflection</td><td>1</td><td>246.0</td><td>273.0</td><td>-27.0</td><td>0.13</td><td>0</td><td>0</td><td>0.25</td><td>0.00</td></tr>
+      <tr><td>knowledge_boundary_check</td><td>1</td><td>191.0</td><td>92.0</td><td>+99.0</td><td>0.23</td><td>1</td><td>0</td><td>0.29</td><td>0.14</td></tr>
+      <tr><td>learning_style</td><td>1</td><td>265.0</td><td>288.0</td><td>-23.0</td><td>0.18</td><td>0</td><td>0</td><td>0.36</td><td>0.36</td></tr>
+      <tr><td>persona_self_description</td><td>1</td><td>263.0</td><td>233.0</td><td>+30.0</td><td>0.15</td><td>1</td><td>1</td><td>0.40</td><td>0.50</td></tr>
+      <tr><td>personal_professional_bridge</td><td>1</td><td>207.0</td><td>246.0</td><td>-39.0</td><td>0.23</td><td>0</td><td>0</td><td>0.38</td><td>0.50</td></tr>
+      <tr><td>playful_persona</td><td>1</td><td>162.0</td><td>93.0</td><td>+69.0</td><td>0.13</td><td>0</td><td>0</td><td>0.29</td><td>0.29</td></tr>
+      <tr><td>positioning</td><td>1</td><td>288.0</td><td>255.0</td><td>+33.0</td><td>0.21</td><td>1</td><td>0</td><td>0.36</td><td>0.36</td></tr>
+      <tr><td>product_overview</td><td>1</td><td>334.0</td><td>227.0</td><td>+107.0</td><td>0.22</td><td>1</td><td>0</td><td>0.75</td><td>0.83</td></tr>
+      <tr><td>project_detail</td><td>1</td><td>401.0</td><td>357.0</td><td>+44.0</td><td>0.22</td><td>1</td><td>1</td><td>0.70</td><td>0.50</td></tr>
+      <tr><td>publication_fact</td><td>1</td><td>173.0</td><td>121.0</td><td>+52.0</td><td>0.28</td><td>0</td><td>1</td><td>0.60</td><td>0.50</td></tr>
+      <tr><td>research_explanation</td><td>1</td><td>230.0</td><td>213.0</td><td>+17.0</td><td>0.33</td><td>1</td><td>0</td><td>0.86</td><td>0.79</td></tr>
+      <tr><td>resource_location</td><td>1</td><td>122.0</td><td>108.0</td><td>+14.0</td><td>0.29</td><td>1</td><td>1</td><td>0.67</td><td>0.50</td></tr>
+      <tr><td>tech_stack</td><td>1</td><td>147.0</td><td>160.0</td><td>-13.0</td><td>0.36</td><td>1</td><td>1</td><td>0.25</td><td>0.25</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class='grid'>
+  <div class='card'><h2>GPT much longer</h2><table><thead><tr><th>ID</th><th>Question</th><th>Intent</th><th>GPT words</th><th>Gemini words</th><th>Delta</th><th>Jaccard</th><th>GPT cover</th><th>Gemini cover</th></tr></thead><tbody><tr><td>V3-019</td><td>How do you approach problem-solving?</td><td>methodology</td><td>438</td><td>243</td><td>+195</td><td>0.17</td><td>0.67</td><td>0.50</td></tr><tr><td>V3-027</td><td>What makes Poolula Platform modular?</td><td>product_architecture</td><td>391</td><td>206</td><td>+185</td><td>0.21</td><td>0.69</td><td>0.77</td></tr><tr><td>V3-022</td><td>How do you handle ambiguity in projects?</td><td>working_style</td><td>388</td><td>222</td><td>+166</td><td>0.17</td><td>0.31</td><td>0.31</td></tr><tr><td>V3-045</td><td>What vector databases have you used?</td><td>technical_overview</td><td>216</td><td>63</td><td>+153</td><td>0.11</td><td>0.58</td><td>0.50</td></tr><tr><td>V3-029</td><td>What is the Beehive Photo Metadata Tracker?</td><td>project_walkthrough</td><td>358</td><td>209</td><td>+149</td><td>0.21</td><td>0.69</td><td>0.69</td></tr><tr><td>V3-042</td><td>How do you approach ML model development?</td><td>methodology</td><td>375</td><td>240</td><td>+135</td><td>0.21</td><td>0.25</td><td>0.25</td></tr><tr><td>V3-040</td><td>How do you document your projects?</td><td>working_style</td><td>324</td><td>190</td><td>+134</td><td>0.18</td><td>0.25</td><td>0.12</td></tr><tr><td>V3-048</td><td>How do you collaborate with engineering teams?</td><td>working_style</td><td>277</td><td>151</td><td>+126</td><td>0.13</td><td>0.38</td><td>0.46</td></tr><tr><td>V3-044</td><td>What is your approach to RAG systems?</td><td>technical_overview</td><td>392</td><td>281</td><td>+111</td><td>0.24</td><td>0.91</td><td>0.73</td></tr><tr><td>V3-031</td><td>What is Poolula Platform?</td><td>product_overview</td><td>334</td><td>227</td><td>+107</td><td>0.22</td><td>0.75</td><td>0.83</td></tr><tr><td>V3-006</td><td>Tell me about your dogs</td><td>personal_background</td><td>279</td><td>174</td><td>+105</td><td>0.28</td><td>0.62</td><td>0.50</td></tr><tr><td>V3-047</td><td>What's your experience with data engineering?</td><td>technical_overview</td><td>343</td><td>241</td><td>+102</td><td>0.18</td><td>0.56</td><td>0.44</td></tr></tbody></table></div>
+  <div class='card'><h2>Gemini longer</h2><table><thead><tr><th>ID</th><th>Question</th><th>Intent</th><th>GPT words</th><th>Gemini words</th><th>Delta</th><th>Jaccard</th><th>GPT cover</th><th>Gemini cover</th></tr></thead><tbody><tr><td>V3-012</td><td>Walk me through a project</td><td>project_walkthrough</td><td>253</td><td>360</td><td>-107</td><td>0.23</td><td>0.30</td><td>0.40</td></tr><tr><td>V3-050</td><td>What knowledge graph experience do you have?</td><td>knowledge_graph_overview</td><td>337</td><td>385</td><td>-48</td><td>0.27</td><td>0.67</td><td>0.67</td></tr><tr><td>V3-056</td><td>What is the thing you like to do the most for fun and work</td><td>personal_professional_bridge</td><td>207</td><td>246</td><td>-39</td><td>0.23</td><td>0.38</td><td>0.50</td></tr><tr><td>V3-037</td><td>What programming languages are featured in your projects?</td><td>technical_overview</td><td>181</td><td>208</td><td>-27</td><td>0.18</td><td>0.36</td><td>0.29</td></tr><tr><td>V3-039</td><td>What visualization tools do you use in your projects?</td><td>technical_overview</td><td>262</td><td>289</td><td>-27</td><td>0.16</td><td>0.60</td><td>0.30</td></tr><tr><td>V3-057</td><td>I heard of some digital twins that make up information.</td><td>hallucination_reflection</td><td>246</td><td>273</td><td>-27</td><td>0.13</td><td>0.25</td><td>0.00</td></tr><tr><td>V3-017</td><td>What drives you?</td><td>motivation</td><td>184</td><td>209</td><td>-25</td><td>0.22</td><td>0.67</td><td>0.67</td></tr><tr><td>V3-023</td><td>What's your philosophy on learning new technologies?</td><td>learning_style</td><td>265</td><td>288</td><td>-23</td><td>0.18</td><td>0.36</td><td>0.36</td></tr><tr><td>V3-053</td><td>Roll a die for me</td><td>tool_dice</td><td>5</td><td>26</td><td>-21</td><td>0.06</td><td>0.20</td><td>0.20</td></tr><tr><td>V3-011</td><td>What certifications do you have?</td><td>credential_fact</td><td>119</td><td>139</td><td>-20</td><td>0.34</td><td>0.83</td><td>0.83</td></tr><tr><td>V3-021</td><td>What's your take on documentation?</td><td>working_style</td><td>251</td><td>266</td><td>-15</td><td>0.14</td><td>0.40</td><td>0.30</td></tr><tr><td>V3-030</td><td>What technologies does the Fitness Dashboard use?</td><td>tech_stack</td><td>147</td><td>160</td><td>-13</td><td>0.36</td><td>0.25</td><td>0.25</td></tr></tbody></table></div>
+</div>
+
+<div class='grid'>
+  <div class='card'><h2>Lowest response overlap</h2><p class='small'>Pairs where the two models took the most different approaches. Tool-related and free-form questions dominate.</p><table><thead><tr><th>ID</th><th>Question</th><th>Intent</th><th>Jaccard</th></tr></thead><tbody><tr><td>V3-053</td><td>Roll a die for me</td><td>tool_dice</td><td>0.06</td></tr><tr><td>V3-010</td><td>What was your role at UT Austin after returning from MIT?</td><td>career_history_fact</td><td>0.09</td></tr><tr><td>V3-054</td><td>I need to make a random decision between options</td><td>tool_dice</td><td>0.09</td></tr><tr><td>V3-003</td><td>Did you play any sports in college?</td><td>education_fact</td><td>0.10</td></tr><tr><td>V3-055</td><td>Remind me of your mantra and send it to me</td><td>tool_encouragement</td><td>0.11</td></tr><tr><td>V3-045</td><td>What vector databases have you used?</td><td>technical_overview</td><td>0.11</td></tr><tr><td>V3-043</td><td>What LLM frameworks do you work with?</td><td>technical_overview</td><td>0.12</td></tr><tr><td>V3-048</td><td>How do you collaborate with engineering teams?</td><td>working_style</td><td>0.13</td></tr><tr><td>V3-058</td><td>How many twins are there and do you get jealous?</td><td>playful_persona</td><td>0.13</td></tr><tr><td>V3-057</td><td>I heard of some digital twins that make up information.</td><td>hallucination_reflection</td><td>0.13</td></tr><tr><td>V3-021</td><td>What's your take on documentation?</td><td>working_style</td><td>0.14</td></tr><tr><td>V3-051</td><td>I need some encouragement today</td><td>tool_encouragement</td><td>0.14</td></tr></tbody></table></div>
+  <div class='card'><h2>Highest response overlap</h2><p class='small'>Pairs where the two models converged. Bounded factual and technical-stack questions dominate.</p><table><thead><tr><th>ID</th><th>Question</th><th>Intent</th><th>Jaccard</th></tr></thead><tbody><tr><td>V3-035</td><td>What did you build at Metric5?</td><td>career_history_fact</td><td>0.38</td></tr><tr><td>V3-030</td><td>What technologies does the Fitness Dashboard use?</td><td>tech_stack</td><td>0.36</td></tr><tr><td>V3-011</td><td>What certifications do you have?</td><td>credential_fact</td><td>0.34</td></tr><tr><td>V3-013</td><td>How was this digital twin built</td><td>product_architecture</td><td>0.34</td></tr><tr><td>V3-005</td><td>What was your dissertation about?</td><td>research_explanation</td><td>0.33</td></tr><tr><td>V3-008</td><td>What shifted your focus to neuroscience?</td><td>career_history_fact</td><td>0.31</td></tr><tr><td>V3-032</td><td>What evaluation features does Poolula have?</td><td>evaluation_capability</td><td>0.29</td></tr><tr><td>V3-036</td><td>Where can I find documentation for your projects?</td><td>resource_location</td><td>0.29</td></tr><tr><td>V3-015</td><td>Tell me about your knowledge graph work</td><td>knowledge_graph_overview</td><td>0.29</td></tr><tr><td>V3-046</td><td>What cloud platforms do you have experience with?</td><td>technical_overview</td><td>0.28</td></tr><tr><td>V3-006</td><td>Tell me about your dogs</td><td>personal_background</td><td>0.28</td></tr><tr><td>V3-033</td><td>What was your notable publication from MIT?</td><td>publication_fact</td><td>0.28</td></tr></tbody></table></div>
+</div>
+
+<div class='grid'>
+  <div class='card'><h2>Higher must-cover coverage: GPT</h2><p class='small'>Questions where GPT's lexical grounding score exceeded Gemini's most.</p><table><thead><tr><th>ID</th><th>Question</th><th>Intent</th><th>GPT cover</th><th>Gemini cover</th><th>Delta</th></tr></thead><tbody><tr><td>V3-025</td><td>What matters most to you in a role?</td><td>career_next_step</td><td>0.50</td><td>0.20</td><td>+0.30</td></tr><tr><td>V3-039</td><td>What visualization tools do you use in your projects?</td><td>technical_overview</td><td>0.60</td><td>0.30</td><td>+0.30</td></tr><tr><td>V3-002</td><td>What honors program were you part of at UT Austin?</td><td>education_fact</td><td>1.00</td><td>0.75</td><td>+0.25</td></tr><tr><td>V3-020</td><td>What excites you about AI/ML work?</td><td>motivation</td><td>0.88</td><td>0.62</td><td>+0.25</td></tr><tr><td>V3-057</td><td>I heard of some digital twins that make up information.</td><td>hallucination_reflection</td><td>0.25</td><td>0.00</td><td>+0.25</td></tr><tr><td>V3-028</td><td>Tell me about your Fitness Dashboard project</td><td>project_walkthrough</td><td>0.78</td><td>0.56</td><td>+0.22</td></tr><tr><td>V3-038</td><td>Tell me about your beehive tracker's metadata analysis</td><td>project_detail</td><td>0.70</td><td>0.50</td><td>+0.20</td></tr><tr><td>V3-041</td><td>What's your approach to evaluation in ML systems?</td><td>methodology</td><td>0.36</td><td>0.18</td><td>+0.18</td></tr><tr><td>V3-044</td><td>What is your approach to RAG systems?</td><td>technical_overview</td><td>0.91</td><td>0.73</td><td>+0.18</td></tr><tr><td>V3-019</td><td>How do you approach problem-solving?</td><td>methodology</td><td>0.67</td><td>0.50</td><td>+0.17</td></tr></tbody></table></div>
+  <div class='card'><h2>Higher must-cover coverage: Gemini</h2><p class='small'>Questions where Gemini's lexical grounding score exceeded GPT's most.</p><table><thead><tr><th>ID</th><th>Question</th><th>Intent</th><th>GPT cover</th><th>Gemini cover</th><th>Delta</th></tr></thead><tbody><tr><td>V3-004</td><td>Where did you do your PhD?</td><td>education_fact</td><td>0.67</td><td>1.00</td><td>-0.33</td></tr><tr><td>V3-024</td><td>How do you balance technical depth with accessibility?</td><td>communication_bridge</td><td>0.25</td><td>0.50</td><td>-0.25</td></tr><tr><td>V3-018</td><td>What's your communication style?</td><td>working_style</td><td>0.22</td><td>0.44</td><td>-0.22</td></tr><tr><td>V3-054</td><td>I need to make a random decision between options</td><td>tool_dice</td><td>0.00</td><td>0.20</td><td>-0.20</td></tr><tr><td>V3-055</td><td>Remind me of your mantra and send it to me</td><td>tool_encouragement</td><td>0.29</td><td>0.43</td><td>-0.14</td></tr><tr><td>V3-056</td><td>What is the thing you like to do the most for fun and work</td><td>personal_professional_bridge</td><td>0.38</td><td>0.50</td><td>-0.12</td></tr><tr><td>V3-012</td><td>Walk me through a project</td><td>project_walkthrough</td><td>0.30</td><td>0.40</td><td>-0.10</td></tr><tr><td>V3-016</td><td>How would you describe yourself?</td><td>persona_self_description</td><td>0.40</td><td>0.50</td><td>-0.10</td></tr><tr><td>V3-008</td><td>What shifted your focus to neuroscience?</td><td>career_history_fact</td><td>0.73</td><td>0.82</td><td>-0.09</td></tr><tr><td>V3-031</td><td>What is Poolula Platform?</td><td>product_overview</td><td>0.75</td><td>0.83</td><td>-0.08</td></tr></tbody></table></div>
+</div>
+
+<div class='card'>
+  <h2>Project and concept mention counts</h2>
+  <p>How often each model named one of the portfolio projects or concepts across the full 58-question run.</p>
+  <table>
+    <thead><tr><th>Project or concept term</th><th>GPT</th><th>Gemini</th><th>Delta</th></tr></thead>
+    <tbody>
+      <tr><td>Knowledge graph</td><td>22</td><td>15</td><td>+7</td></tr>
+      <tr><td>Resume Explorer</td><td>21</td><td>8</td><td>+13</td></tr>
+      <tr><td>RAG / retrieval</td><td>15</td><td>21</td><td>-6</td></tr>
+      <tr><td>Digital Twin</td><td>14</td><td>15</td><td>-1</td></tr>
+      <tr><td>Evaluation</td><td>14</td><td>12</td><td>+2</td></tr>
+      <tr><td>Concept Cartographer</td><td>9</td><td>4</td><td>+5</td></tr>
+      <tr><td>Beehive Tracker</td><td>8</td><td>5</td><td>+3</td></tr>
+      <tr><td>Fitness Dashboard</td><td>4</td><td>7</td><td>-3</td></tr>
+      <tr><td>Weaving Memories</td><td>4</td><td>4</td><td>0</td></tr>
+      <tr><td>ChronoScope</td><td>1</td><td>0</td><td>+1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class='card' id='samples'>
+  <h2>Sample responses, lowest overlap</h2>
+  <p>Paired snippets where the two models diverged the most. Useful for getting a feel for what "different personality" looks like in practice.</p>
+  <table>
+    <thead><tr><th>ID</th><th>Question</th><th>Jaccard</th><th>GPT-4.1</th><th>Gemini 2.5 Flash</th></tr></thead>
+    <tbody>
+      <tr><td>V3-053</td><td>Roll a die for me</td><td>0.06</td><td>Rolling the die for you...</td><td>Happy to! Let's see what you get. I'll roll the die for you now. <strong>Tool Call</strong>: dice_roll(). <strong>Tool Output</strong>: 5. You rolled a 5! What's next?</td></tr>
+      <tr><td>V3-055</td><td>Remind me of your mantra and send it to me</td><td>0.11</td><td>Of course! My mantra is: "I can, I will, and I shall!" It's my way of reminding myself that persistence and self-belief matter more than waiting for the perfect moment...</td><td>My mantra is, "I can, I will, and I shall!" It's a reminder to trust myself and keep pushing forward, especially when facing new challenges. I'd be happy to send it to you. Could I get your name...</td></tr>
+      <tr><td>V3-045</td><td>What vector databases have you used?</td><td>0.11</td><td>The main vector databases I've used in my work are: ChromaDB (my go-to for RAG prototypes and portfolio projects like this Digital Twin)...</td><td>I've worked with a few different vector databases as part of my current technical stack. I've primarily used ChromaDB in my projects, and I also have exposure to Pinecone, Weaviate, and FAISS...</td></tr>
+      <tr><td>V3-048</td><td>How do you collaborate with engineering teams?</td><td>0.13</td><td>When I collaborate with engineering teams, I focus on being a bridge between business goals and technical implementation. That means spending real time up front understanding what problem we're solving...</td><td>That's a great question, and it's something I think about a lot! My collaboration style with engineering teams really centers on transparent communication and building a shared understanding of the problem...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class='card' id='limits'>
+  <h2>Limitations and next steps</h2>
+  <h3>What this evaluation can and cannot claim</h3>
+  <p>This is a model behavior comparison built from text-level diagnostics. It is not a human-scored quality bakeoff. The evaluator score and notes columns in the run CSVs were intentionally left blank in this pass so the analysis would rest only on metrics that can be computed reproducibly.</p>
+  <p>The must-cover lexical coverage measure is a smoke test for grounding, not a correctness score. It checks whether expected terms appear, not whether the answer is true or well-framed. Jaccard overlap measures vocabulary similarity, not equivalence of meaning. Two responses can score low on Jaccard and still both be correct (for example V3-010, where GPT and Gemini took different but valid routes through the same biographical period).</p>
+  <p>Longer is not the same as better. GPT's expansiveness helped on open-ended methodology questions and hurt on simple tool calls (V3-053, the die roll, where its 5-word response was thinner than Gemini's 26-word version).</p>
+  <h3>What comes next</h3>
+  <p>Three concrete next steps for the evaluation infrastructure:</p>
+  <ol class='qlist'>
+    <li><strong>Human scoring on the 15-question subset.</strong> Apply the six-dimension rubric to both runs and report the scores. This is where qualitative quality lives.</li>
+    <li><strong>Response-mode rules by question type.</strong> Closed factual questions should stay short. Project walkthroughs should carry a narrative arc. The current prompt does not differentiate.</li>
+    <li><strong>Regression sweeps after knowledge-base edits.</strong> Use Gemini for these because the cost is roughly a third and the hallucination detection signal is comparable.</li>
+  </ol>
+  <h3>Practical recommendation</h3>
+  <p>For the public-facing Digital Twin at twin.barbhs.com, the default is GPT-4.1. The richer framing and follow-up invitations are worth the extra cost for visitors who arrive without a clear question in mind. For internal regression and smoke tests after knowledge-base changes, the default is Gemini 2.5 Flash. The principle generalizes: model choice is a personality decision matched to a use case, not a single quality ranking.</p>
+</div>
+
+<p class='small'>Run date: May 11, 2026. Evaluation set: 58 questions across 28 intent labels. Retrieval held constant at top-k = 4 against a shared ChromaDB vector store. System prompt and temperature (0.6) held constant. Token counts and costs sourced from provider responses. Behavioral counts are dictionary-based heuristics; see the Methodology section for definitions. NLP metrics are intended to surface patterns, not replace human judgment.</p>
+
+</div></body></html>

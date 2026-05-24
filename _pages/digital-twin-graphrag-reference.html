@@ -1,0 +1,1866 @@
+---
+layout: default
+title: "GraphRAG Reference"
+excerpt: "A working reference for the Digital Twin's migration from ChromaDB vector retrieval to a Neo4j-backed GraphRAG pipeline — the schema, the hybrid scoring formula, the resolved architectural decisions, and a filterable browser of all 167 canonical entity nodes."
+breadcrumbs: true
+permalink: /graphrag-reference/
+toc: true
+toc_label: "Migration Reference"
+toc_icon: "project-diagram"
+toc_sticky: true
+classes: [graphrag-reference-page]
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Vectors to a Graph — Digital Twin Migration Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F1EA;
+  --bg-card: #FCFAF6;
+  --bg-code: #2A2520;
+  --ink: #2A2520;
+  --ink-soft: #5A4F44;
+  --ink-faint: #897D6E;
+  --rule: #D9D3CA;
+  --rule-soft: #E8E2D8;
+  --chroma: #B05838;
+  --chroma-bg: #FAEDE5;
+  --chroma-bg-strong: #F4DACA;
+  --graph: #2D6F5F;
+  --graph-bg: #E6F0EC;
+  --graph-bg-strong: #C9DFD7;
+  --amber: #B07820;
+  --amber-bg: #F8EDD5;
+  --display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #F6F0E8, #EDF4EF);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.56;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 36px 28px 64px;
+  position: relative;
+}
+
+/* ─── Header ─── */
+header {
+  border-bottom: none;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 24px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+h1 em {
+  font-style: italic;
+  color: var(--graph);
+  font-weight: 600;
+}
+.lede {
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.56;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  max-width: 980px;
+}
+.meta {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-faint);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ink-faint); }
+
+/* ─── Layout ─── */
+.layout { display: block; }
+
+nav.toc { display: none; }
+nav.toc .toc-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+nav.toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: toc;
+}
+nav.toc li {
+  counter-increment: toc;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 10px;
+}
+nav.toc li::before {
+  content: counter(toc, decimal-leading-zero);
+  color: var(--ink-faint);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+nav.toc a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.15s;
+  display: block;
+}
+nav.toc a:hover { color: var(--graph); }
+
+main { max-width: 100%; }
+
+/* ─── Sections as cards ─── */
+section {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 20px;
+  padding: 24px 28px;
+  margin-bottom: 18px;
+  scroll-margin-top: 32px;
+  box-shadow: 0 8px 24px rgba(40, 49, 58, 0.06);
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  color: var(--amber);
+}
+h2 .num {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--ink-faint);
+  display: block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+h3 {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.35;
+  margin: 24px 0 8px;
+  color: var(--graph);
+  letter-spacing: -0.005em;
+}
+h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 22px 0 8px;
+}
+
+p { margin: 0 0 14px; color: var(--ink-soft); line-height: 1.56; }
+p strong { color: var(--ink); }
+p + p { margin-top: 0; }
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+a {
+  color: var(--graph);
+  text-decoration: none;
+  border-bottom: 1px solid var(--graph-bg-strong);
+  transition: border-color 0.15s;
+}
+a:hover { border-bottom-color: var(--graph); }
+
+/* ─── Callouts ─── */
+.callout {
+  background: var(--bg-card);
+  border-left: 3px solid var(--ink-soft);
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 0 6px 6px 0;
+}
+.callout.chroma { border-left-color: var(--chroma); background: var(--chroma-bg); }
+.callout.graph { border-left-color: var(--graph); background: var(--graph-bg); }
+.callout.amber { border-left-color: var(--amber); background: var(--amber-bg); }
+.callout .label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.callout.chroma .label { color: var(--chroma); }
+.callout.graph .label { color: var(--graph); }
+.callout.amber .label { color: var(--amber); }
+.callout p { color: var(--ink); line-height: 1.55; }
+.callout p:last-child { margin-bottom: 0; }
+
+/* ─── Tables ─── */
+.table-wrap { margin: 24px 0; overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  font-family: var(--body);
+}
+th {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: 12px 16px 12px 0;
+  border-bottom: 2px solid var(--ink);
+  vertical-align: bottom;
+}
+td {
+  padding: 14px 16px 14px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.55;
+}
+td:last-child, th:last-child { padding-right: 0; }
+td code { font-size: 13px; }
+
+table.compare th.before { color: var(--chroma); }
+table.compare th.after { color: var(--graph); }
+table.compare td.before { background: linear-gradient(to right, var(--chroma-bg) 0%, transparent 80%); padding-left: 12px; }
+table.compare td.after { background: linear-gradient(to right, var(--graph-bg) 0%, transparent 80%); padding-left: 12px; }
+
+/* ─── Code ─── */
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--rule-soft);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--ink);
+}
+pre {
+  background: var(--bg-code);
+  color: #E8E2D6;
+  padding: 20px 24px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 20px 0;
+}
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+pre .kw { color: #E89B5C; }
+pre .str { color: #A8C97F; }
+pre .com { color: #7A6F5E; font-style: italic; }
+pre .var { color: #C9DFD7; }
+pre .num { color: #E89B5C; }
+pre .fn { color: #F5C9A1; }
+
+.code-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-faint);
+  margin-bottom: -12px;
+  margin-top: 24px;
+  padding-left: 4px;
+}
+.code-label.chroma { color: var(--chroma); }
+.code-label.graph { color: var(--graph); }
+
+/* ─── Two-column ─── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+@media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
+.split > div {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid var(--rule);
+}
+.split .chroma-card { border-top: 3px solid var(--chroma); }
+.split .graph-card { border-top: 3px solid var(--graph); }
+.split .card-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.split .chroma-card .card-label { color: var(--chroma); }
+.split .graph-card .card-label { color: var(--graph); }
+
+/* ─── Decision cards ─── */
+.decision {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin: 14px 0;
+  position: relative;
+}
+.decision .num-badge {
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.decision h3 {
+  margin: 4px 0 16px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.decision .row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  padding: 8px 0;
+  border-top: 1px dashed var(--rule);
+  align-items: baseline;
+}
+.decision .row:first-of-type { border-top: none; }
+.decision .row .key {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+.decision .row .val { color: var(--ink); }
+
+/* ─── Definitions ─── */
+.def-list { margin: 16px 0; }
+.def {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.def:last-child { border-bottom: none; }
+.def .term {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+.def .formal {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-left: 8px;
+  font-style: italic;
+}
+.def .desc {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.def .formula {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--rule-soft);
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--ink);
+}
+
+/* ─── Schema diagram ─── */
+.schema-wrap {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 18px 0;
+}
+.schema-caption {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-faint);
+  text-align: center;
+  margin-top: 16px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Formula display ─── */
+.formula-display {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 22px;
+  margin: 18px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 2.2;
+}
+.formula-display .weight {
+  display: inline-block;
+  background: var(--graph-bg-strong);
+  color: var(--graph);
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.formula-display .term-name {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-left: 8px;
+}
+
+/* ─── Lists ─── */
+ul, ol { margin: 8px 0 16px; padding-left: 24px; }
+li { margin-bottom: 6px; line-height: 1.55; }
+ul li::marker { color: var(--ink-faint); }
+
+/* ─── Tag ─── */
+.tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.tag.chroma { background: var(--chroma-bg-strong); color: var(--chroma); }
+.tag.graph { background: var(--graph-bg-strong); color: var(--graph); }
+
+/* ─── Section divider ─── */
+.divider { display: none; }
+
+/* ─── Footnote / sidenote feel ─── */
+.note {
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-style: italic;
+  border-left: 2px solid var(--rule);
+  padding-left: 16px;
+  margin: 16px 0;
+}
+
+/* ─── Data section visuals ─── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.stat {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 18px;
+}
+.stat .big {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--graph);
+  display: block;
+  margin-bottom: 8px;
+}
+.stat .lab {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.bar-chart {
+  margin: 20px 0;
+  font-family: var(--sans);
+  font-size: 13px;
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 50px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.bar-label { color: var(--ink-soft); text-align: right; }
+.bar-track {
+  background: var(--rule-soft);
+  border-radius: 3px;
+  height: 22px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  background: var(--graph);
+  height: 100%;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+}
+.bar-fill.muted { background: var(--graph-bg-strong); color: var(--graph); }
+.bar-count {
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-align: left;
+}
+
+.example-merge {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  line-height: 1.7;
+}
+.example-merge .arrow {
+  color: var(--graph);
+  font-family: var(--sans);
+  margin: 0 8px;
+}
+.example-merge .canonical { color: var(--graph); font-weight: 600; }
+.example-merge .variant { color: var(--ink-soft); }
+
+/* ─── Top KPI strip (under header) ─── */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 14px 0 14px;
+}
+.kpi {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(40, 49, 58, 0.06);
+}
+.kpi .label {
+  font-size: 12px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.kpi .value {
+  font-size: 28px;
+  font-weight: 750;
+  margin-top: 8px;
+  color: var(--graph);
+  letter-spacing: -0.01em;
+}
+.kpi .sub {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+@media (max-width: 720px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+
+.warn {
+  border-left: 4px solid var(--amber);
+  padding: 12px 14px;
+  background: #FFF6E8;
+  border-radius: 12px;
+  color: #534436;
+  font-size: 13px;
+  margin: 6px 0 18px;
+}
+.warn strong { color: var(--amber); }
+
+/* ─── Inline "Jump to" pill bar ─── */
+.jumpbar {
+  background: #F4EDE1;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+.jumpbar strong {
+  color: var(--ink);
+  margin-right: 8px;
+}
+.jumpbar a {
+  color: var(--graph);
+  text-decoration: none;
+  margin-right: 16px;
+  border-bottom: none;
+}
+.jumpbar a:hover { text-decoration: underline; }
+
+/* ─── Collapsible placeholder ─── */
+details.placeholder {
+  background: var(--bg);
+  border: 1px dashed var(--rule);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+details.placeholder summary {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+details.placeholder summary::before {
+  content: '▸';
+  color: var(--ink-faint);
+  transition: transform 0.15s;
+  display: inline-block;
+  font-size: 14px;
+}
+details.placeholder[open] summary::before { transform: rotate(90deg); }
+details.placeholder summary::-webkit-details-marker { display: none; }
+details.placeholder .placeholder-body {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+details.placeholder .placeholder-body p:first-child { margin-top: 0; }
+details.placeholder .pending-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--amber-bg);
+  color: var(--amber);
+  padding: 1px 8px;
+  border-radius: 3px;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+/* ─── Entity browser ─── */
+.browser {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 22px;
+  margin: 18px 0;
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.filter-search {
+  flex: 1;
+  min-width: 200px;
+  font-family: var(--body);
+  font-size: 15px;
+  padding: 8px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.filter-search:focus { border-color: var(--graph); }
+.filter-search::placeholder { color: var(--ink-faint); }
+
+.filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.12s;
+  letter-spacing: 0.02em;
+}
+.filter-pill:hover { border-color: var(--ink-soft); color: var(--ink); }
+.filter-pill.active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.filter-pill .pill-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  margin-left: 6px;
+  opacity: 0.7;
+}
+
+.browser-summary {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+.entity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.entity-table th {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.entity-table th.sortable { cursor: pointer; user-select: none; }
+.entity-table th.sortable:hover { color: var(--ink); }
+.entity-table th .sort-ind { opacity: 0.4; margin-left: 4px; font-size: 10px; }
+.entity-table th.sort-asc .sort-ind, .entity-table th.sort-desc .sort-ind { opacity: 1; color: var(--graph); }
+
+.entity-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+  line-height: 1.45;
+}
+.entity-table tr:hover { background: var(--bg); }
+.entity-table tr.expanded { background: var(--bg); }
+.entity-table tr.expanded + tr.expansion td {
+  background: var(--bg);
+  padding: 8px 10px 16px 32px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule);
+}
+.entity-table tr.expansion .desc-text { font-style: italic; line-height: 1.55; }
+.entity-table tr.expansion .alts-full { font-family: var(--mono); font-size: 12px; margin-top: 6px; }
+.entity-table tr.expansion .alts-full .lbl { font-family: var(--sans); font-style: normal; color: var(--ink-faint); margin-right: 6px; }
+
+.type-badge {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.type-badge.skill { background: #E6F0EC; color: #2D6F5F; }
+.type-badge.method { background: #FAEDE5; color: #B05838; }
+.type-badge.technology { background: #F8EDD5; color: #B07820; }
+.type-badge.concept { background: #EDE7F0; color: #6B4781; }
+
+.entity-name { font-weight: 500; color: var(--ink); }
+.entity-name .has-alts {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: var(--ink-faint);
+  margin-left: 8px;
+  font-weight: 400;
+}
+.entity-detail-cell, .entity-category-cell {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.expand-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 6px 0 0;
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.entity-table tr.expanded .expand-toggle { color: var(--graph); }
+
+.no-results {
+  padding: 32px;
+  text-align: center;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="eyebrow">Digital Twin · Migration Reference</div>
+  <h1>From Vectors to a <em>Graph</em></h1>
+  <p class="lede">A working reference for the Digital Twin's migration from ChromaDB vector retrieval to a Neo4j-backed GraphRAG pipeline — why it was chosen, what it costs, and how to reason about both systems side by side.</p>
+  <div class="meta">
+    <span>Created 2026-05-16</span>
+    <span class="dot"></span>
+    <span>Maintained by Barbara Hidalgo-Sotelo</span>
+    <span class="dot"></span>
+    <span>Feature branch: <code style="font-size:12px">graphrag-migration</code></span>
+  </div>
+</header>
+
+<div class="kpis" title="Snapshot of canonical_entities.json — updates each canonicalization run">
+  <div class="kpi"><div class="label">Canonical entities</div><div class="value">167</div><div class="sub">57 skills · 42 methods · 46 techs · 22 concepts</div></div>
+  <div class="kpi"><div class="label">Sections</div><div class="value">121</div><div class="sub">Across 13 KB doc types</div></div>
+  <div class="kpi"><div class="label">Canonicalization compression</div><div class="value">1.92×</div><div class="sub">279 raw → 167 canonical</div></div>
+  <div class="kpi"><div class="label">Zero-mention sections</div><div class="value">16</div><div class="sub">13% of total</div></div>
+</div>
+
+<div class="warn"><strong>2 quality flags pending review.</strong> Acronym Title-Casing in canonical names and cross-type pool overlap — both addressed in section 12 (<em>Adjust later</em>) with root cause and proposed fix.</div>
+
+<div class="jumpbar">
+  <strong>Jump to:</strong>
+  <a href="#tldr">TL;DR</a>
+  <a href="#why">Why migrate</a>
+  <a href="#moves">Three moves</a>
+  <a href="#schema">Schema</a>
+  <a href="#two-paths">Two paths</a>
+  <a href="#scoring">Hybrid scoring</a>
+  <a href="#decisions">Decisions</a>
+  <a href="#simple-queries">Simple queries</a>
+  <a href="#demo-queries">Demo queries</a>
+  <a href="#metrics">Metrics</a>
+  <a href="#glossary">Glossary</a>
+  <a href="#adjust">Adjust later</a>
+</div>
+
+<div class="layout">
+
+<main>
+
+<!-- ─── 1. TL;DR ─── -->
+<section id="tldr">
+  <h2><span class="num">01 · In one paragraph</span>The migration</h2>
+  <p>The Digital Twin's retrieval layer is being rebuilt. The old system splits knowledge base documents into ~900-character chunks, embeds each one, and searches them by vector similarity. The new system stores full <em>sections</em> as the retrieval unit, promotes Projects, Skills, Methods, Technologies, and Concepts to first-class nodes with explicit edges between them, and ranks results with a hybrid score that combines vector similarity with graph signals. The payoff is queries that couldn't be answered before — <em>"which projects use knowledge graphs?"</em> — and retrieval that returns complete thoughts instead of fragments. The cost is one additional database to operate, one new query language to write, and a manual entity-curation step until the canonicalization pipeline is fully self-preserving.</p>
+</section>
+
+<!-- ─── 2. Why migrate ─── -->
+<section id="why">
+  <h2><span class="num">02 · Why migrate</span>Three problems with the current system</h2>
+  <p>Each problem in the table below is a real failure mode observed in production, not a hypothetical. The Neo4j move is what the new architecture does to address it.</p>
+
+  <div class="table-wrap">
+  <table class="compare">
+    <thead>
+      <tr><th>Problem</th><th class="before">ChromaDB behavior</th><th class="after">Neo4j move</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Wrong granularity</strong></td>
+        <td class="before">Returns 900-char chunks that often cut mid-paragraph or mid-thought.</td>
+        <td class="after">Stores complete sections (2–3K chars) as the retrieval unit, with chunks kept as optional children for fallback.</td>
+      </tr>
+      <tr>
+        <td><strong>Missing connections</strong></td>
+        <td class="before">Cannot answer "which projects use X?" — relationships between projects and skills are implicit in text only.</td>
+        <td class="after">Promotes Skill, Method, Technology, Publication to nodes with typed edges from Project; Cypher traversal answers relationship queries directly.</td>
+      </tr>
+      <tr>
+        <td><strong>Poor ranking</strong></td>
+        <td class="before">Pure L2 distance on embeddings; cannot tell whether a section <em>describes</em> a topic or merely <em>mentions</em> it.</td>
+        <td class="after">Hybrid score combines vector similarity with graph centrality, project-described boost, and entity-richness signals.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ─── 3. Three moves ─── -->
+<section id="moves">
+  <h2><span class="num">03 · Three moves</span>The architecture, mapped to the problems</h2>
+  <p>Every other choice in the migration plan exists to support one of these three moves. When you get lost, come back here.</p>
+
+  <h3>Move 1 — Make the section a first-class retrieval unit</h3>
+  <p>Each H2 block in a KB document becomes a <code>Section</code> node carrying its complete text and its own embedding. Section boundaries match the existing ChromaDB ingestion logic exactly, which keeps the before/after evaluation honest.</p>
+
+  <h3>Move 2 — Promote entities to typed nodes with typed edges</h3>
+  <p>Skills, Methods, Technologies, Publications, and Concepts become nodes. Projects connect to them through named relationships: <code>DEMONSTRATES</code>, <code>USES_METHOD</code>, <code>USES_TECHNOLOGY</code>, <code>DOCUMENTED_IN</code>. Sections connect to entities through <code>MENTIONS</code> edges that carry a count and a contextual snippet.</p>
+
+  <h3>Move 3 — Replace L2 distance with a multi-signal hybrid score</h3>
+  <p>Vector similarity stays in the mix at 60% weight, but the final ranking also rewards sections that explicitly describe a Project (+25%), sections rich in entity mentions (+10%), and longer/more substantial sections (+5%). The full formula lives in <a href="#scoring">section 6</a>.</p>
+</section>
+
+<!-- ─── 4. Schema ─── -->
+<section id="schema">
+  <h2><span class="num">04 · The schema</span>What lives in the graph</h2>
+  <p>Two tiers. The <strong>document hierarchy</strong> (Document → Section → Chunk) is where text lives. The <strong>entity network</strong> (Project at center, connecting Skill / Method / Technology / Publication) is what the text is about. The two tiers are bridged by <code>MENTIONS</code> edges (entities cited within sections) and <code>DESCRIBED_IN</code> edges (projects pointing back to the sections that describe them).</p>
+
+  <div class="schema-wrap">
+  <svg width="100%" viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" role="img">
+    <title>Neo4j schema for Digital Twin GraphRAG</title>
+    <desc>Top row: Document feeds HAS_SECTION into Section, which feeds HAS_CHUNK into Chunk. Section carries full text and embedding. Middle: Project node with DESCRIBED_IN edge up to Section. Bottom row: Skill, Method, Technology, Publication entities connected by fan-out edges from Project.</desc>
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <!-- Top row: Document hierarchy -->
+    <g>
+      <rect x="60" y="30" width="140" height="60" rx="8" fill="#FCFAF6" stroke="#5A4F44" stroke-width="0.8"/>
+      <text x="130" y="58" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#2A2520">Document</text>
+      <text x="130" y="76" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#897D6E">source file</text>
+    </g>
+
+    <g>
+      <rect x="250" y="30" width="180" height="60" rx="8" fill="#E6F0EC" stroke="#2D6F5F" stroke-width="1.5"/>
+      <text x="340" y="58" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#2D6F5F">Section</text>
+      <text x="340" y="76" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#2D6F5F">full text + embedding</text>
+    </g>
+
+    <g>
+      <rect x="480" y="30" width="140" height="60" rx="8" fill="#FCFAF6" stroke="#5A4F44" stroke-width="0.8"/>
+      <text x="550" y="58" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#2A2520">Chunk</text>
+      <text x="550" y="76" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#897D6E">fallback child</text>
+    </g>
+
+    <!-- Top row arrows -->
+    <line x1="200" y1="60" x2="247" y2="60" stroke="#5A4F44" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <text x="223" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#5A4F44">HAS_SECTION</text>
+
+    <line x1="430" y1="60" x2="477" y2="60" stroke="#5A4F44" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <text x="453" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#5A4F44">HAS_CHUNK</text>
+
+    <!-- Middle: Project -->
+    <g>
+      <rect x="270" y="200" width="140" height="60" rx="8" fill="#FAEDE5" stroke="#B05838" stroke-width="1.5"/>
+      <text x="340" y="228" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#B05838">Project</text>
+      <text x="340" y="246" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#B05838">entity hub</text>
+    </g>
+
+    <!-- DESCRIBED_IN arrow up -->
+    <line x1="340" y1="200" x2="340" y2="92" stroke="#5A4F44" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <text x="348" y="150" font-family="JetBrains Mono, monospace" font-size="10" fill="#5A4F44">DESCRIBED_IN</text>
+
+    <!-- Bottom row: entities -->
+    <g>
+      <rect x="40" y="360" width="130" height="60" rx="8" fill="#FCFAF6" stroke="#5A4F44" stroke-width="0.8"/>
+      <text x="105" y="388" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#2A2520">Skill</text>
+      <text x="105" y="406" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#897D6E">capability</text>
+    </g>
+    <g>
+      <rect x="195" y="360" width="130" height="60" rx="8" fill="#FCFAF6" stroke="#5A4F44" stroke-width="0.8"/>
+      <text x="260" y="388" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#2A2520">Method</text>
+      <text x="260" y="406" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#897D6E">approach</text>
+    </g>
+    <g>
+      <rect x="350" y="360" width="130" height="60" rx="8" fill="#FCFAF6" stroke="#5A4F44" stroke-width="0.8"/>
+      <text x="415" y="388" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#2A2520">Technology</text>
+      <text x="415" y="406" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#897D6E">tool</text>
+    </g>
+    <g>
+      <rect x="505" y="360" width="130" height="60" rx="8" fill="#FCFAF6" stroke="#5A4F44" stroke-width="0.8"/>
+      <text x="570" y="388" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="500" fill="#2A2520">Publication</text>
+      <text x="570" y="406" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="11" fill="#897D6E">writeup</text>
+    </g>
+
+    <!-- Project to entity fan-out -->
+    <line x1="290" y1="260" x2="115" y2="358" stroke="#5A4F44" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <line x1="320" y1="260" x2="260" y2="358" stroke="#5A4F44" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <line x1="360" y1="260" x2="415" y2="358" stroke="#5A4F44" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <line x1="390" y1="260" x2="570" y2="358" stroke="#5A4F44" stroke-width="1.2" marker-end="url(#arrow)"/>
+  </svg>
+  <div class="schema-caption">Two tiers bridged by <code style="font-size:10px">DESCRIBED_IN</code> (drawn) and <code style="font-size:10px">MENTIONS</code> (cross-cutting, not drawn for legibility)</div>
+  </div>
+
+  <h4>Node types — quick reference</h4>
+  <p style="color:var(--ink-soft);font-size:15px;">Note on properties: <code>role</code> (Skill) and <code>stage</code> (Method) are <em>edge properties</em>, not node properties. They live on the <code>DEMONSTRATES</code> and <code>USES_METHOD</code> relationships respectively, so the same Skill can play a "core" role on one Project and a "supporting" role on another.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Node</th><th>Properties</th><th>Source · example</th></tr></thead>
+    <tbody>
+      <tr><td><code>Document</code></td><td>file_path, title, source_type, sensitivity, content_hash, last_updated</td><td>One per KB file<br><span style="font-size:13px;color:var(--ink-faint);">e.g. <code>kb_biosketch.md</code></span></td></tr>
+      <tr><td><code>Section</code></td><td>id, name, full_text, embedding (1536-dim), sensitivity, order, char_count</td><td>One per H2 block within a Document<br><span style="font-size:13px;color:var(--ink-faint);">e.g. <code>kb_biosketch:Education</code></span></td></tr>
+      <tr><td><code>Chunk</code></td><td>id, text, embedding, chunk_index, char_count</td><td>Children of Section, optional fallback</td></tr>
+      <tr><td><code>Project</code></td><td>id, title, summary, design_insight, walkthrough_context, tags, sensitivity, urls, diagram_filename</td><td>From <code>featured_projects.py</code><br><span style="font-size:13px;color:var(--ink-faint);">e.g. <code>resume-graph-explorer</code>, <code>digital-twin</code></span></td></tr>
+      <tr><td><code>Skill</code></td><td>name, category, alt_labels<br><span style="font-size:13px;color:var(--ink-faint);">+ <code>role</code> on DEMONSTRATES edge: core / secondary / supporting</span></td><td>LLM extraction from project walkthroughs <span class="tag graph">project_entities only</span></td></tr>
+      <tr><td><code>Method</code></td><td>name, category, alt_labels<br><span style="font-size:13px;color:var(--ink-faint);">+ <code>stage</code> on USES_METHOD edge: ingestion / retrieval / evaluation / generation</span></td><td>LLM extraction from project walkthroughs <span class="tag graph">project_entities only</span></td></tr>
+      <tr><td><code>Technology</code></td><td>name, category, alt_labels</td><td>LLM extraction from project walkthroughs <span class="tag graph">project_entities only</span></td></tr>
+      <tr><td><code>Concept</code></td><td>name, description, source, alt_labels<br><span style="font-size:13px;color:var(--ink-faint);"><code>source</code> tracks which KB section the concept was first extracted from</span></td><td>Curated from KB section mentions <span class="tag chroma">manual curation</span></td></tr>
+      <tr><td><code>Publication</code></td><td>title, type, year, url</td><td>From <code>kb_publications.md</code></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4>Relationship types — quick reference</h4>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Edge</th><th>Direction</th><th>Why it exists</th></tr></thead>
+    <tbody>
+      <tr><td><code>HAS_SECTION</code></td><td>Document → Section</td><td>Structural containment</td></tr>
+      <tr><td><code>HAS_CHUNK</code></td><td>Section → Chunk</td><td>Optional fine-grained fallback</td></tr>
+      <tr><td><code>NEXT_SECTION</code></td><td>Section → Section</td><td>Sequential order within a Document</td></tr>
+      <tr><td><code>DESCRIBED_IN</code></td><td>Project → Section</td><td>Which sections actually describe this project (feeds the +0.25 ranking boost)</td></tr>
+      <tr><td><code>DEMONSTRATES</code></td><td>Project → Skill</td><td>Carries <code>role</code> property (core / secondary / supporting)</td></tr>
+      <tr><td><code>USES_METHOD</code></td><td>Project → Method</td><td>Carries <code>stage</code> property (ingestion / retrieval / evaluation / generation)</td></tr>
+      <tr><td><code>USES_TECHNOLOGY</code></td><td>Project → Technology</td><td>Plain typed edge</td></tr>
+      <tr><td><code>DOCUMENTED_IN</code></td><td>Project → Publication</td><td>Linked write-ups</td></tr>
+      <tr><td><code>MENTIONS</code></td><td>Section → any entity</td><td>Carries <code>count</code> and <code>context</code>; feeds the +0.10 entity-richness signal</td></tr>
+      <tr><td><code>RELATED_TO</code></td><td>Project → Project</td><td>Derived from shared skills/methods <span class="tag chroma">deferred — not in Phase 3</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="margin-top: 32px;">By the numbers — what's actually in the graph</h3>
+  <p>Real counts from <code>canonical_entities.json</code> as of the most recent canonicalization run. These numbers are the actual order of magnitude you're operating at — useful both for tuning decisions and for talking about the system honestly.</p>
+
+  <div class="stat-grid">
+    <div class="stat"><span class="big">10</span><span class="lab">Projects</span></div>
+    <div class="stat"><span class="big">121</span><span class="lab">Sections</span></div>
+    <div class="stat"><span class="big">167</span><span class="lab">Canonical entities</span></div>
+    <div class="stat"><span class="big">13</span><span class="lab">KB doc types</span></div>
+  </div>
+
+  <h4>Canonicalization in action</h4>
+  <p>The three-phase canonicalization pipeline (Decision 2) compresses 279 raw extracted entity names down to 167 canonical nodes — a 1.92× reduction. The compression happens because the same idea appears across multiple project walkthroughs under slightly different names, and the LLM batch phase collapses those into a single canonical with alt_labels.</p>
+
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">Raw extracted</div>
+      <div class="bar-track"><div class="bar-fill muted" style="width: 100%;">279</div></div>
+      <div class="bar-count">99 skills + 95 methods + 85 techs</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">After canonical</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 59.9%;">167</div></div>
+      <div class="bar-count">57 skills + 42 methods + 46 techs + 22 concepts</div>
+    </div>
+  </div>
+
+  <p>A few real merges the pipeline produced:</p>
+
+  <div class="example-merge">
+    <span class="variant">"Knowledge Graphs"</span>, <span class="variant">"Knowledge Base Design"</span> <span class="arrow">→</span> <span class="canonical">Knowledge Graph</span>
+  </div>
+  <div class="example-merge">
+    <span class="variant">"NLP"</span>, <span class="variant">"NLP / LLM Integration"</span>, <span class="variant">"NLP Pipeline Design"</span> <span class="arrow">→</span> <span class="canonical">Nlp</span>
+  </div>
+  <div class="example-merge">
+    <span class="variant">"Data Serialization (Turtle, JSON-LD)"</span>, <span class="variant">"RDF/Linked Data"</span> <span class="arrow">→</span> <span class="canonical">Rdf</span>
+  </div>
+  <div class="example-merge">
+    <span class="variant">"Document Chunking Strategies"</span>, <span class="variant">"Document Management Systems"</span>, <span class="variant">"PDF Extraction"</span> <span class="arrow">→</span> <span class="canonical">Document Processing</span>
+  </div>
+
+  <h4>Skill roles · 57 canonical skills</h4>
+  <p>The <code>role</code> property — carried on the DEMONSTRATES edge — distributes as:</p>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">core</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 60%;">15</div></div>
+      <div class="bar-count">e.g. Knowledge Graph, RAG, Evaluation</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">secondary</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 100%;">25</div></div>
+      <div class="bar-count">e.g. NLP, Visualization, Prompt Engineering</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">supporting</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 68%;">17</div></div>
+      <div class="bar-count">e.g. FastAPI, Google Cloud, Data Validation</div>
+    </div>
+  </div>
+
+  <h4>Method stages · 42 canonical methods</h4>
+  <p>The <code>stage</code> property — carried on the USES_METHOD edge — distributes as:</p>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">ingestion</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 100%;">21</div></div>
+      <div class="bar-count">e.g. LLM Extraction, Source priority ordering</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">generation</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 48%;">10</div></div>
+      <div class="bar-count">e.g. Chatbot, Narrative priority encoding</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">evaluation</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 38%;">8</div></div>
+      <div class="bar-count">e.g. Failure mode analysis, Multi-provider benchmarking</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">retrieval</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 14%;">3</div></div>
+      <div class="bar-count">Embeddings, RAG, SELECT-only SQL Querying</div>
+    </div>
+  </div>
+  <p class="note">The ingestion-heavy distribution is honest about where the methodological work goes in these projects — most of the design effort is in getting data into a usable shape before any retrieval or generation happens.</p>
+
+  <h4>MENTIONS edges per Section · across 121 sections with mention data</h4>
+  <p>How many entities (Projects, Skills, Concepts combined) each Section mentions:</p>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">0 mentions</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 40%;">16</div></div>
+      <div class="bar-count">no graph signal at all</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">1–2</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 12.5%;">5</div></div>
+      <div class="bar-count"></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">3–5</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 25%;">10</div></div>
+      <div class="bar-count">at or below the cap</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">6–10</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 100%;">40</div></div>
+      <div class="bar-count">above the cap</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">11–19</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 92.5%;">37</div></div>
+      <div class="bar-count">above the cap</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">20+</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 32.5%;">13</div></div>
+      <div class="bar-count">far above the cap</div>
+    </div>
+  </div>
+  <p class="note">Median is 9 mentions per section, mean is 9.8. About 75% of sections sit at 6+ mentions — well above the <code>+0.10</code> bonus cap of 5. The signal is effectively binary in production right now: either a section has &lt;5 mentions and gets a partial bonus, or it has 5+ and gets the full bonus. The cap likely needs to move to 10–15 to actually differentiate sections. <strong>Flagged in section 12.</strong></p>
+
+  <h4>Per-project entity density · raw counts from project_entities</h4>
+  <p>Before canonicalization, this is the entity footprint each project contributed. Higher numbers don't mean better projects — they mean more methodological surface area to articulate.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Project</th><th style="text-align:right;">Skills</th><th style="text-align:right;">Methods</th><th style="text-align:right;">Techs</th><th style="text-align:right;">Total</th></tr></thead>
+    <tbody>
+      <tr><td><code>resume-graph-explorer</code></td><td style="text-align:right;">13</td><td style="text-align:right;">10</td><td style="text-align:right;">15</td><td style="text-align:right;font-weight:600;">38</td></tr>
+      <tr><td><code>beehive-monitor</code></td><td style="text-align:right;">12</td><td style="text-align:right;">12</td><td style="text-align:right;">11</td><td style="text-align:right;font-weight:600;">35</td></tr>
+      <tr><td><code>poolula-platform</code></td><td style="text-align:right;">11</td><td style="text-align:right;">12</td><td style="text-align:right;">9</td><td style="text-align:right;font-weight:600;">32</td></tr>
+      <tr><td><code>chronoscope</code></td><td style="text-align:right;">10</td><td style="text-align:right;">10</td><td style="text-align:right;">11</td><td style="text-align:right;font-weight:600;">31</td></tr>
+      <tr><td><code>academic-citation-platform</code></td><td style="text-align:right;">11</td><td style="text-align:right;">12</td><td style="text-align:right;">7</td><td style="text-align:right;font-weight:600;">30</td></tr>
+      <tr><td><code>concept-cartographer</code></td><td style="text-align:right;">10</td><td style="text-align:right;">8</td><td style="text-align:right;">8</td><td style="text-align:right;font-weight:600;">26</td></tr>
+      <tr><td><code>digital-twin</code></td><td style="text-align:right;">9</td><td style="text-align:right;">9</td><td style="text-align:right;">6</td><td style="text-align:right;font-weight:600;">24</td></tr>
+      <tr><td><code>weaving-memories</code></td><td style="text-align:right;">9</td><td style="text-align:right;">7</td><td style="text-align:right;">8</td><td style="text-align:right;font-weight:600;">24</td></tr>
+      <tr><td><code>fitness-tracker</code></td><td style="text-align:right;">8</td><td style="text-align:right;">9</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">22</td></tr>
+      <tr><td><code>convoscope</code></td><td style="text-align:right;">6</td><td style="text-align:right;">6</td><td style="text-align:right;">5</td><td style="text-align:right;font-weight:600;">17</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4>Sensitivity tier · across 121 sections with mention data</h4>
+  <div class="bar-chart">
+    <div class="bar-row">
+      <div class="bar-label">public</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 100%;">109</div></div>
+      <div class="bar-count">90% of sections</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">inner_circle</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 9.2%;">10</div></div>
+      <div class="bar-count">passphrase-gated</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">personal</div>
+      <div class="bar-track"><div class="bar-fill" style="width: 1.8%;">2</div></div>
+      <div class="bar-count">private tier</div>
+    </div>
+  </div>
+
+  <details class="placeholder">
+    <summary>Section-level numbers — post-Phase 3 placeholder<span class="pending-tag">awaiting load</span></summary>
+    <div class="placeholder-body">
+      <p>This block will fill in once Phase 3 finishes loading sections into Neo4j. Expected to cover:</p>
+      <ul>
+        <li>Average section length (chars) by source_type — to validate the "2–3K chars per section" claim in the granularity argument</li>
+        <li>Embedding distribution sanity checks — confirm all section embeddings are valid 1536-dim vectors with reasonable norms</li>
+        <li>Sections per Document — mean, min, max — to flag any documents that are dramatically over- or under-sectioned</li>
+        <li>HAS_CHUNK edge density — how often chunks are actually retained vs. the section-only path being used; informs whether chunks can be retired (see <em>Adjust later</em>)</li>
+        <li>Vector index coverage — percentage of sections with valid embeddings indexed under <code>section_embeddings</code></li>
+        <li>Sections with zero MENTIONS edges by document — currently 16 sections show zero mentions in <code>_source_section_mentions</code>; worth knowing which documents those cluster in</li>
+      </ul>
+      <p style="margin-top:12px;font-size:14px;color:var(--ink-faint);"><em>Run the simple inspection queries from section 8 against the loaded graph to populate these.</em></p>
+    </div>
+  </details>
+
+  <h3 style="margin-top:28px;">Browse the canonical entities</h3>
+  <p>Live data from <code>canonical_entities.json</code> — all 167 canonical entity nodes. Search across names and alt_labels, or filter by type. Click any row to see full alt_labels and (for concepts) the description.</p>
+
+  <div class="browser">
+    <div class="filter-bar">
+      <input type="search" class="filter-search" id="entitySearch" placeholder="Search by name or alt_label…" autocomplete="off">
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" data-type="all">All <span class="pill-count">167</span></button>
+        <button class="filter-pill" data-type="skill">Skills <span class="pill-count">57</span></button>
+        <button class="filter-pill" data-type="method">Methods <span class="pill-count">42</span></button>
+        <button class="filter-pill" data-type="technology">Technologies <span class="pill-count">46</span></button>
+        <button class="filter-pill" data-type="concept">Concepts <span class="pill-count">22</span></button>
+      </div>
+    </div>
+    <div class="browser-summary" id="browserSummary">Showing 167 of 167 entities</div>
+    <table class="entity-table" id="entityTable">
+      <thead>
+        <tr>
+          <th style="width:32px;"></th>
+          <th class="sortable" data-sort="type">Type<span class="sort-ind">▾</span></th>
+          <th class="sortable" data-sort="name">Name<span class="sort-ind">▾</span></th>
+          <th class="sortable" data-sort="detail">Role / Stage / Source<span class="sort-ind">▾</span></th>
+          <th class="sortable" data-sort="category">Category<span class="sort-ind">▾</span></th>
+          <th>Alt labels</th>
+        </tr>
+      </thead>
+      <tbody id="entityBody"></tbody>
+    </table>
+  </div>
+
+  <script id="entityData" type="application/json">[{"type":"skill","name":"Knowledge Graph","category":"technical","detail":"core","alt_labels":["Knowledge Base Design","Knowledge Graphs"]},{"type":"skill","name":"Ontology","category":"technical","detail":"core","alt_labels":["Ontology Design"]},{"type":"skill","name":"Rdf","category":"technical","detail":"core","alt_labels":["Data Serialization (Turtle, JSON-LD)","RDF/Linked Data"]},{"type":"skill","name":"Semantic Web","category":"technical","detail":"core","alt_labels":["SPARQL","Semantic Search"]},{"type":"skill","name":"Skos","category":"technical","detail":"core","alt_labels":["SKOS Vocabulary Modeling"]},{"type":"skill","name":"SHACL Validation","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Nlp","category":"technical","detail":"secondary","alt_labels":["NLP","NLP / LLM Integration","NLP Pipeline Design"]},{"type":"skill","name":"Concept Extraction","category":"technical","detail":"secondary","alt_labels":["Entity Extraction","Information Extraction"]},{"type":"skill","name":"Visualization","category":"technical","detail":"secondary","alt_labels":["Data Visualization","Graph Visualization","Interactive Visualization"]},{"type":"skill","name":"Narrative Generation","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Fastapi","category":"technical","detail":"supporting","alt_labels":["REST API Design","REST API Development"]},{"type":"skill","name":"Full-Stack Web Development","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Rag","category":"technical","detail":"core","alt_labels":["RAG Systems"]},{"type":"skill","name":"Chatbot","category":"technical","detail":"core","alt_labels":["Chatbot Development"]},{"type":"skill","name":"Prompt Engineering","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Document Processing","category":"technical","detail":"secondary","alt_labels":["Document Chunking Strategies","Document Management Systems","PDF Extraction"]},{"type":"skill","name":"Embeddings","category":"technical","detail":"secondary","alt_labels":["Graph Embeddings","Vector Embeddings"]},{"type":"skill","name":"Multi-document Architecture","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Google Cloud","category":"technical","detail":"supporting","alt_labels":["Cloud Deployment","Live Web Deployment"]},{"type":"skill","name":"Llm Extraction","category":"technical","detail":"core","alt_labels":["LLM Extraction"]},{"type":"skill","name":"Data Engineering","category":"technical","detail":"core","alt_labels":["Data Modeling","Data Pipeline Engineering","Database Schema Design","Schema Design"]},{"type":"skill","name":"Data Enrichment","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Provenance Tracking","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Data Validation","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Frontend Development","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Citation Prediction","category":"technical","detail":"core","alt_labels":[]},{"type":"skill","name":"Machine Learning Model Development","category":"technical","detail":"core","alt_labels":[]},{"type":"skill","name":"Streamlit","category":"technical","detail":"secondary","alt_labels":["Dashboard Development","Interactive Dashboard Development","Interactive UI Development"]},{"type":"skill","name":"Community Detection","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Analytics","category":"analytical","detail":"secondary","alt_labels":["Personal Analytics","Temporal Trend Analysis","Time Series Analysis"]},{"type":"skill","name":"API Integration","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Research Communication","category":"analytical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Evaluation","category":"technical","detail":"core","alt_labels":["Evaluation Harnesses","Model Output Comparison"]},{"type":"skill","name":"Multi Provider","category":"technical","detail":"core","alt_labels":["Multi-LLM Orchestration","Multi-Provider LLM Integration"]},{"type":"skill","name":"Conversation Analysis","category":"technical","detail":"secondary","alt_labels":["Conversational AI","Conversational AI Integration"]},{"type":"skill","name":"Data Provenance Tracking","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Session Management","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Audit Logging","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Computer Vision","category":"technical","detail":"core","alt_labels":["Color Palette Analysis","Computer Vision Integration","Image Metadata Extraction"]},{"type":"skill","name":"Longitudinal Data Tracking","category":"analytical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Weather Api","category":"technical","detail":"secondary","alt_labels":["Weather Data Integration"]},{"type":"skill","name":"Geospatial Validation","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Storage Abstraction Design","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Docker","category":"devops","detail":"supporting","alt_labels":["Containerization"]},{"type":"skill","name":"Data Export Engineering","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Report Generation","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Behavioral Pattern Detection","category":"analytical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Data Cleaning and Normalization","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Custom Domain Configuration","category":"infrastructure","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Structured Output","category":"technical","detail":"core","alt_labels":["Structured Output Generation"]},{"type":"skill","name":"Graph Filtering and Coherence Management","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Data Export and Interoperability","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Data Validation & Quality Scoring","category":"technical","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Date Parsing & Normalization","category":"nlp","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Multi-document Deduplication","category":"data-engineering","detail":"secondary","alt_labels":[]},{"type":"skill","name":"Data Export & Formatting","category":"technical","detail":"supporting","alt_labels":[]},{"type":"skill","name":"Plotly","category":"engineering","detail":"supporting","alt_labels":["Rapid Prototyping"]},{"type":"method","name":"Llm Extraction","category":"nlp","detail":"ingestion","alt_labels":["LLM-based entity and event extraction (GPT)","LLM-based structured entity extraction","Plain-language extraction summarization","Single-call LLM extraction"]},{"type":"method","name":"Skos","category":"data-engineering","detail":"ingestion","alt_labels":["Hybrid vocabulary alignment (SKOS + ESCO + schema.org)","Synonym resolution","Taxonomy mapping to ESCO"]},{"type":"method","name":"Rdf","category":"data-quality","detail":"evaluation","alt_labels":["RDF triple construction","SHACL constraint validation","SPARQL graph querying"]},{"type":"method","name":"Knowledge Graph","category":"knowledge-engineering","detail":"ingestion","alt_labels":["Entity relationship graph construction (NetworkX)","Graph-structure narrative generation","Incremental graph accumulation across turns","Relationship triple extraction with typed edges","Typed relationship modeling"]},{"type":"method","name":"Conservative vs. exploratory inference","category":"reasoning","detail":"generation","alt_labels":[]},{"type":"method","name":"Document Processing","category":"data-engineering","detail":"ingestion","alt_labels":["Document Type Classification","Dual-library fallback extraction (PyMuPDF + pdfplumber)","PDF Normalization and Classification","Section-aware chunking","Synthetic overview chunk generation"]},{"type":"method","name":"Source priority ordering","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Embeddings","category":"search","detail":"retrieval","alt_labels":["Query embedding","Semantic Vector Indexing","TransE Embeddings","Vector Translation in Embedding Space"]},{"type":"method","name":"Rag","category":"search","detail":"retrieval","alt_labels":["Context injection","Graph Traversal Querying","Semantic Search via ChromaDB","Semantic similarity retrieval"]},{"type":"method","name":"Chatbot","category":"prompt-design","detail":"generation","alt_labels":["Prompt Customization","Tool-augmented Generation","Voice and framing control via system prompt"]},{"type":"method","name":"Narrative priority encoding","category":"prompt-design","detail":"generation","alt_labels":[]},{"type":"method","name":"Failure mode analysis","category":"testing","detail":"evaluation","alt_labels":[]},{"type":"method","name":"Structured Output","category":"data-engineering","detail":"ingestion","alt_labels":["Pydantic Schema Validation","Structured JSON ontology extraction","Structured YAML Extraction"]},{"type":"method","name":"Timeline","category":"knowledge-engineering","detail":"ingestion","alt_labels":["Temporal Relationship Modeling","TimelineJS export with theming"]},{"type":"method","name":"Wikidata","category":"data-engineering","detail":"ingestion","alt_labels":["Semi-automated Wikidata Enrichment"]},{"type":"method","name":"Provenance-tracked Fact Sourcing","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Biographical Text Parsing","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Data Engineering","category":"data-engineering","detail":"ingestion","alt_labels":["Data Cleaning and Normalization","Hash-based deduplication","JSON/CSV Data Export","Pluggable Storage Abstraction","SHA-256 Duplicate Detection","Streaming Batch Processing"]},{"type":"method","name":"Quality Filtering by Citation Count and Year Range","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"File Upload for Custom Collections","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Early Stopping","category":"model-training","detail":"evaluation","alt_labels":[]},{"type":"method","name":"Evaluation","category":"metrics","detail":"evaluation","alt_labels":["AUC Evaluation","CSV Ground Truth Evaluation","Gold standard comparison","Hits@K Evaluation","MRR Evaluation","Numerical Accuracy Scoring","Tool Choice Scoring"]},{"type":"method","name":"Citation Prediction","category":"graph-ml","detail":"generation","alt_labels":["Novel Citation Prediction with Confidence Scores"]},{"type":"method","name":"Visualization","category":"visualization","detail":"generation","alt_labels":["Clickable Network Graph Visualization","Filterable View Rendering","Gantt chart timeline rendering","HTML Report Rendering","Plotly Overlay Visualization"]},{"type":"method","name":"LaTeX Table Export","category":"reporting","detail":"generation","alt_labels":[]},{"type":"method","name":"SELECT-only SQL Querying","category":"information-retrieval","detail":"retrieval","alt_labels":[]},{"type":"method","name":"Conversation Analysis","category":"llm-engineering","detail":"generation","alt_labels":["Conversation History Management","Interaction Pattern Recognition","Turn-level Conversation Parsing"]},{"type":"method","name":"Multi Provider","category":"benchmarking","detail":"evaluation","alt_labels":["Multi-Provider LLM Comparison","Side-by-side Model Comparison"]},{"type":"method","name":"Calendar-based Session Scheduling","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Computer Vision","category":"data-engineering","detail":"ingestion","alt_labels":["Color Clustering for Domain-specific Palette Analysis","EXIF Metadata Extraction with Fallback Mechanisms","Image Label Detection","Multi-photo Upload Pipeline","Object and Activity Recognition"]},{"type":"method","name":"GPS Coordinate Validation","category":"data-quality","detail":"evaluation","alt_labels":[]},{"type":"method","name":"Weather Api","category":"data-engineering","detail":"ingestion","alt_labels":["Weather API Enrichment"]},{"type":"method","name":"Beekeeping","category":"domain-specific","detail":"generation","alt_labels":["Beekeeper Annotation and State Tracking","Seasonal Pattern Analysis"]},{"type":"method","name":"Concept Extraction","category":"nlp","detail":"ingestion","alt_labels":["Domain-lens-guided concept extraction","Theme and Topic Extraction"]},{"type":"method","name":"Data Enrichment","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Historical Data Integration","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Analytics","category":"analytics","detail":"generation","alt_labels":["Behavioral Correlation Analysis","Frequency Shift Detection","Trend Analysis","Volume Progression Tracking"]},{"type":"method","name":"Connectivity filtering above node threshold","category":"graph-management","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Color-coded categorical concept classification","category":"visualization","detail":"generation","alt_labels":[]},{"type":"method","name":"Vague date parsing and normalization (dateutil)","category":"data-engineering","detail":"ingestion","alt_labels":[]},{"type":"method","name":"Confidence scoring","category":"validation","detail":"evaluation","alt_labels":[]},{"type":"method","name":"Human-in-the-loop annotation and rating","category":"validation","detail":"evaluation","alt_labels":[]},{"type":"technology","name":"Python","category":"language","detail":"","alt_labels":[]},{"type":"technology","name":"Flask","category":"web-framework","detail":"","alt_labels":[]},{"type":"technology","name":"React","category":"web-framework","detail":"","alt_labels":["React 18"]},{"type":"technology","name":"Rdf","category":"knowledge-graph","detail":"","alt_labels":["JSON-LD","Turtle (RDF serialization)","rdflib"]},{"type":"technology","name":"NetworkX","category":"graph-library","detail":"","alt_labels":[]},{"type":"technology","name":"Vis.js","category":"visualization","detail":"","alt_labels":[]},{"type":"technology","name":"Anthropic","category":"llm-provider","detail":"","alt_labels":["Anthropic API","Anthropic Claude","Claude","Claude (Anthropic)"]},{"type":"technology","name":"Openai","category":"llm-provider","detail":"","alt_labels":["OpenAI API","OpenAI API (GPT-4o-mini)","OpenAI GPT"]},{"type":"technology","name":"Ollama","category":"llm-provider","detail":"","alt_labels":[]},{"type":"technology","name":"ESCO Taxonomy","category":"ontology","detail":"","alt_labels":[]},{"type":"technology","name":"Skos","category":"ontology","detail":"","alt_labels":["SKOS Core"]},{"type":"technology","name":"schema.org","category":"ontology","detail":"","alt_labels":[]},{"type":"technology","name":"SHACL","category":"validation","detail":"","alt_labels":[]},{"type":"technology","name":"Chromadb","category":"database","detail":"","alt_labels":["ChromaDB"]},{"type":"technology","name":"text-embedding-3-small","category":"ai-model","detail":"","alt_labels":[]},{"type":"technology","name":"Gradio","category":"ui-framework","detail":"","alt_labels":[]},{"type":"technology","name":"AWS EC2","category":"infrastructure","detail":"","alt_labels":[]},{"type":"technology","name":"Neo4j","category":"database","detail":"","alt_labels":["Neo4j Aura"]},{"type":"technology","name":"Vite","category":"frontend-tooling","detail":"","alt_labels":[]},{"type":"technology","name":"Pydantic","category":"data-validation","detail":"","alt_labels":[]},{"type":"technology","name":"Wikidata","category":"external-data-source","detail":"","alt_labels":["Wikidata API"]},{"type":"technology","name":"Streamlit","category":"frontend","detail":"","alt_labels":[]},{"type":"technology","name":"Semantic Scholar API","category":"data-source","detail":"","alt_labels":[]},{"type":"technology","name":"Transe","category":"ml-framework","detail":"","alt_labels":["TransE"]},{"type":"technology","name":"Jupyter Notebooks","category":"development-environment","detail":"","alt_labels":[]},{"type":"technology","name":"Fastapi","category":"framework","detail":"","alt_labels":["FastAPI"]},{"type":"technology","name":"Sqlmodel","category":"orm","detail":"","alt_labels":["SQLModel"]},{"type":"technology","name":"SQLite","category":"database","detail":"","alt_labels":[]},{"type":"technology","name":"Alembic","category":"database","detail":"","alt_labels":[]},{"type":"technology","name":"Google Cloud","category":"ai-service","detail":"","alt_labels":["Google Cloud Run","Google Cloud Storage","Google Cloud Vision API"]},{"type":"technology","name":"Weather Api","category":"external-api","detail":"","alt_labels":["Open-Meteo API"]},{"type":"technology","name":"Plotly","category":"visualization","detail":"","alt_labels":[]},{"type":"technology","name":"Docker","category":"containerization","detail":"","alt_labels":[]},{"type":"technology","name":"Amazon S3","category":"cloud-storage","detail":"","alt_labels":[]},{"type":"technology","name":"JSON","category":"data-format","detail":"","alt_labels":[]},{"type":"technology","name":"CSV","category":"data-format","detail":"","alt_labels":[]},{"type":"technology","name":"HTML","category":"output-format","detail":"","alt_labels":[]},{"type":"technology","name":"Pandas","category":"data-processing","detail":"","alt_labels":[]},{"type":"technology","name":"NumPy","category":"data-processing","detail":"","alt_labels":[]},{"type":"technology","name":"Matplotlib","category":"visualization","detail":"","alt_labels":[]},{"type":"technology","name":"Obsidian","category":"knowledge-management-tool","detail":"","alt_labels":[]},{"type":"technology","name":"PyMuPDF","category":"document-processing","detail":"","alt_labels":[]},{"type":"technology","name":"pdfplumber","category":"document-processing","detail":"","alt_labels":[]},{"type":"technology","name":"Timeline","category":"visualization","detail":"","alt_labels":["TimelineJS"]},{"type":"technology","name":"dateutil","category":"utility-library","detail":"","alt_labels":[]},{"type":"technology","name":"MkDocs","category":"documentation","detail":"","alt_labels":[]},{"type":"concept","name":"Sensemaking","category":"","detail":"kb_intellectual_foundations","alt_labels":["Contextual sensemaking","Collaborative sensemaking","Organizational sensemaking"],"description":"How humans construct meaning from ambiguous, complex information; core lens for Barbara's work."},{"type":"concept","name":"Bayesian reasoning","category":"","detail":"kb_intellectual_foundations","alt_labels":["Bayesian thinking","Bayesian updating under uncertainty","Belief updating","Base rates","Priors"],"description":"Probabilistic updating of beliefs given new evidence; shapes how Barbara approaches uncertainty."},{"type":"concept","name":"David Marr's levels of analysis","category":"","detail":"kb_intellectual_foundations","alt_labels":["Marr's levels of analysis","Computational level","Algorithmic level","Implementation level","Levels of analysis","Information-processing systems"],"description":"Computational / algorithmic / implementation distinction; Barbara's framework for system design."},{"type":"concept","name":"Mental Models","category":"","detail":"kb_intellectual_foundations","alt_labels":["Internal models","mental model alignment"],"description":"Internal representations users and experts build of systems; central to human-centered design."},{"type":"concept","name":"Human-centered design","category":"","detail":"kb_philosophy-and-approach","alt_labels":[],"description":"Prioritizing user needs, comprehension, and adoption over technical elegance."},{"type":"concept","name":"Systems thinking","category":"","detail":"kb_intellectual_foundations","alt_labels":["systems-level thinking","Systems-level mindset"],"description":"Understanding complex interdependencies rather than isolated components."},{"type":"concept","name":"Meaning-making","category":"","detail":"kb_philosophy-and-approach","alt_labels":["Making Meaning from Messy Data","Meaning from messy data","Data and meaning","Data legibility","knowledge usability"],"description":"Transforming messy, raw data into usable insight — Barbara's core value proposition."},{"type":"concept","name":"Explainability","category":"","detail":"kb_philosophy-and-approach","alt_labels":["Explainable AI","Interpretability","AI system trustability","Inspectable AI Systems"],"description":"Making AI/ML decisions transparent, inspectable, and trustable."},{"type":"concept","name":"Representations and Constraints Framework","category":"","detail":"kb_dissertation_overview","alt_labels":["Representational Constraints","Representational framing","Prior Knowledge in Perception"],"description":"Barbara's dissertation framework: perception shaped by representational constraints on internal models."},{"type":"concept","name":"Translational Research","category":"","detail":"kb_professional_positioning","alt_labels":["Cognitive science applied to AI","cognitive science applied to AI systems"],"description":"Bridging academic research methods and real-world operational practice."},{"type":"concept","name":"Grounded AI Systems","category":"","detail":"kb_philosophy-and-approach","alt_labels":["Grounded generation","Data Trustability","Operational readiness","Readiness for real operation","Real-world usability"],"description":"AI that is operationally ready, verifiable, and trustworthy — not just technically functional."},{"type":"concept","name":"Evaluation as a design problem","category":"","detail":"kb_philosophy-and-approach","alt_labels":["Evaluation mindset","Evaluation framework","Ground-truth evaluation","Evaluation Habit","Evaluation as shared understanding"],"description":"Treating evaluation as a first-class design concern, not an afterthought."},{"type":"concept","name":"Pragmatic design","category":"","detail":"kb_philosophy-and-approach","alt_labels":["Design philosophy","Gap between technically correct and actually useful","Build things people actually use","Build-adopt gap","Durable value creation","Durable value"],"description":"The gap between technically correct and actually useful; design for adoption, not demonstration."},{"type":"concept","name":"Knowledge representation","category":"","detail":"kb_intellectual_foundations","alt_labels":["Knowledge legibility","information navigability","knowledge organization","Entity-relationship modeling","Semantic Rigor"],"description":"How knowledge is structured, organized, and made navigable for humans and machines."},{"type":"concept","name":"Transfer of domain knowledge","category":"","detail":"kb_intellectual_foundations","alt_labels":["Transfer of Cognitive Habits","Cognitive Journey","Cognitive Science in Engineering"],"description":"Applying cognitive science and academic research frameworks to practical AI/data problems."},{"type":"concept","name":"Ontology","category":"","detail":"kb_intellectual_foundations","alt_labels":["Ontology extraction"],"description":"Formal classification and organization of concepts within a domain."},{"type":"concept","name":"Semantic Web","category":"","detail":"kb_intellectual_foundations","alt_labels":["Linked Open Data","JSON-LD"],"description":"Linked data paradigm for making knowledge machine-readable and interoperable."},{"type":"concept","name":"Contextual guidance","category":"","detail":"kb_dissertation_overview","alt_labels":["Scene context","contextual priors","Context-Driven Attention","Context-guided attention","Prior knowledge"],"description":"Scene context and prior knowledge guide where attention goes; from Barbara's dissertation research."},{"type":"concept","name":"Attention as a limited resource","category":"","detail":"kb_dissertation_overview","alt_labels":["Attention allocation","Resource allocation under constraints","Attention Allocation Under Uncertainty","Exploration vs Exploitation"],"description":"Cognitive resource allocation under constraints; influences how Barbara thinks about information overload."},{"type":"concept","name":"Design for the downstream mental model","category":"","detail":"kb_philosophy-and-approach","alt_labels":["Downstream decision-making","decision grounding","Problem representation"],"description":"Shape what users will build in their heads, not just what the system outputs."},{"type":"concept","name":"Durable knowledge systems","category":"","detail":"kb_philosophy-and-approach","alt_labels":["durable value","Timestamp-grounded traceability","data generation tracing"],"description":"Systems that hold up over time, remain inspectable, and accumulate value rather than decay."},{"type":"concept","name":"Hypothesis-driven design","category":"","detail":"kb_philosophy-and-approach","alt_labels":["hypothesis-driven design","Experimental rigor","Hypothesis revision"],"description":"Starting from a testable claim about the world before building; experimental rigor applied to product."}]</script>
+  <script>
+  (function() {
+    const data = JSON.parse(document.getElementById('entityData').textContent);
+    const tbody = document.getElementById('entityBody');
+    const search = document.getElementById('entitySearch');
+    const pills = document.getElementById('filterPills');
+    const summary = document.getElementById('browserSummary');
+    const headers = document.querySelectorAll('#entityTable th.sortable');
+
+    let state = {
+      type: 'all',
+      query: '',
+      sortKey: 'type',
+      sortDir: 'asc',
+      expanded: new Set()
+    };
+
+    function matches(e) {
+      if (state.type !== 'all' && e.type !== state.type) return false;
+      if (!state.query) return true;
+      const q = state.query.toLowerCase();
+      if (e.name.toLowerCase().includes(q)) return true;
+      if (e.alt_labels && e.alt_labels.some(a => a.toLowerCase().includes(q))) return true;
+      if (e.description && e.description.toLowerCase().includes(q)) return true;
+      if (e.category && e.category.toLowerCase().includes(q)) return true;
+      return false;
+    }
+
+    function sortItems(items) {
+      const dir = state.sortDir === 'asc' ? 1 : -1;
+      const k = state.sortKey;
+      return items.slice().sort((a, b) => {
+        const av = (a[k] || '').toLowerCase();
+        const bv = (b[k] || '').toLowerCase();
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+        // tiebreaker on name
+        const an = a.name.toLowerCase(), bn = b.name.toLowerCase();
+        return an < bn ? -1 : an > bn ? 1 : 0;
+      });
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function renderRow(e, idx) {
+      const isExpanded = state.expanded.has(e.name + ':' + e.type);
+      const altCount = (e.alt_labels || []).length;
+      const altPreview = altCount
+        ? (altCount === 1 ? e.alt_labels[0] : altCount + ' alt labels')
+        : '<span style="color:var(--ink-faint);">—</span>';
+      const expandSym = altCount > 0 || e.description ? (isExpanded ? '−' : '+') : '';
+      const detailDisplay = e.detail ? escapeHtml(e.detail) : '<span style="color:var(--ink-faint);">—</span>';
+      const categoryDisplay = e.category ? escapeHtml(e.category) : '<span style="color:var(--ink-faint);">—</span>';
+      const altsPreviewHtml = altCount === 1 ? escapeHtml(e.alt_labels[0]) : altPreview;
+
+      let rowsHtml = `<tr class="${isExpanded ? 'expanded' : ''}" data-row-id="${escapeHtml(e.name + ':' + e.type)}">
+        <td><button class="expand-toggle" aria-label="expand">${expandSym}</button></td>
+        <td><span class="type-badge ${e.type}">${e.type}</span></td>
+        <td class="entity-name">${escapeHtml(e.name)}</td>
+        <td class="entity-detail-cell">${detailDisplay}</td>
+        <td class="entity-category-cell">${categoryDisplay}</td>
+        <td><span style="font-size:12px;color:var(--ink-soft);">${altsPreviewHtml}</span></td>
+      </tr>`;
+
+      if (isExpanded && (altCount > 0 || e.description)) {
+        let expansion = '<tr class="expansion"><td colspan="6">';
+        if (e.description) {
+          expansion += `<div class="desc-text">${escapeHtml(e.description)}</div>`;
+        }
+        if (altCount > 0) {
+          expansion += `<div class="alts-full"><span class="lbl">alt_labels:</span>${e.alt_labels.map(a => escapeHtml(a)).join(', ')}</div>`;
+        }
+        expansion += '</td></tr>';
+        rowsHtml += expansion;
+      }
+      return rowsHtml;
+    }
+
+    function render() {
+      const filtered = data.filter(matches);
+      const sorted = sortItems(filtered);
+      if (sorted.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6"><div class="no-results">No entities match the current filter.</div></td></tr>';
+      } else {
+        tbody.innerHTML = sorted.map(renderRow).join('');
+      }
+      summary.textContent = `Showing ${sorted.length} of ${data.length} entities`;
+      headers.forEach(h => {
+        h.classList.remove('sort-asc', 'sort-desc');
+        if (h.dataset.sort === state.sortKey) {
+          h.classList.add(state.sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+        }
+      });
+    }
+
+    // Wire up search
+    search.addEventListener('input', e => {
+      state.query = e.target.value.trim();
+      render();
+    });
+
+    // Wire up pills
+    pills.addEventListener('click', e => {
+      const pill = e.target.closest('.filter-pill');
+      if (!pill) return;
+      pills.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      state.type = pill.dataset.type;
+      render();
+    });
+
+    // Wire up sort
+    headers.forEach(h => {
+      h.addEventListener('click', () => {
+        const key = h.dataset.sort;
+        if (state.sortKey === key) {
+          state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+          state.sortKey = key;
+          state.sortDir = 'asc';
+        }
+        render();
+      });
+    });
+
+    // Wire up row expansion
+    tbody.addEventListener('click', e => {
+      const row = e.target.closest('tr[data-row-id]');
+      if (!row) return;
+      const id = row.dataset.rowId;
+      if (state.expanded.has(id)) state.expanded.delete(id);
+      else state.expanded.add(id);
+      render();
+    });
+
+    render();
+  })();
+  </script>
+</section>
+
+<div class="divider">· · ·</div>
+
+<!-- ─── 5. Two paths ─── -->
+<section id="two-paths">
+  <h2><span class="num">05 · Same query, two paths</span>How a question travels through each system</h2>
+  <p>The clearest way to internalize the difference is to follow a single query through both pipelines. Here are two contrasting cases — one where both systems work but the experience differs, and one where only the graph approach can answer the question at all.</p>
+
+  <h3>Case A — "Tell me about the Resume Graph Explorer"</h3>
+  <p>A factual question with a clear target. Both systems can answer it; the difference is in <em>what comes back</em>.</p>
+
+  <div class="split">
+    <div class="chroma-card">
+      <div class="card-label">ChromaDB · vector only</div>
+      <p style="font-size:15px;line-height:1.55;">Embed the query. Find the 10 nearest chunks by L2 distance. Filter by sensitivity tier. Return them in similarity order.</p>
+      <p style="font-size:15px;line-height:1.55;"><strong>What comes back:</strong> 5–10 chunks of ~900 characters each, drawn from wherever the project is mentioned in the KB. Some are mid-paragraph cuts. The LLM has to stitch them.</p>
+    </div>
+    <div class="graph-card">
+      <div class="card-label">Neo4j · hybrid graph</div>
+      <p style="font-size:15px;line-height:1.55;">Embed the query. Vector-search sections. Boost sections where <code>DESCRIBED_IN ← Project {id: "resume-graph-explorer"}</code> applies. Return top section in full.</p>
+      <p style="font-size:15px;line-height:1.55;"><strong>What comes back:</strong> The complete section that describes the project — 2–3K characters of coherent, contextualized prose, with related-project metadata attached.</p>
+    </div>
+  </div>
+
+  <div class="code-label graph">Cypher · the graph-side query</div>
+<pre><code><span class="kw">CALL</span> db.index.vector.queryNodes(<span class="str">'section_embeddings'</span>, <span class="num">10</span>, $query_embedding)
+<span class="kw">YIELD</span> node <span class="kw">AS</span> section, score <span class="kw">AS</span> vector_score
+<span class="kw">WHERE</span> section.sensitivity <span class="kw">IN</span> $allowed_tiers
+
+<span class="com">// Reward sections that DESCRIBE the project, not just mention it</span>
+<span class="kw">OPTIONAL MATCH</span> (section)<-[:DESCRIBED_IN]-(p:Project)
+<span class="kw">OPTIONAL MATCH</span> (section)-[:MENTIONS]->(entity)
+
+<span class="kw">WITH</span> section, vector_score,
+     count(<span class="kw">DISTINCT</span> p) <span class="kw">AS</span> projects_described,
+     count(<span class="kw">DISTINCT</span> entity) <span class="kw">AS</span> entities_mentioned
+
+<span class="kw">WITH</span> section,
+     (vector_score * <span class="num">0.6</span> +
+      <span class="kw">CASE WHEN</span> projects_described > <span class="num">0</span> <span class="kw">THEN</span> <span class="num">0.25</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span> +
+      toFloat(<span class="kw">CASE WHEN</span> entities_mentioned > <span class="num">5</span> <span class="kw">THEN</span> <span class="num">5</span> <span class="kw">ELSE</span> entities_mentioned <span class="kw">END</span>) / <span class="num">5</span> * <span class="num">0.10</span> +
+      (<span class="kw">CASE WHEN</span> section.char_count > <span class="num">2000</span> <span class="kw">THEN</span> <span class="num">0.05</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span>)) <span class="kw">AS</span> final_score
+<span class="kw">ORDER BY</span> final_score <span class="kw">DESC</span> <span class="kw">LIMIT</span> <span class="num">5</span>
+<span class="kw">RETURN</span> section.full_text, section.name, final_score
+</code></pre>
+
+  <h3>Case B — "Which projects use knowledge graphs?"</h3>
+  <p>This is the kind of query that vector search structurally cannot answer well. The ChromaDB approach returns whatever section happens to mention knowledge graphs most prominently — useful, but not a list. The graph approach traverses the relationship and returns the actual answer.</p>
+
+  <div class="code-label chroma">ChromaDB · best it can do</div>
+<pre><code><span class="com"># Embed "Which projects use knowledge graphs?"</span>
+<span class="com"># Return 10 chunks ordered by similarity to that embedding</span>
+<span class="com"># LLM reads chunks and tries to extract a list of projects</span>
+<span class="com"># Failure mode: misses projects that don't say "knowledge graph" verbatim</span>
+results = collection.query(query_embeddings=[emb], n_results=<span class="num">10</span>)
+</code></pre>
+
+  <div class="code-label graph">Neo4j · the question rephrased as graph traversal</div>
+<pre><code><span class="kw">MATCH</span> (skill:Skill {name: <span class="str">"Knowledge Graphs"</span>})&lt;-[:DEMONSTRATES]-(project:Project)
+<span class="kw">RETURN</span> project.title, project.summary
+<span class="kw">ORDER BY</span> project.title
+</code></pre>
+
+  <div class="callout graph">
+    <div class="label">What changed</div>
+    <p>The question went from "find similar text" to "follow a specific relationship." The graph schema makes that relationship queryable. The vector index is still there for fuzzy semantic search — but now we choose which mechanism to use based on what kind of question is being asked.</p>
+  </div>
+</section>
+
+<!-- ─── 6. Hybrid scoring ─── -->
+<section id="scoring">
+  <h2><span class="num">06 · Hybrid scoring</span>Why these four weights, and what they're tuning</h2>
+  <p>Section ranking in Neo4j is a weighted sum of four signals, each normalized to <code>[0, 1]</code> so that count-based components can't dominate the embedding similarity. Maximum possible score ≈ 1.0.</p>
+
+  <div class="formula-display">
+    <div><span class="weight">0.60</span> × vector_score <span class="term-name">(cosine similarity)</span></div>
+    <div>+ <span class="weight">0.25</span> if section is DESCRIBED_IN by any Project <span class="term-name">(boost specificity)</span></div>
+    <div>+ <span class="weight">0.10</span> × min(entities_mentioned, 5) / 5 <span class="term-name">(reward entity-rich sections)</span></div>
+    <div>+ <span class="weight">0.05</span> if section.char_count > 2000 <span class="term-name">(reward substance over fragments)</span></div>
+    <div style="border-top: 1px solid var(--rule); margin-top: 12px; padding-top: 8px;">= <strong>final_score</strong></div>
+  </div>
+
+  <h4>What each weight is doing</h4>
+  <ul>
+    <li><strong>0.60 · vector similarity</strong> — the workhorse. If the query is semantically close to the section's content, this carries most of the signal.</li>
+    <li><strong>0.25 · project-described boost</strong> — distinguishes sections that <em>describe</em> a project from sections that merely <em>mention</em> one. This is the move that solves the "specificity" problem in ranking.</li>
+    <li><strong>0.10 · entity-richness signal</strong> — capped at 5 entities. Rewards sections that sit at intersections in the graph (e.g., a section discussing both a Skill and a Project is more useful than one that mentions only a name in passing).</li>
+    <li><strong>0.05 · length tiebreaker</strong> — small bonus for substantial sections. Mostly a tiebreaker to avoid surfacing thin sections when richer alternatives exist.</li>
+  </ul>
+
+  <div class="callout amber">
+    <div class="label">Tune later</div>
+    <p>These weights are educated guesses, not optimized values. Phase 5 of the migration plan calls for empirically tuning them against the evaluation harness once the graph is fully populated and queries are flowing.</p>
+  </div>
+</section>
+
+<!-- ─── 7. Architectural decisions ─── -->
+<section id="decisions">
+  <h2><span class="num">07 · Architectural decisions</span>Four resolved choices and why they matter</h2>
+  <p>These decisions are marked <em>do not re-open without new evidence</em> in the migration plan. Each one shapes what the rest of the work has to do.</p>
+
+  <div class="decision">
+    <span class="num-badge">Decision 1</span>
+    <h3>Sections split at H2, reusing <code>parse_markdown_sections</code></h3>
+    <div class="row"><div class="key">Decision</div><div class="val">Section boundaries match the existing ChromaDB ingestion exactly. Reuse <code>utils.parse_markdown_sections(raw_text, header_level=2, include_nested=True)</code>.</div></div>
+    <div class="row"><div class="key">Why</div><div class="val">Comparability. If sections are defined the same way in both systems, any improvement measured in evaluation is attributable to the graph architecture — not to a different chunker.</div></div>
+    <div class="row"><div class="key">Cost</div><div class="val">Rigidity. A single-H2 document becomes one giant section. Falls back to H3-split when needed, with a <code>HAS_SUBSECTION</code> edge — a special case to remember.</div></div>
+  </div>
+
+  <div class="decision">
+    <span class="num-badge">Decision 2</span>
+    <h3>Three-phase canonicalization, with an explicit <em>no fuzzy matching</em> rule</h3>
+    <div class="row"><div class="key">Decision</div><div class="val">Normalize entity names through (1) deterministic lowercase-and-prefer-tag, (2) tag-anchored alignment to <code>featured_projects.py</code> tags, (3) LLM batch for the remainder. Type pools stay separate.</div></div>
+    <div class="row"><div class="key">Why</div><div class="val">At ~40–80 entities, a single Claude call is faster, cheaper, and more accurate than fuzzy-string threshold tuning. "GA4" vs. "Google Analytics 4" scores ~0.35 on SequenceMatcher — well below any usable threshold. This lesson is documented in Resume Graph Explorer's design notes and ported here.</div></div>
+    <div class="row"><div class="key">Cost</div><div class="val">One Claude API call per entity type per run, plus the discipline to actually review <code>scripts/entity_normalization_report.json</code> before loading. Zero merges is a valid outcome.</div></div>
+  </div>
+
+  <div class="decision">
+    <span class="num-badge">Decision 3</span>
+    <h3>Full rebuild on every load, with <code>content_hash</code> tracked for the future</h3>
+    <div class="row"><div class="key">Decision</div><div class="val"><code>MATCH (n) DETACH DELETE n</code> at the top of <code>populate_neo4j_graph.py</code>. Document nodes carry <code>content_hash</code> and <code>last_updated</code> from day one.</div></div>
+    <div class="row"><div class="key">Why</div><div class="val">At ~120 nodes, a full rebuild runs in under 10 minutes — under the threshold where incremental complexity earns its keep. <code>content_hash</code> costs nothing now and enables incremental updates later without a schema migration.</div></div>
+    <div class="row"><div class="key">Cost</div><div class="val">Manual graph corrections get blown away on rebuild. Trigger to switch is concrete: rebuild &gt; 30 min, or you're frequently losing corrections. <code>.chroma_db_DT/</code> stays intact for 72 hours post-deploy as rollback.</div></div>
+  </div>
+
+  <div class="decision">
+    <span class="num-badge">Decision 4</span>
+    <h3>Entity source separation — node definitions vs. relationship signals</h3>
+    <div class="row"><div class="key">Decision</div><div class="val">Skills, Methods, Technologies are canonicalized <em>only</em> from <code>project_entities</code> (structured LLM extraction from project walkthroughs). Concepts are canonicalized <em>only</em> from <code>section_mentions</code>. Section mentions of skills/tech still create <code>MENTIONS</code> edges, but they don't feed the canonical entity pool.</div></div>
+    <div class="row"><div class="key">Why</div><div class="val">Discovered during Phase 2 implementation. Pulling skills from both sources produced 452 raw names instead of ~85, and the canonicalization LLM call truncated mid-JSON. Section mentions are relationship data, not node definitions.</div></div>
+    <div class="row"><div class="key">Cost</div><div class="val">Concepts have no structured source — they're noisy and require manual curation. See the <a href="#adjust">adjust later</a> note about overwrite-fragility.</div></div>
+  </div>
+</section>
+
+<div class="divider">· · ·</div>
+
+<!-- ─── 8. Simple queries ─── -->
+<section id="simple-queries">
+  <h2><span class="num">08 · Simple queries</span>For understanding what's in the graph</h2>
+  <p>These are the queries to run in the Neo4j browser when you want to feel out the shape of what's loaded. None of them are evaluation queries — they're for inspection and intuition.</p>
+
+  <h4>What sections exist, grouped by document</h4>
+<pre><code><span class="kw">MATCH</span> (d:Document)-[:HAS_SECTION]->(s:Section)
+<span class="kw">RETURN</span> d.title <span class="kw">AS</span> document, collect(s.name) <span class="kw">AS</span> sections
+<span class="kw">ORDER BY</span> d.title
+</code></pre>
+
+  <h4>Every project, with the sections that describe it</h4>
+<pre><code><span class="kw">MATCH</span> (p:Project)-[:DESCRIBED_IN]->(s:Section)
+<span class="kw">RETURN</span> p.title, collect(s.name) <span class="kw">AS</span> describing_sections
+<span class="kw">ORDER BY</span> p.title
+</code></pre>
+
+  <h4>Health check — projects with no DESCRIBED_IN edge</h4>
+<pre><code><span class="com">// If this returns rows, those projects are invisible to the +0.25 ranking boost</span>
+<span class="kw">MATCH</span> (p:Project)
+<span class="kw">WHERE NOT</span> (p)-[:DESCRIBED_IN]->()
+<span class="kw">RETURN</span> p.id, p.title
+</code></pre>
+
+  <h4>MENTIONS edge distribution — sanity check</h4>
+<pre><code><span class="com">// If most sections have 0-1 mentions, entity extraction is too sparse.</span>
+<span class="com">// If most have 20+, the +0.10 cap will saturate everywhere.</span>
+<span class="kw">MATCH</span> (s:Section)-[m:MENTIONS]->()
+<span class="kw">RETURN</span> s.name, count(m) <span class="kw">AS</span> mention_count
+<span class="kw">ORDER BY</span> mention_count <span class="kw">DESC</span> <span class="kw">LIMIT</span> <span class="num">20</span>
+</code></pre>
+
+  <h4>Entity inventory</h4>
+<pre><code><span class="kw">MATCH</span> (n)
+<span class="kw">WHERE</span> n:Skill <span class="kw">OR</span> n:Method <span class="kw">OR</span> n:Technology <span class="kw">OR</span> n:Concept
+<span class="kw">RETURN</span> labels(n)[<span class="num">0</span>] <span class="kw">AS</span> type, count(*) <span class="kw">AS</span> total
+<span class="kw">ORDER BY</span> total <span class="kw">DESC</span>
+</code></pre>
+</section>
+
+<!-- ─── 9. Demo queries ─── -->
+<section id="demo-queries">
+  <h2><span class="num">09 · Demo queries</span>For showing the difference between before and after</h2>
+  <p>These are the queries to use when explaining the migration to someone who hasn't seen it before — in an interview, in a LinkedIn post, in a walkthrough. Each one is chosen because the graph approach does something the vector approach structurally can't.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th style="width:40%">Query</th><th>What ChromaDB does</th><th>What Neo4j does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><em>"Which projects use knowledge graphs?"</em></td>
+        <td>Returns 5-10 chunks that mention the phrase; the LLM has to extract a list.</td>
+        <td>Returns the exact list of Project nodes connected by <code>DEMONSTRATES</code> to the <code>Knowledge Graphs</code> skill.</td>
+      </tr>
+      <tr>
+        <td><em>"What other projects use similar methods to Resume Graph Explorer?"</em></td>
+        <td>Cannot reason about "similar methods." Returns whatever chunks mention Resume Explorer.</td>
+        <td>Traverses <code>(p1)-[:USES_METHOD]->(m)&lt;-[:USES_METHOD]-(p2)</code> and returns shared methods with project pairs.</td>
+      </tr>
+      <tr>
+        <td><em>"Show me all projects that use Neo4j"</em></td>
+        <td>Returns chunks mentioning Neo4j — could miss projects that use it without saying so explicitly.</td>
+        <td>Returns exactly the projects linked to the <code>Neo4j</code> Technology node.</td>
+      </tr>
+      <tr>
+        <td><em>"Tell me about Resume Graph Explorer"</em></td>
+        <td>Returns 5-10 fragments of the project description, often cut mid-thought.</td>
+        <td>Returns the full DESCRIBED_IN section as a single coherent block.</td>
+      </tr>
+      <tr>
+        <td><em>"Find sections that discuss Bayesian reasoning"</em></td>
+        <td>Approximates with vector similarity; quality depends on phrasing.</td>
+        <td>Returns sections with an explicit <code>MENTIONS</code> edge to the <code>Bayesian reasoning</code> Concept node, including all alt_labels.</td>
+      </tr>
+      <tr>
+        <td><em>"What is Barbara's educational background?"</em></td>
+        <td>Returns 3-5 chunks of the Education section, possibly fragmented.</td>
+        <td>Returns the complete Education section in one piece.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>The Cypher behind the demo queries</h3>
+
+  <div class="code-label graph">"Which projects use knowledge graphs?"</div>
+<pre><code><span class="kw">MATCH</span> (skill:Skill {name: <span class="str">"Knowledge Graphs"</span>})&lt;-[:DEMONSTRATES]-(p:Project)
+<span class="kw">RETURN</span> p.title, p.summary
+</code></pre>
+
+  <div class="code-label graph">"Similar methods to Resume Graph Explorer"</div>
+<pre><code><span class="kw">MATCH</span> (p1:Project {id: <span class="str">"resume-graph-explorer"</span>})-[:USES_METHOD]->(m:Method)
+      &lt;-[:USES_METHOD]-(p2:Project)
+<span class="kw">WHERE</span> p1 &lt;&gt; p2
+<span class="kw">RETURN</span> p2.title, collect(m.name) <span class="kw">AS</span> shared_methods
+<span class="kw">ORDER BY</span> size(shared_methods) <span class="kw">DESC</span>
+</code></pre>
+
+  <div class="code-label graph">"Sections discussing Bayesian reasoning"</div>
+<pre><code><span class="kw">MATCH</span> (s:Section)-[m:MENTIONS]->(c:Concept {name: <span class="str">"Bayesian reasoning"</span>})
+<span class="kw">RETURN</span> s.name, m.count, m.context
+<span class="kw">ORDER BY</span> m.count <span class="kw">DESC</span>
+</code></pre>
+</section>
+
+<!-- ─── 10. Metrics ─── -->
+<section id="metrics">
+  <h2><span class="num">10 · Metrics defined</span>What the evaluation harness measures</h2>
+  <p>The migration plan calls for five test batteries comparing ChromaDB baseline against Neo4j. Each metric below maps to one of them.</p>
+
+  <div class="def-list">
+    <div class="def">
+      <span class="term">Coherence score</span>
+      <span class="formal">manual, 1–5 scale</span>
+      <div class="desc">Human-rated quality of retrieved context per query, evaluated across three dimensions: <strong>fragmentation</strong> (are chunks cut mid-thought?), <strong>coverage</strong> (do the chunks together contain enough to answer?), and <strong>noise</strong> (are off-topic chunks diluting the context?). 5 = complete, clean section. 1 = unusable or wrong content. Manual scoring is fine for prototype scale; tracks the granularity problem.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Top-1 precision</span>
+      <span class="formal">automated, percentage</span>
+      <div class="desc">Of N test queries with known correct answers, what percentage have the answer in the #1 retrieved result. Tracks ranking quality.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Top-K precision</span>
+      <span class="formal">automated, percentage</span>
+      <div class="desc">Same idea, but counts the answer if it appears anywhere in the top-K (typically K=3 or K=5). Easier metric to hit; useful for understanding how much the LLM is bailing out the retriever.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">MRR · Mean Reciprocal Rank</span>
+      <span class="formal">automated, 0–1 scale</span>
+      <div class="desc">Average of <code>1 / rank</code> across queries, where <code>rank</code> is the position where the correct answer first appears. Rewards getting the right answer earlier in the result list. An MRR of 0.75 means on average the correct answer is in position 1.33.</div>
+      <div class="formula">MRR = (1/N) × Σ (1 / rank<sub>i</sub>)</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Relationship query success rate</span>
+      <span class="formal">automated, percentage</span>
+      <div class="desc">Of the relationship-style queries that vector search can't answer well ("which projects use X", "similar methods to Y"), what percentage does the graph answer correctly. Baseline is 0–20%; target is 75%+. Tracks the missing-connections problem.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Latency · p50 / p95 / p99</span>
+      <span class="formal">automated, milliseconds</span>
+      <div class="desc">Time from query received to chunks/sections returned. <strong>p95</strong> means "95% of queries return in this time or less" — the standard percentile to watch for user experience. p99 catches the long tail. Target: p95 under 500ms.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Eval suite pass rate</span>
+      <span class="formal">automated, percentage</span>
+      <div class="desc">Existing 50-question evaluation harness pass rate. Used as a regression check — the graph migration must <em>not</em> drop this below the ChromaDB baseline of ~85-90%.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 11. Glossary ─── -->
+<section id="glossary">
+  <h2><span class="num">11 · Glossary</span>The jargon, in one place</h2>
+
+  <div class="def-list">
+    <div class="def">
+      <span class="term">RAG · Retrieval-Augmented Generation</span>
+      <div class="desc">A pattern where an LLM's response is grounded in retrieved source documents rather than parametric memory alone. The retriever fetches relevant context based on the query; the LLM generates an answer using that context.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">GraphRAG</span>
+      <div class="desc">A variant of RAG where the retriever sits on top of a knowledge graph instead of (or in addition to) a vector index. Retrieval can combine vector similarity with graph traversal — "find sections semantically similar to the query, AND boost the ones that describe a relevant entity."</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Embedding · vector</span>
+      <div class="desc">A high-dimensional numeric representation of text (here, 1536 dimensions from OpenAI's <code>text-embedding-3-small</code>). Texts with similar meaning end up close to each other in this vector space. Embeddings are how "semantic search" actually works under the hood.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Vector index</span>
+      <div class="desc">A specialized data structure that lets you find the K closest vectors to a query vector quickly, without comparing against every vector in the database. Neo4j 5.11+ ships with a built-in vector index, which is what removes the need for a separate vector database here.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Cosine similarity · L2 distance</span>
+      <div class="desc">Two ways to measure how close two vectors are. <strong>Cosine</strong> measures the angle between them (1 = identical direction, 0 = orthogonal). <strong>L2</strong> measures straight-line distance. They're equivalent on normalized vectors but report different numbers; ChromaDB returns L2 and the existing code converts via <code>1 - (dist² / 2)</code>.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Cypher</span>
+      <div class="desc">Neo4j's query language. SQL-like in spirit but designed for graph patterns. <code>MATCH (p:Project)-[:USES]->(t:Technology) RETURN p, t</code> reads as "find every Project connected to a Technology by a USES edge, return both."</div>
+    </div>
+
+    <div class="def">
+      <span class="term">MERGE</span>
+      <div class="desc">A Cypher operation that creates a node or relationship if it doesn't exist, or matches the existing one if it does. The graph-database equivalent of "upsert." Used throughout the populate scripts so reruns are safe.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">DETACH DELETE</span>
+      <div class="desc">Cypher operation that removes a node along with any relationships attached to it. <code>MATCH (n) DETACH DELETE n</code> wipes the entire graph. Used at the top of <code>populate_neo4j_graph.py</code> per Decision 3.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Canonical name · alt_labels</span>
+      <div class="desc">The canonical name is the single official form of an entity (e.g., "Bayesian reasoning"). alt_labels are true synonyms or near-synonyms ("Bayesian thinking", "Belief updating") stored on the node so that queries on any variant still find it. Borrowed from SKOS conventions in the Resume Graph Explorer.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Sensitivity tier</span>
+      <div class="desc">Three-level audience access control: <code>public</code>, <code>personal</code>, <code>inner_circle</code>. Every Section and Document carries a tier; retrieval filters by what the visitor is allowed to see. Inherited from the existing ChromaDB setup unchanged.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Hybrid retrieval</span>
+      <div class="desc">Combining multiple retrieval signals (here: vector similarity + graph structure + entity richness + length) into a single ranked result set, rather than relying on any one signal alone.</div>
+    </div>
+
+    <div class="def">
+      <span class="term">Project entities · section mentions</span>
+      <div class="desc">Two distinct extraction sources. <strong>Project entities</strong> come from structured LLM extraction over project walkthroughs — they define the canonical Skill / Method / Technology nodes. <strong>Section mentions</strong> come from LLM scanning of KB sections — they produce <code>MENTIONS</code> edges and (separately) the Concept nodes. Decision 4 keeps these sources from contaminating each other.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 12. Adjust later ─── -->
+<section id="adjust">
+  <h2><span class="num">12 · Adjust later</span>Places to revisit once the system is running</h2>
+  <p>None of these is blocking. They're flagged here so they don't disappear into folklore.</p>
+
+  <div class="callout amber">
+    <div class="label">Score weights</div>
+    <p>The 0.60 / 0.25 / 0.10 / 0.05 split is a starting guess. Phase 5 of the migration plan calls for tuning these against the eval harness once enough query data exists. The current values are loosely calibrated to make vector_score dominant while letting graph signals matter; that ratio may need to shift either direction.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="label">MENTIONS edge cap saturates in production</div>
+    <p>The +0.10 bonus saturates at 5 entities mentioned. Real data shows median 9 mentions per section, mean 9.8, with ~75% of sections at 6+ mentions. The signal is effectively binary right now: either a section has &lt;5 mentions and gets a partial bonus, or it has 5+ and gets the full bonus — no differentiation within the 6+ population. The cap should likely move to 10–15 once the migration is running, validated against the actual ranking outputs. The "MENTIONS edge distribution sanity check" query in section 8 is the right tool to watch for this.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="label">Concept curation is overwrite-fragile</div>
+    <p>The manually curated Concept list (20 nodes) lives in <code>canonical_entities.json</code> but is regenerated by <code>canonicalize_entities.py</code> on every run. The Decision 4 note proposes the long-term fix: save the curated list to <code>scripts/concepts_curated.json</code> and have the canonicalization script read-and-preserve it rather than regenerating from scratch. Until that's done, treat the canonical list as a brittle artifact and back it up before rerunning canonicalization.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="label">Phase 2 / Phase 3 boundary is fuzzy in the script</div>
+    <p>The migration plan describes Phase 2 (Entity Extraction) and Phase 3 (Relationship Mapping) as sequential, but <code>populate_projects()</code> in <code>populate_neo4j_graph.py</code> creates Project nodes and <code>DEMONSTRATES</code> / <code>USES_METHOD</code> / <code>USES_TECHNOLOGY</code> edges in the same pass via MERGE. What's actually new in Phase 3 is the cross-cutting relationships: <code>DESCRIBED_IN</code>, <code>MENTIONS</code>, <code>NEXT_SECTION</code>. This is fine but worth noting if anyone wonders why "relationship mapping" feels lighter than the bullet list suggests.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="label">Chunks may end up being dead code</div>
+    <p>The schema retains the <code>Chunk</code> node and <code>HAS_CHUNK</code> edge as a fallback for fine-grained retrieval. If evaluation shows that full-section retrieval is consistently better, chunks become an unused branch — simplify the schema or document explicitly why they remain.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="label">RELATED_TO (Project → Project) is deferred</div>
+    <p>The schema defines a <code>RELATED_TO {similarity: float}</code> edge for project-to-project similarity derived from shared skills/methods. Not implemented in Phase 3 — it's a nice-to-have that can wait until the rest of the graph is stable.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="label">Acronym Title-Casing in canonical names</div>
+    <p>The deterministic phase of canonicalization is Title-Casing acronyms, producing forms like <code>Rdf</code>, <code>Skos</code>, <code>Nlp</code>, <code>Rag</code>, <code>Openai</code>, <code>Chromadb</code>, <code>Transe</code>, <code>Fastapi</code>, <code>Sqlmodel</code>, <code>Weather Api</code> in <code>canonical_entities.json</code>. Some acronyms <em>are</em> preserved correctly (<code>SHACL</code>, <code>JSON</code>, <code>CSV</code>, <code>HTML</code>), but only because the extraction model happened to emit them uppercase — no normalization rule kept them that way.</p>
+    <p><strong>Root cause.</strong> Phase 1 uses <code>max(variants, key=len)</code> to pick the canonical form from each lowercased group — a heuristic designed to prefer "Knowledge Graphs" over "Knowledge Graph". When the extractor emits "Rag" as the only variant in its group, "Rag" wins by default. "RAG" and "Rag" have identical length, so the length rule can't break the tie even when both appear.</p>
+    <p><strong>Fix for next rebuild.</strong> Add a pre-pass to Phase 1 that prefers ALL-CAPS variants when they exist in a group: <em>if any variant is fully uppercase and ≤6 characters, prefer it regardless of length.</em> Catches the common cases without a hand-maintained allowlist. A named-acronyms list would be cleaner but the simple rule covers ~95% of real-world ambiguity. Lives in <code>canonicalize_entities.py</code> only — no schema or graph changes needed.</p>
+  </div>
+
+  <div class="callout amber">
+    <div class="label">Cross-type pool overlap — design ambiguity, not a bug</div>
+    <p>Current data shows 20 names appearing as both Skill AND Method, 8 as Skill AND Technology, and 3 names (<code>Rdf</code>, <code>Skos</code>, <code>Weather Api</code>) in all three pools. The code is behaving exactly as written — type pools canonicalize independently with no cross-pool dedup step.</p>
+    <p><strong>What Decision 4 actually says.</strong> "Keep pools separate" meant <em>don't let NLP-the-skill accidentally merge with NLP-the-technology during normalization</em>. It said nothing about whether the same name can legitimately hold nodes in two pools.</p>
+    <p><strong>Where overlap is defensible.</strong> <code>(:Skill {name: "Rag"})</code> = capability Barbara has. <code>(:Method {name: "Rag"})</code> = retrieval approach a project uses. Two different graph roles, both correct. Same for Docker / Knowledge Graph — the technology is the tool; the skill is using it.</p>
+    <p><strong>Where it's an extraction-quality issue.</strong> <code>Rdf</code>, <code>Skos</code>, <code>Weather Api</code> appearing in all three pools is the extractor seeing "uses RDF" and tagging it as a Skill rather than a Technology choice. These should pin to Technology only.</p>
+    <p><strong>Decision.</strong> Leave it for now — the current overlap is harmless because separate nodes correctly serve different Cypher queries. Next extraction pass should enforce a primary-type rule for the three triple-pool offenders. Fixable in <code>extract_entities.py</code> prompt tightening — no graph rebuild required.</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+</div>
+</body>
+</html>

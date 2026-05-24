@@ -29,7 +29,7 @@ excerpt: >
 <h2 class="contact-section__title">Reach Out</h2>
 
 <div class="contact-cards" aria-label="Contact methods">
-  <a href="/assets/docs/barb-resume-2026.pdf" target="_blank" rel="noopener" class="contact-card contact-card--resume">
+  <a href="/assets/docs/Hidalgo-Sotelo_Barbara_RESUME.pdf" target="_blank" rel="noopener" class="contact-card contact-card--resume">
     <div class="contact-card__icon" aria-hidden="true">
       <i class="fas fa-file-alt"></i>
     </div>

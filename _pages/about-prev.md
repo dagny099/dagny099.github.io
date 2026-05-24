@@ -15,7 +15,7 @@ Since 2014, I've consulted on enterprise software UI for the business management
 
 TL/DR: I have a passion for learning and helping others learn. Reach out if like-minded.
 
-### My Resume is [here](/assets/docs/Barbara_Hidalgo-Sotelo_CURRENT_RESUME_2025.pdf) and my academic CV is [here](/assets/docs/Hidalgo-Sotelo_Academic_CV.pdf).
+### My Resume is [here](/assets/docs/Hidalgo-Sotelo_Barbara_RESUME.pdf) and my academic CV is [here](/assets/docs/Hidalgo-Sotelo_Academic_CV.pdf).
 
 ## HIGHLIGHTS
 * Research on visual attention and memory @ MIT's Brain and Cognitive Science dpmt under the supervision of Aude Oliva.
