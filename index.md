@@ -89,7 +89,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
       <h2 class="current-feature__title">Teaching Semantic Web in public</h2>
       <p class="current-feature__body">
-        A 12-week curriculum on RDF, OWL, SPARQL, and modern knowledge graphs — built around real projects, readable explanations, and honest tradeoffs.
+        A 12-week curriculum on RDF, OWL, SPARQL, and modern knowledge graphs — I built it around my real projects, with readable explanations, and honest tradeoffs.
       </p>
 
       <p class="current-feature__actions">
@@ -97,17 +97,18 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
         <a class="current-feature__secondary" href="https://curriculum.barbhs.com/modules/1/" target="_blank" rel="noopener">See Module 1 →</a>
       </p>
 
-      <p class="current-feature__status">Currently on Module 1 of 4:</p>
-      <!-- p class="current-feature__status">Module 1 of 4 · Week 1 of 12 · Foundations</p -->
-      <nav class="module-arc" aria-label="Course structure">
-        <span class="module-arc__item module-arc__item--active" aria-current="true">1) Foundations</span>
-        <span class="module-arc__sep" aria-hidden="true">·</span>
-        <span class="module-arc__item">2) Modeling</span>
-        <span class="module-arc__sep" aria-hidden="true">·</span>
-        <span class="module-arc__item">3) Reasoning</span>
-        <span class="module-arc__sep" aria-hidden="true">·</span>
-        <span class="module-arc__item">4) Shipping</span>
-      </nav>
+      <div class="current-feature__progression">
+        <p class="current-feature__status">Currently on Module 1 of 4:</p>
+        <nav class="module-arc" aria-label="Course structure">
+          <span class="module-arc__item module-arc__item--active" aria-current="true">1) Foundations</span>
+          <span class="module-arc__sep" aria-hidden="true">·</span>
+          <span class="module-arc__item">2) Modeling</span>
+          <span class="module-arc__sep" aria-hidden="true">·</span>
+          <span class="module-arc__item">3) Reasoning</span>
+          <span class="module-arc__sep" aria-hidden="true">·</span>
+          <span class="module-arc__item">4) Shipping</span>
+        </nav>
+      </div>
 
     </div>
 

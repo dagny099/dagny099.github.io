@@ -447,6 +447,26 @@ h1, h2, h3, h4, h5, h6{
   text-transform: uppercase;
 }
 
+/* Progression row — places "I'm on Module X of N:" inline with the arc when the ribbon is wide
+   enough; wraps onto separate lines on narrower viewports. Pulled close to the CTAs above. */
+.home .current-feature__progression{
+  margin-top: -.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem .55rem;
+}
+
+/* When the status sits inside the progression row, it acts as an inline sentence-case lead-in
+   rather than an uppercase eyebrow — sheds the letter-spacing/caps width so it fits beside the arc. */
+.home .current-feature__progression .current-feature__status{
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #475569;
+}
+
 .home .current-feature__title{
   margin: 0;
   padding-bottom: 0;
@@ -498,28 +518,27 @@ h1, h2, h3, h4, h5, h6{
   text-decoration: none;
 }
 
-/* Module arc — sits under the title as a course-shape preview, then the body and CTAs follow.
-   No underlines/borders (the ribbon already has the title, thesis border, and section outline). */
+/* Module arc — compact "course-shape" indicator. Tuned to sit inline with the status label
+   in the progression row at the typical ribbon width; wraps to its own line on narrower viewports. */
 .home .module-arc{
-  margin: .1rem 0 .35rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: .3rem .55rem;
-  font-size: .88rem;
+  gap: .25rem .3rem;
+  font-size: .78rem;
   color: #94a3b8;
 }
 
 .home .module-arc__item{
   font-weight: 500;
-  padding: 1px 2px;
+  padding: 2px 2px;
 }
 
 /* Soft yellow highlighter — reads as "you are here" without adding another line to the ribbon */
 .home .module-arc__item--active{
   background: #fef3c7;
   color: #475569;
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: 4px;
   font-weight: 600;
 }
