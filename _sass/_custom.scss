@@ -408,15 +408,20 @@ h1, h2, h3, h4, h5, h6{
 .home .current-feature{
   max-width: 1120px;
   margin: 0 auto;
-  padding: clamp(1.2rem, 2vw, 1.75rem);
-  border-radius: 18px;
+  padding: clamp(1rem, 1.6vw, 1.4rem) clamp(1.1rem, 2vw, 1.6rem);
+  border-radius: 16px;
   border: 1px solid rgba(15, 118, 110, 0.18);
   background:
     radial-gradient(circle at top right, rgba(14, 116, 144, 0.10), transparent 32%),
     linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07);
   display: grid;
-  gap: 1rem;
+  gap: .9rem;
+}
+
+/* Slim variant: tighter inner spacing for the ribbon layout */
+.home .current-feature--slim{
+  padding: clamp(.95rem, 1.5vw, 1.25rem) clamp(1.1rem, 2vw, 1.5rem);
 }
 
 @media (min-width: 900px){
@@ -428,88 +433,136 @@ h1, h2, h3, h4, h5, h6{
 
 .home .current-feature__content{
   display: grid;
-  gap: .8rem;
+  gap: .55rem;
   align-content: start;
 }
 
-.home .current-feature__eyebrow{
+/* Status line (replaces eyebrow on the slim ribbon) */
+.home .current-feature__status{
   margin: 0;
   color: #0f766e;
   font-size: .78rem;
-  font-weight: 800;
-  letter-spacing: .14em;
+  font-weight: 700;
+  letter-spacing: .09em;
   text-transform: uppercase;
 }
 
 .home .current-feature__title{
   margin: 0;
-  max-width: 16ch;
-  font-size: clamp(1.55rem, 2vw, 2.2rem);
-  line-height: 1.08;
+  padding-bottom: 0;
+  border-bottom: 0; /* override the minimal-mistakes default H2 underline — keeps the ribbon clean of stray rules */
+  max-width: 28ch;
+  font-size: clamp(1.4rem, 1.8vw, 1.85rem);
+  line-height: 1.15;
 }
 
 .home .current-feature__body{
   margin: 0;
-  max-width: 60ch;
+  max-width: 62ch;
   color: var(--ink-700);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: .98rem;
+  line-height: 1.55;
 }
 
-.home .current-feature__topics{
+/* Normalize CTA typography via the container so the button and secondary link match.
+   Was: button 16.5px, secondary 22px (inherited paragraph size) — visually off by ~33%. */
+.home .current-feature__actions{
+  margin: .25rem 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: .65rem;
-}
-
-.home .current-feature__topics span{
-  display: inline-flex;
   align-items: center;
-  min-height: 2rem;
-  padding: .35rem .75rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(15, 118, 110, 0.14);
-  color: #23576d;
-  font-size: .88rem;
-  font-weight: 650;
-}
-
-.home .current-feature__actions{
-  margin: .2rem 0 0;
+  gap: .9rem 1.25rem;
+  font-size: .95rem;
+  line-height: 1.5;
 }
 
 .home .current-feature__actions .btn{
   margin: 0;
   border-radius: 999px;
-  padding-inline: 1.1rem;
+  padding: .55rem 1.15rem;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-.home .current-feature__sidebar{
-  display: grid;
-  gap: .6rem;
-  align-content: start;
-  padding: 1rem 1.05rem 1rem 1.4rem;
-  border-radius: 0 10px 10px 0;
-  background: rgba(15, 118, 110, 0.07);
-  border-left: 3px solid #0f766e;
-  color: inherit;
-}
-
-.home .current-feature__sidebar-label{
-  margin: 0;
+/* Secondary text link in the CTA row — inherits sized typography from .current-feature__actions */
+.home .current-feature__secondary{
+  font-size: inherit;
+  font-weight: 600;
   color: #0f766e;
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s ease;
+}
+.home .current-feature__secondary:hover,
+.home .current-feature__secondary:focus{
+  border-bottom-color: currentColor;
+  text-decoration: none;
 }
 
-.home .current-feature__sidebar p{
+/* Module arc — sits under the title as a course-shape preview, then the body and CTAs follow.
+   No underlines/borders (the ribbon already has the title, thesis border, and section outline). */
+.home .module-arc{
+  margin: .1rem 0 .35rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .55rem;
+  font-size: .88rem;
+  color: #94a3b8;
+}
+
+.home .module-arc__item{
+  font-weight: 500;
+  padding: 1px 2px;
+}
+
+/* Soft yellow highlighter — reads as "you are here" without adding another line to the ribbon */
+.home .module-arc__item--active{
+  background: #fef3c7;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.home .module-arc__sep{
+  color: #cbd5e1;
+}
+
+/* Right-side thesis card — italic body + small follow-along link below.
+   Column layout (was flex/center) so the aside link can sit beneath the thesis. */
+.home .current-feature__thesis{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: .9rem 1rem .9rem 1.15rem;
+  border-left: 3px solid #5f4a8a;
+  background: rgba(95, 74, 138, 0.04);
+  border-radius: 0 10px 10px 0;
+}
+
+.home .current-feature__thesis-body{
   margin: 0;
-  line-height: 1.55;
-  color: #374151;
+  font-size: 1.02rem;
+  line-height: 1.5;
   font-style: italic;
+  color: #3b3554;
+}
+
+.home .current-feature__thesis-aside{
+  margin: .75rem 0 0;
+  font-size: .85rem;
+}
+
+.home .current-feature__thesis-aside a{
+  color: #5f4a8a;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s ease;
+}
+.home .current-feature__thesis-aside a:hover,
+.home .current-feature__thesis-aside a:focus{
+  border-bottom-color: currentColor;
+  text-decoration: none;
 }
 
 /* ------------------------------------------------------------------

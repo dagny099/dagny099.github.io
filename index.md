@@ -11,14 +11,13 @@ excerpt: >
   Making meaning out of messy data. I apply cognitive science to build AI and data systems that work the way humans think.
 
   <p class="hero-ctas hero-ctas--centered">
-  <a class="btn hero-btn hero-btn--ghost" href="https://twin.barbhs.com" target="_blank" rel="noopener">Ask My Twin&nbsp;&nbsp; <i class="far fa-comment-dots"></i></a>
   <a class="btn hero-btn hero-btn--ghost" href="/contact/"> Let's Connect &nbsp;<i class="fas fa-paper-plane"></i></a>
   </p>
 
 header:
   overlay_filter: 0.7;
   overlay_color: "#4a3a5f"
-  caption: Austin, TX · Data Scientist · PhD Cognitive Science, MIT · Human-Centered AI · Explainable Systems
+  caption: Applied AI Engineer & Cognitive Scientist · Knowledge Graphs, RAG & Evaluation · PhD Cognitive Science, MIT
   profile_image: /assets/images/biopic/bhs-new-headshot-v1.png
 
 # Updated project descriptions with cognitive angles
@@ -85,33 +84,86 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
      Currently
      ======================= -->
 <div class="home-section home-section--currently">
-  <div class="current-feature">
+  <div class="current-feature current-feature--slim">
     <div class="current-feature__content">
-      <p class="current-feature__eyebrow">Currently</p>
-      <h2 class="current-feature__title">Publishing a 12-week Semantic Web curriculum in public</h2>
-      <p class="current-feature__body">
-        Exploring where formal knowledge representation and LLM reasoning complement each other — and where they don’t.
-      </p>
 
-      <div class="current-feature__topics" aria-label="Curriculum themes">
-        <span>12 weeks</span>
-        <span>Knowledge representation</span>
-        <span>LLM reasoning</span>
-        <span>Working in public</span>
-      </div>
+      <h2 class="current-feature__title">Teaching Semantic Web in public</h2>
+      <p class="current-feature__body">
+        A 12-week curriculum on RDF, OWL, SPARQL, and modern knowledge graphs — built around real projects, readable explanations, and honest tradeoffs.
+      </p>
 
       <p class="current-feature__actions">
         <a class="btn btn--primary" href="https://curriculum.barbhs.com" target="_blank" rel="noopener">Explore the curriculum ↗</a>
+        <a class="current-feature__secondary" href="https://curriculum.barbhs.com/modules/1/" target="_blank" rel="noopener">See Module 1 →</a>
+      </p>
+
+      <p class="current-feature__status">Currently on Module 1 of 4:</p>
+      <!-- p class="current-feature__status">Module 1 of 4 · Week 1 of 12 · Foundations</p -->
+      <nav class="module-arc" aria-label="Course structure">
+        <span class="module-arc__item module-arc__item--active" aria-current="true">1) Foundations</span>
+        <span class="module-arc__sep" aria-hidden="true">·</span>
+        <span class="module-arc__item">2) Modeling</span>
+        <span class="module-arc__sep" aria-hidden="true">·</span>
+        <span class="module-arc__item">3) Reasoning</span>
+        <span class="module-arc__sep" aria-hidden="true">·</span>
+        <span class="module-arc__item">4) Shipping</span>
+      </nav>
+
+    </div>
+
+    <aside class="current-feature__thesis" aria-label="Thesis behind this series">
+      <p class="current-feature__thesis-body">Some AI problems need probability. Some need structure. The useful systems know the difference.</p>
+      <p class="current-feature__thesis-aside">
+        <!-- TODO: replace placeholder with real Buttondown subscribe URL once configured -->
+        <a href="https://buttondown.email/barbarahs" target="_blank" rel="noopener">Follow along by email →</a>
+      </p>
+    </aside>
+  </div>
+</div>
+
+<!-- =======================
+     My Approach + Digital Twin (merged row) — placed right after Currently so the two visually distinct "who I am" sections cluster, then the credibility sections (Projects / Writing / Principles) flow as a unit
+     ======================= -->
+<div class="home-section home-section--duo">
+  <div class="duo-row">
+    <div class="duo-row__card duo-row__card--approach">
+      <p class="duo-row__eyebrow">How I think about data</p>
+      <h3 class="duo-row__title">I build for how humans think</h3>
+      <p class="duo-row__body">
+        Every system I build starts with a cognitive question — where attention goes, what gets remembered, and what decision the data is really being asked to support.
+      </p>
+      <p class="duo-row__actions">
+        <a class="duo-row__link" href="/my-journey/#cognitive-foundation">Read about my approach →</a>
       </p>
     </div>
 
-    <div class="current-feature__sidebar" aria-label="Why this series matters">
-      <p class="current-feature__sidebar-label">Why this series</p>
-      <p>
-        Some AI problems need probability. Others need structure. This curriculum is a running notebook on how to tell the difference.
+    <div class="duo-row__card duo-row__card--twin">
+      <p class="duo-row__eyebrow">Interactive</p>
+      <h3 class="duo-row__title">Ask my Digital Twin</h3>
+      <p class="duo-row__body">
+        Curious how I think through messy problems? I built an AI grounded in my work, writing, and frameworks. Ask it anything — explore projects, brainstorm ideas, or test my reasoning.
+      </p>
+      <p class="duo-row__actions">
+        <a class="btn btn--primary duo-row__btn" href="https://twin.barbhs.com" target="_blank" rel="noopener">Open Digital Twin ↗</a>
       </p>
     </div>
   </div>
+</div>
+
+<!-- =======================
+     Featured Projects — mirrors Featured Writing layout (centered title + subheading + browse-all), without the tinted background
+     ======================= -->
+<div class="home-section home-section--projects">
+  <h2 class="home-section__heading">Featured Projects</h2>
+  <p class="home-section__subheading">
+    Self-hosted data products, AI systems, and knowledge graphs—built end-to-end to learn what actually works in production.
+  </p>
+
+  {% include feature_row_dual %}
+
+  <p class="featured-projects__cta">
+    <a class="browse-all" href="/projects/">Browse all projects</a>
+  </p>
 </div>
 
 <!-- =======================
@@ -158,35 +210,6 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </div>
 
 <!-- =======================
-     My Approach + Digital Twin (merged row)
-     ======================= -->
-<div class="home-section home-section--duo">
-  <div class="duo-row">
-    <div class="duo-row__card duo-row__card--approach">
-      <p class="duo-row__eyebrow">How I think about data</p>
-      <h3 class="duo-row__title">Cognitive science shapes everything I build</h3>
-      <p class="duo-row__body">
-        My research at MIT taught me that humans don't just see data — they construct meaning. I optimize dashboards for natural eye movement, build ML systems that explain their reasoning, and design for how attention and memory actually work.
-      </p>
-      <p class="duo-row__actions">
-        <a class="duo-row__link" href="/my-journey/#cognitive-foundation">Read about my approach →</a>
-      </p>
-    </div>
-
-    <div class="duo-row__card duo-row__card--twin">
-      <p class="duo-row__eyebrow">Interactive</p>
-      <h3 class="duo-row__title">Ask my Digital Twin</h3>
-      <p class="duo-row__body">
-        Curious how I think through messy problems? I built an AI grounded in my work, writing, and frameworks. Ask it anything — explore projects, brainstorm ideas, or test my reasoning.
-      </p>
-      <p class="duo-row__actions">
-        <a class="btn btn--primary duo-row__btn" href="https://twin.barbhs.com" target="_blank" rel="noopener">Open Digital Twin ↗</a>
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- =======================
      Cognitive Principles (NEW)
      ======================= -->
 <div class="home-section home-section--principles">
@@ -220,18 +243,6 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
       <a href="data-stories/exercise-dashboard/">Why perfect data is not a prereq for a healthy system →</a>
     </div>
   </div>
-</div>
-
-<!-- =======================
-     Featured Work (cards)
-     ======================= -->
-<div class="home-section">
-<details class="home-accordion" data-section="projects" markdown="1" open>
-<summary  style="text-align: center;"><h2>Featured Projects</h2></summary>
-
-{% include feature_row_dual %}
-
-</details>
 </div>
 
 <!-- =======================
@@ -311,6 +322,20 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 </section>
 </div>
 
+<!-- =======================
+     Closing CTA — bookend the homepage with a warm invitation
+     ======================= -->
+<div class="home-section home-section--closer">
+  <div class="home-closer">
+    <p class="home-closer__body">
+      Made it this far? If anything resonated — a project, a principle, a half-finished thought — I'd love to hear from you.
+    </p>
+    <p class="home-closer__actions">
+      <a class="btn btn--primary home-closer__btn" href="/contact/">Say hi <i class="fas fa-paper-plane" aria-hidden="true"></i></a>
+    </p>
+  </div>
+</div>
+
 <!-- {% include section_tiles.html exclude="/contact/" %} -->
 
 <style>
@@ -356,16 +381,42 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   padding: 1.75rem;
 }
 
-.home-section--writing .home-section__heading {
+/* Shared centered heading + subheading — applies to Featured Writing and Featured Projects so they read as a pair */
+.home-section--writing .home-section__heading,
+.home-section--projects .home-section__heading {
   margin-top: 0;
   text-align: center;
 }
 
-.home-section--writing .home-section__subheading {
+.home-section--writing .home-section__subheading,
+.home-section--projects .home-section__subheading {
   margin: 0.5rem auto 1.5rem;
   max-width: 680px;
   text-align: center;
   color: #6b7280;
+}
+
+/* Featured Projects mirrors Writing's outline + internal rhythm, without the tinted background */
+.home-section--projects {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin-bottom: 0.75rem; /* tighten the gap to Featured Writing — they're paired */
+}
+
+.home-section--writing {
+  margin-top: 0.75rem;
+}
+
+/* Suppress the minimal-mistakes feature__wrapper bottom rule (the bar above Browse all projects) */
+.home-section--projects .feature__wrapper {
+  border-bottom: none;
+}
+
+.featured-projects__cta {
+  text-align: center;
+  margin: 1rem 0 0; /* match .featured-writing__cta's spacing */
 }
 
 .featured-writing {
@@ -378,11 +429,16 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-  padding: 1rem 0.5rem 0.5rem 1rem;
+  padding: 1.5rem;
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.featured-writing__card h3 {
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
 }
 
 .featured-writing__badge {
@@ -395,7 +451,41 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
   width: fit-content;
+  margin: 0 0 0.5rem;
+}
+
+/* =======================
+   Homepage closer — warm bookend after the timeline
+   ======================= */
+.home-section--closer {
+  margin: 1.5rem 0 0.25rem;
+}
+
+.home-closer {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.25rem 1rem 0.25rem;
+}
+
+.home-closer__body {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0 0 1.25rem;
+}
+
+.home-closer__actions {
   margin: 0;
+}
+
+.home-closer__btn {
+  border-radius: 999px;
+  padding-inline: 1.5rem;
+}
+
+.home-closer__btn i {
+  margin-left: 0.4rem;
 }
 
 .featured-writing__badge--thinking {
