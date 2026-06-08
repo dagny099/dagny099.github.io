@@ -8,16 +8,24 @@ layout: splash
 classes: home
 author_profile: false
 excerpt: >
-  Making meaning out of messy data. I apply cognitive science to build AI and data systems that work the way humans think.
+  <span class="hero-headline">
+    The best systems don't just work. They make sense.
+  </span>
 
-  <p class="hero-ctas hero-ctas--centered">
-  <a class="btn hero-btn hero-btn--ghost" href="/contact/"> Let's Connect &nbsp;<i class="fas fa-paper-plane"></i></a>
-  </p>
+  <span class="hero-subheadline">
+    I help teams align people, data, and technology so complex systems become easier to understand, build, and adopt.
+  </span>
+
+  <span class="hero-ctas hero-ctas--centered">
+    <a class="btn hero-btn hero-btn--ghost" href="/contact/">
+      Let's Connect &nbsp;<i class="fas fa-paper-plane"></i>
+    </a>
+  </span>
 
 header:
   overlay_filter: 0.7;
   overlay_color: "#4a3a5f"
-  caption: Applied AI Engineer & Cognitive Scientist · Knowledge Graphs, RAG & Evaluation · PhD Cognitive Science, MIT
+  caption: Applied AI · Knowledge Systems · Strategy & Adoption · MIT PhD in Cognitive Science
   profile_image: /assets/images/biopic/bhs-new-headshot-v1.png
 
 # Updated project descriptions with cognitive angles
@@ -89,12 +97,12 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
       <h2 class="current-feature__title">Teaching Semantic Web in public</h2>
       <p class="current-feature__body">
-        A 12-week curriculum on RDF, OWL, SPARQL, and modern knowledge graphs — I built it around my real projects, with readable explanations, and honest tradeoffs.
+        A 12-week curriculum turning RDF, OWL, SPARQL, and modern knowledge graphs into practical, project-based learning—with readable explanations and honest tradeoffs.
       </p>
 
-      <p class="current-feature__actions">
+      <p class="current-feature__actions" style="padding-bottom: 1rem;">
         <a class="btn btn--primary" href="https://curriculum.barbhs.com" target="_blank" rel="noopener">Explore the curriculum ↗</a>
-        <a class="current-feature__secondary" href="https://curriculum.barbhs.com/modules/1/" target="_blank" rel="noopener">See Module 1 →</a>
+        <a class="current-feature__secondary" href="https://curriculum.barbhs.com/modules/01-foundations/" target="_blank" rel="noopener">See Module 1 →</a>
       </p>
 
       <div class="current-feature__progression">
@@ -113,7 +121,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </div>
 
     <aside class="current-feature__thesis" aria-label="Thesis behind this series">
-      <p class="current-feature__thesis-body">Some AI problems need probability. Some need structure. The useful systems know the difference.</p>
+      <p class="current-feature__thesis-body">Some AI problems need probability. Some need structure. Good design begin with knowing the difference.</p>
       <p class="current-feature__thesis-aside">
         <!-- TODO: replace placeholder with real Buttondown subscribe URL once configured -->
         <a href="https://buttondown.email/barbarahs" target="_blank" rel="noopener">Follow along by email →</a>
@@ -128,10 +136,10 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 <div class="home-section home-section--duo">
   <div class="duo-row">
     <div class="duo-row__card duo-row__card--approach">
-      <p class="duo-row__eyebrow">How I think about data</p>
-      <h3 class="duo-row__title">I build for how humans think</h3>
+      <p class="duo-row__eyebrow">HOW I WORK</p>
+      <h3 class="duo-row__title">Find the shared model</h3>
       <p class="duo-row__body">
-        Every system I build starts with a cognitive question — where attention goes, what gets remembered, and what decision the data is really being asked to support.
+        Before a team can automate a workflow, people need a common picture of the problem. I surface the language, assumptions, decisions, and constraints the architecture has to support.
       </p>
       <p class="duo-row__actions">
         <a class="duo-row__link" href="/my-journey/#cognitive-foundation">Read about my approach →</a>
@@ -140,9 +148,9 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
     <div class="duo-row__card duo-row__card--twin">
       <p class="duo-row__eyebrow">Interactive</p>
-      <h3 class="duo-row__title">Ask my Digital Twin</h3>
+      <h3 class="duo-row__title">Try my Digital Twin</h3>
       <p class="duo-row__body">
-        Curious how I think through messy problems? I built an AI grounded in my work, writing, and frameworks. Ask it anything — explore projects, brainstorm ideas, or test my reasoning.
+        Ask an AI grounded in my projects, writing, and frameworks. Use it to explore my work, unpack a difficult idea, or see how I reason through an ambiguous problem.
       </p>
       <p class="duo-row__actions">
         <a class="btn btn--primary duo-row__btn" href="https://twin.barbhs.com" target="_blank" rel="noopener">Open Digital Twin ↗</a>
@@ -392,7 +400,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 .home-section--writing .home-section__subheading,
 .home-section--projects .home-section__subheading {
   margin: 0.5rem auto 1.5rem;
-  max-width: 680px;
+  max-width: 720px;
   text-align: center;
   color: #6b7280;
 }
@@ -507,6 +515,68 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 .featured-writing__cta {
   text-align: center;
   padding: 1rem 0 0 0;
+}
+
+/* Hero headline hierarchy */
+.page__hero--overlay .page__lead {
+  max-width: 780px;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.hero-headline {
+  display: block;
+  font-size: clamp(1.75rem, 2.4vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.hero-subheadline {
+  display: block;
+  max-width: 720px;
+  margin-top: 0.75rem;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-ctas {
+  display: block;
+  margin-top: 1.35rem;
+}
+
+/* =======================
+   Homepage rail alignment
+   Align hero + body sections to the same visual grid
+   ======================= */
+
+:root {
+  --home-rail-width: 1080px;
+  --home-rail-gutter: 1.75rem;
+}
+
+.home .home-section {
+  max-width: var(--home-rail-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home .page__hero--overlay .wrapper {
+  max-width: var(--home-rail-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--home-rail-gutter);
+  padding-right: var(--home-rail-gutter);
+}
+
+@media (max-width: 900px) {
+  .home .home-section,
+  .home .page__hero--overlay .wrapper {
+    max-width: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 </style>
