@@ -1,0 +1,270 @@
+---
+layout: single
+title: ""
+description: "Twelve production AI and data systems — GraphRAG, knowledge graphs, and evaluation-first engineering. Live demos, open docs, honest receipts."
+permalink: /projects/
+classes: [wide, project-page]
+show_title: false
+---
+
+{% raw %}
+<style>
+
+/* Meaning Layer portal — scoped. Requires fonts via reskin scss; @import below is a safe fallback (browsers dedupe). */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+.mlp{font-family:'IBM Plex Sans',system-ui,sans-serif;color:#1A1A1A;max-width:1060px;margin:0 auto}
+.mlp a{text-decoration:none}
+.mlp h1,.mlp h2,.mlp h3{border-bottom:none;margin-top:0}
+
+.mlp{
+    --paper:#FBFAF6; --ink:#1A1A1A; --ink-soft:#5C5A53;
+    --teal:#1B6B5E; --teal-deep:#124B42;
+    --coral:#DC6B4F; --code-bg:#14201E; --sand:#EAE6DB; --line:#E3DDD2;
+    --card:#FFFFFF;
+  }
+.mlp *{margin:0;padding:0;box-sizing:border-box}
+.mlp{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55}
+.mlp a{color:var(--teal-deep)}
+.mlp .wrap{max-width:1060px;margin:0 auto;padding:0 1.4rem}
+/* masthead */
+/* hero */
+.mlp .hero{padding:4rem 0 2.4rem}
+.mlp .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:.7rem}
+.mlp h1{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(2.4rem,5.5vw,3.7rem);line-height:1.06;max-width:16ch}
+.mlp h1 em{font-style:italic;color:var(--coral)}
+.mlp .hero p{max-width:56ch;margin-top:1.1rem;font-size:1.02rem;color:var(--ink)}
+.mlp .hero .map-link{display:inline-block;margin-top:1.2rem;font-size:.9rem}
+/* filters */
+.mlp .filters{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.8rem 0 0}
+.mlp .filters button{
+    font:inherit;font-size:.74rem;padding:.32rem .75rem;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line);background:var(--card);color:var(--ink-soft);
+  }
+.mlp .filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.mlp .filters button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+/* sections */
+.mlp section{padding:2.6rem 0 1rem}
+.mlp .sec-head{max-width:60ch;margin-bottom:1.6rem}
+.mlp h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:1.9rem;margin-bottom:.45rem}
+.mlp .sec-head p{font-size:.92rem;color:var(--ink-soft)}
+/* cards */
+.mlp .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.1rem}
+.mlp .card{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:1.4rem 1.4rem 1.2rem;display:flex;flex-direction:column;gap:.7rem;
+    transition:opacity .25s, transform .25s;
+  }
+.mlp .card.dim{opacity:.18}
+.mlp .card .kicker{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.mlp .card .kicker .live{color:var(--coral);font-weight:600}
+.mlp .card h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:1.45rem;line-height:1.12}
+.mlp .card .tagline{font-family:'EB Garamond',Georgia,serif;font-style:italic;color:var(--teal-deep);font-size:1rem;line-height:1.35}
+.mlp .card .desc{font-size:.85rem;color:var(--ink)}
+.mlp .receipt{
+    font-size:.82rem;font-style:italic;color:var(--ink-soft);
+    border-left:2px solid var(--teal);padding-left:.7rem;
+  }
+.mlp .receipt::before{content:"✓ ";color:var(--teal);font-style:normal;font-weight:700}
+.mlp .chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.mlp .chip{font-size:.66rem;padding:.18rem .55rem;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft);background:#F4F7F3}
+.mlp .chip.cap{border-color:var(--teal);color:var(--teal)}
+.mlp .card .links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto;padding-top:.4rem}
+.mlp .card .links a{
+    font-size:.76rem;text-decoration:none;padding:.4rem .8rem;border-radius:4px;
+    background:var(--paper);border:1px solid var(--line);color:var(--ink);
+  }
+.mlp .card .links a.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+/* flagship */
+.mlp .flagship{border:1px solid var(--teal);border-radius:12px;background:linear-gradient(135deg,#FFFFFF 70%,#EFF5F1);padding:2rem;display:grid;grid-template-columns:1.25fr .75fr;gap:2rem}
+.mlp .flagship h3{font-size:2.1rem}
+.mlp .flagship .desc{font-size:.92rem}
+.mlp .flagship aside{border-left:1px solid var(--line);padding-left:1.6rem;display:flex;flex-direction:column;gap:.9rem;justify-content:center}
+@media(max-width:760px){.mlp .flagship{grid-template-columns:1fr}
+.mlp .flagship aside{border-left:none;padding-left:0}}
+/* workbench strip */
+.mlp .bench{border-top:1px solid var(--line)}
+.mlp .bench-row{display:flex;gap:1rem;align-items:baseline;padding:.85rem 0;border-bottom:1px dashed var(--line);font-size:.88rem;flex-wrap:wrap}
+.mlp .bench-row strong{font-weight:600;min-width:15rem}
+.mlp .bench-row span{color:var(--ink-soft);flex:1;min-width:16rem}
+.mlp .bench-row a{font-size:.78rem;white-space:nowrap}
+/* closing */
+.mlp .closing{padding:4rem 0 4.5rem;text-align:left}
+.mlp .closing h2{font-size:2.1rem;max-width:22ch}
+.mlp .closing p{max-width:58ch;margin-top:.9rem;color:var(--ink)}
+.mlp .cta{display:inline-block;margin-top:1.4rem;background:var(--ink);color:var(--paper);text-decoration:none;padding:.7rem 1.3rem;border-radius:5px;font-size:.9rem}
+.mlp .cta.alt{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:.6rem}
+/* curriculum band */
+.mlp .curriculum-band{background:var(--code-bg);border-radius:12px;margin:2.6rem 0 1rem;padding:2.2rem 2rem;color:#EDEAE2}
+.mlp .curriculum-band h2{color:#FBFAF6}
+.mlp .cb-inner{display:grid;grid-template-columns:1.4fr .6fr;gap:2rem;align-items:center}
+.mlp .cb-eyebrow{color:var(--coral)}
+.mlp .cb-body{font-size:.9rem;color:#C9CFC9;max-width:58ch;margin-top:.4rem}
+.mlp .cb-mono{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#7FA395;margin-top:.9rem}
+.mlp .cb-actions{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+.mlp .cb-btn{background:var(--coral);color:#14201E;text-decoration:none;padding:.65rem 1.2rem;border-radius:5px;font-size:.88rem;font-weight:600}
+.mlp .cb-link{color:#9FC4B6;font-size:.84rem}
+@media(max-width:760px){.mlp .cb-inner{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mlp .card{transition:none}}
+</style>
+
+
+<div class="mlp">
+  <section class="hero">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Making meaning from <em>messy data</em></h1>
+    <p>Every project here starts with something genuinely messy — fourteen years of workouts, four years of hive photos, a family's stories, a real LLC's books, 426 anime subtitle files — and ends with structure you can query, verify, and trust. Built in public, documented end to end, running live wherever possible.</p>
+    <a class="map-link" href="./graph.html">Prefer to explore visually? Open the interactive project map →</a>
+    <div class="filters" id="filters" role="group" aria-label="Filter projects by capability"></div>
+  </section>
+
+  <section id="flagship-section">
+    <div class="sec-head"><div class="eyebrow">01 · Flagship</div></div>
+    <div id="flagship"></div>
+  </section>
+
+  <div id="clusters"></div>
+
+
+  <section class="curriculum-band">
+    <div class="cb-inner">
+      <div>
+        <div class="eyebrow cb-eyebrow">Worked in public</div>
+        <h2>The Meaning Layer</h2>
+        <p class="cb-body">A 12-week semantic web curriculum — RDF, OWL, SPARQL, through to a deployed hybrid LLM + knowledge graph capstone — published as I work through it, wrong turns included. Two of the projects above are its anchor canvases: the Naruto network carries the ontology modeling, and my resume graph makes the case for linked data concrete.</p>
+        <p class="cb-mono">PROGRESS.md · updated weekly · module 1 of 4 in progress</p>
+      </div>
+      <div class="cb-actions">
+        <a class="cb-btn" href="https://curriculum.barbhs.com" target="_blank" rel="noopener">Explore the curriculum</a>
+        <a class="cb-link" href="https://curriculum.barbhs.com/modules/01-foundations/" target="_blank" rel="noopener">Start at Module 1 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bench">
+    <div class="sec-head">
+      <div class="eyebrow">05 · Smaller builds</div>
+      <h2>The workbench</h2>
+      <p>Smaller builds and earlier work — kept here because the through-lines are visible in hindsight.</p>
+    </div>
+    <div id="bench"></div>
+  </section>
+
+  <section class="closing">
+    <div class="eyebrow">The cognitive thread</div>
+    <h2>What the cognitive science actually does here.</h2>
+    <p>My dissertation was about visual attention — how people decide where to look. I won't claim cognitive science blueprints every system on this page; it doesn't, and dressing engineering decisions up in borrowed neuroscience is exactly the kind of overselling I distrust.</p>
+    <p>What the training actually left me with is a set of stubborn questions I bring to every messy dataset: <em>What deserves attention? What would count as evidence? Where does the meaning live?</em> A few projects wear those questions openly. In most, they just shaped a hundred small decisions — and the receipts above are how you can check my work.</p>
+    <p>If you're building AI systems people need to trust — or sitting on messy data that should mean something — let's talk.</p>
+    <a class="cta" href="https://barbhs.com/work-with-me/">Work with me</a>
+    <a class="cta alt" href="https://barbhs.com/blog/">Read the writing</a>
+  </section>
+
+  </div>
+
+
+
+<script>
+
+const DATA = {"meta": {"title": "Barbara Hidalgo-Sotelo — Portfolio", "owner": "Barbara Hidalgo-Sotelo (Sensemaking AI)", "tagline": "Making meaning from messy data", "generated": "2026-06-11", "version": "2.1", "node_types": ["project", "capability", "tech"], "edge_types": ["DEMONSTRATES (project→capability)", "BUILT_WITH (project→tech)"], "clusters": {"graphs": "Meaning lives in graphs — knowledge graphs as the substrate for understanding", "trust": "Trustworthy by design — evaluation harnesses, transparency, and ground truth in every AI system", "personal": "Personal data, universal patterns — self-tracking and family memory as serious data science"}, "sections": {"graphs": {"title": "Meaning lives in graphs", "intro": "I keep coming back to the same conviction: understanding is a graph — entities, relationships, provenance. These projects test that idea against citations, conversations, and fictional narratives."}, "trust": {"title": "Trustworthy by design", "intro": "Most of my projects ship with evaluation built in — ground-truth harnesses, gold-standard validation, capability negotiation, transparency layers. That’s the practice: I don’t ship AI I can’t verify."}, "personal": {"title": "Personal data, universal patterns", "intro": "Runs, hives, family stories — personal data treated with production-grade seriousness, because the methods that make sense of one life scale to any messy domain."}}}, "projects": [{"id": "twin", "name": "Digital Twin", "tagline": "A GraphRAG chatbot that answers as me — and can prove where every answer came from.", "description": "An AI portfolio chatbot grounded in a Neo4j knowledge graph: 167 canonical entities linked to curated content sections, hybrid vector+graph retrieval with tunable scoring weights, sensitivity tiers gated by passphrase, multi-provider LLM via LiteLLM, production logging with sub-16-microsecond overhead, a 51-test CI suite, and an offline eval harness across 8 question categories. Runs as two live deployments (ChromaDB vs Neo4j backends) from one codebase for A/B comparison.", "status": "live", "domain": "professional identity", "links": {"docs": "https://docs.barbhs.com/twin/", "live": "https://twin.barbhs.com", "repo": "https://github.com/dagny099/barbs-digital-twin"}, "capabilities": ["graphrag", "knowledge-graphs", "evaluation", "llm-orchestration"], "tech": ["neo4j", "chromadb", "aws", "litellm", "gradio"], "cluster": "graphs", "marketable_angle": "Flagship. GraphRAG + eval harness + dual-backend A/B is exactly the production-RAG skill set companies are hiring for in 2026. The 'lessons learned' entries (graph signals vs hallucination) are ready-made LinkedIn posts.", "story_hook": "I built an AI that interviews on my behalf — then built the evaluation harness to catch it when it lies.", "tier": "flagship", "receipt": "Hybrid retrieval with documented, tunable scoring weights; a 51-test suite gates every deploy; every query logged with latency, cost, and retrieval scores.", "in_graph": true}, {"id": "poolula", "name": "Poolula Platform", "tagline": "An LLM bookkeeper for a real LLC — verified against ground truth, not vibes.", "description": "AI-powered management platform for a real Colorado rental-property LLC: FastAPI + SQLModel backend, ChromaDB document search, RAG chatbot with safe SELECT-only SQL generation, Airbnb import with accrual accounting, compliance-obligation tracking, and dual evaluation harnesses — including 15 rental-income questions validated against CSV ground truth with 1% numerical tolerance. Currently integrating DSPy and MLflow for pipeline optimization and experiment tracking.", "status": "active development", "domain": "small business operations", "links": {"docs": "https://docs.barbhs.com/poolula-platform/", "case_study": "/projects/poolula-platform/"}, "capabilities": ["graphrag", "evaluation", "llm-orchestration", "data-engineering"], "tech": ["chromadb", "fastapi", "sqlmodel"], "cluster": "trust", "marketable_angle": "The strongest 'business value' story in the portfolio: a real company, real money, real compliance deadlines — and an AI you can audit. DSPy/MLflow work-in-progress is highly current content.", "story_hook": "When the chatbot answers 'what was my rental income in August,' it had better match the spreadsheet to within 1%.", "tier": "featured", "receipt": "When the chatbot answers “what was my rental income in August,” it must match the spreadsheet to within 1%. The harness checks — 15 questions against CSV ground truth.", "in_graph": true}, {"id": "citation-compass", "name": "Citation Compass", "tagline": "Predicting which papers will cite each other — with TransE embeddings built from scratch.", "description": "Academic citation network platform: a from-scratch TransE knowledge-graph-embedding implementation predicts citation links with confidence scores; Neo4j stores the network; graph algorithms detect research communities and centrality; a 4-notebook research pipeline covers training through analysis; Streamlit dashboard with LaTeX/report export.", "status": "live", "domain": "research & academia", "links": {"docs": "https://docs.barbhs.com/citation-compass/", "live": "https://cartography.barbhs.com/", "repo": "https://github.com/dagny099/citation-compass"}, "capabilities": ["knowledge-graphs", "ml-prediction", "network-science"], "tech": ["neo4j", "streamlit", "plotly"], "cluster": "graphs", "marketable_angle": "Proof of ML depth beyond API calls: implementing TransE from scratch signals you understand embeddings at the math level, not just the import statement. Resonates with research-adjacent roles.", "story_hook": "Everyone uses embeddings. I implemented the embedding model from the paper to understand what it actually learns.", "tier": "featured", "receipt": "From-scratch implementation of TransE knowledge-graph embeddings — not a wrapper, not an API call. The 4-notebook pipeline shows every step.", "in_graph": true}, {"id": "memory-chest", "name": "Digital Memory Chest", "tagline": "Family memories as a knowledge graph — provenance-preserved, Wikidata-enriched, AI-narrated.", "description": "An AI-powered memorial and family-memory platform: photos, audio, and stories are transcribed (Whisper), tagged (CLIP), and organized into a 14-entity knowledge graph enriched with Wikidata, preserving relationships and provenance across generations. AI generates respectful narratives from collected memories; token-based sharing and moderation support collaborative family contribution.", "status": "demo-ready", "domain": "family & memory", "links": {"docs": "https://docs.barbhs.com/digital-memory-chest/", "case_study": "/projects/digital-memory-chest/"}, "capabilities": ["knowledge-graphs", "nlp-extraction", "computer-vision"], "tech": ["neo4j", "streamlit", "sqlmodel"], "cluster": "personal", "marketable_angle": "The most emotionally resonant project — and a direct embodiment of the Sensemaking thesis. Connects to your father's legacy; powerful as a talk or essay rather than a feature list.", "story_hook": "Schema is where meaning lives — including in a family's stories. I gave my family's memories a data model.", "tier": "featured", "receipt": "A 14-entity knowledge graph with Wikidata enrichment — preserving not just memories but the relationships and provenance between them.", "in_graph": true}, {"id": "chronoscope", "name": "ChronoScope", "tagline": "Documents in, interactive timelines out — with gold-standard precision/recall validation.", "description": "AI-powered temporal extraction: upload resumes, letters, or narrative documents and LLMs extract events, dates, people, and places into interactive Plotly timelines. Includes confidence scoring, gold-standard validation with quantitative precision/recall, a knowledge-graph view of extracted entities, multi-document processing, and persistent annotation.", "status": "v1.0 beta", "domain": "narrative & documents", "links": {"docs": "https://docs.barbhs.com/chronoscope/", "case_study": "/projects/chronoscope/"}, "capabilities": ["nlp-extraction", "evaluation", "knowledge-graphs"], "tech": ["streamlit", "plotly", "gcp"], "cluster": "trust", "marketable_angle": "Structured extraction with measured quality is a top enterprise LLM use case. The gold-standard validation angle differentiates it from every 'I made GPT extract stuff' demo.", "story_hook": "Extraction demos are easy. Knowing your extractor's recall is engineering.", "tier": "featured", "receipt": "Every extracted event carries a confidence score, and gold-standard validation reports quantitative precision and recall before you rely on it.", "in_graph": true}, {"id": "fitness-dashboard", "name": "Fitness Dashboard", "tagline": "14 years of workouts, one classifier, and a dashboard that shows its reasoning.", "description": "A full ETL-to-insight pipeline for personal fitness data: imports 14+ years of MapMyRun history, an ML classifier separates real runs from dog walks, statistical trend and outlier detection, and an 'algorithm transparency' layer where every insight is clickable to reveal how it was computed, with confidence scores and user feedback loops. AWS Lambda/S3/RDS pipeline with a Streamlit front end, deployed at workouts.barbhs.com.", "status": "live", "domain": "personal data", "links": {"docs": "https://docs.barbhs.com/fitness-dashboard/", "live": "https://workouts.barbhs.com", "repo": "https://github.com/dagny099/fitness-dashboard", "case_study": "/projects/fitness-dashboard/"}, "capabilities": ["ml-prediction", "evaluation", "data-engineering"], "tech": ["aws", "streamlit", "plotly"], "cluster": "personal", "marketable_angle": "The transparency/explainability layer is the marketable part — 'click any insight to see how it was calculated' is a UX pattern enterprises want for AI features. Also your most relatable LinkedIn material (marathoner + data scientist).", "story_hook": "My classifier had to learn the difference between a marathon training run and walking the dog. Then it had to explain itself.", "tier": "featured", "receipt": "Every automated conclusion is one click away from its own methodology — explainability as a UX pattern, not a compliance checkbox.", "in_graph": true}, {"id": "beehive-tracker", "name": "Beehive Analytics", "tagline": "Four years of hive photos, turned into a queryable knowledge graph with weather context.", "description": "Computer vision meets beekeeping: inspection photos pass through EXIF extraction, Google Cloud Vision analysis (bee/comb detection), color-palette analysis for comb health, and Open-Meteo weather correlation, producing interactive timelines, calendars, and a queryable record. Dockerized, deployed on Google Cloud Run at hivetracker.barbhs.com.", "status": "live", "domain": "nature & craft", "links": {"docs": "https://docs.barbhs.com/beehive-tracker/", "live": "https://hivetracker.barbhs.com", "case_study": "/projects/beehive-tracker/"}, "capabilities": ["computer-vision", "knowledge-graphs", "data-engineering"], "tech": ["gcp", "streamlit", "plotly"], "cluster": "personal", "marketable_angle": "Unbeatable as brand content: beekeeper + computer vision is memorable in a way no SaaS demo can be. Strong multimodal-pipeline credentials (EXIF + vision + weather + color).", "story_hook": "The bees don't keep records. So I taught a vision model to read four years of their history from my photos.", "tier": "featured", "receipt": "A real multimodal pipeline — EXIF, computer vision, color analysis, weather correlation — serving a craft I practice every week.", "in_graph": true}, {"id": "convoscope", "name": "ConvoScope", "tagline": "One chat interface, three LLM providers, zero single points of failure.", "description": "A multi-provider AI chat application with intelligent failover across OpenAI, Anthropic, and Google: when one provider degrades, requests route to the next, transparently. Conversation persistence, session reload, HTML export, and topic extraction; the foundation for later multi-LLM evaluation writing.", "status": "live", "domain": "developer tooling", "links": {"docs": "https://docs.barbhs.com/convoscope/", "repo": "https://github.com/dagny099/convoscope", "case_study": "/projects/convoscope/"}, "capabilities": ["llm-orchestration", "evaluation"], "tech": ["streamlit"], "cluster": "trust", "marketable_angle": "Provider-agnostic architecture is a real enterprise concern (vendor lock-in, outage resilience). Best presented as the origin story of your multi-LLM evaluation practice.", "story_hook": "The first question every enterprise asks about LLMs: 'what happens when the provider goes down?' I built the answer.", "tier": "compact", "receipt": "Provider-agnostic by architecture: when one API degrades, requests route to the next without interrupting the conversation.", "in_graph": true}, {"id": "naruto-network", "name": "Naruto Network Graph", "tagline": "Network science answers what fans argue about: when did the side characters stop mattering?", "description": "Character co-appearance networks extracted from 426 subtitle files across three Naruto story arcs (87 characters, 36 hand-coded validation relationships). Shannon entropy quantifies ensemble balance, community detection tests whether algorithmic clusters match villages and teams, and centrality tracking measures protagonist dominance over time. Inspired by 'Network of Thrones'; pipeline generalizes to any subtitled series. Neo4j import and visualization in progress.", "status": "in progress", "domain": "media & narrative", "links": {"docs": "https://docs.barbhs.com/naruto-network-graph/", "repo": "https://github.com/dagny099/naruto-network-graph"}, "capabilities": ["network-science", "nlp-extraction", "knowledge-graphs", "data-engineering"], "tech": ["neo4j", "networkx"], "cluster": "graphs", "marketable_angle": "Pure virality potential — anime fandom is enormous and data-literate. 'Quantifying when Sakura became irrelevant' is the kind of post that travels far beyond your network. Also quietly demonstrates rigorous pipeline design (hand-coded validation set!).", "story_hook": "Fans have argued about this for 20 years. I have entropy curves.", "tier": "featured", "receipt": "Fans have argued about this for twenty years. I have entropy curves — and a hand-coded ground-truth set of 36 relationships to validate them.", "in_graph": true}, {"id": "concept-cartographer", "name": "Concept Cartographer", "tagline": "Chat with an AI and watch the conversation become a knowledge graph — live.", "description": "A Gradio chat where every turn does double duty: a single structured LLM call returns both a conversational answer and an extracted ontology — typed concepts and relationships — that feed a persistent graph growing across the conversation. Coherence filtering keeps the map readable: past 30 nodes, new concepts must connect to something already on the map. Export the graph as JSON or PNG and pipe it into Neo4j, notes, or slides.", "status": "live", "domain": "sensemaking tools", "links": {"live": "https://concept-cartographer.com/", "repo": "https://github.com/dagny099/concept-cartography-gradio"}, "capabilities": ["knowledge-graphs", "nlp-extraction"], "tech": ["gradio"], "cluster": "graphs", "tier": "featured", "in_graph": true, "receipt": "One structured call per turn extracts narrative and ontology simultaneously — roughly half the latency and cost of the usual two-call pattern.", "marketable_angle": "The Sensemaking thesis as a 60-second live demo — the single best link to put in front of a prospect or hiring manager who asks ‘what do you mean by sensemaking?’", "story_hook": "Every conversation has a hidden map. This one draws it while you talk."}, {"id": "transcript-workbench", "name": "TranscriptWorkbench", "tagline": "A provider-agnostic transcription workbench that tells you what your provider can’t do.", "description": "Audio or video in, transcripts out — with OpenAI, AWS Transcribe, and local faster-whisper adapters all mapped to one canonical transcript schema. The distinctive part is capability negotiation: request timestamps, confidence, or speaker diarization, and the app reports honestly whether your selected provider supports them — supported, partial, proxy, or diagnostic — instead of pretending all ASR providers return equivalent outputs. Raw responses are preserved for reproducibility, jobs persist to SQLite, and a pricing service estimates cost per provider before you run.", "status": "MVP live", "domain": "audio & language", "links": {"live": "https://a2t.barbhs.com/", "repo": "https://github.com/dagny099/baba-transcription-service"}, "capabilities": ["llm-orchestration", "evaluation", "data-engineering"], "tech": ["streamlit", "aws"], "cluster": "trust", "tier": "featured", "in_graph": true, "receipt": "A six-state capability matrix (supported → unsupported) replaces the silent pretense that every speech-to-text provider is interchangeable.", "marketable_angle": "Capability negotiation is an unusually honest design pattern — great LinkedIn essay material on trustworthy AI UX.", "story_hook": "Most transcription apps lie by omission about what their provider supports. This one negotiates."}, {"id": "mj-extension", "name": "Midjourney Image Tracker", "tagline": "Chrome extension that deduplicates and galleries your Midjourney bookmarks.", "description": "Hover any Midjourney image to bookmark it; smart URL standardization collapses thumbnail and full-size variants of the same image to prevent duplicates; export the collection as an offline HTML gallery or a plain URL list.", "status": "stable", "domain": "creative tooling", "links": {"repo": "https://github.com/dagny099/mj-extension", "case_study": "/projects/midjourney-extension/"}, "capabilities": ["data-engineering"], "tech": [], "cluster": "personal", "tier": "compact", "in_graph": false, "receipt": "URL standardization collapses every format variant of an image to one canonical key — small tool, real data-modeling discipline.", "marketable_angle": "Shows JavaScript / browser-extension range beyond the Python stack.", "story_hook": ""}], "capabilities": [{"id": "graphrag", "name": "GraphRAG & Retrieval", "description": "Hybrid retrieval combining vector similarity with knowledge-graph structure; tunable scoring, tier gating, backend A/B comparison."}, {"id": "knowledge-graphs", "name": "Knowledge Graphs", "description": "Modeling domains as entities and relationships in Neo4j — from family memories to citations to beehives. The portfolio's connective tissue."}, {"id": "evaluation", "name": "Evaluation & Trust", "description": "Eval harnesses, gold-standard validation, ground-truth checking, algorithm transparency, confidence scoring. Appears in 6 of 9 projects — the portfolio's strongest differentiator."}, {"id": "nlp-extraction", "name": "NLP & Structured Extraction", "description": "Turning unstructured text — documents, subtitles, transcripts — into typed events, entities, and relationships."}, {"id": "ml-prediction", "name": "ML & Prediction", "description": "From-scratch TransE embeddings for link prediction; classical classifiers with explainable outputs."}, {"id": "network-science", "name": "Network Science", "description": "Centrality, community detection, entropy — quantifying structure in citation networks and fictional narratives alike."}, {"id": "computer-vision", "name": "Computer Vision", "description": "Cloud Vision and CLIP pipelines extracting structure from photographs — hive health, memory tagging."}, {"id": "llm-orchestration", "name": "Multi-LLM Orchestration", "description": "Provider-agnostic architectures via LiteLLM and custom failover; model comparison as a first-class workflow."}, {"id": "data-engineering", "name": "Data Engineering & ETL", "description": "Ingestion pipelines with provenance tracking: CSV imports, accrual accounting, subtitle parsing, AWS Lambda ETL."}], "tech": [{"id": "neo4j", "name": "Neo4j"}, {"id": "chromadb", "name": "ChromaDB"}, {"id": "streamlit", "name": "Streamlit"}, {"id": "gradio", "name": "Gradio"}, {"id": "fastapi", "name": "FastAPI"}, {"id": "sqlmodel", "name": "SQLModel"}, {"id": "plotly", "name": "Plotly"}, {"id": "aws", "name": "AWS"}, {"id": "gcp", "name": "Google Cloud"}, {"id": "litellm", "name": "LiteLLM"}, {"id": "networkx", "name": "NetworkX"}], "archive": [{"name": "CareerCraft (2024)", "line": "GenAI cover-letter assistant with ATS gap analysis — my first deployed LLM product.", "link": "https://www.barbhs.com/projects/careercraft/"}, {"name": "IoT Temperature Sensor Fleet (2021)", "line": "Distributed MQTT sensor network — where I learned real-time streams must be chunked for comprehension.", "link": "https://www.barbhs.com/posts//temp-sensor-00/"}, {"name": "Digital Portfolio Workshop Series (2024)", "line": "Hands-on sessions codifying a repeatable information architecture for data portfolios — the ancestor of this very page.", "link": "https://www.barbhs.com/posts/getting-started-with-github-pages/"}]};
+
+const capName  = id => DATA.capabilities.find(c=>c.id===id)?.name || id;
+const techName = id => DATA.tech.find(t=>t.id===id)?.name || id;
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+
+function linksHTML(p, primaryFirst=true){
+  const L = p.links||{};
+  const out = [];
+  if(L.live) out.push(`<a class="${primaryFirst?'primary':''}" href="${L.live}" target="_blank" rel="noopener">Live demo</a>`);
+  if(L.case_study) out.push(`<a href="${L.case_study}">Case study</a>`);
+  if(L.docs) out.push(`<a href="${L.docs}" target="_blank" rel="noopener">Docs</a>`);
+  if(L.repo) out.push(`<a href="${L.repo}" target="_blank" rel="noopener">Source</a>`);
+  return out.join("");
+}
+function chipsHTML(p){
+  return `<div class="chips">`
+    + p.capabilities.map(c=>`<span class="chip cap">${capName(c)}</span>`).join("")
+    + p.tech.map(t=>`<span class="chip">${techName(t)}</span>`).join("")
+    + `</div>`;
+}
+function cardHTML(p){
+  const liveTag = (p.links&&p.links.live) ? `<span class="live">live</span> · ` : "";
+  return `<article class="card" data-caps="${p.capabilities.join(",")}">
+    <div class="kicker">${liveTag}${esc(p.status)} · ${esc(p.domain)}</div>
+    <h3>${esc(p.name)}</h3>
+    <p class="tagline">${esc(p.tagline)}</p>
+    <p class="desc">${esc(p.description)}</p>
+    <p class="receipt">${esc(p.receipt)}</p>
+    ${chipsHTML(p)}
+    <div class="links">${linksHTML(p)}</div>
+  </article>`;
+}
+
+/* flagship */
+const flag = DATA.projects.find(p=>p.tier==="flagship");
+document.getElementById("flagship").innerHTML = `
+  <div class="flagship card" data-caps="${flag.capabilities.join(",")}">
+    <div>
+      <div class="kicker"><span class="live">live</span> · ${esc(flag.domain)}</div>
+      <h3>${esc(flag.name)}</h3>
+      <p class="tagline">${esc(flag.tagline)}</p>
+      <p class="desc" style="margin-top:.6rem">${esc(flag.description)}</p>
+      <p class="receipt" style="margin-top:.8rem">${esc(flag.receipt)}</p>
+    </div>
+    <aside>
+      ${chipsHTML(flag)}
+      <div class="links">${linksHTML(flag)}
+        <a href="https://graphy.twin.barbhs.com" target="_blank" rel="noopener">Graph backend A/B</a>
+      </div>
+    </aside>
+  </div>`;
+
+/* clusters */
+const order = ["trust","graphs","personal"];
+const clustersEl = document.getElementById("clusters");
+order.forEach((key,idx)=>{
+  const sec = DATA.meta.sections[key];
+  const ps = DATA.projects.filter(p=>p.tier==="featured" && p.cluster===key);
+  if(!ps.length) return;
+  const el = document.createElement("section");
+  el.innerHTML = `
+    <div class="sec-head">
+      <div class="eyebrow">0${idx+2} · ${ps.length} projects</div>
+      <h2>${sec.title}</h2>
+      <p>${sec.intro}</p>
+    </div>
+    <div class="grid">${ps.map(cardHTML).join("")}</div>`;
+  clustersEl.appendChild(el);
+});
+
+/* workbench: compact-tier projects + archive */
+const bench = document.getElementById("bench");
+const compact = DATA.projects.filter(p=>p.tier==="compact");
+bench.innerHTML =
+  compact.map(p=>`<div class="bench-row" data-caps="${p.capabilities.join(",")}">
+      <strong>${esc(p.name)}</strong>
+      <span>${esc(p.tagline)} ${esc((p.receipt||"").split("—")[0]||"")}</span>
+      ${linksHTML(p,false)}
+    </div>`).join("")
+  + DATA.archive.map(a=>`<div class="bench-row">
+      <strong>${esc(a.name)}</strong><span>${esc(a.line)}</span>
+      <a href="${a.link}">Read more →</a>
+    </div>`).join("");
+
+/* filters */
+const filtersEl = document.getElementById("filters");
+const usedCaps = DATA.capabilities.filter(c => DATA.projects.some(p=>p.capabilities.includes(c.id)));
+filtersEl.innerHTML = `<button data-cap="all" aria-pressed="true">All</button>`
+  + usedCaps.map(c=>`<button data-cap="${c.id}" aria-pressed="false">${c.name}</button>`).join("");
+
+filtersEl.addEventListener("click", e=>{
+  const btn = e.target.closest("button"); if(!btn) return;
+  filtersEl.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", b===btn));
+  const cap = btn.dataset.cap;
+  document.querySelectorAll("[data-caps]").forEach(el=>{
+    const match = cap==="all" || el.dataset.caps.split(",").includes(cap);
+    el.classList.toggle("dim", !match);
+  });
+});
+
+</script>
+{% endraw %}

@@ -1,0 +1,77 @@
+<!-- ==================================================================
+  schema-jsonld.html  |  structured data for search engines
+  PLACE: _includes/schema-jsonld.html
+  WIRED FROM: _includes/head/custom.html via an include tag naming this
+  file (already done). NOTE: this comment deliberately avoids writing
+  that tag out literally — Liquid executes inside HTML comments, and a
+  literal include-self tag here causes infinite recursion.
+  ALSO: add jekyll-seo-tag to the plugins list in _config.yml.
+  REQUIRES: _data/portfolio.json for the /projects/ ItemList block.
+=================================================================== -->
+
+{% if page.url == "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://barbhs.com/#person",
+  "name": "Barbara Hidalgo-Sotelo",
+  "url": "https://barbhs.com",
+  "image": "https://barbhs.com/assets/images/biopic/bhs-new-headshot-v1.png",
+  "jobTitle": "AI/ML Consultant & Cognitive Scientist",
+  "description": "Cognitive scientist and AI engineer building knowledge graphs, GraphRAG systems, and evaluation-first AI. Founder of Sensemaking AI.",
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology" },
+    { "@type": "CollegeOrUniversity", "name": "The University of Texas at Austin" }
+  ],
+  "knowsAbout": ["Knowledge Graphs", "Retrieval-Augmented Generation", "AI Evaluation", "Cognitive Science", "Machine Learning", "Semantic Web"],
+  "knowsLanguage": ["en", "es"],
+  "sameAs": [
+    "https://www.linkedin.com/in/barbara-hidalgo-sotelo/",
+    "https://github.com/dagny099",
+    "https://sensemaking-ai.com",
+    "https://curriculum.barbhs.com"
+  ],
+  "worksFor": { "@type": "Organization", "name": "Sensemaking AI", "url": "https://sensemaking-ai.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://barbhs.com/#website",
+  "url": "https://barbhs.com",
+  "name": "Barbara Hidalgo-Sotelo",
+  "description": "{{ site.description }}",
+  "publisher": { "@id": "https://barbhs.com/#person" }
+}
+</script>
+{% endif %}
+
+{% if page.url == "/projects/" and site.data.portfolio %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Projects — Barbara Hidalgo-Sotelo",
+  "url": "https://barbhs.com/projects/",
+  "numberOfItems": {{ site.data.portfolio.projects | size }},
+  "itemListElement": [
+    {% for p in site.data.portfolio.projects %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": {{ p.name | jsonify }},
+        "description": {{ p.tagline | jsonify }},
+        "url": {% if p.links.live %}{{ p.links.live | jsonify }}{% elsif p.links.docs %}{{ p.links.docs | jsonify }}{% else %}{{ p.links.repo | jsonify }}{% endif %},
+        "author": { "@id": "https://barbhs.com/#person" },
+        "applicationCategory": "DeveloperApplication"
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

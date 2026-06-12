@@ -24,13 +24,13 @@ sitemap: false
 /* 3) (Optional) Bring back old overrides gradually */
 // @import "legacy";
 
-/* Force gradient background on hero */
+/* Force gradient background on hero
 .page__hero--overlay {
   background: linear-gradient(135deg, #2c3e50 0%, #3d4f61 100%) !important;
   background-color: transparent !important;
-}
+}  */
 
-/* Target the overlay specifically */
+/* Target the overlay specifically 
 .page__hero--overlay::before {
   background: linear-gradient(135deg, #2c3e50 0%, #3d4f61 100%) !important;
-}
+} */

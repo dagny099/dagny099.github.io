@@ -9,11 +9,11 @@ classes: home
 author_profile: false
 excerpt: >
   <span class="hero-headline">
-    The best systems don't just work. They make sense.
+    The best systems don't just work.<br>They make sense.
   </span>
 
   <span class="hero-subheadline">
-    I help teams align people, data, and technology so complex systems become easier to understand, build, and adopt.
+  I build AI and data systems — and help teams adopt them — so complex work becomes easier to understand, verify, and trust.
   </span>
 
   <span class="hero-ctas hero-ctas--centered">
@@ -23,8 +23,9 @@ excerpt: >
   </span>
 
 header:
-  overlay_filter: 0.7;
-  overlay_color: "#4a3a5f"
+  overlay_image: /assets/images/hero-banner.png
+  overlay_filter: "rgba(12, 31, 27, 0.2)"   # rgba string — your include's gradient branch
+  overlay_color: "#124B42"                   # fallback while image loads
   caption: Applied AI · Knowledge Systems · Strategy & Adoption · MIT PhD in Cognitive Science
   profile_image: /assets/images/biopic/bhs-new-headshot-v1.png
 
@@ -34,46 +35,50 @@ feature_row:
     alt: "Fitness Dashboard"
     title: "Self-Hosted Workout Intelligence"
     excerpt: >
-      <strong>Attention patterns reveal signal in 14 years of messy data.</strong><br><br>
-      When my running data collided with daily dog walks, every workout got mislabeled as a "run"—even the 30 minute sniff walks. 
-      I built a full pipeline (auto csv export → <i class="fab fa-aws"></i> λ → <i class="fas fa-database"></i> → <i class="fas fa-chart-line"></i>) 
-      that classifies runs vs. walks using ML, with built-in model retraining for transparency. 
+      <strong>14 years of workouts. One classifier. Every conclusion shows its work.</strong><br><br>
+      When my running history collided with daily dog walks, everything got logged as a "run" —
+      including the 30-minute sniff safaris. So I built the full pipeline
+      (CSV export → <i class="fab fa-aws"></i> Lambda → <i class="fas fa-database"></i> MySQL → Streamlit)
+      with an ML classifier that tells real runs from walks.
       <br><br>
-      <em>Cognitive insight: Humans recognize patterns through contrast and repetition—this system leverages both to surface the real story in behavioral data.</em>
+      <em>The part I'd defend in a design review: every insight is one click away from exactly how it was calculated — confidence scores included.</em>
     url: /projects/fitness-dashboard/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/fitness-dashboard/
     docs_label: "Docs"
-    
-  - image_path: /assets/images/teasers/proj-convo-v1-1024x768.jpg
-    alt: "Convoscope"
-    title: "Conversational AI Management"
+
+  - image_path: /assets/images/teasers/proj-cartographer-v1-1024x768.jpg
+    alt: "Concept Cartographer"
+    title: "Concept Cartographer"
     excerpt: >
-      <strong>Multi-modal comparison designed for cognitive load management.</strong><br><br>
-      Hopping between AI providers while losing track of what worked where felt increasingly inefficient. Convoscope is my solution: 
-      one interface, <i class='fas fa-robot'></i> multiple models (OpenAI, Anthropic, Google), <i class='fas fa-save'></i> persistent 
-      conversation history, and automatic topic extraction. It's a flexible workspace for comparing outputs side-by-side.
+      <strong>Chat with an AI and watch the conversation become a knowledge graph — live.</strong><br><br>
+      Every turn, a single structured LLM call returns both the conversational answer and the
+      extracted concepts and relationships, growing a persistent map across the conversation.
+      Past 30 nodes, new concepts must connect to something already on the map — so it stays
+      a map, not a junk drawer. Export to JSON or PNG when you're done.
       <br><br>
-      <em>Cognitive insight: Working memory can only hold 7±2 items—by offloading comparison to visual space, we free cognitive resources for actual thinking.</em>
-    url: /projects/convoscope/
-    btn_label: "Project"
-    docs_url: https://docs.barbhs.com/convoscope/
-    docs_label: "Docs"
-    
+      <em>The part I'd defend in a design review: one call extracts narrative and ontology simultaneously — about half the latency and cost of the obvious two-call approach.</em>
+    url: https://concept-cartographer.com/
+    btn_label: "Live demo"
+    docs_url: https://github.com/dagny099/concept-cartography-gradio
+    docs_label: "Source"
+   
   - image_path: /assets/images/teasers/proj-beehive-v1-1024x768.jpg
     alt: "Beehive Tracker"
     title: "Beehive Analytics Platform"
     excerpt: >
-      <strong>Computer vision meets human memory to structure 4 years of visual documentation.</strong><br><br>
-      Four years of unlabeled bee photos became a living knowledge base by combining <i class='fas fa-camera'></i> EXIF metadata, 
-      Google Cloud Vision, and <i class='fas fa-cloud-sun'></i> weather APIs. The result: a knowledge graph with a query UI that 
-      surfaces patterns—when swarms happened, which seasons were productive, what weather preceded problems.
+      <strong>Four years of hive photos, turned into a record I can actually query.</strong><br><br>
+      The bees don't keep records. So <i class='fas fa-camera'></i> EXIF metadata, Google Cloud
+      Vision, and <i class='fas fa-cloud-sun'></i> weather APIs turn my inspection photos into a
+      knowledge graph with a query UI — when swarms happened, which seasons produced, what
+      weather preceded trouble.
       <br><br>
-      <em>Cognitive insight: Human memory is associative, not chronological—this system mirrors how beekeepers actually recall and connect observations.</em>
+      <em>The part I'd defend in a design review: a real multimodal pipeline — image metadata, vision API, color analysis, weather correlation — serving a craft I practice every week.</em>
     url: /projects/beehive-tracker/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/beehive-tracker/
     docs_label: "Docs"
+
 ---
 <!--
 <div class="home-section">
@@ -121,7 +126,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </div>
 
     <aside class="current-feature__thesis" aria-label="Thesis behind this series">
-      <p class="current-feature__thesis-body">Some AI problems need probability. Some need structure. Good design begin with knowing the difference.</p>
+      <p class="current-feature__thesis-body">Some AI problems need probability. Some need structure. Good design begins with knowing the difference.</p>
       <p class="current-feature__thesis-aside">
         <!-- TODO: replace placeholder with real Buttondown subscribe URL once configured -->
         <a href="https://buttondown.email/barbarahs" target="_blank" rel="noopener">Follow along by email →</a>
@@ -356,7 +361,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
 /* Ensure resource mini icons align with cognitive theme */
 .resource-mini__icon {
-  color: #4a90e2;
+  color: #1B6B5E;
 }
 
 /* Add subtle animation to the cognitive principles section */
@@ -384,8 +389,8 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 }
 
 .home-section--writing {
-  background: #f9fbfd;
-  border: 1px solid #e5e7eb;
+  background: #F6F3EC;
+  border: 1px solid #E3DDD2;
   border-radius: 16px;
   padding: 1.75rem;
 }
@@ -402,13 +407,13 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   margin: 0.5rem auto 1.5rem;
   max-width: 720px;
   text-align: center;
-  color: #6b7280;
+  color: #5C5A53;
 }
 
 /* Featured Projects mirrors Writing's outline + internal rhythm, without the tinted background */
 .home-section--projects {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E3DDD2;
   border-radius: 16px;
   padding: 1.75rem;
   margin-bottom: 0.75rem; /* tighten the gap to Featured Writing — they're paired */
@@ -436,7 +441,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
 .featured-writing__card {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #E3DDD2;
   border-radius: 14px;
   padding: 1.5rem;
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
@@ -455,8 +460,8 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #4338ca;
-  background: #e0e7ff;
+  color: #124B42;
+  background: #E2EFEA;
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
   width: fit-content;
@@ -480,7 +485,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 .home-closer__body {
   font-size: 1.15rem;
   line-height: 1.6;
-  color: #374151;
+  color: #2E2C28;
   margin: 0 0 1.25rem;
 }
 
@@ -498,13 +503,13 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 }
 
 .featured-writing__badge--thinking {
-  color: #7c3aed;
-  background: #ede9fe;
+  color: #B5503A;
+  background: #F9E4DD;
 }
 
 .featured-writing__badge--tutorial {
-  color: #0f766e;
-  background: #ccfbf1;
+  color: #1B6B5E;
+  background: #E2EFEA;
 }
 
 .featured-writing__link {

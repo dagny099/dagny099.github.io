@@ -124,6 +124,7 @@ permalink: /blog/:title/
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed

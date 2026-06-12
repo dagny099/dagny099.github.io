@@ -1565,3 +1565,168 @@ h1, h2, h3, h4, h5, h6{
     height: 140px;
   }
 }
+
+
+/* ==================================================================
+   MEANING LAYER RESKIN — append this entire block to the END of
+   _custom.scss (or @import it after). Later-in-cascade rules win,
+   so this overrides without you hunting hexes through 1,500 lines.
+
+   System: The Meaning Layer (curriculum style guide)
+   Paper #FBFAF6 · Teal #1B6B5E · Teal deep #124B42 · Coral #DC6B4F
+   Code bg #14201E · Ink #1A1A1A
+   EB Garamond (display) · IBM Plex Sans (body/UI) · IBM Plex Mono (code)
+   ================================================================== */
+
+/* ---- 0. Fonts ----------------------------------------------------
+   Minimal Mistakes alternative: add the <link> tags to
+   _includes/head/custom.html instead of @import (faster). Either works. */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ---- 1. Token redefinition ---------------------------------------
+   Everything in your file that already uses var(--…) flips automatically. */
+:root{
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-heading: "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --surface: #FFFFFF;
+  --surface-muted: #F6F3EC;          /* was #f9fafb (cool gray) */
+  --surface-border: #E3DDD2;         /* was #e5e7eb */
+  --ink-900: #1A1A1A;
+  --ink-700: #2E2C28;
+  --ink-500: #5C5A53;
+
+  /* NOTE: token keeps its old NAME so every existing var() reference
+     keeps working, but it now carries coral. When convenient, rename
+     --accent-amber → --accent-coral throughout for honesty. */
+  --accent-amber: #DC6B4F;           /* coral — secondary/warm accent */
+  --accent-teal: #1B6B5E;            /* NEW — primary accent */
+  --accent-teal-deep: #124B42;       /* NEW — hovers, dark accents */
+  --code-bg: #14201E;                /* NEW — code blocks, dark bands */
+
+  --nav-underline: var(--accent-teal);
+}
+
+/* ---- 2. Base surfaces & type ------------------------------------ */
+body{ background: #FBFAF6; }
+h1, h2, h3, h4, h5, h6{ letter-spacing: 0; font-weight: 500; } /* Garamond needs no negative tracking */
+code, pre, kbd{ font-family: var(--font-mono); }
+
+/* ---- 3. Hard-coded colors the tokens can't reach -----------------
+   Same selectors as the originals, appended later → these win. */
+
+/* links (was #0f7498) */
+.text-link{ color: var(--accent-teal); }
+
+/* project filter chips (was #0e7490) */
+.project-page .filter-chip[aria-pressed="true"]{
+  background: var(--accent-teal);
+  border-color: var(--accent-teal);
+  box-shadow: 0 4px 16px rgba(27,107,94,.25);
+}
+
+/* masthead icons (was #0e7490 / hover #e55723) */
+.masthead{
+  --nav-icon: var(--accent-teal);
+  --nav-icon-hover: var(--accent-amber);   /* coral on hover — the one warm note */
+}
+
+/* card CTA buttons: default --section-accent fallbacks (were #2a6f97 / #0f766e) */
+.card__footer .btn--cta.primary{ background: var(--section-accent, #1B6B5E); }
+.card__footer .btn--cta.secondary{
+  background: color-mix(in oklab, var(--section-accent, #1B6B5E) 12%, #fff);
+  color: color-mix(in oklab, var(--section-accent, #1B6B5E) 85%, #000);
+}
+.home .feature__wrapper .btn--cta{ --c: var(--section-accent, #1B6B5E); }
+
+/* writing-tabs primary button (was amber #e55723 — now teal; coral stays for hover-warmth only) */
+.writing-tabs .btn.is-primary{
+  background: var(--accent-teal);
+  border-color: var(--accent-teal-deep);
+  box-shadow: 0 10px 22px rgba(27,107,94,.25);
+}
+
+/* series accents (were blue #2563eb / teal #0f766e) — unify */
+.series-page--website{
+  --series-accent: #1B6B5E;
+  --series-hero-bg: linear-gradient(135deg, #EFF5F1 0%, #FBFAF6 60%, #F6F3EC 100%);
+  --series-hero-border: rgba(27,107,94,.22);
+}
+.series-page--sensor{ --series-accent: #124B42; }
+
+/* journey headings (was slate #2c3e50) */
+.journey-page{ --journey-heading-color: var(--ink-900); }
+
+/* soft hero gradient (was cool gray-blue) */
+.soft-hero{ background: linear-gradient(135deg, #FBFAF6 0%, #F1EEE5 100%); }
+
+/* ---- 4. Optional polish ------------------------------------------ */
+.eyebrow{ font-family: var(--font-mono); letter-spacing: .12em; color: var(--accent-teal-deep); }
+.pill--accent{
+  background: color-mix(in oklab, var(--accent-teal) 12%, #fff);
+  border-color: color-mix(in oklab, var(--accent-teal) 28%, transparent);
+  color: var(--accent-teal-deep);
+}
+
+/* ==================================================================
+   MEANING LAYER — PHASE 1b PATCH
+   Append BELOW the existing reskin block at the end of _sass/_custom.scss.
+   Covers the survivors found in the audit: theme-default button blue,
+   duo-card purple, thesis-quote purple, module pill amber, role-card ramp.
+   ================================================================== */
+
+/* Minimal Mistakes' default primary button (the blue "Explore the curriculum") */
+.btn--primary{
+  background-color: #1B6B5E;
+}
+.btn--primary:hover,
+.btn--primary:focus{
+  background-color: #124B42;
+}
+
+/* Digital Twin duo card — was lavender/purple (scss ~line 624) */
+.home .duo-row__card--twin{
+  background:
+    radial-gradient(circle at top right, rgba(27,107,94,.10), transparent 45%),
+    linear-gradient(135deg, #FFFFFF 0%, #EFF5F1 100%);
+  border-color: rgba(27,107,94,.25);
+}
+.duo-row__card--twin .duo-row__eyebrow{ color: #DC6B4F; }  /* INTERACTIVE label → coral */
+
+/* Curriculum thesis quote card — was purple border + lavender tint */
+.home .current-feature__thesis{
+  background: #F6F3EC;
+  border-left-color: #DC6B4F;          /* coral pull-quote rule, matches portal receipts */
+}
+.home .current-feature__thesis a{ color: #1B6B5E; }
+.home .current-feature__thesis a:hover{ color: #124B42; }
+
+/* Module arc active pill — was amber/yellow */
+.home .module-arc__item--active{
+  background: #E2EFEA;
+  color: #124B42;
+}
+
+/* Work With Me role-card domain ramp — was indigo/violet (scss ~lines 1210–1215) */
+.role-card[data-domain="public sector"]{ --c: #1B6B5E; }
+.role-card[data-domain="enterprise transformation"]{ --c: #DC6B4F; }
+/* any other data-domain values: assign from { #124B42, #1B6B5E, #DC6B4F, #B5503A } */
+
+/* ---- OPTIONAL: hero gradient (teal-deep → code-bg, echoes the curriculum band).
+   background-image layers legally over the include's inline background-color,
+   so no !important required. Delete this rule to keep flat #124B42. ---- */
+.home .page__hero--overlay{
+  background-image: linear-gradient(135deg, #124B42 0%, #14201E 100%);
+}
+
+/* ---- OPTIONAL: hero headline in EB Garamond (matches curriculum masthead).
+   Uncomment to try; Garamond runs optically smaller, hence the size bump. ---- */
+/*
+.hero-headline{
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2.1rem, 2.9vw, 3.1rem);
+  letter-spacing: 0;
+}
+*/
