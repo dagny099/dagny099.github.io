@@ -35,7 +35,7 @@ classes: [journey-page]
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     margin-bottom: 2rem;
-    border-left: 4px solid var(--accent-color, #e17b47);
+    border-left: 4px solid var(--accent-color, #DC6B4F);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
   }
@@ -49,9 +49,9 @@ classes: [journey-page]
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: var(--accent-color, #e17b47);
+    background: var(--accent-color, #DC6B4F);
     border: 3px solid white;
-    box-shadow: 0 0 0 1px var(--accent-color, #e17b47);
+    box-shadow: 0 0 0 1px var(--accent-color, #DC6B4F);
     z-index: 2;
   }
   
@@ -63,7 +63,7 @@ classes: [journey-page]
     left: -6px;
     width: 2px;
     height: calc(100% + 1rem);
-    background: linear-gradient(to bottom, var(--accent-color, #e17b47), rgba(225, 123, 71, 0.3));
+    background: linear-gradient(to bottom, var(--accent-color, #DC6B4F), rgba(225, 123, 71, 0.3));
     z-index: 1;
   }
   
@@ -100,7 +100,7 @@ classes: [journey-page]
     right: 1.5rem;
     font-size: 1.5rem;
     opacity: 0.6;
-    color: var(--accent-color, #e17b47);
+    color: var(--accent-color, #DC6B4F);
   }
   
   /* Timeline card chips */
@@ -118,9 +118,9 @@ classes: [journey-page]
     align-items: center;
     gap: 0.35rem;
     padding: 0.35rem 0.75rem;
-    background: color-mix(in oklab, var(--accent-color, #e17b47) 12%, white);
-    color: color-mix(in oklab, var(--accent-color, #e17b47) 85%, black);
-    border: 1px solid color-mix(in oklab, var(--accent-color, #e17b47) 25%, transparent);
+    background: color-mix(in oklab, var(--accent-color, #DC6B4F) 12%, white);
+    color: color-mix(in oklab, var(--accent-color, #DC6B4F) 85%, black);
+    border: 1px solid color-mix(in oklab, var(--accent-color, #DC6B4F) 25%, transparent);
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 500;
@@ -129,8 +129,8 @@ classes: [journey-page]
   }
   
   .chip:hover {
-    background: color-mix(in oklab, var(--accent-color, #e17b47) 20%, white);
-    border-color: color-mix(in oklab, var(--accent-color, #e17b47) 40%, transparent);
+    background: color-mix(in oklab, var(--accent-color, #DC6B4F) 20%, white);
+    border-color: color-mix(in oklab, var(--accent-color, #DC6B4F) 40%, transparent);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
@@ -142,7 +142,7 @@ classes: [journey-page]
   
   /* Chip type variants */
   .chip.academic {
-    --chip-accent: #4a90e2;
+    --chip-accent: #1B6B5E;
     background: color-mix(in oklab, var(--chip-accent) 12%, white);
     color: color-mix(in oklab, var(--chip-accent) 85%, black);
     border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
@@ -156,7 +156,7 @@ classes: [journey-page]
   }
   
   .chip.learning {
-    --chip-accent: #7b68ee;
+    --chip-accent: #124B42;
     background: color-mix(in oklab, var(--chip-accent) 12%, white);
     color: color-mix(in oklab, var(--chip-accent) 85%, black);
     border-color: color-mix(in oklab, var(--chip-accent) 25%, transparent);
@@ -176,7 +176,7 @@ classes: [journey-page]
     font-weight: bold;
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
-    color: var(--accent-color, #e17b47);
+    color: var(--accent-color, #DC6B4F);
     margin-bottom: 0.5rem;
   }
   /* .section-title {
@@ -220,10 +220,10 @@ classes: [journey-page]
   }
   
   /* Color scheme variables - easily customizable */
-  .academic { --accent-color: #4a90e2; }
-  .transition { --accent-color: #7b68ee; }
+  .academic { --accent-color: #1B6B5E; }
+  .transition { --accent-color: #124B42; }
   .entrepreneurial { --accent-color: #50c878; }
-  .consulting { --accent-color: #e17b47; }
+  .consulting { --accent-color: #DC6B4F; }
   .data-science { --accent-color: #ff6b6b; }
   
   .lens h4 {
@@ -263,10 +263,10 @@ classes: [journey-page]
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
-  .experimental { --card-color: #4a90e2; }
-  .visual { --card-color: #7b68ee; }
+  .experimental { --card-color: #1B6B5E; }
+  .visual { --card-color: #124B42; }
   .attention { --card-color: #50c878; }
-  .systems { --card-color: #e17b47; }
+  .systems { --card-color: #DC6B4F; }
 
   @media (max-width: 768px) {
     .principles-grid, .lenses-grid {
@@ -341,8 +341,8 @@ classes: [journey-page]
 }
 
 .jump-link a:hover {
-  color: #1f4a64; /* or your theme accent */
-  border-bottom-color: rgba(31,74,100,0.55);
+  color: #124B42; /* or your theme accent */
+  border-bottom-color: rgba(18,75,66,0.55);
 }
 
 .anchor {
@@ -500,28 +500,28 @@ classes: [journey-page]
   </p>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; max-width: 800px; margin: 0 auto;">
-    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #e17b47;">
+    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #DC6B4F;">
       <span style="font-size: 1.75rem;">🏃‍♀️</span>
       <h4 style="margin: 0.5rem 0 0.25rem; color: #1c1c1c;">Marathon Runner</h4>
       <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;">Long-distance thinking, one mile at a time</p>
     </div>
 
-    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #4a90e2;">
+    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #1B6B5E;">
       <span style="font-size: 1.75rem;">🎤</span>
       <h4 style="margin: 0.5rem 0 0.25rem; color: #1c1c1c;">Bilingual Toastmaster</h4>
-      <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;"><a href="https://7032821.toastmastersclubs.org/" target="_blank" rel="noopener" style="color: #4a90e2;">Club 7032821</a> — practice explaining complex ideas clearly</p>
+      <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;"><a href="https://7032821.toastmastersclubs.org/" target="_blank" rel="noopener" style="color: #1B6B5E;">Club 7032821</a> — practice explaining complex ideas clearly</p>
     </div>
 
     <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #50c878;">
       <span style="font-size: 1.75rem;">🗳️</span>
       <h4 style="margin: 0.5rem 0 0.25rem; color: #1c1c1c;">Deputy Voter Registrar</h4>
-      <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;">Civic engagement via  <a href="https://foundcom.org/" target="_blank" rel="noopener" style="color: #1fafa7;">Foundation Communities</a></p>
+      <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;">Civic engagement via  <a href="https://foundcom.org/" target="_blank" rel="noopener" style="color: #1B6B5E;">Foundation Communities</a></p>
     </div>
 
-    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #7b68ee;">
+    <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #124B42;">
       <span style="font-size: 1.75rem;">🐝</span>
       <h4 style="margin: 0.5rem 0 0.25rem; color: #1c1c1c;">Backyard Beekeeper</h4>
-      <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;">4 years of hives, now a <a href="/projects/beehive-tracker/" style="color: #7b68ee;">data project</a></p>
+      <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;">4 years of hives, now a <a href="/projects/beehive-tracker/" style="color: #124B42;">data project</a></p>
     </div>
 
       <!-- <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #e85a71;">
@@ -536,11 +536,11 @@ classes: [journey-page]
       <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;">Finding design patterns in fictional futures — currently exploring <a href="https://adriantchaikovsky.com/" target="_blank" rel="noopener" style="color: #9b59b6;">Tchaikovsky</a></p>
     </div>.-->
 
-  <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #1fafa7;">
+  <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #1B6B5E;">
     <span style="font-size: 1.75rem;">🌐</span>
     <h4 style="margin: 0.5rem 0 0.25rem; color: #1c1c1c;">Open Data Advocate</h4>
     <p style="margin: 0; font-size: 0.9rem; color: #5a6c7d;">
-    Striving to expand knowledge for the public good — Inspired by the stunningly informative visuals at <a href="https://distill.pub/" style="color: #1fafa7;">Our World in Data</a>
+    Striving to expand knowledge for the public good — Inspired by the stunningly informative visuals at <a href="https://distill.pub/" style="color: #1B6B5E;">Our World in Data</a>
     </p>
   </div>
 
@@ -694,7 +694,7 @@ classes: [journey-page]
     </a>
 
     <a href="/research/" style="text-decoration: none;">
-      <div class="timeline-card" style="--accent-color: #4a90e2; cursor: pointer;">
+      <div class="timeline-card" style="--accent-color: #1B6B5E; cursor: pointer;">
         <div style="display: flex; align-items: center; gap: 1rem;">
           <span style="font-size: 2rem;">🔬</span>
           <div>
@@ -718,7 +718,7 @@ classes: [journey-page]
     </a>
 
     <a href="/assets/docs/Hidalgo-Sotelo_Academic_CV.pdf" target="_blank" style="text-decoration: none;">
-      <div class="timeline-card" style="--accent-color: #7b68ee; cursor: pointer;">
+      <div class="timeline-card" style="--accent-color: #124B42; cursor: pointer;">
         <div style="display: flex; align-items: center; gap: 1rem;">
           <span style="font-size: 2rem;">🎓</span>
           <div>

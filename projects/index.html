@@ -28,10 +28,13 @@ show_title: false
 .mlp .wrap{max-width:1060px;margin:0 auto;padding:0 1.4rem}
 /* masthead */
 /* hero */
-.mlp .hero{padding:4rem 0 2.4rem}
+.mlp .hero{padding:1.4rem 0 2.4rem}
+.mlp .hero-top{display:grid;grid-template-columns:3fr 2fr;gap:2.4rem;align-items:center}
+.mlp .hero-text{min-width:0}
+.mlp .hero-image{width:100%;height:auto;border-radius:10px;display:block}
+@media(max-width:760px){.mlp .hero-top{grid-template-columns:1fr}}
 .mlp .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:.7rem}
-.mlp h1{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(2.4rem,5.5vw,3.7rem);line-height:1.06;max-width:16ch}
-.mlp h1 em{font-style:italic;color:var(--coral)}
+.mlp h1{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;max-width:18ch}
 .mlp .hero p{max-width:56ch;margin-top:1.1rem;font-size:1.02rem;color:var(--ink)}
 .mlp .hero .map-link{display:inline-block;margin-top:1.2rem;font-size:.9rem}
 /* filters */
@@ -110,10 +113,15 @@ show_title: false
 
 <div class="mlp">
   <section class="hero">
-    <div class="eyebrow">Portfolio</div>
-    <h1>Making meaning from <em>messy data</em></h1>
-    <p>Every project here starts with something genuinely messy — fourteen years of workouts, four years of hive photos, a family's stories, a real LLC's books, 426 anime subtitle files — and ends with structure you can query, verify, and trust. Built in public, documented end to end, running live wherever possible.</p>
-    <a class="map-link" href="./graph.html">Prefer to explore visually? Open the interactive project map →</a>
+    <div class="hero-top">
+      <div class="hero-text">
+        <div class="eyebrow">Portfolio</div>
+        <h1>Making meaning from messy data</h1>
+        <p>Every project here starts with something genuinely messy — fourteen years of workouts, four years of hive photos, a family's stories, a real LLC's books, 426 anime subtitle files — and ends with structure you can query, verify, and trust. Built in public, documented end to end, running live wherever possible.</p>
+        <a class="map-link" href="./graph.html">Prefer to explore visually? Open the interactive project map →</a>
+      </div>
+      <img class="hero-image" src="/assets/images/projects_page_top.jpg" alt="Watercolor illustration of dashboards, a magnifying glass, a notebook, and a plant — tools of sensemaking" />
+    </div>
     <div class="filters" id="filters" role="group" aria-label="Filter projects by capability"></div>
   </section>
 
