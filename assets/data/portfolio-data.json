@@ -4,7 +4,7 @@
     "owner": "Barbara Hidalgo-Sotelo (Sensemaking AI)",
     "tagline": "Making meaning from messy data",
     "generated": "2026-06-11",
-    "version": "2.1",
+    "version": "2.2",
     "node_types": [
       "project",
       "capability",
@@ -65,7 +65,8 @@
       "story_hook": "I built an AI that interviews on my behalf — then built the evaluation harness to catch it when it lies.",
       "tier": "flagship",
       "receipt": "Hybrid retrieval with documented, tunable scoring weights; a 51-test suite gates every deploy; every query logged with latency, cost, and retrieval scores.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "Architecture of the GraphRAG retrieval pipeline, hybrid scoring weights, the eval harness across 8 question categories, and the dual ChromaDB/Neo4j deployment."
     },
     {
       "id": "poolula",
@@ -94,7 +95,8 @@
       "story_hook": "When the chatbot answers 'what was my rental income in August,' it had better match the spreadsheet to within 1%.",
       "tier": "featured",
       "receipt": "When the chatbot answers “what was my rental income in August,” it must match the spreadsheet to within 1%. The harness checks — 15 questions against CSV ground truth.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "Data model, the SELECT-only SQL generation guardrails, accrual-accounting import, and both evaluation harnesses (CSV ground-truth + cross-domain)."
     },
     {
       "id": "citation-compass",
@@ -123,7 +125,8 @@
       "story_hook": "Everyone uses embeddings. I implemented the embedding model from the paper to understand what it actually learns.",
       "tier": "featured",
       "receipt": "From-scratch implementation of TransE knowledge-graph embeddings — not a wrapper, not an API call. The 4-notebook pipeline shows every step.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "The from-scratch TransE implementation, the 4-notebook training pipeline, Neo4j schema, and the link-prediction evaluation."
     },
     {
       "id": "memory-chest",
@@ -151,7 +154,8 @@
       "story_hook": "Schema is where meaning lives — including in a family's stories. I gave my family's memories a data model.",
       "tier": "featured",
       "receipt": "A 14-entity knowledge graph with Wikidata enrichment — preserving not just memories but the relationships and provenance between them.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "The 14-entity knowledge-graph schema, Wikidata enrichment, the Whisper/CLIP ingestion pipeline, and provenance modeling."
     },
     {
       "id": "chronoscope",
@@ -179,7 +183,8 @@
       "story_hook": "Extraction demos are easy. Knowing your extractor's recall is engineering.",
       "tier": "featured",
       "receipt": "Every extracted event carries a confidence score, and gold-standard validation reports quantitative precision and recall before you rely on it.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "Extraction prompt design, confidence scoring, the gold-standard precision/recall validation method, and the entity-graph view."
     },
     {
       "id": "fitness-dashboard",
@@ -209,7 +214,8 @@
       "story_hook": "My classifier had to learn the difference between a marathon training run and walking the dog. Then it had to explain itself.",
       "tier": "featured",
       "receipt": "Every automated conclusion is one click away from its own methodology — explainability as a UX pattern, not a compliance checkbox.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "The AWS Lambda/S3/RDS ETL pipeline, the run-vs-walk classifier, and the algorithm-transparency layer."
     },
     {
       "id": "beehive-tracker",
@@ -238,7 +244,8 @@
       "story_hook": "The bees don't keep records. So I taught a vision model to read four years of their history from my photos.",
       "tier": "featured",
       "receipt": "A real multimodal pipeline — EXIF, computer vision, color analysis, weather correlation — serving a craft I practice every week.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "The multimodal pipeline — EXIF, Cloud Vision, color analysis, Open-Meteo correlation — and the Cloud Run deployment."
     },
     {
       "id": "convoscope",
@@ -264,7 +271,8 @@
       "story_hook": "The first question every enterprise asks about LLMs: 'what happens when the provider goes down?' I built the answer.",
       "tier": "compact",
       "receipt": "Provider-agnostic by architecture: when one API degrades, requests route to the next without interrupting the conversation.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "The provider-failover architecture across OpenAI/Anthropic/Google and the conversation-persistence model."
     },
     {
       "id": "naruto-network",
@@ -292,7 +300,8 @@
       "story_hook": "Fans have argued about this for 20 years. I have entropy curves.",
       "tier": "featured",
       "receipt": "Fans have argued about this for twenty years. I have entropy curves — and a hand-coded ground-truth set of 36 relationships to validate them.",
-      "in_graph": true
+      "in_graph": true,
+      "docs_blurb": "Subtitle parsing pipeline, the co-appearance network construction, Shannon-entropy and community-detection methods, the 36-relationship validation set, and full API reference."
     },
     {
       "id": "concept-cartographer",
@@ -383,7 +392,7 @@
     {
       "id": "evaluation",
       "name": "Evaluation & Trust",
-      "description": "Eval harnesses, gold-standard validation, ground-truth checking, algorithm transparency, confidence scoring. Appears in 6 of 9 projects — the portfolio's strongest differentiator."
+      "description": "Eval harnesses, gold-standard validation, ground-truth checking, algorithm transparency, confidence scoring. The thread running through most of the portfolio — and its strongest differentiator."
     },
     {
       "id": "nlp-extraction",

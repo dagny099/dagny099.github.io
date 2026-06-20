@@ -48,6 +48,31 @@
 </script>
 {% endif %}
 
+
+{% if page.url != "/" %}
+{% assign crumbs = page.url | remove_first: "/" | remove: "/" | split: "/" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://barbhs.com/"
+    }{% assign url_acc = "https://barbhs.com" %}{% for crumb in crumbs %}{% assign url_acc = url_acc | append: "/" | append: crumb %},
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index | plus: 1 }},
+      "name": "{% if forloop.last and page.title and page.title != '' %}{{ page.title }}{% else %}{{ crumb | replace: '-', ' ' | capitalize }}{% endif %}",
+      "item": "{{ url_acc }}/"
+    }{% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
 {% if page.url == "/projects/" and site.data.portfolio %}
 <script type="application/ld+json">
 {
