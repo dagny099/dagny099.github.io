@@ -76,6 +76,8 @@ main:
 footer-nav:
   - title: "Explore"
     children:
+      - title: "Docs Portal"
+        url: https://docs.barbhs.com
       - title: "Site Architecture"
         url: /site-architecture/
       - title: "Blog"
