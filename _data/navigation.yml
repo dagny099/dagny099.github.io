@@ -123,12 +123,17 @@ sidebar-pub:
         url: /research/#posters
       - title: "Demos"
 
+# In-page sidebar TOC for the /site-architecture/ page.
+# Enable by uncommenting `sidebar: nav: "diagram-workflow"` in
+# _pages/site-architecture.md front matter. Anchors mirror that page's headings.
 diagram-workflow:
-  - title: Top‑Level Site Structure
-    url: /site-architecture#1-toplevel-site-structure-highlevel-overview
-  - title: Step 1 – Diagrams Folder
-    url: /site-architecture#2-content-hubs-projects-data-stories-thinking-resources
-  - title: Step 2 – Naming
-    url: /site-architecture#3-blog-architecture-series-individual-posts-and-archives
-  - title: Metadata & Frontmatter
-    url: /site-architecture#4-full-detailed-sitemap-with-clickable-links-
+  - title: "Top-Level Structure"
+    url: /site-architecture/#1-toplevel-site-structure-highlevel-overview
+  - title: "Content Hubs"
+    url: /site-architecture/#content-hubs
+  - title: "Notes & Experiments"
+    url: /site-architecture/#notes-experiments-architecture
+  - title: "Full Sitemap"
+    url: /site-architecture/#4-full-detailed-sitemap-with-clickable-links-
+  - title: "Maintaining This Map"
+    url: /site-architecture/#how-i-maintain-this-map

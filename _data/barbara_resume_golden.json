@@ -282,6 +282,7 @@
       "end_date": "2019-05",
       "location": "Remote",
       "domains": [
+        "healthcare",
         "healthcare ops",
         "process improvement",
         "analytics"
@@ -322,6 +323,7 @@
       "end_date": "2017-12",
       "location": "Remote",
       "domains": [
+        "enterprise transformation",
         "product requirements",
         "QA",
         "training"
@@ -377,6 +379,7 @@
       "end_date": "2017-07",
       "location": "Austin, TX",
       "domains": [
+        "research",
         "marketing science",
         "biometrics"
       ],
@@ -403,6 +406,7 @@
       "end_date": "2016-06",
       "location": "Austin, TX",
       "domains": [
+        "research",
         "speech processing",
         "human subjects",
         "tooling"

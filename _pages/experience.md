@@ -24,7 +24,7 @@ excerpt: "Detailed role history with highlights and technology tags."
 <div id="roles">
   {% assign roles = site.data.barbara_resume_golden.experience %}
   {% for r in roles %}
-    <article class="role-card" data-domain="{{ r.domains | first }}" data-tags="{{ r.tags | join: ' ' }}">
+    <article class="role-card" data-domains="|{{ r.domains | join: '|' | downcase }}|" data-tags="{{ r.tags | join: ' ' }}">
       <h3>{{ r.title }} — <span class="employer">{{ r.employer }}</span></h3>
       <p class="dates">
         {{ r.start_date }} → {{ r.end_date | default: "Present" }}
@@ -50,7 +50,7 @@ excerpt: "Detailed role history with highlights and technology tags."
   chips.forEach(c=>c.addEventListener('click',()=>{
     const val=c.dataset.value.toLowerCase();
     document.querySelectorAll('.role-card').forEach(card=>{
-      card.style.display = (card.dataset.domain.toLowerCase()===val) ? '' : 'none';
+      card.style.display = card.dataset.domains.includes('|'+val+'|') ? '' : 'none';
     });
   }));
 </script>

@@ -31,3 +31,6 @@ _drafts
 
 package.json
 package-lock.json
+
+/output
+/tmp
