@@ -3,6 +3,9 @@ layout: single
 title: "Schema.org Cheatsheet (Builders Edition)"
 subtitle: "YAML → JSON-LD mapping, schema-type rules, and a 2-minute validation workflow"
 permalink: /resources/schema-org-cheatsheet-builders/
+excerpt: "The working reference for Schema.org: YAML → JSON-LD mappings, schema-type rules, and a two-minute validation loop to run before you ship."
+format: Cheatsheet
+level: Intermediate
 status: draft
 published: false
 ---

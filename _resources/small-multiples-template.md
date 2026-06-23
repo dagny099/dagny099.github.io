@@ -3,7 +3,7 @@ layout: single
 title: "Small Multiples Layout Template"
 subtitle: "Ready-to-use template and design guide for comparative data visualization"
 permalink: /resources/small-multiples-template/
-excerpt: "A ready-to-use template for creating small multiples—the most underused technique for comparing patterns across categories."
+excerpt: "A ready-to-use template for small multiples — the most underused way to compare patterns across categories at a glance."
 date: 2025-01-05
 last_modified_at: 2025-01-05
 tags: [viz, templates, small-multiples, patterns]

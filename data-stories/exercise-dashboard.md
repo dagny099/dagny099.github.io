@@ -180,7 +180,9 @@ But here's where it gets interesting: there's a fuzzy middle ground where runs b
 
 ## Your Data Has Stories Too
 
-The Choco Effect taught me that the most interesting insights often hide in what we consider "data quality issues." Those inconsistencies, outliers, and sudden changes? They're life happening.
+The Choco Effect taught me that the most interesting insights often hide in what we consider "data quality issues."
+
+{% include quote.html text="Those inconsistencies, outliers, and sudden changes? They're life happening." variant="pull" %}
 
 <details markdown="1">
 <summary>🛠️ Try This With Your Own Data</summary>  

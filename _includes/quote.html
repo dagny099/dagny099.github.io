@@ -1,0 +1,96 @@
+{%- comment -%}
+  Reusable quote / epigraph component. Single source of truth: _data/quotes.yml
+
+  Usage
+  -----
+  Explicit one-off quote:
+    {% include quote.html text="Some line." author="Name" variant="pull" %}
+
+  Pin a specific quote from a set (relevance-controlled, still single-source):
+    {% include quote.html set="field" id="simon-attention" variant="epigraph" %}
+
+  Build-time random from a set (changes each deploy):
+    {% include quote.html set="field" variant="epigraph" %}
+
+  Per-day rotation in the browser (a stable "quote of the day", JS, with the
+  build-time pick as the no-JS fallback):
+    {% include quote.html set="footer" rotate="daily" variant="footer" %}
+
+  Params
+  ------
+  text, author : explicit single quote (overrides set)
+  set          : key into site.data.quotes (e.g. "footer", "field")
+  id           : pin a specific entry from the set by its id
+  pick         : "random" (default) or a numeric index, when no id given
+  rotate       : "daily" to enable per-day rotation in the browser (needs set)
+  variant      : style modifier — "epigraph" | "pull" | "footer" | "plain"
+  class        : extra CSS classes
+{%- endcomment -%}
+
+{%- assign q_variant = include.variant | default: "plain" -%}
+
+{%- if include.text -%}
+  {%- assign q_text = include.text -%}
+  {%- assign q_author = include.author -%}
+{%- elsif include.set -%}
+  {%- assign q_list = site.data.quotes[include.set] -%}
+  {%- if include.id -%}
+    {%- assign q_item = q_list | where: "id", include.id | first -%}
+  {%- elsif include.pick and include.pick != "random" -%}
+    {%- assign q_idx = include.pick | plus: 0 -%}
+    {%- assign q_item = q_list[q_idx] -%}
+  {%- else -%}
+    {%- assign q_item = q_list | sample -%}
+  {%- endif -%}
+  {%- assign q_text = q_item.text -%}
+  {%- assign q_author = q_item.author -%}
+{%- endif -%}
+
+{%- if q_text -%}
+<figure class="site-quote site-quote--{{ q_variant }} {{ include.class }}"{% if include.rotate == "daily" and include.set %} data-quote-rotate="daily"{% endif %}>
+  <blockquote class="site-quote__text">{{ q_text }}</blockquote>
+  {%- if q_author %}
+  <figcaption class="site-quote__author">&mdash; {{ q_author }}</figcaption>
+  {%- endif %}
+  {%- if include.rotate == "daily" and include.set %}
+  <script type="application/json" class="site-quote__data">{{ q_list | jsonify }}</script>
+  {%- endif %}
+</figure>
+{%- if include.rotate == "daily" and include.set %}
+<script>
+(function () {
+  if (window.__siteQuoteRotateInit) return;
+  window.__siteQuoteRotateInit = true;
+  function init() {
+    function dayOfYear(d) {
+      var start = new Date(d.getFullYear(), 0, 0);
+      return Math.floor((d - start) / 86400000);
+    }
+    document.querySelectorAll('[data-quote-rotate="daily"]').forEach(function (fig) {
+      var dataEl = fig.querySelector('.site-quote__data');
+      if (!dataEl) return;
+      var list;
+      try { list = JSON.parse(dataEl.textContent); } catch (e) { return; }
+      if (!list || !list.length) return;
+      // Per-day index → same quote all day, a fresh one tomorrow.
+      // For per-visit randomness instead, swap the next line for:
+      //   var q = list[Math.floor(Math.random() * list.length)];
+      var q = list[dayOfYear(new Date()) % list.length];
+      var textEl = fig.querySelector('.site-quote__text');
+      var authEl = fig.querySelector('.site-quote__author');
+      if (textEl && q.text) textEl.textContent = q.text;
+      if (authEl) {
+        if (q.author) authEl.textContent = '— ' + q.author;
+        else authEl.remove();
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+{%- endif -%}
+{%- endif -%}

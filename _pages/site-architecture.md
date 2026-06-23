@@ -21,7 +21,7 @@ Below, you’ll see a layered approach:
 2. Focused diagrams for [**modern collections**](#content-hubs) and [**notes & experiments architecture**](#notes-experiments-architecture)  
 3. An [**interactive full sitemap**](#4-full-detailed-sitemap-with-clickable-links-) that exposes all the detail
 
-I try to keep this page current, which doesn't always happen, but see Last Updated date at the bottom. See also this post about how to generate these diagrams and related workflow tips.
+I try to keep this page current, which doesn't always happen, but see Last Updated date at the bottom. See also [How I Organized My Mermaid Life](/blog/taming-mermaid-diagrams/) for how I generate these diagrams and related workflow tips.
 
 <div style="height: 1px; background: #e5e5e5; margin:1rem 0;"></div>
 
@@ -84,7 +84,7 @@ Color convention for diagram nodes:
 
 The **Notes &amp; Experiments** archive is the longest-running part of the site and contains:
 - multi‑part **series** (like Website Building and Sensor Fleet),
-- **recent individual posts** (2022-2025),
+- **recent individual posts** (2022-2026),
 - and archive pages (by tag and category).
 
 This diagram shows how the pieces fit together:
@@ -127,7 +127,7 @@ The best part? **Many nodes are clickable links** that take you directly to that
 
 <span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> account_tree</span>
 This sitemap isn't a one‑off artifact; it's part of my content workflow:
-- I keep the **Mermaid source files** for each diagram in a `/diagrams/` folder.
+- I keep the **Mermaid source files** (`.mmd`) for each diagram in the `assets/diagrams/` folder.
 - I export updated **SVGs** whenever the structure changes.
 - I create **interactive HTML versions** for complex diagrams with zoom/pan controls.
 - I treat this page as a **living document** that evolves as the site does.  
@@ -153,4 +153,4 @@ It’s a small investment that makes your content ecosystem much easier to grow 
 
 ---
 
-*Last updated: 2026-01-20*
+*Last updated: 2026-06-22*

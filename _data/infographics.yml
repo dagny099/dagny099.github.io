@@ -1,0 +1,26 @@
+# Infographics shown in the "Infographics" band on /resources/.
+# Each entry renders an image-first tile that links out (usually to the
+# original LinkedIn post). The band only appears when `items` is non-empty.
+#
+# Fields per item:
+#   title  (required) — short caption shown under the image
+#   url    (required) — where the tile links (LinkedIn post, PDF, etc.)
+#   image  (optional) — path under /assets/...; omit to show a placeholder tile
+#   alt    (optional) — alt text; defaults to title
+#   date   (optional) — "YYYY-MM" or "Mon YYYY", shown as a small caption
+#
+# To add one: copy a block below, drop the leading "#", and fill it in.
+
+items: []
+
+# --- Example (uncomment + replace, then add the image to assets/) ----------
+# items:
+#   - title: "How GraphRAG actually retrieves"
+#     url: "https://www.linkedin.com/posts/your-post-id"
+#     image: "/assets/resources/infographics/graphrag-retrieval.png"
+#     alt: "Diagram of vector + graph hybrid retrieval flow"
+#     date: "2026-05"
+#   - title: "Evaluation-first AI in one screen"
+#     url: "https://www.linkedin.com/posts/your-post-id"
+#     image: "/assets/resources/infographics/eval-first.png"
+#     date: "2026-04"

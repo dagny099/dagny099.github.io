@@ -51,11 +51,11 @@ feature_row:
     alt: "Concept Cartographer"
     title: "Concept Cartographer"
     excerpt: >
-      <strong>Chat with an AI and watch the conversation become a knowledge graph — live.</strong><br><br>
+      <strong>Chat and watch the conversation become a structured graph. </strong><br><br>
       Every turn, a single structured LLM call returns both the conversational answer and the
-      extracted concepts and relationships, growing a persistent map across the conversation.
-      Past 30 nodes, new concepts must connect to something already on the map — so it stays
-      a map, not a junk drawer. Export to JSON or PNG when you're done.
+      extracted concepts and relationships, growing a map across the conversation.
+      Over 30 nodes, new concepts must connect to an existing node — so it stays
+      a map, not a junk drawer. Export a PNG image or copy the JSON into a graphDB.
       <br><br>
       <em>The part I'd defend in a design review: one call extracts narrative and ontology simultaneously — about half the latency and cost of the obvious two-call approach.</em>
     url: https://concept-cartographer.com/
@@ -129,7 +129,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
       <p class="current-feature__thesis-body">Some AI problems need probability. Some need structure. Good design begins with knowing the difference.</p>
       <p class="current-feature__thesis-aside">
         <!-- TODO: replace placeholder with real Buttondown subscribe URL once configured -->
-        <a href="https://buttondown.email/barbarahs" target="_blank" rel="noopener">Follow along by email →</a>
+        <a href="https://buttondown.com/barbarahs" target="_blank" rel="noopener">Get course updates →</a>
       </p>
     </aside>
   </div>
@@ -565,6 +565,15 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   max-width: var(--home-rail-width);
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Let the "Currently" and "How I work / Interactive" cards span the full
+   1080px rail so they line up with Featured Projects/Writing (whose padding
+   is internal). Without this they inherit .home-section's --page-edge inset
+   and read ~96px narrower. */
+.home .home-section--currently,
+.home .home-section--duo {
+  padding-inline: 0;
 }
 
 .home .page__hero--overlay .wrapper {

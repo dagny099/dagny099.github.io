@@ -34,7 +34,7 @@ main:
 
   - title: "Writing"
     short: "Writing"
-    url: /blog/
+    url: /writing/
     color: "#3b4a73"
     background-color: "#f2f4fb"
     subtitle: "Essays, data narratives, notes, and series."
@@ -76,16 +76,16 @@ main:
 footer-nav:
   - title: "Explore"
     children:
-      - title: "Docs Portal"
-        url: https://docs.barbhs.com
-      - title: "Site Architecture"
-        url: /site-architecture/
-      - title: "Blog"
-        url: /blog/
-      - title: "Writing"
-        url: /writing/
+      - title: "Projects"
+        url: /projects/
+      - title: "Research"
+        url: /research/
       - title: "Resources"
         url: /resources/
+      #- title: "Writing"
+      #  url: /writing/
+      - title: "All Posts"
+        url: /blog/
   - title: "Archives"
     children:
       - title: "Topics"
@@ -94,20 +94,18 @@ footer-nav:
         url: /tags/
       - title: "Categories"
         url: /categories/
-      - title: "Gallery"
-        url: /gallery/
-  - title: "About"
+      - title: "Snippets"
+        url: /snippets/
+  - title: "Behind the Scenes"
     children:
-      - title: "My Journey"
-        url: /my-journey/
-      - title: "Experience"
-        url: /experience/
+      - title: "Site Architecture"
+        url: /site-architecture/
       - title: "Resume Data Schema"
         url: /resources/resume-data-schema/
-      - title: "Research"
-        url: /research/
-      - title: "Work/Projects"
-        url: /projects/
+      - title: "Experience JSON"
+        url: /experience/
+      - title: "Docs Portal"
+        url: https://docs.barbhs.com
 
 # sidebar navigation list sample
 sidebar-pub:

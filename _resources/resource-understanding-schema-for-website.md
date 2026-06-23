@@ -7,7 +7,7 @@ last_modified_at: 2025-12-23
 sitemap:
     priority: 0.5
 permalink: /resources/explainer-schema-org-website/
-excerpt: "Understand how Schema.org is implmented on a website like this one :)"
+excerpt: "A plain-language walkthrough of how Schema.org structured data works on a site like this one — and how to check that yours is doing its job."
 tags: [connected-data, schema.org, seo]
 categories: [""]
 format: Explainer

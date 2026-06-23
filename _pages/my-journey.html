@@ -197,6 +197,11 @@ classes: [journey-page]
     max-width: 1080px;
     margin: 0 auto;
   }
+  /* Lenses read better as a 2x2 grid than a single cramped row */
+  .lenses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+  }
   .principle {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-left: 4px solid #6c757d;
@@ -229,6 +234,11 @@ classes: [journey-page]
   .lens h4 {
     color: #2c3e50;
     margin-bottom: 0.75rem;
+  }
+  .lens-icon {
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+    vertical-align: -0.08em;
   }
   .lens p {
     color: #5a6c7d;
@@ -385,27 +395,53 @@ classes: [journey-page]
   <div style="flex-basis: 100%; margin-top: 0.75rem;">
     <p class="hero-lede">
       <strong>I’m a cognitive scientist who builds human-centered data systems.</strong>
-      My MIT eye-tracking research taught me how people actually see, remember, and decide.
-      Today I use those principles to design AI workflows and data platforms that reduce cognitive load and drive action.
+      My MIT dissertation research taught me that people don't reason on raw data; we use structured mental models to make sense of the world.
+      Today I build systems people can actually adopt — with rigorous evaluation and data transparency built in, not bolted on. Clarity before automation; judgment before speed.
     </p>
 
-    <div class="hero-chips">
+    <!-- div class="hero-chips">
       <span class="chip academic"><span class="chip-icon">🎓</span>MIT Cognitive Science</span>
       <span class="chip professional"><span class="chip-icon">🧠</span>Human-Centered AI</span>
       <span class="chip learning"><span class="chip-icon">🕸️</span>Knowledge Graphs & RAG</span>
-    </div>
+    </div -->
 
     <p class="hero-short">
       <strong>Short version:</strong> I make complex information easier to see, trust, and act on.
     </p>
     <p class="jump-link">
-      <a href="#journey-turns" aria-label="Jump to the timeline">
-        Jump to timeline <span aria-hidden="true">↓</span>
-      </a>
+      <a href="#journey-turns" aria-label="Jump to the timeline">Jump to timeline <span aria-hidden="true">↓</span></a>
     </p>
   </div>
 </section>
 
+    {% include quote.html set="field" id="hamming-insight" variant="epigraph" %}
+
+<!-- WAYS OF SEEING -->
+<section>
+  <h2 class="section-title">Lenses I Bring to Every Problem</h2>
+  <div class="lenses-grid">
+    <div class="lens">
+      <h4><span class="lens-icon">🧠</span>The Cognitive Scientist Asks:</h4>
+      <p>"How will a tired human at 3pm on Friday actually use this?" I test interfaces under cognitive load. 
+      If it doesn't work when you're distracted, it doesn't work.</p>
+    </div>
+    <div class="lens">
+      <h4><span class="lens-icon">🔍</span>The Data Scientist Asks:</h4>
+      <p>"What patterns are hiding in this chaos?" But more importantly: "How do I surface them so humans 
+      can see them instantly?" Statistical significance means nothing if humans can't grasp it.</p>
+    </div>
+    <div class="lens">
+      <h4><span class="lens-icon">🎯</span>The Consultant Asks:</h4>
+      <p>"What decision does this enable?" Every visualization, every model, every interface must answer: 
+      what action should someone take based on this? No action, no value.</p>
+    </div>
+    <div class="lens">
+      <h4><span class="lens-icon">🏗️</span>The System Builder Asks:</h4>
+      <p>"How does this scale cognitively?" A system that works for 10 items might break human comprehension 
+      at 100. I design for cognitive scalability, not just computational.</p>
+    </div>
+  </div>
+</section>
 
 <!-- TIMELINE -->
 <section>
@@ -495,11 +531,11 @@ classes: [journey-page]
 <!-- BEYOND THE DATA -->
 <section>
   <h2 class="section-title">Beyond the Data</h2>
-  <p style="text-align: center; color: #5a6c7d; max-width: 700px; margin: 0 auto 1.5rem;">
+  <p style="text-align: center; color: #5a6c7d; margin: 0 auto 1.5rem;">
     The same curiosity that drives my research shows up everywhere else in life.
   </p>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; max-width: 800px; margin: 0 auto;">
+  <div class="journey-beyond-grid">
     <div style="background: #f8f9fa; padding: 1.25rem; border-radius: 10px; text-align: center; border-top: 3px solid #DC6B4F;">
       <span style="font-size: 1.75rem;">🏃‍♀️</span>
       <h4 style="margin: 0.5rem 0 0.25rem; color: #1c1c1c;">Marathon Runner</h4>
@@ -593,7 +629,7 @@ classes: [journey-page]
   <Visual placeholder: Diagram showing Marr's three levels applied to a data science problem>
 </section>  -->
 
-<!-- THROUGHLINES -->
+<!-- THROUGHLINES 
 <section>
   <h2 class="section-title">Cognitive Principles That Guide My Work</h2>
   <div class="principles-grid">
@@ -604,7 +640,7 @@ classes: [journey-page]
     <div class="principle">Context determines meaning. The same data tells different stories to different viewers.</div>
     <div class="principle">Cognitive load is cumulative. Simplify everything that isn't the main message.</div>
   </div>
-</section>
+</section> -->
 
 
 <!-- SKILLS EVOLUTION 
@@ -625,33 +661,6 @@ classes: [journey-page]
     </p>
   </div>
 </section> -->
-
-<!-- WAYS OF SEEING -->
-<section>
-  <h2 class="section-title">Lenses I Bring to Every Problem</h2>
-  <div class="lenses-grid">
-    <div class="lens">
-      <h4>The Cognitive Scientist Asks:</h4>
-      <p>"How will a tired human at 3pm on Friday actually use this?" I test interfaces under cognitive load. 
-      If it doesn't work when you're distracted, it doesn't work.</p>
-    </div>
-    <div class="lens">
-      <h4>The Data Scientist Asks:</h4>
-      <p>"What patterns are hiding in this chaos?" But more importantly: "How do I surface them so humans 
-      can see them instantly?" Statistical significance means nothing if humans can't grasp it.</p>
-    </div>
-    <div class="lens">
-      <h4>The Consultant Asks:</h4>
-      <p>"What decision does this enable?" Every visualization, every model, every interface must answer: 
-      what action should someone take based on this? No action, no value.</p>
-    </div>
-    <div class="lens">
-      <h4>The System Builder Asks:</h4>
-      <p>"How does this scale cognitively?" A system that works for 10 items might break human comprehension 
-      at 100. I design for cognitive scalability, not just computational.</p>
-    </div>
-  </div>
-</section>
 
 <!-- NOW & NEXT -->
 <section>
@@ -724,6 +733,30 @@ classes: [journey-page]
           <div>
             <h4 style="margin: 0; color: #1c1c1c;">Academic CV (PDF)</h4>
             <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: #5a6c7d;">Full academic history and publications</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="/projects/" style="text-decoration: none;">
+      <div class="timeline-card" style="--accent-color: #DC6B4F; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 2rem;">🗺️</span>
+          <div>
+            <h4 style="margin: 0; color: #1c1c1c;">Projects</h4>
+            <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: #5a6c7d;">Sensemaking AI — knowledge graphs, RAG, and built work</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://curriculum.barbhs.com" target="_blank" rel="noopener" style="text-decoration: none;">
+      <div class="timeline-card" style="--accent-color: #0e7490; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 2rem;">🕸️</span>
+          <div>
+            <h4 style="margin: 0; color: #1c1c1c;">Semantic Web Curriculum</h4>
+            <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: #5a6c7d;">A 12-week RDF, OWL & SPARQL journey, published as I learn</p>
           </div>
         </div>
       </div>

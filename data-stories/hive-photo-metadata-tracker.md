@@ -186,7 +186,9 @@ Raw computer vision results need translation into meaningful beekeeping insights
 
 ## The Questions That Emerged
 
-Building the analysis pipeline revealed that I was asking the wrong questions. Instead of "How do I organize photos?", the data led me toward much more interesting territory.
+{% include quote.html text="Building the analysis pipeline revealed that I was asking the wrong questions." variant="pull" %}
+
+Instead of "How do I organize photos?", the data led me toward much more interesting territory.
 
 ### Question 1: Are We More Systematic Than We Feel?
 

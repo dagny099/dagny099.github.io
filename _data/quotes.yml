@@ -1,0 +1,67 @@
+# =============================================================================
+# Quotes — single source of truth for every quote/epigraph on the site.
+#
+# Rendered via _includes/quote.html. To add/edit a quote, just edit the lists
+# below — no template changes needed.
+#
+#   text:    the quote (required). Omit surrounding quotation marks; the
+#            styling adds decorative ones.
+#   author:  attribution (optional). Leave blank for an anonymous line.
+#   id:      stable key so a specific quote can be pinned to a page, e.g.
+#            {% include quote.html set="field" id="simon-attention" %}
+#
+# Sets:
+#   footer — short, warm lines. Rotates daily site-wide (a "quote of the day").
+#            Mixes Barbara's own design aphorisms with personal favorites.
+#   field  — vision / attention / cognition / data-viz quotes used as
+#            epigraphs on narrative + research pages.
+# =============================================================================
+
+footer:
+  - id: systems-make-sense
+    text: "The best systems don't just work. They make sense."
+    author: "Barbara Hidalgo-Sotelo"
+  - id: probability-vs-structure
+    text: "Some problems need probability. Some need structure. Good design begins with knowing the difference."
+    author: "Barbara Hidalgo-Sotelo"
+  - id: see-trust-act
+    text: "I make complex information easier to see, trust, and act on."
+    author: "Barbara Hidalgo-Sotelo"
+  - id: findability
+    text: "Findability isn't about perfect taxonomies — it's about matching how people actually remember."
+    author: "Barbara Hidalgo-Sotelo"
+  - id: data-quality-issues
+    text: "The best insights often hide in what we call 'data quality issues.'"
+    author: "Barbara Hidalgo-Sotelo"
+  - id: nin-kite
+    text: "Throw your dreams into space like a kite, and you do not know what it will bring back."
+    author: "Anaïs Nin"
+  - id: ball-love-yourself
+    text: "Love yourself first and everything else falls into line."
+    author: "Lucille Ball"
+  - id: westenberg-authentic
+    text: "What's most valuable isn't what's exceptional or performative, but what's common, authentic, and directly experienced."
+    author: "JA Westenberg"
+  - id: mujica-experiment
+    text: "There are people who say you can't experiment. That condemns you to failure."
+    author: "José Mujica"
+
+field:
+  - id: simon-attention
+    text: "A wealth of information creates a poverty of attention."
+    author: "Herbert A. Simon"
+  - id: hamming-insight
+    text: "The purpose of computing is insight, not numbers."
+    author: "Richard W. Hamming"
+  - id: shneiderman-visualization
+    text: "The purpose of visualization is insight, not pictures."
+    author: "Ben Shneiderman"
+  - id: tufte-show-data
+    text: "Above all else show the data."
+    author: "Edward R. Tufte"
+  - id: weil-attention
+    text: "Attention is the rarest and purest form of generosity."
+    author: "Simone Weil"
+  - id: tukey-notice
+    text: "The greatest value of a picture is when it forces us to notice what we never expected to see."
+    author: "John W. Tukey"

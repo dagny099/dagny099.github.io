@@ -96,6 +96,8 @@ Most AI initiatives fail not because of bad models, but because the knowledge un
   </div>
 </section>
 
+<hr class="cta-divider">
+
 <section class="about-endnote">
   <h3 class="endnote-heading">
     Have a fuzzy AI problem and want a real partner?

@@ -3,7 +3,7 @@ layout: single
 title: "Question-to-Encoding Crib Sheet"
 subtitle: "Quick-reference guide mapping analytical questions to effective visual encodings"
 permalink: /resources/question-encoding-cribsheet/
-excerpt: "Match your analytical question to the right visual encoding—a quick-reference guide for choosing charts that answer specific question types."
+excerpt: "Match the question you're asking to the chart that answers it — a one-page reference for choosing the right visual encoding."
 date: 2025-01-10
 last_modified_at: 2025-01-10
 tags: [viz, encoding, charts, reference]

@@ -3,6 +3,9 @@ layout: single
 title: "Schema.org Cheatsheet (Humans Edition)"
 subtitle: "A plain-language guide to the metadata layer that helps search engines understand your pages"
 permalink: /resources/schema-org-cheatsheet-humans/
+excerpt: "What Schema.org actually is, in plain language — and why that invisible metadata layer changes how search engines read your pages."
+format: Cheatsheet
+level: Beginner
 status: draft
 published: false
 ---

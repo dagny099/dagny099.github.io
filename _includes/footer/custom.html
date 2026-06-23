@@ -1,6 +1,9 @@
 <footer class="footer-custom" role="contentinfo" aria-label="Site footer">
   <div class="footer-custom__inner">
 
+    <!-- Rotating quote of the day (see _data/quotes.yml · _includes/quote.html) -->
+    {% include quote.html set="footer" rotate="daily" variant="footer" %}
+
     <!-- Content Navigation -->
     {% if site.data.navigation.footer-nav %}
     <nav class="footer-nav" aria-label="Footer navigation">

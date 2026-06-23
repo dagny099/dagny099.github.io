@@ -18,7 +18,7 @@ Params:
 {% assign _variant = include.variant | default: "project" %}
 {% assign _compact = include.compact | default: false %}
 
-<article class="card card--{{ _variant }}{% if _compact %} card--compact{% endif %}">
+<article class="card card--{{ _variant }}{% if _compact %} card--compact{% endif %}"{% if _variant == "resource" %} data-format="{{ include.format | default: 'Resource' | slugify }}"{% endif %}>
   {% if _variant == "resource" and _compact == true %}
     <div class="card__iconhead">
       <span class="card__icon">{% if include.icon %}<i class="{{ include.icon }}" aria-hidden="true"></i>{% else %}<i class="far fa-file-lines" aria-hidden="true"></i>{% endif %}</span>

@@ -3,9 +3,9 @@ layout: single
 title: "Resume Data Schema"
 subtitle: "JSON-powered resume architecture for consistency across platforms"
 permalink: /resources/resume-data-schema/
-excerpt: "How I use a single JSON file as the source of truth for my resume, website experience page, and future automation—complete with schema diagrams and usage guide."
+excerpt: "How a single JSON file became the source of truth for my resume, website, and automation — with schema diagrams and a usage guide."
 date: 2026-04-08
-last_modified_at: 2026-04-08
+last_modified_at: 2026-06-22
 tags: [data-architecture, json-schema, automation, systems-design]
 categories: ["Technical Documentation"]
 format: Documentation
@@ -14,6 +14,7 @@ header:
   teaser: /assets/diagrams/resume-data-flow.svg
 cognitive_principle: "Information Architecture & Systems Design"
 toc: true
+toc_sticky: true
 toc_label: "Schema Guide"
 toc_icon: "file-code"
 ---
@@ -58,7 +59,7 @@ The `barbara_resume_golden.json` file serves as the **single source of truth** f
 | `profile` | Contact info, headline, summary | About page, contact forms |
 | `education` | Academic degrees | About page, CV generation |
 | `certifications` | Professional credentials | Resume, LinkedIn sync |
-| `skills` | Technical capabilities (6 categories) | Resume, skills matrix |
+| `skills` | Technical capabilities (7 categories) | Resume, skills matrix |
 | **`experience`** | **Work history with filtering** | **/experience/ page** |
 | `projects` | Portfolio projects | Projects page |
 | `publications` | Research papers | Publications page |
@@ -99,7 +100,8 @@ The `experience` array is what powers the [/experience/](/experience/) page with
 
 The experience page uses `domains` for the filter buttons:
 - Each role can have multiple domains (e.g., "public sector", "data governance")
-- Clicking a domain button shows only roles in that category
+- Clicking a domain button shows every role that lists that domain (matching is across **all** of a role's domains, not just the first)
+- The filter buttons themselves come from `display.filters.domains` — keep each role's domains aligned to that vocabulary so no button comes up empty
 - Domain colors are configured in `display.style.domainColors`
 
 **First 3 highlights** from each role are displayed on the card. Keep these concise and impactful.
@@ -116,7 +118,7 @@ The experience page uses `domains` for the filter buttons:
 
 ### Updating Skills
 
-The `skills` object has 6 predefined categories:
+The `skills` object has 7 predefined categories:
 - `programming` - Languages and tools
 - `ml` - Machine learning libraries
 - `genai` - GenAI/LLM frameworks (new in 2024)
@@ -136,7 +138,8 @@ Edit `display.filters.domains` to change which filter buttons appear on the expe
       "public sector",
       "healthcare",
       "AI engineering",
-      "enterprise transformation"
+      "enterprise transformation",
+      "research"
     ]
   }
 }
@@ -162,7 +165,7 @@ Roles can belong to multiple domains for richer categorization:
 ]
 ```
 
-Currently, filtering uses the **first domain** only. Future enhancement: support multi-domain filtering.
+Filtering matches against **all** of a role's domains, so a single role can surface under several filter buttons. The first domain still acts as the role's primary category for color/sorting purposes.
 
 ### Validation
 
@@ -208,10 +211,10 @@ python3 -m json.tool _data/barbara_resume_golden.json > /dev/null && echo "✓ V
 
 Ideas for extending this system:
 
+- [x] Multi-domain filtering on experience page
 - [ ] Python script to generate PDF resume from JSON
 - [ ] Automated sync to LinkedIn
 - [ ] TimelineJS export for visual timeline
-- [ ] Multi-domain filtering on experience page
 - [ ] "Clear filters" button
 - [ ] Schema validation in CI/CD pipeline
 - [ ] API endpoint to serve resume data
@@ -222,4 +225,4 @@ This schema powers my [experience page](/experience/) and maintains consistency 
 
 ---
 
-*Last updated: April 8, 2026 • [View raw JSON](https://github.com/dagny099/dagny099.github.io/blob/master/_data/barbara_resume_golden.json)*
+*Last updated: June 22, 2026 • [View raw JSON](https://github.com/dagny099/dagny099.github.io/blob/master/_data/barbara_resume_golden.json)*
