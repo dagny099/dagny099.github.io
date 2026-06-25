@@ -1,85 +1,166 @@
 <!-- ==================================================================
-  schema-jsonld.html  |  structured data for search engines
+  schema-jsonld.html | custom structured data
   PLACE: _includes/schema-jsonld.html
-  WIRED FROM: _includes/head/custom.html via an include tag naming this
-  file (already done). NOTE: this comment deliberately avoids writing
-  that tag out literally — Liquid executes inside HTML comments, and a
-  literal include-self tag here causes infinite recursion.
-  ALSO: add jekyll-seo-tag to the plugins list in _config.yml.
-  REQUIRES: _data/portfolio.json for the /projects/ ItemList block.
+  WIRED FROM: _includes/head/custom.html
+  PURPOSE:
+    - Homepage identity graph: Person + WebSite + navigation
+    - Non-home breadcrumbs
+    - Projects page ItemList from _data/portfolio.json
 =================================================================== -->
+
+{% assign site_url = site.url | default: "https://barbhs.com" %}
+{% assign person_id = site_url | append: "/#person" %}
+{% assign website_id = site_url | append: "/#website" %}
 
 {% if page.url == "/" %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://barbhs.com/#person",
-  "name": "Barbara Hidalgo-Sotelo",
-  "url": "https://barbhs.com",
-  "image": "https://barbhs.com/assets/images/biopic/bhs-new-headshot-v1.png",
-  "jobTitle": "AI/ML Consultant & Cognitive Scientist",
-  "description": "Cognitive scientist and AI engineer building knowledge graphs, GraphRAG systems, and evaluation-first AI. Founder of Sensemaking AI.",
-  "alumniOf": [
-    { "@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology" },
-    { "@type": "CollegeOrUniversity", "name": "The University of Texas at Austin" }
-  ],
-  "knowsAbout": ["Knowledge Graphs", "Retrieval-Augmented Generation", "AI Evaluation", "Cognitive Science", "Machine Learning", "Semantic Web"],
-  "knowsLanguage": ["en", "es"],
-  "sameAs": [
-    "https://www.linkedin.com/in/barbara-hidalgo-sotelo/",
-    "https://github.com/dagny099",
-    "https://sensemaking-ai.com",
-    "https://curriculum.barbhs.com"
-  ],
-  "worksFor": { "@type": "Organization", "name": "Sensemaking AI", "url": "https://sensemaking-ai.com" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://barbhs.com/#website",
-  "url": "https://barbhs.com",
-  "name": "Barbara Hidalgo-Sotelo",
-  "description": "{{ site.description }}",
-  "publisher": { "@id": "https://barbhs.com/#person" }
-}
-</script>
-{% endif %}
-
-
-{% if page.url != "/" %}
-{% assign crumbs = page.url | remove_first: "/" | remove: "/" | split: "/" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://barbhs.com/"
-    }{% assign url_acc = "https://barbhs.com" %}{% for crumb in crumbs %}{% assign url_acc = url_acc | append: "/" | append: crumb %},
+      "@type": "WebSite",
+      "@id": {{ website_id | jsonify }},
+      "url": {{ site_url | append: "/" | jsonify }},
+      "name": "Barbara Hidalgo-Sotelo",
+      "description": {{ site.description | default: "Applied AI, data systems, knowledge graphs, and human-centered sensemaking." | jsonify }},
+      "publisher": {
+        "@id": {{ person_id | jsonify }}
+      },
+      "inLanguage": "en"
+    },
     {
-      "@type": "ListItem",
-      "position": {{ forloop.index | plus: 1 }},
-      "name": "{% if forloop.last and page.title and page.title != '' %}{{ page.title }}{% else %}{{ crumb | replace: '-', ' ' | capitalize }}{% endif %}",
-      "item": "{{ url_acc }}/"
-    }{% endfor %}
+      "@type": "Person",
+      "@id": {{ person_id | jsonify }},
+      "name": "Barbara Hidalgo-Sotelo",
+      "honorificSuffix": "PhD",
+      "url": {{ site_url | append: "/" | jsonify }},
+      "image": {{ site_url | append: "/assets/images/biopic/bhs-new-headshot-v1.png" | jsonify }},
+      "jobTitle": [
+        "Cognitive Scientist",
+        "Data Scientist",
+        "Applied AI Consultant"
+      ],
+      "description": "MIT-trained cognitive scientist building applied AI, data systems, knowledge graphs, and evaluation-first tools teams can understand, verify, and adopt.",
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Massachusetts Institute of Technology"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "The University of Texas at Austin"
+        }
+      ],
+      "knowsAbout": [
+        "Applied AI",
+        "Data Science",
+        "Knowledge Graphs",
+        "Retrieval-Augmented Generation",
+        "GraphRAG",
+        "AI Evaluation",
+        "Data Governance",
+        "Cognitive Science",
+        "Semantic Web",
+        "Human-Centered Data Systems"
+      ],
+      "knowsLanguage": [
+        "en",
+        "es"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/barbara-hidalgo-sotelo/",
+        "https://github.com/dagny099",
+        "https://scholar.google.com/citations?user=nQG25vkAAAAJ",
+        "https://sensemaking-ai.com",
+        "https://curriculum.barbhs.com"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Sensemaking AI",
+        "url": "https://sensemaking-ai.com"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": {{ site_url | append: "/#navigation" | jsonify }},
+      "name": "Main Navigation",
+      "hasPart": [
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Start Here",
+          "url": {{ site_url | append: "/start-here/" | jsonify }}
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Projects",
+          "url": {{ site_url | append: "/projects/" | jsonify }}
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Work With Me",
+          "url": {{ site_url | append: "/work-with-me/" | jsonify }}
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "My Journey",
+          "url": {{ site_url | append: "/my-journey/" | jsonify }}
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Writing",
+          "url": {{ site_url | append: "/writing/" | jsonify }}
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Resources",
+          "url": {{ site_url | append: "/resources/" | jsonify }}
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "name": "Contact",
+          "url": {{ site_url | append: "/contact/" | jsonify }}
+        }
+      ]
+    }
   ]
 }
 </script>
 {% endif %}
 
-{% if page.url == "/projects/" and site.data.portfolio %}
+{% if page.url != "/" %}
+{% assign raw_crumbs = page.url | split: "/" %}
+{% assign url_acc = site_url %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": {{ page.url | absolute_url | append: "#breadcrumb" | jsonify }},
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ site_url | append: "/" | jsonify }}
+    }{% assign crumb_position = 1 %}{% for crumb in raw_crumbs %}{% unless crumb == "" %}{% assign crumb_position = crumb_position | plus: 1 %}{% assign url_acc = url_acc | append: "/" | append: crumb %},
+    {
+      "@type": "ListItem",
+      "position": {{ crumb_position }},
+      "name": {% if forloop.last and page.title and page.title != "" %}{{ page.title | jsonify }}{% else %}{{ crumb | replace: "-", " " | capitalize | jsonify }}{% endif %},
+      "item": {{ url_acc | append: "/" | jsonify }}
+    }{% endunless %}{% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+{% if page.url == "/projects/" and site.data.portfolio and site.data.portfolio.projects %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
+  "@id": {{ site_url | append: "/projects/#itemlist" | jsonify }},
   "name": "Projects — Barbara Hidalgo-Sotelo",
-  "url": "https://barbhs.com/projects/",
+  "url": {{ site_url | append: "/projects/" | jsonify }},
   "numberOfItems": {{ site.data.portfolio.projects | size }},
   "itemListElement": [
     {% for p in site.data.portfolio.projects %}
@@ -89,9 +170,11 @@
       "item": {
         "@type": "SoftwareApplication",
         "name": {{ p.name | jsonify }},
-        "description": {{ p.tagline | jsonify }},
-        "url": {% if p.links.live %}{{ p.links.live | jsonify }}{% elsif p.links.docs %}{{ p.links.docs | jsonify }}{% else %}{{ p.links.repo | jsonify }}{% endif %},
-        "author": { "@id": "https://barbhs.com/#person" },
+        "description": {{ p.tagline | default: p.summary | jsonify }},
+        "url": {% if p.links.live %}{{ p.links.live | jsonify }}{% elsif p.links.docs %}{{ p.links.docs | jsonify }}{% elsif p.links.repo %}{{ p.links.repo | jsonify }}{% else %}{{ site_url | append: "/projects/" | jsonify }}{% endif %},
+        "author": {
+          "@id": {{ person_id | jsonify }}
+        },
         "applicationCategory": "DeveloperApplication"
       }
     }{% unless forloop.last %},{% endunless %}

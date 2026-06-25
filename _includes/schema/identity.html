@@ -1,0 +1,17 @@
+{%- comment -%}
+Identity JSON-LD for the site.
+
+Data source:
+  _data/schema/person.json
+
+Usage:
+  Add this inside the <head> of your default layout:
+  {% include schema/identity.html %}
+{%- endcomment -%}
+
+{%- assign identity_schema = site.data.schema.person -%}
+{%- if identity_schema -%}
+<script type="application/ld+json">
+{{ identity_schema | jsonify }}
+</script>
+{%- endif -%}

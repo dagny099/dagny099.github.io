@@ -1,97 +1,131 @@
 <!-- begin _includes/schema.html -->
-<!-- Schema.org structured data for rich snippets in search results -->
-{%- if page.date -%}
+
+<!-- Schema.org page-level structured data for rich snippets in search results.
+     Site-level identity schema lives in _includes/schema-jsonld.html. -->
+
+{%- assign person_id = '/#person' | absolute_url -%}
+
+{%- assign is_project = false -%}
+{%- if page.layout == 'project' or page.category == 'Project' or page.collection == 'projects' -%}
+{%- assign is_project = true -%}
+{%- endif -%}
+
+{%- assign is_tutorial = false -%}
+{%- if page.categories contains 'tutorial' or page.tags contains 'tutorial' -%}
+{%- assign is_tutorial = true -%}
+{%- endif -%}
+
+{%- assign page_description = page.excerpt | default: page.description | default: site.description | strip_html | strip_newlines | strip -%}
+
+{%- comment -%}
+Article / HowTo schema for dated writing pages.
+
+Important:
+Project pages are excluded here so that a dated project does not also get
+emitted as an Article. Project pages are handled separately below.
+{%- endcomment -%}
+{%- if page.date and is_project != true -%}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": {% if page.categories contains 'tutorial' or page.tags contains 'tutorial' %}"HowTo"{% else %}"Article"{% endif %},
-  "headline": "{{ page.title | escape }}",
+  "@type": {% if is_tutorial %}"HowTo"{% else %}"Article"{% endif %},
+  "@id": {{ page.url | absolute_url | append: "#article" | jsonify }},
+  "headline": {{ page.title | jsonify }},
   {% if page.subtitle -%}
-  "alternativeHeadline": "{{ page.subtitle | escape }}",
+  "alternativeHeadline": {{ page.subtitle | jsonify }},
   {% endif -%}
-  "description": "{{ page.excerpt | strip_html | strip_newlines | escape }}",
+  "description": {{ page_description | jsonify }},
   {% if page.header.overlay_image or page.header.image -%}
-  "image": "{{ page.header.overlay_image | default: page.header.image | absolute_url }}",
+  "image": {{ page.header.overlay_image | default: page.header.image | absolute_url | jsonify }},
   {% elsif page.header.teaser -%}
-  "image": "{{ page.header.teaser | absolute_url }}",
+  "image": {{ page.header.teaser | absolute_url | jsonify }},
   {% endif -%}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
   {% if page.last_modified_at -%}
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  "dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }},
   {% else -%}
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
   {% endif -%}
   "author": {
-    "@type": "Person",
-    "name": "{{ site.author.name | default: site.name }}",
-    "url": "{{ site.url }}"
+    "@id": {{ person_id | jsonify }}
   },
   "publisher": {
-    "@type": "Organization",
-    "name": "{{ site.name }}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.logo | absolute_url }}"
-    }
+    "@id": {{ person_id | jsonify }}
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  }{% if page.categories contains 'tutorial' or page.tags contains 'tutorial' %},
+    "@id": {{ page.url | absolute_url | jsonify }}
+  }{% if is_tutorial %},
   "step": [
     {
       "@type": "HowToSection",
-      "name": "{{ page.title | escape }}"
+      "name": {{ page.title | jsonify }}
     }
   ]{% endif %}{% if page.tags %},
-  "keywords": "{{ page.tags | join: ', ' }}"{% endif %}{% if page.stack %},
+  "keywords": {{ page.tags | join: ', ' | jsonify }}{% endif %}{% if page.stack %},
   "about": [
     {% for tech in page.stack -%}
     {
       "@type": "Thing",
-      "name": "{{ tech }}"
+      "name": {{ tech | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor -%}
   ]{% endif %}
 }
 </script>
+
 {%- endif -%}
 
-{%- if page.layout == 'project' or page.category == 'Project' or page.collection == 'projects' -%}
+{%- comment -%}
+SoftwareSourceCode schema for individual project pages.
+
+This references the canonical Person entity from the homepage identity graph:
+https://barbhs.com/#person
+{%- endcomment -%}
+{%- if is_project == true -%}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareSourceCode",
-  "name": "{{ page.title | escape }}",
-  "description": "{{ page.excerpt | strip_html | strip_newlines | escape }}",
+  "@id": {{ page.url | absolute_url | append: "#software" | jsonify }},
+  "name": {{ page.title | jsonify }},
+  "description": {{ page_description | jsonify }},
   {% if page.header.overlay_image or page.header.teaser -%}
-  "image": "{{ page.header.overlay_image | default: page.header.teaser | absolute_url }}",
+  "image": {{ page.header.overlay_image | default: page.header.teaser | absolute_url | jsonify }},
   {% endif -%}
   {% if page.date -%}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
   {% endif -%}
   {% if page.last_modified_at -%}
-  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  "dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }},
   {% endif -%}
   "author": {
-    "@type": "Person",
-    "name": "{{ site.author.name | default: site.name }}"
+    "@id": {{ person_id | jsonify }}
   },
-  {% if page.stack -%}
+  "creator": {
+    "@id": {{ person_id | jsonify }}
+  },
+  "url": {{ page.url | absolute_url | jsonify }}{% if page.stack %},
   "programmingLanguage": [
     {% for tech in page.stack -%}
-    "{{ tech }}"{% unless forloop.last %},{% endunless %}
+    {{ tech | jsonify }}{% unless forloop.last %},{% endunless %}
     {% endfor -%}
   ],
-  {% endif -%}
-  {% if page.status -%}
-  "creativeWorkStatus": "{{ page.status }}",
-  {% endif -%}
-  {% if page.tags -%}
-  "keywords": "{{ page.tags | join: ', ' }}",
-  {% endif -%}
-  "url": "{{ page.url | absolute_url }}"
+  "about": [
+    {% for tech in page.stack -%}
+    {
+      "@type": "Thing",
+      "name": {{ tech | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ]{% endif %}{% if page.status %},
+  "creativeWorkStatus": {{ page.status | jsonify }}{% endif %}{% if page.tags %},
+  "keywords": {{ page.tags | join: ', ' | jsonify }}{% endif %}
 }
 </script>
+
 {%- endif -%}
+
 <!-- end _includes/schema.html -->

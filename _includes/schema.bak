@@ -1,0 +1,97 @@
+<!-- begin _includes/schema.html -->
+<!-- Schema.org structured data for rich snippets in search results -->
+{%- if page.date -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {% if page.categories contains 'tutorial' or page.tags contains 'tutorial' %}"HowTo"{% else %}"Article"{% endif %},
+  "headline": "{{ page.title | escape }}",
+  {% if page.subtitle -%}
+  "alternativeHeadline": "{{ page.subtitle | escape }}",
+  {% endif -%}
+  "description": "{{ page.excerpt | strip_html | strip_newlines | escape }}",
+  {% if page.header.overlay_image or page.header.image -%}
+  "image": "{{ page.header.overlay_image | default: page.header.image | absolute_url }}",
+  {% elsif page.header.teaser -%}
+  "image": "{{ page.header.teaser | absolute_url }}",
+  {% endif -%}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% else -%}
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.name }}",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.name }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.logo | absolute_url }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }{% if page.categories contains 'tutorial' or page.tags contains 'tutorial' %},
+  "step": [
+    {
+      "@type": "HowToSection",
+      "name": "{{ page.title | escape }}"
+    }
+  ]{% endif %}{% if page.tags %},
+  "keywords": "{{ page.tags | join: ', ' }}"{% endif %}{% if page.stack %},
+  "about": [
+    {% for tech in page.stack -%}
+    {
+      "@type": "Thing",
+      "name": "{{ tech }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ]{% endif %}
+}
+</script>
+{%- endif -%}
+
+{%- if page.layout == 'project' or page.category == 'Project' or page.collection == 'projects' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "{{ page.title | escape }}",
+  "description": "{{ page.excerpt | strip_html | strip_newlines | escape }}",
+  {% if page.header.overlay_image or page.header.teaser -%}
+  "image": "{{ page.header.overlay_image | default: page.header.teaser | absolute_url }}",
+  {% endif -%}
+  {% if page.date -%}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% endif -%}
+  {% if page.last_modified_at -%}
+  "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+  {% endif -%}
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.name }}"
+  },
+  {% if page.stack -%}
+  "programmingLanguage": [
+    {% for tech in page.stack -%}
+    "{{ tech }}"{% unless forloop.last %},{% endunless %}
+    {% endfor -%}
+  ],
+  {% endif -%}
+  {% if page.status -%}
+  "creativeWorkStatus": "{{ page.status }}",
+  {% endif -%}
+  {% if page.tags -%}
+  "keywords": "{{ page.tags | join: ', ' }}",
+  {% endif -%}
+  "url": "{{ page.url | absolute_url }}"
+}
+</script>
+{%- endif -%}
+<!-- end _includes/schema.html -->
