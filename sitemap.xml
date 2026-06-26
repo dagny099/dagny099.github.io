@@ -1,0 +1,52 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Custom sitemap (overrides jekyll-sitemap, which will not overwrite an existing
+  sitemap.xml). Intentionally lists only canonical, indexable content:
+    - real pages, posts, and collection docs (projects/resources/snippets/thinking)
+  Intentionally EXCLUDED:
+    - static files under /assets/** (HTML embed fragments, PDFs, etc.)
+    - the Google verification .html file
+    - the /_pages/ source-path leak
+    - non-canonical duplicates listed in `blocked` below (e.g. /blog/, /get-in-touch/)
+    - anything with `sitemap: false` in its front matter
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign blocked = "/blog/,/get-in-touch/,/404.HTML,/about/" | split: "," -%}
+{%- for page in site.html_pages -%}
+  {%- if page.sitemap == false -%}{%- continue -%}{%- endif -%}
+  {%- if blocked contains page.url -%}{%- continue -%}{%- endif -%}
+  {%- if page.url contains "/assets/" or page.url contains "/_pages/" -%}{%- continue -%}{%- endif -%}
+  <url>
+    <loc>{{ page.url | absolute_url | xml_escape }}</loc>
+    {%- if page.last_modified_at %}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- endif %}
+  </url>
+{%- endfor -%}
+{%- for post in site.posts -%}
+  {%- if post.sitemap == false -%}{%- continue -%}{%- endif -%}
+  <url>
+    <loc>{{ post.url | absolute_url | xml_escape }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+  </url>
+{%- endfor -%}
+{%- assign doc_collections = "projects,resources,snippets,thinking" | split: "," -%}
+{%- for cname in doc_collections -%}
+  {%- assign collection = site.collections | where: "label", cname | first -%}
+  {%- if collection -%}
+    {%- for doc in collection.docs -%}
+      {%- if doc.sitemap == false -%}{%- continue -%}{%- endif -%}
+      <url>
+        <loc>{{ doc.url | absolute_url | xml_escape }}</loc>
+        {%- if doc.last_modified_at %}
+        <lastmod>{{ doc.last_modified_at | date_to_xmlschema }}</lastmod>
+        {%- endif %}
+      </url>
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+</urlset>

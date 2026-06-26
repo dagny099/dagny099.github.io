@@ -6,6 +6,8 @@ permalink: /blog/
 author_profile: false
 breadcrumbs: false
 show_title: false
+noindex: true      # /writing/ is the canonical hub; keep this archive crawlable but out of the index
+sitemap: false
 classes: [wide, writing-page]
 pagination: 
   enabled: true

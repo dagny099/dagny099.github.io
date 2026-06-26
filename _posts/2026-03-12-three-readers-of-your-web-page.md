@@ -22,6 +22,8 @@ Think of the `<head>` of an HTML page as a room where you've pinned up a set of 
 
 The three readers are the **browser**, the **search engine**, and the **social unfurler**. They have different jobs, so they care about different cards.
 
+> **The other side of the glass.** This piece is about who *reads* the cards. If you're curious who *writes* them, here's [a map of how this very site's `<head>` is assembled]({{ '/assets/diagrams/head-architecture-v2.svg' | relative_url }}) — every Jekyll include and data file, and the exact tags each one injects. The [companion implementation post]({% post_url 2026-03-18-implementing-structured-metadata-jekyll %}#audit-your-head) embeds it in context.
+
 ## Reader one: the browser (it has to *render* you)
 
 The browser is the only reader a human directly experiences, and ironically it cares least about the cards you agonize over. It wants the practical stuff: the character encoding (`charset`, so your apostrophes don't turn into mojibake), the `viewport` (so the layout adapts to a phone), the `<title>` (which becomes the tab label), and a few cosmetic touches like `theme-color` and the favicon. That's mostly it. The browser is here to *paint the page*, and these tags tell it how.

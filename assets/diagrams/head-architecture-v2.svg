@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1160" font-family="Inter, 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfcfe"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowG" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#10b981"/>
+    </marker>
+    <marker id="arrowA" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f59e0b" opacity="0.85"/>
+    </marker>
+    <style>
+      .fname { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-weight: 700; }
+      .role  { font-size: 10.5px; font-style: italic; fill:#64748b; }
+      .tag   { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 10.5px; fill:#334155; }
+      .grp   { font-size: 9px; font-weight: 700; letter-spacing: 1px; fill:#2563eb; }
+      .mut   { fill:#94a3b8; }
+      .band  { fill: #94a3b8; font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+      .elab  { fill: #64748b; font-size: 10px; font-style: italic; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1160" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="56" y="50" font-size="27" font-weight="800" fill="#0f172a">How your &lt;head&gt; is assembled</text>
+  <text x="57" y="76" font-size="14" fill="#64748b">barbhs.com · Jekyll + Minimal Mistakes — flow + the literal tags each file injects · v2</text>
+
+  <!-- Legend -->
+  <g font-size="12" fill="#334155">
+    <rect x="708" y="38" width="14" height="14" rx="3" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="728" y="49">Output</text>
+    <rect x="800" y="38" width="14" height="14" rx="3" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="820" y="49">Include</text>
+    <rect x="898" y="38" width="14" height="14" rx="3" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+    <text x="918" y="49">Data / config</text>
+    <rect x="1030" y="38" width="14" height="14" rx="3" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+    <text x="1050" y="49">External CDN</text>
+  </g>
+
+  <!-- Band labels -->
+  <text class="band" transform="rotate(-90 22 150)" x="22" y="150" text-anchor="middle">OUTPUT</text>
+  <text class="band" transform="rotate(-90 22 415)" x="22" y="415" text-anchor="middle">INCLUDES &amp; THEIR TAGS</text>
+  <text class="band" transform="rotate(-90 22 1020)" x="22" y="1020" text-anchor="middle">SOURCES</text>
+
+  <!-- ================= EDGES ================= -->
+  <!-- structural -->
+  <g fill="none" stroke="#64748b" stroke-width="2">
+    <path d="M600,196 L600,170" marker-end="url(#arrow)"/>
+    <path d="M558,222 C430,250 330,272 296,298" marker-end="url(#arrow)"/>
+    <path d="M642,222 C800,250 880,272 904,298" marker-end="url(#arrow)"/>
+    <path d="M170,530 C145,542 138,550 134,558" marker-end="url(#arrow)"/>
+    <path d="M330,530 C360,542 378,550 388,558" marker-end="url(#arrow)"/>
+    <path d="M945,530 L945,558" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- data-source edges (green) -->
+  <g fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.8">
+    <path d="M150,920 C150,945 162,958 178,978" marker-end="url(#arrowG)"/>
+    <path d="M250,890 C360,935 430,955 472,978" marker-end="url(#arrowG)"/>
+    <path d="M388,710 C430,815 470,915 492,978" marker-end="url(#arrowG)"/>
+    <path d="M905,720 C860,815 820,915 800,978" marker-end="url(#arrowG)"/>
+  </g>
+  <!-- jsonld -> config (long, light) -->
+  <path d="M740,690 C470,760 250,870 178,978" fill="none" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="2 4" marker-end="url(#arrowG)"/>
+
+  <!-- external CDN edges (amber dashed) -->
+  <g fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.6">
+    <path d="M470,430 C620,560 700,690 738,772" marker-end="url(#arrowA)"/>
+    <path d="M1015,530 C1045,620 1045,700 1018,758" marker-end="url(#arrowA)"/>
+  </g>
+
+  <text class="elab" x="812" y="858">projects</text>
+  <text class="elab" x="300" y="455">loaded externally ↘</text>
+
+  <!-- ================= CARDS ================= -->
+
+  <!-- R0 OUTPUT -->
+  <g filter="url(#shadow)"><rect x="470" y="104" width="260" height="66" rx="15" fill="#eef2ff" stroke="#4f46e5" stroke-width="2.5"/></g>
+  <text class="fname" x="600" y="138" text-anchor="middle" font-size="19" fill="#4338ca">&lt;head&gt; … &lt;/head&gt;</text>
+  <text x="600" y="158" text-anchor="middle" font-size="11" fill="#6366f1">rebuilt for every page</text>
+
+  <!-- R1 default -->
+  <g filter="url(#shadow)"><rect x="450" y="196" width="300" height="52" rx="14" fill="#f1f5f9" stroke="#475569" stroke-width="1.8"/></g>
+  <text class="fname" x="468" y="220" font-size="13" fill="#334155">_layouts/default.html</text>
+  <text class="role" x="468" y="237">Minimal Mistakes theme — wraps every page</text>
+
+  <!-- R2 head.html (with tags) -->
+  <g filter="url(#shadow)"><rect x="40" y="300" width="430" height="230" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/></g>
+  <text class="fname" x="58" y="326" font-size="13.5" fill="#1d4ed8">_includes/head.html</text>
+  <text class="role" x="58" y="342">↳ also includes seo.html &amp; schema.html</text>
+  <text class="tag" x="58" y="362"><tspan x="58" dy="0">&lt;meta charset="utf-8"&gt;</tspan><tspan x="58" dy="15">&lt;link rel="alternate" type=atom+xml&gt; <tspan class="mut">feed.xml</tspan></tspan><tspan x="58" dy="15">&lt;meta name="viewport"&gt;</tspan><tspan x="58" dy="15">&lt;script async src=…gtag/js?id=G-VPLSBQSHER&gt;</tspan><tspan x="58" dy="15">&lt;script&gt; gtag('config', 'G-VPLSBQSHER')</tspan><tspan x="58" dy="15">&lt;script src=cdn.plot.ly/plotly-2.32.0&gt;</tspan><tspan x="58" dy="15">&lt;script&gt; no-js → js</tspan><tspan x="58" dy="15">&lt;link rel="stylesheet" /assets/css/main.css&gt;</tspan><tspan x="58" dy="15">&lt;link rel="stylesheet" Font Awesome 5&gt;</tspan><tspan x="58" dy="15">&lt;link rel="stylesheet" Inter + Playfair&gt;</tspan><tspan x="58" dy="15" class="mut">{% for site.head_scripts %} &lt;script&gt;</tspan></text>
+
+  <!-- R2 custom.html (with tags) -->
+  <g filter="url(#shadow)"><rect x="730" y="300" width="430" height="230" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/></g>
+  <text class="fname" x="748" y="326" font-size="13.5" fill="#1d4ed8">_includes/head/custom.html</text>
+  <text class="role" x="748" y="342">↳ also includes schema-jsonld.html</text>
+  <text class="tag" x="748" y="362"><tspan x="748" dy="0">&lt;link rel="apple-touch-icon" 180x180&gt;</tspan><tspan x="748" dy="15">&lt;link rel="icon" 32x32&gt;</tspan><tspan x="748" dy="15">&lt;link rel="icon" 16x16&gt;</tspan><tspan x="748" dy="15">&lt;link rel="manifest" site.webmanifest&gt;</tspan><tspan x="748" dy="15">&lt;link rel="mask-icon" safari-pinned-tab.svg&gt;</tspan><tspan x="748" dy="15">&lt;meta name="msapplication-TileColor"&gt;</tspan><tspan x="748" dy="15">&lt;meta name="theme-color" #ffffff&gt;</tspan><tspan x="748" dy="15">&lt;link href=…Material+Icons&gt;</tspan><tspan x="748" dy="15">&lt;link …Material+Symbols+Outlined&gt;</tspan><tspan x="748" dy="15">&lt;link …Material+Symbols+Rounded&gt;</tspan><tspan x="748" dy="15">&lt;link …Material+Symbols+Sharp&gt;</tspan></text>
+
+  <!-- R3 seo.html (grouped tags) -->
+  <g filter="url(#shadow)"><rect x="40" y="560" width="234" height="362" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/></g>
+  <text class="fname" x="58" y="586" font-size="13" fill="#1d4ed8">_includes/seo.html</text>
+  <text class="role" x="58" y="601">the SEO / social engine</text>
+  <text class="grp" x="58" y="623">DOCUMENT</text>
+  <text class="tag" x="58" y="638">&lt;title&gt; · description · author</text>
+  <text class="grp" x="58" y="660">OPENGRAPH <tspan class="mut">og:</tspan></text>
+  <text class="tag" x="58" y="675">type · locale · site_name · title</text>
+  <text class="tag" x="58" y="690">url · description · image</text>
+  <text class="grp" x="58" y="712">TWITTER CARD <tspan class="mut">twitter:</tspan></text>
+  <text class="tag" x="58" y="727">card · site · title · url</text>
+  <text class="tag" x="58" y="742">description · image · creator</text>
+  <text class="grp" x="58" y="764">ARTICLE <tspan class="mut">if page.date</tspan></text>
+  <text class="tag" x="58" y="779">published_time · modified_time</text>
+  <text class="tag" x="58" y="794">article:publisher · fb:app_id</text>
+  <text class="grp" x="58" y="816">LINKS</text>
+  <text class="tag" x="58" y="831">&lt;link canonical&gt; · prev / next</text>
+  <text class="grp" x="58" y="853">VERIFICATION</text>
+  <text class="tag" x="58" y="868">google · bing · yandex</text>
+  <text class="tag" x="58" y="883">alexa · naver</text>
+
+  <!-- R3 schema.html -->
+  <g filter="url(#shadow)"><rect x="294" y="560" width="206" height="150" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/></g>
+  <text class="fname" x="312" y="586" font-size="12.5" fill="#1d4ed8">schema.html</text>
+  <text class="role" x="312" y="601">page-level JSON-LD</text>
+  <text class="tag" x="312" y="623">&lt;script ld+json&gt;</text>
+  <text class="tag" x="312" y="641"><tspan class="mut">•</tspan> Article — dated</text>
+  <text class="tag" x="312" y="659"><tspan class="mut">•</tspan> HowTo — tutorial</text>
+  <text class="tag" x="312" y="677"><tspan class="mut">•</tspan> SoftwareSourceCode</text>
+  <text class="tag" x="312" y="695"><tspan class="mut">↳ author @id /#person</tspan></text>
+
+  <!-- R3 schema-jsonld.html -->
+  <g filter="url(#shadow)"><rect x="730" y="560" width="430" height="160" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/></g>
+  <text class="fname" x="748" y="586" font-size="13" fill="#1d4ed8">_includes/schema-jsonld.html</text>
+  <text class="role" x="748" y="601">site-level JSON-LD (identity graph)</text>
+  <text class="tag" x="748" y="623">&lt;script type="application/ld+json"&gt;</text>
+  <text class="tag" x="748" y="641"><tspan class="mut">•</tspan> @graph: WebSite + Person — home <tspan class="mut">/</tspan></text>
+  <text class="tag" x="748" y="659"><tspan class="mut">•</tspan> BreadcrumbList — inner pages</text>
+  <text class="tag" x="748" y="677"><tspan class="mut">•</tspan> ItemList: projects — <tspan class="mut">/projects/</tspan></text>
+  <text class="tag" x="748" y="697"><tspan class="mut">↳ reads _data/portfolio.json</tspan></text>
+
+  <!-- Right-fill: External CDNs -->
+  <g filter="url(#shadow)"><rect x="730" y="760" width="430" height="180" rx="14" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/></g>
+  <text class="fname" x="748" y="786" font-size="13" fill="#b45309">External CDNs</text>
+  <text class="role" x="748" y="801">loaded by head.html &amp; custom.html</text>
+  <text class="tag" x="748" y="823">googletagmanager.com/gtag <tspan class="mut">— Analytics</tspan></text>
+  <text class="tag" x="748" y="841">cdn.plot.ly/plotly-2.32.0.min.js</text>
+  <text class="tag" x="748" y="859">cdn.jsdelivr.net …fontawesome-free@5</text>
+  <text class="tag" x="748" y="877">fonts.googleapis.com <tspan class="mut">— Inter, Playfair</tspan></text>
+  <text class="tag" x="748" y="895">fonts.googleapis.com <tspan class="mut">— Material Symbols</tspan></text>
+  <text class="tag mut" x="748" y="913">favicons &amp; manifest are local /assets/</text>
+
+  <!-- R4 SOURCES -->
+  <g filter="url(#shadow)"><rect x="40" y="980" width="290" height="96" rx="14" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/></g>
+  <text class="fname" x="58" y="1006" font-size="13" fill="#047857">_config.yml</text>
+  <text class="tag" x="58" y="1028">site.title · url · description · locale</text>
+  <text class="tag" x="58" y="1046">author · twitter · og_image</text>
+  <text class="tag mut" x="58" y="1064">+ site_verification keys, head_scripts</text>
+
+  <g filter="url(#shadow)"><rect x="360" y="980" width="290" height="96" rx="14" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/></g>
+  <text class="fname" x="378" y="1006" font-size="13" fill="#047857">page front matter</text>
+  <text class="tag" x="378" y="1028">title · description · excerpt</text>
+  <text class="tag" x="378" y="1046">header.image / og_image / teaser</text>
+  <text class="tag" x="378" y="1064">date · stack · tags · status</text>
+
+  <g filter="url(#shadow)"><rect x="680" y="980" width="290" height="96" rx="14" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/></g>
+  <text class="fname" x="698" y="1006" font-size="13" fill="#047857">_data/portfolio.json</text>
+  <text class="tag" x="698" y="1028">projects[] array</text>
+  <text class="tag" x="698" y="1046">→ ItemList structured data</text>
+  <text class="tag mut" x="698" y="1064">used on /projects/ only</text>
+
+  <!-- footnote -->
+  <text x="56" y="1115" font-size="11" fill="#94a3b8">Note: _includes/schema/identity.html (expects _data/schema/person.json) is not wired into the head and the data file is absent — dead code.</text>
+</svg>

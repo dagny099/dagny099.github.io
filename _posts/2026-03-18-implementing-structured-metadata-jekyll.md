@@ -10,11 +10,18 @@ image: /assets/images/posts/metadata-implementation-hero.png
 
 This is the hands-on companion to [*The Three Readers of Your Web Page*]({% post_url 2026-03-12-three-readers-of-your-web-page %}). That piece explained *why* the page `<head>` serves three different audiences. This one is the *how* — the specific, ordered changes that take a Jekyll site on GitHub Pages from "decent metadata" to "legible to machines and consistent everywhere."
 
+For the bigger-picture case behind all of this, see [*Why Metadata Matters*]({% post_url 2025-11-7-metadata-matters %}). And if you're still assembling the underlying stack, my *Digital Home Base Workshop* series covers the groundwork: [getting started with GitHub Pages]({% post_url 2024-07-28-kickstart-web-portfolio-gh-pages-website-series %}), [understanding the Jekyll build]({% post_url 2024-07-31-what-does-jekyll-do-website-series %}), and [automating deploys with GitHub Actions]({% post_url 2024-08-13-auto-deploy-jekyll-w-gh-actions-website-series %}).
+
 A note for your own sanity before we start: several code blocks below contain Liquid (the `{% raw %}{{ ... }}{% endraw %}` and `{% raw %}{% ... %}{% endraw %}` syntax). In this article they're wrapped in Jekyll's `{% raw %}{% raw %}{% endraw %}` tags so they display literally instead of executing at build time. When you copy them into your *own* templates, drop the `raw` wrapper — you want Jekyll to actually run them there.
 
 We'll go in order of leverage: fix what's invisible and structural first, then add understanding, then polish, then verify.
 
 ## Step 0 — Audit your own `<head>`
+{: #audit-your-head}
+
+Before you can improve the `<head>`, it helps to see the whole thing at once: which template and data files inject which tags. Here's that map for *this very site* as it stands today — the "before" the rest of this guide builds on.
+
+{% include figure image_path="/assets/diagrams/head-architecture-v2.svg" alt="Diagram of how this site's <head> is assembled. The theme default.html layout includes head.html and head/custom.html; those include seo.html, schema.html, and schema-jsonld.html. Each include is annotated with the literal meta, link, and script tags it injects. They are fed by _config.yml, page front matter, and _data/portfolio.json, with external CDNs loaded directly." caption="How this site's `<head>` is assembled end to end — every include and data file, and the exact tags each one injects. ([full SVG]({{ '/assets/diagrams/head-architecture-v2.svg' | relative_url }})) This reflects the *current* wiring; the steps below evolve some of these pieces." class="align-center" %}
 
 Before changing anything, look at what you already emit. View source on your homepage (or use your browser's dev tools) and find these. For each, ask the question in the second column:
 
@@ -59,149 +66,188 @@ curl -sI https://www.barbhs.com | grep -i location   # should 301 to https://bar
 
 Because every URL your templates emit is built from `_config.yml`'s `url` via the `absolute_url` filter, your `canonical` and `og:url` tags are now guaranteed to point at the same host the server actually serves. One decision, enforced everywhere.
 
-## Step 2 — Emit structured data from a `_data` file
+## Step 2 — Emit your site identity graph
 
-Now the highest-value *addition*: telling the search engine what kind of thing your site is about. The key fact that resolves most confusion: **structured data is not a file the crawler fetches separately — it must be inlined into each page's HTML**, inside a `<script type="application/ld+json">` block. But you can keep the *source* in one tidy place and let Jekyll inline it. This mirrors how you'd manage any other single-source-of-truth data.
+Now the highest-value *addition*: telling the search engine what kind of thing your site is about. The key fact that resolves most confusion: **structured data is not a file the crawler fetches separately — it must be inlined into each page's HTML**, inside a `<script type="application/ld+json">` block.
 
-**2a.** Put your identity graph in `_data/person.json`. (Edit the values to taste; `sameAs` is the part worth investing in.)
+On this site that lives in `_includes/schema-jsonld.html`, wired into the `<head>` from `_includes/head/custom.html` (trace it in the diagram above). One file, three conditional blocks depending on the page.
 
-```json
+**2a. The homepage identity graph.** On the home page only, it emits a single `@graph` describing the site as a `WebSite` published by a `Person` — the canonical node every other page will point back to. The identity is hand-authored inline (the one thing worth curating by hand), while `site.url` and `site.description` come from `_config.yml`:
+
+{% raw %}
+```liquid
+{% assign site_url   = site.url | default: "https://barbhs.com" %}
+{% assign person_id  = site_url | append: "/#person" %}
+
+{% if page.url == "/" %}
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://barbhs.com/#website",
-      "url": "https://barbhs.com/",
-      "name": "Barbara Hidalgo-Sotelo",
-      "publisher": { "@id": "https://barbhs.com/#person" }
-    },
+    { "@type": "WebSite", "@id": "{{ site_url }}/#website",
+      "publisher": { "@id": "{{ person_id }}" }, "inLanguage": "en" },
     {
       "@type": "Person",
-      "@id": "https://barbhs.com/#person",
+      "@id": "{{ person_id }}",
       "name": "Barbara Hidalgo-Sotelo",
-      "jobTitle": "AI & Data Science Consultant",
-      "description": "Cognitive scientist and data scientist exploring messy data, intelligent systems, and how people make meaning.",
-      "url": "https://barbhs.com/",
-      "image": "https://barbhs.com/assets/images/biopic/bhs-new-headshot-v1.png",
-      "sameAs": [
-        "https://github.com/dagny099",
-        "https://linkedin.com/in/barbara-hidalgo-sotelo"
-      ],
+      "honorificSuffix": "PhD",
+      "jobTitle": ["Cognitive Scientist", "Data Scientist", "Applied AI Consultant"],
       "alumniOf": [
         { "@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology" },
         { "@type": "CollegeOrUniversity", "name": "The University of Texas at Austin" }
-      ]
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/barbara-hidalgo-sotelo/",
+        "https://github.com/dagny099",
+        "https://scholar.google.com/citations?user=nQG25vkAAAAJ",
+        "https://sensemaking-ai.com"
+      ],
+      "worksFor": { "@type": "Organization", "name": "Sensemaking AI" }
     },
-    {
-      "@type": "ProfilePage",
-      "@id": "https://barbhs.com/#profilepage",
-      "url": "https://barbhs.com/",
-      "mainEntity": { "@id": "https://barbhs.com/#person" }
-    }
+    { "@type": "SiteNavigationElement", "name": "Main Navigation", "hasPart": [ ... ] }
   ]
 }
-```
-
-**2b.** Create a one-line partial, `_includes/schema/identity.html`, that inlines it:
-
-{% raw %}
-```liquid
-<script type="application/ld+json">
-{{ site.data.person | jsonify }}
 </script>
+{% endif %}
 ```
 {% endraw %}
 
-The `jsonify` filter re-serializes your data structure into guaranteed-valid JSON — no hand-quoting, no escaping bugs. That `_data/person.json` file *is* your "JSON-LD file in the repo." It's edited in exactly one place and rendered wherever the partial is included.
+That stable `#person` `@id` is the spine of the whole strategy: it's the single entity every article and project references, so your scattered web presence reconciles to one node. (`sameAs` is the part worth investing in — it's how the engine merges your site, GitHub, LinkedIn, and Scholar into the same person.)
+
+**2b. Breadcrumbs on every inner page.** When `page.url != "/"`, the same file splits the URL into segments and emits a `BreadcrumbList`, so a result can show a `Home › Section › Page` trail instead of a bare string.
+
+**2c. The projects list — straight from a `_data` file.** This is where the single-source-of-truth pattern earns its keep. On `/projects/`, the file loops over `_data/portfolio.json` and emits an `ItemList` of `SoftwareApplication`s, each pointing its `author` back at `#person`:
+
+{% raw %}
+```liquid
+{% if page.url == "/projects/" and site.data.portfolio.projects %}
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "ItemList",
+  "numberOfItems": {{ site.data.portfolio.projects | size }},
+  "itemListElement": [
+    {% for p in site.data.portfolio.projects %}
+    { "@type": "ListItem", "position": {{ forloop.index }},
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": {{ p.name | jsonify }},
+        "description": {{ p.tagline | default: p.summary | jsonify }},
+        "author": { "@id": "{{ person_id }}" }
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+```
+{% endraw %}
+
+The `jsonify` filter re-serializes each value into guaranteed-valid JSON — no hand-quoting, no escaping bugs — so the project data you already maintain in `_data/portfolio.json` becomes structured data for free. Edit the data in one place; the schema regenerates on build.
+
+> **An honest trade-off.** The *identity* block above is authored inline rather than pulled from a `_data/person.json`. That's deliberate — it's one block, edited rarely. But if you'd rather keep identity in a data file too (the more DRY option), the projects pattern shows exactly how: move the object into `_data/person.json` and inline it with `{% raw %}{{ site.data.person | jsonify }}{% endraw %}`.
 
 ## Step 3 — Add per-content-type schema
 
-The unlock that keeps this simple: **a page may carry several `ld+json` blocks, and the engine merges them.** So you don't build one monster object. You emit the sitewide identity block everywhere, and each content type adds its own small block that points back at the same Person `@id`. That back-reference is the whole game — it means every project and post reinforces *one* entity instead of inventing a new anonymous author each time.
-
-**3a.** `_includes/schema/article.html` — for posts, essays, and data stories:
+The unlock that keeps this simple: **a page may carry several `ld+json` blocks, and the engine merges them.** The identity block from Step 2 describes *you*; a second, page-level block describes *this page*. On this site that page-level block lives in `_includes/schema.html`, included from `_includes/head.html`. Rather than a separate partial per content type, it decides the page's type once and branches internally:
 
 {% raw %}
 ```liquid
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": {{ page.title | jsonify }},
-  "description": {{ page.description | default: site.description | jsonify }},
-  "url": {{ page.url | absolute_url | jsonify }},
-  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
-  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
-  {% if page.image %}"image": {{ page.image | absolute_url | jsonify }},{% endif %}
-  "author": { "@id": "https://barbhs.com/#person" },
-  "mainEntityOfPage": {{ page.url | absolute_url | jsonify }}
-}
-</script>
+{% assign is_project = false %}
+{% if page.layout == 'project' or page.collection == 'projects' %}{% assign is_project = true %}{% endif %}
+{% assign is_tutorial = false %}
+{% if page.tags contains 'tutorial' %}{% assign is_tutorial = true %}{% endif %}
 ```
 {% endraw %}
 
-**3b.** `_includes/schema/project.html` — for projects (same shape, different type):
+**3a. Dated writing → `Article` (or `HowTo`).** Any page with a `date` that isn't a project emits an `Article` — or a `HowTo` when it's tagged `tutorial` — with both `author` and `publisher` pointing back at the same `#person`:
 
 {% raw %}
 ```liquid
+{% if page.date and is_project != true %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {% if is_tutorial %}"HowTo"{% else %}"Article"{% endif %},
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page_description | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "author":    { "@id": "{{ person_id }}" },
+  "publisher": { "@id": "{{ person_id }}" }
+}
+</script>
+{% endif %}
+```
+{% endraw %}
+
+**3b. Projects → `SoftwareSourceCode`.** Project pages get a `SoftwareSourceCode` block instead, deriving `programmingLanguage` and `about` from each project's `stack` front matter and `creativeWorkStatus` from its `status`:
+
+{% raw %}
+```liquid
+{% if is_project == true %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareSourceCode",
   "name": {{ page.title | jsonify }},
-  "description": {{ page.description | default: site.description | jsonify }},
-  "url": {{ page.url | absolute_url | jsonify }},
-  {% if page.repo %}"codeRepository": {{ page.repo | jsonify }},{% endif %}
-  {% if page.language %}"programmingLanguage": {{ page.language | jsonify }},{% endif %}
-  {% if page.image %}"image": {{ page.image | absolute_url | jsonify }},{% endif %}
-  "author": { "@id": "https://barbhs.com/#person" }
+  "author":  { "@id": "{{ person_id }}" },
+  "creator": { "@id": "{{ person_id }}" },
+  {% if page.stack %}"programmingLanguage": [{% for tech in page.stack %}{{ tech | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}],{% endif %}
+  {% if page.status %}"creativeWorkStatus": {{ page.status | jsonify }}{% endif %}
 }
 </script>
-```
-{% endraw %}
-
-Two footguns to internalize, because they cause every broken JSON-LD block I've ever seen. First, wrap every *value* in `{% raw %}| jsonify{% endraw %}` rather than hand-typing quotes — a title containing an apostrophe or a quotation mark will silently corrupt naked `"{% raw %}{{ page.title }}{% endraw %}"`. Second, the only property that must *not* end in a comma is the last one; notice the conditional `image` line keeps its trailing comma *inside* the `{% raw %}{% if %}{% endraw %}` so the comma vanishes cleanly when there's no image.
-
-**3c.** Wire it up once, in the `<head>` of your default layout:
-
-{% raw %}
-```liquid
-{% include schema/identity.html %}
-{% if page.layout == "post" %}
-  {% include schema/article.html %}
-{% elsif page.layout == "project" %}
-  {% include schema/project.html %}
 {% endif %}
 ```
 {% endraw %}
 
-For projects, set `repo` and `language` in each project's front matter, and you never touch the partial again. Indexes like tag and category pages need no per-type block — the identity block alone is fine.
+Two footguns to internalize, because they cause every broken JSON-LD block I've ever seen. First, wrap every *value* in `{% raw %}| jsonify{% endraw %}` rather than hand-typing quotes — a title containing an apostrophe or a quotation mark will silently corrupt naked `"{% raw %}{{ page.title }}{% endraw %}"`. Second, the only property that must *not* end in a comma is the last one; notice how `schema.html` keeps a conditional field's trailing comma *inside* its `{% raw %}{% if %}{% endraw %}` so the comma vanishes cleanly when the field is absent.
 
-## Step 4 — Make the rest of the `<head>` DRY
-
-While you're in the layout, centralize the ordinary meta so every page produces correct, consistent tags from front matter with sensible fallbacks. `_includes/head-meta.html`:
+**3c. Where it all attaches.** Unlike a data-driven include, `schema.html` is a single file that branches internally, so the layout includes it just once. The two structured-data files hook into the head at different points:
 
 {% raw %}
 ```liquid
-<title>{{ page.title | default: site.title }}</title>
-<meta name="description" content="{{ page.description | default: site.description }}">
-<link rel="canonical" href="{{ page.url | absolute_url }}">
+<!-- _includes/head.html -->
+{% include seo.html %}
+{% include schema.html %}
 
-<meta property="og:title" content="{{ page.title | default: site.title }}">
-<meta property="og:description" content="{{ page.description | default: site.description }}">
-<meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:type" content="{{ page.layout == 'post' ? 'article' : 'website' }}">
-<meta property="og:image" content="{{ page.image | default: '/assets/images/hero-banner.png' | absolute_url }}">
+<!-- _includes/head/custom.html -->
+{% include schema-jsonld.html %}
 ```
 {% endraw %}
 
-Because `absolute_url` prefixes the `url` from `_config.yml`, your canonical-host decision in Step 1 now propagates to every tag on every page for free. This is the payoff of doing Step 1 first.
+Index pages (tags, categories) have no `date` and aren't projects, so they match neither branch and emit no page-level block — the identity graph alone is enough.
+
+## Step 4 — Centralize the ordinary meta in `seo.html`
+
+The everyday `<head>` furniture — title, description, canonical, and the Open Graph / Twitter tags — is centralized in `_includes/seo.html` (a customized version of the Minimal Mistakes default), included from `head.html`. One file produces correct, consistent tags for every page from front matter, with site-level fallbacks. Near the top it derives a few variables once, then spends them:
+
+{% raw %}
+```liquid
+{% if page.date %}{% assign og_type = "article" %}{% else %}{% assign og_type = "website" %}{% endif %}
+{% assign canonical_url = page.url | replace: "index.html", "" | absolute_url %}
+
+<title>{{ seo_title | default: site.title }}</title>
+<meta name="description" content="{{ seo_description }}">
+<link rel="canonical" href="{{ canonical_url }}">
+
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ page_large_image }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+<meta name="twitter:image" content="{{ page_large_image }}">
+```
+{% endraw %}
+
+(`seo_description` and `page_large_image` are likewise resolved up top — description falls back from `page.description` to `page.excerpt` to `site.description`; the image from `page.header.og_image` to `overlay_image` to a site default.) Because `canonical_url` is built with `absolute_url` from `_config.yml`'s `url`, your canonical-host decision in Step 1 propagates to every tag on every page for free. This is the payoff of doing Step 1 first.
 
 ## Step 5 — Upgrade `knowsAbout` to linked data
 
 `knowsAbout` is a property on your Person that disambiguates *what kind of expert you are*. Its job isn't ranking — it's helping the engine place your entity in conceptual space. So keep it to a tight, honest set of genuine throughlines, not a keyword pile (a bloated list reads as spam and dilutes the signal).
 
-The plain version is a list of strings. The better version — and the one worth doing if you care about linked data — gives each concept a `sameAs` edge to its canonical encyclopedic identity, turning a bare label into a node in the global graph. Add this to the Person object in `_data/person.json`:
+The plain version is a list of strings — which is exactly what this site emits today (see the `knowsAbout` array in `_includes/schema-jsonld.html`). The better version — and the one worth doing if you care about linked data — gives each concept a `sameAs` edge to its canonical encyclopedic identity, turning a bare label into a node in the global graph. Here's the upgrade for that same Person object:
 
 ```json
 "knowsAbout": [
@@ -226,7 +272,7 @@ A few notes on getting this right. Confirm each `sameAs` URL actually resolves b
 
 ## Step 6 — Polish the social preview
 
-These tags don't affect ranking; they make shared links render reliably and look intentional. Add to `head-meta.html`:
+These tags don't affect ranking; they make shared links render reliably and look intentional. `seo.html` already emits the `twitter:` set and `og:image`; the piece it's missing is the image *dimensions* that let a platform reserve space before the image even downloads. Add to `seo.html`:
 
 {% raw %}
 ```liquid
@@ -234,11 +280,6 @@ These tags don't affect ranking; they make shared links render reliably and look
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="{{ page.image_alt | default: site.title }}">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ page.title | default: site.title }}">
-<meta name="twitter:description" content="{{ page.description | default: site.description }}">
-<meta name="twitter:image" content="{{ page.image | default: '/assets/images/hero-banner.png' | absolute_url }}">
 ```
 {% endraw %}
 
@@ -246,7 +287,7 @@ Confirm your share image is genuinely 1200×630 (the ideal ratio); if it isn't, 
 
 ## Step 7 — Confirm the boring infrastructure
 
-Two files quietly determine whether you're crawlable at all. Add the `jekyll-sitemap` plugin to generate `sitemap.xml` automatically:
+Two files quietly determine whether you're crawlable at all. The first is the sitemap: the `jekyll-sitemap` plugin — already in this site's `_config.yml` — generates `sitemap.xml` on every build, no maintenance required:
 
 ```yaml
 # _config.yml
@@ -254,7 +295,7 @@ plugins:
   - jekyll-sitemap
 ```
 
-And ensure a `robots.txt` at your site root points to it:
+The second is `robots.txt`, and here's a nuance worth knowing: `jekyll-sitemap` already generates a minimal one for you at build time, containing just the `Sitemap:` line — so you're covered by default. You only need to author your own if you want explicit crawl rules. The catch: the moment a source `robots.txt` exists, it *replaces* the generated one, so you must include the sitemap line yourself:
 
 ```
 User-agent: *
@@ -277,4 +318,4 @@ A good final habit: after you ship `og:` changes, run the LinkedIn and Facebook 
 
 ## The shape of what you built
 
-Step back and notice the structure. Your *identity* lives in one data file. Your *rendering logic* lives in a few small, named partials. Your *canonical host* is decided once and propagates everywhere through `absolute_url`. Each content type contributes its own schema while pointing back at a single Person node, so your whole site resolves to one trusted entity rather than a scatter of anonymous pages. That's not just good for search — it's the same separation of source-of-truth from presentation that makes any project pleasant to maintain. The metadata got better, and the repo got *cleaner*. That's the version worth shipping.
+Step back and notice the structure. Your *identity* lives in one curated block and your *project data* in one `_data` file. Your *rendering logic* lives in a few small, named partials — `seo.html`, `schema.html`, `schema-jsonld.html`. Your *canonical host* is decided once and propagates everywhere through `absolute_url`. Each content type contributes its own schema while pointing back at a single Person node, so your whole site resolves to one trusted entity rather than a scatter of anonymous pages. That's not just good for search — it's the same separation of source-of-truth from presentation that makes any project pleasant to maintain. The metadata got better, and the repo got *cleaner*. That's the version worth shipping.

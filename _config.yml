@@ -24,6 +24,8 @@ baseurl: ""                           # empty string, not null
 repository: "dagny099/dagny099.github.io"
 logo: "/assets/images/swirl_barb_logo.png"
 masthead_title: "Barbara Hidalgo-Sotelo"
+og_image: "/assets/images/biopic/bhs-new-headshot-v1.png"   # default social-share image (Open Graph / Twitter card)
+google_site_verification: "LDB7M809YFjVa-4kLD3w4JZx7UgViTqKZLo0IGye3PU"
 
 breadcrumbs: true
 words_per_minute: 200
@@ -105,6 +107,15 @@ footer:
 
 # Reading
 include: [".htaccess", "_pages"]
+
+# Keep dev/internal files out of the built site (and therefore out of the sitemap/index)
+exclude:
+  - CLAUDE.md
+  - CHANGELOG.md
+  - README.md
+  - scripts/
+  - Gemfile
+  - Gemfile.lock
 
 # Build
 markdown:
