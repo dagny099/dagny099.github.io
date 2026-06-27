@@ -17,6 +17,8 @@ categories: [data-science]
 
 ---
 
+> *Also published as a LinkedIn Featured Article: [What Looks Like an AI Skills Gap Is Often a Judgment Gap](https://www.linkedin.com/pulse/what-looks-like-ai-skills-gap-often-judgment-barbara-ucygc).*
+
 When I built and deployed my [Digital Twin](https://twin.barbhs.com) — a system designed to answer questions from my own body of work — the chatbot was the part people noticed. The evaluation layer around it was the part that earned the result.
 
 The chatbot could answer questions, which was exciting. But that was not enough. I needed to know what it had retrieved, whether the source actually supported the response, whether the answer sounded right for the wrong reason, and whether a better model, prompt, or retrieval backend had made the system better at the job — or merely better at sounding like it was.
@@ -72,3 +74,7 @@ None of them is about prompting. They are what tell you whether the prompt is wo
 I work with these tools every day and I'm glad they're this good. But the teams getting the most from AI are not simply the ones moving fastest. They are the ones that can sit with a half-formed problem long enough to frame it well, then look at a confident output and still ask whether it is right.
 
 That is the literacy worth building: not just the ability to use the tool, but the judgment to know when its answer has earned trust.
+
+---
+
+If this framing is useful, I’d love to hear how it shows up in your own AI work. I also [published this piece on LinkedIn](https://www.linkedin.com/pulse/what-looks-like-ai-skills-gap-often-judgment-barbara-ucygc), where I’m continuing the conversation with people working on AI literacy, enablement, governance, and knowledge systems.
