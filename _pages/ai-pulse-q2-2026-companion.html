@@ -1,0 +1,942 @@
+---
+layout: none
+permalink: /ai-pulse-q2-2026/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The quiet number in a loud report — KPMG AI Pulse Q2 2026 · Sensemaking AI</title>
+<meta name="description" content="KPMG's Q2 2026 survey shows AI confidence rising on every measure — and one number falling. A careful read of what the data does, and doesn't, prove.">
+
+<link rel="canonical" href="https://barbhs.com/ai-pulse-q2-2026/">
+<meta name="author" content="Barbara Hidalgo-Sotelo">
+<meta name="theme-color" content="#FBFAF6">
+
+<!-- Open Graph: how the link renders on LinkedIn -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sensemaking AI">
+<meta property="og:title" content="The quiet number in a loud report">
+<meta property="og:description" content="KPMG's Q2 2026 AI Pulse: confidence up on every measure, one number down. A careful read of what the data does, and doesn't, prove.">
+<meta property="og:url" content="https://barbhs.com/ai-pulse-q2-2026/">
+<meta property="og:image" content="https://barbhs.com/assets/images/ai-pulse-q2-2026-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The quiet number in a loud report">
+<meta name="twitter:description" content="KPMG's Q2 2026 AI Pulse: confidence up on every measure, one number down.">
+<meta name="twitter:image" content="https://barbhs.com/assets/images/ai-pulse-q2-2026-og.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://barbhs.com/#person",
+      "name": "Barbara Hidalgo-Sotelo",
+      "url": "https://barbhs.com",
+      "jobTitle": "AI & Data Science Consultant",
+      "affiliation": { "@type": "Organization", "name": "Sensemaking AI" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://barbhs.com/#org",
+      "name": "Sensemaking AI",
+      "url": "https://barbhs.com"
+    },
+    {
+      "@type": "Article",
+      "headline": "The quiet number in a loud report: reading KPMG's Q2 2026 AI Pulse",
+      "description": "KPMG's Q2 2026 survey shows AI confidence rising on every measure and one number falling. A careful read of what the data does and doesn't prove.",
+      "datePublished": "2026-06-27",
+      "dateModified": "2026-06-27",
+      "author": { "@id": "https://barbhs.com/#person" },
+      "publisher": { "@id": "https://barbhs.com/#org" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://barbhs.com/ai-pulse-q2-2026/" },
+      "image": "https://barbhs.com/assets/images/ai-pulse-q2-2026-og.png",
+      "isBasedOn": "https://kpmg.com/aipulse",
+      "about": "KPMG Global AI Pulse Q2 2026 survey of enterprise AI adoption, governance and economics"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Sensemaking AI", "item": "https://barbhs.com" },
+        { "@type": "ListItem", "position": 2, "name": "The quiet number in a loud report", "item": "https://barbhs.com/ai-pulse-q2-2026/" }
+      ]
+    }
+  ]
+}
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE MEANING LAYER — design tokens (barbhs.com system)
+   teal #1B6B5E · coral #DC6B4F · paper #FBFAF6
+   EB Garamond (display) · IBM Plex Sans (body) · IBM Plex Mono (labels)
+   ============================================================ */
+:root{
+  --paper:#FBFAF6;
+  --teal:#1B6B5E;
+  --teal-deep:#134E44;
+  --teal-tint:#E9F1EE;
+  --coral:#DC6B4F;
+  --coral-deep:#B84F37;
+  --coral-tint:#FBEDE7;
+  --ink:#26251F;
+  --ink-soft:#5E5C51;
+  --ink-faint:#8C8A7E;
+  --line:#E6E1D4;
+  --line-strong:#D3CDBC;
+
+  --display:'EB Garamond',Georgia,serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --measure:64ch;
+  --pad:clamp(20px,5vw,40px);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-weight:400;
+  font-size:clamp(16px,1.05vw,18px);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---- layout primitives ---- */
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--pad)}
+.flow > * + *{margin-top:1.1em}
+section{padding:clamp(48px,8vw,84px) 0}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---- typography ---- */
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.12;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(2.4rem,6.5vw,4rem)}
+h2{font-size:clamp(1.8rem,4.2vw,2.7rem);margin-bottom:.2em}
+h3{font-size:clamp(1.3rem,2.6vw,1.6rem)}
+p{margin:0}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{color:var(--coral-deep)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--teal);
+}
+.dek{font-family:var(--display);font-size:clamp(1.15rem,2.4vw,1.5rem);
+  font-style:italic;color:var(--ink-soft);line-height:1.4}
+.meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;
+  color:var(--ink-faint);text-transform:uppercase}
+.lead{font-size:1.1em}
+.fig-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;
+  color:var(--ink-faint);text-transform:uppercase;margin-top:14px}
+
+/* ============================================================
+   HERO — two numbers in opposition (the signature)
+   ============================================================ */
+.hero{padding-top:clamp(40px,7vw,72px);padding-bottom:clamp(36px,6vw,56px)}
+.hero .eyebrow{display:block;margin-bottom:22px}
+.home-link{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);text-decoration:none;
+  display:inline-block;margin-bottom:24px}
+.home-link:hover{color:var(--teal)}
+.home-link::before{content:"\2190 \00a0"}
+.hero h1{margin-bottom:.35em;max-width:14ch}
+.hero .dek{max-width:46ch}
+.hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:6px 18px}
+
+.opposition{
+  margin-top:clamp(34px,5vw,52px);
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:clamp(12px,3vw,28px);
+}
+.opp-card{text-align:center}
+.opp-delta{font-family:var(--display);font-weight:500;line-height:1;
+  font-size:clamp(3.2rem,12vw,6rem);letter-spacing:-.02em}
+.opp-up .opp-delta{color:var(--coral-deep)}
+.opp-down .opp-delta{color:var(--ink-soft)}
+.opp-stage{font-family:var(--mono);font-size:.74rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;margin-top:10px}
+.opp-up .opp-stage{color:var(--coral-deep)}
+.opp-down .opp-stage{color:var(--ink-soft)}
+.opp-move{font-family:var(--mono);font-size:.86rem;color:var(--ink-faint);margin-top:4px}
+.opp-divider{width:1px;align-self:stretch;background:var(--line-strong);min-height:84px;margin:0 auto}
+.opp-caption{margin-top:26px;text-align:center;font-size:.95em;color:var(--ink-soft);max-width:52ch;margin-inline:auto}
+@media(max-width:560px){
+  .opposition{grid-template-columns:1fr;gap:22px}
+  .opp-divider{width:60%;height:1px;min-height:0}
+}
+
+/* ============================================================
+   CHARTS
+   ============================================================ */
+.chart{margin-top:26px}
+.bar-row{margin-bottom:18px}
+.bar-row:last-child{margin-bottom:0}
+.bar-label{font-size:.92rem;color:var(--ink);margin-bottom:7px;display:flex;
+  justify-content:space-between;align-items:baseline;gap:12px}
+.bar-label .lab{font-weight:500}
+.bar-track{position:relative;height:auto}
+
+/* grouped (Q1 vs Q2) */
+.gbar{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.gbar:last-child{margin-bottom:0}
+.gbar .tag{font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;
+  color:var(--ink-faint);width:20px;flex:none;text-transform:uppercase}
+.gbar .lane{flex:1;background:var(--line);border-radius:2px;height:14px;overflow:hidden}
+.gbar .fill{height:100%;width:0;border-radius:2px;transition:width 1s cubic-bezier(.22,1,.36,1)}
+.gbar.q1 .fill{background:var(--line-strong)}
+.gbar.q2 .fill{background:var(--teal)}
+.gbar .val{font-family:var(--mono);font-size:.78rem;width:42px;flex:none;
+  text-align:right;color:var(--ink-soft);font-weight:500}
+.gbar.q2 .val{color:var(--teal-deep)}
+
+.delta-chip{font-family:var(--mono);font-size:.74rem;font-weight:600;
+  padding:1px 7px;border-radius:999px;letter-spacing:.02em}
+.delta-up{background:var(--coral-tint);color:var(--coral-deep)}
+.delta-down{background:#ECEAE0;color:var(--ink-soft)}
+.delta-flat{background:#ECEAE0;color:var(--ink-faint)}
+
+.bar-row.highlight{background:var(--coral-tint);margin-inline:-14px;
+  padding:14px 14px 12px;border-radius:8px;border:1px solid #F1D9CF}
+
+/* single horizontal bars */
+.sbar{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.sbar:last-child{margin-bottom:0}
+.sbar .slab{font-size:.9rem;width:40%;flex:none;color:var(--ink)}
+.sbar .slane{flex:1;background:var(--line);border-radius:2px;height:16px;overflow:hidden}
+.sbar .sfill{height:100%;width:0;background:var(--teal);border-radius:2px;
+  transition:width 1s cubic-bezier(.22,1,.36,1)}
+.sbar .sfill.muted{background:var(--line-strong)}
+.sbar .sval{font-family:var(--mono);font-size:.8rem;width:38px;flex:none;
+  text-align:right;color:var(--teal-deep);font-weight:500}
+@media(max-width:520px){.sbar .slab{width:46%;font-size:.82rem}}
+
+/* confidence stat strip */
+.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,3vw,28px);margin-top:26px}
+.stat{border-top:2px solid var(--teal);padding-top:14px}
+.stat .big{font-family:var(--display);font-size:clamp(2.2rem,6vw,3rem);
+  font-weight:500;line-height:1;color:var(--teal-deep)}
+.stat .lab{font-size:.86rem;color:var(--ink-soft);margin-top:8px;line-height:1.35}
+.stat .mv{font-family:var(--mono);font-size:.74rem;color:var(--coral-deep);
+  margin-top:6px;letter-spacing:.02em}
+@media(max-width:560px){.stat-strip{grid-template-columns:1fr;gap:18px}
+  .stat{display:flex;align-items:baseline;gap:16px;border-top:1px solid var(--line)}
+  .stat .big{font-size:2.2rem}.stat .lab{margin-top:0}}
+
+/* two-up priorities */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,40px);margin-top:24px}
+@media(max-width:600px){.cols2{grid-template-columns:1fr;gap:26px}}
+.col-head{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px;
+  padding-bottom:8px;border-bottom:1px solid var(--line)}
+.pri{display:flex;justify-content:space-between;align-items:baseline;
+  gap:10px;padding:7px 0;font-size:.92rem}
+.pri .pmove{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint)}
+
+/* ============================================================
+   CLOSER LOOK — author POV blocks (coral lens)
+   ============================================================ */
+.lens{
+  background:var(--coral-tint);
+  border-left:3px solid var(--coral);
+  border-radius:0 10px 10px 0;
+  padding:clamp(26px,5vw,40px) clamp(22px,5vw,44px);
+}
+.lens-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.lens-eyebrow .dot{width:11px;height:11px;border-radius:50%;
+  border:2px solid var(--coral);flex:none;position:relative}
+.lens-eyebrow .dot::after{content:"";position:absolute;inset:2px;
+  border-radius:50%;background:var(--coral)}
+.lens-eyebrow span{font-family:var(--mono);font-size:.72rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--coral-deep)}
+.lens h2{color:var(--ink)}
+.lens .byline{font-family:var(--mono);font-size:.72rem;color:var(--coral-deep);
+  letter-spacing:.04em;margin-top:4px}
+
+/* correlation toggle interactive */
+.toggle{display:inline-flex;background:#fff;border:1px solid var(--line-strong);
+  border-radius:999px;padding:3px;margin:6px 0 22px;gap:2px}
+.toggle button{font-family:var(--mono);font-size:.78rem;font-weight:500;
+  letter-spacing:.02em;border:0;background:transparent;color:var(--ink-soft);
+  padding:8px 16px;border-radius:999px;cursor:pointer;transition:.18s}
+.toggle button[aria-pressed="true"]{background:var(--coral);color:#fff}
+.toggle button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.causepanel{background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:clamp(22px,4vw,32px);min-height:240px}
+.causepanel svg{width:100%;height:auto;display:block;max-width:520px;margin:0 auto}
+.causenode rect{fill:#fff}
+.cause-read{margin-top:18px;font-size:.96rem;color:var(--ink);min-height:3em}
+.cause-read strong{color:var(--coral-deep)}
+
+/* eval mapping */
+.maprow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.maprow:last-child{border-bottom:0}
+.maprow .arrow{font-family:var(--mono);color:var(--coral);font-size:1.1rem}
+.maprow .eval{font-weight:500}
+.maprow .cost{color:var(--teal-deep)}
+.maphead{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-faint);padding-bottom:6px}
+@media(max-width:520px){
+  .maprow,.maphead{grid-template-columns:1fr;gap:4px}
+  .maprow .arrow{display:none}
+  .maphead span:nth-child(2){display:none}
+  .maprow{padding:12px 0}
+  .maprow .cost{font-size:.9rem}
+}
+
+/* ============================================================
+   TRANSPARENCY / READ-IT-YOURSELF
+   ============================================================ */
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;margin-top:24px}
+.fact{background:var(--paper);padding:18px 20px}
+.fact .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.fact .v{font-size:.98rem;margin-top:5px;color:var(--ink)}
+@media(max-width:520px){.facts{grid-template-columns:1fr}}
+
+.caveat{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.caveat:last-child{border-bottom:0}
+.caveat .n{font-family:var(--mono);font-size:.8rem;color:var(--coral);
+  font-weight:600;flex:none;width:1.6em}
+.caveat .ct strong{display:block;font-weight:600;margin-bottom:2px}
+.caveat .ct span{font-size:.95rem;color:var(--ink-soft)}
+
+/* ============================================================
+   SELF-CHECK
+   ============================================================ */
+.qcard{background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:clamp(22px,4vw,30px);margin-top:18px}
+.qcard .qq{font-family:var(--display);font-size:1.35rem;font-style:italic;
+  line-height:1.3;margin-bottom:16px}
+.choices{display:flex;gap:8px;flex-wrap:wrap}
+.choices button{font-family:var(--mono);font-size:.8rem;border:1px solid var(--line-strong);
+  background:var(--paper);color:var(--ink-soft);padding:8px 16px;border-radius:999px;
+  cursor:pointer;transition:.16s}
+.choices button[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.choices button:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.qresp{margin-top:14px;font-size:.95rem;color:var(--teal-deep);min-height:1.4em;
+  font-style:italic;font-family:var(--display);font-size:1.05rem}
+
+/* ============================================================
+   BUTTONS / FOOTER
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);
+  font-size:.82rem;font-weight:500;letter-spacing:.02em;background:var(--teal);
+  color:#fff;border:0;border-radius:8px;padding:12px 20px;cursor:pointer;
+  text-decoration:none;transition:.18s}
+.btn:hover{background:var(--teal-deep);color:#fff}
+.btn:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.btn svg{width:15px;height:15px}
+
+footer{padding:clamp(48px,7vw,72px) 0 clamp(60px,8vw,90px);
+  border-top:1px solid var(--line);margin-top:clamp(40px,6vw,60px)}
+.brandline{font-family:var(--display);font-style:italic;font-size:1.15rem;
+  color:var(--ink-soft);line-height:1.45;max-width:48ch;margin-bottom:24px}
+.foot-meta{font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);
+  letter-spacing:.03em;line-height:1.8}
+.foot-meta a{color:var(--teal-deep)}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---- sticky arc bar (table of contents) ---- */
+.arcbar{position:fixed;top:0;left:0;right:0;z-index:60;
+  background:rgba(251,250,246,.9);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  transform:translateY(-100%);transition:transform .3s ease}
+.arcbar.show{transform:none}
+.arcbar-inner{max-width:1040px;margin:0 auto;padding:11px var(--pad);
+  display:flex;align-items:center;gap:18px}
+.arc-now{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;flex:none;
+  max-width:42vw;overflow:hidden;text-overflow:ellipsis}
+.arc-seg{display:flex;flex:1;gap:6px;list-style:none;margin:0;padding:0}
+.arc-seg li{flex:1;min-width:0}
+.arc-seg button{display:block;width:100%;height:5px;border:0;padding:0;
+  border-radius:999px;background:var(--line-strong);cursor:pointer;
+  transition:background .25s ease,height .2s ease}
+.arc-seg li.done button,.arc-seg li.active button{background:var(--teal)}
+.arc-seg li[data-voice="read"].done button,
+.arc-seg li[data-voice="read"].active button{background:var(--coral)}
+.arc-seg li[data-voice="plain"].done button,
+.arc-seg li[data-voice="plain"].active button{background:var(--ink-soft)}
+.arc-seg li.active button{height:7px}
+.arc-seg button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+section[id],header[id]{scroll-margin-top:72px}
+@media(max-width:560px){
+  .arc-now{max-width:36vw;font-size:.62rem}
+  .arcbar-inner{gap:11px;padding:9px var(--pad)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+::selection{background:var(--coral-tint)}
+:focus-visible{outline-offset:3px}
+</style>
+</head>
+<body>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero wrap">
+  <a class="home-link" href="https://barbhs.com">Sensemaking AI</a>
+  <span class="eyebrow">Field notes · KPMG Global AI Pulse Q2 2026</span>
+  <h1>The quiet number in a loud report</h1>
+  <p class="dek">KPMG's Q2 survey of 2,145 senior leaders shows AI confidence climbing on every measure. One number moved the other way.</p>
+  <div class="meta">
+    <span>Companion to my LinkedIn post</span><span>·</span><span>~7 min read</span><span>·</span><span>Barbara Hidalgo-Sotelo</span>
+  </div>
+
+  <div class="opposition reveal" id="opposition">
+    <div class="opp-card opp-up">
+      <div class="opp-delta" data-count="9" data-prefix="+">+9</div>
+      <div class="opp-stage">Driving adoption</div>
+      <div class="opp-move">13% → 22%</div>
+    </div>
+    <div class="opp-divider" aria-hidden="true"></div>
+    <div class="opp-card opp-down">
+      <div class="opp-delta" data-count="1" data-prefix="−">−1</div>
+      <div class="opp-stage">Established ROI</div>
+      <div class="opp-move">8% → 7%</div>
+    </div>
+  </div>
+  <p class="opp-caption">More companies than ever are embedding AI across the business. The share that can point to proven returns slipped. The whole report is an attempt to explain that gap.</p>
+</header>
+
+<hr class="rule">
+
+<!-- ====================== WHAT ROSE ====================== -->
+<section id="rose" class="wrap flow reveal">
+  <span class="eyebrow">The findings · what rose</span>
+  <h2>Almost everything pointed up</h2>
+  <p class="lead">This is a serious instrument — repeated quarterly, so the deltas are real signal rather than one-off noise. Across the confidence measures, every line gained ground in a single quarter, and the biggest jump was in leaders saying AI is already paying off.</p>
+
+  <div class="stat-strip">
+    <div class="stat"><div class="big" data-count="76" data-suffix="%">76%</div><div class="lab">say AI is delivering meaningful business value</div><div class="mv">+12 pts since Q1</div></div>
+    <div class="stat"><div class="big" data-count="78" data-suffix="%">78%</div><div class="lab">are confident they can future-proof their AI strategy</div><div class="mv">+8 pts</div></div>
+    <div class="stat"><div class="big" data-count="79" data-suffix="%">79%</div><div class="lab">would keep investing in AI through a recession</div><div class="mv">+5 pts</div></div>
+  </div>
+  <p class="fig-note">Source: KPMG Global AI Pulse Q2 2026 · agree / strongly agree · n=2,145</p>
+
+  <p style="margin-top:36px">Spending held flat at a planned US$188M (a weighted average), and the <em>mix</em> of priorities shifted in a telling direction: the efficiency goals eased off while the strategic ones climbed. Companies are moving past "make us faster" toward "change how we work."</p>
+
+  <div class="cols2">
+    <div>
+      <div class="col-head">Priorities easing</div>
+      <div class="pri"><span>Productivity gains</span><span class="pmove">42 → 35</span></div>
+      <div class="pri"><span>Faster, better decisions</span><span class="pmove">41 → 36</span></div>
+      <div class="pri"><span>Cost reduction</span><span class="pmove">31 → 29</span></div>
+    </div>
+    <div>
+      <div class="col-head">Priorities rising</div>
+      <div class="pri"><span>Human–AI collaboration</span><span class="pmove">28 → 30</span></div>
+      <div class="pri"><span>Responsible AI &amp; governance</span><span class="pmove">26 → 28</span></div>
+      <div class="pri"><span>Ecosystem &amp; partnerships</span><span class="pmove">12 → 16</span></div>
+    </div>
+  </div>
+  <p class="fig-note">Share naming each as a key AI priority · Q1 → Q2</p>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== THE MATURITY CURVE ====================== -->
+<section id="maturity" class="wrap flow reveal">
+  <span class="eyebrow">The findings · the maturity curve</span>
+  <h2>Where the crowd moved</h2>
+  <p class="lead">KPMG places each organization on a six-stage curve, from early research to "established ROI." The story of the quarter is a crowd surging into the second-to-last stage — broad deployment — while the final stage, proven returns, stayed put and even ticked down.</p>
+
+  <div class="chart" id="maturityChart"></div>
+  <p class="fig-note">Self-reported phase of the AI journey · Q1 → Q2 · the deltas, not the levels, carry the story</p>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== THE DIFFERENTIATORS ====================== -->
+<section id="differentiators" class="wrap flow reveal">
+  <span class="eyebrow">The findings · the differentiators</span>
+  <h2>What the leaders had in common</h2>
+  <p class="lead">KPMG's sharpest finding is about what separates the organizations clearing that final gate. Two capabilities stand out, and the report attaches large multipliers to both.</p>
+
+  <h3 style="margin-top:30px">1 · Someone is clearly accountable</h3>
+  <p>Three-quarters of leaders say their CEO actively owns AI as a strategic priority. Far fewer can say who is actually <em>accountable</em> for an AI-informed decision — only 24% name the CEO or executive committee, with the rest spread thin across functions and committees. Where accountability is clearly defined, the outcomes diverge sharply.</p>
+
+  <div class="chart" id="acctChart"></div>
+  <p class="fig-note">Strongly agree · YES = CEO clearly accountable, NO = CEO less / not accountable · Q2</p>
+
+  <h3 style="margin-top:42px">2 · Leaders can see what AI costs</h3>
+  <p>Only about a third of organizations have full, actively-monitored visibility into what their AI costs to run. Nearly half have already rephased a deployment — scaled back, delayed, or paused it — once the costs began to outweigh the value. And the organizations that can see their costs report proven returns at five times the rate of those that can't.</p>
+
+  <div class="chart" id="costChart"></div>
+  <p class="fig-note">Visibility into AI operating costs today · Q2 · n=2,145</p>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== CLOSER LOOK I ====================== -->
+<section id="correlation" class="wrap reveal">
+  <div class="lens flow">
+    <div class="lens-eyebrow"><span class="dot" aria-hidden="true"></span><span>A closer look · my read</span></div>
+    <h2>The 3× and 5× are not levers</h2>
+    <p class="byline">Where I'd slow down before turning a finding into a to-do list</p>
+
+    <p style="margin-top:18px">Read quickly, those multipliers sound like instructions: appoint an accountable executive, stand up a cost dashboard, collect 3× to 5× more ROI. KPMG is careful to note that accountability alone doesn't create value — and that caution is worth taking seriously, because it points at how these numbers actually work.</p>
+
+    <p>Both findings compare organizations that <em>have</em> a discipline against organizations that don't. But the kind of company that can name who owns an AI decision is usually disciplined in a dozen other ways too: in procurement, in data hygiene, in how it evaluates a model before shipping it. The same is true of cost visibility. These aren't isolated switches. They're symptoms of organizational maturity — and maturity is the thing that produces returns.</p>
+
+    <p>Toggle between the two readings:</p>
+    <div class="toggle" role="group" aria-label="How to read the multiplier">
+      <button id="leverBtn" aria-pressed="true">As a lever</button>
+      <button id="symptomBtn" aria-pressed="false">As a symptom</button>
+    </div>
+
+    <div class="causepanel">
+      <div id="causeDiagram"></div>
+      <p class="cause-read" id="causeRead"></p>
+    </div>
+
+    <p style="margin-top:20px">This doesn't make the finding useless. It makes it a mirror rather than a recipe. The right question to ask your own organization isn't "have we appointed someone?" — it's "are we the kind of organization that already knows who owns this, and what it costs?" If the answer is no, the title alone won't manufacture the maturity underneath it.</p>
+  </div>
+</section>
+
+<!-- ====================== CLOSER LOOK II ====================== -->
+<section id="cost-eval" class="wrap reveal">
+  <div class="lens flow">
+    <div class="lens-eyebrow"><span class="dot" aria-hidden="true"></span><span>A closer look · my read</span></div>
+    <h2>Cost visibility is an evaluation problem</h2>
+    <p class="byline">Why this chapter is really about measurement discipline</p>
+
+    <p style="margin-top:18px">KPMG files cost visibility under economics, next to budgets and pricing. I'd file it next to model evaluation, because it's the same move: making an invisible property of a system legible enough to act on. You can't improve what you can't measure. Evaluation instruments a model's quality; cost visibility instruments its spend. Same instinct, different axis.</p>
+
+    <p>Seen that way, the 49% who rephased a deployment weren't retreating. They were running an evaluation loop — measuring value against cost, then making a keep-or-kill call. The two-thirds without visibility can't run that loop at all. They're flying a system they can't see the instruments for.</p>
+
+    <div class="maphead"><span>The evaluation habit</span><span></span><span>Its cost-visibility twin</span></div>
+    <div class="maprow"><span class="eval">Define the metric before you ship</span><span class="arrow">→</span><span class="cost">Set a token / usage budget up front</span></div>
+    <div class="maprow"><span class="eval">Monitor quality in production</span><span class="arrow">→</span><span class="cost">Watch operating cost as it scales</span></div>
+    <div class="maprow"><span class="eval">Attribute outcomes to a model</span><span class="arrow">→</span><span class="cost">Attribute spend to a use case</span></div>
+    <div class="maprow"><span class="eval">Kill the experiment that underperforms</span><span class="arrow">→</span><span class="cost">Rephase the deployment that overspends</span></div>
+
+    <p style="margin-top:22px">For an organization in the two-thirds without visibility, the practical takeaway runs ahead of any strategy change: instrument first. Cost dashboards, per-use-case attribution, and budgets are the same rigor a good ML team already brings to its metrics, pointed at the bill. The strategy gets easier once you can see.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== READ IT YOURSELF ====================== -->
+<section id="source" class="wrap flow reveal">
+  <span class="eyebrow">Before you cite it · read it yourself</span>
+  <h2>What the survey is, and what it isn't</h2>
+  <p class="lead">A good number deserves a little suspicion. None of this undermines the report — it just tells you how much weight each figure can bear.</p>
+
+  <div class="facts">
+    <div class="fact"><div class="k">Who answered</div><div class="v">2,145 senior leaders with direct knowledge of AI use</div></div>
+    <div class="fact"><div class="k">How big</div><div class="v">Companies with US$50M+ revenue — but US$1B+ for the US sub-sample</div></div>
+    <div class="fact"><div class="k">Where</div><div class="v">20 countries and territories, spanning five regions</div></div>
+    <div class="fact"><div class="k">When</div><div class="v">Fielded online, 28 April – 25 May 2026</div></div>
+  </div>
+
+  <div style="margin-top:32px">
+    <div class="caveat"><span class="n">01</span><div class="ct"><strong>Every figure is self-reported.</strong><span>These are leaders grading their own organizations, not audited books or individual contributors. Read the numbers as executive sentiment, which is real and useful, as long as you don't mistake it for proof.</span></div></div>
+    <div class="caveat"><span class="n">02</span><div class="ct"><strong>"Established ROI" is a soft construct.</strong><span>It's defined as being able to show that outcomes justify the investment — but it's still a self-assessment. When only ~7% clear that bar, the definition is doing a lot of quiet work.</span></div></div>
+    <div class="caveat"><span class="n">03</span><div class="ct"><strong>The geographic mix is undisclosed.</strong><span>The report names 20 countries but never says how the 2,145 split across them. Combined with the higher US revenue bar, that makes any "the US is different" reading — like the jump in US worker resistance — rest on an unknown, structurally-different base.</span></div></div>
+    <div class="caveat"><span class="n">04</span><div class="ct"><strong>Consider who's holding the survey.</strong><span>The report closes with five KPMG service offerings that map neatly onto the three problems it diagnoses, and it discloses using AI in its own production. None of that makes the data wrong. It's a map drawn by someone who also sells the territory.</span></div></div>
+  </div>
+
+  <div style="margin-top:34px">
+    <button class="btn" id="csvBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download the figures (CSV)
+    </button>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ====================== TWO QUESTIONS ====================== -->
+<section id="test" class="wrap flow reveal">
+  <span class="eyebrow">The takeaway · two questions</span>
+  <h2>The test that cuts through it</h2>
+  <p class="lead">Strip away the multipliers and the maturity curve, and the organizations pulling ahead share something plain: they can answer two questions about any given AI system. Try them on yours.</p>
+
+  <div class="qcard">
+    <div class="qq">Could you name who is accountable for a specific AI-informed decision in your organization?</div>
+    <div class="choices" data-q="own">
+      <button aria-pressed="false">Clearly</button>
+      <button aria-pressed="false">Sort of</button>
+      <button aria-pressed="false">Not really</button>
+    </div>
+    <p class="qresp" id="resp-own"></p>
+  </div>
+
+  <div class="qcard">
+    <div class="qq">Could you see what one AI system costs your organization to run this month?</div>
+    <div class="choices" data-q="cost">
+      <button aria-pressed="false">Clearly</button>
+      <button aria-pressed="false">Sort of</button>
+      <button aria-pressed="false">Not really</button>
+    </div>
+    <p class="qresp" id="resp-cost"></p>
+  </div>
+
+  <p style="margin-top:28px">If both answers came easily, the report's headline findings probably already describe you. If they didn't, that's the more useful place to start than any new model.</p>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="wrap">
+  <p class="brandline">Exploring messy data, intelligent systems, and what it means to make meaning — through the lens of a cognitive scientist who builds things people actually use.</p>
+  <div class="foot-meta">
+    Barbara Hidalgo-Sotelo · Sensemaking AI · <a href="https://barbhs.com">barbhs.com</a><br>
+    Data: KPMG Global AI Pulse Q2 2026 (June 2026), kpmg.com/aipulse · all figures © KPMG International<br>
+    Commentary is my own. Read it against the source.
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   DATA — single source of truth for charts + CSV export.
+   Keeping the numbers in one object (rather than baked into
+   the markup) makes the figures auditable and easy to update.
+   ============================================================ */
+const DATA = {
+  maturity:[
+    {stage:'Research & development', q1:11, q2:9},
+    {stage:'Experimentation',        q1:22, q2:19},
+    {stage:'Strategic planning',     q1:21, q2:21},
+    {stage:'Scaling the technology', q1:26, q2:22},
+    {stage:'Driving adoption',       q1:13, q2:22, mark:'up'},
+    {stage:'Established ROI',         q1:8,  q2:7,  mark:'down'}
+  ],
+  accountability:[
+    {label:'Future-proof confidence',      ceo:60, none:22},
+    {label:'Delivering business value',    ceo:57, none:21},
+    {label:'Established ROI',               ceo:14, none:4}
+  ],
+  costVisibility:[
+    {label:'Fully visible & monitored', v:35, strong:true},
+    {label:'Somewhat visible',          v:42},
+    {label:'Visible only after billing',v:13},
+    {label:'Largely invisible',         v:8},
+    {label:'Not sure',                  v:3}
+  ],
+  confidence:[
+    {label:'Delivering meaningful business value', q1:64, q2:76},
+    {label:'Can future-proof AI strategy',         q1:70, q2:78},
+    {label:'Would keep investing in a recession',  q1:74, q2:79}
+  ]
+};
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MAXPCT = 30; /* visual scale ceiling for maturity/cost bars */
+
+/* ---- helpers ------------------------------------------------ */
+function el(tag, cls, html){
+  const n=document.createElement(tag);
+  if(cls) n.className=cls;
+  if(html!=null) n.innerHTML=html;
+  return n;
+}
+function deltaChip(d){
+  if(d>0) return `<span class="delta-chip delta-up">+${d}</span>`;
+  if(d<0) return `<span class="delta-chip delta-down">−${Math.abs(d)}</span>`;
+  return `<span class="delta-chip delta-flat">±0</span>`;
+}
+
+/* ---- grouped Q1/Q2 bars (maturity) -------------------------- */
+function renderMaturity(){
+  const host=document.getElementById('maturityChart');
+  DATA.maturity.forEach(d=>{
+    const row=el('div','bar-row'+(d.mark?' highlight':''));
+    const delta=d.q2-d.q1;
+    row.appendChild(el('div','bar-label',
+      `<span class="lab">${d.stage}</span>${deltaChip(delta)}`));
+    ['q1','q2'].forEach(k=>{
+      const g=el('div','gbar '+k);
+      g.innerHTML=`<span class="tag">${k.toUpperCase()}</span>
+        <span class="lane"><span class="fill" data-w="${(d[k]/MAXPCT*100).toFixed(1)}"></span></span>
+        <span class="val">${d[k]}%</span>`;
+      row.appendChild(g);
+    });
+    host.appendChild(row);
+  });
+}
+
+/* ---- grouped bars (accountability: CEO vs not) -------------- */
+function renderAccountability(){
+  const host=document.getElementById('acctChart');
+  const max=60;
+  DATA.accountability.forEach(d=>{
+    const row=el('div','bar-row');
+    /* show the honest point spread; the headline "3× ROI" lives in the prose
+       so the chip can't accidentally over-round (14 vs 4 is 3.5×, not 4×) */
+    row.appendChild(el('div','bar-label',
+      `<span class="lab">${d.label}</span><span class="delta-chip delta-up">+${d.ceo-d.none} pts</span>`));
+    const g1=el('div','gbar q2');
+    g1.innerHTML=`<span class="tag">YES</span>
+      <span class="lane"><span class="fill" data-w="${(d.ceo/max*100).toFixed(1)}"></span></span>
+      <span class="val">${d.ceo}%</span>`;
+    const g0=el('div','gbar q1');
+    g0.innerHTML=`<span class="tag">NO</span>
+      <span class="lane"><span class="fill" data-w="${(d.none/max*100).toFixed(1)}"></span></span>
+      <span class="val">${d.none}%</span>`;
+    row.appendChild(g1); row.appendChild(g0);
+    host.appendChild(row);
+  });
+}
+
+/* ---- single horizontal bars (cost visibility) -------------- */
+function renderCost(){
+  const host=document.getElementById('costChart');
+  DATA.costVisibility.forEach(d=>{
+    const r=el('div','sbar');
+    r.innerHTML=`<span class="slab">${d.label}</span>
+      <span class="slane"><span class="sfill ${d.strong?'':'muted'}" data-w="${(d.v/50*100).toFixed(1)}"></span></span>
+      <span class="sval">${d.v}%</span>`;
+    host.appendChild(r);
+  });
+}
+
+/* ---- animate bar fills when revealed ------------------------ */
+function fillBars(scope){
+  scope.querySelectorAll('.fill[data-w], .sfill[data-w]').forEach(b=>{
+    const w=b.getAttribute('data-w')+'%';
+    if(reduceMotion){ b.style.transition='none'; b.style.width=w; }
+    else requestAnimationFrame(()=>{ b.style.width=w; });
+  });
+}
+
+/* ---- count-up for big numerals ----------------------------- */
+function countUp(node){
+  const target=parseInt(node.getAttribute('data-count'),10);
+  const pre=node.getAttribute('data-prefix')||'';
+  const suf=node.getAttribute('data-suffix')||'';
+  if(reduceMotion){ node.textContent=pre+target+suf; return; }
+  let cur=0; const steps=Math.max(target,12); const inc=target/steps; let i=0;
+  const t=setInterval(()=>{
+    i++; cur=Math.min(target,Math.round(inc*i));
+    node.textContent=pre+cur+suf;
+    if(cur>=target) clearInterval(t);
+  }, 900/steps);
+}
+
+/* ============================================================
+   CORRELATION INTERACTIVE — lever vs symptom
+   ============================================================ */
+const NS='http://www.w3.org/2000/svg';
+function svgEl(tag,attrs){
+  const n=document.createElementNS(NS,tag);
+  for(const k in attrs) n.setAttribute(k,attrs[k]);
+  return n;
+}
+function nodeBox(x,y,w,label,color){
+  const g=svgEl('g',{class:'causenode'});
+  const rect=svgEl('rect',{x,y,width:w,height:46,rx:8,
+    fill:'#fff',stroke:color,'stroke-width':1.5});
+  const txt=svgEl('text',{x:x+w/2,y:y+27,'text-anchor':'middle',
+    'font-family':"'IBM Plex Sans',sans-serif",'font-size':13,
+    'font-weight':500,fill:'#26251F'});
+  txt.textContent=label;
+  g.appendChild(rect); g.appendChild(txt);
+  return g;
+}
+function arrow(x1,y1,x2,y2,color){
+  const line=svgEl('line',{x1,y1,x2,y2,stroke:color,'stroke-width':1.6,
+    'marker-end':'url(#ah)'});
+  return line;
+}
+function drawCause(mode){
+  const host=document.getElementById('causeDiagram');
+  host.innerHTML='';
+  const svg=svgEl('svg',{viewBox:'0 0 520 230','role':'img'});
+  const defs=svgEl('defs',{});
+  const m=svgEl('marker',{id:'ah',viewBox:'0 0 10 10',refX:8,refY:5,
+    markerWidth:6,markerHeight:6,orient:'auto-start-reverse'});
+  const mp=svgEl('path',{d:'M2 1L8 5L2 9',fill:'none',stroke:'#DC6B4F','stroke-width':1.5,'stroke-linecap':'round','stroke-linejoin':'round'});
+  m.appendChild(mp); defs.appendChild(m); svg.appendChild(defs);
+
+  if(mode==='lever'){
+    svg.appendChild(nodeBox(40,92,200,'Define accountability','#1B6B5E'));
+    svg.appendChild(arrow(248,115,372,115,'#DC6B4F'));
+    svg.appendChild(nodeBox(380,92,140,'3× the ROI','#DC6B4F'));
+  } else {
+    /* shared cause feeds both */
+    svg.appendChild(nodeBox(160,12,200,'Organizational maturity','#DC6B4F'));
+    svg.appendChild(arrow(230,60,120,150,'#DC6B4F'));
+    svg.appendChild(arrow(360,60,420,150,'#DC6B4F'));
+    svg.appendChild(nodeBox(20,150,200,'Defines accountability','#1B6B5E'));
+    svg.appendChild(nodeBox(320,150,180,'Reports ROI','#1B6B5E'));
+  }
+  host.appendChild(svg);
+
+  const read=document.getElementById('causeRead');
+  read.innerHTML = mode==='lever'
+    ? `<strong>The tempting reading.</strong> Pull the lever, collect the multiple. If it worked this cleanly, every org could appoint its way to returns by Friday.`
+    : `<strong>The careful reading.</strong> A shared cause — organizational maturity — drives both the discipline and the returns. The accountability is a <em>sign</em> of a capable organization, not the thing that makes it capable.`;
+}
+function initCause(){
+  const lever=document.getElementById('leverBtn');
+  const symp=document.getElementById('symptomBtn');
+  function set(mode){
+    lever.setAttribute('aria-pressed', mode==='lever');
+    symp.setAttribute('aria-pressed', mode==='symptom');
+    drawCause(mode);
+  }
+  lever.addEventListener('click',()=>set('lever'));
+  symp.addEventListener('click',()=>set('symptom'));
+  set('lever');
+}
+
+/* ============================================================
+   SELF-CHECK responses
+   ============================================================ */
+const RESP={
+  own:{0:'Then accountability is already doing its quiet work in your favor.',
+       1:'Shared ownership is common — and it\'s where outcomes start to blur.',
+       2:'That\'s the gap the whole report is circling. A name is cheaper than a model.'},
+  cost:{0:'You\'re in the third that can run the keep-or-kill loop on purpose.',
+        1:'Partial visibility tends to surface only after the bill does.',
+        2:'Worth instrumenting before any strategy change. You can\'t steer what you can\'t see.'}
+};
+function initSelfCheck(){
+  document.querySelectorAll('.choices').forEach(group=>{
+    const q=group.getAttribute('data-q');
+    const btns=[...group.querySelectorAll('button')];
+    btns.forEach((b,i)=>{
+      b.addEventListener('click',()=>{
+        btns.forEach(x=>x.setAttribute('aria-pressed','false'));
+        b.setAttribute('aria-pressed','true');
+        document.getElementById('resp-'+q).textContent=RESP[q][i];
+      });
+    });
+  });
+}
+
+/* ============================================================
+   CSV EXPORT — builds a file in-memory (no storage APIs)
+   ============================================================ */
+function buildCSV(){
+  const rows=[['Section','Metric','Q1','Q2','Unit']];
+  DATA.confidence.forEach(d=>rows.push(['Confidence',d.label,d.q1,d.q2,'% agree']));
+  DATA.maturity.forEach(d=>rows.push(['Maturity phase',d.stage,d.q1,d.q2,'% of orgs']));
+  DATA.accountability.forEach(d=>rows.push(['Outcome by accountability',d.label,d.ceo+' (CEO acct.)',d.none+' (not acct.)','% strongly agree']));
+  DATA.costVisibility.forEach(d=>rows.push(['Cost visibility',d.label,'',d.v,'% of orgs']));
+  return rows.map(r=>r.map(c=>{
+    const s=String(c);
+    return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
+  }).join(',')).join('\n');
+}
+function initCSV(){
+  document.getElementById('csvBtn').addEventListener('click',()=>{
+    const blob=new Blob([buildCSV()],{type:'text/csv;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url; a.download='kpmg-ai-pulse-q2-2026-figures.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+}
+
+/* ============================================================
+   SCROLL REVEAL + triggered animations
+   ============================================================ */
+function initReveal(){
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      fillBars(e.target);
+      e.target.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(e.target);
+    });
+  },{threshold:.18});
+  document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+}
+
+/* ============================================================
+   STICKY ARC BAR — built from a config so labels stay in sync.
+   Mirrors the page's voice colours: teal = findings (find),
+   coral = my read, ink = plain. The colour clusters are the arc.
+   ============================================================ */
+function initTOC(){
+  const TOC=[
+    {id:'rose',            label:'What rose',                 voice:'find'},
+    {id:'maturity',        label:'The maturity curve',        voice:'find'},
+    {id:'differentiators', label:'The differentiators',       voice:'find'},
+    {id:'correlation',     label:'Closer look · correlation', voice:'read'},
+    {id:'cost-eval',       label:'Closer look · cost as eval',voice:'read'},
+    {id:'source',          label:'Read it yourself',          voice:'plain'},
+    {id:'test',            label:'The two questions',         voice:'plain'}
+  ];
+  const nav=el('nav','arcbar');
+  nav.setAttribute('aria-label','Contents');
+  nav.innerHTML='<div class="arcbar-inner"><span class="arc-now" id="arcNow">Contents</span><ol class="arc-seg" id="arcSeg"></ol></div>';
+  document.body.prepend(nav);
+  const seg=nav.querySelector('#arcSeg');
+  const now=nav.querySelector('#arcNow');
+
+  const lis=TOC.map(t=>{
+    const li=el('li'); li.setAttribute('data-voice',t.voice);
+    const b=el('button'); b.type='button'; b.title=t.label;
+    b.setAttribute('aria-label','Jump to: '+t.label);
+    b.addEventListener('click',()=>{
+      const node=document.getElementById(t.id);
+      if(node) node.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'});
+    });
+    li.appendChild(b); seg.appendChild(li);
+    return li;
+  });
+
+  /* reveal the bar once the hero scrolls out of view */
+  const hero=document.querySelector('.hero');
+  new IntersectionObserver(([e])=>{
+    nav.classList.toggle('show', !e.isIntersecting);
+  },{threshold:0}).observe(hero);
+
+  /* scroll-spy: the section nearest the viewport centre is active */
+  const sections=TOC.map(t=>document.getElementById(t.id)).filter(Boolean);
+  const spy=new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const idx=sections.indexOf(en.target);
+      if(idx<0) return;
+      lis.forEach((li,i)=>{
+        li.classList.toggle('active', i===idx);
+        li.classList.toggle('done',   i<idx);
+      });
+      now.textContent=TOC[idx].label;
+    });
+  },{rootMargin:'-45% 0px -45% 0px',threshold:0});
+  sections.forEach(s=>spy.observe(s));
+}
+
+/* ---- boot --------------------------------------------------- */
+initTOC();
+renderMaturity();
+renderAccountability();
+renderCost();
+initCause();
+initSelfCheck();
+initCSV();
+initReveal();
+</script>
+</body>
+</html>
