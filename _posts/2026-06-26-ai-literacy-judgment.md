@@ -6,8 +6,8 @@ date: 2026-06-26
 permalink: /blog/ai-literacy-judgment/
 canonical_url: https://barbhs.com/blog/ai-literacy-judgment/
 header:
-  image: "/assets/images/ai-literacy-judgment-hero.png"
-  teaser: "/assets/images/ai-literacy-judgment-hero.png"
+  image: "/assets/images/ai-literacy-judgment-hero-card.png"
+  teaser: "/assets/images/ai-literacy-judgment-hero-card.png"
 excerpt: "A system can retrieve, summarize, and draft at impressive speed—but speed doesn't tell you whether it understood the job. Why the durable skill behind useful AI isn't tool fluency, it's judgment: framing the problem, evaluating what comes back, and knowing what should stay human-led."
 excerpt_display: true
 
