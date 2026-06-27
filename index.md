@@ -1,5 +1,5 @@
 ---
-title: "Barbara Hidalgo-Sotelo, PhD — Cognitive Scientist & Data Scientist" #"Barbara Hidalgo-Sotelo, PhD"
+title: "Barbara Hidalgo-Sotelo, PhD | Applied AI & Data Systems"
 description: >
   Cognitive scientist and data scientist exploring messy data, intelligent systems,
   and how people make meaning. Projects, data stories, and resources on human-centered AI,

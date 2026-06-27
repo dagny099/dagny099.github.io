@@ -90,7 +90,7 @@ I wanted that to exist for two reasons. First, when I talk about this work in in
 
 A few things to flag before anyone overgeneralizes from this post.
 
-This isn't a head-to-head with scored answers yet. I have a five-battery evaluation plan covering granularity, relationship-query success, ranking quality, latency, and regression against the existing 50-question eval suite. None of those have been run end-to-end against the new system at the time of writing. The architectural argument is sound. The empirical argument is in progress.
+This isn't a head-to-head with scored answers yet. I have a five-battery evaluation plan covering granularity, relationship-query success, ranking quality, latency, and regression against the existing 58-question eval suite. None of those have been run end-to-end against the new system at the time of writing. The architectural argument is sound. The empirical argument is in progress.
 
 The scoring weights are educated guesses. The 60/25/10/5 split has loose theoretical motivation but no empirical optimization behind it yet. Phase 5 of the migration plan calls for tuning these against the evaluation harness once the graph is fully populated. Until then, treat the formula as a working hypothesis.
 
@@ -102,7 +102,7 @@ GraphRAG isn't automatically better for everything. For short factual questions 
 
 Three things are on the list.
 
-1. **Run the evaluation harness end-to-end.** Score the new system against the same 50-question battery the old system passes at roughly 85%. The graph migration must not regress that number, and ideally improves on it for relationship-style queries.
+1. **Run the evaluation harness end-to-end.** Score the new system against the same 58-question battery the old system passes at roughly 85%. The graph migration must not regress that number, and ideally improves on it for relationship-style queries.
 
 2. **Tune the scoring weights against real query data.** The 60/25/10/5 starting values need to be tested. If the project-described boost is doing most of the work, that tells me something. If entity-richness barely matters, that tells me something different.
 
