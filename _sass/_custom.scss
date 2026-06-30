@@ -394,6 +394,15 @@ h1, h2, h3, h4, h5, h6{
   padding: 0.75rem 1rem;
 }
 
+/* Because the masthead above is sticky (~112px tall on desktop and mobile),
+   in-page anchor jumps must reserve space at the top of the scroll container,
+   otherwise the target heading lands hidden behind the bar. scroll-padding-top
+   on <html> applies to every fragment navigation site-wide (mini-nav links,
+   TOC, and direct #hash URLs) with no per-heading rules needed. */
+html{
+  scroll-padding-top: 8rem; /* 112px bar + ~16px breathing room */
+}
+
 /* Ensure the nav bar itself matches the surrounding page background */
 .masthead .greedy-nav{
   background: #fbfbfb;

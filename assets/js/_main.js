@@ -54,8 +54,14 @@ $(document).ready(function() {
   });
 
   // Smooth scrolling
+  // Offset is measured from the sticky .masthead at click time so in-page
+  // anchors land clear of the bar on desktop and mobile (mirrors the CSS
+  // `html { scroll-padding-top }` rule for non-JS fragment navigation).
   var scroll = new SmoothScroll('a[href*="#"]', {
-    offset: 20,
+    offset: function () {
+      var bar = document.querySelector('.masthead');
+      return (bar ? bar.offsetHeight : 0) + 16;
+    },
     speed: 400,
     speedAsDuration: true,
     durationMax: 500

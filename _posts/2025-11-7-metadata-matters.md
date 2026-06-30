@@ -161,4 +161,3 @@ The time investment is front-loaded, but the long-term benefits—better SEO, ea
 
 ---
 
-*This is post #1 in a series I'd like to start about my own systematic efforts at SEO. NEXT TOPIC: Using Google’s Tag tracking for understanding web traffic. <Coming Jan 2026> *

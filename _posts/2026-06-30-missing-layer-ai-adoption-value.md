@@ -1,0 +1,215 @@
+---
+layout: single
+title: "The Missing Layer Between AI Adoption and AI Value"
+subtitle: "Two enterprise AI reports point to the same operating gap: adoption is visible, but value depends on accountability, context, cost visibility, quality control, work design, and judgment."
+date: 2026-06-30
+last_modified_at: 2026-06-30
+permalink: /blog/missing-layer-ai-adoption-value/
+canonical_url: https://barbhs.com/blog/missing-layer-ai-adoption-value/
+header:
+  image: "/assets/images/two-reports-one-missing-layer.png"
+  teaser: "/assets/images/two-reports-one-missing-layer.png"
+  og_image: "/assets/images/two-reports-one-missing-layer-og.png"
+description: "KPMG shows the leader view. Glean shows the worker view. Together, they reveal the missing layer between enterprise AI adoption and AI value."
+excerpt: "KPMG shows the leader view. Glean shows the worker view. Together, they reveal the missing layer between enterprise AI adoption and AI value."
+excerpt_display: true
+tags: [AI, enterprise-AI, AI-governance, AI-adoption, AI-value, AI-strategy, evaluation, judgment, work-design, cost-visibility, ROI, KPMG, Glean]
+categories: [thinking, data-science]
+classes: [wide]
+read_time: true
+toc: false
+redirect_from:
+  - /blog/kpmg-ai-pulse-q2-2026/
+---
+<!--
+GRAPHIC / ASSET NOTES BEFORE PUBLISHING
+
+Recommended assets to add to /assets/images/:
+- two-reports-one-missing-layer.png
+- two-reports-one-missing-layer-og.png
+- missing-layer-slide-02-different-instruments.png
+- missing-layer-slide-05-weak-work.png
+- missing-layer-slide-07-infrastructure.png
+- missing-layer-slide-08-integration-test.png
+
+If the header image renders prominently at the top of the post, do not repeat the hero image in the body.
+If your theme does not display header.image, uncomment the optional hero figure below the opening.
+-->
+
+**Every organization now has an AI adoption story. Fewer have an AI value story.**
+
+That’s the tension running through two recent enterprise AI reports that are worth reading together.
+
+<div style="margin: 2rem 0 2.5rem 0; padding: 0.95rem 0; border-top: 1px solid #e4ded4; border-bottom: 1px solid #e4ded4; font-size: 0.98rem;">
+  <strong>In this post:</strong>
+  <a href="#two-reports-one-operating-gap">Two reports, one gap</a>
+  <span style="color:#999;"> · </span>
+  <a href="#three-things-the-reports-reveal-together">Three lessons for AI value</a>
+  <span style="color:#999;"> · </span>
+  <a href="#the-integration-test">Five workflow questions</a>
+</div>
+
+<div style="font-variant: small-caps; font-size: 0.9rem; color:#555; margin-top:3rem;">
+THE TWO VIEWS
+</div>
+
+## Two reports, one operating gap
+
+These reports are not a clean scoreboard. They ask different questions of different populations. KPMG captures the leader view: investment, accountability, cost visibility, and ROI. Glean captures the worker view: productivity, hidden labor, judgment, and the lived experience of working with AI.
+
+That difference matters. But it also makes the overlap more interesting.
+
+{: .notice--primary .text-center}
+**AI adoption is spreading faster than the organizational layer required to turn use into value.**
+
+<!--
+===================== GRAPHIC SLOT 1 =====================
+Recommended graphic: Slide 2 from ai_value_gap_combined_deck.pptx
+Title/content: "Different instruments, same system-level gap."
+Purpose: Establish methodological caution early — different samples, same operating pattern.
+Edit needed before export: Optional. If you want maximum precision, soften any scoreboard-like language and keep the "different instruments" framing explicit.
+Recommended export filename: /assets/images/missing-layer-slide-02-different-instruments.png
+-->
+
+{% include figure
+   image_path="assets/images/missing-layer-slide-02-different-instruments.png"
+   caption="Different instruments, same system-level gap: KPMG captures the leader view, while Glean captures the worker view."
+   alt="Slide showing the leader view and worker view as different instruments pointing to a shared system-level gap between AI activity and organizational value."
+   width="90%"
+%}
+
+From the top down, KPMG shows the executive reality. Senior leaders are no longer asking only whether AI is being adopted. They are asking whether AI can be accounted for: who owns the outcome, what the system costs to run, when humans should override it, and whether the work is producing measurable returns.
+
+From the bottom up, Glean shows the worker reality. AI may save time at the task level, but those savings often reappear somewhere else: in context-loading, output-checking, prompt reruns, tool-switching, and cleanup. The organization sees AI activity. The worker absorbs the hidden labor.
+
+That is the gap. **Adoption is visible. Value is conditional.**
+
+And the conditions that create value are mostly organizational: accountability, shared context, quality control, cost visibility, work design, and human judgment.
+
+<div style="font-variant: small-caps; font-size: 0.9rem; color:#555; margin-top:3rem;">
+WHAT THE REPORTS REVEAL TOGETHER
+</div>
+
+## Three things the reports reveal together
+
+### 1. Adoption metrics can hide operational debt
+
+Tool clicks, token volume, seats provisioned, and prompt counts are easy to measure. But they do not tell leaders whether the work got better, whether downstream review increased, or whether employees are quietly absorbing the cost of making AI usable.
+
+<mark>Activity is not the same thing as value.</mark>
+
+When organizations measure only adoption, they can miss the operational debt accumulating around AI-assisted work: supervision time, repeated context-loading, rework, coordination costs, and the quiet labor of making automated outputs usable.
+
+### 2. AI makes weak work harder to see
+
+AI does not just produce errors; it changes the appearance of errors. Rough drafts used to carry warning signs. AI can remove those signs.
+
+<div style="text-align:center; margin:1.5em 0; padding:0.75em; font-size:1.15em; font-weight:650; border-left:4px solid #C04818; background:#faf7f0;">
+Polish stops tracking substance.
+</div>
+
+That means organizations need explicit quality bars, source checks, review rituals, and ownership rules.
+
+<!--
+===================== GRAPHIC SLOT 2 =====================
+Recommended graphic: Slide 5 from ai_value_gap_combined_deck.pptx
+Title/content: "AI changes how weak work looks."
+Purpose: Visualize the strongest original idea in the article: AI smooths away natural warning signs, so review must become explicit.
+Edit needed before export: Probably no major edit. Make sure any footer claim or statistic is either precise or removed if the blog body does not discuss it.
+Recommended export filename: /assets/images/missing-layer-slide-05-weak-work.png
+-->
+
+{% include figure
+   image_path="assets/images/missing-layer-slide-05-weak-work.png"
+   caption="AI does not only change the work. It changes the signals reviewers use to detect whether the work is sound."
+   alt="Slide showing polished AI output hiding underlying weaknesses, with quality bars, review rituals, source checks, and ownership rules as explicit evaluation tools."
+   width="90%"
+%}
+
+### 3. The scarce resource is judgment, not access
+
+The best AI users are not simply the heaviest users. They are the people who can explain what the system produced, challenge it when needed, and know when not to use it.
+
+That makes judgment an organizational capability, not just an individual virtue.
+
+> The capability ceiling of an organization is determined by the people who can explain, challenge, and override what the model returns.
+
+<div style="font-variant: small-caps; font-size: 0.9rem; color:#555; margin-top:3rem;">
+THE MISSING LAYER
+</div>
+
+## The missing layer is infrastructure
+
+The missing layer between AI adoption and AI value is not built by buying more tools or demanding more usage. It is built by answering practical questions at the level where work actually happens.
+
+Governance that never reaches the workflow is theater. Value shows up where the layer is built on purpose.
+
+<!--
+===================== GRAPHIC SLOT 3 =====================
+Recommended graphic: Slide 7 from ai_value_gap_combined_deck.pptx
+Title/content: "The missing layer is infrastructure."
+Purpose: Name the core framework: accountability, shared context, quality control, cost visibility, work design, and human judgment.
+Edit needed before export: Optional. Keep if you like the sharp line "Governance that never reaches the work surface is theater." If that feels too spicy for the blog, soften to "Governance has to reach the workflow."
+Recommended export filename: /assets/images/missing-layer-slide-07-infrastructure.png
+-->
+
+{% include figure
+   image_path="assets/images/missing-layer-slide-07-infrastructure.png"
+   caption="The missing layer is the infrastructure that converts individual AI use into organizational outcomes."
+   alt="Diagram showing organizational value resting on pillars labeled accountability, shared context, quality control, cost visibility, work design, and human judgment."
+   width="90%"
+%}
+
+Pick one AI-assisted workflow in your organization.
+
+Not AI strategy in general. Not “the enterprise roadmap.” One real workflow where a person uses AI to produce, decide, summarize, analyze, recommend, approve, or communicate something.
+
+## The integration test
+
+<!--
+===================== GRAPHIC SLOT 4 =====================
+Recommended graphic: Slide 8 from ai_value_gap_combined_deck.pptx
+Title/content: "The integration test."
+Purpose: Set up the practical closing section and give leaders a concrete diagnostic.
+Edit needed before export: No major edit. This is the strongest closing image. Make sure the slide text matches the five questions below.
+Recommended export filename: /assets/images/missing-layer-slide-08-integration-test.png
+-->
+
+{% include figure
+   image_path="assets/images/missing-layer-slide-08-integration-test.png"
+   caption="The integration test: pick one AI-assisted workflow and ask whether the organization can answer these five questions."
+   alt="Slide titled The integration test, listing five questions about AI-assisted workflows: ownership, cost, context, quality bar, and override authority."
+   width="90%"
+%}
+
+Then ask:
+
+1. **Who owns the decision?**  
+   If the AI-assisted output is wrong, unclear, biased, incomplete, or misused, where does accountability sit?
+
+2. **What does it cost to run?**  
+   Not only in tokens or subscriptions, but in supervision time, rework, tool-switching, context-loading, and downstream review.
+
+3. **What context does it need?**  
+   What business rules, customer history, domain knowledge, data definitions, exceptions, and tacit assumptions must be available for the system to produce usable work?
+
+4. **What quality bar must it meet?**  
+   What counts as good enough? What must be checked? What sources must be visible? What kinds of outputs require human review before they move downstream?
+
+5. **Who can explain, challenge, or override the output?**  
+   If no one can explain it, no one truly governs it. If no one can challenge it, the workflow has quietly handed authority to the machine.
+
+These are not abstract governance questions. They are the operating architecture of AI value.
+
+The organizations that close the gap will not be the ones that simply maximize adoption. They will be the ones that build the missing layer around adoption: accountability, context, quality control, cost visibility, work design, and human judgment.
+
+AI value does not come from the tool alone. It comes from the organizational layer leaders build around what the tool can do — and what the organization is willing to own.
+
+## Sources
+
+- KPMG, *AI Pulse Q2 2026*.
+- Glean Work AI Institute, *Work AI Index*.
+
+<!--
+Before publishing: replace the source bullets above with links to your preferred canonical report URLs, if you want visible citations.
+-->
