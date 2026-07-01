@@ -24,7 +24,7 @@ redirect_from:
 
 **Every organization now has an AI adoption story. Fewer have an AI value story.**
 
-That’s the tension running through two recent enterprise AI reports that are worth reading together.
+That’s the tension running through two recent enterprise AI reports that are worth reading together. (For a closer look at the KPMG numbers, see [the full breakdown on my site](/ai-pulse-q2-2026/).)
 
 <div style="margin: 2rem 0 2.5rem 0; padding: 0.95rem 0; border-top: 1px solid #e4ded4; border-bottom: 1px solid #e4ded4; font-size: 0.98rem;">
   <strong>In this post:</strong>
@@ -77,7 +77,7 @@ Tool clicks, token volume, seats provisioned, and prompt counts are easy to meas
 
 <mark>Activity is not the same thing as value.</mark>
 
-When organizations measure only adoption, they can miss the operational debt accumulating around AI-assisted work: supervision time, repeated context-loading, rework, coordination costs, and the quiet labor of making automated outputs usable.
+When organizations measure only adoption, they can miss the operational debt accumulating around AI-assisted work: supervision time, repeated context-loading, rework, coordination costs, and the quiet labor of making automated outputs usable. It's the same gap [a 2025 MIT study](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/) captured from the other direction: 95% of enterprise generative-AI pilots never made it into production.
 
 ### 2. AI makes weak work harder to see
 
@@ -105,7 +105,7 @@ That makes judgment an organizational capability, not just an individual virtue.
 
 > The capability ceiling of an organization is determined by the people who can explain, challenge, and override what the model returns.
 
-Where the AI Pulse post treats judgment as organizational infrastructure, the individual side of the same skill — how a person frames a problem, tests what comes back, and decides what to trust — is its own discipline. I've written about that as [the judgment gap behind what looks like a skills gap](/blog/missing-layer-ai-adoption-value/).
+Where the AI Pulse post treats judgment as organizational infrastructure, the individual side of the same skill — how a person frames a problem, tests what comes back, and decides what to trust — is its own discipline. I've written about that as [the judgment gap behind what looks like a skills gap](/blog/ai-literacy-judgment/).
 
 <div style="font-variant: small-caps; font-size: 0.9rem; color:#555; margin-top:3rem;">
 THE MISSING LAYER
@@ -166,9 +166,6 @@ AI value does not come from the tool alone. It comes from the organizational lay
 
 ## Sources
 
-- KPMG, *AI Pulse Q2 2026*.
-- Glean Work AI Institute, *Work AI Index*.
-
-<!--
-Before publishing: replace the source bullets above with links to your preferred canonical report URLs, if you want visible citations.
--->
+- KPMG, [*AI Pulse* (Q2 2026)](https://kpmg.com/xx/en/our-insights/ai-and-technology/ai-pulse.html) — the report hub, where the AI maturity curve is drawn. See also the [press release on cost visibility and accountability](https://kpmg.com/xx/en/media/press-releases/2026/06/growing-adoption-signals-progress-as-cost-visibility-and-accountability-drive-ai-value.html) for the underlying figures.
+- Glean Work AI Institute, [*Work AI Index*](https://www.glean.com/work-ai-institute/reports/work-ai-index-report).
+- MIT, via [Fortune's coverage of the "GenAI Divide" report](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/) — independent corroboration of the deploy-vs-prove gap.
