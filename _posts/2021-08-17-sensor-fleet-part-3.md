@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Sensor Fleet Part 3"
 subtitle: "Automate your data pipeline with crontab and deploy to AWS"
 date: 2021-08-17

@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Woot! Earned my AWS CCP badge"
 subtitle: "My journey to becoming an AWS Cloud Certified Professional"
 date: 2023-06-26

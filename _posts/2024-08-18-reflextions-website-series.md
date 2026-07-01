@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "Digital Home Base Workshop Part 4- A Data Scientist's Reflections of Workshop to Web"
 subtitle: "Lessons learned about automation, visibility, and technical documentation"
 date: 2024-08-18
@@ -14,7 +14,7 @@ header:
 excerpt: What started as a simple website project turned into valuable insights about how we approach and document technical processes. Join me for some "aha!" moments about automation, visibility, and technical documentation.
 excerpt_display: false
 tags: [reflection]
-classes: [wide]
+classes: wide
 categories: [tutorial]
 pagination: 
   enabled: true

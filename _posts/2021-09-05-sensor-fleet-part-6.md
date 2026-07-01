@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Sensor Fleet Part 6"
 subtitle: "Real-time data streaming with Apache Kafka"
 date: 2021-09-05

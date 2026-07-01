@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Recreational 3D Printing"
 subtitle: "Exploring at-home additive manufacturing with the AnkerMake M5"
 date: 2023-02-16

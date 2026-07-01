@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "The Three Readers of Your Web Page"
 description: "Your site doesn't have one audience — it has three machines, each fluent in a different dialect of metadata. A friendly tour of how browsers, search engines, and social platforms each parse the page head, and why Open Graph isn't the SEO lever everyone assumes it is."
 date: 2026-03-12

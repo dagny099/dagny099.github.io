@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Sensor Fleet"
 subtitle: "Building an Arduino-powered IoT fleet to track temperature and optimize home cooling costs"
 date: 2021-08-10

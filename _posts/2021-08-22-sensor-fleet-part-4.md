@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Sensor Fleet Part 4"
 subtitle: "Enrich your dashboard with local weather data from NOAA"
 date: 2021-08-22

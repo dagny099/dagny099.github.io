@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "What Looks Like an AI Skills Gap Is Often a Judgment Gap"
 subtitle: "Why AI literacy is a judgment problem first and a tool problem second."
 date: 2026-06-26
@@ -68,6 +69,9 @@ In practice, judgment comes down to a few questions asked before the prompt box 
 5. What does it cost me to be confidently wrong here?
 
 None of them is about prompting. They are what tell you whether the prompt is worth writing, and later, whether the answer it produced deserves to be used.
+
+Those five run before the prompt, for one person. The same discipline scales to a whole organization, aimed at one real workflow instead of one decision: who owns it, what it costs to run, what quality bar it has to clear. I take that apart as [the integration test](/blog/missing-layer-ai-adoption-value/#the-integration-test) in the companion piece on turning AI adoption into value.
+
 
 ## The literacy worth building
 

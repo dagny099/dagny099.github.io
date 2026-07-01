@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Implementing Structured Metadata on a Jekyll + GitHub Pages Site"
 description: "A step-by-step guide to turning a metadata audit into shipped reality: choosing a canonical home for your site, emitting clean structured data from a _data file, wiring per-content-type schema, and verifying it all against the tools each reader uses."
 date: 2026-03-18

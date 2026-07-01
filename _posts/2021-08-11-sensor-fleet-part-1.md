@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Sensor Fleet Part 1"
 subtitle: "Build a sensor and publish data with Arduino, MQTT, and MySQL"
 date: 2021-08-11

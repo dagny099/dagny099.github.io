@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: How I Organized My Mermaid Life
 subtitle: A cross project workflow for humans with too many ideas
 date: 2025-10-11

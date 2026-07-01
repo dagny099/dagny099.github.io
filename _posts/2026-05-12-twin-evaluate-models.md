@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "What I Learned Running 58 Questions Through Two LLMs"
 subtitle: "A behavioral comparison of GPT-4.1 and Gemini 2.5 Flash inside my Digital Twin."
 date: 2026-05-12

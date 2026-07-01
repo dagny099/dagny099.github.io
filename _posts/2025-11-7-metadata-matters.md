@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Why Metadata Matters"
 subtitle: "The invisible infrastructure that makes content discoverable"
 date: 2025-11-7

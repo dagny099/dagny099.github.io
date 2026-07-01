@@ -1,5 +1,6 @@
 ---
-layout: archive
+layout: post
+classes: wide
 title: "Sensor Fleet Part 2"
 subtitle: "Grow your sensor fleet and create a Heroku dashboard to visualize the data"
 date: 2021-08-14

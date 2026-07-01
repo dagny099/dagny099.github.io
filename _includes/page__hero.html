@@ -27,7 +27,11 @@
             {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
           {% endif %}
         </h1>
-        {% if page.tagline %}
+        {% if page.subtitle and page.layout == 'post' %}
+          {% comment %}Posts use their subtitle as the hero deck, so the deck is
+          consistent with non-overlay posts (see .page__deck in _layouts/post.html).{% endcomment %}
+          <p class="page__lead page__lead--deck">{{ page.subtitle | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        {% elsif page.tagline %}
           <p class="page__lead">{{ page.tagline | markdownify | remove: "<p>" | remove: "</p>" }}</p>
         {% elsif page.header.show_overlay_excerpt != false and page.excerpt %}
           <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>

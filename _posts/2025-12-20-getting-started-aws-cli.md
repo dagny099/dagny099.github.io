@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "The Data Scientist's Toolkit: Learn to use the AWS CLI for Service Management"
 subtitle: "A Step-by-Step Guide to Launching an RDS Database with the AWS CLI"
 date: 2025-12-20

@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "Digital Home Base Workshop Part 1- Assembly Required: Getting Started with GitHub Pages"
 subtitle: "Build a professional portfolio site using GitHub Pages and Jekyll - version control for data professionals"
 date: 2024-07-28
@@ -14,7 +14,7 @@ header:
   overlay_image: "/assets/images/midjourney/wall-worthy/inceptiony-girl-central-grandiose-scifi-feel.png"
 excerpt: "Learn how to create a beautiful, professional website using GitHub Pages – perfect for data professionals who love version control and markdown."
 excerpt_display: false
-classes: [wide]
+classes: wide
 tags: [static-site, portfolio, website-building, tutorial]
 stack: [Jekyll, GitHub Pages, Markdown, Git]
 categories: [tutorial]

@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "The Data Scientist's Toolkit: Poetry with Python for Project Isolation"
 subtitle: "A Step-by-Step Guide for Creating Clean, Reproducible Python Environments"
 date: 2025-03-06

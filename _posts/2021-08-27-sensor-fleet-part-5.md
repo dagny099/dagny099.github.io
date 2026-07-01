@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "Sensor Fleet Part 5"
 subtitle: "Secure your IoT project with custom MQTT broker and webapp authentication"
 date: 2021-08-27

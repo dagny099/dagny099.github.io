@@ -1,11 +1,11 @@
 ---
-layout: single
+layout: post
 title: "Digital Home Base Workshop Part 3- Automate Your Site with GitHub Actions"
 subtitle: "Set up continuous deployment with GitHub Actions for seamless Jekyll builds"
 date: 2024-08-13
 sitemap:
     priority: 0.5
-classes: [wide]
+classes: wide
 permalink: /blog/deploy-jekyll-gh-actions/
 redirect_from:
   - /posts/deploy-jekyll-gh-actions/

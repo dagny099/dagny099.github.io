@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "Digital Home Base Workshop Part 2- Under the Hood: Understanding Your Site's Engine"
 subtitle: "How Jekyll transforms Markdown into a responsive website"
 date: 2024-07-31
@@ -14,7 +14,7 @@ header:
   overlay_image: "/assets/images/midjourney/reimagined-offices/office-of-my-imagination-below-sea-ar4by3.png"
 excerpt: "Explore Jekyll's inner workings, understand how it transforms your content into a smooth-running website, and learn how to fine-tune its performance"
 excerpt_display: false
-classes: [wide]
+classes: wide
 tags: [jekyll, static-site-builders]
 stack: [Jekyll, Ruby, Markdown, Liquid]
 categories: [tutorial]

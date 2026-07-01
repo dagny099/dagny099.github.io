@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "DIY Stock Ticker to Learn Python Frameworks"
 subtitle: "Comparing Dash, Flask, and Streamlit by building the same webapp three ways"
 date: 2022-09-16

@@ -1488,11 +1488,25 @@ html{
   text-decoration: none !important;   /* beat global link underline */
 }
 
-/* Make single-page content align left by removing right-float layout */
-.layout--single .page {
+/* Make single-page and post content align left by removing right-float layout.
+   `.layout--post` is our dedicated blog-post layout; without it here, posts
+   fall back to the theme's 73% float-right grid and no longer align with the
+   full-bleed hero (see _layouts/post.html). */
+.layout--single .page,
+.layout--post .page {
   float: none;
   width: 100%;
   padding-right: 0;
+}
+
+/* The breadcrumb list has its own theme rule (`.breadcrumbs ol { float:right;
+   width: calc(100% - 300px) }`) that keeps it in the narrow right column. Once
+   the page above is full-width, left-align the breadcrumb to match so it lines
+   up under the H1 instead of floating in from the right. */
+.layout--single .breadcrumbs ol,
+.layout--post .breadcrumbs ol {
+  float: none;
+  width: 100%;
 }
 
 /* ------------------------------------------------------------------
@@ -1504,7 +1518,8 @@ html{
    heading levels (H2 + H3) for readability.
    ------------------------------------------------------------------ */
 @media (min-width: 1024px) {
-  .layout--single .page:has(.sidebar__right.sticky) {
+  .layout--single .page:has(.sidebar__right.sticky),
+  .layout--post .page:has(.sidebar__right.sticky) {
     float: right;                    // restore MM's stock right-rail layout
     width: calc(100% - 200px);
     padding-right: 200px;
@@ -2044,3 +2059,53 @@ code, pre, kbd{ font-family: var(--font-mono); }
   font-weight: 700;
   margin-left: 0.05em;
 }
+
+/* ==================================================================
+   BLOG POST LAYOUT  (used by `layout: post` → _layouts/post.html)
+   Two things live here, both scoped to .page--post so nothing else
+   on the site is affected. Tweak the two values noted below to taste.
+   ================================================================== */
+
+/* --- 1. The deck / standfirst under the H1 (Option A) ------------- */
+/* Renders page.subtitle. Larger than body, lighter, not bold.        */
+.page--post .page__deck {
+  margin: 0.5rem 0 0.9rem;
+  max-width: 54ch;                  /* keep the deck on a readable line */
+  font-family: var(--font-heading);
+  font-size: 1.25rem;               /* TWEAK: deck size */
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ink-500, #5b6470);   /* TWEAK: deck color */
+}
+@media (max-width: 600px) {
+  .page--post .page__deck { font-size: 1.1rem; }
+}
+
+/* --- 2. W1: readable prose measure with full-bleed media ---------- */
+/* The content area keeps its wide canvas, but text blocks are capped */
+/* to a comfortable measure and centered, while media/wide elements   */
+/* break back out to the full width.                                  */
+.page--post .page__content > * {
+  max-width: 80ch;                  /* TWEAK: prose measure (chars/line) */
+  margin-inline: 0;                 /* left-align so prose lines up under the H1 */
+}
+/* Elements that should span the full wide canvas instead of the      */
+/* narrow prose column:                                               */
+.page--post .page__content > figure,
+.page--post .page__content > img,
+.page--post .page__content > .notice,
+.page--post .page__content > .notice--primary,
+.page--post .page__content > .notice--info,
+.page--post .page__content > .notice--warning,
+.page--post .page__content > .notice--success,
+.page--post .page__content > .notice--danger,
+.page--post .page__content > table,
+.page--post .page__content > .full-width {
+  max-width: 100%;
+}
+/* Code blocks stay in the readable prose column (full-bleed code reads
+   poorly — short lines leave large empty gutters). */
+.page--post .page__content > pre { max-width: 80ch; }
+/* Images dropped in as plain Markdown become <p><img>; let those      */
+/* paragraphs hold the image at the prose width but keep them centered.*/
+.page--post .page__content > p > img { display: block; margin-inline: auto; }

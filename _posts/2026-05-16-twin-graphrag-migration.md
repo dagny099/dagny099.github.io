@@ -1,5 +1,6 @@
 ---
-layout: single
+layout: post
+classes: wide
 title: "What Happened When I Asked the Same Questions of Two Retrieval Systems"
 subtitle: "Rebuilding my Digital Twin's retrieval layer on a graph — what changed, what it cost, and what I'm learning along the way."
 date: 2026-05-16
