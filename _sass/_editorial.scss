@@ -1,0 +1,154 @@
+// =============================================================================
+// _editorial.scss
+// -----------------------------------------------------------------------------
+// Unified emphasis system for blog posts on barbhs.com.
+//
+// TWO treatments only:
+//
+//   1. .editorial-punchline  — aphoristic one-liners
+//                              (invoked via {% include punchline.html %})
+//
+//   2. blockquote            — extended propositions
+//                              (invoked via standard Markdown `>` syntax)
+//
+// Both use the same burnt-orange left border so they read as members of one
+// family. The punchline fills the cream card; the blockquote leaves the
+// background open — differentiating "wall quote" from "aside" while keeping
+// the palette consistent.
+//
+// Retire the yellow <mark> and the .notice--danger callout: they clash with
+// the cream + navy + burnt-orange palette. Migrate their content to the
+// punchline treatment above.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Shared tokens (component-scoped for portability; override per-post if needed)
+// -----------------------------------------------------------------------------
+
+:root {
+  --ed-cream: #f5eee0;
+  --ed-navy: #1a2340;
+  --ed-orange: #c04818;
+  --ed-orange-dark: #712b13;
+  --ed-warm-gray: #7a6a4d;
+}
+
+// -----------------------------------------------------------------------------
+// PUNCHLINE — cream bg, orange border, bold sans, centered
+// For: aphoristic one-liners ("Polish stops tracking substance.")
+// -----------------------------------------------------------------------------
+
+.editorial-punchline {
+  background: var(--ed-cream);
+  border-left: 4px solid var(--ed-orange);
+  color: var(--ed-navy);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.15em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+
+  // Keep the punchline in the body font stack so it feels like your
+  // strongest sentence, not a foreign visual element.
+  font-family: inherit;
+}
+
+// -----------------------------------------------------------------------------
+// BLOCKQUOTE — orange border, italic serif (override Minimal Mistakes default)
+// For: extended propositions in your own voice ("The capability ceiling...")
+// -----------------------------------------------------------------------------
+//
+// Scoped to .page__content to avoid rewriting blockquotes elsewhere on the
+// site (author bios, testimonials, etc.). If your post content lives under a
+// different wrapper, adjust the selector accordingly.
+
+.page__content blockquote {
+  background: transparent;
+  border-left: 4px solid var(--ed-orange);
+  color: var(--ed-navy);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  font-size: 1.02em;
+  line-height: 1.55;
+
+  // Reset inner paragraph margins so the blockquote reads as one unit.
+  p {
+    margin: 0 0 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Optional: cite element for attributed quotes (unused in the missing-layer
+  // post, but ready if you quote KPMG/Glean directly in a future post).
+  cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-size: 0.9em;
+    color: var(--ed-warm-gray);
+
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Retirements — override so leftover uses don't fight the new system
+// -----------------------------------------------------------------------------
+//
+// If you still have <mark> or .notice--danger blocks anywhere in old posts,
+// these rules keep them from breaking visual consistency. Safe to remove
+// once you've migrated them all.
+
+.page__content mark {
+  background: var(--ed-cream);
+  color: var(--ed-navy);
+  padding: 0 2px;
+  border-bottom: 2px solid var(--ed-orange);
+  border-radius: 0;
+}
+
+// -----------------------------------------------------------------------------
+// POST BYLINE — metadata band between subtitle and lede
+// -----------------------------------------------------------------------------
+
+.post-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ed-warm-gray);
+  letter-spacing: 0.01em;
+  margin: 1.5rem 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid #e4ded4;
+
+  time {
+    color: inherit;
+  }
+}
+
+.post-byline__sep {
+  color: #b8a992;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+
+@media (max-width: 640px) {
+  .editorial-punchline {
+    padding: 0.85rem 1.15rem;
+    font-size: 1.05em;
+  }
+
+  .page__content blockquote {
+    padding-left: 1.15rem;
+  }
+}

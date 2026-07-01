@@ -1,0 +1,292 @@
+// =============================================================================
+// _downloads.scss
+// -----------------------------------------------------------------------------
+// Styles for the download-callout (inline) and visual-companion (end-of-post)
+// includes. Palette derived from the Sensemaking AI deck (cream + navy +
+// burnt orange) so the CTAs feel like they belong to the same brand family
+// as the artifact they deliver.
+//
+// Component-scoped CSS custom properties: override --dl-* at a page or
+// post level to retheme without touching the components themselves.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Shared token block (mixin for DRY)
+// -----------------------------------------------------------------------------
+@mixin download-tokens {
+  --dl-cream: #f5eee0;
+  --dl-navy: #1a2340;
+  --dl-orange: #c04818;
+  --dl-orange-tint: #faece7;
+  --dl-orange-dark: #712b13;
+  --dl-teal: #0f6e56;
+  --dl-teal-tint: #e1f5ee;
+  --dl-warm-gray: #7a6a4d;
+  --dl-border: #d4c7ad;
+  --dl-white: #ffffff;
+}
+
+// =============================================================================
+// DOWNLOAD CALLOUT — compact inline card (B position)
+// =============================================================================
+
+.download-callout {
+  @include download-tokens;
+
+  background: var(--dl-cream);
+  border-left: 4px solid var(--dl-orange);
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 2.25rem 0;
+  font-family: inherit;
+}
+
+.download-callout__body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.download-callout__text {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.download-callout__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dl-navy);
+  margin: 0 0 0.2rem;
+  line-height: 1.3;
+}
+
+.download-callout__subtitle {
+  font-size: 0.92rem;
+  color: var(--dl-warm-gray);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.download-callout__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.download-callout__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.download-callout__btn--primary {
+  background: var(--dl-orange);
+  color: var(--dl-white);
+
+  &:hover,
+  &:focus {
+    background: var(--dl-orange-dark);
+    color: var(--dl-white);
+  }
+}
+
+.download-callout__btn--secondary {
+  background: transparent;
+  color: var(--dl-orange-dark);
+  border: 1.5px solid var(--dl-orange);
+
+  &:hover,
+  &:focus {
+    background: var(--dl-orange-tint);
+    color: var(--dl-orange-dark);
+  }
+}
+
+// =============================================================================
+// VISUAL COMPANION — full-width section with embedded video (C position)
+// =============================================================================
+
+.visual-companion {
+  @include download-tokens;
+
+  background: var(--dl-cream);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0 2rem;
+  scroll-margin-top: 2rem; // for anchor-jump landing offset
+}
+
+.visual-companion__eyebrow {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  color: var(--dl-warm-gray);
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+
+.visual-companion__title {
+  // Prefers Fraunces (Sensemaking) or EB Garamond (Meaning Layer);
+  // falls back to the site's default display stack.
+  font-family: "Fraunces", "EB Garamond", Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--dl-navy);
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+.visual-companion__description {
+  font-size: 1rem;
+  color: var(--dl-navy);
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.visual-companion__video {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  margin: 1.5rem 0;
+  aspect-ratio: 16 / 9;
+
+  video {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.visual-companion__fallback {
+  color: var(--dl-white);
+  padding: 1rem;
+  font-size: 0.95rem;
+}
+
+.visual-companion__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.visual-companion__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+  flex: 1 1 240px;
+  min-width: 220px;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.visual-companion__btn-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: left;
+
+  strong {
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+
+  em {
+    font-style: normal;
+    font-size: 0.82rem;
+    opacity: 0.85;
+    font-weight: 400;
+    margin-top: 0.15rem;
+  }
+}
+
+.visual-companion__btn--primary {
+  background: var(--dl-orange);
+  color: var(--dl-white);
+
+  &:hover,
+  &:focus {
+    background: var(--dl-orange-dark);
+    color: var(--dl-white);
+  }
+}
+
+.visual-companion__btn--secondary {
+  background: var(--dl-white);
+  color: var(--dl-navy);
+  border: 1.5px solid var(--dl-border);
+
+  &:hover,
+  &:focus {
+    background: var(--dl-teal-tint);
+    color: var(--dl-navy);
+    border-color: var(--dl-teal);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+
+@media (max-width: 640px) {
+  .visual-companion {
+    padding: 1.5rem;
+  }
+
+  .visual-companion__title {
+    font-size: 1.4rem;
+  }
+
+  .visual-companion__btn {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .download-callout {
+    padding: 1rem 1.15rem;
+  }
+
+  .download-callout__btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}

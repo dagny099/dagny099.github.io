@@ -39,7 +39,7 @@ show_title: false
 
       <article class="card-surface">
         <p class="card-meta">Evaluation pattern</p>
-        <h2 class="card-title"><a class="text-link" href="/thinking/rag-without-the-theater/">RAG Without the Theater</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/thinking/rag-approaches-observations/">RAG Without the Theater</a></h2>
         <p class="card-lede">Evidence-linked retrieval patterns you can defend and operationalize.</p>
       </article>
     </div>
@@ -79,12 +79,6 @@ show_title: false
       <p class="section-intro">Hands-on guides, experiments, and build notes that show the mechanics behind the work. Why this matters: it captures the learning path, not just the polished result.</p>
     </div>
     <div class="cards-grid">
-      <article class="card-surface">
-        <p class="card-meta">Web frameworks</p>
-        <h2 class="card-title"><a class="text-link" href="/blog/stock-ticker-comparison/">DIY Stock Ticker: Dash vs. Flask vs. Streamlit</a></h2>
-        <p class="card-lede">Build the same app three ways to compare trade-offs and developer experience.</p>
-      </article>
-
       <article class="card-surface">
         <p class="card-meta">DevOps</p>
         <h2 class="card-title"><a class="text-link" href="/blog/deploy-jekyll-gh-actions/">GitHub Actions for Jekyll</a></h2>

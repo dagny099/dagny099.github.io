@@ -1,0 +1,23 @@
+{%- comment -%}
+==============================================================================
+PUNCHLINE — aphoristic one-line callout
+------------------------------------------------------------------------------
+Use for standalone propositions that need to sing: sentences the reader
+should carry away or quote at you later.
+
+Usage in a post:
+
+  {% include punchline.html text="Polish stops tracking substance." %}
+
+Or for multiple sentences (kept short):
+
+  {% include punchline.html
+     text="Adoption is visible. Value is conditional." %}
+
+Params:
+  text  (required) — the aphorism. Aim for 5–20 words; longer than that
+                     and it should probably be a blockquote instead.
+==============================================================================
+{%- endcomment -%}
+
+<p class="editorial-punchline">{{ include.text }}</p>

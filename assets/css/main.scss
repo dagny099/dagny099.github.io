@@ -7,6 +7,9 @@ sitemap: false
 /* 1) Minimal Mistakes skin + framework */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+@import "downloads";
+@import "editorial";
+
 /* Expose nav.yml colors as CSS variables */
 
 :root {

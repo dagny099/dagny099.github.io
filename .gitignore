@@ -34,3 +34,5 @@ package-lock.json
 
 /output
 /tmp
+.playwright-mcp/
+_site_preview/

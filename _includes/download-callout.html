@@ -1,0 +1,59 @@
+{%- comment -%}
+==============================================================================
+DOWNLOAD CALLOUT — compact inline "grab the deck" card
+------------------------------------------------------------------------------
+Usage in a post:
+
+  {% include download-callout.html
+     title="The nine-slide version"
+     subtitle="Two lenses, six pillars, five questions — same argument, in slides."
+     pdf="/assets/downloads/missing-layer-two-reports.pdf"
+     video_anchor="visual-companion"
+     video_label="Watch the walkthrough" %}
+
+Params:
+  title         (required) — heading text
+  subtitle      (optional) — one-line description under the title
+  pdf           (required) — path to PDF, relative to site root
+  pdf_label     (optional) — button text, default: "Download PDF"
+  video_anchor  (optional) — id of an on-page anchor for the video button.
+                             Omit to hide the video button entirely.
+  video_label   (optional) — video button text, default: "Watch walkthrough"
+==============================================================================
+{%- endcomment -%}
+
+<aside class="download-callout" aria-label="{{ include.title | escape }}">
+  <div class="download-callout__body">
+    <div class="download-callout__text">
+      <p class="download-callout__title">{{ include.title }}</p>
+      {%- if include.subtitle %}
+      <p class="download-callout__subtitle">{{ include.subtitle }}</p>
+      {%- endif %}
+    </div>
+    <div class="download-callout__actions">
+      <a class="download-callout__btn download-callout__btn--primary"
+         href="{{ include.pdf | relative_url }}"
+         download>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <path d="M5 21h14"/>
+        </svg>
+        {{ include.pdf_label | default: "Download PDF" }}
+      </a>
+      {%- if include.video_anchor %}
+      <a class="download-callout__btn download-callout__btn--secondary"
+         href="#{{ include.video_anchor }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="6 4 20 12 6 20 6 4"/>
+        </svg>
+        {{ include.video_label | default: "Watch walkthrough" }}
+      </a>
+      {%- endif %}
+    </div>
+  </div>
+</aside>

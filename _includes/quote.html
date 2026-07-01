@@ -50,7 +50,7 @@
 <figure class="site-quote site-quote--{{ q_variant }} {{ include.class }}"{% if include.rotate == "daily" and include.set %} data-quote-rotate="daily"{% endif %}>
   <blockquote class="site-quote__text">{{ q_text }}</blockquote>
   {%- if q_author %}
-  <figcaption class="site-quote__author">&mdash; {{ q_author }}</figcaption>
+  <br><figcaption class="site-quote__author">&mdash; {{ q_author }}</figcaption>
   {%- endif %}
   {%- if include.rotate == "daily" and include.set %}
   <script type="application/json" class="site-quote__data">{{ q_list | jsonify }}</script>

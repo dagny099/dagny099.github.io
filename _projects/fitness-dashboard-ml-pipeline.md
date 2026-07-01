@@ -438,5 +438,5 @@ else:
 
 ## Related
 
-- **[The Choco Effect Data Story](/data-stories/choco-effect/)** — Deep dive into the before/after analysis
+- **[The Choco Effect Data Story](/data-stories/exercise-dashboard/)** — Deep dive into the before/after analysis
 - **[learn_pytest](https://github.com/dagny099/learn_pytest/)** — Testing patterns developed for this project

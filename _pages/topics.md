@@ -18,11 +18,7 @@ Browse my work organized by expertise area. Each topic spans multiple content ty
 Understanding how humans process visual information and make decisions.
 
 **Essays &amp; Perspectives:**
-- [Vision & Data Viz for Decision-Making](/thinking/vision-perception-dataviz/) — How perception science informs effective data visualization
-- [7±2 is Everywhere: Chunking](/thinking/chunking/) — Cognitive limits and information design
-
-**Resources:**
-- [Vision & Perception Cheatsheet](/resources/vision-perception-cheatsheet/) — Quick reference for visual encoding principles
+- [Vision & Data Viz for Decision-Making](/thinking/vision-perception-data-viz-decisions/) — How perception science informs effective data visualization
 
 **Related tags:** `visual-working-memory`, `preattentive`, `gestalt`, `perception`, `data-visualization`, `ux-for-analytics`
 
@@ -38,8 +34,7 @@ Graph databases, network analysis, and knowledge representation systems.
  [Knowledge Cartography](/data-stories/citation-link-prediction/) — Predicting academic citation networks with graph neural networks
 
 **Projects:**
-- [Knowledge Network Mapping](/projects/knowledge-network-mapping/) 🚧 *Work in Progress* — Building interconnected knowledge systems
-- [Beehive Analytics Platform](/projects/beehive-analytics/) 🚧 *Work in Progress* — Monitoring beehive health through sensor networks
+- [Beehive Analytics Platform](/projects/beehive-tracker/) 🚧 *Work in Progress* — Monitoring beehive health through sensor networks
 
 **Related tags:** `knowledge-graph`, `neo4j`, `graph-neural-networks`, `metadata`, `cv`, `data-governance`
 
@@ -50,13 +45,10 @@ Graph databases, network analysis, and knowledge representation systems.
 Modern AI practices, retrieval systems, and responsible AI governance.
 
 **Essays &amp; Perspectives:**
-- [RAG Without the Theater](/thinking/rag-without-theater/) — Practical evaluation and governance for RAG systems
+- [RAG Without the Theater](/thinking/rag-approaches-observations/) — Practical evaluation and governance for RAG systems
 
 **Projects:**
 - [Convoscope: Conversational AI](/projects/convoscope/) ✅ *Active* — Chat interface and management platform for LLM conversations
-
-**Resources:**
-- [Dataset & Prompt Cards](/resources/dataset-prompt-cards/) — Governance templates for responsible AI development
 
 **Related tags:** `rag`, `retrieval`, `governance`, `nlp`, `prompting`, `prod-readiness`, `summarization`, `evaluation`
 
@@ -67,15 +59,11 @@ Modern AI practices, retrieval systems, and responsible AI governance.
 User-facing analytics, dashboards, and data-driven storytelling.
 
 **Projects:**
-- [Self-Hosted Workout Intelligence](/projects/workout-intelligence/) ✅ *Active* — Personal analytics dashboard with habit tracking
-- [Hive Photo Metadata Tracker](/data-stories/hive-photo-tracker/) — Computer vision & APIs for beehive monitoring
+- [Self-Hosted Workout Intelligence](/projects/fitness-dashboard/) ✅ *Active* — Personal analytics dashboard with habit tracking
+- [Hive Photo Metadata Tracker](/data-stories/hive-photo-metadata-tracker/) — Computer vision & APIs for beehive monitoring
 
 **Data Narratives:**
 - [Exercise Dashboard: The Choco Effect](/data-stories/exercise-dashboard/) — Trend analysis and data visualization
-
-**Resources:**
-- [Bridge to Web Apps](/resources/bridge-to-web-apps/) — Streamlit/Plotly guide for interactive dashboards
-- [Executive Brief Template](/resources/executive-brief-template/) — Communication framework for data insights
 
 **Related tags:** `analytics`, `habits`, `data-visualization`, `streamlit`, `plotly`, `web-apps`, `product`, `ui-ux`
 
@@ -113,13 +101,8 @@ Step-by-step guides, learning resources, and knowledge sharing.
   - Part 3: GitHub Actions CI/CD
   - Part 4: Post-Deployment Reflections
 
-**Resources:**
-- [Project Starter Kit](/resources/project-starter-kit/) — Templates and checklists for launching data projects
-- [Bridge to Web Apps](/resources/bridge-to-web-apps/) — Hands-on guide for data scientists building web apps
-
 **Notes &amp; Experiments:**
 - [AWS CCP Certification](/blog/aws-ccp-certification/) — Cloud certification journey
-- [Stock Ticker Comparison](/blog/stock-ticker-comparison/) — Comparing Python web frameworks (Flask, Dash, Streamlit)
 - [3D Printing Exploration](/blog/3d-printing-exploration/) — Prototyping and maker projects
 
 **Related tags:** `tutorial`, `jekyll`, `github-pages`, `streamlit`, `python`, `webapps`, `AWS`

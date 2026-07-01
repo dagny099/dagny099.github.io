@@ -73,5 +73,5 @@ The Pomodoro Technique is organized into [Six Incremental Goals](https://guides.
 
 This was a [helpful youtube video](https://youtube.com/watch?v=aQ_xKuXo0D0&t=15) to check out. 
 
-Also, see [Francisco's own nice website]("https://www.francescocirillo.com/"). 
+Also, see [Francisco's own nice website](https://www.francescocirillo.com/). 
 

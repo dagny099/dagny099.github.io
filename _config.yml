@@ -180,7 +180,7 @@ defaults:
     values:                                                                                                                                                                                
       layout: single                                                                                                                                                                       
       author_profile: false                                                                                                                                                                 
-      read_time: true    
+      read_time: false    
       breadcrumbs: false
       share: true                                                                                                                                                                          
       related: true                                                                                                                                                                        

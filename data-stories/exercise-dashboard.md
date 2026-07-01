@@ -234,7 +234,7 @@ What stories are hiding in your perfectly tracked imperfect life?
 ---
 
 **[Links Section]**
-- 🔗 **[Interactive Dashboard](your-dashboard-url)** - Explore the full workout dataset
+- 🔗 **[Interactive Dashboard](https://workouts.barbhs.com/)** - Explore the full workout dataset
 - 🐙 **[GitHub Repository](your-repo-url)** - Code, data, and notebooks
 - 📊 **[SQL Playground](your-playground-url)** - Query the workout database yourself
 - 📈 **[Dataset](sample-data-url)** - Download a sample for your own analysis

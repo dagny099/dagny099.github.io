@@ -54,7 +54,7 @@ classes: [wide, start-here-page]
 </section>
 
 - [GitHub Actions for Jekyll](/blog/deploy-jekyll-gh-actions/) — Learn how to install proper CI/CD automation for static sites.
-- [The Data Scientist's Toolkit: Poetry with Python](/blog/blog/poetry-of-python/) — Learn how to make clean, reproducible python environments easy with a few Poetry basics and tips. 
+- [The Data Scientist's Toolkit: Poetry with Python](/blog/poetry-of-python/) — Learn how to make clean, reproducible python environments easy with a few Poetry basics and tips. 
 
 <br>
 <section class="section-stack">
@@ -64,8 +64,7 @@ classes: [wide, start-here-page]
 </div>
 </section>
 
-- [Vision & Data Viz for Decision-Making](/thinking/vision-perception-dataviz/) — Perception science meets visual design.
-- [7±2 is Everywhere: Chunking](/thinking/chunking/) — Cognitive limits and information design.
+- [Vision & Data Viz for Decision-Making](/thinking/vision-perception-data-viz-decisions/) — Perception science meets visual design.
 
 <hr style="margin: 40px 0 40px 0">
 <!-- 

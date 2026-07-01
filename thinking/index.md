@@ -48,7 +48,7 @@ classes: [wide, thinking-page]
 
       <article class="card-surface">
         <p class="card-meta">Medium cognitive load</p>
-        <h2 class="card-title"><a class="text-link" href="/thinking/rag-without-theater/">RAG Without the Theater</a></h2>
+        <h2 class="card-title"><a class="text-link" href="/thinking/rag-approaches-observations/">RAG Without the Theater</a></h2>
         <p class="card-lede">Evidence-linked retrieval patterns you can defend. Skip magic prompts; use small, testable patterns that tie claims to sources.</p>
         <div class="meta-line">
           <span class="pill">rag</span>
