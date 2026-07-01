@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python Coding Assessment Warm-Up Workbook</title>
+<style>
+:root{--bg:#f7f3ea;--paper:#fffaf0;--ink:#24302f;--muted:#65706b;--line:#d8cfc1;--accent:#c04818;--accent2:#285f7f;--green:#2c6b57;--soft:#efe5d4;--code:#1e2426;--codeText:#f1eadc;--ok:#286b3c;--bad:#a33a2d;--shadow:0 10px 28px rgba(40,48,47,.12);--radius:18px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,rgba(192,72,24,.10),transparent 32rem),radial-gradient(circle at bottom right,rgba(40,95,127,.12),transparent 34rem),var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}.wrap{max-width:1180px;margin:0 auto;padding:28px}header{background:rgba(255,250,240,.88);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow);position:sticky;top:10px;z-index:5;backdrop-filter:blur(10px)}.eyebrow{color:var(--accent);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;margin-bottom:6px}h1{margin:0;font-size:clamp(1.8rem,3vw,3rem);line-height:1.05;letter-spacing:-.04em}.subhead{max-width:860px;color:var(--muted);font-size:1.05rem;margin:12px 0 18px}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}button,.button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;transition:transform .08s ease,background .15s ease,border-color .15s ease;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:.93rem}button:hover,.button:hover{transform:translateY(-1px);border-color:rgba(192,72,24,.45);background:#fffdf7}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button.small{padding:6px 10px;font-size:.8rem}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted);background:rgba(255,250,240,.6);font-size:.83rem;font-weight:700;margin:4px 4px 4px 0}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0;position:sticky;top:184px;z-index:4;background:rgba(247,243,234,.84);padding:10px;border-radius:20px;backdrop-filter:blur(8px)}.tab{border-radius:999px;padding:9px 12px;background:rgba(255,250,240,.75)}.tab.active{background:var(--accent2);border-color:var(--accent2);color:white}section.panel{display:none;background:rgba(255,250,240,.92);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:var(--shadow)}section.panel.active{display:block}h2{margin:0 0 14px;font-size:1.6rem;letter-spacing:-.02em}h3{margin:26px 0 10px;font-size:1.1rem}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{grid-column:span 6;background:#fffdf8;border:1px solid var(--line);border-radius:var(--radius);padding:16px}.card.third{grid-column:span 4}.card.full{grid-column:1/-1}@media(max-width:800px){.wrap{padding:16px}header,.tabs{position:relative;top:auto}.card,.card.third{grid-column:1/-1}}code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}pre{background:var(--code);color:var(--codeText);border-radius:14px;padding:14px;overflow-x:auto;position:relative;border:1px solid rgba(255,255,255,.08);font-size:.9rem;line-height:1.45}code.inline{background:var(--soft);padding:2px 5px;border-radius:6px;color:#8f3419;font-weight:700}.codebar{display:flex;justify-content:flex-end;margin:-6px 0 6px}details{border:1px solid var(--line);background:#fffdf8;border-radius:16px;padding:12px 14px;margin:10px 0}summary{cursor:pointer;font-weight:800}table{border-collapse:collapse;width:100%;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#fffdf8}th,td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}th{background:var(--soft);font-size:.88rem;text-transform:uppercase;letter-spacing:.04em}tr:last-child td{border-bottom:none}.timerBox{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fffdf8;border:1px solid var(--line);border-radius:20px;padding:16px}.time{font-size:2.2rem;font-weight:900;letter-spacing:-.04em;color:var(--accent);min-width:110px}.textarea{width:100%;min-height:260px;border-radius:16px;border:1px solid var(--line);padding:14px;background:#fffdf8;color:var(--ink);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92rem;line-height:1.45;resize:vertical}.question{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fffdf8;margin:10px 0}.answers{display:grid;gap:8px;margin-top:10px}.answer{border-radius:12px;border:1px solid var(--line);padding:9px 10px;cursor:pointer;background:white}.answer.correct{border-color:var(--ok);background:rgba(40,107,60,.10)}.answer.incorrect{border-color:var(--bad);background:rgba(163,58,45,.10)}.feedback{margin-top:10px;font-weight:700}.flashcard{min-height:190px;display:grid;place-items:center;text-align:center;border:1px dashed rgba(192,72,24,.45);background:#fffdf8;border-radius:22px;padding:24px;cursor:pointer;user-select:none}.flashcard .front{font-size:1.3rem;font-weight:900;color:#8f3419}.flashcard .back{display:none;font-size:1rem;color:var(--ink);text-align:left;max-width:720px;white-space:pre-wrap}.flashcard.flipped .front{display:none}.flashcard.flipped .back{display:block}.checklist label{display:flex;align-items:flex-start;gap:10px;margin:8px 0;padding:8px 10px;border-radius:12px;background:#fffdf8}.checklist input:checked+span{text-decoration:line-through;color:var(--muted)}.note{border-left:4px solid var(--accent);background:rgba(192,72,24,.08);padding:12px 14px;border-radius:12px}.green{border-left-color:var(--green);background:rgba(44,107,87,.08)}.blue{border-left-color:var(--accent2);background:rgba(40,95,127,.08)}.muted{color:var(--muted)}.progressOuter{height:12px;background:var(--soft);border-radius:999px;overflow:hidden;border:1px solid var(--line);width:220px}.progressInner{height:100%;width:0%;background:var(--accent);transition:width .2s ease}.footer{color:var(--muted);text-align:center;font-size:.88rem;margin:24px 0 8px}.promptText{font-size:1.05rem;font-weight:700}.mini{font-size:.88rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="eyebrow">Offline practice workbook</div>
+<h1>Python Coding Assessment Warm-Up</h1>
+<p class="subhead">A focused warm reboot for a 30-minute HackerRank-style coding test: Python fluency, common patterns, timed drills, flashcards, and edge-case checklists. Use this offline.</p>
+<div><span class="pill">Python 3</span><span class="pill">30-minute screen</span><span class="pill">arrays · strings · dicts · sorting</span><span class="pill">worked examples</span><span class="pill">no AI/tools during test</span></div>
+<div class="controls"><button class="primary" onclick="showTab('plan')">Start with the plan</button><button onclick="showTab('drills')">Timed drills</button><button onclick="showTab('flashcards')">Flashcards</button><button onclick="window.print()">Print / Save PDF</button><div class="progressOuter"><div class="progressInner" id="progressBar"></div></div><span class="mini" id="progressText">0% checklist complete</span></div>
+</header>
+<nav class="tabs"><button class="tab active" data-tab="plan" onclick="showTab('plan')">Plan</button><button class="tab" data-tab="basics" onclick="showTab('basics')">I/O + Python Basics</button><button class="tab" data-tab="examples" onclick="showTab('examples')">Worked Examples</button><button class="tab" data-tab="patterns" onclick="showTab('patterns')">Patterns</button><button class="tab" data-tab="complexity" onclick="showTab('complexity')">Big-O + Edge Cases</button><button class="tab" data-tab="drills" onclick="showTab('drills')">Timed Drills</button><button class="tab" data-tab="quiz" onclick="showTab('quiz')">Quiz</button><button class="tab" data-tab="flashcards" onclick="showTab('flashcards')">Flashcards</button><button class="tab" data-tab="scratchpad" onclick="showTab('scratchpad')">Scratchpad</button></nav>
+<main>
+<section class="panel active" id="plan"><h2>What you are preparing for</h2><div class="note">You are not trying to become a competitive programmer overnight. You are restoring access to skills you already have: read the prompt, choose the data structure, write the simple version, test edge cases, submit clean code.</div><div class="grid" style="margin-top:14px"><div class="card"><h3>Likely test focus</h3><ul><li>Python fluency under time pressure</li><li>Arrays/lists, strings, dictionaries, sets</li><li>Counting, grouping, sorting with tie-breakers</li><li>Simple optimization: avoid obvious <code class="inline">O(n²)</code> traps</li><li>Careful reading of input/output requirements</li></ul></div><div class="card"><h3>Less likely to matter</h3><ul><li>Advanced dynamic programming</li><li>Binary trees or recursion-heavy problems</li><li>AWS, Terraform, pandas, ML training code</li><li>Obscure algorithms or custom classes</li></ul></div></div><h3>Your 30-minute rhythm</h3><table><tr><th>Time</th><th>Action</th><th>Goal</th></tr><tr><td>0–3 min</td><td>Read prompt twice</td><td>Clarify input, output, constraints, examples</td></tr><tr><td>3–8 min</td><td>Choose pattern</td><td>Counter? set? dict? sort? stack? two pointers?</td></tr><tr><td>8–20 min</td><td>Code simple solution</td><td>Readable and correct beats clever</td></tr><tr><td>20–25 min</td><td>Run samples</td><td>Fix syntax, output, and obvious logic bugs</td></tr><tr><td>25–30 min</td><td>Hidden-case pass</td><td>Empty input, one item, duplicates, ties, negatives, formatting</td></tr></table><h3>Pre-test checklist</h3><div class="checklist"><label><input type="checkbox"><span>Use Python 3 unless the test explicitly prevents it.</span></label><label><input type="checkbox"><span>Close ChatGPT, Copilot, extra tabs, notes, and messaging apps before the test.</span></label><label><input type="checkbox"><span>Have water nearby and use the restroom before starting.</span></label><label><input type="checkbox"><span>Practice one easy HackerRank-style problem to feel the interface.</span></label><label><input type="checkbox"><span>Review <code class="inline">Counter</code>, <code class="inline">defaultdict</code>, <code class="inline">set</code>, sorting keys, and input parsing.</span></label><label><input type="checkbox"><span>Commit to writing the simple version first.</span></label></div></section>
+<section class="panel" id="basics"><h2>I/O + Python basics</h2><p class="muted">HackerRank-style tests often provide either a function signature or STDIN/STDOUT parsing. Be ready for both.</p><div class="grid"><div class="card"><h3>Function style</h3><p>Return the result; do not print unless requested.</p><div class="codebar"><button class="small" onclick="copyBlock('codeFunc')">Copy</button></div><pre id="codeFunc">def solve_thing(arr):
+    # write logic here
+    return result</pre></div><div class="card"><h3>STDIN / STDOUT style</h3><div class="codebar"><button class="small" onclick="copyBlock('codeStdin')">Copy</button></div><pre id="codeStdin">import sys
+
+data = sys.stdin.read().strip().split()
+# parse tokens
+print(answer)</pre></div><div class="card"><h3>Common input templates</h3><div class="codebar"><button class="small" onclick="copyBlock('codeInputs')">Copy</button></div><pre id="codeInputs"># One integer
+n = int(input())
+
+# One line of integers
+arr = list(map(int, input().split()))
+
+# Two integers on one line
+n, k = map(int, input().split())
+
+# Multiple lines
+rows = []
+for _ in range(n):
+    rows.append(input().split())</pre></div><div class="card"><h3>Imports worth memorizing</h3><div class="codebar"><button class="small" onclick="copyBlock('codeImports')">Copy</button></div><pre id="codeImports">from collections import Counter, defaultdict, deque
+import heapq
+import math</pre></div></div><h3>Core structures</h3><details open><summary>Lists</summary><pre>arr = [3, 1, 4]
+arr.append(5)
+arr.sort()
+first = arr[0]
+last = arr[-1]
+
+squares = [x * x for x in arr]
+evens = [x for x in arr if x % 2 == 0]
+
+for i, value in enumerate(arr):
+    ...</pre></details><details><summary>Dictionaries</summary><pre>d = {}
+d["a"] = 1
+
+if "a" in d:
+    ...
+
+index = {}
+for i, x in enumerate(arr):
+    index[x] = i</pre></details><details><summary>Sets</summary><pre>seen = set()
+for x in arr:
+    if x in seen:
+        return True
+    seen.add(x)</pre></details><details><summary>Sorting</summary><pre>arr.sort()              # modifies arr
+new_arr = sorted(arr)   # returns new list
+
+records = [("Alice", 90), ("Bob", 80), ("Cara", 90)]
+records.sort(key=lambda x: (-x[1], x[0]))</pre></details><details><summary>String syntax refresher</summary><pre>s = "  Hello, world  "
+
+s.strip()              # remove outer whitespace
+s.lower()              # lowercase
+s.upper()              # uppercase
+s.split()              # split on whitespace
+s.split(",")           # split on a delimiter
+" ".join(words)        # join a list of strings
+
+ch.isalpha()           # letters only
+ch.isdigit()           # digits only
+ch.isalnum()           # letters or digits
+
+# common patterns
+normalized = ''.join(ch.lower() for ch in s if ch.isalnum())
+first = s[0]
+last = s[-1]
+part = s[:5]</pre></details></section>
+<section class="panel" id="examples"><h2>Worked examples</h2><p class="muted">These show the thought process: prompt → pattern recognition → simple code → edge cases. The goal is not memorization; it is learning how to get unstuck and move cleanly from description to implementation.</p><div class="grid"><div class="card full"><h3>Worked example 1: first unique character</h3><p><b>Prompt:</b> Return the first character in a string that appears exactly once. Return <code class="inline">None</code> if no such character exists.</p><p><b>How to think about it:</b></p><ol><li>I care about <i>frequency</i>, so this suggests <code class="inline">Counter</code>.</li><li>I also care about the <i>first</i> such character, so I should count first, then scan the original string in order.</li><li>That means a two-pass solution.</li></ol><div class="codebar"><button class="small" onclick="copyBlock('ex1')">Copy</button></div><pre id="ex1">from collections import Counter
+
+def first_unique(s):
+    if not s:
+        return None
+
+    counts = Counter(s)
+    for ch in s:
+        if counts[ch] == 1:
+            return ch
+    return None</pre><p><b>Edge cases to check:</b> empty string, all duplicates, uppercase/lowercase handling if the prompt cares.</p></div><div class="card full"><h3>Worked example 2: pair sum</h3><p><b>Prompt:</b> Given a list of integers and a target, return <code class="inline">True</code> if any two distinct numbers sum to the target; otherwise return <code class="inline">False</code>.</p><p><b>How to think about it:</b></p><ol><li>The brute-force approach is nested loops, but that is <code class="inline">O(n²)</code>.</li><li>For each number <code class="inline">x</code>, I really want to know whether <code class="inline">target - x</code> has already appeared.</li><li>That is a fast lookup problem, so use a <code class="inline">set</code>.</li></ol><div class="codebar"><button class="small" onclick="copyBlock('ex2')">Copy</button></div><pre id="ex2">def has_pair_sum(nums, target):
+    seen = set()
+
+    for x in nums:
+        need = target - x
+        if need in seen:
+            return True
+        seen.add(x)
+
+    return False</pre><p><b>Edge cases to check:</b> empty list, one item, duplicates like <code class="inline">[3, 3]</code> with target <code class="inline">6</code>, negatives, zero.</p></div></div><div class="note green">When you feel stuck, ask: <b>What am I repeatedly looking up?</b> That question often reveals the right structure.</div></section><section class="panel" id="patterns"><h2>High-yield patterns</h2><p class="muted">Recognize the cue in the prompt and choose the right structure quickly.</p><details open><summary>Frequency counting</summary><p><b>Cue:</b> duplicates, matching, anagrams, counts, inventory, “how many.”</p><pre>from collections import Counter
+
+def has_same_letters(a, b):
+    return Counter(a) == Counter(b)</pre></details><details><summary>First unique / first repeated</summary><pre>from collections import Counter
+
+def first_unique(s):
+    counts = Counter(s)
+    for ch in s:
+        if counts[ch] == 1:
+            return ch
+    return None</pre></details><details><summary>Complement lookup / two-sum</summary><pre>def two_sum(nums, target):
+    seen = {}
+    for i, x in enumerate(nums):
+        need = target - x
+        if need in seen:
+            return [seen[need], i]
+        seen[x] = i
+    return []</pre></details><details><summary>Grouping records</summary><pre>from collections import defaultdict
+
+def group_by_department(rows):
+    groups = defaultdict(list)
+    for name, dept in rows:
+        groups[dept].append(name)
+    return groups</pre></details><details><summary>String cleanup</summary><pre>def normalize(s):
+    return ''.join(ch.lower() for ch in s if ch.isalnum())</pre></details><details><summary>Sliding window</summary><pre>def max_sum_window(arr, k):
+    if k <= 0 or k > len(arr):
+        return None
+    window = sum(arr[:k])
+    best = window
+    for i in range(k, len(arr)):
+        window += arr[i] - arr[i-k]
+        best = max(best, window)
+    return best</pre></details><details><summary>Two pointers</summary><pre>def has_pair_sum(arr, target):
+    arr.sort()
+    left, right = 0, len(arr) - 1
+    while left < right:
+        total = arr[left] + arr[right]
+        if total == target:
+            return True
+        elif total < target:
+            left += 1
+        else:
+            right -= 1
+    return False</pre></details><details><summary>Stack</summary><pre>def valid_parens(s):
+    pairs = {")": "(", "]": "[", "}": "{"}
+    stack = []
+    for ch in s:
+        if ch in "([{":
+            stack.append(ch)
+        elif ch in pairs:
+            if not stack or stack[-1] != pairs[ch]:
+                return False
+            stack.pop()
+    return not stack</pre></details><details><summary>Merge intervals</summary><pre>def merge_intervals(intervals):
+    if not intervals:
+        return []
+    intervals.sort(key=lambda x: x[0])
+    merged = [intervals[0]]
+    for start, end in intervals[1:]:
+        last_start, last_end = merged[-1]
+        if start <= last_end:
+            merged[-1] = [last_start, max(last_end, end)]
+        else:
+            merged.append([start, end])
+    return merged</pre></details></section>
+<section class="panel" id="complexity"><h2>Big-O + hidden test cases</h2><div class="note blue">Main rule: if you wrote a nested loop over the same list, pause and ask whether a dictionary, set, Counter, or sort can replace it.</div><h3>Complexity cheat sheet</h3><table><tr><th>Pattern</th><th>Typical complexity</th><th>Why it matters</th></tr><tr><td>One pass through list</td><td>O(n)</td><td>Usually good</td></tr><tr><td>Nested loop over same list</td><td>O(n²)</td><td>Dangerous for large input</td></tr><tr><td>Sort</td><td>O(n log n)</td><td>Usually acceptable</td></tr><tr><td>Dict/set lookup</td><td>Average O(1)</td><td>Great for replacing nested loops</td></tr><tr><td>Counter over list/string</td><td>O(n)</td><td>Great for frequencies</td></tr></table><h3>Hidden-case checklist</h3><div class="checklist"><label><input type="checkbox"><span>Empty list/string</span></label><label><input type="checkbox"><span>One item</span></label><label><input type="checkbox"><span>Duplicates</span></label><label><input type="checkbox"><span>Ties</span></label><label><input type="checkbox"><span>Negative numbers or zero</span></label><label><input type="checkbox"><span>Already sorted / reverse sorted</span></label><label><input type="checkbox"><span>Capitalization, punctuation, whitespace</span></label><label><input type="checkbox"><span>Exact output formatting</span></label><label><input type="checkbox"><span>Return vs print</span></label><label><input type="checkbox"><span>Remove debug prints</span></label></div><pre>for x in arr:
+    for y in arr:
+        ...
+
+# Ask:
+# Can I use a dict, set, Counter, or sorting instead?</pre></section>
+<section class="panel" id="drills"><h2>Timed drills</h2><p class="muted">Generate a prompt, start a timer, and solve in your own editor or in the scratchpad. These are practice prompts only.</p><div class="timerBox"><div class="time" id="timer">30:00</div><button class="primary" onclick="startTimer(30)">Start 30 min</button><button onclick="startTimer(10)">Start 10 min</button><button onclick="pauseTimer()">Pause</button><button onclick="resetTimer()">Reset</button><button onclick="newPrompt()">New prompt</button></div><div class="card full" style="margin-top:14px"><h3 id="promptTitle">Practice prompt</h3><p class="promptText" id="promptText">Click “New prompt” to generate a drill.</p><p class="mini" id="promptHint"></p></div><h3>Suggested drill order</h3><ol><li>String/counting problem</li><li>Dictionary/hashmap problem</li><li>Sorting with tie-breakers</li><li>Array/window/two-pointer problem</li><li>Stack problem if you have time</li></ol><div class="note green">For confidence: do one timed rep, review it, then stop. Too much cramming can create more anxiety than skill.</div></section>
+<section class="panel" id="quiz"><h2>Quick quiz</h2><p class="muted">Click an answer to check it. This is meant to refresh pattern recognition.</p><div id="quizContainer"></div><div class="controls"><button onclick="resetQuiz()">Reset quiz</button><span class="pill" id="quizScore">Score: 0 / 0</span></div></section>
+<section class="panel" id="flashcards"><h2>Flashcards</h2><p class="muted">Click the card to flip. Use Next/Previous to move through the set.</p><div class="flashcard" id="flashcard" onclick="flipCard()"><div class="front" id="flashFront"></div><div class="back" id="flashBack"></div></div><div class="controls"><button onclick="prevCard()">Previous</button><button class="primary" onclick="nextCard()">Next</button><button onclick="shuffleCards()">Shuffle</button><span class="pill" id="cardCount"></span></div></section>
+<section class="panel" id="scratchpad"><h2>Scratchpad</h2><p class="muted">Offline notes and pseudo-code space. This does not execute code; it is just for practice. Saved locally in this browser.</p><textarea class="textarea" id="scratch" spellcheck="false"># Practice here
+
+from collections import Counter, defaultdict, deque
+
+def solve():
+    pass
+</textarea><div class="controls"><button onclick="saveScratch()">Save scratchpad</button><button onclick="clearScratch()">Clear</button><button onclick="copyScratch()">Copy scratchpad</button></div><h3>Last-minute code snippets</h3><pre>from collections import Counter, defaultdict, deque
+
+arr = list(map(int, input().split()))
+n, k = map(int, input().split())
+
+for i, x in enumerate(arr):
+    ...
+
+counts = Counter(arr)
+seen = set()
+
+records.sort(key=lambda x: (x[0], -x[1]))
+
+if not arr:
+    return ...
+
+return not stack</pre></section>
+</main><div class="footer">Offline workbook. Built for focused, ethical prep before a Python coding assessment.</div></div>
+<script>
+const tabs=[...document.querySelectorAll('.tab')],panels=[...document.querySelectorAll('.panel')];function showTab(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));panels.forEach(p=>p.classList.toggle('active',p.id===id));window.scrollTo({top:0,behavior:'smooth'})}function copyBlock(id){let text=document.getElementById(id).innerText;navigator.clipboard.writeText(text).then(()=>toast('Copied.')).catch(()=>alert('Copy failed. Select and copy manually.'))}function toast(msg){let el=document.createElement('div');el.textContent=msg;el.style.cssText='position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:10px 14px;border-radius:999px;background:#24302f;color:white;z-index:99;box-shadow:0 10px 28px rgba(0,0,0,.25)';document.body.appendChild(el);setTimeout(()=>el.remove(),1300)}function updateProgress(){let checks=[...document.querySelectorAll('.checklist input[type="checkbox"]')],checked=checks.filter(c=>c.checked).length,pct=checks.length?Math.round(checked/checks.length*100):0;document.getElementById('progressBar').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'% checklist complete';localStorage.setItem('warmupChecks',JSON.stringify(checks.map(c=>c.checked)))}document.querySelectorAll('.checklist input[type="checkbox"]').forEach(c=>c.addEventListener('change',updateProgress));function restoreChecks(){let saved=JSON.parse(localStorage.getItem('warmupChecks')||'[]'),checks=[...document.querySelectorAll('.checklist input[type="checkbox"]')];checks.forEach((c,i)=>{if(typeof saved[i]==='boolean')c.checked=saved[i]});updateProgress()}let timerSeconds=1800,timerInterval=null;function renderTimer(){let m=String(Math.floor(timerSeconds/60)).padStart(2,'0'),s=String(timerSeconds%60).padStart(2,'0');document.getElementById('timer').textContent=`${m}:${s}`}function startTimer(minutes){timerSeconds=minutes*60;renderTimer();if(timerInterval)clearInterval(timerInterval);timerInterval=setInterval(()=>{timerSeconds--;if(timerSeconds<=0){timerSeconds=0;renderTimer();clearInterval(timerInterval);timerInterval=null;alert('Time is up. Stop coding and review edge cases.')}else renderTimer()},1000)}function pauseTimer(){if(timerInterval){clearInterval(timerInterval);timerInterval=null}}function resetTimer(){pauseTimer();timerSeconds=1800;renderTimer()}const prompts=[['Frequency counting: first unique character','Write a function that returns the first character in a string that appears exactly once. Return None if no such character exists.','Cue: Counter, then scan original order. Edge cases: empty string, all duplicates, capitalization.'],['Dictionary lookup: pair sum','Given a list of integers and a target, return True if any two distinct numbers sum to the target. Otherwise return False.','Cue: set/dict complement lookup. Edge cases: duplicates, negatives, zero, same number twice.'],['Grouping records: average by key','Given records of (name, department, score), return a dictionary mapping each department to its average score.','Cue: defaultdict(list) or running totals. Edge cases: one record, multiple departments, integer vs float output.'],['Sorting with tie-breakers','Given a list of (name, score) pairs, return the names sorted by score descending. Ties should be sorted alphabetically by name.','Cue: sort key lambda x: (-score, name). Edge cases: ties, duplicate names, empty input.'],['String cleanup: normalized palindrome','Return True if a string is a palindrome after ignoring punctuation, spaces, and capitalization.','Cue: normalize with isalnum + lower, then compare or use two pointers.'],['Sliding window: max sum of k','Given a list of integers and a window size k, return the maximum sum of any contiguous subarray of length k.','Cue: initialize first window, slide by adding new and subtracting old. Edge cases: k=0, k > len(arr), negatives.'],['Stack: valid brackets','Return True if a string containing only brackets ()[]{} is balanced and properly nested.','Cue: stack + closing-to-opening map. Edge cases: empty string, starts with closing bracket, leftover stack.'],['Merge intervals','Given a list of [start, end] intervals, merge all overlapping intervals and return the merged list.','Cue: sort by start, compare with last merged. Edge cases: empty list, touching intervals, contained intervals.'],['Data parsing: count status codes','Given log rows like "2026-01-01 user_id=4 status=200", count how many times each status code appears.','Cue: split strings, extract status=, Counter. Edge cases: missing status field if prompt allows it.'],['Deduplication with order','Given a list, return a new list with duplicates removed while preserving first-seen order.','Cue: seen set + output list. Edge cases: empty list, all duplicates.']];function newPrompt(){let p=prompts[Math.floor(Math.random()*prompts.length)];document.getElementById('promptTitle').textContent=p[0];document.getElementById('promptText').textContent=p[1];document.getElementById('promptHint').textContent=p[2]}const quiz=[{q:'A problem asks whether any two numbers sum to a target. What structure is usually the fastest first idea?',a:['Nested loops','A set or dictionary of seen values','A stack','A queue'],c:1,w:'Use complement lookup: for each x, check whether target - x has already appeared.'},{q:'A problem asks whether two strings are anagrams. What is the simplest Python tool?',a:['deque','Counter','heapq','sorted only, always'],c:1,w:'Counter compares character frequencies directly. sorted can work too, but Counter is often clearer.'},{q:'A prompt says to sort by score descending, then name ascending. Which key shape is right for (name, score)?',a:['key=lambda x: (x[1], x[0])','key=lambda x: (-x[1], x[0])','key=lambda x: (x[0], -x[1])','key=lambda x: x'],c:1,w:'Negative score gives descending score; name remains ascending.'},{q:'What should you check before final submission?',a:['Only the happy path','Only syntax','Empty input, one item, duplicates, ties, formatting','Whether the code looks clever'],c:2,w:'Hidden tests often check corner cases and exact output behavior.'},{q:'What is the main risk of a nested loop over the same list?',a:['It uses too little memory','It may be O(n²)','It cannot be written in Python','It always gives wrong answers'],c:1,w:'Nested loops may time out on larger inputs. Consider dict/set/Counter/sorting instead.'},{q:'A problem asks for balanced parentheses. What pattern is most likely?',a:['Counter','Stack','Sliding window','Merge intervals'],c:1,w:'Balanced nested structures are classic stack problems.'},{q:'A problem asks for the maximum sum of any contiguous subarray of length k. What pattern fits?',a:['Sliding window','Counter','BFS','Heap'],c:0,w:'Fixed-size contiguous range is a sliding-window cue.'},{q:'When using HackerRank-style STDIN, what does split() usually give you?',a:['Integers','Strings/tokens','Dictionaries','Lists of lists automatically'],c:1,w:'split() returns strings. Convert with int() or map(int, ...).'}];let quizState=Array(quiz.length).fill(null);function renderQuiz(){let container=document.getElementById('quizContainer');container.innerHTML='';quiz.forEach((item,idx)=>{let q=document.createElement('div');q.className='question';q.innerHTML=`<b>${idx+1}. ${item.q}</b>`;let answers=document.createElement('div');answers.className='answers';item.a.forEach((ans,aIdx)=>{let btn=document.createElement('div');btn.className='answer';btn.textContent=ans;btn.onclick=()=>answerQuiz(idx,aIdx);if(quizState[idx]!==null){if(aIdx===item.c)btn.classList.add('correct');if(aIdx===quizState[idx]&&aIdx!==item.c)btn.classList.add('incorrect')}answers.appendChild(btn)});q.appendChild(answers);if(quizState[idx]!==null){let f=document.createElement('div');f.className='feedback';f.textContent=(quizState[idx]===item.c?'Correct. ':'Not quite. ')+item.w;q.appendChild(f)}container.appendChild(q)});updateQuizScore()}function answerQuiz(idx,answer){quizState[idx]=answer;renderQuiz()}function resetQuiz(){quizState=Array(quiz.length).fill(null);renderQuiz()}function updateQuizScore(){let answered=quizState.filter(x=>x!==null).length,correct=quizState.reduce((sum,ans,i)=>sum+(ans===quiz[i].c?1:0),0);document.getElementById('quizScore').textContent=`Score: ${correct} / ${answered}`}let cards=[['When should I use Counter?','When a problem asks about counts, frequencies, duplicates, anagrams, inventory, or how many times.'],['When should I use a set?','When you need uniqueness or fast membership checks: seen values, duplicate detection, complement lookup.'],['When should I use defaultdict(list)?','When many records belong under one key: group names by department, orders by customer, scores by category.'],['What is the two-sum pattern?','For each number x, compute need = target - x. If need is already in seen, you found a pair. Otherwise add x to seen.'],['What is the sliding-window cue?','The prompt says contiguous subarray/substring, fixed window size, longest/shortest range, or moving window.'],['What is the stack cue?','Nested structures: balanced parentheses/brackets, last-opened must close first, undo-like behavior.'],['What does sort key (-score, name) mean?','Sort score descending because of -score, then name ascending because name is unchanged.'],['What is the 30-minute strategy?','Read carefully, choose pattern, write simple solution, run samples, check edge cases, remove debug prints.'],['What edge cases should I check?','Empty input, one item, duplicates, ties, negatives/zero, sorted/reverse sorted, capitalization/whitespace, return vs print.'],['What do I do if I write nested loops?','Pause. Ask whether a dict, set, Counter, or sorting can replace the nested loop.'],['Should I use AI/tools during the real assessment?','No. Close ChatGPT, Copilot, extra tabs, and notes unless the test instructions explicitly allow resources.'],['What is the best mindset?','Readable, correct, simple Python under time pressure. You are not trying to be clever.']];let cardIndex=0;function renderCard(){document.getElementById('flashcard').classList.remove('flipped');document.getElementById('flashFront').textContent=cards[cardIndex][0];document.getElementById('flashBack').textContent=cards[cardIndex][1];document.getElementById('cardCount').textContent=`${cardIndex+1} / ${cards.length}`}function flipCard(){document.getElementById('flashcard').classList.toggle('flipped')}function nextCard(){cardIndex=(cardIndex+1)%cards.length;renderCard()}function prevCard(){cardIndex=(cardIndex-1+cards.length)%cards.length;renderCard()}function shuffleCards(){for(let i=cards.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[cards[i],cards[j]]=[cards[j],cards[i]]}cardIndex=0;renderCard()}const scratch=document.getElementById('scratch');function saveScratch(){localStorage.setItem('warmupScratch',scratch.value);toast('Scratchpad saved locally.')}function clearScratch(){if(confirm('Clear scratchpad?')){scratch.value='';saveScratch()}}function copyScratch(){navigator.clipboard.writeText(scratch.value).then(()=>toast('Scratchpad copied.'))}function restoreScratch(){let saved=localStorage.getItem('warmupScratch');if(saved)scratch.value=saved;scratch.addEventListener('input',()=>localStorage.setItem('warmupScratch',scratch.value))}document.addEventListener('keydown',e=>{if(document.getElementById('flashcards').classList.contains('active')){if(e.key==='ArrowRight')nextCard();if(e.key==='ArrowLeft')prevCard();if(e.key===' '){e.preventDefault();flipCard()}}});restoreChecks();renderTimer();renderQuiz();renderCard();restoreScratch();newPrompt();
+</script>
+</body>
+</html>
