@@ -1,26 +1,47 @@
 # Infographics shown in the "Infographics" band on /resources/.
 # Each entry renders an image-first tile that links out (usually to the
-# original LinkedIn post). The band only appears when `items` is non-empty.
+# post or page where the graphic lives; swap in LinkedIn post URLs if preferred).
 #
 # Fields per item:
 #   title  (required) — short caption shown under the image
-#   url    (required) — where the tile links (LinkedIn post, PDF, etc.)
+#   url    (required) — where the tile links (post, LinkedIn post, PDF, etc.)
 #   image  (optional) — path under /assets/...; omit to show a placeholder tile
 #   alt    (optional) — alt text; defaults to title
 #   date   (optional) — "YYYY-MM" or "Mon YYYY", shown as a small caption
-#
-# To add one: copy a block below, drop the leading "#", and fill it in.
 
-items: []
+items:
+  - title: "The missing layer of AI adoption"
+    url: "/blog/missing-layer-ai-adoption-value/"
+    image: "/assets/images/missing-layer-graphic-infrastructure.png"
+    alt: "Diagram showing organizational value resting on pillars labeled accountability, shared context, quality control, cost visibility, work design, and human judgment."
+    date: "2026-06"
 
-# --- Example (uncomment + replace, then add the image to assets/) ----------
-# items:
-#   - title: "How GraphRAG actually retrieves"
-#     url: "https://www.linkedin.com/posts/your-post-id"
-#     image: "/assets/resources/infographics/graphrag-retrieval.png"
-#     alt: "Diagram of vector + graph hybrid retrieval flow"
-#     date: "2026-05"
-#   - title: "Evaluation-first AI in one screen"
-#     url: "https://www.linkedin.com/posts/your-post-id"
-#     image: "/assets/resources/infographics/eval-first.png"
-#     date: "2026-04"
+  - title: "The integration test: five questions for any AI workflow"
+    url: "/blog/missing-layer-ai-adoption-value/"
+    image: "/assets/images/missing-layer-graphic-integration-test.png"
+    alt: "Slide titled The integration test, listing five questions about AI-assisted workflows: ownership, cost, context, quality bar, and override authority."
+    date: "2026-06"
+
+  - title: "AI literacy is a stack"
+    url: "/blog/ai-literacy-judgment/"
+    image: "/assets/images/ai-literacy-is-a-stack.png"
+    alt: "Diagram showing AI literacy as a three-layer stack: capability at the bottom, judgment in the middle, and governance at the top."
+    date: "2026-06"
+
+  - title: "AI doesn't fix the frame"
+    url: "/blog/ai-literacy-judgment/"
+    image: "/assets/images/ai-does-not-fix-the-frame.png"
+    alt: "Diagram showing that the same AI tool produces different outcomes depending on how the problem is framed."
+    date: "2026-06"
+
+  - title: "Different instruments, same system-level gap"
+    url: "/blog/missing-layer-ai-adoption-value/"
+    image: "/assets/images/missing-layer-graphic-different-instruments.png"
+    alt: "Slide showing the leader view and worker view as different instruments pointing to a shared system-level gap between AI activity and organizational value."
+    date: "2026-06"
+
+  - title: "Polished output can hide weak work"
+    url: "/blog/missing-layer-ai-adoption-value/"
+    image: "/assets/images/missing-layer-graphic-weak-work.png"
+    alt: "Slide showing polished AI output hiding underlying weaknesses, with quality bars, review rituals, source checks, and ownership rules as explicit evaluation tools."
+    date: "2026-06"

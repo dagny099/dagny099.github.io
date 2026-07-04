@@ -22,7 +22,7 @@ main:
     color: "#3b4a73"
     background-color: "#f2f4fb"
     subtitle: "Data and AI Strategy Consulting Services"
-    description: "AI Strategy | RAG Systems | Knowlege Graphs | Data Coaching"
+    description: "AI Strategy | RAG Systems | Knowledge Graphs | Data Coaching"
 
   - title: "My Journey"
     short: "Journey"
@@ -45,7 +45,7 @@ main:
     url: /resources/
     color: "#3d6c67"
     background-color: "#f4f9f8"
-    subtitle: "Plug-and-play templates, guides, and starter kits."
+    subtitle: "A working library: templates, guides, and visual explainers."
     description: "Checklists and PDFs for faster collaboration."
 
   - title: "Contact"
@@ -53,7 +53,7 @@ main:
     url: /contact/
     color: "#0f766e"
     background-color: "#ecfdf5"
-    subtitle: "Reach out about roles, collabs, or questions."
+    subtitle: "Tell me what you're trying to ship."
     description: "Simple form + email. Low friction."
 
 

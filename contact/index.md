@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Let's Connect"
-description: "Get in touch with Barbara Hidalgo-Sotelo for data science, cognitive systems, and AI strategy work."
+description: "Get in touch with Barbara Hidalgo-Sotelo about AI systems, knowledge legibility, consulting projects, and collaborations."
 permalink: /contact/
 redirect_from:
   - /get-in-touch/
@@ -11,20 +11,23 @@ header:
   overlay_color: "#1e3a5f"
   overlay_filter: 0.7
 excerpt: >
-  I'm always interested in conversations about data products, cognitive approaches to AI,
-  and collaborative projects that make complex information accessible.
+  The fastest way to start is a note about what you're trying to ship —
+  the fuzzy version is exactly the right starting point.
 ---
 
 <div class="page-shell section-stack contact-page">
 
 <div class="contact-intro">
   <p>
-    Open to <strong>Data Scientist</strong>, <strong>AI Consultant</strong>, and <strong>AI Strategist</strong> roles,
-    plus collaborative projects at the intersection of data products, knowledge graphs, and pragmatic MLOps.
+    The fastest way to start is a note about what you're trying to ship — a fuzzy AI problem, a knowledge
+    mess, a system that needs to earn trust before it goes live. You don't need a tidy spec;
+    the fuzzy version is exactly the right starting point.
   </p>
   <p>
-    Hiring? Download my latest <a href="/assets/docs/Hidalgo-Sotelo_Barbara_RESUME.pdf" target="_blank" rel="noopener">resume (PDF)</a>
-    or explore my detailed <a href="/about/">journey</a> to see how I build data products end to end.
+    I'm glad to hear about consulting projects, advisory or embedded contract conversations, collaborations,
+    talks, and thoughtful introductions. Hiring for a team instead of a project? For the right role, I'm open
+    to full-time or embedded work — here's my <a href="/assets/docs/Hidalgo-Sotelo_Barbara_RESUME.pdf" target="_blank" rel="noopener">resume (PDF)</a>,
+    and <a href="/my-journey/">the longer story</a> if you want to see how the pieces fit together.
   </p>
 </div>
 
@@ -76,7 +79,7 @@ excerpt: >
 <h2 class="contact-section__title">Send a Message</h2>
 
 <div class="contact-form-wrapper">
-  <p class="form-intro">Have a question or want to discuss a project? Drop me a note below.</p>
+  <p class="form-intro">Tell me what you're trying to ship — or just what's on your mind. I read everything that comes through here.</p>
 
   <form action="https://formspree.io/f/mgvlqkve" method="POST" class="contact-form">
     <div class="form-grid">
@@ -91,7 +94,7 @@ excerpt: >
     </div>
     <div class="form-group">
       <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+      <textarea id="message" name="message" rows="5" placeholder="What are you trying to ship?" required></textarea>
     </div>
     <input type="hidden" name="_subject" value="Portfolio Contact" />
     <input type="text" name="_gotcha" style="display:none" />
