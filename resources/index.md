@@ -13,6 +13,32 @@ author_profile: false
     <p class="section-intro">The reusable parts of how I build — templates and cheatsheets you can download, guides that explain the thinking, visual explainers, and live project artifacts. Organized so you can find something useful in under a minute. New to the site entirely? <a class="text-link" href="/start-here/">Start Here</a> is the guided tour.</p>
   </section>
 
+  <div class="content-slab">
+    <div class="section-heading">
+      <p class="eyebrow">Start with these</p>
+      <p class="section-intro">Three short pieces that show what this library is for: verifying AI systems instead of just trusting them.</p>
+    </div>
+    <div class="cards-grid">
+      <article class="card-surface">
+        <h2 class="card-title"><a class="text-link" href="{{ '/assets/downloads/missing-layer-two-reports.pdf' | relative_url }}">The integration test</a></h2>
+        <p class="card-lede">One page, five questions. Pick one real AI-assisted workflow and ask: who owns the decision, what does it cost to run, what context does it need, what quality bar must it meet, and who can override the output? Unanswered questions here are integration problems, even when adoption looks strong.</p>
+        <p><a class="text-link" href="/blog/missing-layer-ai-adoption-value/">From <em>The Missing Layer</em></a></p>
+      </article>
+      <article class="card-surface">
+        <h2 class="card-title"><a class="text-link" href="/resources/what-is-a-harness-in-ai/">What does "harness" mean in AI?</a></h2>
+        <p class="card-lede">A visual decoder for a loaded term. Evaluation harness, agent harness, readiness harness, judge harness, fuzzing harness — the same word carrying baggage from five technical traditions, sorted out on one page. The model gives the power; the harness makes that power usable.</p>
+        <p><a class="text-link" href="/resources/what-is-a-harness-in-ai/">View the explainer</a></p>
+      </article>
+      <article class="card-surface">
+        <h2 class="card-title"><a class="text-link" href="/resources/memory-is-more-than-storage/">Memory is more than storage</a></h2>
+        <p class="card-lede">Humans and AI agents face the same design pressure: deciding what to keep, update, and let go. Useful memory needs selection, structure, retrieval, revision, and forgetting. A one-page map, with the four papers that shaped it.</p>
+        <p><a class="text-link" href="/resources/memory-is-more-than-storage/">View the explainer</a></p>
+      </article>
+    </div>
+  </div>
+
+  {% include infographic-gallery.html %}
+
   {% assign items = site.resources | sort: 'date' | reverse %}
   {% assign formats = items | map: 'format' | compact | uniq | sort %}
 
@@ -33,8 +59,6 @@ author_profile: false
     {% include cards_grid.html variant="resource" items=items image_key="teaser" compact=true %}
     <p class="resource-empty" id="resourceEmpty" hidden>No resources match that type yet.</p>
   </div>
-
-  {% include infographic-gallery.html %}
 
   <div class="content-slab">
     <div class="section-heading">

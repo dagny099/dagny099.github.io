@@ -10,6 +10,18 @@
 #   date   (optional) — "YYYY-MM" or "Mon YYYY", shown as a small caption
 
 items:
+  - title: "What does 'harness' mean in AI?"
+    url: "/resources/what-is-a-harness-in-ai/"
+    image: "/assets/images/resources/ai-harness-meaning-llm-agents-evals.png"
+    alt: "Infographic decoding five meanings of harness in AI: evaluation harness, agent harness, readiness harness, judge harness, and test/fuzzing harness. The model gives the power; the harness makes that power usable."
+    date: "2026-06"
+
+  - title: "Memory is more than storage"
+    url: "/resources/memory-is-more-than-storage/"
+    image: "/assets/images/resources/memory-is-more-than-storage.png"
+    alt: "Infographic showing that useful memory needs selection, structure, retrieval, revision, and forgetting — for humans and AI agents alike. The bottleneck is often not capacity but architecture."
+    date: "2026-06"
+
   - title: "The missing layer of AI adoption"
     url: "/blog/missing-layer-ai-adoption-value/"
     image: "/assets/images/missing-layer-graphic-infrastructure.png"
