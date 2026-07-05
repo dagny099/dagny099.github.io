@@ -36,3 +36,4 @@ package-lock.json
 /tmp
 .playwright-mcp/
 _site_preview/
+agent-context
