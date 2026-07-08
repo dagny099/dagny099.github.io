@@ -383,6 +383,37 @@ def render_figure_include(args: dict[str, str]) -> str:
         lines.append(f"*Caption: {caption}*")
     return "\n\n" + "\n\n".join(lines) + "\n\n" if lines else ""
 
+def render_quote_include(root: Path, args: dict[str, str]) -> str:
+    if args.get("text"):
+        text = args["text"]
+        author = args.get("author")
+    elif args.get("set"):
+        data = read_yaml(root / "_data" / "quotes.yml")
+        quotes = data.get(args["set"], [])
+        item = None
+        if args.get("id"):
+            item = next((quote for quote in quotes if str(quote.get("id")) == args["id"]), None)
+        elif args.get("pick") and args.get("pick") != "random":
+            try:
+                item = quotes[int(args["pick"])]
+            except (ValueError, IndexError):
+                item = None
+        else:
+            # Random quote selection is intentionally not reproduced for corpus determinism.
+            item = quotes[0] if quotes else None
+        if not item:
+            return ""
+        text = item.get("text")
+        author = item.get("author")
+    else:
+        return ""
+    if not text:
+        return ""
+    escaped_text = html.escape(str(text))
+    if author:
+        escaped_author = html.escape(str(author))
+        return f"\n\n<blockquote><p>{escaped_text}</p><p>— {escaped_author}</p></blockquote>\n\n"
+    return f"\n\n<blockquote><p>{escaped_text}</p></blockquote>\n\n"
 
 def render_named_callout(include_name: str, args: dict[str, str]) -> str:
     if include_name == "punchline.html" and args.get("text"):
@@ -427,6 +458,14 @@ def transform_liquid(body: str, root: Path, rel_path: str, state: TransformState
         if include_name == "infographic-gallery.html":
             state.transformations.append({"type": "include", "include": include_name, "action": "expanded_from_data"})
             return "\n\n" + render_infographics(root) + "\n"
+        if include_name == "quote.html":
+            quote = render_quote_include(root, include_args)
+            if quote:
+                state.transformations.append({"type": "include", "include": include_name, "action": "expanded_quote"})
+                return quote
+            state.warnings.append(f"Quote include could not be resolved: {match.group(0)}")
+            state.transformations.append({"type": "include", "include": include_name, "action": "removed_unresolved"})
+            return ""
         if include_name == "cards_grid.html" and "variant=\"resource\"" in match.group(0):
             state.transformations.append({"type": "include", "include": include_name, "action": "expanded_resource_collection"})
             return "\n\n" + render_resource_cards(root) + "\n"

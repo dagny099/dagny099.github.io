@@ -227,3 +227,26 @@ def test_idempotent_regeneration(tmp_path):
     builder.build(builder.DEFAULT_CONFIG, corpus, manifest)
     assert first_corpus == corpus.read_text(encoding="utf-8")
     assert first_manifest == manifest.read_text(encoding="utf-8")
+
+
+def test_committed_selection_sources_exist():
+    config = builder.read_yaml(builder.DEFAULT_CONFIG)
+    missing = []
+    for _, entry in builder.iter_selected(config):
+        source_path = entry["source_path"]
+        if not (ROOT / source_path).exists():
+            missing.append(source_path)
+    assert missing == []
+
+
+def test_quote_include_with_data_id_expands(tmp_path):
+    (tmp_path / "_data").mkdir()
+    (tmp_path / "_data" / "quotes.yml").write_text(
+        "field:\n  - id: hamming-insight\n    text: The purpose of computing is insight, not numbers.\n    author: Richard W. Hamming\n",
+        encoding="utf-8",
+    )
+    state = builder.TransformState()
+    output = builder.transform_liquid('{% include quote.html set="field" id="hamming-insight" variant="epigraph" %}', tmp_path, "fixture.md", state)
+    assert "The purpose of computing is insight" in output
+    assert "Richard W. Hamming" in output
+    assert not state.warnings

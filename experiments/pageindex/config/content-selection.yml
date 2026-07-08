@@ -182,38 +182,31 @@ resources:
     selection_rationale: "Required Resources page; combines public resource records, infographics, guide links, and project artifacts."
     expected_title: "Resources & Guides"
     canonical_url: /resources/
-  - source_path: _resources/knowledge-legibility-diagnostic.md
-    source_type: resource
-    include: true
-    order: 2
-    selection_rationale: "Directly supports the experiment's knowledge-legibility and AI-readiness themes."
-    expected_title: "Is Your Knowledge Ready for AI?"
-    canonical_url: /resources/knowledge-legibility-diagnostic/
   - source_path: _resources/what-is-a-harness-in-ai.md
     source_type: resource
     include: true
-    order: 3
+    order: 2
     selection_rationale: "Evaluation terminology resource that clarifies multiple meanings of harness in AI systems."
     expected_title: "What Does 'Harness' Mean in AI?"
     canonical_url: /resources/what-is-a-harness-in-ai/
   - source_path: _resources/memory-is-more-than-storage.md
     source_type: resource
     include: true
-    order: 4
+    order: 3
     selection_rationale: "Public proof asset connecting human memory, AI agent memory, and knowledge-system architecture."
     expected_title: "Memory Is More Than Storage"
     canonical_url: /resources/memory-is-more-than-storage/
   - source_path: _resources/resume-data-schema.md
     source_type: resource
     include: true
-    order: 5
+    order: 4
     selection_rationale: "Structured resume metadata reference relevant to Resume Graph Explorer and machine-legible professional history."
     expected_title: "Resume Data Schema"
     canonical_url: /resources/resume-data-schema/
   - source_path: _resources/ai-instructions-evaluation-worksheet.md
     source_type: resource
     include: true
-    order: 6
+    order: 5
     selection_rationale: "Companion evaluation worksheet that operationalizes the AI instruction-file scoring article."
     expected_title: "AI Instruction File Evaluation Worksheet"
     canonical_url: /resources/ai-instructions-evaluation-worksheet/
