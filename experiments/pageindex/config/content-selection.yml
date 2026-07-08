@@ -1,0 +1,257 @@
+corpus:
+  title: "Barbara Hidalgo-Sotelo Website Corpus"
+  version: "site-book-v1"
+  purpose: "Derived experimental Markdown corpus for PageIndex hierarchy and navigation experiments."
+  original_authority: "The original website source files remain authoritative."
+
+expected_counts:
+  core_pages:
+    min: 4
+    max: 4
+  projects:
+    min: 4
+    max: 6
+  articles:
+    min: 6
+    max: 10
+  resources:
+    min: 1
+    max: 8
+
+supporting_data:
+  - source_path: _data/infographics.yml
+    source_type: data
+    include: true
+    selection_rationale: "Public data source for the infographic band on the Resources page."
+  - source_path: _data/portfolio.json
+    source_type: data
+    include: true
+    selection_rationale: "Public project metadata that supports selected project pages and describes additional public project proof points."
+
+core_pages:
+  - source_path: index.md
+    source_type: page
+    include: true
+    order: 1
+    selection_rationale: "Primary professional positioning and public homepage framing for applied AI, data systems, and knowledge systems."
+    expected_title: "Barbara Hidalgo-Sotelo, PhD | Applied AI & Data Systems"
+    canonical_url: /
+  - source_path: _pages/start_here.md
+    source_type: page
+    include: true
+    order: 2
+    selection_rationale: "Orientation page that makes the site navigable by audience and intent."
+    expected_title: "Start Here"
+    canonical_url: /start-here/
+  - source_path: _pages/work-with-me.md
+    source_type: page
+    include: true
+    order: 3
+    selection_rationale: "Service and offer framing for knowledge legibility audits, verified AI systems, and workshops."
+    expected_title: "Work With Me"
+    canonical_url: /work-with-me/
+  - source_path: _pages/my-journey.html
+    source_type: page
+    include: true
+    order: 4
+    selection_rationale: "Professional narrative connecting cognitive science, data systems, and human-centered AI work."
+    expected_title: "My Journey"
+    canonical_url: /my-journey/
+
+projects:
+  - source_path: _projects/poolula-platform-rag-chatbot.md
+    source_type: project
+    include: true
+    order: 1
+    selection_rationale: "Flagship RAG business-intelligence system with structured data, unstructured documents, evaluation harnesses, and provenance."
+    expected_title: "Poolula Platform: RAG-Powered Business Intelligence"
+    canonical_url: /projects/poolula-platform/
+  - source_path: _projects/fitness-dashboard-ml-pipeline.md
+    source_type: project
+    include: true
+    order: 2
+    selection_rationale: "Concrete ETL, ML classification, evaluation, and transparent analytics project with implementation evidence."
+    expected_title: "Self-Hosted Workout Intelligence"
+    canonical_url: /projects/fitness-dashboard/
+  - source_path: _projects/beehive-knowledge-builder.md
+    source_type: project
+    include: true
+    order: 3
+    selection_rationale: "Multimodal knowledge-system project combining photos, metadata, APIs, weather context, and graph-oriented reasoning."
+    expected_title: "Beehive Analytics Platform"
+    canonical_url: /projects/beehive-tracker/
+  - source_path: _projects/chronoscope-timeline-builder.md
+    source_type: project
+    include: true
+    order: 4
+    selection_rationale: "Document-to-timeline extraction system with validation concerns and structured temporal knowledge."
+    expected_title: "ChronoScope: AI-Powered Timeline Builder"
+    canonical_url: /projects/chronoscope/
+  - source_path: _projects/digital-memory-chest-app.md
+    source_type: project
+    include: true
+    order: 5
+    selection_rationale: "Knowledge graph and AI narrative system for memory, provenance, transcription, and multimodal organization."
+    expected_title: "Digital Memory Chest: AI-Powered Memorial Tributes"
+    canonical_url: /projects/digital-memory-chest/
+  - source_path: _projects/convoscope-llm-chat-compare.md
+    source_type: project
+    include: true
+    order: 6
+    selection_rationale: "Multi-provider LLM orchestration and model-comparison project that supports evaluation and resilience themes."
+    expected_title: "Multi-Provider AI Chat"
+    canonical_url: /projects/convoscope/
+
+articles:
+  - source_path: _posts/2026-05-12-twin-evaluate-models.md
+    source_type: post
+    include: true
+    order: 1
+    selection_rationale: "AI-system evaluation article based on a controlled Digital Twin model comparison."
+    expected_title: "What I Learned Running 58 Questions Through Two LLMs"
+    canonical_url: /blog/twin-evaluate-models/
+  - source_path: _posts/2026-05-16-twin-graphrag-migration.md
+    source_type: post
+    include: true
+    order: 2
+    selection_rationale: "GraphRAG migration article comparing vector retrieval and graph-backed retrieval systems."
+    expected_title: "What Happened When I Asked the Same Questions of Two Retrieval Systems"
+    canonical_url: /blog/twin-graphrag-migration/
+  - source_path: _posts/2026-06-26-ai-literacy-judgment.md
+    source_type: post
+    include: true
+    order: 3
+    selection_rationale: "Thought-leadership piece connecting AI literacy, judgment, evaluation, and human-led decision boundaries."
+    expected_title: "What Looks Like an AI Skills Gap Is Often a Judgment Gap"
+    canonical_url: /blog/ai-literacy-judgment/
+  - source_path: _posts/2026-06-30-missing-layer-ai-adoption-value.md
+    source_type: post
+    include: true
+    order: 4
+    selection_rationale: "Organizational AI adoption article focused on operating infrastructure, quality bars, and value realization."
+    expected_title: "The Missing Layer Between AI Adoption and AI Value"
+    canonical_url: /blog/missing-layer-ai-adoption-value/
+  - source_path: _posts/2026-07-04-scoring-ai-instruction-files.md
+    source_type: post
+    include: true
+    order: 5
+    selection_rationale: "Evaluation-harness thinking applied to AI instruction files and agent configuration."
+    expected_title: "A Scoring System for AI Instruction Files"
+    canonical_url: /blog/scoring-ai-instruction-files/
+  - source_path: _posts/2026-03-12-three-readers-of-your-web-page.md
+    source_type: post
+    include: true
+    order: 6
+    selection_rationale: "Knowledge legibility article explaining audiences for metadata, structured data, and public web representation."
+    expected_title: "The Three Readers of Your Web Page"
+    canonical_url: /blog/three-readers-of-your-web-page/
+  - source_path: _posts/2025-11-7-metadata-matters.md
+    source_type: post
+    include: true
+    order: 7
+    selection_rationale: "Metadata and schema article that supports the corpus theme of making public work machine-legible."
+    expected_title: "Why Metadata Matters"
+    canonical_url: /blog/metadata-matters/
+  - source_path: _thinking/2025-09-11-rag-without-the-theater.md
+    source_type: thinking
+    include: true
+    order: 8
+    selection_rationale: "Compact RAG design guidance focused on evidence-linked retrieval, guardrails, and evaluation."
+    expected_title: "RAG Without the Theater — Evidence‑Linked Retrieval Patterns You Can Defend"
+    canonical_url: /thinking/rag-approaches-observations/
+  - source_path: _thinking/2025-09-11-bees-graphs-governance.md
+    source_type: thinking
+    include: true
+    order: 9
+    selection_rationale: "Knowledge graph and governance essay that bridges a personal data project to enterprise evidence practices."
+    expected_title: "Bees, Graphs, and Governance — Turning Unruly Observations into Evidence‑Ready Decisions"
+    canonical_url: /thinking/bees-graphs-governance/
+  - source_path: _thinking/2024-09-26-chunking-is-all-you-need.md
+    source_type: thinking
+    include: true
+    order: 10
+    selection_rationale: "Cognitive-science framing for chunking, interface design, and sensemaking systems."
+    expected_title: "7+-2 is Everywhere: Chunking is all you need"
+    canonical_url: /thinking/why-dashboards-fail/
+
+resources:
+  - source_path: resources/index.md
+    source_type: resource_index
+    include: true
+    order: 1
+    selection_rationale: "Required Resources page; combines public resource records, infographics, guide links, and project artifacts."
+    expected_title: "Resources & Guides"
+    canonical_url: /resources/
+  - source_path: _resources/knowledge-legibility-diagnostic.md
+    source_type: resource
+    include: true
+    order: 2
+    selection_rationale: "Directly supports the experiment's knowledge-legibility and AI-readiness themes."
+    expected_title: "Is Your Knowledge Ready for AI?"
+    canonical_url: /resources/knowledge-legibility-diagnostic/
+  - source_path: _resources/what-is-a-harness-in-ai.md
+    source_type: resource
+    include: true
+    order: 3
+    selection_rationale: "Evaluation terminology resource that clarifies multiple meanings of harness in AI systems."
+    expected_title: "What Does 'Harness' Mean in AI?"
+    canonical_url: /resources/what-is-a-harness-in-ai/
+  - source_path: _resources/memory-is-more-than-storage.md
+    source_type: resource
+    include: true
+    order: 4
+    selection_rationale: "Public proof asset connecting human memory, AI agent memory, and knowledge-system architecture."
+    expected_title: "Memory Is More Than Storage"
+    canonical_url: /resources/memory-is-more-than-storage/
+  - source_path: _resources/resume-data-schema.md
+    source_type: resource
+    include: true
+    order: 5
+    selection_rationale: "Structured resume metadata reference relevant to Resume Graph Explorer and machine-legible professional history."
+    expected_title: "Resume Data Schema"
+    canonical_url: /resources/resume-data-schema/
+  - source_path: _resources/ai-instructions-evaluation-worksheet.md
+    source_type: resource
+    include: true
+    order: 6
+    selection_rationale: "Companion evaluation worksheet that operationalizes the AI instruction-file scoring article."
+    expected_title: "AI Instruction File Evaluation Worksheet"
+    canonical_url: /resources/ai-instructions-evaluation-worksheet/
+
+excluded_candidates:
+  - source_path: _pages/digital-twin-graphrag-reference.html
+    source_type: page
+    reason: "substantive but extremely large and heavily HTML/data-table driven; better candidate for Release 2 once table normalization is designed."
+  - source_path: _pages/digital-twin_compare_llms.html
+    source_type: page
+    reason: "substantive but overlaps the selected Digital Twin evaluation article and is highly HTML-specific."
+  - source_path: _pages/ai-pulse-q2-2026-companion.html
+    source_type: page
+    reason: "strong article but outside the first release's tighter emphasis on Barbara's own systems and reusable evaluation patterns."
+  - source_path: _projects/job-application-assistant.md
+    source_type: project
+    reason: "public project, but superseded by stronger current AI-system examples for Release 1."
+  - source_path: _projects/midjourney-tracker-browser-extension.md
+    source_type: project
+    reason: "public project, but less central to RAG, knowledge graphs, evaluation, or knowledge legibility."
+  - source_path: data-stories/citation-link-prediction.md
+    source_type: data_story
+    reason: "strong graph/ML story; deferred to keep article count within target and avoid over-weighting project-style narratives."
+  - source_path: data-stories/hive-photo-metadata-tracker.md
+    source_type: data_story
+    reason: "substantially overlaps selected Beehive project page and Bees/Graphs/Governance essay."
+  - source_path: data-stories/converting-textual-to-visual-timeline.md
+    source_type: data_story
+    reason: "unpublished/draft."
+  - source_path: _posts/2022-09-16-diy-stock-ticker-to-learn-python-frameworks.md
+    source_type: post
+    reason: "unpublished."
+  - source_path: _resources/resource-schema-org-cheatsheet-builders.md
+    source_type: resource
+    reason: "draft/unpublished."
+  - source_path: _resources/resource-schema-org-cheatsheet-humans.md
+    source_type: resource
+    reason: "draft/unpublished."
+  - source_path: _resources/_archive/
+    source_type: resources_archive
+    reason: "archived resources are plausible but mostly short, superseded, or outside Release 1 focus."

@@ -1,0 +1,4298 @@
+{
+  "config_path": "experiments/pageindex/config/content-selection.yml",
+  "corpus": {
+    "original_authority": "The original website source files remain authoritative.",
+    "purpose": "Derived experimental Markdown corpus for PageIndex hierarchy and navigation experiments.",
+    "title": "Barbara Hidalgo-Sotelo Website Corpus",
+    "version": "site-book-v1"
+  },
+  "corpus_path": "experiments/pageindex/corpus/site-book-v1.md",
+  "corpus_sha256": "409f9f1450b376e28a5ec76f7a728257c45a95f2f91e8a48a4ea0eb09710aaaf",
+  "counts": {
+    "articles": 10,
+    "core_pages": 4,
+    "projects": 6,
+    "resources": 6
+  },
+  "documents": [
+    {
+      "canonical_url": "/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "core_pages",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Teaching Semantic Web in public",
+          "to": "#### Teaching Semantic Web in public",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Find the shared model",
+          "to": "##### Find the shared model",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Try my Digital Twin",
+          "to": "##### Try my Digital Twin",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Featured Projects",
+          "to": "#### Featured Projects",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Featured Writing",
+          "to": "#### Featured Writing",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### [The Beekeeper\u2019s Time Machine](/data-stories/hive-photo-metadata-tracker/)",
+          "to": "##### [The Beekeeper\u2019s Time Machine](/data-stories/hive-photo-metadata-tracker/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### [Building a Sustainable Digital Home](/series/website-building/)",
+          "to": "##### [Building a Sustainable Digital Home](/series/website-building/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### [Making Mermaid Diagrams Work for You](/blog/taming-mermaid-diagrams/)",
+          "to": "##### [Making Mermaid Diagrams Work for You](/blog/taming-mermaid-diagrams/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Cognitive Principles in Practice",
+          "to": "#### Cognitive Principles in Practice",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Metadata Matters",
+          "to": "##### Metadata Matters",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Cognitive Offloading",
+          "to": "##### Cognitive Offloading",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Grow from Messiness",
+          "to": "##### Grow from Messiness",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## At-a-Glance: Education & Big Moves",
+          "to": "#### At-a-Glance: Education & Big Moves",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_unresolved",
+          "include": "feature_row_dual",
+          "type": "include"
+        },
+        {
+          "action": "removed_unresolved",
+          "include": "section_tiles.html",
+          "type": "include"
+        },
+        {
+          "action": "converted_to_markdown",
+          "type": "html"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/",
+        "description": "Cognitive scientist and data scientist exploring messy data, intelligent systems, and how people make meaning. Projects, data stories, and resources on human-centered AI, visualization, and knowledge systems.\n",
+        "source_type": "page",
+        "title": "Barbara Hidalgo-Sotelo, PhD | Applied AI & Data Systems"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "classes": "home",
+        "description": "Cognitive scientist and data scientist exploring messy data, intelligent systems, and how people make meaning. Projects, data stories, and resources on human-centered AI, visualization, and knowledge systems.\n",
+        "excerpt": "<span class=\"hero-headline\">\n  The best systems don't just work.<br>They make sense.\n</span>\n<span class=\"hero-subheadline\"> I build AI and data systems \u2014 and help teams adopt them \u2014 so complex work becomes easier to understand, verify, and trust. </span>\n<span class=\"hero-ctas hero-ctas--centered\">\n  <a class=\"btn hero-btn hero-btn--ghost\" href=\"/contact/\">\n    Let's Connect &nbsp;<i class=\"fas fa-paper-plane\"></i>\n  </a>\n</span>\n",
+        "feature_row": [
+          {
+            "alt": "Fitness Dashboard",
+            "btn_label": "Project",
+            "docs_label": "Docs",
+            "docs_url": "https://docs.barbhs.com/fitness-dashboard/",
+            "excerpt": "<strong>14 years of workouts. One classifier. Every conclusion shows its work.</strong><br><br> When my running history collided with daily dog walks, everything got logged as a \"run\" \u2014 including the 30-minute sniff safaris. So I built the full pipeline (CSV export \u2192 <i class=\"fab fa-aws\"></i> Lambda \u2192 <i class=\"fas fa-database\"></i> MySQL \u2192 Streamlit) with an ML classifier that tells real runs from walks. <br><br> <em>The part I'd defend in a design review: every insight is one click away from exactly how it was calculated \u2014 confidence scores included.</em>\n",
+            "image_path": "/assets/images/teasers/proj-fitness-v1-1024x768.jpg",
+            "title": "Self-Hosted Workout Intelligence",
+            "url": "/projects/fitness-dashboard/"
+          },
+          {
+            "alt": "Concept Cartographer",
+            "btn_label": "Live demo",
+            "docs_label": "Source",
+            "docs_url": "https://github.com/dagny099/concept-cartography-gradio",
+            "excerpt": "<strong>Chat and watch the conversation become a structured graph. </strong><br><br> Every turn, a single structured LLM call returns both the conversational answer and the extracted concepts and relationships, growing a map across the conversation. Over 30 nodes, new concepts must connect to an existing node \u2014 so it stays a map, not a junk drawer. Export a PNG image or copy the JSON into a graphDB. <br><br> <em>The part I'd defend in a design review: one call extracts narrative and ontology simultaneously \u2014 about half the latency and cost of the obvious two-call approach.</em>\n",
+            "image_path": "/assets/images/teasers/proj-cartographer-v1-1024x768.jpg",
+            "title": "Concept Cartographer",
+            "url": "https://concept-cartographer.com/"
+          },
+          {
+            "alt": "Beehive Tracker",
+            "btn_label": "Project",
+            "docs_label": "Docs",
+            "docs_url": "https://docs.barbhs.com/beehive-tracker/",
+            "excerpt": "<strong>Four years of hive photos, turned into a record I can actually query.</strong><br><br> The bees don't keep records. So <i class='fas fa-camera'></i> EXIF metadata, Google Cloud Vision, and <i class='fas fa-cloud-sun'></i> weather APIs turn my inspection photos into a knowledge graph with a query UI \u2014 when swarms happened, which seasons produced, what weather preceded trouble. <br><br> <em>The part I'd defend in a design review: a real multimodal pipeline \u2014 image metadata, vision API, color analysis, weather correlation \u2014 serving a craft I practice every week.</em>\n",
+            "image_path": "/assets/images/teasers/proj-beehive-v1-1024x768.jpg",
+            "title": "Beehive Analytics Platform",
+            "url": "/projects/beehive-tracker/"
+          }
+        ],
+        "header": {
+          "caption": "Applied AI \u00b7 Knowledge Systems \u00b7 Strategy & Adoption \u00b7 MIT PhD in Cognitive Science",
+          "overlay_color": "#124B42",
+          "overlay_filter": "rgba(12, 31, 27, 0.2)",
+          "overlay_image": "/assets/images/hero-banner.png",
+          "profile_image": "/assets/images/biopic/bhs-new-headshot-v1.png"
+        },
+        "layout": "splash",
+        "title": "Barbara Hidalgo-Sotelo, PhD | Applied AI & Data Systems"
+      },
+      "output_content_sha256": "5e363c6eea01932ae448598dc0e3977ba5d31169d42b08d3171583e9fcc5d2fc",
+      "output_end_line": 130,
+      "output_start_line": 15,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/biopic/bhs-new-headshot-v1.png",
+        "/assets/images/hero-banner.png",
+        "/assets/images/teasers/proj-beehive-v1-1024x768.jpg",
+        "/assets/images/teasers/proj-cartographer-v1-1024x768.jpg",
+        "/assets/images/teasers/proj-fitness-v1-1024x768.jpg"
+      ],
+      "selection_rationale": "Primary professional positioning and public homepage framing for applied AI, data systems, and knowledge systems.",
+      "source_file_sha256": "0d7b836bbef915f7e55401d112921600e43f99bd003edfb6d65680710f2d1520",
+      "source_path": "index.md",
+      "source_title": "Barbara Hidalgo-Sotelo, PhD | Applied AI & Data Systems",
+      "source_type": "page",
+      "warnings": [
+        "Unresolved include removed for review: {% include feature_row_dual %}",
+        "Unresolved include removed for review: {% include section_tiles.html exclude=\"/contact/\" %}"
+      ]
+    },
+    {
+      "canonical_url": "/start-here/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "core_pages",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "# A guided tour of how I think, build, and communicate",
+          "to": "#### A guided tour of how I think, build, and communicate",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [I have a messy AI or knowledge problem](/work-with-me/)",
+          "to": "##### [I have a messy AI or knowledge problem](/work-with-me/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [I'm a fellow builder or practitioner](/projects/)",
+          "to": "##### [I'm a fellow builder or practitioner](/projects/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [I'm hiring or evaluating fit](/my-journey/)",
+          "to": "##### [I'm hiring or evaluating fit](/my-journey/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [I'm curious who Barbara is](/my-journey/)",
+          "to": "##### [I'm curious who Barbara is](/my-journey/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Choose your lane",
+          "to": "###### Choose your lane",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [Experiments & Musings](/blog/)",
+          "to": "##### [Experiments & Musings](/blog/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [Essays & Perspectives](/thinking/)",
+          "to": "##### [Essays & Perspectives](/thinking/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [Explore by Topic](/topics/)",
+          "to": "##### [Explore by Topic](/topics/)",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "converted_to_markdown",
+          "type": "html"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/start-here/",
+        "description": "A guided tour: find the fastest path to what you need, whether you're shipping something, building something, hiring, or just curious.",
+        "source_type": "page",
+        "title": "Start Here"
+      },
+      "original_front_matter": {
+        "classes": [
+          "wide",
+          "start-here-page"
+        ],
+        "description": "A guided tour: find the fastest path to what you need, whether you're shipping something, building something, hiring, or just curious.",
+        "layout": "single",
+        "permalink": "/start-here/",
+        "title": ""
+      },
+      "output_content_sha256": "e36dae4b120e4c9265ef35a6ca37b50c53f651b50f57f1413cee5de53077e8a3",
+      "output_end_line": 232,
+      "output_start_line": 132,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Orientation page that makes the site navigable by audience and intent.",
+      "source_file_sha256": "5f0b66e4237001bada6593a31d737d28e25add9f20f132f107eca7aff36361f4",
+      "source_path": "_pages/start_here.md",
+      "source_title": "Start Here",
+      "source_type": "page",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/work-with-me/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "core_pages",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "# I help teams ship AI systems that humans actually trust.",
+          "to": "#### I help teams ship AI systems that humans actually trust.",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Three ways to work together",
+          "to": "##### Three ways to work together",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Knowledge Legibility Audit",
+          "to": "###### Knowledge Legibility Audit",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Verified AI System Build",
+          "to": "###### Verified AI System Build",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### AI Adoption & Data Readiness Workshop",
+          "to": "###### AI Adoption & Data Readiness Workshop",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Three things I bring that rarely come together",
+          "to": "##### Three things I bring that rarely come together",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Cognitive science",
+          "to": "##### Cognitive science",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Full-stack execution",
+          "to": "##### Full-stack execution",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Production AI",
+          "to": "##### Production AI",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [Ask my Digital Twin](https://twin.barbhs.com)",
+          "to": "##### [Ask my Digital Twin](https://twin.barbhs.com)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [Browse projects](/projects/)",
+          "to": "##### [Browse projects](/projects/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## [Read the longer story](/my-journey/)",
+          "to": "##### [Read the longer story](/my-journey/)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "###  Have a fuzzy AI problem and want a real partner?",
+          "to": "###### Have a fuzzy AI problem and want a real partner?",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "converted_to_markdown",
+          "type": "html"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/work-with-me/",
+        "description": "Knowledge legibility audits, verified AI system builds, and AI readiness workshops from a cognitive scientist who ships production systems.",
+        "source_type": "page",
+        "title": "Work With Me"
+      },
+      "original_front_matter": {
+        "classes": [
+          "wide",
+          "work-with-me-page"
+        ],
+        "description": "Knowledge legibility audits, verified AI system builds, and AI readiness workshops from a cognitive scientist who ships production systems.",
+        "layout": "single",
+        "permalink": "/work-with-me/",
+        "title": ""
+      },
+      "output_content_sha256": "4ede057866c3fc2ac6f27a8966b69f946532c4de29b3159971c3a47fec45bdd7",
+      "output_end_line": 347,
+      "output_start_line": 234,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Service and offer framing for knowledge legibility audits, verified AI systems, and workshops.",
+      "source_file_sha256": "0fd875404fccee3d04802d5ce0a13a4ce1fedcf2161849d7a5b4e13d115bf0fd",
+      "source_path": "_pages/work-with-me.md",
+      "source_title": "Work With Me",
+      "source_type": "page",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/my-journey/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "core_pages",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "# The Cognitive Scientist Who Builds Data Systems",
+          "to": "#### The Cognitive Scientist Who Builds Data Systems",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Lenses I Bring to Every Problem",
+          "to": "##### Lenses I Bring to Every Problem",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### \ud83e\udde0The Cognitive Scientist Asks:",
+          "to": "###### \ud83e\udde0The Cognitive Scientist Asks:",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### \ud83d\udd0dThe Data Scientist Asks:",
+          "to": "###### \ud83d\udd0dThe Data Scientist Asks:",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### \ud83c\udfafThe Consultant Asks:",
+          "to": "###### \ud83c\udfafThe Consultant Asks:",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### \ud83c\udfd7\ufe0fThe System Builder Asks:",
+          "to": "###### \ud83c\udfd7\ufe0fThe System Builder Asks:",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The Big Turns",
+          "to": "##### The Big Turns",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Learning to See How We See",
+          "to": "###### Learning to See How We See",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### From Lab Theory to Human Impact",
+          "to": "###### From Lab Theory to Human Impact",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Healthcare Through a Cognitive Lens",
+          "to": "###### Healthcare Through a Cognitive Lens",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The Pattern Recognition Years",
+          "to": "###### The Pattern Recognition Years",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Making Metadata Human-Friendly",
+          "to": "###### Making Metadata Human-Friendly",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Beyond the Data",
+          "to": "##### Beyond the Data",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Marathon Runner",
+          "to": "###### Marathon Runner",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Bilingual Toastmaster",
+          "to": "###### Bilingual Toastmaster",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Deputy Voter Registrar",
+          "to": "###### Deputy Voter Registrar",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Backyard Beekeeper",
+          "to": "###### Backyard Beekeeper",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Open Data Advocate",
+          "to": "###### Open Data Advocate",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### AI Literacy Mentor",
+          "to": "###### AI Literacy Mentor",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Now & Next",
+          "to": "##### Now & Next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Dive Deeper",
+          "to": "##### Dive Deeper",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Experience",
+          "to": "###### Experience",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Research & Publications",
+          "to": "###### Research & Publications",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Resume (PDF)",
+          "to": "###### Resume (PDF)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Academic CV (PDF)",
+          "to": "###### Academic CV (PDF)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Projects",
+          "to": "###### Projects",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": true,
+          "from": "#### Semantic Web Curriculum",
+          "to": "###### Semantic Web Curriculum",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "###  Looking for someone who designs data systems that think with people, not against them?",
+          "to": "###### Looking for someone who designs data systems that think with people, not against them?",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_unresolved",
+          "include": "quote.html",
+          "type": "include"
+        },
+        {
+          "action": "converted_to_markdown",
+          "type": "html"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/my-journey/",
+        "description": "From MIT eye-tracking research to building human-centered data systems - how cognitive science principles shape modern AI workflows and data platform design",
+        "source_type": "page",
+        "title": "My Journey"
+      },
+      "original_front_matter": {
+        "breadcrumbs": true,
+        "classes": [
+          "journey-page"
+        ],
+        "excerpt": "From MIT eye-tracking research to building human-centered data systems - how cognitive science principles shape modern AI workflows and data platform design",
+        "layout": "default",
+        "permalink": "/my-journey/",
+        "title": "My Journey",
+        "toc": true,
+        "toc_icon": "list",
+        "toc_label": "Overview",
+        "toc_sticky": true
+      },
+      "output_content_sha256": "736ddbd4c2e33ccb9d7058e85eb0113915ebe983a0879c6fbe7aff151a2080d3",
+      "output_end_line": 534,
+      "output_start_line": 349,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/biopic/bhs_forweb.png"
+      ],
+      "selection_rationale": "Professional narrative connecting cognitive science, data systems, and human-centered AI work.",
+      "source_file_sha256": "a01fe524b51fb1913b1d7d513283dfce0c3a9200bb442830a99d6f17b83ee113",
+      "source_path": "_pages/my-journey.html",
+      "source_title": "My Journey",
+      "source_type": "page",
+      "warnings": [
+        "Heading flattened to level 6: AI Literacy Mentor",
+        "Heading flattened to level 6: Academic CV (PDF)",
+        "Heading flattened to level 6: Backyard Beekeeper",
+        "Heading flattened to level 6: Bilingual Toastmaster",
+        "Heading flattened to level 6: Deputy Voter Registrar",
+        "Heading flattened to level 6: Experience",
+        "Heading flattened to level 6: Marathon Runner",
+        "Heading flattened to level 6: Open Data Advocate",
+        "Heading flattened to level 6: Projects",
+        "Heading flattened to level 6: Research & Publications",
+        "Heading flattened to level 6: Resume (PDF)",
+        "Heading flattened to level 6: Semantic Web Curriculum",
+        "Heading flattened to level 6: \ud83c\udfafThe Consultant Asks:",
+        "Heading flattened to level 6: \ud83c\udfd7\ufe0fThe System Builder Asks:",
+        "Heading flattened to level 6: \ud83d\udd0dThe Data Scientist Asks:",
+        "Heading flattened to level 6: \ud83e\udde0The Cognitive Scientist Asks:",
+        "Unresolved include removed for review: {% include quote.html set=\"field\" id=\"hamming-insight\" variant=\"epigraph\" %}"
+      ]
+    },
+    {
+      "canonical_url": "/projects/poolula-platform/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "projects",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Why This Matters",
+          "to": "#### Why This Matters",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How It Works",
+          "to": "#### How It Works",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Two-Tool Architecture",
+          "to": "##### Two-Tool Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Architecture",
+          "to": "#### Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Five Core Tables",
+          "to": "##### Five Core Tables",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Design Decisions",
+          "to": "##### Design Decisions",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Governance & Reliability",
+          "to": "#### Governance & Reliability",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Evaluation Harness",
+          "to": "##### Evaluation Harness",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Audit Logging",
+          "to": "##### Audit Logging",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Provenance Tracking",
+          "to": "##### Provenance Tracking",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's Shipped vs. In Progress",
+          "to": "#### What's Shipped vs. In Progress",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### \u2705 Shipped",
+          "to": "##### \u2705 Shipped",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### \ud83d\udd27 In Progress",
+          "to": "##### \ud83d\udd27 In Progress",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's Next",
+          "to": "#### What's Next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Implementation Notes",
+          "to": "#### Implementation Notes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Links",
+          "to": "#### Links",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "page__taxonomy.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/projects/poolula-platform/",
+        "categories": [
+          "AI Systems & MLOps (Pragmatic)"
+        ],
+        "demo_url": "/projects/poolula-platform/",
+        "description": "Business questions live in spreadsheets, PDFs, and memory\u2014but answers require digging. This platform turns natural language queries into verifiable responses by combining structured data (transactions, properties) with unstructured documents (contracts, policies). The differentiator: an evaluation harness that measures AI accuracy before you trust it.",
+        "source_type": "project",
+        "status": "WIP",
+        "tags": [
+          "RAG",
+          "NLP",
+          "FastAPI",
+          "SQLModel",
+          "ChromaDB",
+          "Claude",
+          "Evaluation",
+          "Data Lineage",
+          "Python"
+        ],
+        "technologies": [
+          "Python 3.13",
+          "FastAPI",
+          "SQLModel",
+          "SQLite",
+          "ChromaDB (ONNX)",
+          "Anthropic Claude",
+          "Alembic",
+          "pytest",
+          "MkDocs"
+        ],
+        "title": "Poolula Platform: RAG-Powered Business Intelligence"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "btn_label": "Project",
+        "categories": [
+          "AI Systems & MLOps (Pragmatic)"
+        ],
+        "classes": [
+          "project"
+        ],
+        "excerpt": "Business questions live in spreadsheets, PDFs, and memory\u2014but answers require digging. This platform turns natural language queries into verifiable responses by combining structured data (transactions, properties) with unstructured documents (contracts, policies). The differentiator: an evaluation harness that measures AI accuracy before you trust it.",
+        "header": {
+          "actions": [
+            {
+              "class": "btn--primary",
+              "label": "View Repo",
+              "url": "https://github.com/dagny099/poolula-platform"
+            }
+          ],
+          "caption": "Natural language queries with verifiable, source-cited answers",
+          "overlay_filter": 0.3,
+          "overlay_image": "assets/images/portfolio/poolula-platform-architecture.png",
+          "teaser": "assets/images/portfolio/poolula-platform-teaser.png"
+        },
+        "layout": "single",
+        "order": 3,
+        "permalink": "/projects/poolula-platform/",
+        "read_time": false,
+        "stack": [
+          "Python 3.13",
+          "FastAPI",
+          "SQLModel",
+          "SQLite",
+          "ChromaDB (ONNX)",
+          "Anthropic Claude",
+          "Alembic",
+          "pytest",
+          "MkDocs"
+        ],
+        "status": "WIP",
+        "tags": [
+          "RAG",
+          "NLP",
+          "FastAPI",
+          "SQLModel",
+          "ChromaDB",
+          "Claude",
+          "Evaluation",
+          "Data Lineage",
+          "Python"
+        ],
+        "title": "Poolula Platform: RAG-Powered Business Intelligence",
+        "toc": true,
+        "toc_icon": "database",
+        "toc_label": "Contents",
+        "toc_sticky": true,
+        "url": "/projects/poolula-platform/"
+      },
+      "output_content_sha256": "7eebacd226ba0794f417a954e30121ebd1b6a5eaeadbb16bee7dea9a4710ff30",
+      "output_end_line": 793,
+      "output_start_line": 538,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Flagship RAG business-intelligence system with structured data, unstructured documents, evaluation harnesses, and provenance.",
+      "source_file_sha256": "7be38d418616f04443a0c5568f339280530846ba776e3fe40782988a31941476",
+      "source_path": "_projects/poolula-platform-rag-chatbot.md",
+      "source_title": "Poolula Platform: RAG-Powered Business Intelligence",
+      "source_type": "project",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/projects/fitness-dashboard/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "projects",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## The Problem: When a Puppy Breaks Your Data",
+          "to": "#### The Problem: When a Puppy Breaks Your Data",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The Deeper Friction",
+          "to": "##### The Deeper Friction",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The Solution: Full-Stack Fitness Intelligence",
+          "to": "#### The Solution: Full-Stack Fitness Intelligence",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How It Works",
+          "to": "#### How It Works",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Data Pipeline",
+          "to": "##### Data Pipeline",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### ML Classification System",
+          "to": "##### ML Classification System",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Consistency Scoring",
+          "to": "##### Consistency Scoring",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What Shipped",
+          "to": "#### What Shipped",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Dashboard Views",
+          "to": "##### Dashboard Views",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### ML/AI Features",
+          "to": "##### ML/AI Features",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Data Infrastructure",
+          "to": "##### Data Infrastructure",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Developer Experience",
+          "to": "##### Developer Experience",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The Choco Effect: A Data Story",
+          "to": "#### The Choco Effect: A Data Story",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The Transformation",
+          "to": "##### The Transformation",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### What The Data Shows",
+          "to": "##### What The Data Shows",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Architecture",
+          "to": "#### Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Implementation Notes",
+          "to": "#### Implementation Notes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Performance Benchmarks",
+          "to": "##### Performance Benchmarks",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Key Design Decisions",
+          "to": "##### Key Design Decisions",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Defensive Programming Patterns",
+          "to": "##### Defensive Programming Patterns",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's Next",
+          "to": "#### What's Next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Links",
+          "to": "#### Links",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Related",
+          "to": "#### Related",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "page__taxonomy.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/projects/fitness-dashboard/",
+        "demo_url": "/projects/fitness-dashboard/",
+        "description": "For years, I meticulously tracked every run\u2014metrics are paramount to a former athlete and current data scientist. But a rescue puppy landing on my doorstep in 2018 transformed my exercise world overnight. What started as pristine running data became an irritatingly unlabeled mix of actual runs and frequent dog walks. This project reclaimed my data: an ML-powered classification system that distinguishes runs from walks, a cloud ETL pipeline for automated ingestion, and interactive dashboards that reveal how adding a four-legged training partner redefined what \"consistency\" actually means.",
+        "docs_url": "https://docs.barbhs.com/fitness-dashboard/",
+        "source_type": "project",
+        "status": "Active",
+        "tags": [
+          "machine-learning",
+          "data-pipeline",
+          "etl",
+          "analytics",
+          "streamlit"
+        ],
+        "technologies": [
+          "Python",
+          "Streamlit",
+          "MySQL",
+          "scikit-learn",
+          "Plotly",
+          "AWS Lambda",
+          "AWS RDS"
+        ],
+        "title": "Self-Hosted Workout Intelligence"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "btn_label": "Project",
+        "classes": [
+          "project",
+          "hero",
+          "wide"
+        ],
+        "docs_label": "Docs",
+        "docs_url": "https://docs.barbhs.com/fitness-dashboard/",
+        "excerpt": "For years, I meticulously tracked every run\u2014metrics are paramount to a former athlete and current data scientist. But a rescue puppy landing on my doorstep in 2018 transformed my exercise world overnight. What started as pristine running data became an irritatingly unlabeled mix of actual runs and frequent dog walks. This project reclaimed my data: an ML-powered classification system that distinguishes runs from walks, a cloud ETL pipeline for automated ingestion, and interactive dashboards that reveal how adding a four-legged training partner redefined what \"consistency\" actually means.",
+        "header": {
+          "actions": [
+            {
+              "class": "btn--primary",
+              "label": "Live App",
+              "url": "https://workouts.barbhs.com/"
+            },
+            {
+              "class": "btn--light-outline",
+              "label": "View Repo",
+              "url": "https://github.com/dagny099/fitness-dashboard/"
+            },
+            {
+              "class": "btn--light-outline",
+              "label": "Read Docs",
+              "url": "https://docs.barbhs.com/fitness-dashboard/"
+            }
+          ],
+          "caption": "14 years of runs, walks, and one transformative rescue dog",
+          "overlay_filter": 0.25,
+          "overlay_image": "/assets/images/projects/fitness-dashboard/hero.jpg",
+          "teaser": "/assets/images/projects/fitness-dashboard/card.jpg"
+        },
+        "last_modified_at": null,
+        "layout": "single",
+        "order": 10,
+        "permalink": "/projects/fitness-dashboard/",
+        "read_time": false,
+        "stack": [
+          "Python",
+          "Streamlit",
+          "MySQL",
+          "scikit-learn",
+          "Plotly",
+          "AWS Lambda",
+          "AWS RDS"
+        ],
+        "status": "Active",
+        "tags": [
+          "machine-learning",
+          "data-pipeline",
+          "etl",
+          "analytics",
+          "streamlit"
+        ],
+        "title": "Self-Hosted Workout Intelligence",
+        "toc": true,
+        "toc_sticky": true,
+        "url": "/projects/fitness-dashboard/"
+      },
+      "output_content_sha256": "22ed783b85bed964fc2d33a055e54880b824ffa082e92e88029d47fc18a936e5",
+      "output_end_line": 1212,
+      "output_start_line": 795,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/projects/fitness-dashboard/card.jpg",
+        "/assets/images/projects/fitness-dashboard/hero.jpg"
+      ],
+      "selection_rationale": "Concrete ETL, ML classification, evaluation, and transparent analytics project with implementation evidence.",
+      "source_file_sha256": "0af62f878c4ac697fe0f499e1f6fa34dba1d0df8b49e164c0d6ae4e4b386c09a",
+      "source_path": "_projects/fitness-dashboard-ml-pipeline.md",
+      "source_title": "Self-Hosted Workout Intelligence",
+      "source_type": "project",
+      "warnings": [
+        "Referenced local asset is missing: /assets/images/projects/fitness-dashboard/card.jpg",
+        "Referenced local asset is missing: /assets/images/projects/fitness-dashboard/hero.jpg"
+      ]
+    },
+    {
+      "canonical_url": "/projects/beehive-tracker/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "projects",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Problem",
+          "to": "#### Problem",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The Real Friction",
+          "to": "##### The Real Friction",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How It Works",
+          "to": "#### How It Works",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What Shipped",
+          "to": "#### What Shipped",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Core Features",
+          "to": "##### Core Features",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Data Extraction",
+          "to": "##### Data Extraction",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### API Integration",
+          "to": "##### API Integration",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Infrastructure",
+          "to": "##### Infrastructure",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Architecture",
+          "to": "#### Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Implementation Notes",
+          "to": "#### Implementation Notes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Testing Strategy",
+          "to": "##### Testing Strategy",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Key Design Decisions",
+          "to": "##### Key Design Decisions",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's Next",
+          "to": "#### What's Next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Links",
+          "to": "#### Links",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "page__taxonomy.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/projects/beehive-tracker/",
+        "demo_url": "/projects/beehive-tracker/",
+        "description": "When honey bees unexpectedly moved into our owl box, I started photographing everything. Four years later, I had hundreds of photos scattered across devices with unhelpful names like \"IMG_2847.jpg.\" This platform uses photo timestamps, computer vision, and weather data to automatically reconstruct our beekeeping story\u2014turning raw documentation into structured intelligence where proper cataloging unlocks insights invisible in unorganized collections.",
+        "docs_url": "https://docs.barbhs.com/beehive-tracker/",
+        "source_type": "project",
+        "status": "WIP",
+        "tags": [
+          "computer-vision",
+          "data-pipeline",
+          "api-integration",
+          "streamlit"
+        ],
+        "technologies": [
+          "Python",
+          "Streamlit",
+          "Plotly",
+          "Google Cloud Vision",
+          "Open-Meteo API",
+          "Docker"
+        ],
+        "title": "Beehive Analytics Platform"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "btn_label": "Project",
+        "classes": [
+          "project",
+          "hero",
+          "wide"
+        ],
+        "docs_label": "Docs",
+        "docs_url": "https://docs.barbhs.com/beehive-tracker/",
+        "excerpt": "When honey bees unexpectedly moved into our owl box, I started photographing everything. Four years later, I had hundreds of photos scattered across devices with unhelpful names like \"IMG_2847.jpg.\" This platform uses photo timestamps, computer vision, and weather data to automatically reconstruct our beekeeping story\u2014turning raw documentation into structured intelligence where proper cataloging unlocks insights invisible in unorganized collections.",
+        "header": {
+          "actions": [
+            {
+              "class": "btn--primary",
+              "label": "View Repo",
+              "url": "https://github.com/dagny099/beehive-tracker/"
+            },
+            {
+              "class": "btn--light-outline",
+              "label": "Read Docs",
+              "url": "https://docs.barbhs.com/beehive-tracker/"
+            }
+          ],
+          "caption": "A little structure transforms photo clutter into beekeeping intelligence",
+          "overlay_filter": 0.25,
+          "overlay_image": "/assets/images/projects/hivetracker/hero.jpg",
+          "teaser": "/assets/images/projects/hivetracker/card.jpg"
+        },
+        "last_modified_at": null,
+        "layout": "single",
+        "order": 20,
+        "permalink": "/projects/beehive-tracker/",
+        "read_time": false,
+        "stack": [
+          "Python",
+          "Streamlit",
+          "Plotly",
+          "Google Cloud Vision",
+          "Open-Meteo API",
+          "Docker"
+        ],
+        "status": "WIP",
+        "tags": [
+          "computer-vision",
+          "data-pipeline",
+          "api-integration",
+          "streamlit"
+        ],
+        "title": "Beehive Analytics Platform",
+        "toc": true,
+        "toc_sticky": true,
+        "url": "/projects/beehive-tracker/"
+      },
+      "output_content_sha256": "2c937926b4d09ac2a800ab6f1e8da627a7dcaf312115872975e9622ccb618989",
+      "output_end_line": 1473,
+      "output_start_line": 1214,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/projects/hivetracker/card.jpg",
+        "/assets/images/projects/hivetracker/hero.jpg"
+      ],
+      "selection_rationale": "Multimodal knowledge-system project combining photos, metadata, APIs, weather context, and graph-oriented reasoning.",
+      "source_file_sha256": "aff28b96369e026a368f95d2fad392318798170725fdba477a2213d26496d848",
+      "source_path": "_projects/beehive-knowledge-builder.md",
+      "source_title": "Beehive Analytics Platform",
+      "source_type": "project",
+      "warnings": [
+        "Referenced local asset is missing: /assets/images/projects/hivetracker/card.jpg",
+        "Referenced local asset is missing: /assets/images/projects/hivetracker/hero.jpg"
+      ]
+    },
+    {
+      "canonical_url": "/projects/chronoscope/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "projects",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Why This Matters",
+          "to": "#### Why This Matters",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How It Works",
+          "to": "#### How It Works",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Extraction Pipeline",
+          "to": "##### Extraction Pipeline",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What Shipped",
+          "to": "#### What Shipped",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Core Features",
+          "to": "##### Core Features",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Privacy Architecture",
+          "to": "##### Privacy Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Architecture",
+          "to": "#### Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Core Components",
+          "to": "##### Core Components",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Storage Pattern",
+          "to": "##### Storage Pattern",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Implementation Notes",
+          "to": "#### Implementation Notes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Streamlit Lessons Learned",
+          "to": "##### Streamlit Lessons Learned",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's Next",
+          "to": "#### What's Next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Use Cases",
+          "to": "#### Use Cases",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Screens & Artifacts",
+          "to": "#### Screens & Artifacts",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Links",
+          "to": "#### Links",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "page__taxonomy.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/projects/chronoscope/",
+        "categories": [
+          "Data Products & Interfaces"
+        ],
+        "demo_url": "/projects/chronoscope/",
+        "description": "Your career story is scattered across resumes, cover letters, and LinkedIn profiles\u2014but seeing the full arc requires manual assembly. ChronoScope extracts life events from documents using AI and renders them as interactive timelines, with all processing happening locally so your data never leaves your machine.",
+        "docs_url": "https://chronoscope-docs.github.io",
+        "source_type": "project",
+        "status": "WIP",
+        "tags": [
+          "NLP",
+          "GenAI",
+          "OpenAI",
+          "Streamlit",
+          "Visualization",
+          "Document Processing",
+          "Timeline",
+          "Plotly"
+        ],
+        "technologies": [
+          "Python",
+          "Streamlit",
+          "Plotly",
+          "OpenAI GPT",
+          "PyMuPDF",
+          "pdfplumber",
+          "TimelineJS",
+          "NetworkX",
+          "MkDocs"
+        ],
+        "title": "ChronoScope: AI-Powered Timeline Builder"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "btn_label": "Project",
+        "categories": [
+          "Data Products & Interfaces"
+        ],
+        "classes": [
+          "project"
+        ],
+        "docs_label": "Documentation",
+        "docs_url": "https://chronoscope-docs.github.io",
+        "excerpt": "Your career story is scattered across resumes, cover letters, and LinkedIn profiles\u2014but seeing the full arc requires manual assembly. ChronoScope extracts life events from documents using AI and renders them as interactive timelines, with all processing happening locally so your data never leaves your machine.",
+        "header": {
+          "actions": [
+            {
+              "class": "btn--primary",
+              "label": "View Repo",
+              "url": "https://github.com/dagny099/chrono-scope"
+            },
+            {
+              "class": "btn--light-outline",
+              "label": "Documentation",
+              "url": "https://chronoscope-docs.github.io"
+            }
+          ],
+          "caption": "Transform your documents into interactive timelines",
+          "overlay_filter": 0.25,
+          "overlay_image": "assets/images/portfolio/chronoscope-timeline.png",
+          "teaser": "assets/images/portfolio/chronoscope-teaser.png"
+        },
+        "layout": "single",
+        "order": 4,
+        "permalink": "/projects/chronoscope/",
+        "read_time": false,
+        "stack": [
+          "Python",
+          "Streamlit",
+          "Plotly",
+          "OpenAI GPT",
+          "PyMuPDF",
+          "pdfplumber",
+          "TimelineJS",
+          "NetworkX",
+          "MkDocs"
+        ],
+        "status": "WIP",
+        "tags": [
+          "NLP",
+          "GenAI",
+          "OpenAI",
+          "Streamlit",
+          "Visualization",
+          "Document Processing",
+          "Timeline",
+          "Plotly"
+        ],
+        "title": "ChronoScope: AI-Powered Timeline Builder",
+        "toc": true,
+        "toc_icon": "clock",
+        "toc_label": "Contents",
+        "toc_sticky": true,
+        "url": "/projects/chronoscope/"
+      },
+      "output_content_sha256": "9384fe6b025b4ff0cf2801711093dbbb2423a8ad7935c1f3cc39c6a1170240a5",
+      "output_end_line": 1709,
+      "output_start_line": 1475,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Document-to-timeline extraction system with validation concerns and structured temporal knowledge.",
+      "source_file_sha256": "dad215da1aa8a4cbfccdadb347f78485fa853dc6a13d951fb81f73ec578b1a6a",
+      "source_path": "_projects/chronoscope-timeline-builder.md",
+      "source_title": "ChronoScope: AI-Powered Timeline Builder",
+      "source_type": "project",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/projects/digital-memory-chest/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "projects",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Why This Matters",
+          "to": "#### Why This Matters",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How It Works",
+          "to": "#### How It Works",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The Pipeline",
+          "to": "##### The Pipeline",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What Shipped",
+          "to": "#### What Shipped",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Core Features",
+          "to": "##### Core Features",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Production Readiness",
+          "to": "##### Production Readiness",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Architecture",
+          "to": "#### Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Core Models",
+          "to": "##### Core Models",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Data Flow",
+          "to": "##### Data Flow",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Privacy & Security",
+          "to": "#### Privacy & Security",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Privacy-First Design",
+          "to": "##### Privacy-First Design",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Contribution Flow",
+          "to": "##### Contribution Flow",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Implementation Notes",
+          "to": "#### Implementation Notes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's Next",
+          "to": "#### What's Next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Demo",
+          "to": "#### Demo",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Links",
+          "to": "#### Links",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "page__taxonomy.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/projects/digital-memory-chest/",
+        "categories": [
+          "Data Products & Interfaces"
+        ],
+        "demo_url": "/projects/digital-memory-chest/",
+        "description": "When someone passes, their memories live scattered across phones, hard drives, and shoeboxes. Digital Memory Chest helps families gather those fragments\u2014photos, videos, voice recordings\u2014and transforms them into a lasting tribute. AI handles the tedious work (transcription, organization, narrative generation) so families can focus on remembering.",
+        "docs_url": "https://github.com/dagny099/digital-memory-chest/tree/main/docs",
+        "source_type": "project",
+        "status": "WIP",
+        "tags": [
+          "AI",
+          "NLP",
+          "Computer Vision",
+          "Streamlit",
+          "Memorial",
+          "Whisper",
+          "CLIP",
+          "OpenAI",
+          "Anthropic"
+        ],
+        "technologies": [
+          "Python",
+          "Streamlit",
+          "SQLModel",
+          "Whisper",
+          "CLIP ViT-B/32",
+          "OpenAI API",
+          "Anthropic API",
+          "SQLite",
+          "PostgreSQL"
+        ],
+        "title": "Digital Memory Chest: AI-Powered Memorial Tributes"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "btn_label": "Project",
+        "categories": [
+          "Data Products & Interfaces"
+        ],
+        "classes": [
+          "project"
+        ],
+        "docs_label": "Documentation",
+        "docs_url": "https://github.com/dagny099/digital-memory-chest/tree/main/docs",
+        "excerpt": "When someone passes, their memories live scattered across phones, hard drives, and shoeboxes. Digital Memory Chest helps families gather those fragments\u2014photos, videos, voice recordings\u2014and transforms them into a lasting tribute. AI handles the tedious work (transcription, organization, narrative generation) so families can focus on remembering.",
+        "header": {
+          "actions": [
+            {
+              "class": "btn--primary",
+              "label": "View Repo",
+              "url": "https://github.com/dagny099/digital-memory-chest"
+            },
+            {
+              "class": "btn--light-outline",
+              "label": "Documentation",
+              "url": "https://github.com/dagny099/digital-memory-chest/tree/main/docs"
+            }
+          ],
+          "caption": "Preserving memories with respect and care",
+          "overlay_filter": 0.3,
+          "overlay_image": "assets/images/portfolio/memory-chest-gallery.png",
+          "teaser": "assets/images/portfolio/memory-chest-teaser.png"
+        },
+        "layout": "single",
+        "order": 2,
+        "permalink": "/projects/digital-memory-chest/",
+        "read_time": false,
+        "stack": [
+          "Python",
+          "Streamlit",
+          "SQLModel",
+          "Whisper",
+          "CLIP ViT-B/32",
+          "OpenAI API",
+          "Anthropic API",
+          "SQLite",
+          "PostgreSQL"
+        ],
+        "status": "WIP",
+        "tags": [
+          "AI",
+          "NLP",
+          "Computer Vision",
+          "Streamlit",
+          "Memorial",
+          "Whisper",
+          "CLIP",
+          "OpenAI",
+          "Anthropic"
+        ],
+        "title": "Digital Memory Chest: AI-Powered Memorial Tributes",
+        "toc": true,
+        "toc_icon": "heart",
+        "toc_label": "Contents",
+        "toc_sticky": true,
+        "url": "/projects/digital-memory-chest/"
+      },
+      "output_content_sha256": "171d58c9f6c001fed2ddd0217cb2fd757e963ee19f44ebb3815c9478e0542059",
+      "output_end_line": 1961,
+      "output_start_line": 1711,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Knowledge graph and AI narrative system for memory, provenance, transcription, and multimodal organization.",
+      "source_file_sha256": "9d6e6cd84b524351053e9a85a18ef3b3c8367877f3b1a756e3da3106fe3ba2d3",
+      "source_path": "_projects/digital-memory-chest-app.md",
+      "source_title": "Digital Memory Chest: AI-Powered Memorial Tributes",
+      "source_type": "project",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/projects/convoscope/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "projects",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Problem",
+          "to": "#### Problem",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How It Works",
+          "to": "#### How It Works",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Provider Routing",
+          "to": "##### Provider Routing",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Model Comparison",
+          "to": "##### Model Comparison",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Conversation Management",
+          "to": "##### Conversation Management",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What Shipped",
+          "to": "#### What Shipped",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Chat Features",
+          "to": "##### Chat Features",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Comparison Features",
+          "to": "##### Comparison Features",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Data Management",
+          "to": "##### Data Management",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Architecture",
+          "to": "#### Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Supported Models",
+          "to": "#### Supported Models",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's Next",
+          "to": "#### What's Next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Links",
+          "to": "#### Links",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "page__taxonomy.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/projects/convoscope/",
+        "demo_url": "/projects/convoscope/",
+        "description": "When OpenAI has an outage, my work shouldn't stop. Convoscope is a multi-provider chat application that routes requests across OpenAI, Anthropic, and Google with automatic fallback\u2014plus a model comparison tool for evaluating which provider actually performs better on specific tasks. Self-hosted, with full conversation history you control.",
+        "docs_url": "https://docs.barbhs.com/convoscope/",
+        "source_type": "project",
+        "status": "Active",
+        "tags": [
+          "llm",
+          "multi-provider",
+          "chat",
+          "model-comparison",
+          "streamlit"
+        ],
+        "technologies": [
+          "Python",
+          "Streamlit",
+          "LiteLLM",
+          "OpenAI",
+          "Anthropic",
+          "Google Gemini"
+        ],
+        "title": "Multi-Provider AI Chat"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "btn_label": "Project",
+        "classes": [
+          "project",
+          "hero",
+          "wide"
+        ],
+        "docs_label": "Docs",
+        "docs_url": "https://docs.barbhs.com/convoscope/",
+        "excerpt": "When OpenAI has an outage, my work shouldn't stop. Convoscope is a multi-provider chat application that routes requests across OpenAI, Anthropic, and Google with automatic fallback\u2014plus a model comparison tool for evaluating which provider actually performs better on specific tasks. Self-hosted, with full conversation history you control.",
+        "gallery": [
+          {
+            "alt": "Chat interface",
+            "image_path": "/assets/images/projects/convoscope/s1.jpg",
+            "title": "Chat",
+            "url": "/assets/images/projects/convoscope/s1.jpg"
+          },
+          {
+            "alt": "Model comparison",
+            "image_path": "/assets/images/projects/convoscope/s2.jpg",
+            "title": "Compare",
+            "url": "/assets/images/projects/convoscope/s2.jpg"
+          }
+        ],
+        "header": {
+          "actions": [
+            {
+              "class": "btn--primary",
+              "label": "View Repo",
+              "url": "https://github.com/dagny099/convoscope"
+            },
+            {
+              "class": "btn--light-outline",
+              "label": "Read Docs",
+              "url": "https://docs.barbhs.com/convoscope/"
+            }
+          ],
+          "caption": "Switch providers, compare models, keep your conversations",
+          "overlay_filter": 0.25,
+          "overlay_image": "/assets/images/projects/convoscope/hero.jpg",
+          "teaser": "/assets/images/projects/convoscope/card.jpg"
+        },
+        "last_modified_at": null,
+        "layout": "single",
+        "order": 30,
+        "permalink": "/projects/convoscope/",
+        "read_time": false,
+        "stack": [
+          "Python",
+          "Streamlit",
+          "LiteLLM",
+          "OpenAI",
+          "Anthropic",
+          "Google Gemini"
+        ],
+        "status": "Active",
+        "tags": [
+          "llm",
+          "multi-provider",
+          "chat",
+          "model-comparison",
+          "streamlit"
+        ],
+        "title": "Multi-Provider AI Chat",
+        "toc": true,
+        "toc_sticky": true,
+        "url": "/projects/convoscope/"
+      },
+      "output_content_sha256": "acc225b5ea925beca7f0cc6b6aff77ce10d96c4d856f286f4f366fbfb672b895",
+      "output_end_line": 2170,
+      "output_start_line": 1963,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/projects/convoscope/card.jpg",
+        "/assets/images/projects/convoscope/hero.jpg",
+        "/assets/images/projects/convoscope/s1.jpg",
+        "/assets/images/projects/convoscope/s2.jpg"
+      ],
+      "selection_rationale": "Multi-provider LLM orchestration and model-comparison project that supports evaluation and resilience themes.",
+      "source_file_sha256": "9bc0dd76d80fdf23b8e649fe98a360a93437932cb8431ca0b3e92b9467b4aaed",
+      "source_path": "_projects/convoscope-llm-chat-compare.md",
+      "source_title": "Multi-Provider AI Chat",
+      "source_type": "project",
+      "warnings": [
+        "Referenced local asset is missing: /assets/images/projects/convoscope/card.jpg",
+        "Referenced local asset is missing: /assets/images/projects/convoscope/hero.jpg",
+        "Referenced local asset is missing: /assets/images/projects/convoscope/s1.jpg",
+        "Referenced local asset is missing: /assets/images/projects/convoscope/s2.jpg"
+      ]
+    },
+    {
+      "canonical_url": "/blog/twin-evaluate-models/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Contents",
+          "to": "#### Contents",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The setup",
+          "to": "#### The setup",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The two personalities",
+          "to": "#### The two personalities",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The numbers that mattered",
+          "to": "#### The numbers that mattered",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## When to use which model",
+          "to": "#### When to use which model",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Where I'm being cautious",
+          "to": "#### Where I'm being cautious",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What I'm doing next",
+          "to": "#### What I'm doing next",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "expanded_figure",
+          "include": "figure",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/blog/twin-evaluate-models/",
+        "categories": [
+          "data-science"
+        ],
+        "description": "A 58-question behavioral comparison of GPT-4.1 and Gemini 2.5 Flash inside a Digital Twin reveals two distinct professional personalities\u2014and a practical decision framework for when to use each.",
+        "publication_date": "2026-05-12",
+        "source_type": "post",
+        "tags": [
+          "LLM",
+          "evaluation",
+          "digital-twin",
+          "RAG",
+          "AI",
+          "GPT-4",
+          "Gemini"
+        ],
+        "technologies": [
+          "GPT-4.1",
+          "Gemini 2.5 Flash",
+          "Python",
+          "OpenAI API",
+          "Google AI"
+        ],
+        "title": "What I Learned Running 58 Questions Through Two LLMs"
+      },
+      "original_front_matter": {
+        "categories": [
+          "data-science"
+        ],
+        "classes": "wide",
+        "date": "2026-05-12",
+        "excerpt": "A 58-question behavioral comparison of GPT-4.1 and Gemini 2.5 Flash inside a Digital Twin reveals two distinct professional personalities\u2014and a practical decision framework for when to use each.",
+        "excerpt_display": true,
+        "header": {
+          "overlay_filter": 0.5,
+          "overlay_image": "/assets/images/new-ml-ai-starter-flow.png"
+        },
+        "layout": "post",
+        "permalink": "/blog/twin-evaluate-models/",
+        "stack": [
+          "GPT-4.1",
+          "Gemini 2.5 Flash",
+          "Python",
+          "OpenAI API",
+          "Google AI"
+        ],
+        "subtitle": "A behavioral comparison of GPT-4.1 and Gemini 2.5 Flash inside my Digital Twin.",
+        "tags": [
+          "LLM",
+          "evaluation",
+          "digital-twin",
+          "RAG",
+          "AI",
+          "GPT-4",
+          "Gemini"
+        ],
+        "title": "What I Learned Running 58 Questions Through Two LLMs"
+      },
+      "output_content_sha256": "71c1c2e6636fc4a8f83929c24d32fba05403b7b5a253bf35b96b893d7254ba19",
+      "output_end_line": 2278,
+      "output_start_line": 2174,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/llm-comparison-metrics.png",
+        "/assets/images/new-ml-ai-starter-flow.png"
+      ],
+      "selection_rationale": "AI-system evaluation article based on a controlled Digital Twin model comparison.",
+      "source_file_sha256": "43bbcceb587b3509352d383261734018c14d7f7c530fd234246a06e69590841d",
+      "source_path": "_posts/2026-05-12-twin-evaluate-models.md",
+      "source_title": "What I Learned Running 58 Questions Through Two LLMs",
+      "source_type": "post",
+      "warnings": [
+        "Referenced local asset is missing: /assets/images/llm-comparison-metrics.png"
+      ]
+    },
+    {
+      "canonical_url": "/blog/twin-graphrag-migration/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Contents",
+          "to": "#### Contents",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The question that broke the old system",
+          "to": "#### The question that broke the old system",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Same questions, two retrieval systems",
+          "to": "#### Same questions, two retrieval systems",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Three problems, three architectural moves",
+          "to": "#### Three problems, three architectural moves",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What the new system gives up",
+          "to": "#### What the new system gives up",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The reference doc, and why it earns its own paragraph",
+          "to": "#### The reference doc, and why it earns its own paragraph",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Where I'm being cautious",
+          "to": "#### Where I'm being cautious",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What I'm doing next",
+          "to": "#### What I'm doing next",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [],
+      "normalized_metadata": {
+        "canonical_url": "/blog/twin-graphrag-migration/",
+        "categories": [
+          "data-science"
+        ],
+        "description": "A walkthrough of migrating my Digital Twin from ChromaDB vector retrieval to a Neo4j-backed GraphRAG pipeline \u2014 the queries that used to be impossible, the trade-offs I made, and a working reference doc with all 167 canonical entities embedded as a filterable table.",
+        "publication_date": "2026-05-16",
+        "source_type": "post",
+        "tags": [
+          "LLM",
+          "evaluation",
+          "digital-twin",
+          "RAG",
+          "GraphRAG",
+          "Neo4j",
+          "knowledge-graph",
+          "AI"
+        ],
+        "technologies": [
+          "Neo4j",
+          "ChromaDB",
+          "Python",
+          "OpenAI embeddings",
+          "Cypher",
+          "GPT-4.1"
+        ],
+        "title": "What Happened When I Asked the Same Questions of Two Retrieval Systems"
+      },
+      "original_front_matter": {
+        "categories": [
+          "data-science"
+        ],
+        "classes": "wide",
+        "date": "2026-05-16",
+        "excerpt": "A walkthrough of migrating my Digital Twin from ChromaDB vector retrieval to a Neo4j-backed GraphRAG pipeline \u2014 the queries that used to be impossible, the trade-offs I made, and a working reference doc with all 167 canonical entities embedded as a filterable table.",
+        "excerpt_display": true,
+        "header": {
+          "overlay_filter": 0.5,
+          "overlay_image": "/assets/images/new-ml-ai-starter-flow.png"
+        },
+        "layout": "post",
+        "permalink": "/blog/twin-graphrag-migration/",
+        "stack": [
+          "Neo4j",
+          "ChromaDB",
+          "Python",
+          "OpenAI embeddings",
+          "Cypher",
+          "GPT-4.1"
+        ],
+        "subtitle": "Rebuilding my Digital Twin's retrieval layer on a graph \u2014 what changed, what it cost, and what I'm learning along the way.",
+        "tags": [
+          "LLM",
+          "evaluation",
+          "digital-twin",
+          "RAG",
+          "GraphRAG",
+          "Neo4j",
+          "knowledge-graph",
+          "AI"
+        ],
+        "title": "What Happened When I Asked the Same Questions of Two Retrieval Systems"
+      },
+      "output_content_sha256": "d780f07e83784b210b697ee4006029d5f2a522242f2cb9431fdc72f34dfca252",
+      "output_end_line": 2395,
+      "output_start_line": 2280,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/new-ml-ai-starter-flow.png"
+      ],
+      "selection_rationale": "GraphRAG migration article comparing vector retrieval and graph-backed retrieval systems.",
+      "source_file_sha256": "73fc0b142a0aaca371c4e45e13b9aac39e33c76e53c39535bf84b7e401e3fcf9",
+      "source_path": "_posts/2026-05-16-twin-graphrag-migration.md",
+      "source_title": "What Happened When I Asked the Same Questions of Two Retrieval Systems",
+      "source_type": "post",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/blog/ai-literacy-judgment/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Tool fluency is table stakes",
+          "to": "#### Tool fluency is table stakes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Speed magnifies whatever you bring to it",
+          "to": "#### Speed magnifies whatever you bring to it",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The missing layer",
+          "to": "#### The missing layer",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The questions that do the work",
+          "to": "#### The questions that do the work",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The literacy worth building",
+          "to": "#### The literacy worth building",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "expanded_figure",
+          "include": "figure",
+          "type": "include"
+        },
+        {
+          "action": "expanded_figure",
+          "include": "figure",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/blog/ai-literacy-judgment/",
+        "categories": [
+          "data-science"
+        ],
+        "description": "A system can retrieve, summarize, and draft at impressive speed\u2014but speed doesn't tell you whether it understood the job. Why the durable skill behind useful AI isn't tool fluency, it's judgment: framing the problem, evaluating what comes back, and knowing what should stay human-led.",
+        "publication_date": "2026-06-26",
+        "source_type": "post",
+        "tags": [
+          "AI",
+          "AI-literacy",
+          "AI-governance",
+          "judgment",
+          "evaluation",
+          "digital-twin",
+          "LLM"
+        ],
+        "technologies": [
+          "LLM evaluation",
+          "RAG",
+          "problem framing",
+          "AI governance"
+        ],
+        "title": "What Looks Like an AI Skills Gap Is Often a Judgment Gap"
+      },
+      "original_front_matter": {
+        "canonical_url": "https://barbhs.com/blog/ai-literacy-judgment/",
+        "categories": [
+          "data-science"
+        ],
+        "classes": "wide",
+        "date": "2026-06-26",
+        "excerpt": "A system can retrieve, summarize, and draft at impressive speed\u2014but speed doesn't tell you whether it understood the job. Why the durable skill behind useful AI isn't tool fluency, it's judgment: framing the problem, evaluating what comes back, and knowing what should stay human-led.",
+        "excerpt_display": true,
+        "header": {
+          "image": "/assets/images/ai-literacy-judgment-hero-card.png",
+          "teaser": "/assets/images/ai-literacy-judgment-hero-card.png"
+        },
+        "layout": "post",
+        "permalink": "/blog/ai-literacy-judgment/",
+        "stack": [
+          "LLM evaluation",
+          "RAG",
+          "problem framing",
+          "AI governance"
+        ],
+        "subtitle": "Why AI literacy is a judgment problem first and a tool problem second.",
+        "tags": [
+          "AI",
+          "AI-literacy",
+          "AI-governance",
+          "judgment",
+          "evaluation",
+          "digital-twin",
+          "LLM"
+        ],
+        "title": "What Looks Like an AI Skills Gap Is Often a Judgment Gap"
+      },
+      "output_content_sha256": "df5e9d8d09a2cb939b0b3f60c1d8f16372978602a3df50f14cceb5f261cdb23f",
+      "output_end_line": 2482,
+      "output_start_line": 2397,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/ai-does-not-fix-the-frame.png",
+        "/assets/images/ai-literacy-is-a-stack.png",
+        "/assets/images/ai-literacy-judgment-hero-card.png"
+      ],
+      "selection_rationale": "Thought-leadership piece connecting AI literacy, judgment, evaluation, and human-led decision boundaries.",
+      "source_file_sha256": "6675185bf5ef29a37b702e244bcfee5f098cb24666b27957bb78271ad0b947ce",
+      "source_path": "_posts/2026-06-26-ai-literacy-judgment.md",
+      "source_title": "What Looks Like an AI Skills Gap Is Often a Judgment Gap",
+      "source_type": "post",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/blog/missing-layer-ai-adoption-value/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Two reports, one operating gap",
+          "to": "#### Two reports, one operating gap",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Three things the reports reveal together",
+          "to": "#### Three things the reports reveal together",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 1. Adoption metrics can hide operational debt",
+          "to": "##### 1. Adoption metrics can hide operational debt",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 2. AI makes weak work harder to see",
+          "to": "##### 2. AI makes weak work harder to see",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 3. The scarce resource is judgment, not access",
+          "to": "##### 3. The scarce resource is judgment, not access",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The missing layer is infrastructure",
+          "to": "#### The missing layer is infrastructure",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The integration test",
+          "to": "#### The integration test",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "#### Downloadable companion",
+          "to": "###### Downloadable companion",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "#### Visual companion",
+          "to": "###### Visual companion",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Sources",
+          "to": "#### Sources",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "expanded_callout",
+          "include": "punchline.html",
+          "type": "include"
+        },
+        {
+          "action": "expanded_figure",
+          "include": "figure",
+          "type": "include"
+        },
+        {
+          "action": "expanded_callout",
+          "include": "punchline.html",
+          "type": "include"
+        },
+        {
+          "action": "expanded_callout",
+          "include": "punchline.html",
+          "type": "include"
+        },
+        {
+          "action": "expanded_figure",
+          "include": "figure",
+          "type": "include"
+        },
+        {
+          "action": "expanded_callout",
+          "include": "punchline.html",
+          "type": "include"
+        },
+        {
+          "action": "expanded_figure",
+          "include": "figure",
+          "type": "include"
+        },
+        {
+          "action": "expanded_figure",
+          "include": "figure",
+          "type": "include"
+        },
+        {
+          "action": "expanded_callout",
+          "include": "download-callout.html",
+          "type": "include"
+        },
+        {
+          "action": "expanded_callout",
+          "include": "visual-companion.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/blog/missing-layer-ai-adoption-value/",
+        "categories": [
+          "thinking",
+          "data-science"
+        ],
+        "description": "KPMG shows the leader view. Glean shows the worker view. Together, they reveal the missing layer between enterprise AI adoption and AI value.",
+        "last_modified_at": "2026-06-30",
+        "publication_date": "2026-06-30",
+        "source_type": "post",
+        "tags": [
+          "AI",
+          "enterprise-AI",
+          "AI-governance",
+          "AI-adoption",
+          "AI-value",
+          "AI-strategy",
+          "evaluation",
+          "judgment",
+          "work-design",
+          "cost-visibility",
+          "ROI",
+          "KPMG",
+          "Glean"
+        ],
+        "title": "The Missing Layer Between AI Adoption and AI Value"
+      },
+      "original_front_matter": {
+        "canonical_url": "https://barbhs.com/blog/missing-layer-ai-adoption-value/",
+        "categories": [
+          "thinking",
+          "data-science"
+        ],
+        "classes": "wide",
+        "date": "2026-06-30",
+        "description": "KPMG shows the leader view. Glean shows the worker view. Together, they reveal the missing layer between enterprise AI adoption and AI value.",
+        "excerpt": "KPMG shows the leader view. Glean shows the worker view. Together, they reveal the missing layer between enterprise AI adoption and AI value.",
+        "excerpt_display": true,
+        "header": {
+          "image": "/assets/images/missing-layer-two-reports-hero.png",
+          "og_image": "/assets/images/missing-layer-two-reports-hero-og.png",
+          "teaser": "/assets/images/missing-layer-two-reports-hero.png"
+        },
+        "last_modified_at": "2026-06-30",
+        "layout": "post",
+        "permalink": "/blog/missing-layer-ai-adoption-value/",
+        "read_time": false,
+        "redirect_from": [
+          "/blog/kpmg-ai-pulse-q2-2026/"
+        ],
+        "subtitle": "Two enterprise AI reports point to the same operating gap: adoption is visible, but value depends on accountability, shared context, cost visibility, quality control, work design, and human judgment.",
+        "tags": [
+          "AI",
+          "enterprise-AI",
+          "AI-governance",
+          "AI-adoption",
+          "AI-value",
+          "AI-strategy",
+          "evaluation",
+          "judgment",
+          "work-design",
+          "cost-visibility",
+          "ROI",
+          "KPMG",
+          "Glean"
+        ],
+        "title": "The Missing Layer Between AI Adoption and AI Value",
+        "toc": false
+      },
+      "output_content_sha256": "9326311a2810a5eb12dc44723898d83d4e167ebd8cc0994570f1e9e9bdc139aa",
+      "output_end_line": 2662,
+      "output_start_line": 2484,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/missing-layer-graphic-different-instruments.png",
+        "/assets/images/missing-layer-graphic-infrastructure.png",
+        "/assets/images/missing-layer-graphic-integration-test.png",
+        "/assets/images/missing-layer-graphic-weak-work.png",
+        "/assets/images/missing-layer-two-reports-hero-og.png",
+        "/assets/images/missing-layer-two-reports-hero.png"
+      ],
+      "selection_rationale": "Organizational AI adoption article focused on operating infrastructure, quality bars, and value realization.",
+      "source_file_sha256": "b0dc2d95d258b0b80963ec96f4a97cd2db427018d92779e6d209d984910adc6d",
+      "source_path": "_posts/2026-06-30-missing-layer-ai-adoption-value.md",
+      "source_title": "The Missing Layer Between AI Adoption and AI Value",
+      "source_type": "post",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/blog/scoring-ai-instruction-files/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Three files, one project",
+          "to": "#### Three files, one project",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What the research says about size",
+          "to": "#### What the research says about size",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The framework: six categories, 100 points",
+          "to": "#### The framework: six categories, 100 points",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Six things the scoring changed",
+          "to": "#### Six things the scoring changed",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Score your own file",
+          "to": "#### Score your own file",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What's next",
+          "to": "#### What's next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Sources",
+          "to": "#### Sources",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [],
+      "normalized_metadata": {
+        "canonical_url": "/blog/scoring-ai-instruction-files/",
+        "categories": [
+          "data-science"
+        ],
+        "description": "A six-category, 100-point framework for evaluating CLAUDE.md, AGENTS.md, and .cursorrules files \u2014 with the before-and-after from scoring my own.",
+        "last_modified_at": "2026-07-04",
+        "publication_date": "2026-07-04",
+        "source_type": "post",
+        "tags": [
+          "claude-code",
+          "agents-md",
+          "cursorrules",
+          "AI",
+          "evaluation",
+          "documentation",
+          "developer-tools",
+          "LLM"
+        ],
+        "title": "A Scoring System for AI Instruction Files"
+      },
+      "original_front_matter": {
+        "canonical_url": "https://barbhs.com/blog/scoring-ai-instruction-files/",
+        "categories": [
+          "data-science"
+        ],
+        "classes": "wide",
+        "date": "2026-07-04",
+        "description": "A six-category, 100-point framework for evaluating CLAUDE.md, AGENTS.md, and .cursorrules files \u2014 with the before-and-after from scoring my own.",
+        "excerpt": "How do you know whether your AI instruction file is helping or hurting? I built a six-category scoring framework, ran my own 800-line CLAUDE.md through it, and cut 150 lines.",
+        "excerpt_display": true,
+        "last_modified_at": "2026-07-04",
+        "layout": "post",
+        "permalink": "/blog/scoring-ai-instruction-files/",
+        "read_time": false,
+        "subtitle": "My CLAUDE.md grew to 800 lines before I asked whether it was helping. A six-category framework gave me an answer \u2014 and cut the file by 150 lines.",
+        "tags": [
+          "claude-code",
+          "agents-md",
+          "cursorrules",
+          "AI",
+          "evaluation",
+          "documentation",
+          "developer-tools",
+          "LLM"
+        ],
+        "title": "A Scoring System for AI Instruction Files",
+        "toc": false
+      },
+      "output_content_sha256": "31b8e5311d678dbb0ba926de3015dadea5fa9f4598804355b41c6d9f5b95a22b",
+      "output_end_line": 2770,
+      "output_start_line": 2664,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Evaluation-harness thinking applied to AI instruction files and agent configuration.",
+      "source_file_sha256": "669581c19f77b6794115578563ea9b58df0cc795156c1303ce3518d59b5548cd",
+      "source_path": "_posts/2026-07-04-scoring-ai-instruction-files.md",
+      "source_title": "A Scoring System for AI Instruction Files",
+      "source_type": "post",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/blog/three-readers-of-your-web-page/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## The `<head>` is a room with three readers in it",
+          "to": "#### The `<head>` is a room with three readers in it",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Reader one: the browser (it has to *render* you)",
+          "to": "#### Reader one: the browser (it has to *render* you)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Reader two: the search engine (it has to *find*, *judge*, and *show* you)",
+          "to": "#### Reader two: the search engine (it has to *find*, *judge*, and *show* you)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Reader three: the social unfurler (it has to *preview* you)",
+          "to": "#### Reader three: the social unfurler (it has to *preview* you)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The misconception that reorganizes everything",
+          "to": "#### The misconception that reorganizes everything",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The deeper idea: metadata is a knowledge graph in disguise",
+          "to": "#### The deeper idea: metadata is a knowledge graph in disguise",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Where this goes next",
+          "to": "#### Where this goes next",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/assets/diagrams/head-architecture-v2.svg"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/blog/three-readers-of-your-web-page/",
+        "categories": [
+          "applied-thinking",
+          "website-building"
+        ],
+        "description": "Your site doesn't have one audience \u2014 it has three machines, each fluent in a different dialect of metadata. A friendly tour of how browsers, search engines, and social platforms each parse the page head, and why Open Graph isn't the SEO lever everyone assumes it is.",
+        "publication_date": "2026-03-12",
+        "source_type": "post",
+        "tags": [
+          "metadata",
+          "seo",
+          "open-graph",
+          "structured-data",
+          "knowledge-representation",
+          "github-pages",
+          "jekyll"
+        ],
+        "title": "The Three Readers of Your Web Page"
+      },
+      "original_front_matter": {
+        "categories": [
+          "applied-thinking",
+          "website-building"
+        ],
+        "classes": "wide",
+        "date": "2026-03-12",
+        "description": "Your site doesn't have one audience \u2014 it has three machines, each fluent in a different dialect of metadata. A friendly tour of how browsers, search engines, and social platforms each parse the page head, and why Open Graph isn't the SEO lever everyone assumes it is.",
+        "image": "/assets/images/posts/three-readers-hero.png",
+        "layout": "post",
+        "tags": [
+          "metadata",
+          "seo",
+          "open-graph",
+          "structured-data",
+          "knowledge-representation",
+          "github-pages",
+          "jekyll"
+        ],
+        "title": "The Three Readers of Your Web Page"
+      },
+      "output_content_sha256": "6d0ba5e657a9080ab1a6cbbbab9f207643dd19a26a45ee6e8bb0ba6597e80639",
+      "output_end_line": 2858,
+      "output_start_line": 2772,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Knowledge legibility article explaining audiences for metadata, structured data, and public web representation.",
+      "source_file_sha256": "2299577133163fbe3262ac125f6e9afdb0e3dbb32abbea87ef2cc9ed24cbd2ff",
+      "source_path": "_posts/2026-03-12-three-readers-of-your-web-page.md",
+      "source_title": "The Three Readers of Your Web Page",
+      "source_type": "post",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/blog/metadata-matters/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## The Invisible Infrastructure",
+          "to": "#### The Invisible Infrastructure",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How Metadata Becomes Schema.org",
+          "to": "#### How Metadata Becomes Schema.org",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What Makes Good Metadata?",
+          "to": "#### What Makes Good Metadata?",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Required Fields (All Content)",
+          "to": "##### Required Fields (All Content)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Recommended Fields",
+          "to": "##### Recommended Fields",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Schema.org: Structured Data in Practice",
+          "to": "#### Schema.org: Structured Data in Practice",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Common Metadata Mistakes",
+          "to": "#### Common Metadata Mistakes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Keeping Metadata Consistent",
+          "to": "#### Keeping Metadata Consistent",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The Meta-Meta Insight",
+          "to": "#### The Meta-Meta Insight",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Where to Start",
+          "to": "#### Where to Start",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Resources",
+          "to": "#### Resources",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [],
+      "normalized_metadata": {
+        "canonical_url": "/blog/metadata-matters/",
+        "categories": [
+          "tutorial"
+        ],
+        "description": "Metadata is the connective tissue between your content and the world. Here's how structured metadata transforms search visibility, social sharing, and content organization\u2014with a validation script to keep it consistent.",
+        "publication_date": "2025-11-7",
+        "source_type": "post",
+        "tags": [
+          "metadata",
+          "seo",
+          "schema-org",
+          "content-strategy",
+          "documentation"
+        ],
+        "technologies": [
+          "Schema.org",
+          "Python",
+          "Jekyll",
+          "YAML"
+        ],
+        "title": "Why Metadata Matters"
+      },
+      "original_front_matter": {
+        "categories": [
+          "tutorial"
+        ],
+        "classes": "wide",
+        "date": "2025-11-7",
+        "excerpt": "Metadata is the connective tissue between your content and the world. Here's how structured metadata transforms search visibility, social sharing, and content organization\u2014with a validation script to keep it consistent.",
+        "header": {
+          "overlay_filter": 0.5,
+          "overlay_image": "/assets/images/metadata-tissue-viz-001.png"
+        },
+        "layout": "post",
+        "permalink": "/blog/metadata-matters/",
+        "stack": [
+          "Schema.org",
+          "Python",
+          "Jekyll",
+          "YAML"
+        ],
+        "subtitle": "The invisible infrastructure that makes content discoverable",
+        "tags": [
+          "metadata",
+          "seo",
+          "schema-org",
+          "content-strategy",
+          "documentation"
+        ],
+        "title": "Why Metadata Matters"
+      },
+      "output_content_sha256": "876c4b1ce94bc368b2b8e6861c6138a7906022f927575ea93a7f69150e5c351f",
+      "output_end_line": 3023,
+      "output_start_line": 2860,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/metadata-tissue-viz-001.png",
+        "/assets/visualizations/schema-examples.html"
+      ],
+      "selection_rationale": "Metadata and schema article that supports the corpus theme of making public work machine-legible.",
+      "source_file_sha256": "23c42b71fb6c3b78cabb8d3554784fd4bf5b3777a804fa78389aa26790b01197",
+      "source_path": "_posts/2025-11-7-metadata-matters.md",
+      "source_title": "Why Metadata Matters",
+      "source_type": "post",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/thinking/rag-approaches-observations/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## 1) Anti\u2011patterns to avoid",
+          "to": "#### 1) Anti\u2011patterns to avoid",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 2) Three small patterns that carry far",
+          "to": "#### 2) Three small patterns that carry far",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### A) **Attribution\u2011First Compose**",
+          "to": "##### A) **Attribution\u2011First Compose**",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### B) **Query Routing (Cheap & Cheerful)**",
+          "to": "##### B) **Query Routing (Cheap & Cheerful)**",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### C) **Hybrid Retrieval with \u201cMust\u2011Include\u201d Filters**",
+          "to": "##### C) **Hybrid Retrieval with \u201cMust\u2011Include\u201d Filters**",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 3) Guardrails & evaluation you can explain",
+          "to": "#### 3) Guardrails & evaluation you can explain",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Minimal eval set (start here)",
+          "to": "##### Minimal eval set (start here)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### CI\u2011style checks",
+          "to": "##### CI\u2011style checks",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 4) Production notes",
+          "to": "#### 4) Production notes",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 5) A reference flow (print + pin on a wall)",
+          "to": "#### 5) A reference flow (print + pin on a wall)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Downloadables (optional)",
+          "to": "##### Downloadables (optional)",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [],
+      "normalized_metadata": {
+        "canonical_url": "/thinking/rag-approaches-observations/",
+        "categories": [
+          "Thinking",
+          "AI Systems"
+        ],
+        "description": "Retrieval\u2011augmented generation shines when answers cite evidence you can audit. Skip magic prompts; use small, testable patterns that tie claims to sources and fail honestly when evidence is thin.",
+        "last_modified_at": "2025-01-15",
+        "publication_date": "2025-09-11 00:00:00 -0600",
+        "source_type": "thinking",
+        "tags": [
+          "rag",
+          "retrieval",
+          "evaluation",
+          "prompting",
+          "governance",
+          "prod-readiness"
+        ],
+        "title": "RAG Without the Theater \u2014 Evidence\u2011Linked Retrieval Patterns You Can Defend"
+      },
+      "original_front_matter": {
+        "categories": [
+          "Thinking",
+          "AI Systems"
+        ],
+        "classes": "wide",
+        "date": "2025-09-11 00:00:00 -0600",
+        "excerpt": "Retrieval\u2011augmented generation shines when answers cite evidence you can audit. Skip magic prompts; use small, testable patterns that tie claims to sources and fail honestly when evidence is thin.",
+        "header": {
+          "overlay_filter": 0.45,
+          "overlay_image": "/assets/images/rag-hero.jpg"
+        },
+        "last_modified_at": "2025-01-15",
+        "layout": "single",
+        "permalink": "/thinking/rag-approaches-observations/",
+        "pin": true,
+        "subtitle": "Building retrieval-augmented systems that cite auditable evidence and fail honestly",
+        "tags": [
+          "rag",
+          "retrieval",
+          "evaluation",
+          "prompting",
+          "governance",
+          "prod-readiness"
+        ],
+        "title": "RAG Without the Theater \u2014 Evidence\u2011Linked Retrieval Patterns You Can Defend",
+        "toc": true,
+        "toc_sticky": true
+      },
+      "output_content_sha256": "edc174b8f46e784b90eeffd81961384585a5458c58277a2fecf8dfefab60e0b4",
+      "output_end_line": 3125,
+      "output_start_line": 3025,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/rag-hero.jpg"
+      ],
+      "selection_rationale": "Compact RAG design guidance focused on evidence-linked retrieval, guardrails, and evaluation.",
+      "source_file_sha256": "514fd53cb87fe102c30bf3371940d53b220d2c39a27757e57700e833d452ce75",
+      "source_path": "_thinking/2025-09-11-rag-without-the-theater.md",
+      "source_title": "RAG Without the Theater \u2014 Evidence\u2011Linked Retrieval Patterns You Can Defend",
+      "source_type": "thinking",
+      "warnings": [
+        "Referenced local asset is missing: /assets/images/rag-hero.jpg"
+      ]
+    },
+    {
+      "canonical_url": "/thinking/bees-graphs-governance/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## 1) From \u201cpiles of stuff\u201d to a knowledge graph",
+          "to": "#### 1) From \u201cpiles of stuff\u201d to a knowledge graph",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Minimal entity set (adapt for any domain)",
+          "to": "##### Minimal entity set (adapt for any domain)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 2) Governance you don\u2019t have to remember",
+          "to": "#### 2) Governance you don\u2019t have to remember",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Reusable checklist",
+          "to": "##### Reusable checklist",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 3) UX for analytics: show joins, not just charts",
+          "to": "#### 3) UX for analytics: show joins, not just charts",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 4) Porting the pattern to enterprise analytics",
+          "to": "#### 4) Porting the pattern to enterprise analytics",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## 5) A tiny start (that scales)",
+          "to": "#### 5) A tiny start (that scales)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Downloadables (optional)",
+          "to": "##### Downloadables (optional)",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [],
+      "normalized_metadata": {
+        "canonical_url": "/thinking/bees-graphs-governance/",
+        "categories": [
+          "thinking"
+        ],
+        "description": "A beehive is a data system: noisy observations, seasonal dynamics, tight feedback loops. By treating photos, weather, and notes as first-class, related entities (a graph), we turn anecdotes into evidence-ready decisions. The same pattern hardens enterprise analytics: clearer lineage, less hand-waving, more trust.",
+        "last_modified_at": "2025-01-15",
+        "publication_date": "2025-09-11 00:00:00 -0600",
+        "source_type": "thinking",
+        "tags": [
+          "knowledge-graph",
+          "metadata",
+          "data-governance",
+          "ux-for-analytics",
+          "explainability"
+        ],
+        "technologies": [
+          "Neo4j",
+          "Python",
+          "EXIF",
+          "NOAA API"
+        ],
+        "title": "Bees, Graphs, and Governance \u2014 Turning Unruly Observations into Evidence\u2011Ready Decisions"
+      },
+      "original_front_matter": {
+        "categories": [
+          "thinking"
+        ],
+        "classes": "wide",
+        "date": "2025-09-11 00:00:00 -0600",
+        "excerpt": "A beehive is a data system: noisy observations, seasonal dynamics, tight feedback loops. By treating photos, weather, and notes as first-class, related entities (a graph), we turn anecdotes into evidence-ready decisions. The same pattern hardens enterprise analytics: clearer lineage, less hand-waving, more trust.",
+        "header": {
+          "overlay_filter": 0.45,
+          "overlay_image": "/assets/images/bees-hero.jpg"
+        },
+        "last_modified_at": "2025-01-15",
+        "layout": "single",
+        "permalink": "/thinking/bees-graphs-governance/",
+        "pin": true,
+        "read_time": 7,
+        "stack": [
+          "Neo4j",
+          "Python",
+          "EXIF",
+          "NOAA API"
+        ],
+        "subtitle": "Transforming messy beehive observations into evidence-ready decisions through knowledge graphs",
+        "tags": [
+          "knowledge-graph",
+          "metadata",
+          "data-governance",
+          "ux-for-analytics",
+          "explainability"
+        ],
+        "teaser": "/assets/images/bees-hero.jpg",
+        "teaser_alt": "Beehive inspection photo with notes overlay",
+        "title": "Bees, Graphs, and Governance \u2014 Turning Unruly Observations into Evidence\u2011Ready Decisions",
+        "toc": true,
+        "toc_sticky": true
+      },
+      "output_content_sha256": "76c92407eee258998ea1144983784cc7a59b8cdf2e5556cb45f5cdd19072e1bc",
+      "output_end_line": 3221,
+      "output_start_line": 3127,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/bees-hero.jpg"
+      ],
+      "selection_rationale": "Knowledge graph and governance essay that bridges a personal data project to enterprise evidence practices.",
+      "source_file_sha256": "46efbf3cc05db56dbca25644a336cfce9ab799b6cda4ede25601279e3b12ed51",
+      "source_path": "_thinking/2025-09-11-bees-graphs-governance.md",
+      "source_title": "Bees, Graphs, and Governance \u2014 Turning Unruly Observations into Evidence\u2011Ready Decisions",
+      "source_type": "thinking",
+      "warnings": [
+        "Referenced local asset is missing: /assets/images/bees-hero.jpg"
+      ]
+    },
+    {
+      "canonical_url": "/thinking/why-dashboards-fail/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "articles",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Bigger windows, same bottleneck: sensemaking",
+          "to": "#### Bigger windows, same bottleneck: sensemaking",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Evidence across three domains",
+          "to": "#### Evidence across three domains",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Fitness tracker, 14 years, 2,593 workouts",
+          "to": "##### Fitness tracker, 14 years, 2,593 workouts",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Beehive monitoring, 4 seasons, 400+ photo-inspections",
+          "to": "##### Beehive monitoring, 4 seasons, 400+ photo-inspections",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Convoscope interface, multi-model comparison",
+          "to": "##### Convoscope interface, multi-model comparison",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What 7\u00b12 actually says",
+          "to": "#### What 7\u00b12 actually says",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Designing for the edges",
+          "to": "#### Designing for the edges",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Three design rules that actually matter",
+          "to": "#### Three design rules that actually matter",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 1) Chunk by purpose, not number",
+          "to": "##### 1) Chunk by purpose, not number",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 2) Respect the edges",
+          "to": "##### 2) Respect the edges",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 3) Progressive disclosure",
+          "to": "##### 3) Progressive disclosure",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Why million-token windows still hit the same wall",
+          "to": "#### Why million-token windows still hit the same wall",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Closing",
+          "to": "#### Closing",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Quick stats",
+          "to": "#### Quick stats",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Figures and captions",
+          "to": "#### Figures and captions",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## References (for the web version)",
+          "to": "#### References (for the web version)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Author note",
+          "to": "#### Author note",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [],
+      "normalized_metadata": {
+        "canonical_url": "/thinking/why-dashboards-fail/",
+        "categories": [
+          "thinking"
+        ],
+        "description": "Long-context models can hold a million tokens. People can't. The bottleneck has shifted from storage to sensemaking. Across 2,593 workouts, 400+ beehive inspections, and an AI comparison UI, the same pattern repeats: we act effectively when we see three to seven meaningful chunks.",
+        "last_modified_at": "2025-01-15",
+        "publication_date": "2025-09-11 00:00:00 -0600",
+        "source_type": "thinking",
+        "tags": [
+          "visual-working-memory",
+          "data-visualization",
+          "visual-attention",
+          "ux-for-analytics"
+        ],
+        "title": "7+-2 is Everywhere: Chunking is all you need"
+      },
+      "original_front_matter": {
+        "categories": [
+          "thinking"
+        ],
+        "classes": "wide",
+        "date": "2025-09-11 00:00:00 -0600",
+        "excerpt": "Long-context models can hold a million tokens. People can't. The bottleneck has shifted from storage to sensemaking. Across 2,593 workouts, 400+ beehive inspections, and an AI comparison UI, the same pattern repeats: we act effectively when we see three to seven meaningful chunks.",
+        "header": {
+          "overlay_filter": 0.45,
+          "overlay_image": "/assets/images/bees-hero.jpg"
+        },
+        "last_modified_at": "2025-01-15",
+        "layout": "single",
+        "permalink": "/thinking/why-dashboards-fail/",
+        "pin": true,
+        "read_time": 7,
+        "subtitle": "How working memory limits shape effective interfaces across fitness, beekeeping, and AI tools",
+        "tags": [
+          "visual-working-memory",
+          "data-visualization",
+          "visual-attention",
+          "ux-for-analytics"
+        ],
+        "teaser": "/assets/images/bees-hero.jpg",
+        "teaser_alt": "Beehive inspection photo with notes overlay",
+        "title": "7+-2 is Everywhere: Chunking is all you need",
+        "toc": true,
+        "toc_sticky": true
+      },
+      "output_content_sha256": "122cab853a80e61d080142e9cec208a0ab5db464099668946fca639e20d1fe30",
+      "output_end_line": 3363,
+      "output_start_line": 3223,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/bees-hero.jpg"
+      ],
+      "selection_rationale": "Cognitive-science framing for chunking, interface design, and sensemaking systems.",
+      "source_file_sha256": "03f5650cadf033ba5b53402c865007b033e21dbebd4417e6441731ba19698881",
+      "source_path": "_thinking/2024-09-26-chunking-is-all-you-need.md",
+      "source_title": "7+-2 is Everywhere: Chunking is all you need",
+      "source_type": "thinking",
+      "warnings": [
+        "Referenced local asset is missing: /assets/images/bees-hero.jpg"
+      ]
+    },
+    {
+      "canonical_url": "/resources/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "resources",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Infographics",
+          "to": "#### Infographics",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### What does 'harness' mean in AI?",
+          "to": "##### What does 'harness' mean in AI?",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Memory is more than storage",
+          "to": "##### Memory is more than storage",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The missing layer of AI adoption",
+          "to": "##### The missing layer of AI adoption",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The integration test: five questions for any AI workflow",
+          "to": "##### The integration test: five questions for any AI workflow",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### AI literacy is a stack",
+          "to": "##### AI literacy is a stack",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### AI doesn't fix the frame",
+          "to": "##### AI doesn't fix the frame",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Different instruments, same system-level gap",
+          "to": "##### Different instruments, same system-level gap",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Polished output can hide weak work",
+          "to": "##### Polished output can hide weak work",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Resource Collection Entries",
+          "to": "#### Resource Collection Entries",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### What Does 'Harness' Mean in AI?",
+          "to": "##### What Does 'Harness' Mean in AI?",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### The Anti-Slop Writing Kit",
+          "to": "##### The Anti-Slop Writing Kit",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Memory Is More Than Storage",
+          "to": "##### Memory Is More Than Storage",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Is Your Knowledge Ready for AI?",
+          "to": "##### Is Your Knowledge Ready for AI?",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### AI Instruction File Evaluation Worksheet",
+          "to": "##### AI Instruction File Evaluation Worksheet",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Git Workflow Cheatsheet",
+          "to": "##### Git Workflow Cheatsheet",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Resume Data Schema",
+          "to": "##### Resume Data Schema",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Understanding Your Schema.org Implementation",
+          "to": "##### Understanding Your Schema.org Implementation",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Color & Contrast Accessibility Checklist",
+          "to": "##### Color & Contrast Accessibility Checklist",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Question-to-Encoding Crib Sheet",
+          "to": "##### Question-to-Encoding Crib Sheet",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Small Multiples Layout Template",
+          "to": "##### Small Multiples Layout Template",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/assets/downloads/missing-layer-two-reports.pdf"
+        },
+        {
+          "action": "expanded_from_data",
+          "include": "infographic-gallery.html",
+          "type": "include"
+        },
+        {
+          "action": "expanded_resource_collection",
+          "include": "cards_grid.html",
+          "type": "include"
+        },
+        {
+          "action": "removed_layout_control",
+          "tag": "{% assign items = site.resources | sort: 'date' | reverse %}",
+          "type": "liquid_control"
+        },
+        {
+          "action": "removed_layout_control",
+          "tag": "{% assign formats = items | map: 'format' | compact | uniq | sort %}",
+          "type": "liquid_control"
+        },
+        {
+          "action": "removed_layout_control",
+          "tag": "{% if formats.size > 1 %}",
+          "type": "liquid_control"
+        },
+        {
+          "action": "removed_layout_control",
+          "tag": "{% for f in formats %}",
+          "type": "liquid_control"
+        },
+        {
+          "action": "removed_layout_control",
+          "tag": "{% endfor %}",
+          "type": "liquid_control"
+        },
+        {
+          "action": "removed_layout_control",
+          "tag": "{% endif %}",
+          "type": "liquid_control"
+        },
+        {
+          "action": "removed_unresolved",
+          "tag": "{{ f | slugify }}",
+          "type": "liquid_variable"
+        },
+        {
+          "action": "removed_unresolved",
+          "tag": "{{ f }}",
+          "type": "liquid_variable"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/resources/",
+        "description": "A curated library: templates, cheatsheets, guides, visual explainers, and project artifacts for building data- and cognition-aware systems.",
+        "source_type": "resource_index",
+        "title": "Resources & Guides"
+      },
+      "original_front_matter": {
+        "author_profile": false,
+        "classes": [
+          "wide",
+          "resources-page"
+        ],
+        "description": "A curated library: templates, cheatsheets, guides, visual explainers, and project artifacts for building data- and cognition-aware systems.",
+        "permalink": "/resources/",
+        "title": "Resources & Guides"
+      },
+      "output_content_sha256": "70a4d56b1c7002a07b9221983de6102593b71a194b44e5826f92227cb2a0a674",
+      "output_end_line": 3630,
+      "output_start_line": 3367,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Required Resources page; combines public resource records, infographics, guide links, and project artifacts.",
+      "source_file_sha256": "7eb887fa2cab799b9372227cafadbdf24ac3eddf021fd854c58c35f887554a7e",
+      "source_path": "resources/index.md",
+      "source_title": "Resources & Guides",
+      "source_type": "resource_index",
+      "warnings": [
+        "Unresolved Liquid variable removed for review: {{ f | slugify }}",
+        "Unresolved Liquid variable removed for review: {{ f }}"
+      ]
+    },
+    {
+      "canonical_url": "/resources/knowledge-legibility-diagnostic/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "resources",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Who this is for",
+          "to": "#### Who this is for",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How to use it",
+          "to": "#### How to use it",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## The five dimensions",
+          "to": "#### The five dimensions",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 1. Findability",
+          "to": "##### 1. Findability",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 2. Structure",
+          "to": "##### 2. Structure",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 3. Provenance",
+          "to": "##### 3. Provenance",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 4. Ownership",
+          "to": "##### 4. Ownership",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### 5. Verification",
+          "to": "##### 5. Verification",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## How to read your answers",
+          "to": "#### How to read your answers",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## What to do next",
+          "to": "#### What to do next",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Related resources",
+          "to": "#### Related resources",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/assets/downloads/missing-layer-two-reports.pdf"
+        },
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/assets/downloads/missing-layer-two-reports.pdf"
+        },
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "resource/buttons.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/resources/knowledge-legibility-diagnostic/",
+        "categories": [
+          "Knowledge Systems"
+        ],
+        "description": "Fifteen questions across five dimensions \u2014 findability, structure, provenance, ownership, and verification \u2014 to check whether your organizational knowledge is in good enough shape for AI to use and for humans to verify.",
+        "last_modified_at": "2026-07-04",
+        "publication_date": "2026-07-04",
+        "source_type": "resource",
+        "tags": [
+          "knowledge-systems",
+          "ai-readiness",
+          "rag",
+          "evaluation",
+          "metadata"
+        ],
+        "title": "Is Your Knowledge Ready for AI?"
+      },
+      "original_front_matter": {
+        "categories": [
+          "Knowledge Systems"
+        ],
+        "date": "2026-07-04",
+        "download_url": "/assets/resources/diagnostic_knowledge_legibility.pdf",
+        "excerpt": "Fifteen questions across five dimensions \u2014 findability, structure, provenance, ownership, and verification \u2014 to check whether your organizational knowledge is in good enough shape for AI to use and for humans to verify.",
+        "format": "Diagnostic",
+        "last_modified_at": "2026-07-04",
+        "layout": "single",
+        "level": "Beginner",
+        "permalink": "/resources/knowledge-legibility-diagnostic/",
+        "subtitle": "A short diagnostic for teams building AI on top of documents, workflows, decisions, and institutional memory",
+        "tags": [
+          "knowledge-systems",
+          "ai-readiness",
+          "rag",
+          "evaluation",
+          "metadata"
+        ],
+        "title": "Is Your Knowledge Ready for AI?",
+        "toc": true,
+        "toc_label": "The diagnostic",
+        "toc_sticky": true
+      },
+      "output_content_sha256": "3a6c23795f1fce07f9644c6b94aed85f44d5b9d7c01fb44fc2733ee9b5b685b7",
+      "output_end_line": 3779,
+      "output_start_line": 3632,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [],
+      "selection_rationale": "Directly supports the experiment's knowledge-legibility and AI-readiness themes.",
+      "source_file_sha256": "d1074d9febbef3212e181c52e2a86e8e2b61d9f55c32cfa0531d6546b825edb1",
+      "source_path": "_resources/knowledge-legibility-diagnostic.md",
+      "source_title": "Is Your Knowledge Ready for AI?",
+      "source_type": "resource",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/resources/what-is-a-harness-in-ai/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "resources",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## See one in practice",
+          "to": "#### See one in practice",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/assets/images/resources/ai-harness-meaning-llm-agents-evals.png"
+        },
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/blog/twin-evaluate-models/"
+        },
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/compare-models/"
+        },
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/blog/twin-graphrag-migration/"
+        },
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/graphrag-reference/"
+        },
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/work-with-me/"
+        },
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "resource/buttons.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/resources/what-is-a-harness-in-ai/",
+        "categories": [
+          "Knowledge Systems"
+        ],
+        "description": "Evaluation harness, agent harness, readiness harness, judge harness, fuzzing harness \u2014 one word carrying baggage from five technical traditions. A one-page decoder.",
+        "last_modified_at": "2026-07-04",
+        "publication_date": "2026-07-04",
+        "source_type": "resource",
+        "tags": [
+          "evaluation",
+          "ai-agents",
+          "llm",
+          "testing",
+          "knowledge-systems"
+        ],
+        "title": "What Does 'Harness' Mean in AI?"
+      },
+      "original_front_matter": {
+        "categories": [
+          "Knowledge Systems"
+        ],
+        "date": "2026-07-04",
+        "download_url": "/assets/images/resources/ai-harness-meaning-llm-agents-evals.png",
+        "excerpt": "Evaluation harness, agent harness, readiness harness, judge harness, fuzzing harness \u2014 one word carrying baggage from five technical traditions. A one-page decoder.",
+        "format": "Visual explainer",
+        "header": {
+          "teaser": "/assets/images/resources/ai-harness-meaning-llm-agents-evals.png"
+        },
+        "last_modified_at": "2026-07-04",
+        "layout": "single",
+        "level": "Beginner",
+        "permalink": "/resources/what-is-a-harness-in-ai/",
+        "subtitle": "A visual decoder for a loaded term now showing up across LLM apps, agents, evals, and deployment",
+        "tags": [
+          "evaluation",
+          "ai-agents",
+          "llm",
+          "testing",
+          "knowledge-systems"
+        ],
+        "title": "What Does 'Harness' Mean in AI?"
+      },
+      "output_content_sha256": "ebeb2c8067495a6c92373393317ed61149fab6efdf876cb569a6ebf055e9c553",
+      "output_end_line": 3815,
+      "output_start_line": 3781,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/resources/ai-harness-meaning-llm-agents-evals.png"
+      ],
+      "selection_rationale": "Evaluation terminology resource that clarifies multiple meanings of harness in AI systems.",
+      "source_file_sha256": "2d07a3e8b0a1b257e9e1ec81e8c3ce6062ecdc2c1a0a4af40a509c13f206e7f8",
+      "source_path": "_resources/what-is-a-harness-in-ai.md",
+      "source_title": "What Does 'Harness' Mean in AI?",
+      "source_type": "resource",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/resources/memory-is-more-than-storage/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "resources",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Further reading",
+          "to": "#### Further reading",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "relative_url_resolved",
+          "type": "liquid_variable",
+          "value": "/assets/images/resources/memory-is-more-than-storage.png"
+        },
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "resource/buttons.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/resources/memory-is-more-than-storage/",
+        "categories": [
+          "Knowledge Systems"
+        ],
+        "description": "A one-page map of what makes memory useful \u2014 selection, structure, retrieval, revision, and forgetting \u2014 for humans and AI agents alike, with the four papers that shaped it.",
+        "last_modified_at": "2026-07-04",
+        "publication_date": "2026-07-04",
+        "source_type": "resource",
+        "tags": [
+          "memory",
+          "ai-agents",
+          "cognitive-science",
+          "knowledge-systems"
+        ],
+        "title": "Memory Is More Than Storage"
+      },
+      "original_front_matter": {
+        "categories": [
+          "Knowledge Systems"
+        ],
+        "date": "2026-07-04",
+        "download_url": "/assets/images/resources/memory-is-more-than-storage.png",
+        "excerpt": "A one-page map of what makes memory useful \u2014 selection, structure, retrieval, revision, and forgetting \u2014 for humans and AI agents alike, with the four papers that shaped it.",
+        "format": "Visual explainer",
+        "header": {
+          "teaser": "/assets/images/resources/memory-is-more-than-storage.png"
+        },
+        "last_modified_at": "2026-07-04",
+        "layout": "single",
+        "level": "Beginner",
+        "permalink": "/resources/memory-is-more-than-storage/",
+        "subtitle": "Humans and AI agents face the same design pressure: deciding what to keep, update, and let go",
+        "tags": [
+          "memory",
+          "ai-agents",
+          "cognitive-science",
+          "knowledge-systems"
+        ],
+        "title": "Memory Is More Than Storage"
+      },
+      "output_content_sha256": "1a58c0a1509866541285d6c1cc112d24a4240f55c9c28ae9a1c4ff355b0c496a",
+      "output_end_line": 3860,
+      "output_start_line": 3817,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/resources/memory-is-more-than-storage.png"
+      ],
+      "selection_rationale": "Public proof asset connecting human memory, AI agent memory, and knowledge-system architecture.",
+      "source_file_sha256": "4315252cd727e6d33ddd4ae86b0a9b78a36d355e26ed6c887dade1cb6c920ec3",
+      "source_path": "_resources/memory-is-more-than-storage.md",
+      "source_title": "Memory Is More Than Storage",
+      "source_type": "resource",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/resources/resume-data-schema/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "resources",
+      "heading_transformations": [
+        {
+          "flattened": false,
+          "from": "## Overview",
+          "to": "#### Overview",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Visual Schema Map",
+          "to": "#### Visual Schema Map",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Data Flow Architecture",
+          "to": "#### Data Flow Architecture",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Why This Architecture?",
+          "to": "#### Why This Architecture?",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Benefits",
+          "to": "##### Benefits",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Schema Structure",
+          "to": "#### Schema Structure",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Core Sections",
+          "to": "##### Core Sections",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Experience Section (Most Important)",
+          "to": "##### Experience Section (Most Important)",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "#### Required Fields",
+          "to": "###### Required Fields",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "#### Optional But Recommended",
+          "to": "###### Optional But Recommended",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "#### How Filtering Works",
+          "to": "###### How Filtering Works",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Usage Examples",
+          "to": "#### Usage Examples",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Adding a New Role",
+          "to": "##### Adding a New Role",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Updating Skills",
+          "to": "##### Updating Skills",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Customizing Filter Buttons",
+          "to": "##### Customizing Filter Buttons",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Technical Details",
+          "to": "#### Technical Details",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Date Format",
+          "to": "##### Date Format",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Multi-Domain Roles",
+          "to": "##### Multi-Domain Roles",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Validation",
+          "to": "##### Validation",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Files & Locations",
+          "to": "#### Files & Locations",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Maintenance Tips",
+          "to": "#### Maintenance Tips",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Keep It DRY",
+          "to": "##### Keep It DRY",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Version Control Best Practices",
+          "to": "##### Version Control Best Practices",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "### Content Guidelines",
+          "to": "##### Content Guidelines",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Future Enhancements",
+          "to": "#### Future Enhancements",
+          "type": "heading_demoted"
+        },
+        {
+          "flattened": false,
+          "from": "## Questions?",
+          "to": "#### Questions?",
+          "type": "heading_demoted"
+        }
+      ],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [],
+      "normalized_metadata": {
+        "canonical_url": "/resources/resume-data-schema/",
+        "categories": [
+          "Technical Documentation"
+        ],
+        "description": "How a single JSON file became the source of truth for my resume, website, and automation \u2014 with schema diagrams and a usage guide.",
+        "last_modified_at": "2026-06-22",
+        "publication_date": "2026-04-08",
+        "source_type": "resource",
+        "tags": [
+          "data-architecture",
+          "json-schema",
+          "automation",
+          "systems-design"
+        ],
+        "title": "Resume Data Schema"
+      },
+      "original_front_matter": {
+        "categories": [
+          "Technical Documentation"
+        ],
+        "cognitive_principle": "Information Architecture & Systems Design",
+        "date": "2026-04-08",
+        "excerpt": "How a single JSON file became the source of truth for my resume, website, and automation \u2014 with schema diagrams and a usage guide.",
+        "format": "Documentation",
+        "header": {
+          "teaser": "/assets/diagrams/resume-data-flow.svg"
+        },
+        "last_modified_at": "2026-06-22",
+        "layout": "single",
+        "level": "Intermediate",
+        "permalink": "/resources/resume-data-schema/",
+        "subtitle": "JSON-powered resume architecture for consistency across platforms",
+        "tags": [
+          "data-architecture",
+          "json-schema",
+          "automation",
+          "systems-design"
+        ],
+        "title": "Resume Data Schema",
+        "toc": true,
+        "toc_icon": "file-code",
+        "toc_label": "Schema Guide",
+        "toc_sticky": true
+      },
+      "output_content_sha256": "041f2d6649cd4afcbcc6fda7d4f8cdba5d81d20a5fc7ecfa2978f95c5c4d7f8d",
+      "output_end_line": 4087,
+      "output_start_line": 3862,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/diagrams/resume-data-flow.svg",
+        "/assets/diagrams/resume-json-schema.svg"
+      ],
+      "selection_rationale": "Structured resume metadata reference relevant to Resume Graph Explorer and machine-legible professional history.",
+      "source_file_sha256": "784474fd4c0380660b289cf7440e3ec27dbeff63f8d97295f8fe11a3072ce7e8",
+      "source_path": "_resources/resume-data-schema.md",
+      "source_title": "Resume Data Schema",
+      "source_type": "resource",
+      "warnings": []
+    },
+    {
+      "canonical_url": "/resources/ai-instructions-evaluation-worksheet/",
+      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "group": "resources",
+      "heading_transformations": [],
+      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "liquid_include_transformations": [
+        {
+          "action": "removed_layout_or_navigation",
+          "include": "resource/buttons.html",
+          "type": "include"
+        }
+      ],
+      "normalized_metadata": {
+        "canonical_url": "/resources/ai-instructions-evaluation-worksheet/",
+        "categories": [
+          "Working with AI"
+        ],
+        "description": "A two-page printable worksheet for scoring AI assistant instruction files: a six-category, 100-point scorecard on page one, the full rubric on page two.",
+        "last_modified_at": "2026-07-04",
+        "publication_date": "2026-07-04",
+        "source_type": "resource",
+        "tags": [
+          "claude-code",
+          "agents-md",
+          "cursorrules",
+          "evaluation",
+          "documentation",
+          "AI"
+        ],
+        "title": "AI Instruction File Evaluation Worksheet"
+      },
+      "original_front_matter": {
+        "categories": [
+          "Working with AI"
+        ],
+        "date": "2026-07-04",
+        "download_url": "/assets/resources/worksheet_ai_instruction_files.pdf",
+        "excerpt": "A two-page printable worksheet for scoring AI assistant instruction files: a six-category, 100-point scorecard on page one, the full rubric on page two.",
+        "format": "Worksheet",
+        "header": {
+          "teaser": "/assets/images/resources/ai-instructions-evaluation-worksheet-teaser.png"
+        },
+        "last_modified_at": "2026-07-04",
+        "layout": "single",
+        "level": "Intermediate",
+        "permalink": "/resources/ai-instructions-evaluation-worksheet/",
+        "subtitle": "Score your CLAUDE.md, AGENTS.md, or .cursorrules in ten minutes",
+        "tags": [
+          "claude-code",
+          "agents-md",
+          "cursorrules",
+          "evaluation",
+          "documentation",
+          "AI"
+        ],
+        "title": "AI Instruction File Evaluation Worksheet"
+      },
+      "output_content_sha256": "7117c9eb10e4b00d961f9f1ca67f8ee496fbe550ba9bf81d080aa3002922bad7",
+      "output_end_line": 4117,
+      "output_start_line": 4089,
+      "pipeline_version": "pageindex-normalizer-v1",
+      "referenced_assets": [
+        "/assets/images/resources/ai-instructions-evaluation-worksheet-teaser.png"
+      ],
+      "selection_rationale": "Companion evaluation worksheet that operationalizes the AI instruction-file scoring article.",
+      "source_file_sha256": "54384102e04525e2ac65c2a83032b5ebaa9a085e40bcde5d614b2477786aff64",
+      "source_path": "_resources/ai-instructions-evaluation-worksheet.md",
+      "source_title": "AI Instruction File Evaluation Worksheet",
+      "source_type": "resource",
+      "warnings": []
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "reason": "substantive but extremely large and heavily HTML/data-table driven; better candidate for Release 2 once table normalization is designed.",
+      "source_path": "_pages/digital-twin-graphrag-reference.html",
+      "source_type": "page"
+    },
+    {
+      "reason": "substantive but overlaps the selected Digital Twin evaluation article and is highly HTML-specific.",
+      "source_path": "_pages/digital-twin_compare_llms.html",
+      "source_type": "page"
+    },
+    {
+      "reason": "strong article but outside the first release's tighter emphasis on Barbara's own systems and reusable evaluation patterns.",
+      "source_path": "_pages/ai-pulse-q2-2026-companion.html",
+      "source_type": "page"
+    },
+    {
+      "reason": "public project, but superseded by stronger current AI-system examples for Release 1.",
+      "source_path": "_projects/job-application-assistant.md",
+      "source_type": "project"
+    },
+    {
+      "reason": "public project, but less central to RAG, knowledge graphs, evaluation, or knowledge legibility.",
+      "source_path": "_projects/midjourney-tracker-browser-extension.md",
+      "source_type": "project"
+    },
+    {
+      "reason": "strong graph/ML story; deferred to keep article count within target and avoid over-weighting project-style narratives.",
+      "source_path": "data-stories/citation-link-prediction.md",
+      "source_type": "data_story"
+    },
+    {
+      "reason": "substantially overlaps selected Beehive project page and Bees/Graphs/Governance essay.",
+      "source_path": "data-stories/hive-photo-metadata-tracker.md",
+      "source_type": "data_story"
+    },
+    {
+      "reason": "unpublished/draft.",
+      "source_path": "data-stories/converting-textual-to-visual-timeline.md",
+      "source_type": "data_story"
+    },
+    {
+      "reason": "unpublished.",
+      "source_path": "_posts/2022-09-16-diy-stock-ticker-to-learn-python-frameworks.md",
+      "source_type": "post"
+    },
+    {
+      "reason": "draft/unpublished.",
+      "source_path": "_resources/resource-schema-org-cheatsheet-builders.md",
+      "source_type": "resource"
+    },
+    {
+      "reason": "draft/unpublished.",
+      "source_path": "_resources/resource-schema-org-cheatsheet-humans.md",
+      "source_type": "resource"
+    },
+    {
+      "reason": "archived resources are plausible but mostly short, superseded, or outside Release 1 focus.",
+      "source_path": "_resources/_archive/",
+      "source_type": "resources_archive"
+    }
+  ],
+  "expected_counts": {
+    "articles": {
+      "max": 10,
+      "min": 6
+    },
+    "core_pages": {
+      "max": 4,
+      "min": 4
+    },
+    "projects": {
+      "max": 6,
+      "min": 4
+    },
+    "resources": {
+      "max": 8,
+      "min": 1
+    }
+  },
+  "generated_at": "2026-07-04T23:38:11-05:00",
+  "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+  "pipeline_version": "pageindex-normalizer-v1",
+  "site_url": "https://barbhs.com",
+  "snapshot_date": "2026-07-04",
+  "supporting_data": [
+    {
+      "exists": true,
+      "include": true,
+      "selection_rationale": "Public data source for the infographic band on the Resources page.",
+      "sha256": "9d474a767a408537cc94d04e8e8f4669c588eeec14e73864b22c83382b715ffd",
+      "source_path": "_data/infographics.yml",
+      "source_type": "data"
+    },
+    {
+      "exists": true,
+      "include": true,
+      "selection_rationale": "Public project metadata that supports selected project pages and describes additional public project proof points.",
+      "sha256": "cb0e4a6f51ca97d4242a506141270b147676cd8e4233078bc6da88959a91b0d1",
+      "source_path": "_data/portfolio.json",
+      "source_type": "data"
+    }
+  ],
+  "worktree_dirty": true
+}
