@@ -7,17 +7,17 @@
     "version": "site-book-v1"
   },
   "corpus_path": "experiments/pageindex/corpus/site-book-v1.md",
-  "corpus_sha256": "409f9f1450b376e28a5ec76f7a728257c45a95f2f91e8a48a4ea0eb09710aaaf",
+  "corpus_sha256": "d6404f6b724b37f463e7fb09ee26c955d3b44fb29a1073ad0f2af8ae33cbba94",
   "counts": {
     "articles": 10,
     "core_pages": 4,
     "projects": 6,
-    "resources": 6
+    "resources": 5
   },
   "documents": [
     {
       "canonical_url": "/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "core_pages",
       "heading_transformations": [
         {
@@ -99,7 +99,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_unresolved",
@@ -169,7 +169,7 @@
         "layout": "splash",
         "title": "Barbara Hidalgo-Sotelo, PhD | Applied AI & Data Systems"
       },
-      "output_content_sha256": "5e363c6eea01932ae448598dc0e3977ba5d31169d42b08d3171583e9fcc5d2fc",
+      "output_content_sha256": "232e19f0867e084b9a2b2f7b967d16d9a739689ede4452458163fb44c5d5446f",
       "output_end_line": 130,
       "output_start_line": 15,
       "pipeline_version": "pageindex-normalizer-v1",
@@ -192,7 +192,7 @@
     },
     {
       "canonical_url": "/start-here/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "core_pages",
       "heading_transformations": [
         {
@@ -250,7 +250,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "converted_to_markdown",
@@ -273,7 +273,7 @@
         "permalink": "/start-here/",
         "title": ""
       },
-      "output_content_sha256": "e36dae4b120e4c9265ef35a6ca37b50c53f651b50f57f1413cee5de53077e8a3",
+      "output_content_sha256": "2cdb42c7889378bf1072cbd8406ac26cf324e2cc2641ab75832d8b2582796937",
       "output_end_line": 232,
       "output_start_line": 132,
       "pipeline_version": "pageindex-normalizer-v1",
@@ -287,7 +287,7 @@
     },
     {
       "canonical_url": "/work-with-me/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "core_pages",
       "heading_transformations": [
         {
@@ -369,7 +369,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "converted_to_markdown",
@@ -392,13 +392,13 @@
         "permalink": "/work-with-me/",
         "title": ""
       },
-      "output_content_sha256": "4ede057866c3fc2ac6f27a8966b69f946532c4de29b3159971c3a47fec45bdd7",
+      "output_content_sha256": "67ea756a64e0e4e603d83d63de234dfdce118eceae1bab8cc3592789c1158040",
       "output_end_line": 347,
       "output_start_line": 234,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [],
       "selection_rationale": "Service and offer framing for knowledge legibility audits, verified AI systems, and workshops.",
-      "source_file_sha256": "0fd875404fccee3d04802d5ce0a13a4ce1fedcf2161849d7a5b4e13d115bf0fd",
+      "source_file_sha256": "47b4671a28e4a92443aa2dfa14b42479abbd8cd1831e47ac326ad8633317ee11",
       "source_path": "_pages/work-with-me.md",
       "source_title": "Work With Me",
       "source_type": "page",
@@ -406,7 +406,7 @@
     },
     {
       "canonical_url": "/my-journey/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "core_pages",
       "heading_transformations": [
         {
@@ -578,10 +578,10 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
-          "action": "removed_unresolved",
+          "action": "expanded_quote",
           "include": "quote.html",
           "type": "include"
         },
@@ -610,8 +610,8 @@
         "toc_label": "Overview",
         "toc_sticky": true
       },
-      "output_content_sha256": "736ddbd4c2e33ccb9d7058e85eb0113915ebe983a0879c6fbe7aff151a2080d3",
-      "output_end_line": 534,
+      "output_content_sha256": "ce6c3a10b1606d83422306865aa1b396df8846c5fd41d5fa93a691ab715dd5aa",
+      "output_end_line": 538,
       "output_start_line": 349,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
@@ -638,13 +638,12 @@
         "Heading flattened to level 6: \ud83c\udfafThe Consultant Asks:",
         "Heading flattened to level 6: \ud83c\udfd7\ufe0fThe System Builder Asks:",
         "Heading flattened to level 6: \ud83d\udd0dThe Data Scientist Asks:",
-        "Heading flattened to level 6: \ud83e\udde0The Cognitive Scientist Asks:",
-        "Unresolved include removed for review: {% include quote.html set=\"field\" id=\"hamming-insight\" variant=\"epigraph\" %}"
+        "Heading flattened to level 6: \ud83e\udde0The Cognitive Scientist Asks:"
       ]
     },
     {
       "canonical_url": "/projects/poolula-platform/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "projects",
       "heading_transformations": [
         {
@@ -744,7 +743,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_layout_or_navigation",
@@ -842,9 +841,9 @@
         "toc_sticky": true,
         "url": "/projects/poolula-platform/"
       },
-      "output_content_sha256": "7eebacd226ba0794f417a954e30121ebd1b6a5eaeadbb16bee7dea9a4710ff30",
-      "output_end_line": 793,
-      "output_start_line": 538,
+      "output_content_sha256": "56e558db4ef210b2eb2c366e60fc1788ad8a2da347be4994e90d307d728edf3d",
+      "output_end_line": 797,
+      "output_start_line": 542,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [],
       "selection_rationale": "Flagship RAG business-intelligence system with structured data, unstructured documents, evaluation harnesses, and provenance.",
@@ -856,7 +855,7 @@
     },
     {
       "canonical_url": "/projects/fitness-dashboard/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "projects",
       "heading_transformations": [
         {
@@ -998,7 +997,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_layout_or_navigation",
@@ -1092,9 +1091,9 @@
         "toc_sticky": true,
         "url": "/projects/fitness-dashboard/"
       },
-      "output_content_sha256": "22ed783b85bed964fc2d33a055e54880b824ffa082e92e88029d47fc18a936e5",
-      "output_end_line": 1212,
-      "output_start_line": 795,
+      "output_content_sha256": "c00387baae468068b3963a91d967d9e03f18f8d322799767b54bdb7b7d3b912b",
+      "output_end_line": 1216,
+      "output_start_line": 799,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/projects/fitness-dashboard/card.jpg",
@@ -1112,7 +1111,7 @@
     },
     {
       "canonical_url": "/projects/beehive-tracker/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "projects",
       "heading_transformations": [
         {
@@ -1200,7 +1199,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_layout_or_navigation",
@@ -1285,9 +1284,9 @@
         "toc_sticky": true,
         "url": "/projects/beehive-tracker/"
       },
-      "output_content_sha256": "2c937926b4d09ac2a800ab6f1e8da627a7dcaf312115872975e9622ccb618989",
-      "output_end_line": 1473,
-      "output_start_line": 1214,
+      "output_content_sha256": "7b9c35868006ea3061eaacfc5fc58f106a5dde7c84d9cc8fe559dfec415307d3",
+      "output_end_line": 1477,
+      "output_start_line": 1218,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/projects/hivetracker/card.jpg",
@@ -1305,7 +1304,7 @@
     },
     {
       "canonical_url": "/projects/chronoscope/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "projects",
       "heading_transformations": [
         {
@@ -1399,7 +1398,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_layout_or_navigation",
@@ -1503,9 +1502,9 @@
         "toc_sticky": true,
         "url": "/projects/chronoscope/"
       },
-      "output_content_sha256": "9384fe6b025b4ff0cf2801711093dbbb2423a8ad7935c1f3cc39c6a1170240a5",
-      "output_end_line": 1709,
-      "output_start_line": 1475,
+      "output_content_sha256": "c6cf5b420e28c72d26babf4c48636c223b4cc1fd263ac886fc22dfa0392e04c7",
+      "output_end_line": 1713,
+      "output_start_line": 1479,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [],
       "selection_rationale": "Document-to-timeline extraction system with validation concerns and structured temporal knowledge.",
@@ -1517,7 +1516,7 @@
     },
     {
       "canonical_url": "/projects/digital-memory-chest/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "projects",
       "heading_transformations": [
         {
@@ -1617,7 +1616,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_layout_or_navigation",
@@ -1723,9 +1722,9 @@
         "toc_sticky": true,
         "url": "/projects/digital-memory-chest/"
       },
-      "output_content_sha256": "171d58c9f6c001fed2ddd0217cb2fd757e963ee19f44ebb3815c9478e0542059",
-      "output_end_line": 1961,
-      "output_start_line": 1711,
+      "output_content_sha256": "b8f015a75809cfb50304bc4554af7864a894187b6e0f9a134030c6a668685b05",
+      "output_end_line": 1965,
+      "output_start_line": 1715,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [],
       "selection_rationale": "Knowledge graph and AI narrative system for memory, provenance, transcription, and multimodal organization.",
@@ -1737,7 +1736,7 @@
     },
     {
       "canonical_url": "/projects/convoscope/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "projects",
       "heading_transformations": [
         {
@@ -1819,7 +1818,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_layout_or_navigation",
@@ -1920,9 +1919,9 @@
         "toc_sticky": true,
         "url": "/projects/convoscope/"
       },
-      "output_content_sha256": "acc225b5ea925beca7f0cc6b6aff77ce10d96c4d856f286f4f366fbfb672b895",
-      "output_end_line": 2170,
-      "output_start_line": 1963,
+      "output_content_sha256": "6bdac944b2213aa14b291fe134aa5be84bb1eebc78d736911616313f6a349f7d",
+      "output_end_line": 2174,
+      "output_start_line": 1967,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/projects/convoscope/card.jpg",
@@ -1944,7 +1943,7 @@
     },
     {
       "canonical_url": "/blog/twin-evaluate-models/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -1990,7 +1989,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "expanded_figure",
@@ -2057,9 +2056,9 @@
         ],
         "title": "What I Learned Running 58 Questions Through Two LLMs"
       },
-      "output_content_sha256": "71c1c2e6636fc4a8f83929c24d32fba05403b7b5a253bf35b96b893d7254ba19",
-      "output_end_line": 2278,
-      "output_start_line": 2174,
+      "output_content_sha256": "453a6b083f0418bb2c116b9a663a08665a5dd829a0c18d3507a602c7c7811803",
+      "output_end_line": 2282,
+      "output_start_line": 2178,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/llm-comparison-metrics.png",
@@ -2076,7 +2075,7 @@
     },
     {
       "canonical_url": "/blog/twin-graphrag-migration/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -2128,7 +2127,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [],
       "normalized_metadata": {
         "canonical_url": "/blog/twin-graphrag-migration/",
@@ -2193,9 +2192,9 @@
         ],
         "title": "What Happened When I Asked the Same Questions of Two Retrieval Systems"
       },
-      "output_content_sha256": "d780f07e83784b210b697ee4006029d5f2a522242f2cb9431fdc72f34dfca252",
-      "output_end_line": 2395,
-      "output_start_line": 2280,
+      "output_content_sha256": "8a59c4566617ac5b2bcf6b70a5b96a2af60ae9c572ee4a993e0fd45b7327f927",
+      "output_end_line": 2399,
+      "output_start_line": 2284,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/new-ml-ai-starter-flow.png"
@@ -2209,7 +2208,7 @@
     },
     {
       "canonical_url": "/blog/ai-literacy-judgment/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -2243,7 +2242,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "expanded_figure",
@@ -2314,9 +2313,9 @@
         ],
         "title": "What Looks Like an AI Skills Gap Is Often a Judgment Gap"
       },
-      "output_content_sha256": "df5e9d8d09a2cb939b0b3f60c1d8f16372978602a3df50f14cceb5f261cdb23f",
-      "output_end_line": 2482,
-      "output_start_line": 2397,
+      "output_content_sha256": "b4ba6685f1786999ab8449dca79eb81c43d729e8ad4c818db77fd70eaa6e37fb",
+      "output_end_line": 2486,
+      "output_start_line": 2401,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/ai-does-not-fix-the-frame.png",
@@ -2332,7 +2331,7 @@
     },
     {
       "canonical_url": "/blog/missing-layer-ai-adoption-value/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -2396,7 +2395,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "expanded_callout",
@@ -2518,9 +2517,9 @@
         "title": "The Missing Layer Between AI Adoption and AI Value",
         "toc": false
       },
-      "output_content_sha256": "9326311a2810a5eb12dc44723898d83d4e167ebd8cc0994570f1e9e9bdc139aa",
-      "output_end_line": 2662,
-      "output_start_line": 2484,
+      "output_content_sha256": "72c32b73bb95a3683f25d2e1fbcfe50563dcb154baa74f48ee1780c07807fd45",
+      "output_end_line": 2666,
+      "output_start_line": 2488,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/missing-layer-graphic-different-instruments.png",
@@ -2539,7 +2538,7 @@
     },
     {
       "canonical_url": "/blog/scoring-ai-instruction-files/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -2585,7 +2584,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [],
       "normalized_metadata": {
         "canonical_url": "/blog/scoring-ai-instruction-files/",
@@ -2636,9 +2635,9 @@
         "title": "A Scoring System for AI Instruction Files",
         "toc": false
       },
-      "output_content_sha256": "31b8e5311d678dbb0ba926de3015dadea5fa9f4598804355b41c6d9f5b95a22b",
-      "output_end_line": 2770,
-      "output_start_line": 2664,
+      "output_content_sha256": "ea6ce91c99cb4efc1d31c94e84553f6525dfcd1972ca231f6afd2f523951e2e7",
+      "output_end_line": 2774,
+      "output_start_line": 2668,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [],
       "selection_rationale": "Evaluation-harness thinking applied to AI instruction files and agent configuration.",
@@ -2650,7 +2649,7 @@
     },
     {
       "canonical_url": "/blog/three-readers-of-your-web-page/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -2696,7 +2695,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "relative_url_resolved",
@@ -2745,9 +2744,9 @@
         ],
         "title": "The Three Readers of Your Web Page"
       },
-      "output_content_sha256": "6d0ba5e657a9080ab1a6cbbbab9f207643dd19a26a45ee6e8bb0ba6597e80639",
-      "output_end_line": 2858,
-      "output_start_line": 2772,
+      "output_content_sha256": "a5e5f41833ee6e13bd097f9d4249693f6c6d34c3f38384f45dce62fc69c39132",
+      "output_end_line": 2862,
+      "output_start_line": 2776,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [],
       "selection_rationale": "Knowledge legibility article explaining audiences for metadata, structured data, and public web representation.",
@@ -2759,7 +2758,7 @@
     },
     {
       "canonical_url": "/blog/metadata-matters/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -2829,7 +2828,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [],
       "normalized_metadata": {
         "canonical_url": "/blog/metadata-matters/",
@@ -2883,9 +2882,9 @@
         ],
         "title": "Why Metadata Matters"
       },
-      "output_content_sha256": "876c4b1ce94bc368b2b8e6861c6138a7906022f927575ea93a7f69150e5c351f",
-      "output_end_line": 3023,
-      "output_start_line": 2860,
+      "output_content_sha256": "485b15098de09c061341c54a46095a6f29e191118354ca74d44d3e58f72a28f6",
+      "output_end_line": 3027,
+      "output_start_line": 2864,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/metadata-tissue-viz-001.png",
@@ -2900,7 +2899,7 @@
     },
     {
       "canonical_url": "/thinking/rag-approaches-observations/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -2970,7 +2969,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [],
       "normalized_metadata": {
         "canonical_url": "/thinking/rag-approaches-observations/",
@@ -3021,9 +3020,9 @@
         "toc": true,
         "toc_sticky": true
       },
-      "output_content_sha256": "edc174b8f46e784b90eeffd81961384585a5458c58277a2fecf8dfefab60e0b4",
-      "output_end_line": 3125,
-      "output_start_line": 3025,
+      "output_content_sha256": "aa78075585a2a2576c32994bcdc7bbb042a241001e55cd773887e43851316dd9",
+      "output_end_line": 3129,
+      "output_start_line": 3029,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/rag-hero.jpg"
@@ -3039,7 +3038,7 @@
     },
     {
       "canonical_url": "/thinking/bees-graphs-governance/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -3091,7 +3090,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [],
       "normalized_metadata": {
         "canonical_url": "/thinking/bees-graphs-governance/",
@@ -3153,9 +3152,9 @@
         "toc": true,
         "toc_sticky": true
       },
-      "output_content_sha256": "76c92407eee258998ea1144983784cc7a59b8cdf2e5556cb45f5cdd19072e1bc",
-      "output_end_line": 3221,
-      "output_start_line": 3127,
+      "output_content_sha256": "ded8be650d9577baf263b92e26e7b9f611ab7a63143e70913633cd1e30016d2d",
+      "output_end_line": 3225,
+      "output_start_line": 3131,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/bees-hero.jpg"
@@ -3171,7 +3170,7 @@
     },
     {
       "canonical_url": "/thinking/why-dashboards-fail/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "articles",
       "heading_transformations": [
         {
@@ -3277,7 +3276,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [],
       "normalized_metadata": {
         "canonical_url": "/thinking/why-dashboards-fail/",
@@ -3325,9 +3324,9 @@
         "toc": true,
         "toc_sticky": true
       },
-      "output_content_sha256": "122cab853a80e61d080142e9cec208a0ab5db464099668946fca639e20d1fe30",
-      "output_end_line": 3363,
-      "output_start_line": 3223,
+      "output_content_sha256": "139e146b6b021a1f8eee60a194f71afd312eaa1e9af1ccff14904ea0a2780358",
+      "output_end_line": 3367,
+      "output_start_line": 3227,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/bees-hero.jpg"
@@ -3343,7 +3342,7 @@
     },
     {
       "canonical_url": "/resources/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "resources",
       "heading_transformations": [
         {
@@ -3426,12 +3425,6 @@
         },
         {
           "flattened": false,
-          "from": "### Is Your Knowledge Ready for AI?",
-          "to": "##### Is Your Knowledge Ready for AI?",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
           "from": "### AI Instruction File Evaluation Worksheet",
           "to": "##### AI Instruction File Evaluation Worksheet",
           "type": "heading_demoted"
@@ -3473,7 +3466,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "relative_url_resolved",
@@ -3547,13 +3540,13 @@
         "permalink": "/resources/",
         "title": "Resources & Guides"
       },
-      "output_content_sha256": "70a4d56b1c7002a07b9221983de6102593b71a194b44e5826f92227cb2a0a674",
-      "output_end_line": 3630,
-      "output_start_line": 3367,
+      "output_content_sha256": "98a56f95c5c0586956cbfbbb33db244f2c4a3724323b98148a14a867b4073939",
+      "output_end_line": 3621,
+      "output_start_line": 3371,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [],
       "selection_rationale": "Required Resources page; combines public resource records, infographics, guide links, and project artifacts.",
-      "source_file_sha256": "7eb887fa2cab799b9372227cafadbdf24ac3eddf021fd854c58c35f887554a7e",
+      "source_file_sha256": "fb183c75099df1ba4dffa06dcaa0d10c87015e5a8f09d48f0d8673dc4a014797",
       "source_path": "resources/index.md",
       "source_title": "Resources & Guides",
       "source_type": "resource_index",
@@ -3563,153 +3556,8 @@
       ]
     },
     {
-      "canonical_url": "/resources/knowledge-legibility-diagnostic/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
-      "group": "resources",
-      "heading_transformations": [
-        {
-          "flattened": false,
-          "from": "## Who this is for",
-          "to": "#### Who this is for",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "## How to use it",
-          "to": "#### How to use it",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "## The five dimensions",
-          "to": "#### The five dimensions",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "### 1. Findability",
-          "to": "##### 1. Findability",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "### 2. Structure",
-          "to": "##### 2. Structure",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "### 3. Provenance",
-          "to": "##### 3. Provenance",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "### 4. Ownership",
-          "to": "##### 4. Ownership",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "### 5. Verification",
-          "to": "##### 5. Verification",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "## How to read your answers",
-          "to": "#### How to read your answers",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "## What to do next",
-          "to": "#### What to do next",
-          "type": "heading_demoted"
-        },
-        {
-          "flattened": false,
-          "from": "## Related resources",
-          "to": "#### Related resources",
-          "type": "heading_demoted"
-        }
-      ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
-      "liquid_include_transformations": [
-        {
-          "action": "relative_url_resolved",
-          "type": "liquid_variable",
-          "value": "/assets/downloads/missing-layer-two-reports.pdf"
-        },
-        {
-          "action": "relative_url_resolved",
-          "type": "liquid_variable",
-          "value": "/assets/downloads/missing-layer-two-reports.pdf"
-        },
-        {
-          "action": "removed_layout_or_navigation",
-          "include": "resource/buttons.html",
-          "type": "include"
-        }
-      ],
-      "normalized_metadata": {
-        "canonical_url": "/resources/knowledge-legibility-diagnostic/",
-        "categories": [
-          "Knowledge Systems"
-        ],
-        "description": "Fifteen questions across five dimensions \u2014 findability, structure, provenance, ownership, and verification \u2014 to check whether your organizational knowledge is in good enough shape for AI to use and for humans to verify.",
-        "last_modified_at": "2026-07-04",
-        "publication_date": "2026-07-04",
-        "source_type": "resource",
-        "tags": [
-          "knowledge-systems",
-          "ai-readiness",
-          "rag",
-          "evaluation",
-          "metadata"
-        ],
-        "title": "Is Your Knowledge Ready for AI?"
-      },
-      "original_front_matter": {
-        "categories": [
-          "Knowledge Systems"
-        ],
-        "date": "2026-07-04",
-        "download_url": "/assets/resources/diagnostic_knowledge_legibility.pdf",
-        "excerpt": "Fifteen questions across five dimensions \u2014 findability, structure, provenance, ownership, and verification \u2014 to check whether your organizational knowledge is in good enough shape for AI to use and for humans to verify.",
-        "format": "Diagnostic",
-        "last_modified_at": "2026-07-04",
-        "layout": "single",
-        "level": "Beginner",
-        "permalink": "/resources/knowledge-legibility-diagnostic/",
-        "subtitle": "A short diagnostic for teams building AI on top of documents, workflows, decisions, and institutional memory",
-        "tags": [
-          "knowledge-systems",
-          "ai-readiness",
-          "rag",
-          "evaluation",
-          "metadata"
-        ],
-        "title": "Is Your Knowledge Ready for AI?",
-        "toc": true,
-        "toc_label": "The diagnostic",
-        "toc_sticky": true
-      },
-      "output_content_sha256": "3a6c23795f1fce07f9644c6b94aed85f44d5b9d7c01fb44fc2733ee9b5b685b7",
-      "output_end_line": 3779,
-      "output_start_line": 3632,
-      "pipeline_version": "pageindex-normalizer-v1",
-      "referenced_assets": [],
-      "selection_rationale": "Directly supports the experiment's knowledge-legibility and AI-readiness themes.",
-      "source_file_sha256": "d1074d9febbef3212e181c52e2a86e8e2b61d9f55c32cfa0531d6546b825edb1",
-      "source_path": "_resources/knowledge-legibility-diagnostic.md",
-      "source_title": "Is Your Knowledge Ready for AI?",
-      "source_type": "resource",
-      "warnings": []
-    },
-    {
       "canonical_url": "/resources/what-is-a-harness-in-ai/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "resources",
       "heading_transformations": [
         {
@@ -3719,7 +3567,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "relative_url_resolved",
@@ -3800,9 +3648,9 @@
         ],
         "title": "What Does 'Harness' Mean in AI?"
       },
-      "output_content_sha256": "ebeb2c8067495a6c92373393317ed61149fab6efdf876cb569a6ebf055e9c553",
-      "output_end_line": 3815,
-      "output_start_line": 3781,
+      "output_content_sha256": "8ee235c85ee48971d74880e6770f9aac4e1977bb676974d45c00c9c84ec0245b",
+      "output_end_line": 3657,
+      "output_start_line": 3623,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/resources/ai-harness-meaning-llm-agents-evals.png"
@@ -3816,7 +3664,7 @@
     },
     {
       "canonical_url": "/resources/memory-is-more-than-storage/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "resources",
       "heading_transformations": [
         {
@@ -3826,7 +3674,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "relative_url_resolved",
@@ -3880,9 +3728,9 @@
         ],
         "title": "Memory Is More Than Storage"
       },
-      "output_content_sha256": "1a58c0a1509866541285d6c1cc112d24a4240f55c9c28ae9a1c4ff355b0c496a",
-      "output_end_line": 3860,
-      "output_start_line": 3817,
+      "output_content_sha256": "c057b492f61b6ae69cf3beeeabda21e2bebf4e7aa09b3ec385367be7b7103ac2",
+      "output_end_line": 3702,
+      "output_start_line": 3659,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/resources/memory-is-more-than-storage.png"
@@ -3896,7 +3744,7 @@
     },
     {
       "canonical_url": "/resources/resume-data-schema/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "resources",
       "heading_transformations": [
         {
@@ -4056,7 +3904,7 @@
           "type": "heading_demoted"
         }
       ],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [],
       "normalized_metadata": {
         "canonical_url": "/resources/resume-data-schema/",
@@ -4103,9 +3951,9 @@
         "toc_label": "Schema Guide",
         "toc_sticky": true
       },
-      "output_content_sha256": "041f2d6649cd4afcbcc6fda7d4f8cdba5d81d20a5fc7ecfa2978f95c5c4d7f8d",
-      "output_end_line": 4087,
-      "output_start_line": 3862,
+      "output_content_sha256": "8a7b440ec2a26efc7630b9f0f298b92a3746e81b6969fe2d88ddea9ec1c7e8d6",
+      "output_end_line": 3929,
+      "output_start_line": 3704,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/diagrams/resume-data-flow.svg",
@@ -4120,10 +3968,10 @@
     },
     {
       "canonical_url": "/resources/ai-instructions-evaluation-worksheet/",
-      "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+      "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
       "group": "resources",
       "heading_transformations": [],
-      "inclusion_timestamp": "2026-07-04T23:38:11-05:00",
+      "inclusion_timestamp": "2026-07-07T23:50:55-05:00",
       "liquid_include_transformations": [
         {
           "action": "removed_layout_or_navigation",
@@ -4176,9 +4024,9 @@
         ],
         "title": "AI Instruction File Evaluation Worksheet"
       },
-      "output_content_sha256": "7117c9eb10e4b00d961f9f1ca67f8ee496fbe550ba9bf81d080aa3002922bad7",
-      "output_end_line": 4117,
-      "output_start_line": 4089,
+      "output_content_sha256": "222957f54d61bf4c7fead7c6de7226e4caeef0a5ddc07752b30cee83c72dbe0c",
+      "output_end_line": 3959,
+      "output_start_line": 3931,
       "pipeline_version": "pageindex-normalizer-v1",
       "referenced_assets": [
         "/assets/images/resources/ai-instructions-evaluation-worksheet-teaser.png"
@@ -4271,11 +4119,11 @@
       "min": 1
     }
   },
-  "generated_at": "2026-07-04T23:38:11-05:00",
-  "git_commit_sha": "c06389f1bca9bc014a8dfeaae0cc53a18589f4bd",
+  "generated_at": "2026-07-07T23:50:55-05:00",
+  "git_commit_sha": "ad965bf9983d9526bef7b64aa6005eb2a624f0c6",
   "pipeline_version": "pageindex-normalizer-v1",
   "site_url": "https://barbhs.com",
-  "snapshot_date": "2026-07-04",
+  "snapshot_date": "2026-07-07",
   "supporting_data": [
     {
       "exists": true,

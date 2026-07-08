@@ -30,7 +30,6 @@
 
 ### Resources
 - `resources/index.md` — Required Resources page; combines public resource records, infographics, guide links, and project artifacts.
-- `_resources/knowledge-legibility-diagnostic.md` — Directly supports the experiment's knowledge-legibility and AI-readiness themes.
 - `_resources/what-is-a-harness-in-ai.md` — Evaluation terminology resource that clarifies multiple meanings of harness in AI systems.
 - `_resources/memory-is-more-than-storage.md` — Public proof asset connecting human memory, AI agent memory, and knowledge-system architecture.
 - `_resources/resume-data-schema.md` — Structured resume metadata reference relevant to Resume Graph Explorer and machine-legible professional history.
@@ -56,7 +55,7 @@
 - Core Positioning Pages: 4
 - Project Portfolio: 6
 - Articles: 10
-- Resources: 6
+- Resources: 5
 
 ## Front-Matter Schemas Encountered
 
@@ -78,7 +77,7 @@ See `reports/NORMALIZATION_AUDIT.md` for the full schema audit. The builder pres
 - `index.md`: `html` -> converted_to_markdown ()
 - `_pages/start_here.md`: `html` -> converted_to_markdown ()
 - `_pages/work-with-me.md`: `html` -> converted_to_markdown ()
-- `_pages/my-journey.html`: `include` -> removed_unresolved (quote.html)
+- `_pages/my-journey.html`: `include` -> expanded_quote (quote.html)
 - `_pages/my-journey.html`: `html` -> converted_to_markdown ()
 - `_projects/poolula-platform-rag-chatbot.md`: `include` -> removed_layout_or_navigation (page__taxonomy.html)
 - `_projects/fitness-dashboard-ml-pipeline.md`: `include` -> removed_layout_or_navigation (page__taxonomy.html)
@@ -111,9 +110,6 @@ See `reports/NORMALIZATION_AUDIT.md` for the full schema audit. The builder pres
 - `resources/index.md`: `liquid_control` -> removed_layout_control ({% endif %})
 - `resources/index.md`: `liquid_variable` -> removed_unresolved ({{ f | slugify }})
 - `resources/index.md`: `liquid_variable` -> removed_unresolved ({{ f }})
-- `_resources/knowledge-legibility-diagnostic.md`: `liquid_variable` -> relative_url_resolved (/assets/downloads/missing-layer-two-reports.pdf)
-- `_resources/knowledge-legibility-diagnostic.md`: `liquid_variable` -> relative_url_resolved (/assets/downloads/missing-layer-two-reports.pdf)
-- `_resources/knowledge-legibility-diagnostic.md`: `include` -> removed_layout_or_navigation (resource/buttons.html)
 - `_resources/what-is-a-harness-in-ai.md`: `liquid_variable` -> relative_url_resolved (/assets/images/resources/ai-harness-meaning-llm-agents-evals.png)
 - `_resources/what-is-a-harness-in-ai.md`: `liquid_variable` -> relative_url_resolved (/blog/twin-evaluate-models/)
 - `_resources/what-is-a-harness-in-ai.md`: `liquid_variable` -> relative_url_resolved (/compare-models/)
@@ -147,8 +143,7 @@ See `reports/NORMALIZATION_AUDIT.md` for the full schema audit. The builder pres
 - `_thinking/2025-09-11-rag-without-the-theater.md`: 11 heading transformation(s).
 - `_thinking/2025-09-11-bees-graphs-governance.md`: 8 heading transformation(s).
 - `_thinking/2024-09-26-chunking-is-all-you-need.md`: 17 heading transformation(s).
-- `resources/index.md`: 21 heading transformation(s).
-- `_resources/knowledge-legibility-diagnostic.md`: 11 heading transformation(s).
+- `resources/index.md`: 20 heading transformation(s).
 - `_resources/what-is-a-harness-in-ai.md`: 1 heading transformation(s).
 - `_resources/memory-is-more-than-storage.md`: 1 heading transformation(s).
 - `_resources/resume-data-schema.md`: 26 heading transformation(s).
@@ -174,7 +169,6 @@ See `reports/NORMALIZATION_AUDIT.md` for the full schema audit. The builder pres
 - `_pages/my-journey.html`: Heading flattened to level 6: 🏗️The System Builder Asks:
 - `_pages/my-journey.html`: Heading flattened to level 6: 🔍The Data Scientist Asks:
 - `_pages/my-journey.html`: Heading flattened to level 6: 🧠The Cognitive Scientist Asks:
-- `_pages/my-journey.html`: Unresolved include removed for review: {% include quote.html set="field" id="hamming-insight" variant="epigraph" %}
 - `_projects/fitness-dashboard-ml-pipeline.md`: Referenced local asset is missing: /assets/images/projects/fitness-dashboard/card.jpg
 - `_projects/fitness-dashboard-ml-pipeline.md`: Referenced local asset is missing: /assets/images/projects/fitness-dashboard/hero.jpg
 - `_projects/beehive-knowledge-builder.md`: Referenced local asset is missing: /assets/images/projects/hivetracker/card.jpg
