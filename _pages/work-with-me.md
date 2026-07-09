@@ -30,7 +30,7 @@ Most AI initiatives fail not because of bad models, but because the knowledge un
     <p>Before you fund a build, find out what the AI would actually be reasoning over. I trace where your knowledge really lives — documents, spreadsheets, tickets, databases, and the parts that exist only in people's heads — and assess whether it's structured and traceable enough for a system to retrieve, cite, and get right.</p>
     <p><strong>You walk away with:</strong> a legibility map of your knowledge, a prioritized list of gaps (what's missing, ambiguous, or contradicts itself), and a concrete recommendation — build now, fix these things first, or don't build yet. Either way, you'll know why.</p>
     <p class="card-meta"><strong>Why it matters:</strong> most stalled AI projects didn't fail at the model. They failed a year earlier, when nobody checked whether the knowledge was legible. I wrote about that pattern in <a class="text-link" href="/blog/missing-layer-ai-adoption-value/">The Missing Layer</a>.</p>
-    <p class="card-meta"><em>Related work: <a class="text-link" href="/blog/metadata-matters/">Metadata Matters</a> · <a class="text-link" href="/resources/resource-schema-org-cheatsheet-builders/">Schema.org cheatsheet</a></em></p>
+    <p class="card-meta"><em>Start with the self-check: <a class="text-link" href="/resources/knowledge-legibility-diagnostic/">Is Your Knowledge Ready for AI?</a> · Related work: <a class="text-link" href="/blog/metadata-matters/">Metadata Matters</a> · <a class="text-link" href="/assets/resources/schema-org-cheatsheet-builders.pdf">Schema.org cheatsheet</a></em></p>
   </div>
 
   <div class="content-slab">

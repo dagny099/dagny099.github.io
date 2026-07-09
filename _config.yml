@@ -114,6 +114,7 @@ exclude:
   - CHANGELOG.md
   - README.md
   - scripts/
+  - agent-context/
   - Gemfile
   - Gemfile.lock
 
