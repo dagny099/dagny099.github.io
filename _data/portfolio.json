@@ -332,7 +332,7 @@
       "id": "transcript-workbench",
       "name": "TranscriptWorkbench",
       "tagline": "A provider-agnostic transcription workbench that tells you what your provider can’t do.",
-      "description": "Audio or video in, transcripts out — with OpenAI, AWS Transcribe, and local faster-whisper adapters all mapped to one canonical transcript schema. The distinctive part is capability negotiation: request timestamps, confidence, or speaker diarization, and the app reports honestly whether your selected provider supports them — supported, partial, proxy, or diagnostic — instead of pretending all ASR providers return equivalent outputs. Raw responses are preserved for reproducibility, jobs persist to SQLite, and a pricing service estimates cost per provider before you run.",
+      "description": "Audio or video in, clean transcripts out — a local-first Streamlit app whose distinctive move is capability negotiation: request timestamps, confidence, or speaker labels and it reports honestly what your chosen provider actually delivers (supported, partial, proxy, diagnostic, unsupported), instead of pretending every ASR provider is equivalent. OpenAI ships end-to-end today; AWS Transcribe and local faster-whisper are registered in the UI with full capability metadata but not yet implemented — labeled \"coming soon\" rather than silently omitted. Every provider maps to one canonical transcript schema, raw responses are preserved for reproducibility, jobs persist to SQLite, and a pricing service estimates cost before you run. Files stay on your machine, and keys are optional until a provider is used.",
       "status": "MVP live",
       "domain": "audio & language",
       "links": {
@@ -346,14 +346,46 @@
       ],
       "tech": [
         "streamlit",
+        "openai",
+        "sqlite",
         "aws"
       ],
       "cluster": "trust",
       "tier": "featured",
       "in_graph": true,
-      "receipt": "A six-state capability matrix (supported → unsupported) replaces the silent pretense that every speech-to-text provider is interchangeable.",
+      "receipt": "A six-state capability matrix (supported → unsupported) replaces the silent pretense that every speech-to-text provider is interchangeable; only OpenAI is implemented today, and the UI says so.",
       "marketable_angle": "Capability negotiation is an unusually honest design pattern — great LinkedIn essay material on trustworthy AI UX.",
       "story_hook": "Most transcription apps lie by omission about what their provider supports. This one negotiates."
+    },
+    {
+      "id": "biographical-graph",
+      "name": "biographical-graph",
+      "tagline": "A person-agnostic knowledge-graph engine — model any life, from one codebase.",
+      "description": "A Neo4j engine that turns a biographical text into a structured graph of a person's life, career, relationships, and impact. An LLM extracts entities into reviewable YAML with provenance on every node; a loader writes them with idempotent MERGE, namespaced IDs, and a shared-vs-owned entity model, so subjects who shared an employer or a stage converge on one node. Every subject is a YAML config — PERSON_ID selects who's active, and the React frontend (timeline, Cytoscape network, profile) themes itself per person from /api/v1/config with no code changes. Generalized from a memorial graph for one person into reusable machinery; Grace Hopper and Josephine Baker ship as worked examples.",
+      "status": "in progress",
+      "domain": "biography & knowledge graphs",
+      "links": {
+        "repo": "https://github.com/dagny099/biographical-neo4j-graph"
+      },
+      "capabilities": [
+        "knowledge-graphs",
+        "nlp-extraction",
+        "data-engineering"
+      ],
+      "tech": [
+        "neo4j",
+        "react",
+        "flask",
+        "anthropic",
+        "cytoscape"
+      ],
+      "cluster": "graphs",
+      "tier": "compact",
+      "in_graph": true,
+      "receipt": "One Neo4j database, one React build, any subject: PERSON_ID selects the person and the theme; 14 entity types carry provenance on every node.",
+      "marketable_angle": "Person-as-config plus a shared/owned entity model is a clean multi-tenant graph pattern; the memorial-to-engine generalization is a strong narrative.",
+      "story_hook": "I turned a memorial knowledge graph for one person into an engine that can model anyone's life.",
+      "docs_blurb": "How a biographical subject becomes a graph: LLM extraction with provenance, the shared-vs-owned entity model, and per-person runtime theming."
     },
     {
       "id": "mj-extension",
@@ -469,6 +501,30 @@
     {
       "id": "networkx",
       "name": "NetworkX"
+    },
+    {
+      "id": "react",
+      "name": "React"
+    },
+    {
+      "id": "flask",
+      "name": "Flask"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic Claude"
+    },
+    {
+      "id": "cytoscape",
+      "name": "Cytoscape.js"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI"
+    },
+    {
+      "id": "sqlite",
+      "name": "SQLite"
     }
   ],
   "archive": [
