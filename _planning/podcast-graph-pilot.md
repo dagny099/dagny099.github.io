@@ -1,6 +1,6 @@
 # Pilot plan: "My Podcast Loves, as a graph"
 
-Status: planned 2026-10-03, build in the next session.
+Status: planned 2026-10-03. Seed data landed 2026-10-04 (13 listens, 6 shows, 19 people, 12 topics).
 Lives in `_planning/` (underscore folder, not a collection, so Jekyll does not publish it).
 
 ## 1. What the pilot is
@@ -90,13 +90,16 @@ show: superdatascience
 episode_number: <int or omit>
 published_on: <YYYY-MM-DD>
 listened_on: 2026-10-03       # default today; approximate is fine (see listened_precision)
-listened_precision: day       # day | month | year, for back-filled memories
+listened_precision: day       # day | month | year | approximate (back-fill: listened_on = published_on)
 guests: [katie_malone]
 topics: [ml_education, careers_in_data]
 episode_url: <url>
 audio_url: <url, optional>
 guid: "<rss guid or itunes trackId>"   # dedupe key
 spark: "One sentence on what this made me think."
+spark_draft: true             # Claude-drafted from show notes; drop the flag once rewritten in my words
+related_links:                # optional, e.g. a C&C TAKEAWAY mini-episode
+  - { label: Takeaway episode, url: <url> }
 provenance:
   metadata: itunes | rss | websearch | manual
   guests: confirmed
@@ -166,32 +169,26 @@ Flow:
 `validate.py` also runs in a GitHub Action on PRs that touch `_listens/` or the
 three data files.
 
-## 6. Network constraint (found while planning)
+## 6. Network constraint (resolved 2026-10-04)
 
-From this cloud environment, the egress proxy blocks `itunes.apple.com` and
-every podcast RSS host I tried (megaphone, omnycontent, anchor, art19,
-simplecast, buzzsprout, podcastindex), through both curl and WebFetch.
-WebSearch works.
+The cloud environment's egress proxy blocks podcast RSS hosts. `itunes.apple.com`
+is now allowlisted and is enough on its own:
 
-Options, in order of preference:
-1. **Allowlist `itunes.apple.com`** in the cloud environment's network settings
-   (Custom, keep the package-manager defaults). The Search API returns `feedUrl`,
-   and `lookup?id=<collectionId>&entity=podcastEpisode&limit=200` returns recent
-   episodes with title, release date, URL and description. That would cover
-   metadata for most "recent-ish" episodes with one domain and no RSS host.
-   *Unverified: I could not call it from here. Test it first next session.*
-2. Run the skill from a **local** Claude Code session (open network). The
-   helper script reads RSS directly, reusing Graph Garnish's paginated feed
-   parser idea (`graphgarnish/tools/build_network.py`).
-3. **WebSearch-only fallback** in locked-down sessions: resolve from episode
-   pages, set `provenance.metadata: websearch`, and leave `guid` and
-   `episode_number` empty for a later fill.
+- `search?media=podcast&entity=podcast&term=...` gives the show, `collectionId`, `feedUrl`.
+- `lookup?id=<collectionId>&entity=podcastEpisode&limit=200` gives the last 200
+  episodes with title, release date, duration, guid, Apple URL, audio URL and full
+  description. Verified on all five seed shows.
+- Gaps: no episode-number field (taken from titles where the show puts it
+  there); episodes older than the latest 200 are out of reach (would need RSS,
+  i.e. a local session or the WebSearch fallback).
+- Apple throttles at roughly 20 calls a minute; `scripts/listens/itunes_lookup.py`
+  retries with backoff.
 
 ## 7. Build order for next session
 
-1. Test option 1 above (two curl calls). That decides the lookup path. *(5 min)*
-2. Collection config, the three data files, topic vocabulary draft, and 1 hand-written listen. *(30 min)*
-3. Liquid JSON + `validate.py`; confirm the JSON parses after `jekyll build`. *(30 min)*
+1. ~~Test the lookup path~~ done.
+2. ~~Three data files, topic vocabulary, seed listens, `validate.py`~~ done (13 seeds).
+3. Collection config + Liquid JSON; confirm the JSON parses after `jekyll build`. *(30 min)*
 4. `listening/index.html` graph page, then `_layouts/listen.html`. *(90 min)*
 5. `add-listen` skill + helper, used to add the remaining seeds conversationally,
    which doubles as the test of the skill. *(60 min)*
