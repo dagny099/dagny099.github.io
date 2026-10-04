@@ -39,7 +39,7 @@ from itunes_lookup import list_episodes, search_shows  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "_data"
 LISTENS = ROOT / "_listens"
-MAX_SLOTS = 5  # the validated palette on /listening/ has five show colors
+MAX_SLOTS = 7  # the validated palette on /listening/ has seven show colors
 ZERO_WIDTH = re.compile(r"[⁠​‌‍﻿]")
 
 

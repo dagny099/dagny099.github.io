@@ -147,14 +147,19 @@ references get dropped client-side.
 
 ### As built (2026-10-04)
 
-- Show colors are a validated 5-slot categorical set, checked **all-pairs** because
-  in a force layout any two episodes can sit side by side. Light: `#036f4f #c47d04
-  #2393f1 #5d41b1 #d05faf` (worst CVD dE 11.4, normal dE 21.5). Dark: `#248160
-  #c8800f #4297e6 #7150d5 #c656a6` (10.1 / 17.5). All >= 3:1 on paper.
-  A sixth listened show folds to neutral ink; adding one means a new validated set.
-- Brand teal `#1B6B5E` fails the chroma floor (C 0.078), and teal vs coral collapses
-  under protanopia unless their lightness differs a lot. So coral is reserved for
-  selection, and teal for UI chrome, not for a show.
+- Show colors are a validated **7-slot** categorical set, checked **all-pairs** because
+  in a force layout any two episodes can sit side by side.
+  Light (slots 1-7): `#139bbe #8e480b #014da9 #736aec #7a3076 #b56184 #9a8e2f`
+  (worst CVD dE 8.8, normal dE 16.5). Dark: `#0fa3bf #9e5c1a #1069da #9079fe #9a47a2
+  #cb738f #9b981b` (8.7 / 15.5). All >= 3:1 on their surfaces, chroma >= 0.11.
+  Found by searching OKLCH candidates for the largest set where every pair clears
+  the gates with margin, dark band first (it is narrower), then re-stepping the same
+  hues for light. Seven is the maximum with margin in the dark band; an 8-color set
+  passed only by rounding. An 8th listened show folds to neutral ink.
+  (First version was 5 slots; replaced before launch, so no published colors moved.)
+- Brand teal `#1B6B5E` fails the chroma floor (C 0.078), and coral sits too close to
+  the rose slot (normal dE 11.1 light / 9.5 dark). So the graph uses neither for
+  shows: selection is an **ink** ring, teal stays in UI chrome.
 - `color_slot` in `_data/podcast_shows.yml` pins each show's color.
 - The layout settles before first paint, then fits the space under the header;
   phones get a portrait layout and counter-scaled labels. List view is the

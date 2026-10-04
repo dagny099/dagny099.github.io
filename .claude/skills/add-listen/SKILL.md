@@ -62,7 +62,7 @@ python3 scripts/listens/add_listen.py shows "superdatascience"
   ```
   Hosts come from the episode descriptions or Apple's `artistName`; add each host
   as a person (step 4) *before* validating. A show's color is assigned
-  automatically on its first logged episode. Only five colors exist; if they're all
+  automatically on its first logged episode. Only seven colors exist; if they're all
   taken the script says so, and you tell her the show will render in neutral ink.
 
 ### 3. Find the episode

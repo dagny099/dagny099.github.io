@@ -14,15 +14,16 @@ sitemap: false
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* Meaning Layer tokens. Show colors (--s1..--s5) are a categorical set validated
-     all-pairs (any two nodes can sit side by side): light worst CVD dE 11.4,
-     normal dE 21.5; dark worst CVD dE 10.1, normal dE 17.5; all >= 3:1 on paper.
-     Coral is reserved for selection, never a show. */
+  /* Meaning Layer tokens. Show colors (--s1..--s7) are a categorical set validated
+     all-pairs (any two nodes can sit side by side): light worst CVD dE 8.8,
+     normal dE 16.5; dark worst CVD dE 8.7, normal dE 15.5; all >= 3:1 on paper.
+     Seven is the most that passes in the dark band; an 8th show folds to --s0.
+     Selection is an ink ring, which reads against every show color. */
   :root{
     color-scheme:light;
     --paper:#FBFAF6; --card:#FFFFFF; --ink:#1A1A1A; --ink-soft:#5C5A53; --muted:#77736A;
     --teal:#1B6B5E; --teal-deep:#124B42; --coral:#DC6B4F; --sand:#EAE6DB; --line:#E3DDD2;
-    --s1:#036f4f; --s2:#c47d04; --s3:#2393f1; --s4:#5d41b1; --s5:#d05faf; --s0:#8A867C;
+    --s1:#139bbe; --s2:#8e480b; --s3:#014da9; --s4:#736aec; --s5:#7a3076; --s6:#b56184; --s7:#9a8e2f; --s0:#8A867C;
     --shadow:rgba(42,36,29,.08);
   }
   @media (prefers-color-scheme:dark){
@@ -30,7 +31,7 @@ sitemap: false
       color-scheme:dark;
       --paper:#14201E; --card:#1A2826; --ink:#EDEAE2; --ink-soft:#B7B2A6; --muted:#9A968B;
       --teal:#5FB3A1; --teal-deep:#8FD0C0; --coral:#E88468; --sand:#2A3633; --line:#2C3A37;
-      --s1:#248160; --s2:#c8800f; --s3:#4297e6; --s4:#7150d5; --s5:#c656a6; --s0:#8A867C;
+      --s1:#0fa3bf; --s2:#9e5c1a; --s3:#1069da; --s4:#9079fe; --s5:#9a47a2; --s6:#cb738f; --s7:#9b981b; --s0:#8A867C;
       --shadow:rgba(0,0,0,.35);
     }
   }
@@ -38,7 +39,7 @@ sitemap: false
     color-scheme:dark;
     --paper:#14201E; --card:#1A2826; --ink:#EDEAE2; --ink-soft:#B7B2A6; --muted:#9A968B;
     --teal:#5FB3A1; --teal-deep:#8FD0C0; --coral:#E88468; --sand:#2A3633; --line:#2C3A37;
-    --s1:#248160; --s2:#c8800f; --s3:#4297e6; --s4:#7150d5; --s5:#c656a6; --s0:#8A867C;
+    --s1:#0fa3bf; --s2:#9e5c1a; --s3:#1069da; --s4:#9079fe; --s5:#9a47a2; --s6:#cb738f; --s7:#9b981b; --s0:#8A867C;
     --shadow:rgba(0,0,0,.35);
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -83,7 +84,7 @@ sitemap: false
   .node:focus{outline:none}
   .node:focus-visible .ring{stroke:var(--teal);stroke-width:2.5}
   .node .hit{fill:transparent}
-  .node.selected .ring{stroke:var(--coral);stroke-width:2.5}
+  .node.selected .ring{stroke:var(--ink);stroke-width:2.5}
   .label{font-family:'IBM Plex Sans',sans-serif;fill:var(--ink);pointer-events:none;paint-order:stroke;
     stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}
   /* --ls counter-scales labels when zoomed out, so they stay legible on a phone. */
@@ -236,7 +237,7 @@ sitemap: false
 const SRC = document.body.dataset.src;
 document.getElementById("home-link").href = document.body.dataset.home;
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-const slotVar = slot => (slot >= 1 && slot <= 5) ? `var(--s${slot})` : "var(--s0)";
+const slotVar = slot => (slot >= 1 && slot <= 7) ? `var(--s${slot})` : "var(--s0)";
 const fmtDay = d => d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
 const fmtMonth = d => d.toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 const parseDay = s => new Date(`${s}T00:00:00Z`);
