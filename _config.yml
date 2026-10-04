@@ -161,6 +161,10 @@ collections:
     output: true
     permalink: /thinking/:name/
 
+  listens:
+    output: true
+    permalink: /listening/:name/
+
   # data-stories:
   #   output: true
   #   permalink: /data-stories/:name/
@@ -210,6 +214,16 @@ defaults:
       author_profile: false                                                                                                                                                                
       teaser: /assets/images/site-default-teaser.jpg                                                                                                                                       
                                                                                                                                                                                             
+  # Listens collection (podcast graph pilot, /listening/)
+  - scope: { path: "", type: listens }
+    values:
+      layout: listen
+      classes: wide
+      author_profile: false
+      share: false
+      comments: false
+      sitemap: false
+
   # Resources collection                                                                                                                                                                   
   - scope: { path: "", type: resources }                                                                                                                                                   
     values:                                                                                                                                                                                

@@ -1,6 +1,7 @@
 # Pilot plan: "My Podcast Loves, as a graph"
 
 Status: planned 2026-10-03. Seed data landed 2026-10-04 (13 listens, 6 shows, 19 people, 12 topics).
+Graph page (`listening/index.html`) and episode pages (`_layouts/listen.html`) built 2026-10-04.
 Lives in `_planning/` (underscore folder, not a collection, so Jekyll does not publish it).
 
 ## 1. What the pilot is
@@ -144,6 +145,31 @@ references get dropped client-side.
   - Mobile: the graph stays above the panel, and the panel becomes a bottom sheet.
 - `/projects/` card linking to `/listening/`, labelled as a pilot.
 
+### As built (2026-10-04)
+
+- Show colors are a validated 5-slot categorical set, checked **all-pairs** because
+  in a force layout any two episodes can sit side by side. Light: `#036f4f #c47d04
+  #2393f1 #5d41b1 #d05faf` (worst CVD dE 11.4, normal dE 21.5). Dark: `#248160
+  #c8800f #4297e6 #7150d5 #c656a6` (10.1 / 17.5). All >= 3:1 on paper.
+  A sixth listened show folds to neutral ink; adding one means a new validated set.
+- Brand teal `#1B6B5E` fails the chroma floor (C 0.078), and teal vs coral collapses
+  under protanopia unless their lightness differs a lot. So coral is reserved for
+  selection, and teal for UI chrome, not for a show.
+- `color_slot` in `_data/podcast_shows.yml` pins each show's color.
+- The layout settles before first paint, then fits the space under the header;
+  phones get a portrait layout and counter-scaled labels. List view is the
+  table twin of the graph. `?focus=<node id>` preselects a node (episode pages link to it).
+- Episode pages: spark (with a "draft" tag while `spark_draft: true`), notes body,
+  show-notes summary, guests, topics, up to 6 connected episodes (shared guest first).
+
+### Building locally in a cloud session
+
+`bundle exec jekyll` cannot find the binary, the GitHub metadata plugin calls an
+API the proxy blocks, and Ruby defaults to ASCII. What worked:
+run a stub API on 127.0.0.1 that answers `{}`, then
+`LANG=C.UTF-8 LC_ALL=C.UTF-8 PAGES_API_URL=http://127.0.0.1:8765 NO_NETRC=1 bundle exec ruby $(gem contents jekyll -v 3.9.3 | grep 'exe/jekyll$') build -d <out>`.
+cdnjs is blocked too, so browser tests serve d3 7.9.0 from npm.
+
 ## 5. The add-listen skill
 
 `.claude/skills/add-listen/SKILL.md`, plus stdlib-only helpers in
@@ -188,11 +214,11 @@ is now allowlisted and is enough on its own:
 
 1. ~~Test the lookup path~~ done.
 2. ~~Three data files, topic vocabulary, seed listens, `validate.py`~~ done (13 seeds).
-3. Collection config + Liquid JSON; confirm the JSON parses after `jekyll build`. *(30 min)*
-4. `listening/index.html` graph page, then `_layouts/listen.html`. *(90 min)*
+3. ~~Collection config + Liquid JSON~~ done.
+4. ~~`listening/index.html` graph page, then `_layouts/listen.html`~~ done.
 5. `add-listen` skill + helper, used to add the remaining seeds conversationally,
    which doubles as the test of the skill. *(60 min)*
-6. Projects card, PR. *(15 min)*
+6. ~~Projects link~~ done (a text link under the project-map link, not a card). PR. *(15 min)*
 
 **Bring to that session:** 5–10 episodes (show, guest or title fragment,
 roughly when you listened, and a sentence on why it stuck), with at least
@@ -221,5 +247,4 @@ is not yet identified.*
   `claude/annotation-pipeline-audit-p7j9bx` (QuoteExtractor, review-gated import,
   July 6) does not appear merged. That check used a shallow fetch, so confirm on GitHub.
 - `podcast-ingest-agent`: `PILOT.md` and `BACKLOG.md` are still empty.
-- This repo: `projects/graph.html` (Portfolio Knowledge Graph) is not linked
-  from any page I could find.
+- ~~This repo: `projects/graph.html` is unlinked~~ wrong: `projects/index.html` links it as `./graph.html`.

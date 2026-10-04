@@ -1,5 +1,8 @@
 # Podcast shows. Episodes live in _listens/. See _planning/podcast-graph-pilot.md.
+# color_slot (1-5) pins a show's color on /listening/ so adding shows never repaints
+# existing ones. Shows without a slot (or past 5) render in neutral ink.
 - id: superdatascience
+  color_slot: 1
   name: SuperDataScience
   hosts:
   - jon_krohn
@@ -7,6 +10,7 @@
   feed_url: https://feeds.megaphone.fm/SUPERDATASCIENCEPTYLTD9836501887
   apple_url: https://podcasts.apple.com/us/podcast/super-data-science-ml-ai-podcast-with-jon-krohn/id1163599059
 - id: catalog_cocktails
+  color_slot: 2
   name: Catalog & Cocktails
   hosts:
   - juan_sequeda
@@ -15,6 +19,7 @@
   feed_url: https://www.omnycontent.com/d/playlist/922e0f19-2d84-4485-835c-a83f00036b00/ec23d51c-1891-4428-81ee-b387002de817/46398967-49a1-45c7-9af5-b387002de875/podcast.rss
   apple_url: https://podcasts.apple.com/us/podcast/catalog-cocktails-the-honest-no-bs-data-podcast/id1524652737
 - id: lennys_podcast
+  color_slot: 3
   name: Lenny's Podcast
   hosts:
   - lenny_rachitsky
@@ -22,6 +27,7 @@
   feed_url: https://api.substack.com/feed/podcast/10845.rss
   apple_url: https://podcasts.apple.com/us/podcast/lennys-podcast-product-career-growth/id1627920305
 - id: stack_overflow_podcast
+  color_slot: 4
   name: The Stack Overflow Podcast
   hosts:
   - ryan_donovan
@@ -29,6 +35,7 @@
   feed_url: https://rss.art19.com/the-stack-overflow-podcast
   apple_url: https://podcasts.apple.com/us/podcast/the-stack-overflow-podcast/id1483510527
 - id: knowledge_graph_insights
+  color_slot: 5
   name: Knowledge Graph Insights
   hosts:
   - larry_swanson
