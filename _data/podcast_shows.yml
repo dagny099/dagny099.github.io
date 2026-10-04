@@ -1,6 +1,6 @@
 # Podcast shows. Episodes live in _listens/. See _planning/podcast-graph-pilot.md.
-# color_slot (1-7) pins a show's color on /listening/ so adding shows never repaints
-# existing ones. Shows without a slot (or past 7) render in neutral ink.
+# color_slot (1-6) pins a show's color on /listening/ so adding shows never repaints
+# existing ones. Shows without a slot (or past 6) render in neutral ink.
 - id: superdatascience
   color_slot: 1
   name: SuperDataScience

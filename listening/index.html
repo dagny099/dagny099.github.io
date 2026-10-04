@@ -8,22 +8,23 @@ sitemap: false
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Podcast Loves, as a Graph — Barbara Hidalgo-Sotelo</title>
+<title>Podcast Loves — Barbara Hidalgo-Sotelo</title>
 <meta name="description" content="Podcast episodes I have listened to, the people on them, and the topics that connect them, as an interactive graph.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* Meaning Layer tokens. Show colors (--s1..--s7) are a categorical set validated
-     all-pairs (any two nodes can sit side by side): light worst CVD dE 8.8,
-     normal dE 16.5; dark worst CVD dE 8.7, normal dE 15.5; all >= 3:1 on paper.
-     Seven is the most that passes in the dark band; an 8th show folds to --s0.
+  /* Layout: full-bleed graph under a header that carries title, filters and the show legend;
+     details slide in from the right (a bottom sheet on phones).
+     Show colors (--s1..--s6) are a categorical set validated all-pairs (any two nodes can
+     sit side by side) with hues at least 45 degrees apart: light worst CVD dE 8.3, normal
+     dE 15.5; dark 9.1 / 15.6; all >= 3:1 on paper. A 7th show folds to --s0.
      Selection is an ink ring, which reads against every show color. */
   :root{
     color-scheme:light;
     --paper:#FBFAF6; --card:#FFFFFF; --ink:#1A1A1A; --ink-soft:#5C5A53; --muted:#77736A;
     --teal:#1B6B5E; --teal-deep:#124B42; --coral:#DC6B4F; --sand:#EAE6DB; --line:#E3DDD2;
-    --s1:#139bbe; --s2:#8e480b; --s3:#014da9; --s4:#736aec; --s5:#7a3076; --s6:#b56184; --s7:#9a8e2f; --s0:#8A867C;
+    --s1:#139bbe; --s2:#9b541c; --s3:#006cec; --s4:#9354b5; --s5:#93174f; --s6:#939133; --s0:#8A867C;
     --shadow:rgba(42,36,29,.08);
   }
   @media (prefers-color-scheme:dark){
@@ -31,7 +32,7 @@ sitemap: false
       color-scheme:dark;
       --paper:#14201E; --card:#1A2826; --ink:#EDEAE2; --ink-soft:#B7B2A6; --muted:#9A968B;
       --teal:#5FB3A1; --teal-deep:#8FD0C0; --coral:#E88468; --sand:#2A3633; --line:#2C3A37;
-      --s1:#0fa3bf; --s2:#9e5c1a; --s3:#1069da; --s4:#9079fe; --s5:#9a47a2; --s6:#cb738f; --s7:#9b981b; --s0:#8A867C;
+      --s1:#0fa3bf; --s2:#9e5c1a; --s3:#3364db; --s4:#8f52a1; --s5:#de4675; --s6:#9b981b; --s0:#8A867C;
       --shadow:rgba(0,0,0,.35);
     }
   }
@@ -39,7 +40,7 @@ sitemap: false
     color-scheme:dark;
     --paper:#14201E; --card:#1A2826; --ink:#EDEAE2; --ink-soft:#B7B2A6; --muted:#9A968B;
     --teal:#5FB3A1; --teal-deep:#8FD0C0; --coral:#E88468; --sand:#2A3633; --line:#2C3A37;
-    --s1:#0fa3bf; --s2:#9e5c1a; --s3:#1069da; --s4:#9079fe; --s5:#9a47a2; --s6:#cb738f; --s7:#9b981b; --s0:#8A867C;
+    --s1:#0fa3bf; --s2:#9e5c1a; --s3:#3364db; --s4:#8f52a1; --s5:#de4675; --s6:#9b981b; --s0:#8A867C;
     --shadow:rgba(0,0,0,.35);
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -52,16 +53,15 @@ sitemap: false
   header{position:fixed;inset:0 0 auto 0;z-index:10;padding:1rem 1.5rem .6rem;
     background:linear-gradient(to bottom,var(--paper) 78%,transparent);pointer-events:none}
   header *{pointer-events:auto}
-  h1{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(1.45rem,3vw,2.05rem);letter-spacing:.01em}
-  h1 em{font-style:italic;color:var(--teal)}
-  .sub{font-size:.8rem;color:var(--ink-soft);max-width:40rem;line-height:1.45;margin-top:.15rem}
+  h1{font-family:'EB Garamond',Georgia,serif;font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:.005em;line-height:1.1}
+  .sub{font-size:.82rem;color:var(--ink-soft);max-width:44rem;line-height:1.45;margin-top:.2rem}
   .controls{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;margin-top:.7rem;font-size:.76rem;color:var(--ink-soft)}
   .ctl{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
-  .ctl-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}
+  .ctl-label{font-size:.74rem;color:var(--muted)}
   .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
   .seg button{font:inherit;font-size:.72rem;color:var(--ink-soft);background:none;border:none;padding:.28rem .7rem;cursor:pointer}
   .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-  .range{position:relative;width:min(240px,46vw);height:22px}
+  .range{position:relative;width:min(240px,46vw);height:28px}
   .range input{position:absolute;inset:0;width:100%;background:none;pointer-events:none;-webkit-appearance:none;appearance:none}
   .range input::-webkit-slider-thumb{pointer-events:auto;-webkit-appearance:none;width:15px;height:15px;border-radius:50%;
     background:var(--card);border:2px solid var(--teal);cursor:pointer;position:relative;z-index:2}
@@ -69,6 +69,18 @@ sitemap: false
   .range input::-webkit-slider-runnable-track{height:22px;background:none}
   .range .track{position:absolute;left:0;right:0;top:10px;height:2px;background:var(--line);border-radius:2px}
   .range .fill{position:absolute;top:10px;height:2px;background:var(--teal);border-radius:2px}
+  /* one tick per episode under the slider, in its show color */
+  .rug{position:absolute;left:7px;right:7px;top:17px;height:8px;pointer-events:none}
+  .rug i{position:absolute;top:0;width:2px;height:8px;margin-left:-1px;border-radius:1px}
+  .rug i.out{opacity:.25}
+  .shows{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .5rem;margin-top:.55rem;font-size:.76rem}
+  .shows .ctl-label{margin-right:.2rem}
+  .shows button{display:inline-flex;align-items:center;gap:.4rem;font:inherit;color:var(--ink);background:var(--card);
+    border:1px solid var(--line);border-radius:999px;padding:.2rem .65rem .2rem .45rem;cursor:pointer}
+  .shows button[aria-pressed="false"]{opacity:.4}
+  .shows button[aria-pressed="false"] .sw{background:transparent!important;box-shadow:inset 0 0 0 1.5px var(--muted)}
+  .shows .sw{width:10px;height:10px;border-radius:50%;flex:none}
+  .shows .count{color:var(--muted);font-variant-numeric:tabular-nums}
   .range-out{min-width:9.5rem;font-variant-numeric:tabular-nums;color:var(--ink)}
   .search{font:inherit;font-size:.76rem;color:var(--ink);background:var(--card);border:1px solid var(--line);
     border-radius:999px;padding:.3rem .8rem;width:12rem}
@@ -79,7 +91,10 @@ sitemap: false
   #graph:active{cursor:grabbing}
   .link{fill:none;stroke:var(--line);stroke-width:1}
   .link.HAS_EPISODE{stroke-width:1.6;stroke-opacity:.5}
-  .link.COVERS{stroke-opacity:.7}
+  .link.COVERS{stroke-opacity:.45}
+  .link.hot{stroke:var(--ink-soft);stroke-opacity:.75}
+  .link.HAS_EPISODE.hot{stroke-opacity:.9}
+  .pending{fill:var(--paper);pointer-events:none}
   .node{cursor:pointer}
   .node:focus{outline:none}
   .node:focus-visible .ring{stroke:var(--teal);stroke-width:2.5}
@@ -88,7 +103,7 @@ sitemap: false
   .label{font-family:'IBM Plex Sans',sans-serif;fill:var(--ink);pointer-events:none;paint-order:stroke;
     stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}
   /* --ls counter-scales labels when zoomed out, so they stay legible on a phone. */
-  .label.show{font-weight:600;font-size:calc(12.5px * var(--ls,1))}
+  .label.show{font-weight:600;font-size:calc(12.5px * var(--ls,1));stroke-width:6px}
   .label.person{font-size:calc(10.5px * var(--ls,1));fill:var(--ink-soft)}
   .label.topic{font-size:calc(10.5px * var(--ls,1));font-style:italic;fill:var(--ink-soft)}
   .label.episode{font-size:calc(10.5px * var(--ls,1))}
@@ -99,29 +114,22 @@ sitemap: false
   .lit{opacity:1;transition:opacity .25s}
   .gone{display:none}
 
-  /* ---------- legend ---------- */
-  .legend{position:fixed;left:1.5rem;bottom:1.2rem;z-index:10;display:flex;flex-direction:column;gap:.3rem;
-    font-size:.76rem;color:var(--ink-soft);background:color-mix(in srgb,var(--paper) 88%,transparent);padding:.5rem .6rem .5rem 0;border-radius:6px}
-  .legend h2{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:.35rem 0 .1rem}
-  .legend h2:first-child{margin-top:0}
-  .legend summary{cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);list-style:none;margin-bottom:.3rem}
-  .legend summary::-webkit-details-marker{display:none}
-  .legend details:not([open]) summary{margin:0}
-  .legend details > div{display:flex;flex-direction:column;gap:.3rem}
-  @media (min-width:721px){.legend summary{display:none}}
-  .legend button{display:flex;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;font:inherit;color:var(--ink);padding:.1rem 0;text-align:left}
-  .legend button[aria-pressed="false"]{opacity:.35}
-  .legend .count{color:var(--muted);font-variant-numeric:tabular-nums}
-  .key{display:flex;align-items:center;gap:.5rem}
+  /* ---------- key ---------- */
+  .key{position:fixed;left:1.5rem;bottom:1.1rem;z-index:6;display:flex;flex-wrap:wrap;align-items:center;gap:.35rem 1rem;
+    max-width:min(60rem,calc(100vw - 16rem));font-size:.72rem;color:var(--ink-soft)}
+  .key span{display:inline-flex;align-items:center;gap:.4rem}
   .glyph{width:14px;height:14px;flex:none}
-  .hint{font-size:.7rem;font-style:italic;color:var(--muted);margin-top:.2rem}
+  .hint{color:var(--muted)}
 
   /* ---------- tooltip ---------- */
-  .tip{position:fixed;z-index:30;pointer-events:none;max-width:260px;background:var(--card);color:var(--ink);
+  .tip{position:fixed;z-index:30;pointer-events:none;max-width:290px;background:var(--card);color:var(--ink);
     border:1px solid var(--line);border-radius:6px;box-shadow:0 6px 18px var(--shadow);padding:.45rem .6rem;font-size:.74rem;line-height:1.35;opacity:0;transition:opacity .12s}
   .tip.on{opacity:1}
   .tip strong{display:block;font-weight:600}
-  .tip .k{display:flex;align-items:center;gap:.4rem;color:var(--ink-soft);font-size:.68rem;margin-top:.15rem}
+  .tip .k{display:flex;align-items:center;gap:.4rem;color:var(--ink-soft);font-size:.7rem;margin-top:.2rem}
+  .tip .tspark{font-family:'EB Garamond',Georgia,serif;font-size:.92rem;line-height:1.3;color:var(--ink);margin-top:.4rem;
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .tip .tnote{color:var(--muted);font-size:.68rem;margin-top:.2rem}
   .linekey{display:inline-block;width:12px;height:3px;border-radius:2px;flex:none}
 
   /* ---------- panel ---------- */
@@ -131,17 +139,18 @@ sitemap: false
   aside.open{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.22,1,.36,1),visibility 0s}
   .close{position:absolute;top:.85rem;right:.85rem;background:none;border:1px solid var(--line);border-radius:50%;
     width:30px;height:30px;cursor:pointer;color:var(--ink-soft);font-size:.85rem}
-  .kicker{display:flex;align-items:center;gap:.45rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.45rem;padding-right:2rem}
+  .kicker{display:flex;align-items:center;gap:.45rem;font-size:.8rem;color:var(--ink-soft);margin-bottom:.4rem;padding-right:2rem}
   aside h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:1.55rem;line-height:1.15;margin-bottom:.55rem}
-  .meta{font-size:.74rem;color:var(--ink-soft);margin-bottom:.9rem;line-height:1.5}
-  .spark{font-family:'EB Garamond',Georgia,serif;font-style:italic;font-size:1.08rem;line-height:1.4;color:var(--teal-deep);
-    border-left:2px solid var(--teal);padding-left:.75rem;margin:.2rem 0 .3rem}
-  .draft{font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--ink-soft);border:1px solid var(--line);border-radius:3px;padding:.05rem .35rem;margin:0 0 1rem .9rem;display:inline-block}
+  .facts{display:grid;grid-template-columns:auto 1fr;gap:.15rem .9rem;font-size:.8rem;margin:.2rem 0 1rem}
+  .facts dt{color:var(--muted)}
+  .facts dd{font-variant-numeric:tabular-nums}
+  .meta{font-size:.8rem;color:var(--ink-soft);margin-bottom:.9rem}
+  aside .spark{font-family:'EB Garamond',Georgia,serif;font-size:1.32rem;line-height:1.35;color:var(--ink);margin:.1rem 0 .35rem}
+  aside .spark.none{font-family:inherit;font-size:.84rem;color:var(--muted)}
+  .draft{font-size:.74rem;color:var(--muted);margin-bottom:.4rem}
   aside p,.notes{font-size:.84rem;line-height:1.6;margin-bottom:.9rem}
   .notes p{margin-bottom:.6rem}
-  .from{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
-  aside h3{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:.9rem 0 .45rem;font-weight:600}
+  aside h3{font-size:.8rem;color:var(--ink-soft);margin:1.1rem 0 .4rem;font-weight:600}
   .chips{display:flex;flex-wrap:wrap;gap:.35rem}
   .chip{font:inherit;font-size:.72rem;padding:.2rem .6rem;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:var(--card);cursor:pointer}
   .chip:hover{border-color:var(--teal)}
@@ -157,10 +166,10 @@ sitemap: false
   /* ---------- list view ---------- */
   .listview{position:fixed;inset:0;z-index:5;overflow:auto;padding:11.5rem 1.5rem 4rem;background:var(--paper);display:none}
   body.list .listview{display:block}
-  body.list #graph,body.list .legend{display:none}
+  body.list #graph,body.list .key{display:none}
   table{border-collapse:collapse;width:100%;max-width:1100px;font-size:.8rem}
   caption{text-align:left;font-size:.74rem;color:var(--ink-soft);margin-bottom:.6rem}
-  th{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:.4rem .6rem;border-bottom:1px solid var(--line)}
+  th{font-weight:600;font-size:.74rem;color:var(--muted);text-align:left;padding:.4rem .6rem;border-bottom:1px solid var(--line)}
   td{padding:.55rem .6rem;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.4}
   td.num{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-soft)}
   td .showcell{display:flex;align-items:center;gap:.45rem;white-space:nowrap}
@@ -172,9 +181,11 @@ sitemap: false
     .sub{display:none}
     .controls{gap:.45rem .9rem}
     .search{width:9rem}
-    .legend{font-size:.7rem;max-width:70vw;left:1rem;bottom:.8rem}
+    .key{left:1rem;bottom:.7rem;max-width:calc(100vw - 2rem);gap:.25rem .7rem;font-size:.68rem}
+    .key .hint{display:none}
+    .shows{font-size:.72rem;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-1.5rem;padding-right:1.5rem}
+    .shows button{flex:none}
     .range{width:min(200px,calc(100vw - 13rem))}
-    .listview{padding-top:13rem}
     aside{top:auto;left:0;width:100%;height:62vh;border-left:none;border-top:1px solid var(--line);border-radius:12px 12px 0 0;transform:translateY(105%)}
     aside.open{transform:none}
     footer{display:none}
@@ -184,8 +195,8 @@ sitemap: false
 </head>
 <body data-src="{{ '/assets/data/listens-graph.json' | relative_url }}" data-home="{{ '/' | relative_url }}">
 <header>
-  <h1>My podcast loves, <em>as a graph</em></h1>
-  <p class="sub">Episodes I've listened to, the people on them, and the topics that tie them together. Color is the show. Hover to trace connections; click anything to see what it sparked.</p>
+  <h1>Podcast loves</h1>
+  <p class="sub" id="sub">Episodes I've listened to, the people on them, and the topics that connect them. Hover an episode to read what it sparked.</p>
   <div class="controls" role="group" aria-label="Filters">
     <div class="ctl">
       <span class="ctl-label" id="range-label">Dates</span>
@@ -194,7 +205,7 @@ sitemap: false
         <button type="button" data-axis="published_on" aria-pressed="false">Published</button>
       </div>
       <div class="range">
-        <div class="track"></div><div class="fill" id="range-fill"></div>
+        <div class="track"></div><div class="fill" id="range-fill"></div><div class="rug" id="rug" aria-hidden="true"></div>
         <input type="range" id="range-lo" aria-label="Start date" step="1">
         <input type="range" id="range-hi" aria-label="End date" step="1">
       </div>
@@ -210,12 +221,13 @@ sitemap: false
       </div>
     </div>
   </div>
+  <div class="shows" id="shows" role="group" aria-label="Shows: click to hide or show"></div>
 </header>
 
 <svg id="graph" role="img" aria-label="Interactive graph of podcast episodes, shows, people and topics"></svg>
 <section class="listview" aria-label="Episode list"><table id="table"></table></section>
 
-<div class="legend" aria-label="Legend and show filters"><details id="legend-box"><summary>Shows &amp; key</summary><div id="legend"></div></details></div>
+<div class="key" id="key" aria-label="Key"></div>
 <div class="tip" id="tip" role="tooltip"></div>
 
 <aside id="panel" aria-live="polite" aria-label="Details">
@@ -224,7 +236,7 @@ sitemap: false
 </aside>
 
 <footer>
-  Pilot · episode metadata from Apple Podcasts<br>
+  Pilot. Episode metadata from Apple Podcasts.<br>
   <a id="home-link" href="/">← barbhs.com</a>
 </footer>
 <div class="status" id="status">Loading…</div>
@@ -237,7 +249,7 @@ sitemap: false
 const SRC = document.body.dataset.src;
 document.getElementById("home-link").href = document.body.dataset.home;
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-const slotVar = slot => (slot >= 1 && slot <= 7) ? `var(--s${slot})` : "var(--s0)";
+const slotVar = slot => (slot >= 1 && slot <= 6) ? `var(--s${slot})` : "var(--s0)";
 const fmtDay = d => d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
 const fmtMonth = d => d.toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 const parseDay = s => new Date(`${s}T00:00:00Z`);
@@ -288,8 +300,11 @@ function init(D) {
   const nbrs = new Map(nodes.map(n => [n.id, new Set()]));
   LINKS.forEach(l => { nbrs.get(l.source).add(l.target); nbrs.get(l.target).add(l.source); });
   nodes.forEach(n => { n.degree = nbrs.get(n.id).size; });
-  const R = { show: 17, episode: 7, person: 5.5, topic: 6 };
-  const radius = n => n.type === "topic" ? R.topic + Math.min(n.degree, 6) * 0.6 : R[n.type];
+  const R = { episode: 7, person: 5.5, topic: 6 };
+  // Show nodes grow with how many of their episodes I've logged; topics with how many episodes cover them.
+  const radius = n => n.type === "show" ? (n.logged ? 11 + 4 * Math.sqrt(listenCount.get(n.ref.id)) : 12)
+    : n.type === "topic" ? R.topic + Math.min(n.degree, 6) * 0.6 : R[n.type];
+  const ownSpark = l => !!(l.spark && !l.spark_draft);
 
   /* ---------- state ---------- */
   const state = { axis: "listened_on", lo: null, hi: null, hiddenShows: new Set(), query: "", selected: null, view: "graph" };
@@ -324,6 +339,8 @@ function init(D) {
     } else {
       g.append("circle").attr("class", "ring").attr("r", r)
         .style("fill", d.color).style("stroke", "var(--paper)").style("stroke-width", 2);
+      // An episode whose spark I haven't written in my own words gets a paper center.
+      if (d.type === "episode" && !ownSpark(d.ref)) g.append("circle").attr("class", "pending").attr("r", 2.6);
     }
   });
   const shortTitle = t => t.replace(/^\d+:\s*/, "").replace(/\s+\|.*$/, "").slice(0, 46) + (t.length > 46 ? "…" : "");
@@ -335,12 +352,16 @@ function init(D) {
 
   /* ---------- simulation ---------- */
   const W = () => innerWidth, H = () => innerHeight;
+  const RING = innerWidth > 720 ? 330 : 240;
   const sim = d3.forceSimulation(nodes)
     .force("link", d3.forceLink(LINKS).id(d => d.id)
       .distance(l => ({ HAS_EPISODE: 48, GUEST_ON: 26, HOSTS: 58, COVERS: 95 })[l.type])
-      .strength(l => ({ HAS_EPISODE: .7, GUEST_ON: .9, HOSTS: .4, COVERS: .12 })[l.type]))
-    .force("charge", d3.forceManyBody().strength(d => d.type === "show" ? -520 : d.type === "topic" ? -140 : -110))
-    .force("collide", d3.forceCollide(d => radius(d) + (d.type === "show" ? 16 : d.type === "topic" ? 9 : 5)))
+      .strength(l => ({ HAS_EPISODE: .7, GUEST_ON: .9, HOSTS: .4, COVERS: .05 })[l.type]))
+    .force("charge", d3.forceManyBody().strength(d => d.type === "show" ? -520 : d.type === "topic" ? -60 : -110))
+    .force("collide", d3.forceCollide(d => radius(d) + (d.type === "show" ? 22 : d.type === "topic" ? 42 : 5)))
+    // Topics sit on an outer ring, so shows cluster inside and the cross-show bridges read at a glance.
+    .force("ring", d3.forceRadial(d => d.type === "topic" ? RING : 0, W() * .5, H() * .56)
+      .strength(d => d.type === "topic" ? .9 : 0))
     // Narrow screens get a portrait-shaped layout: pull harder toward the vertical axis.
     .force("x", d3.forceX(() => W() * .5).strength(innerWidth > 720 ? .045 : .13))
     .force("y", d3.forceY(() => H() * .56).strength(innerWidth > 720 ? .06 : .025))
@@ -364,11 +385,11 @@ function init(D) {
   function fit() {
     const shown = nodes.filter(n => !nodeSel.filter(d => d.id === n.id).classed("gone"));
     if (!shown.length) return;
-    const x0 = d3.min(shown, n => n.x - radius(n)), x1 = d3.max(shown, n => n.x + radius(n) + (n.type === "show" ? 150 : n.type === "topic" ? 110 : 12));
+    const x0 = d3.min(shown, n => n.x - radius(n)), x1 = d3.max(shown, n => n.x + radius(n) + (n.type === "show" ? 150 : n.type === "topic" ? 130 : 12));
     const y0 = d3.min(shown, n => n.y - radius(n)), y1 = d3.max(shown, n => n.y + radius(n));
     const head = document.querySelector("header").getBoundingClientRect().bottom;
-    const wide = innerWidth > 1000, small = innerWidth <= 720;
-    const ax0 = wide ? 270 : 12, ax1 = innerWidth - 12, ay0 = head + 4, ay1 = innerHeight - (small ? 48 : 16);
+    const small = innerWidth <= 720, keyTop = document.getElementById("key").getBoundingClientRect().top;
+    const ax0 = 16, ax1 = innerWidth - 16, ay0 = head + 8, ay1 = keyTop - 10;
     // On a phone, keep labels legible and let the reader pan rather than shrink to fit.
     const k = Math.max(Math.min((ax1 - ax0) / (x1 - x0), (ay1 - ay0) / (y1 - y0), 1.3), small ? .62 : .3);
     const tx = ax0 + ((ax1 - ax0) - k * (x1 - x0)) / 2 - k * x0;
@@ -389,24 +410,29 @@ function init(D) {
     const kind = { show: "Show", episode: "Episode", person: "Person", topic: "Topic" }[d.type];
     tip.append(el("strong", { text: d.label }));
     if (d.type === "episode") {
-      const s = showById.get(d.show);
-      tip.append(el("div", { class: "k" }, lineKey(d.color), el("span", { text: `${s ? s.name : d.show} · ${fmtDay(parseDay(d.ref[state.axis]))}` })));
+      const s = showById.get(d.show), l = d.ref;
+      tip.append(el("div", { class: "k" }, lineKey(d.color), el("span", { text: s ? s.name : d.show })),
+        el("div", { class: "k", text: `${state.axis === "listened_on" ? "Listened" : "Published"} ${fmtDay(parseDay(l[state.axis]))}` }));
+      if (l.spark) tip.append(el("div", { class: "tspark", text: l.spark }),
+        l.spark_draft ? el("div", { class: "tnote", text: "Draft from the show notes" }) : null);
+      else tip.append(el("div", { class: "tnote", text: "No spark written yet" }));
     } else {
-      tip.append(el("div", { class: "k", text: `${kind} · ${d.degree} connection${d.degree === 1 ? "" : "s"}` }));
+      tip.append(el("div", { class: "k", text: `${kind}, ${d.degree} connection${d.degree === 1 ? "" : "s"}` }));
     }
-    const pad = 14, w = 260;
+    const pad = 14, w = 290;
     tip.style.left = `${Math.min(x + pad, innerWidth - w - 8)}px`;
-    tip.style.top = `${Math.min(y + pad, innerHeight - 70)}px`;
+    tip.style.top = `${Math.min(y + pad, innerHeight - tip.offsetHeight - 8)}px`;
     tip.classList.add("on");
   };
   const hideTip = () => tip.classList.remove("on");
 
   /* ---------- highlight ---------- */
   function highlight(id) {
-    if (!id) { both("faded", false); both("lit", false); linkSel.classed("faded", false); return; }
+    if (!id) { both("faded", false); both("lit", false); linkSel.classed("faded", false).classed("hot", false); return; }
     const keep = new Set([id, ...nbrs.get(id)]);
     both("faded", d => !keep.has(d.id)); both("lit", d => keep.has(d.id));
-    linkSel.classed("faded", l => l.source.id !== id && l.target.id !== id);
+    const touches = l => l.source.id === id || l.target.id === id;
+    linkSel.classed("faded", l => !touches(l)).classed("hot", touches);
   }
   const resting = () => state.selected || null;
   nodeSel
@@ -437,7 +463,7 @@ function init(D) {
   function keepInView(n) {
     const t = d3.zoomTransform(svg.node()), sx = t.applyX(n.x), sy = t.applyY(n.y);
     const small = innerWidth <= 720, head = document.querySelector("header").getBoundingClientRect().bottom;
-    const vx0 = innerWidth > 1000 ? 270 : 16, vx1 = innerWidth - (small ? 0 : panel.offsetWidth) - 24;
+    const vx0 = 16, vx1 = innerWidth - (small ? 0 : panel.offsetWidth) - 24;
     const vy0 = head + 10, vy1 = small ? innerHeight * .38 - 10 : innerHeight - 24;
     if (sx >= vx0 && sx <= vx1 && sy >= vy0 && sy <= vy1) return;
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -456,19 +482,21 @@ function init(D) {
     content.replaceChildren();
     if (n.type === "episode") {
       const l = n.ref, s = showById.get(l.show);
+      const fact = (k, v) => [el("dt", { text: k }), el("dd", { text: v })];
       content.append(
         el("div", { class: "kicker" }, lineKey(n.color), el("span", { text: s ? s.name : l.show })),
         el("h2", { text: l.title }),
-        el("div", { class: "meta", text: [
-          `Listened ${l.listened_precision === "approximate" ? "≈ " : ""}${fmtDay(parseDay(l.listened_on))}`,
-          `published ${fmtDay(parseDay(l.published_on))}`,
-          l.duration_min ? `${l.duration_min} min` : null].filter(Boolean).join(" · ") }));
+        el("dl", { class: "facts" },
+          fact("Listened", `${l.listened_precision === "approximate" ? "About " : ""}${fmtDay(parseDay(l.listened_on))}`),
+          fact("Published", fmtDay(parseDay(l.published_on))),
+          l.duration_min ? fact("Length", `${l.duration_min} min`) : null),
+        el("h3", { text: "What it sparked" }));
       if (l.spark) {
         content.append(el("p", { class: "spark", text: l.spark }));
-        if (l.spark_draft) content.append(el("span", { class: "draft", title: "Drafted from show notes; not yet in my words", text: "draft spark" }));
-      }
-      if (l.notes_html) { const notes = el("div", { class: "notes" }); notes.innerHTML = l.notes_html; content.append(notes); }
-      if (l.summary) content.append(el("div", { class: "from", text: "From the show notes" }), el("p", { text: l.summary }));
+        if (l.spark_draft) content.append(el("p", { class: "draft", text: "Draft written from the show notes, not yet in my words." }));
+      } else content.append(el("p", { class: "spark none", text: "Nothing written yet." }));
+      if (l.notes_html) { const notes = el("div", { class: "notes" }); notes.innerHTML = l.notes_html; content.append(el("h3", { text: "Notes" }), notes); }
+      if (l.summary) content.append(el("h3", { text: "From the show notes" }), el("p", { text: l.summary }));
       if (l.guests && l.guests.length) content.append(el("h3", { text: "Guests" }),
         el("div", { class: "chips" }, l.guests.map(g => chip(`person:${g}`, (personById.get(g) || { name: g }).name))));
       if (l.topics && l.topics.length) content.append(el("h3", { text: "Topics" }),
@@ -481,7 +509,7 @@ function init(D) {
     } else if (n.type === "person") {
       const p = n.ref;
       const hosts = D.shows.filter(s => (s.hosts || []).includes(p.id));
-      content.append(el("div", { class: "kicker", text: hosts.length ? "Host" + (listensWhere(l => (l.guests || []).includes(p.id)).length ? " · Guest" : "") : "Guest" }),
+      content.append(el("div", { class: "kicker", text: hosts.length ? (listensWhere(l => (l.guests || []).includes(p.id)).length ? "Host and guest" : "Host") : "Guest" }),
         el("h2", { text: p.name }));
       if (p.bio) content.append(el("p", { text: p.bio }));
       if (hosts.length) content.append(el("h3", { text: "Hosts" }), el("div", { class: "chips" }, hosts.map(s => chip(`show:${s.id}`, s.name))));
@@ -490,14 +518,15 @@ function init(D) {
     } else if (n.type === "topic") {
       const t = n.ref, eps = listensWhere(l => (l.topics || []).includes(t.id));
       const shows = new Set(eps.map(l => l.show));
-      content.append(el("div", { class: "kicker", text: `Topic · ${eps.length} episode${eps.length === 1 ? "" : "s"} · ${shows.size} show${shows.size === 1 ? "" : "s"}` }),
-        el("h2", { text: t.label }));
+      content.append(el("div", { class: "kicker", text: "Topic" }), el("h2", { text: t.label }),
+        el("p", { class: "meta", text: `${eps.length} episode${eps.length === 1 ? "" : "s"} across ${shows.size} show${shows.size === 1 ? "" : "s"}` }));
       if (t.description) content.append(el("p", { text: t.description }));
       content.append(el("h3", { text: "Episodes" }), el("ul", { class: "eplist" }, eps.map(epItem)));
     } else if (n.type === "show") {
       const s = n.ref, eps = listensWhere(l => l.show === s.id);
       content.append(el("div", { class: "kicker" }, n.color ? lineKey(n.color) : null,
-        el("span", { text: n.logged ? `Show · ${eps.length} logged` : "Show · none logged yet" })), el("h2", { text: s.name }));
+        el("span", { text: "Show" })), el("h2", { text: s.name }),
+        el("p", { class: "meta", text: n.logged ? `${eps.length} episode${eps.length === 1 ? "" : "s"} logged` : "No episodes logged yet" }));
       if (!n.logged) content.append(el("p", { text: "On the graph through its host, not through anything I've logged." }));
       if ((s.hosts || []).length) content.append(el("h3", { text: "Hosted by" }),
         el("div", { class: "chips" }, s.hosts.map(h => chip(`person:${h}`, (personById.get(h) || { name: h }).name))));
@@ -539,7 +568,7 @@ function init(D) {
     if (!state.query) return false;
     const hits = new Set(nodes.filter(n => n.label.toLowerCase().includes(state.query)).map(n => n.id));
     both("faded", d => !hits.has(d.id)); both("lit", d => hits.has(d.id));
-    linkSel.classed("faded", true);
+    linkSel.classed("faded", true).classed("hot", false);
     return true;
   }
 
@@ -558,62 +587,78 @@ function init(D) {
     both("gone", d => !vis.has(d.id));
     linkSel.classed("gone", l => !vis.has(l.source.id) || !vis.has(l.target.id));
     const lo = new Date(state.lo * DAY), hi = new Date(state.hi * DAY);
-    out.textContent = `${fmtMonth(lo)} – ${fmtMonth(hi)} · ${eps.length} ep${eps.length === 1 ? "" : "s"}`;
+    out.textContent = `${fmtMonth(lo)} to ${fmtMonth(hi)}, ${eps.length} episode${eps.length === 1 ? "" : "s"}`;
     const span = Math.max(1, dmax - dmin);
     fill.style.left = `${(state.lo - dmin) / span * 100}%`; fill.style.width = `${(state.hi - state.lo) / span * 100}%`;
     if (state.selected && !vis.has(state.selected)) select(null);
-    renderLegend(); renderTable(eps);
+    renderShows(eps); renderRug(); renderTable(eps);
+    document.querySelector(".listview").style.paddingTop = `${document.querySelector("header").getBoundingClientRect().bottom + 12}px`;
+  }
+  function renderRug() {
+    const rug = document.getElementById("rug"), span = Math.max(1, dmax - dmin);
+    rug.replaceChildren(...D.listens.map(l => {
+      const day = Math.floor(parseDay(l[state.axis]) / DAY), s = showById.get(l.show);
+      const i = el("i", { class: (day < state.lo || day > state.hi || state.hiddenShows.has(l.show)) ? "out" : null });
+      i.style.left = `${(day - dmin) / span * 100}%`; i.style.background = slotVar(s && s.color_slot);
+      return i;
+    }));
   }
 
-  /* ---------- legend ---------- */
-  const legend = document.getElementById("legend");
+  /* ---------- show chips + key ---------- */
+  const showsBox = document.getElementById("shows"), keyBox = document.getElementById("key");
   const glyph = kind => {
     const s = d3.create("svg").attr("class", "glyph").attr("viewBox", "-7 -7 14 14").attr("aria-hidden", "true");
     if (kind === "topic") s.append("rect").attr("x", -4).attr("y", -4).attr("width", 8).attr("height", 8).attr("rx", 1.5).attr("transform", "rotate(45)").style("fill", "var(--sand)").style("stroke", "var(--ink-soft)");
     else if (kind === "person") s.append("circle").attr("r", 4).style("fill", "var(--paper)").style("stroke", "var(--ink-soft)").style("stroke-width", 1.5);
     else if (kind === "unlogged") s.append("circle").attr("r", 5).style("fill", "var(--paper)").style("stroke", "var(--ink-soft)").style("stroke-width", 1.5);
-    else if (kind === "episode") s.append("circle").attr("r", 3.5).style("fill", "var(--ink-soft)");
-    else s.append("circle").attr("r", 6).style("fill", kind);
+    else if (kind === "sparked") s.append("circle").attr("r", 5).style("fill", "var(--ink-soft)");
+    else if (kind === "pending") { s.append("circle").attr("r", 5).style("fill", "var(--ink-soft)"); s.append("circle").attr("r", 2).style("fill", "var(--paper)"); }
     return s.node();
   };
-  function renderLegend() {
-    const { eps } = visibleSet();
+  function renderShows(eps) {
     const counts = d3.rollup(eps, v => v.length, l => l.show);
-    legend.replaceChildren(el("h2", { text: "Shows · click to hide" }));
+    showsBox.replaceChildren(el("span", { class: "ctl-label", text: "Shows" }));
     D.shows.filter(s => listenCount.get(s.id)).sort((a, b) => (a.color_slot || 99) - (b.color_slot || 99)).forEach(s => {
-      legend.append(el("button", { type: "button", "aria-pressed": String(!state.hiddenShows.has(s.id)),
+      const sw = el("span", { class: "sw" }); sw.style.background = slotVar(s.color_slot);
+      showsBox.append(el("button", { type: "button", "aria-pressed": String(!state.hiddenShows.has(s.id)),
+        title: state.hiddenShows.has(s.id) ? `Show ${s.name}` : `Hide ${s.name}`,
         onclick: () => { state.hiddenShows.has(s.id) ? state.hiddenShows.delete(s.id) : state.hiddenShows.add(s.id); refresh(); } },
-        glyph(slotVar(s.color_slot)), el("span", { text: s.name }), el("span", { class: "count", text: String(counts.get(s.id) || 0) })));
+        sw, el("span", { text: s.name }), el("span", { class: "count", text: String(counts.get(s.id) || 0) })));
     });
-    legend.append(el("h2", { text: "Key" }),
-      el("div", { class: "key" }, glyph("episode"), el("span", { text: "Episode (show color)" })),
-      el("div", { class: "key" }, glyph("person"), el("span", { text: "Guest or host" })),
-      el("div", { class: "key" }, glyph("topic"), el("span", { text: "Topic" })));
-    if (D.shows.some(s => !listenCount.get(s.id)))
-      legend.append(el("div", { class: "key" }, glyph("unlogged"), el("span", { text: "Show known via its host" })));
-    legend.append(el("div", { class: "hint", text: "drag · scroll to zoom · labels appear when zoomed" }));
   }
+  function renderKey() {
+    keyBox.replaceChildren(
+      el("span", {}, glyph("sparked"), "Episode with my spark"),
+      el("span", {}, glyph("pending"), "Spark not written yet"),
+      el("span", {}, glyph("person"), "Guest or host"),
+      el("span", {}, glyph("topic"), "Topic"),
+      D.shows.some(s => !listenCount.get(s.id)) ? el("span", {}, glyph("unlogged"), "Show known through its host") : null,
+      el("span", { class: "hint", text: "Drag to rearrange, scroll to zoom" }));
+  }
+  const shownShows = new Set(D.listens.map(l => l.show)).size;
+  const span0 = d3.extent(D.listens, l => l.listened_on).map(s => parseDay(s).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" }));
+  document.getElementById("sub").textContent =
+    `${D.listens.length} episodes from ${shownShows} shows, ${span0[0]} to ${span0[1]}. Hover an episode to read what it sparked; click anything for details.`;
 
   /* ---------- table view ---------- */
   const table = document.getElementById("table");
   function renderTable(eps) {
     const rows = [...eps].sort((a, b) => b[state.axis].localeCompare(a[state.axis]));
     table.replaceChildren(
-      el("caption", { text: `${rows.length} episodes, newest first by ${state.axis === "listened_on" ? "listen" : "publish"} date. ≈ marks an approximate listen date.` }),
-      el("thead", {}, el("tr", {}, ["Listened", "Show", "Episode", "Guests", "Topics"].map(h => el("th", { scope: "col", text: h })))),
+      el("caption", { text: `${rows.length} episodes, newest first by ${state.axis === "listened_on" ? "listen" : "publish"} date. “About” marks an approximate listen date.` }),
+      el("thead", {}, el("tr", {}, ["Listened", "Show", "Episode", "What it sparked", "Guests"].map(h => el("th", { scope: "col", text: h })))),
       el("tbody", {}, rows.map(l => {
         const s = showById.get(l.show);
         return el("tr", {},
-          el("td", { class: "num", text: `${l.listened_precision === "approximate" ? "≈ " : ""}${l.listened_on}` }),
+          el("td", { class: "num", text: `${l.listened_precision === "approximate" ? "About " : ""}${l.listened_on}` }),
           el("td", {}, el("span", { class: "showcell" }, lineKey(slotVar(s && s.color_slot)), el("span", { text: s ? s.name : l.show }))),
           el("td", {}, el("a", { href: l.url, text: l.title })),
-          el("td", { text: (l.guests || []).map(g => (personById.get(g) || { name: g }).name).join(", ") }),
-          el("td", { text: (l.topics || []).map(t => (topicById.get(t) || { label: t }).label).join(", ") }));
+          el("td", { text: l.spark ? l.spark + (l.spark_draft ? " (draft)" : "") : "" }),
+          el("td", { text: (l.guests || []).map(g => (personById.get(g) || { name: g }).name).join(", ") }));
       })));
   }
 
-  document.getElementById("legend-box").open = innerWidth > 720;
-  setupRange(); refresh(); fit();
+  renderKey(); setupRange(); refresh(); fit();
   sim.alphaTarget(0).alpha(.04).restart();
   const focus = params.get("focus");
   if (focus && byId.has(focus)) setTimeout(() => select(focus), 600);

@@ -147,19 +147,28 @@ references get dropped client-side.
 
 ### As built (2026-10-04)
 
-- Show colors are a validated **7-slot** categorical set, checked **all-pairs** because
-  in a force layout any two episodes can sit side by side.
-  Light (slots 1-7): `#139bbe #8e480b #014da9 #736aec #7a3076 #b56184 #9a8e2f`
-  (worst CVD dE 8.8, normal dE 16.5). Dark: `#0fa3bf #9e5c1a #1069da #9079fe #9a47a2
-  #cb738f #9b981b` (8.7 / 15.5). All >= 3:1 on their surfaces, chroma >= 0.11.
-  Found by searching OKLCH candidates for the largest set where every pair clears
-  the gates with margin, dark band first (it is narrower), then re-stepping the same
-  hues for light. Seven is the maximum with margin in the dark band; an 8-color set
-  passed only by rounding. An 8th listened show folds to neutral ink.
-  (First version was 5 slots; replaced before launch, so no published colors moved.)
-- Brand teal `#1B6B5E` fails the chroma floor (C 0.078), and coral sits too close to
-  the rose slot (normal dE 11.1 light / 9.5 dark). So the graph uses neither for
-  shows: selection is an **ink** ring, teal stays in UI chrome.
+- Show colors are a validated **6-slot** categorical set, checked **all-pairs** (in a
+  force layout any two episodes can sit side by side) with hues kept at least 45 degrees
+  apart so no three shows read as one color family.
+  Light (slots 1-6): `#139bbe #9b541c #006cec #9354b5 #93174f #939133`
+  (worst CVD dE 8.3, normal dE 15.5). Dark: `#0fa3bf #9e5c1a #3364db #8f52a1 #de4675
+  #9b981b` (9.1 / 15.6). All >= 3:1 on their surfaces.
+  Found by searching OKLCH candidates for the largest set where every pair clears the
+  gates with margin, dark band first (it is narrower), then re-stepping the same hues
+  for light. With 45-degree spacing six is the maximum; seven only fits if cyan, blue
+  and violet crowd together, and greens clash with brown and olive under CVD.
+  A 7th listened show folds to neutral ink.
+  Alternative kept on file, 7 slots with bunched blues (passes all gates):
+  light `#139bbe #8e480b #014da9 #736aec #7a3076 #b56184 #9a8e2f`,
+  dark `#0fa3bf #9e5c1a #1069da #9079fe #9a47a2 #cb738f #9b981b`.
+- Brand teal `#1B6B5E` fails the chroma floor (C 0.078), and coral sits too close to a
+  rose/wine show slot. The graph uses neither for shows: selection is an **ink** ring,
+  teal stays in UI chrome.
+- Design review (2026-10-04) removed generated-UI tells: no italic colored title clause,
+  no mono uppercase micro-labels, no quote rail on the spark, fewer middot chains.
+  Sparks show in the hover tooltip; episodes without a spark in my own words get a paper
+  center; topics sit on an outer ring with faint edges that strengthen on hover; show
+  nodes scale with logged episodes; ticks under the date slider show where episodes fall.
 - `color_slot` in `_data/podcast_shows.yml` pins each show's color.
 - The layout settles before first paint, then fits the space under the header;
   phones get a portrait layout and counter-scaled labels. List view is the

@@ -11,21 +11,22 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
 {% assign graph_url = '/listening/' | relative_url %}
 
 <style>
-  .listen{--s1:#139bbe;--s2:#8e480b;--s3:#014da9;--s4:#736aec;--s5:#7a3076;--s6:#b56184;--s7:#9a8e2f;--s0:#8A867C;
+  .listen{--s1:#139bbe;--s2:#9b541c;--s3:#006cec;--s4:#9354b5;--s5:#93174f;--s6:#939133;--s0:#8A867C;--muted:#77736A;
     --teal:#1B6B5E;--teal-deep:#124B42;--line:#E3DDD2;--ink-soft:#5C5A53;font-family:'IBM Plex Sans',system-ui,sans-serif}
   @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]) .listen{--s1:#0fa3bf;--s2:#9e5c1a;--s3:#1069da;--s4:#9079fe;--s5:#9a47a2;--s6:#cb738f;--s7:#9b981b;}
+    :root:not([data-theme="light"]) .listen{--s1:#0fa3bf;--s2:#9e5c1a;--s3:#3364db;--s4:#8f52a1;--s5:#de4675;--s6:#9b981b;}
   }
-  .listen__kicker{display:flex;align-items:center;gap:.5rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;
-    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.8rem}
+  .listen__kicker{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem}
   .listen__key{width:14px;height:4px;border-radius:2px;background:var(--s{{ slot }})}
-  .listen__meta{font-size:.85rem;color:var(--ink-soft);margin-bottom:1.4rem}
-  .listen__spark{font-family:'EB Garamond',Georgia,serif;font-style:italic;font-size:1.35rem;line-height:1.4;
-    color:var(--teal-deep);border-left:3px solid var(--teal);padding-left:1rem;margin:0 0 .4rem}
-  .listen__draft{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--ink-soft);border:1px solid var(--line);border-radius:3px;padding:.05rem .4rem;margin-left:1.2rem}
-  .listen__label{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--ink-soft);margin:1.8rem 0 .5rem}
+  .listen__facts{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.2rem;font-size:.9rem;margin:0 0 1.6rem}
+  /* The theme styles dl/dt/dd; reset so the rows align as label/value pairs. */
+  .listen__facts dt,.listen__facts dd{margin:0;padding:0;font-size:1em;line-height:1.45}
+  .listen__facts dt{color:var(--muted);font-weight:400}
+  .listen__facts dd{font-variant-numeric:tabular-nums}
+  .listen p.listen__spark{font-family:'EB Garamond',Georgia,serif;font-size:1.75rem;line-height:1.3;margin:0 0 .5rem;max-width:38rem}
+  .listen p.listen__spark--none{font-size:.95rem;color:var(--muted)}
+  .listen p.listen__draft{font-size:.8em;color:var(--muted);margin:0}
+  .listen__label{font-size:.9rem;font-weight:600;color:var(--ink-soft);margin:1.8rem 0 .5rem}
   .listen__summary{font-size:.95rem}
   .listen__chips{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
   .listen__chips li{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:.2rem .7rem;margin:0}
@@ -35,21 +36,24 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
   .listen__links a.primary{background:var(--teal);border-color:var(--teal);color:#fff}
   .listen__related{list-style:none;margin:0;padding:0}
   .listen__related li{margin:0 0 .45rem;font-size:.9rem}
-  .listen__related small{color:var(--ink-soft)}
+  .listen__related small{display:block;color:var(--ink-soft)}
 </style>
 
 <div class="listen">
-  <div class="listen__kicker"><span class="listen__key" aria-hidden="true"></span>{{ show.name | default: page.show }}{% if page.episode_number %} · #{{ page.episode_number }}{% endif %}</div>
+  <div class="listen__kicker"><span class="listen__key" aria-hidden="true"></span>{{ show.name | default: page.show }}{% if page.episode_number %}, episode {{ page.episode_number }}{% endif %}</div>
 
-  <p class="listen__meta">
-    Listened {% if page.listened_precision == "approximate" %}≈ {% endif %}{{ page.listened_on | date: "%b %-d, %Y" }}
-    · published {{ page.published_on | date: "%b %-d, %Y" }}
-    {% if page.duration_min %}· {{ page.duration_min }} min{% endif %}
-  </p>
+  <dl class="listen__facts">
+    <dt>Listened</dt><dd>{% if page.listened_precision == "approximate" %}About {% endif %}{{ page.listened_on | date: "%b %-d, %Y" }}</dd>
+    <dt>Published</dt><dd>{{ page.published_on | date: "%b %-d, %Y" }}</dd>
+    {% if page.duration_min %}<dt>Length</dt><dd>{{ page.duration_min }} min</dd>{% endif %}
+  </dl>
 
+  <div class="listen__label">What it sparked</div>
   {% if page.spark %}
     <p class="listen__spark">{{ page.spark }}</p>
-    {% if page.spark_draft %}<span class="listen__draft" title="Drafted from show notes; not yet in my words">draft spark</span>{% endif %}
+    {% if page.spark_draft %}<p class="listen__draft">Draft written from the show notes, not yet in my words.</p>{% endif %}
+  {% else %}
+    <p class="listen__spark listen__spark--none">Nothing written yet.</p>
   {% endif %}
 
   {% assign notes = content | strip %}
@@ -88,7 +92,7 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
     {% for other in others %}{% if other.url != page.url and rel_count < 6 %}
       {% assign sg = false %}{% for g in other.guests %}{% if page.guests contains g %}{% assign sg = true %}{% endif %}{% endfor %}
       {% if sg %}{% assign rel_count = rel_count | plus: 1 %}{% assign os = site.data.podcast_shows | where: "id", other.show | first %}
-        <li><a href="{{ other.url | relative_url }}">{{ other.title }}</a> <small>· {{ os.name }} · same guest</small></li>
+        <li><a href="{{ other.url | relative_url }}">{{ other.title }}</a> <small>{{ os.name }}, same guest</small></li>
       {% endif %}
     {% endif %}{% endfor %}
     {% for other in others %}{% if other.url != page.url and rel_count < 6 %}
@@ -97,7 +101,7 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
         {% assign shared = "" %}
         {% for tp in other.topics %}{% if page.topics contains tp %}{% assign tt = site.data.podcast_topics | where: "id", tp | first %}{% assign shared = tt.label %}{% break %}{% endif %}{% endfor %}
         {% if shared != "" %}{% assign rel_count = rel_count | plus: 1 %}{% assign os = site.data.podcast_shows | where: "id", other.show | first %}
-          <li><a href="{{ other.url | relative_url }}">{{ other.title }}</a> <small>· {{ os.name }} · {{ shared }}</small></li>
+          <li><a href="{{ other.url | relative_url }}">{{ other.title }}</a> <small>{{ os.name }}, {{ shared }}</small></li>
         {% endif %}
       {% endunless %}
     {% endif %}{% endfor %}
