@@ -216,7 +216,9 @@ is now allowlisted and is enough on its own:
 2. ~~Three data files, topic vocabulary, seed listens, `validate.py`~~ done (13 seeds).
 3. ~~Collection config + Liquid JSON~~ done.
 4. ~~`listening/index.html` graph page, then `_layouts/listen.html`~~ done.
-5. `add-listen` skill + helper, used to add the remaining seeds conversationally,
+5. ~~`add-listen` skill + helper~~ done 2026-10-04: `.claude/skills/add-listen/SKILL.md` drives
+   `scripts/listens/add_listen.py` (lookups, ids, dedupe, color slots, front matter). Originally:
+   used to add the remaining seeds conversationally,
    which doubles as the test of the skill. *(60 min)*
 6. ~~Projects link~~ done (a text link under the project-map link, not a card). PR. *(15 min)*
 

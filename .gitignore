@@ -37,3 +37,6 @@ package-lock.json
 .playwright-mcp/
 _site_preview/
 agent-context
+
+# Python bytecode from scripts/
+__pycache__/

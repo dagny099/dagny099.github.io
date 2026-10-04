@@ -13,7 +13,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-REQUIRED = ["title", "show", "published_on", "listened_on", "guests", "topics", "guid"]
+REQUIRED = ["title", "show", "published_on", "listened_on", "topics", "guid"]  # guests may be empty (host-only episodes)
 PRECISIONS = {"day", "month", "year", "approximate"}
 
 
@@ -60,6 +60,8 @@ def main():
         errors += [f"{name}: missing '{k}'" for k in REQUIRED if fm.get(k) in (None, "", [])]
         if fm.get("show") not in show_ids:
             errors.append(f"{name}: unknown show '{fm.get('show')}'")
+        if not isinstance(fm.get("guests", []), list):
+            errors.append(f"{name}: guests must be a list (empty for host-only episodes)")
         errors += [f"{name}: unknown guest '{g}'" for g in fm.get("guests") or [] if g not in people_ids]
         errors += [f"{name}: unknown topic '{t}'" for t in fm.get("topics") or [] if t not in topic_ids]
         for key in ("published_on", "listened_on"):
