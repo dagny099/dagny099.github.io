@@ -25,7 +25,6 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
   .listen__facts dd{font-variant-numeric:tabular-nums}
   .listen p.listen__spark{font-family:'EB Garamond',Georgia,serif;font-size:1.75rem;line-height:1.3;margin:0 0 .5rem;max-width:38rem}
   .listen p.listen__spark--none{font-size:.95rem;color:var(--muted)}
-  .listen p.listen__draft{font-size:.8em;color:var(--muted);margin:0}
   .listen__label{font-size:.9rem;font-weight:600;color:var(--ink-soft);margin:1.8rem 0 .5rem}
   .listen__summary{font-size:.95rem}
   .listen__chips{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
@@ -49,9 +48,9 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
   </dl>
 
   <div class="listen__label">What it sparked</div>
-  {% if page.spark %}
+  {% comment %} Draft sparks (Claude-written) are not published; they show as not written yet. {% endcomment %}
+  {% if page.spark and page.spark_draft != true %}
     <p class="listen__spark">{{ page.spark }}</p>
-    {% if page.spark_draft %}<p class="listen__draft">Draft written from the show notes, not yet in my words.</p>{% endif %}
   {% else %}
     <p class="listen__spark listen__spark--none">Nothing written yet.</p>
   {% endif %}

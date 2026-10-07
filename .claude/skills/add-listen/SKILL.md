@@ -30,7 +30,8 @@ Run every command from the repo root. All subcommands are dry runs unless given 
   from general knowledge.
 - **The spark is hers.** It's the point of the page: what the episode made *her*
   think. Ask for it. Draft one only if she asks, and then it carries
-  `--spark-draft`, which shows a "draft spark" tag on the site until she rewrites it.
+  `--spark-draft`. Draft sparks stay in the file for her to rewrite but are never
+  published: the site shows "Nothing written yet" until `spark_draft` is removed.
 - **Hosts are not guests.** Hosts link to the show (`hosts:` in
   `_data/podcast_shows.yml`); the script refuses a host in `--guests`.
 - **Ask with AskUserQuestion when a choice is genuinely hers** (which of 3

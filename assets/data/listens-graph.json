@@ -24,7 +24,8 @@ sitemap: false
       "duration_min": {{ l.duration_min | jsonify }},
       "episode_url": {{ l.episode_url | jsonify }},
       "summary": {{ l.summary | jsonify }},
-      "spark": {{ l.spark | jsonify }},
+      {%- comment %} Draft sparks (Claude-written) stay in the source files and never ship. {% endcomment %}
+      "spark": {% if l.spark_draft %}null{% else %}{{ l.spark | jsonify }}{% endif %},
       "spark_draft": {{ l.spark_draft | default: false | jsonify }},
       "related_links": {{ l.related_links | jsonify }},
       "notes_html": {{ l.content | strip | jsonify }}

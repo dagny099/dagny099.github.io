@@ -264,3 +264,66 @@ is not yet identified.*
   July 6) does not appear merged. That check used a shallow fetch, so confirm on GitHub.
 - `podcast-ingest-agent`: `PILOT.md` and `BACKLOG.md` are still empty.
 - ~~This repo: `projects/graph.html` is unlinked~~ wrong: `projects/index.html` links it as `./graph.html`.
+
+## 10. Publishing and review (2026-10-07)
+
+- `.github/workflows/pages.yml` used to run its deploy steps on `pull_request` too, so
+  every PR went live as soon as its build passed (PR #62's run logged `preview: false`,
+  "Reported success"). Now PRs build as a check and only pushes to `master` publish.
+  This matters for add-listen: its PRs are the review gate.
+- Draft sparks (`spark_draft: true`, Claude-written) are never published. The Liquid JSON
+  emits `spark: null` for them and the episode layout skips them; the site shows
+  "Nothing written yet" and a hollow-centered node. The text stays in `_listens/` (and so
+  in the public repo) as a starting point to rewrite. Removing `spark_draft` publishes it.
+
+## 11. Next sessions, in order (decided 2026-10-07)
+
+### A. Works spike: books and articles connected to guests and hosts
+
+Decisions already made:
+- **Two tiers.** Tier 1 (first): works *mentioned in the episode*, taken from show notes,
+  verifiable against the description. Tier 2 (later): up to 3 works *by* a guest or
+  host, confirmed one by one.
+- **Off by default.** A "Works" toggle adds them as a new node shape with `WROTE`
+  (person → work) and `MENTIONS` (episode → work) edges.
+- **New data file** `_data/podcast_works.yml`: `id`, `title`, `type`
+  (book | article | paper | newsletter | talk), `authors` (person ids, may be empty for
+  outside authors), `year`, `url`, identifiers (`isbn`, `doi`, `openlibrary`, `openalex`),
+  `source` (where the record came from), `mentioned_in` (listen ids).
+- Bibliographic facts come from catalogs (Open Library, OpenAlex, Wikidata), never from
+  an LLM's memory. The LLM only picks which catalog record is the right person.
+
+What the spike should measure before any schema or UI work:
+1. Tier 1 recall: run extraction over the 13 seed show notes; how many real works are
+   mentioned, and how many does extraction find or invent?
+2. Tier 2 precision on three people chosen as tests: Luis Serrano (has books), Tim
+   O'Reilly (prolific, clutter test), David Burns of BrowserStack (name collision with
+   David D. Burns, author of *Feeling Good*).
+3. Network: allowlist `openlibrary.org` and `api.openalex.org` for the cloud environment,
+   or run lookups in a GitHub Action.
+
+### B. Logging from anywhere, with swappable LLMs
+
+- Phone is a **Pixel 8**, so no iOS Shortcuts. Options: Claude mobile app opening a
+  cloud session (the add-listen skill already works there); the HTTP Shortcuts app
+  (Android) as a share target that opens a GitHub issue; a GitHub issue form, following
+  the existing `.github/ISSUE_TEMPLATE/new-snippet.yml` pattern.
+- Open question: which podcast app? Apple links carry the episode id (`?i=`); Pocket
+  Casts, Spotify or YouTube Music links need a different resolver.
+- Pipeline split: everything except guest/topic/bio judgment is already deterministic
+  (`scripts/listens/add_listen.py`). Isolate the judgment step behind one function with
+  a fixed input and output; route it through LiteLLM (already used in the Digital Twin)
+  with a stage-to-model map.
+- The 13 seed episodes are a ready-made evaluation set (known guests and topics) for
+  comparing models per stage before switching.
+- A GitHub Action has open network access, so RSS works there and the 200-episode
+  limit of the Apple lookup goes away.
+- Decide: one PR per episode, or a `listens` branch merged in batches.
+
+## 12. Parking lot
+
+- **"Which guests wrote things I've read?"** Once my own reading is in the graph (for
+  example a Goodreads export), works become the bridge between what I listen to and what
+  I read. Depends on session A's works model.
+- Second nav level, once there are 2-3 lab-style pages to group.
+- Organizations and Spark/Idea nodes (section 8).
