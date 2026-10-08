@@ -1,0 +1,119 @@
+---
+layout: single
+---
+{% comment %}
+Episode page for the _listens collection (podcast graph pilot).
+Data lookups: show -> _data/podcast_shows.yml, guests -> podcast_people.yml,
+topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
+{% endcomment %}
+{% assign show = site.data.podcast_shows | where: "id", page.show | first %}
+{% assign slot = show.color_slot | default: 0 %}
+{% assign graph_url = '/listening/' | relative_url %}
+
+<style>
+  .listen{--s1:#139bbe;--s2:#9b541c;--s3:#006cec;--s4:#9354b5;--s5:#93174f;--s6:#939133;--s0:#8A867C;--muted:#77736A;
+    --teal:#1B6B5E;--teal-deep:#124B42;--line:#E3DDD2;--ink-soft:#5C5A53;font-family:'IBM Plex Sans',system-ui,sans-serif}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .listen{--s1:#0fa3bf;--s2:#9e5c1a;--s3:#3364db;--s4:#8f52a1;--s5:#de4675;--s6:#9b981b;}
+  }
+  .listen__kicker{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem}
+  .listen__key{width:14px;height:4px;border-radius:2px;background:var(--s{{ slot }})}
+  .listen__facts{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.2rem;font-size:.9rem;margin:0 0 1.6rem}
+  /* The theme styles dl/dt/dd; reset so the rows align as label/value pairs. */
+  .listen__facts dt,.listen__facts dd{margin:0;padding:0;font-size:1em;line-height:1.45}
+  .listen__facts dt{color:var(--muted);font-weight:400}
+  .listen__facts dd{font-variant-numeric:tabular-nums}
+  .listen p.listen__spark{font-family:'EB Garamond',Georgia,serif;font-size:1.75rem;line-height:1.3;margin:0 0 .5rem;max-width:38rem}
+  .listen p.listen__spark--none{font-size:.95rem;color:var(--muted)}
+  .listen__label{font-size:.9rem;font-weight:600;color:var(--ink-soft);margin:1.8rem 0 .5rem}
+  .listen__summary{font-size:.95rem}
+  .listen__chips{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+  .listen__chips li{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:.2rem .7rem;margin:0}
+  .listen__chips .bio{color:var(--ink-soft)}
+  .listen__links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+  .listen__links a{font-size:.85rem;text-decoration:none;padding:.45rem .9rem;border-radius:4px;border:1px solid var(--line)}
+  .listen__links a.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+  .listen__related{list-style:none;margin:0;padding:0}
+  .listen__related li{margin:0 0 .45rem;font-size:.9rem}
+  .listen__related small{display:block;color:var(--ink-soft)}
+</style>
+
+<div class="listen">
+  <div class="listen__kicker"><span class="listen__key" aria-hidden="true"></span>{{ show.name | default: page.show }}{% if page.episode_number %}, episode {{ page.episode_number }}{% endif %}</div>
+
+  <dl class="listen__facts">
+    <dt>Listened</dt><dd>{% if page.listened_precision == "approximate" %}About {% endif %}{{ page.listened_on | date: "%b %-d, %Y" }}</dd>
+    <dt>Published</dt><dd>{{ page.published_on | date: "%b %-d, %Y" }}</dd>
+    {% if page.duration_min %}<dt>Length</dt><dd>{{ page.duration_min }} min</dd>{% endif %}
+  </dl>
+
+  <div class="listen__label">What it sparked</div>
+  {% comment %} Draft sparks (Claude-written) are not published; they show as not written yet. {% endcomment %}
+  {% if page.spark and page.spark_draft != true %}
+    <p class="listen__spark">{{ page.spark }}</p>
+  {% else %}
+    <p class="listen__spark listen__spark--none">Nothing written yet.</p>
+  {% endif %}
+
+  {% assign notes = content | strip %}
+  {% if notes != "" %}
+    <div class="listen__label">My notes</div>
+    {{ content }}
+  {% endif %}
+
+  {% if page.summary %}
+    <div class="listen__label">From the show notes</div>
+    <p class="listen__summary">{{ page.summary }}</p>
+  {% endif %}
+
+  {% if page.guests and page.guests.size > 0 %}
+    <div class="listen__label">Guests</div>
+    <ul class="listen__chips">
+      {% for gid in page.guests %}{% assign p = site.data.podcast_people | where: "id", gid | first %}
+        <li>{{ p.name | default: gid }}{% if p.bio %} <span class="bio">· {{ p.bio }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if page.topics and page.topics.size > 0 %}
+    <div class="listen__label">Topics</div>
+    <ul class="listen__chips">
+      {% for tid in page.topics %}{% assign t = site.data.podcast_topics | where: "id", tid | first %}
+        <li>{{ t.label | default: tid }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% comment %} Up to 6 related episodes: shared guests first, then shared topics. {% endcomment %}
+  {% assign others = site.listens | sort: "listened_on" | reverse %}
+  {% assign rel_count = 0 %}
+  {% capture related %}
+    {% for other in others %}{% if other.url != page.url and rel_count < 6 %}
+      {% assign sg = false %}{% for g in other.guests %}{% if page.guests contains g %}{% assign sg = true %}{% endif %}{% endfor %}
+      {% if sg %}{% assign rel_count = rel_count | plus: 1 %}{% assign os = site.data.podcast_shows | where: "id", other.show | first %}
+        <li><a href="{{ other.url | relative_url }}">{{ other.title }}</a> <small>{{ os.name }}, same guest</small></li>
+      {% endif %}
+    {% endif %}{% endfor %}
+    {% for other in others %}{% if other.url != page.url and rel_count < 6 %}
+      {% assign sg = false %}{% for g in other.guests %}{% if page.guests contains g %}{% assign sg = true %}{% endif %}{% endfor %}
+      {% unless sg %}
+        {% assign shared = "" %}
+        {% for tp in other.topics %}{% if page.topics contains tp %}{% assign tt = site.data.podcast_topics | where: "id", tp | first %}{% assign shared = tt.label %}{% break %}{% endif %}{% endfor %}
+        {% if shared != "" %}{% assign rel_count = rel_count | plus: 1 %}{% assign os = site.data.podcast_shows | where: "id", other.show | first %}
+          <li><a href="{{ other.url | relative_url }}">{{ other.title }}</a> <small>{{ os.name }}, {{ shared }}</small></li>
+        {% endif %}
+      {% endunless %}
+    {% endif %}{% endfor %}
+  {% endcapture %}
+  {% assign related = related | strip %}
+  {% if related != "" %}
+    <div class="listen__label">Connected on the graph</div>
+    <ul class="listen__related">{{ related }}</ul>
+  {% endif %}
+
+  <div class="listen__links">
+    <a class="primary" href="{{ graph_url }}?focus={{ 'ep:' | append: page.url | url_encode }}">See it on the graph</a>
+    {% if page.episode_url %}<a href="{{ page.episode_url }}" target="_blank" rel="noopener">Listen ↗</a>{% endif %}
+    {% for r in page.related_links %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.label }} ↗</a>{% endfor %}
+  </div>
+</div>
