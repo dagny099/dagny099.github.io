@@ -1,0 +1,28 @@
+# Works mentioned in the show notes of the 13 seed episodes, read by hand (2026-10-08).
+# Reference set for the works spike, and an evaluation set for any extractor (rules or LLM).
+# mention: recommended | referenced | discussed | by_guest
+lennys_podcast / Elizabeth Stone (2026-07-19):
+  - {title: "Thinking in Systems", type: book, mention: recommended, authors_outside: [Donella H. Meadows]}
+  - {title: "Into Thin Air", type: book, mention: recommended, authors_outside: [Jon Krakauer]}
+  - {title: "Liar's Poker", type: book, mention: recommended, authors_outside: [Michael Lewis]}
+  - {title: "How Netflix builds a culture of excellence", type: article, mention: referenced}
+  - {title: "Brian Chesky's new playbook", type: article, mention: referenced}
+  - {title: "The design process is dead", type: article, mention: referenced}
+  - {title: "Netflix's \"Keeper Test\" and Why You Need It", type: article, mention: referenced, authors_outside: [Lorne Rubis]}
+  - {title: "Why InterPositive Is Joining Netflix", type: article, mention: referenced}
+  - {title: "Salman Rushdie's Substack", type: newsletter, mention: referenced, authors_outside: [Salman Rushdie]}
+superdatascience 1025 / Luis Serrano:
+  - {title: "Grokking Machine Learning", type: book, mention: by_guest, authors: [luis_serrano]}
+  - {title: null, type: paper, mention: by_guest, note: "paper he co-authored on the curved spacetime of transformer architectures (untitled in notes)"}
+superdatascience 1029 / Katie Malone:
+  - {title: "Ironies of Automation", type: paper, mention: discussed, authors_outside: [Lisanne Bainbridge]}
+superdatascience 1023 / Aishwarya Srinivasan:
+  - {title: null, type: talk, mention: by_guest, note: "TED Talk presenting the MIND framework (untitled in notes)"}
+stack_overflow_podcast / Tim O'Reilly (2026-09-18):
+  - {title: "Conversations with AI", type: newsletter, mention: by_guest, authors: [tim_oreilly]}
+  - {title: "Asimov's Addendum", type: newsletter, mention: by_guest, authors: [tim_oreilly]}
+knowledge_graph_insights 54 / Yann Le Franc:
+  - {title: null, type: talk, mention: by_guest, note: "presentation on ontology-backed AI at Cultive Ta Data (untitled)"}
+# Not works: products (Claude Code, CLAIRE, Data 360, O'Reilly Expert Intelligence), projects
+# (LUMEN, GRAPHIA, EOSC), frameworks named in passing (PADU, 10-20-70, MIND), films/TV on Netflix.
+# David Burns hosts a podcast (BrowserStack Talks): model it as a show with him as host, like Linear Digressions.
