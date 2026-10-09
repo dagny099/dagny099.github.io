@@ -16,9 +16,14 @@ author_profile: false
   <div class="content-slab">
     <div class="section-heading">
       <p class="eyebrow">Start with these</p>
-      <p class="section-intro">Three short pieces that show what this library is for: verifying AI systems instead of just trusting them.</p>
+      <p class="section-intro">Short pieces that show what this library is for: verifying AI systems instead of just trusting them.</p>
     </div>
     <div class="cards-grid">
+      <article class="card-surface">
+        <h2 class="card-title"><a class="text-link" href="/resources/knowledge-legibility-diagnostic/">Is your knowledge ready for AI?</a></h2>
+        <p class="card-lede">A short diagnostic for teams building AI on top of documents, workflows, decisions, and institutional memory. Use it to see whether your knowledge is findable, structured, traceable, owned, and checkable before a model starts answering from it.</p>
+        <p><a class="text-link" href="/resources/knowledge-legibility-diagnostic/">Take the diagnostic</a></p>
+      </article>
       <article class="card-surface">
         <h2 class="card-title"><a class="text-link" href="{{ '/assets/downloads/missing-layer-two-reports.pdf' | relative_url }}">The integration test</a></h2>
         <p class="card-lede">One page, five questions. Pick one real AI-assisted workflow and ask: who owns the decision, what does it cost to run, what context does it need, what quality bar must it meet, and who can override the output? Unanswered questions here are integration problems, even when adoption looks strong.</p>
