@@ -12,10 +12,12 @@ $serif: "EB Garamond", Georgia, "Times New Roman", serif;
 $monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 $global-font-family: $sans-serif;
 $header-font-family: $serif;
+$medium: 700px; /* carried over from the old vendored theme copy (default 768px) */
 
 /* 1) Minimal Mistakes skin + framework */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+@import "theme-overrides";  // edits formerly made inside the vendored theme copy
 @import "downloads";
 @import "editorial";
 
