@@ -521,7 +521,8 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   font-size: .5rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 1; /* theme default is 0.5 */
   padding: .6rem var(--home-rail-gutter);
 }
 
