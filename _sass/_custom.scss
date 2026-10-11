@@ -469,7 +469,7 @@ html{
 .masthead .greedy-nav .visible-links > li > a{
   font-size: .72rem; /* ~16px at the theme's 22px desktop root */
   font-weight: 500;
-  margin: 0 .3rem;   /* theme default is 0 1rem (22px a side) */
+  margin: 0 .15rem;  /* theme default is 0 1rem (22px a side) */
 }
 
 /* Center text links and the Contact pill on one line */
@@ -2184,4 +2184,79 @@ code, pre, kbd{ font-family: var(--font-mono); }
 }
 .layout--post .page__content > :is(p, ul, ol, blockquote, h2, h3, h4, h5, dl){
   max-width: 35em;
+}
+
+/* ------------------------------------------------------------------
+   One content rail for the whole site
+   The homepage already centers its sections on a 1080px rail. Promote
+   that to the masthead and #main so every page starts content on the
+   same left edge (180px at a 1440px window). --page-edge sits inside
+   the max-width, so phones keep their gutter.
+   ------------------------------------------------------------------ */
+:root{ --rail: 1080px; }
+
+.masthead .masthead__inner-wrap,
+#main{
+  box-sizing: border-box;
+  max-width: calc(var(--rail) + 2 * var(--page-edge));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-edge);
+  padding-right: var(--page-edge);
+}
+
+/* Page heroes (project pages etc.) start their text on the same edge */
+.page__hero--overlay .wrapper{
+  box-sizing: border-box;
+  max-width: calc(var(--rail) + 2 * var(--page-edge));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-edge);
+  padding-right: var(--page-edge);
+}
+
+/* .page-shell used to add its own max-width and gutter on top of #main's */
+#main .page-shell{
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* The theme floats .page/.archive right and reserves 200-300px for a left
+   sidebar even when the page renders none (author_profile: false
+   everywhere). Same fix as .resources-page above, applied wherever #main
+   has no sidebar. Browsers without :has() keep the old offset. */
+#main:not(:has(.sidebar)) > .page,
+#main:not(:has(.sidebar)) > .archive{
+  float: none;
+  width: 100%;
+  padding-right: 0;
+}
+
+/* ------------------------------------------------------------------
+   Last pre-reskin accents
+   Principle cards had blue/green/orange side borders, centered text and
+   matching link colors; the footer was slate #2c3e50. Both move onto the
+   Meaning Layer palette.
+   ------------------------------------------------------------------ */
+.home .principle-card,
+.home .principle-card--vision,
+.home .principle-card--attention,
+.home .principle-card--patterns{
+  border: 1px solid var(--surface-border, #E3DDD2);
+  border-left-width: 1px;
+  box-shadow: none;
+  text-align: left;
+  color: var(--ink-700, #2E2C28);
+  align-content: start;
+}
+.home .principle-card p{ color: var(--ink-500, #5C5A53); min-height: 0; }
+.home .principle-card a{ color: var(--accent-teal, #1B6B5E); margin-top: auto; }
+.home .principle-card a:hover{ color: var(--accent-teal-deep, #124B42); }
+.home .principle-card__icon{ font-size: 1.1rem; color: var(--accent-teal, #1B6B5E); }
+
+.page__footer{
+  background: var(--code-bg, #14201E);
+  --strap: var(--accent-teal, #1B6B5E);
+  border-top-width: 3px;
 }

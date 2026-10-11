@@ -219,7 +219,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
   <div class="principles-grid">
     <div class="principle-card principle-card--vision">
-      <div class="principle-card__icon" aria-hidden="true">👁️</div>
+      <div class="principle-card__icon" aria-hidden="true"><i class="fas fa-eye"></i></div>
       <h3>Metadata Matters</h3>
       <p>
         Just as our brains rely on associations to retrieve memories, the web relies on metadata to surface meaning from the void.
@@ -228,7 +228,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </div>
 
     <div class="principle-card principle-card--attention">
-      <div class="principle-card__icon" aria-hidden="true">🧠</div>
+      <div class="principle-card__icon" aria-hidden="true"><i class="fas fa-layer-group"></i></div>
       <h3>Cognitive Offloading</h3>
       <p>
         Leverage preattentive attributes—like position and luminance—to design dashboards that respect the brain's  processing limits.
@@ -237,12 +237,12 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </div>
 
     <div class="principle-card principle-card--patterns">
-      <div class="principle-card__icon" aria-hidden="true">🏃🏽‍♀️</div>
+      <div class="principle-card__icon" aria-hidden="true"><i class="fas fa-seedling"></i></div>
       <h3>Grow from Messiness</h3>
       <p>
         Life rarely fits into neat database schemas. I used ML on my real-world exercise data, granting me trust in my own metrics again.
       </p>
-      <a href="data-stories/exercise-dashboard/">Why perfect data is not a prereq for a healthy system →</a>
+      <a href="/data-stories/exercise-dashboard/">Why perfect data is not a prereq for a healthy system →</a>
     </div>
   </div>
 </div>
