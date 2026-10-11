@@ -2171,3 +2171,17 @@ code, pre, kbd{ font-family: var(--font-mono); }
 /* Images dropped in as plain Markdown become <p><img>; let those      */
 /* paragraphs hold the image at the prose width but keep them centered.*/
 .page--post .page__content > p > img { display: block; margin-inline: auto; }
+
+/* ------------------------------------------------------------------
+   Long-form reading measure (blog posts)
+   The theme sets the root to 22px above 1280px and posts have no sidebar,
+   so paragraphs ran ~1120px wide (~95 characters a line). Narrow the
+   text to ~68 characters; figures, tables, code and Mermaid diagrams are
+   not direct-child text elements, so they keep the full column.
+   ------------------------------------------------------------------ */
+@media (min-width: 80em){
+  .layout--post .page__content{ font-size: .875rem; } /* 22px -> ~19px */
+}
+.layout--post .page__content > :is(p, ul, ol, blockquote, h2, h3, h4, h5, dl){
+  max-width: 35em;
+}
