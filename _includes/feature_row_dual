@@ -27,6 +27,10 @@ Place at: _includes/feature_row_dual.html
           {% endif %}
         {% endif %}
 
+        {% if f.kicker %}
+        <p class="archive__item-kicker">{{ f.kicker }}</p>
+        {% endif %}
+
         {% if f.excerpt %}
         <div class="archive__item-excerpt">
           {{ f.excerpt | markdownify }}

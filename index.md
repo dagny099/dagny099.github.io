@@ -34,14 +34,9 @@ feature_row:
   - image_path: /assets/images/teasers/proj-fitness-v1-1024x768.jpg
     alt: "Fitness Dashboard"
     title: "Self-Hosted Workout Intelligence"
+    kicker: "ML classifier · AWS Lambda · Streamlit"
     excerpt: >
-      <strong>14 years of workouts. One classifier. Every conclusion shows its work.</strong><br><br>
-      When my running history collided with daily dog walks, everything got logged as a "run" —
-      including the 30-minute sniff safaris. So I built the full pipeline
-      (CSV export → <i class="fab fa-aws"></i> Lambda → <i class="fas fa-database"></i> MySQL → Streamlit)
-      with an ML classifier that tells real runs from walks.
-      <br><br>
-      <em>The part I'd defend in a design review: every insight is one click away from exactly how it was calculated — confidence scores included.</em>
+      14 years of workouts and one classifier that tells real runs from dog walks. Every insight is one click away from exactly how it was calculated, confidence scores included.
     url: /projects/fitness-dashboard/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/fitness-dashboard/
@@ -50,14 +45,9 @@ feature_row:
   - image_path: /assets/images/teasers/proj-cartographer-v1-1024x768.jpg
     alt: "Concept Cartographer"
     title: "Concept Cartographer"
+    kicker: "LLM · Knowledge graph · Gradio"
     excerpt: >
-      <strong>Chat and watch the conversation become a structured graph. </strong><br><br>
-      Every turn, a single structured LLM call returns both the conversational answer and the
-      extracted concepts and relationships, growing a map across the conversation.
-      Over 30 nodes, new concepts must connect to an existing node — so it stays
-      a map, not a junk drawer. Export a PNG image or copy the JSON into a graphDB.
-      <br><br>
-      <em>The part I'd defend in a design review: one call extracts narrative and ontology simultaneously — about half the latency and cost of the obvious two-call approach.</em>
+      Chat, and watch the conversation become a graph. One structured LLM call returns both the answer and the ontology, at about half the latency and cost of the obvious two-call approach.
     url: https://concept-cartographer.com/
     btn_label: "Live demo"
     docs_url: https://github.com/dagny099/concept-cartography-gradio
@@ -66,14 +56,9 @@ feature_row:
   - image_path: /assets/images/teasers/proj-beehive-v1-1024x768.jpg
     alt: "Beehive Tracker"
     title: "Beehive Analytics Platform"
+    kicker: "Vision API · EXIF · Weather data"
     excerpt: >
-      <strong>Four years of hive photos, turned into a record I can actually query.</strong><br><br>
-      The bees don't keep records. So <i class='fas fa-camera'></i> EXIF metadata, Google Cloud
-      Vision, and <i class='fas fa-cloud-sun'></i> weather APIs turn my inspection photos into a
-      knowledge graph with a query UI — when swarms happened, which seasons produced, what
-      weather preceded trouble.
-      <br><br>
-      <em>The part I'd defend in a design review: a real multimodal pipeline — image metadata, vision API, color analysis, weather correlation — serving a craft I practice every week.</em>
+      Four years of hive photos turned into a record I can query: when swarms happened, which seasons produced, and what weather came before trouble.
     url: /projects/beehive-tracker/
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/beehive-tracker/
@@ -168,6 +153,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
      Featured Projects — mirrors Featured Writing layout (centered title + subheading + browse-all), without the tinted background
      ======================= -->
 <div class="home-section home-section--projects">
+  <p class="home-section__eyebrow">Selected work</p>
   <h2 class="home-section__heading">Featured Projects</h2>
   <p class="home-section__subheading">
     Self-hosted data products, AI systems, and knowledge graphs—built end-to-end to learn what actually works in production.
@@ -184,6 +170,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
      Featured Writing
      ======================= -->
 <div class="home-section home-section--writing">
+  <p class="home-section__eyebrow">Writing</p>
   <h2 class="home-section__heading">Featured Writing</h2>
   <p class="home-section__subheading">
     A mix of notes &amp; experiments, data narratives, and essays &amp; perspectives—built to show how I approach messy problems.
@@ -218,7 +205,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </article>
   </div>
 
-  <p class="featured-writing__cta" style="text-align:center; margin: 1rem 0 0 0;" >
+  <p class="featured-writing__cta">
     <a class="browse-all" href="/writing/">Browse all writing</a>
   </p>
 </div>
@@ -227,6 +214,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
      Cognitive Principles (NEW)
      ======================= -->
 <div class="home-section home-section--principles">
+  <p class="home-section__eyebrow">How I think</p>
   <h2 class="home-section__heading">Cognitive Principles in Practice</h2>
 
   <div class="principles-grid">
@@ -313,8 +301,9 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 <div class="home-section home-section--writing">
  <section class="journey-timeline">
 <span id="journey-timeline" class="anchor"></span>
-  <h2 class="journey-section-title" style="text-align:center; margin-top: 0px;">At-a-Glance: Education & Big Moves</h2>
-  <p class="timeline-intro"  style="text-align:center; font-size: 0.9em;">
+  <p class="home-section__eyebrow">Timeline</p>
+  <h2 class="home-section__heading">At-a-Glance: Education &amp; Big Moves</h2>
+  <p class="home-section__subheading timeline-intro">
     Quick visual timeline of the milestones that shaped my path — from UT Austin and MIT to
     data science and consulting.
   </p>
@@ -328,7 +317,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
       allowfullscreen
     ></iframe>
   </div>
-  <p style="text-align:center; margin-top: 1rem;" >
+  <p style="margin-top: 1rem;" >
     <a class="browse-all" href="/my-journey#journey-turns" aria-label="Read more at My Journey">
       Read more at My Journey
     </a>
@@ -395,20 +384,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
   padding: 1.75rem;
 }
 
-/* Shared centered heading + subheading — applies to Featured Writing and Featured Projects so they read as a pair */
-.home-section--writing .home-section__heading,
-.home-section--projects .home-section__heading {
-  margin-top: 0;
-  text-align: center;
-}
-
-.home-section--writing .home-section__subheading,
-.home-section--projects .home-section__subheading {
-  margin: 0.5rem auto 1.5rem;
-  max-width: 720px;
-  text-align: center;
-  color: #5C5A53;
-}
+/* Section heading styles (eyebrow, h2, subheading) live in _sass/_custom.scss */
 
 /* Featured Projects mirrors Writing's outline + internal rhythm, without the tinted background */
 .home-section--projects {
@@ -429,7 +405,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 }
 
 .featured-projects__cta {
-  text-align: center;
+  text-align: left;
   margin: 1rem 0 0; /* match .featured-writing__cta's spacing */
 }
 
@@ -518,7 +494,7 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 }
 
 .featured-writing__cta {
-  text-align: center;
+  text-align: left;
   padding: 1rem 0 0 0;
 }
 

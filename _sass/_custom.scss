@@ -831,9 +831,30 @@ html{
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
-.home-section__heading{
-  text-align: center;
+/* Section headings outrank the cards beneath them (h2 ~40px vs card
+   titles ~25px) and align left with the content they introduce. */
+.home .home-section__eyebrow{
+  margin: 0 0 .35rem;
+  font-family: var(--font-mono);
+  font-size: .55rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-teal-deep, #124B42);
+}
+.home .home-section__heading{
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: left;
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin: 0 0 .35rem;
+}
+.home .home-section__subheading{
+  max-width: 720px;
   margin: 0 0 1.5rem;
+  text-align: left;
+  color: var(--ink-500, #5C5A53);
 }
 
 .home-section--principles{
@@ -1597,11 +1618,23 @@ html{
 .feature__wrapper .archive__item-title,
 .feature__wrapper .archive__item-title a {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 500;
 }
+/* was clamp(1.5rem, 2.1vw, 1.3rem): min > max, so it always resolved to
+   1.5rem (33px) and outranked the section heading */
 .feature__wrapper .archive__item-title {
-  font-size: clamp(1.5rem, 2.1vw, 1.3rem);
-  line-height: 1.2;
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+
+/* Optional one-line kicker above the card text (feature_row `kicker:`) */
+.feature__wrapper .archive__item-kicker{
+  margin: 0 0 .4rem;
+  font-family: var(--font-mono);
+  font-size: .5rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-500, #5C5A53);
 }
 
 /* Top-nav icon colors (search + hamburger) */
