@@ -20,6 +20,8 @@ classes: [journey-page]
     padding: clamp(2.5rem, 4vw, 3.5rem) var(--page-edge);
     /* max-width: 1200px;  this caps width to themes content, often 900-1000 (--content-max); */
     margin: 0 auto;
+    max-width: 100%; /* auto side margins stop a flex item from stretching, so it sized to its
+                        content; the 900px "Dive Deeper" grid made that ~930px on phones */
     background: #fff;
     border: 1px solid rgba(0,0,0,0.05);
     border-radius: 16px;

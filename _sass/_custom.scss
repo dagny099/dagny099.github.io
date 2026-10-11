@@ -2229,9 +2229,11 @@ code, pre, kbd{ font-family: var(--font-mono); }
 /* The theme floats .page/.archive right and reserves 200-300px for a left
    sidebar even when the page renders none (author_profile: false
    everywhere). Same fix as .resources-page above, applied wherever #main
-   has no sidebar. Browsers without :has() keep the old offset. */
-#main:not(:has(.sidebar)) > .page,
-#main:not(:has(.sidebar)) > .archive{
+   has no sidebar. Pages with a right-hand TOC (.sidebar__right) keep the
+   reserved space: the TOC sits in it via a negative margin, and without
+   it hangs ~300px off-screen. Browsers without :has() keep the old offset. */
+#main:not(:has(.sidebar, .sidebar__right)) > .page,
+#main:not(:has(.sidebar, .sidebar__right)) > .archive{
   float: none;
   width: 100%;
   padding-right: 0;
@@ -2264,3 +2266,7 @@ code, pre, kbd{ font-family: var(--font-mono); }
   --strap: var(--accent-teal, #1B6B5E);
   border-top-width: 3px;
 }
+
+/* Long inline code (file-name patterns, paths) may break anywhere, so it
+   can't push the page wider than a phone. Code blocks already scroll. */
+:not(pre) > code{ overflow-wrap: anywhere; }
