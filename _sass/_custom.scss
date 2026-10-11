@@ -2182,7 +2182,10 @@ code, pre, kbd{ font-family: var(--font-mono); }
 @media (min-width: 80em){
   .layout--post .page__content{ font-size: .875rem; } /* 22px -> ~19px */
 }
-.layout--post .page__content > :is(p, ul, ol, blockquote, h2, h3, h4, h5, dl){
+/* Posts that float an image beside text (.align-left/.align-right or an
+   inline float) keep the full column; a capped paragraph next to a 500px
+   float would shrink to a sliver. */
+.layout--post .page__content:not(:has(.align-left, .align-right, [style*="float"])) > :is(p, ul, ol, blockquote, h2, h3, h4, h5, dl){
   max-width: 35em;
 }
 
@@ -2196,6 +2199,7 @@ code, pre, kbd{ font-family: var(--font-mono); }
 :root{ --rail: 1080px; }
 
 .masthead .masthead__inner-wrap,
+.breadcrumbs,
 #main{
   box-sizing: border-box;
   max-width: calc(var(--rail) + 2 * var(--page-edge));
