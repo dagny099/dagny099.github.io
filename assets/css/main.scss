@@ -3,6 +3,15 @@ sitemap: false
 ---
 @charset "utf-8";
 
+/* 0) Hand the theme the Meaning Layer type before it compiles.
+   Minimal Mistakes bakes $sans-serif into ~30 component rules (masthead,
+   .btn, .page__lead, captions, TOC...), which the CSS-variable reskin in
+   _custom.scss can't reach. Setting the variables here fixes them all. */
+$sans-serif: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+$serif: "EB Garamond", Georgia, "Times New Roman", serif;
+$monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+$global-font-family: $sans-serif;
+$header-font-family: $serif;
 
 /* 1) Minimal Mistakes skin + framework */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";

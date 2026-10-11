@@ -125,14 +125,14 @@ The best part? **Many nodes are clickable links** that take you directly to that
 
 ## How I Maintain This Map
 
-<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> account_tree</span>
+<i class="fas fa-sitemap fa-fw" aria-hidden="true" style="color: var(--accent-teal); margin-right: .25rem;"></i>
 This sitemap isn't a one‑off artifact; it's part of my content workflow:
 - I keep the **Mermaid source files** (`.mmd`) for each diagram in the `assets/diagrams/` folder.
 - I export updated **SVGs** whenever the structure changes.
 - I create **interactive HTML versions** for complex diagrams with zoom/pan controls.
 - I treat this page as a **living document** that evolves as the site does.  
 
-<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> bookmark_check</span>
+<i class="fas fa-clipboard-check fa-fw" aria-hidden="true" style="color: var(--accent-teal); margin-right: .25rem;"></i>
 In practice, when I...  
 - Add a major new section (e.g., a new collection or series), <mark>I update the relevant diagram and regenerate the SVG</mark>.  
 - Refactor navigation, this page is where <mark>I sanity‑check whether the new structure is still coherent.</mark>. 
@@ -141,11 +141,11 @@ In practice, when I...
 
 {: .text-center}
 If you’re building your own site or knowledge base, I recommend:  
-<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> keyboard_arrow_right</span>
+<i class="fas fa-angle-right fa-fw" aria-hidden="true" style="color: var(--accent-teal); margin-right: .25rem;"></i>
 Starting with a **high‑level diagram** like the one at the top of this page  
-<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> keyboard_arrow_right</span>
+<i class="fas fa-angle-right fa-fw" aria-hidden="true" style="color: var(--accent-teal); margin-right: .25rem;"></i>
 Adding **focused sub‑maps** for your most important content hubs  
-<span class="material-symbols-outlined" style="font-size:24px; position:relative; top:4px;"> keyboard_arrow_right</span>
+<i class="fas fa-angle-right fa-fw" aria-hidden="true" style="color: var(--accent-teal); margin-right: .25rem;"></i>
 Keeping one **full, detailed sitemap** off to the side for periodic review  
 
 {: .text-center}

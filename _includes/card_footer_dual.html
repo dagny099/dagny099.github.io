@@ -3,13 +3,13 @@
   <div class="cta-row">
     {%- if include.url -%}
       <a class="btn--cta primary" href="{{ include.url | relative_url }}">
-        <span class="material-symbols-rounded" aria-hidden="true">rocket_launch</span>
+        <i class="fas fa-rocket" aria-hidden="true"></i>
         {{ include.btn_label | default: "Project" }}
       </a>
     {%- endif -%}
     {%- if include.docs_url -%}
       <a class="btn--cta secondary" href="{{ include.docs_url }}">
-        <span class="material-symbols-rounded" aria-hidden="true">description</span>
+        <i class="fas fa-file-alt" aria-hidden="true"></i>
         {{ include.docs_label | default: "Docs" }}
       </a>
     {%- endif -%}

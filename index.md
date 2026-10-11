@@ -531,10 +531,22 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
 .hero-headline {
   display: block;
-  font-size: clamp(1.75rem, 2.4vw, 2.55rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 2.9vw, 3rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+/* Caption strip: mono label on the image instead of a black Georgia band */
+.home .page__hero-caption {
+  background: none;
+  font-family: var(--font-mono);
+  font-size: .5rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  padding: .6rem var(--home-rail-gutter);
 }
 
 .hero-subheadline {
