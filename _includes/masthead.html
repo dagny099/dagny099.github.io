@@ -13,8 +13,8 @@
         </a>
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
-            <li class="masthead__menu-item">
-              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+            <li class="masthead__menu-item{% if link.cta %} masthead__menu-item--cta{% endif %}">
+              <a href="{{ link.url | relative_url }}" title="{{ link.title }}{% if link.subtitle %}: {{ link.subtitle }}{% endif %}">{{ link.short | default: link.title }}</a>
             </li>
           {%- endfor -%}
         </ul>
@@ -32,6 +32,20 @@
         </button>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      {%- comment -%}
+        The theme renders this file with include_cached, so Liquid can't know the
+        current page here. Mark the active section client-side instead; the
+        underline style keys off [aria-current="page"] in _custom.scss.
+      {%- endcomment -%}
+      <script>
+        (function () {
+          var path = window.location.pathname;
+          document.querySelectorAll('#site-nav .visible-links a').forEach(function (a) {
+            var href = a.getAttribute('href');
+            if (href && href !== '/' && path.indexOf(href) === 0) a.setAttribute('aria-current', 'page');
+          });
+        })();
+      </script>
     </div>
   </div>
 </div>
