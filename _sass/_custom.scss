@@ -391,16 +391,16 @@ h1, h2, h3, h4, h5, h6{
   z-index: 1000;
   background: #fbfbfb; /* match page background so the bar blends in */
   box-shadow: inset 0 -1px 0 var(--surface-border), 0 8px 20px rgba(15, 23, 42, 0.06);
-  padding: 0.75rem 1rem;
+  padding: 0.35rem 1rem; /* was .75rem: bar drops from ~112px to ~72px */
 }
 
-/* Because the masthead above is sticky (~112px tall on desktop and mobile),
+/* Because the masthead above is sticky (~72px tall on desktop, ~60px on phones),
    in-page anchor jumps must reserve space at the top of the scroll container,
    otherwise the target heading lands hidden behind the bar. scroll-padding-top
    on <html> applies to every fragment navigation site-wide (mini-nav links,
    TOC, and direct #hash URLs) with no per-heading rules needed. */
 html{
-  scroll-padding-top: 8rem; /* 112px bar + ~16px breathing room */
+  scroll-padding-top: 5.5rem; /* ~72px bar + breathing room (was 8rem for the old 112px bar) */
 }
 
 /* Ensure the nav bar itself matches the surrounding page background */
@@ -456,11 +456,44 @@ html{
 }
 
 .masthead .site-title{
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap; /* keep the name on one line on phones */
   /* Safe for Jekyll’s older Sass: avoid unit math across types */
-  font-size: clamp(1.12rem, calc(1rem + 0.6vw), 1.4rem);
+  font-size: clamp(1.05rem, calc(.9rem + 0.6vw), 1.3rem);
 }
+
+/* Short labels (navigation.yml `short:`) at a UI size, so all seven
+   links fit beside the name instead of folding into greedy-nav's menu. */
+.masthead .greedy-nav .visible-links > li > a{
+  font-size: .72rem; /* ~16px at the theme's 22px desktop root */
+  font-weight: 500;
+  margin: 0 .15rem;  /* theme default is 0 1rem (22px a side) */
+}
+
+/* Center text links and the Contact pill on one line */
+.masthead .greedy-nav .visible-links{ align-items: center; align-self: center; }
+
+/* Theme pads the inner wrap 1em top and bottom; the logo already sets the height */
+.masthead .masthead__inner-wrap{
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+}
+
+/* Contact: the one outlined button in the bar */
+.masthead .greedy-nav .visible-links > li.masthead__menu-item--cta > a{
+  border: 1px solid var(--accent-teal, #1B6B5E);
+  border-radius: 999px;
+  padding: .2rem .8rem;
+  margin-left: .35rem;
+  color: var(--accent-teal, #1B6B5E);
+}
+.masthead .greedy-nav .visible-links > li.masthead__menu-item--cta > a:hover{
+  background: var(--accent-teal, #1B6B5E);
+  color: #fff;
+}
+.masthead .greedy-nav .visible-links > li.masthead__menu-item--cta > a::after{ display: none; }
 
 /* 1) Nuke the theme’s hover underline no matter how it’s drawn */
 .masthead .greedy-nav .visible-links > li > a:hover,
@@ -798,9 +831,30 @@ html{
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
-.home-section__heading{
-  text-align: center;
+/* Section headings outrank the cards beneath them (h2 ~40px vs card
+   titles ~25px) and align left with the content they introduce. */
+.home .home-section__eyebrow{
+  margin: 0 0 .35rem;
+  font-family: var(--font-mono);
+  font-size: .55rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-teal-deep, #124B42);
+}
+.home .home-section__heading{
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: left;
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin: 0 0 .35rem;
+}
+.home .home-section__subheading{
+  max-width: 720px;
   margin: 0 0 1.5rem;
+  text-align: left;
+  color: var(--ink-500, #5C5A53);
 }
 
 .home-section--principles{
@@ -960,11 +1014,10 @@ html{
 }
 .home .feature__wrapper .btn--cta:hover{ transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.10); }
 
-/* Material icons in CTAs */
-.home .feature__wrapper .btn--cta .material-symbols-rounded{
-  font-variation-settings: 'FILL' 1, 'wght' 650, 'opsz' 24, 'GRAD' 0;
-  font-size: 1.15em;
-  line-height: 0;
+/* Font Awesome icons in CTAs */
+.home .feature__wrapper .btn--cta .fas{
+  font-size: .95em;
+  line-height: 1;
 }
 
 
@@ -1547,10 +1600,7 @@ html{
   color:color-mix(in oklab, var(--section-accent, #2a6f97) 85%, #000);
 }
 .card__footer .btn--cta:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.10); }
-.card__footer .btn--cta .material-symbols-rounded{
-  font-variation-settings:'FILL' 1, 'wght' 650, 'opsz' 24, 'GRAD' 0;
-  font-size:1.15em; line-height:0;
-}
+.card__footer .btn--cta .fas{ font-size:.95em; line-height:1; }
 
 
 /* Narrow cards: stack so both CTAs are always visible */
@@ -1568,11 +1618,23 @@ html{
 .feature__wrapper .archive__item-title,
 .feature__wrapper .archive__item-title a {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 500;
 }
+/* was clamp(1.5rem, 2.1vw, 1.3rem): min > max, so it always resolved to
+   1.5rem (33px) and outranked the section heading */
 .feature__wrapper .archive__item-title {
-  font-size: clamp(1.5rem, 2.1vw, 1.3rem);
-  line-height: 1.2;
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+
+/* Optional one-line kicker above the card text (feature_row `kicker:`) */
+.feature__wrapper .archive__item-kicker{
+  margin: 0 0 .4rem;
+  font-family: var(--font-mono);
+  font-size: .5rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-500, #5C5A53);
 }
 
 /* Top-nav icon colors (search + hamburger) */
@@ -1808,9 +1870,9 @@ html{
    ================================================================== */
 
 /* ---- 0. Fonts ----------------------------------------------------
-   Minimal Mistakes alternative: add the <link> tags to
-   _includes/head/custom.html instead of @import (faster). Either works. */
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+   Loaded by <link> in _includes/head/custom.html (no @import hop).
+   Theme components get the same families via $sans-serif / $serif /
+   $monospace, set at the top of assets/css/main.scss. */
 
 /* ---- 1. Token redefinition ---------------------------------------
    Everything in your file that already uses var(--…) flips automatically. */
@@ -2109,3 +2171,109 @@ code, pre, kbd{ font-family: var(--font-mono); }
 /* Images dropped in as plain Markdown become <p><img>; let those      */
 /* paragraphs hold the image at the prose width but keep them centered.*/
 .page--post .page__content > p > img { display: block; margin-inline: auto; }
+
+/* ------------------------------------------------------------------
+   Long-form reading measure (blog posts)
+   The theme sets the root to 22px above 1280px and posts have no sidebar,
+   so paragraphs ran ~1120px wide (~95 characters a line). Narrow the
+   text to ~68 characters; figures, tables, code and Mermaid diagrams are
+   not direct-child text elements, so they keep the full column.
+   ------------------------------------------------------------------ */
+@media (min-width: 80em){
+  .layout--post .page__content{ font-size: .875rem; } /* 22px -> ~19px */
+}
+/* Posts that float an image beside text (.align-left/.align-right or an
+   inline float) keep the full column; a capped paragraph next to a 500px
+   float would shrink to a sliver. */
+.layout--post .page__content:not(:has(.align-left, .align-right, [style*="float"])) > :is(p, ul, ol, blockquote, h2, h3, h4, h5, dl){
+  max-width: 35em;
+}
+
+/* ------------------------------------------------------------------
+   One content rail for the whole site
+   The homepage already centers its sections on a 1080px rail. Promote
+   that to the masthead and #main so every page starts content on the
+   same left edge (180px at a 1440px window). --page-edge sits inside
+   the max-width, so phones keep their gutter.
+   ------------------------------------------------------------------ */
+:root{ --rail: 1080px; }
+
+.masthead .masthead__inner-wrap,
+.breadcrumbs,
+#main{
+  box-sizing: border-box;
+  max-width: calc(var(--rail) + 2 * var(--page-edge));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-edge);
+  padding-right: var(--page-edge);
+}
+
+/* Page heroes (project pages etc.) start their text on the same edge */
+.page__hero--overlay .wrapper{
+  box-sizing: border-box;
+  max-width: calc(var(--rail) + 2 * var(--page-edge));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-edge);
+  padding-right: var(--page-edge);
+}
+
+/* .page-shell used to add its own max-width and gutter on top of #main's */
+#main .page-shell{
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* The theme floats .page/.archive right and reserves 200-300px for a left
+   sidebar even when the page renders none (author_profile: false
+   everywhere). Same fix as .resources-page above, applied wherever #main
+   has no sidebar. Pages with a right-hand TOC (.sidebar__right) keep the
+   reserved space: the TOC sits in it via a negative margin, and without
+   it hangs ~300px off-screen. Browsers without :has() keep the old offset. */
+#main:not(:has(.sidebar, .sidebar__right)) > .page,
+#main:not(:has(.sidebar, .sidebar__right)) > .archive{
+  float: none;
+  width: 100%;
+  padding-right: 0;
+}
+/* The theme also floats the breadcrumb list right by the same sidebar
+   width; release it on the same pages so it lines up with the title.
+   (:has() can't be nested, so this tests the whole body.) */
+body:not(:has(.sidebar, .sidebar__right)) .breadcrumbs ol{
+  float: none;
+  width: auto;
+}
+
+/* ------------------------------------------------------------------
+   Last pre-reskin accents
+   Principle cards had blue/green/orange side borders, centered text and
+   matching link colors; the footer was slate #2c3e50. Both move onto the
+   Meaning Layer palette.
+   ------------------------------------------------------------------ */
+.home .principle-card,
+.home .principle-card--vision,
+.home .principle-card--attention,
+.home .principle-card--patterns{
+  border: 1px solid var(--surface-border, #E3DDD2);
+  border-left-width: 1px;
+  box-shadow: none;
+  text-align: left;
+  color: var(--ink-700, #2E2C28);
+  align-content: start;
+}
+.home .principle-card p{ color: var(--ink-500, #5C5A53); min-height: 0; }
+.home .principle-card a{ color: var(--accent-teal, #1B6B5E); margin-top: auto; }
+.home .principle-card a:hover{ color: var(--accent-teal-deep, #124B42); }
+.home .principle-card__icon{ font-size: 1.1rem; color: var(--accent-teal, #1B6B5E); }
+
+.page__footer{
+  background: var(--code-bg, #14201E);
+  --strap: var(--accent-teal, #1B6B5E);
+  border-top-width: 3px;
+}
+
+/* Long inline code (file-name patterns, paths) may break anywhere, so it
+   can't push the page wider than a phone. Code blocks already scroll. */
+:not(pre) > code{ overflow-wrap: anywhere; }

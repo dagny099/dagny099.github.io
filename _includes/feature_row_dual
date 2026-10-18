@@ -1,5 +1,5 @@
 {% comment %}
-Feature row with dual CTAs using Material Symbols.
+Feature row with dual CTAs (Font Awesome icons, already loaded by head.html).
 Reads features from (in order): include.feature_row, page.feature_row, page.featured, page.features
 Place at: _includes/feature_row_dual.html
 {% endcomment %}
@@ -27,6 +27,10 @@ Place at: _includes/feature_row_dual.html
           {% endif %}
         {% endif %}
 
+        {% if f.kicker %}
+        <p class="archive__item-kicker">{{ f.kicker }}</p>
+        {% endif %}
+
         {% if f.excerpt %}
         <div class="archive__item-excerpt">
           {{ f.excerpt | markdownify }}
@@ -36,13 +40,13 @@ Place at: _includes/feature_row_dual.html
         <div class="cta-row">
           {% if f.url %}
             <a class="btn--cta primary" href="{{ f.url | relative_url }}">
-              <span class="material-symbols-rounded" aria-hidden="true">folder</span>
+              <i class="fas fa-folder-open" aria-hidden="true"></i>
               <span>{{ f.btn_label | default: "Project" }}</span>
             </a>
           {% endif %}
           {% if f.docs_url %}
             <a class="btn--cta secondary" href="{{ f.docs_url }}" target="_blank" rel="noopener noreferrer">
-              <span class="material-symbols-rounded" aria-hidden="true">description</span>
+              <i class="fas fa-file-alt" aria-hidden="true"></i>
               <span>{{ f.docs_label | default: "Docs" }}</span>
             </a>
           {% endif %}

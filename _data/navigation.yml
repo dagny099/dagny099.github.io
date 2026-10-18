@@ -16,6 +16,14 @@ main:
     subtitle: "Systems and products I've built."
     description: "Data products, AI systems, and knowledge graphs in production."
 
+  - title: "Writing"
+    short: "Writing"
+    url: /writing/
+    color: "#3b4a73"
+    background-color: "#f2f4fb"
+    subtitle: "Essays, data narratives, notes, and series."
+    description: "Explore the ideas, methods, and builds behind the work."
+
   - title: "Work With Me"
     short: "Services"
     url: /work-with-me/
@@ -32,14 +40,6 @@ main:
     subtitle: "From vision science to data products — a human timeline."
     description: "Career pivots, learning, and shipped work over time."
 
-  - title: "Writing"
-    short: "Writing"
-    url: /writing/
-    color: "#3b4a73"
-    background-color: "#f2f4fb"
-    subtitle: "Essays, data narratives, notes, and series."
-    description: "Explore the ideas, methods, and builds behind the work."
-
   - title: "Resources"
     short: "Resources"
     url: /resources/
@@ -55,6 +55,7 @@ main:
     background-color: "#ecfdf5"
     subtitle: "Tell me what you're trying to ship."
     description: "Simple form + email. Low friction."
+    cta: true                # rendered as the outlined button at the end of the masthead
 
 
 # Prior to 5/23/25

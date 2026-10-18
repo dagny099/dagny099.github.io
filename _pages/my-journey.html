@@ -20,6 +20,8 @@ classes: [journey-page]
     padding: clamp(2.5rem, 4vw, 3.5rem) var(--page-edge);
     /* max-width: 1200px;  this caps width to themes content, often 900-1000 (--content-max); */
     margin: 0 auto;
+    max-width: 100%; /* auto side margins stop a flex item from stretching, so it sized to its
+                        content; the 900px "Dive Deeper" grid made that ~930px on phones */
     background: #fff;
     border: 1px solid rgba(0,0,0,0.05);
     border-radius: 16px;
@@ -173,9 +175,9 @@ classes: [journey-page]
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   }
   .timeline-year {
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
     color: var(--accent-color, #DC6B4F);
     margin-bottom: 0.5rem;
   }
