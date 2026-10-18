@@ -1,0 +1,37 @@
+# Controlled topic vocabulary for _listens/. Propose additions; don't free-tag.
+- id: ai_agents
+  label: AI agents
+  description: 'Agentic systems: building, deploying, and governing them.'
+- id: data_governance
+  label: Data governance
+  description: Operating models, stewardship, and policy for data.
+- id: data_quality_trust
+  label: Data quality & trust
+  description: Whether data is good enough for people and agents to rely on.
+- id: data_business_alignment
+  label: Data & the business
+  description: Tying data work to business goals, definitions, and value.
+- id: knowledge_graphs_semantics
+  label: Knowledge graphs & semantics
+  description: Ontologies, semantic layers, and graph-grounded AI.
+- id: llm_internals
+  label: How LLMs work
+  description: Architectures, training, and the mechanics inside models.
+- id: ai_roi_adoption
+  label: AI ROI & adoption
+  description: Why AI investments do or do not pay off inside organizations.
+- id: human_taste_judgment
+  label: Taste & judgment
+  description: Human taste, skepticism, and systems thinking as AI-era skills.
+- id: ai_era_careers
+  label: AI-era careers
+  description: Skills, hiring, and what practitioners should learn now.
+- id: managing_people_and_agents
+  label: Managing people & agents
+  description: Leadership and org design when teams include agents.
+- id: teaching_ai
+  label: Teaching AI
+  description: Explaining and teaching ML and AI concepts well.
+- id: evaluation_testing
+  label: Evaluation & testing
+  description: Evals for models and agents; testing practice for AI-built software.

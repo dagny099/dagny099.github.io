@@ -1,0 +1,77 @@
+# Guests and hosts. `source` records where the bio came from.
+- id: jon_krohn
+  name: Jon Krohn
+  bio: Host of SuperDataScience.
+  source: itunes artistName
+- id: juan_sequeda
+  name: Juan Sequeda
+  bio: Co-host of Catalog & Cocktails.
+  source: episode descriptions
+- id: tim_gasper
+  name: Tim Gasper
+  bio: Co-host of Catalog & Cocktails.
+  source: episode descriptions
+- id: lenny_rachitsky
+  name: Lenny Rachitsky
+  bio: Host of Lenny's Podcast.
+  source: itunes artistName
+- id: ryan_donovan
+  name: Ryan Donovan
+  bio: Host of The Stack Overflow Podcast.
+  source: one feed mention; verify
+- id: larry_swanson
+  name: Larry Swanson
+  bio: Host of Knowledge Graph Insights.
+  source: itunes artistName
+- id: katie_malone
+  name: Katie Malone
+  bio: Host of Linear Digressions; has taught ML at Udacity and the University of Chicago.
+  source: SDS 1029 description
+- id: michael_andrew
+  name: Michael Andrew
+  bio: Chief Data Officer, Salesforce.
+  source: SDS 1032 description
+- id: gaurav_pathak
+  name: Gaurav Pathak
+  bio: SVP Product Management, AI and Metadata, Salesforce.
+  source: SDS 1030 description
+- id: luis_serrano
+  name: Luis Serrano
+  bio: Founder of Serrano Academy.
+  source: SDS 1025 description
+- id: aishwarya_srinivasan
+  name: Aishwarya Srinivasan
+  bio: Co-founder of The Gen Academy; started the Illuminate AI mentorship community.
+  source: SDS 1023 description
+- id: priyanka_vergadia
+  name: Priyanka Vergadia
+  bio: Founder of The Cloud Girl; formerly Microsoft and Google developer relations.
+  source: SDS 1019 description
+- id: nikunj_bajaj
+  name: Nikunj Bajaj
+  bio: Co-founder and CEO, TrueFoundry.
+  source: SDS 996 description
+- id: jason_doerr
+  name: Jason Doerr
+  bio: Data governance practitioner.
+  source: C&C description; affiliation not found, needs lookup
+- id: david_krauza
+  name: David Krauza
+  bio: VP of Data Strategy and Governance, Comcast.
+  source: C&C description
+- id: elizabeth_stone
+  name: Elizabeth Stone
+  bio: Chief Product and Technology Officer, Netflix.
+  source: Lenny's description
+- id: tim_oreilly
+  name: Tim O'Reilly
+  bio: Founder and CEO, O'Reilly Media.
+  source: Stack Overflow description
+- id: david_burns
+  name: David Burns
+  bio: Head of Developer Advocacy and Open Source, BrowserStack.
+  source: Stack Overflow description
+- id: yann_le_franc
+  name: Yann Le Franc
+  bio: Ontology and knowledge-graph consultant; former computational neuroscientist.
+  source: KGI 54 description
