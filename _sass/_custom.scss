@@ -2238,6 +2238,13 @@ code, pre, kbd{ font-family: var(--font-mono); }
   width: 100%;
   padding-right: 0;
 }
+/* The theme also floats the breadcrumb list right by the same sidebar
+   width; release it on the same pages so it lines up with the title.
+   (:has() can't be nested, so this tests the whole body.) */
+body:not(:has(.sidebar, .sidebar__right)) .breadcrumbs ol{
+  float: none;
+  width: auto;
+}
 
 /* ------------------------------------------------------------------
    Last pre-reskin accents
