@@ -143,7 +143,7 @@ See `reports/NORMALIZATION_AUDIT.md` for the full schema audit. The builder pres
 - `_thinking/2025-09-11-rag-without-the-theater.md`: 11 heading transformation(s).
 - `_thinking/2025-09-11-bees-graphs-governance.md`: 8 heading transformation(s).
 - `_thinking/2024-09-26-chunking-is-all-you-need.md`: 17 heading transformation(s).
-- `resources/index.md`: 20 heading transformation(s).
+- `resources/index.md`: 21 heading transformation(s).
 - `_resources/what-is-a-harness-in-ai.md`: 1 heading transformation(s).
 - `_resources/memory-is-more-than-storage.md`: 1 heading transformation(s).
 - `_resources/resume-data-schema.md`: 26 heading transformation(s).
@@ -153,22 +153,6 @@ See `reports/NORMALIZATION_AUDIT.md` for the full schema audit. The builder pres
 
 - `index.md`: Unresolved include removed for review: {% include feature_row_dual %}
 - `index.md`: Unresolved include removed for review: {% include section_tiles.html exclude="/contact/" %}
-- `_pages/my-journey.html`: Heading flattened to level 6: AI Literacy Mentor
-- `_pages/my-journey.html`: Heading flattened to level 6: Academic CV (PDF)
-- `_pages/my-journey.html`: Heading flattened to level 6: Backyard Beekeeper
-- `_pages/my-journey.html`: Heading flattened to level 6: Bilingual Toastmaster
-- `_pages/my-journey.html`: Heading flattened to level 6: Deputy Voter Registrar
-- `_pages/my-journey.html`: Heading flattened to level 6: Experience
-- `_pages/my-journey.html`: Heading flattened to level 6: Marathon Runner
-- `_pages/my-journey.html`: Heading flattened to level 6: Open Data Advocate
-- `_pages/my-journey.html`: Heading flattened to level 6: Projects
-- `_pages/my-journey.html`: Heading flattened to level 6: Research & Publications
-- `_pages/my-journey.html`: Heading flattened to level 6: Resume (PDF)
-- `_pages/my-journey.html`: Heading flattened to level 6: Semantic Web Curriculum
-- `_pages/my-journey.html`: Heading flattened to level 6: 🎯The Consultant Asks:
-- `_pages/my-journey.html`: Heading flattened to level 6: 🏗️The System Builder Asks:
-- `_pages/my-journey.html`: Heading flattened to level 6: 🔍The Data Scientist Asks:
-- `_pages/my-journey.html`: Heading flattened to level 6: 🧠The Cognitive Scientist Asks:
 - `_projects/fitness-dashboard-ml-pipeline.md`: Referenced local asset is missing: /assets/images/projects/fitness-dashboard/card.jpg
 - `_projects/fitness-dashboard-ml-pipeline.md`: Referenced local asset is missing: /assets/images/projects/fitness-dashboard/hero.jpg
 - `_projects/beehive-knowledge-builder.md`: Referenced local asset is missing: /assets/images/projects/hivetracker/card.jpg
