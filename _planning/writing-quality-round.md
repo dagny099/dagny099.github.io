@@ -7,6 +7,23 @@ observed result. Hive numbers are 23 inspections from 400+ photos over 4 years.
 Still to click-check: humanlayer.dev post URL, github.com/dagny099/citation-compass, cartography.barbhs.com.
 Left for later: the empty "Inspired by CloudWolf" heading (Tier 3); the unverified "seven edge types" and
 "five weather variables" claims in the chunking essay.
+Tier 1 progress: Poetry post rewritten 2026-10-19 (decisions: keep Poetry, fixed for 2.x; open on the
+"seamless switching" feeling; keep Jupyter; diagram + terminal cast). Every command re-run on Poetry 2.4.3 and
+direnv 2.32.1 in the cloud container. Assets: `assets/diagrams/poetry-direnv-layers-v1.svg`,
+`assets/videos/poetry-direnv-terminal.svg` (recorded from a real shell, paths shortened to `~/projects`).
+Barbara to check: the "Why I bother" paragraph (re-entry after months away) is my wording of her motivation;
+the 0.7 s vs 0.04 s timing came from the Linux container, not her Mac.
+
+New findings while doing Tier 1 (add to Tier 2 fixes):
+- Hero and og:image for *Three Readers* and *Implementing Structured Metadata* point at `assets/images/posts/`,
+  which does not exist. The two posts about social preview images have broken social preview images.
+- AWS CLI post's banner `assets/images/blog/aws-cli-banner.jpg` does not exist.
+- `assets/videos/inside_hive_800px_7sec.gif` is 44 MB, on the hive story the homepage features. Convert to MP4/WebM.
+- `_includes/figure` ignores its `width` parameter, so `width="85%"` in the Mermaid post does nothing.
+
+Local build recipe (the sandbox blocks the GitHub API that jekyll-github-metadata calls):
+`LANG=C.UTF-8 LC_ALL=C.UTF-8 bundle exec ruby -E UTF-8 -e 'require "jekyll"; require "jekyll-github-metadata"; Jekyll::GitHubMetadata::Client.class_eval { def internet_connected?; false; end }; load Gem.bin_path("jekyll","jekyll")' -- build -d <dir>`
+
 Lives in `_planning/` (not published).
 
 Scope: every piece a visitor can reach today. That is 24 published posts
@@ -70,7 +87,7 @@ first thing many people read, and they read least like you.
 
 | Piece | What's wrong (observed) | Bucket |
 |---|---|---|
-| **Poetry toolkit** `/blog/poetry-of-python/` | Pasted from Notion: an empty `#` heading, `<aside>` tags, steps written twice, `git clone` in a `python` code block, the "Direvnv" typo. It clones `PyMesh` and then `cd`s into `beehive-tracker`. Two `.envrc` recipes contradict each other. The Jupyter table ignores Poetry entirely. It relies on `poetry shell`, which Poetry 2 removed. The banner is the AWS image. Ends with an unkept "Coming Soon." | **Rewrite or retire.** Uncertain inference: with uv now the default, a Poetry tutorial ages fast. A "how I set up a project in 2026" piece in your own voice would outlast it. |
+| **Poetry toolkit** `/blog/poetry-of-python/` | Pasted from Notion: an empty `#` heading, `<aside>` tags, steps written twice, `git clone` in a `python` code block, the "Direvnv" typo. It clones `PyMesh` and then `cd`s into `beehive-tracker`. Two `.envrc` recipes contradict each other. The Jupyter table ignores Poetry entirely. It relies on `poetry shell`, which Poetry 2 removed. The banner is the AWS image. Ends with an unkept "Coming Soon." | **Done 2026-10-19:** rewritten for Poetry 2.x, tested end to end, new diagram and terminal cast. |
 | **AWS CLI → RDS** `/blog/aws-cli-tutorial-.../` | A visible "*Visual Suggestion:*" line. Google-Docs escapes (`\!`) throughout. A four-backtick fence that may break the code block below it. Uses `pip install awscli` (v1, where AWS recommends the v2 installer). Your personal profile name `baba-geocue-admin` is printed in the commands. Generic tone ("career superpower," "grab your coffee"). Promised follow-up never came. | **Fix + Elevate.** Add the security-group diagram already specced in an HTML comment, plus a terminal recording. |
 | **Mermaid life** `/blog/taming-mermaid-diagrams/` (also on the homepage) | The same SVG appears twice and the tagline appears twice. Stray backticks (`set -euo pipefail\``, `sequence:\``), an unclosed `<mark>`, and "save as" with no filename. **Probably renders broken:** the site runs Mermaid on every `language-mermaid` block, and three of those blocks start with bare YAML lines (`id: …`). Mermaid can't parse that, so they'd show error boxes, on a post about keeping diagrams tidy. (Not yet checked in a browser.) It points to a Streamlit app "in this repo" with no link. | **Fix + Elevate.** Fix the blocks, link the real repo, add a 30-second screencast of the render script and index. |
 | **GH Actions series**, parts 1–4 | Part 1 repeats a paragraph and has two "Step 3" headings. Part 3's workflow also deploys on `pull_request` (a real bug), and it says repo-wide read/write permissions are "required," which they aren't. Part 4 has a stray `****`. Emoji-heavy. Links point to old `/posts/` URLs that redirect. Part 4, the reflection, is the only part with a thought of your own in it. | **Fix parts 1–3; rewrite part 4** as the series' opening argument ("I didn't trust a black box in my deploy any more than in my model"). |
