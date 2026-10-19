@@ -1,6 +1,12 @@
 # Writing quality round: targets
 
-Status: audit done 2026-10-19. No posts edited yet.
+Status: audit done 2026-10-19. Tier 0 applied 2026-10-19 (branch `claude/modest-euler-h1vu2b`, not yet merged).
+
+Tier 0 decisions from Barbara: Choco is "he". Cut the "got burned" anecdote. Convoscope was a design call, not an
+observed result. Hive numbers are 23 inspections from 400+ photos over 4 years.
+Still to click-check: humanlayer.dev post URL, github.com/dagny099/citation-compass, cartography.barbhs.com.
+Left for later: the empty "Inspired by CloudWolf" heading (Tier 3); the unverified "seven edge types" and
+"five weather variables" claims in the chunking essay.
 Lives in `_planning/` (not published).
 
 Scope: every piece a visitor can reach today. That is 24 published posts

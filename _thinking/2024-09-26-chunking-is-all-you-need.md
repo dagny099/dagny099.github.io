@@ -3,7 +3,7 @@ layout: single
 title: "7+-2 is Everywhere: Chunking is all you need"
 subtitle: "How working memory limits shape effective interfaces across fitness, beekeeping, and AI tools"
 permalink: /thinking/why-dashboards-fail/
-excerpt: "Long-context models can hold a million tokens. People can't. The bottleneck has shifted from storage to sensemaking. Across 2,593 workouts, 400+ beehive inspections, and an AI comparison UI, the same pattern repeats: we act effectively when we see three to seven meaningful chunks."
+excerpt: "Long-context models can hold a million tokens. People can't. The bottleneck has shifted from storage to sensemaking. Across 2,593 workouts, 400+ beehive photos, and an AI comparison UI, the same pattern repeats: we act effectively when we see three to seven meaningful chunks."
 # Hero header (kept)
 header:
   overlay_image: /assets/images/bees-hero.jpg
@@ -22,7 +22,7 @@ teaser: /assets/images/bees-hero.jpg
 teaser_alt: "Beehive inspection photo with notes overlay"
 ---
 
-*Long-context models can hold a million tokens. People can’t. The bottleneck has shifted from storage to sensemaking. Across 2,593 workouts, 400+ beehive inspections, and an AI comparison UI, the same pattern repeats: we act effectively when we see three to seven meaningful chunks.*
+*Long-context models can hold a million tokens. People can’t. The bottleneck has shifted from storage to sensemaking. Across 2,593 workouts, 400+ beehive photos, and an AI comparison UI, the same pattern repeats: we act effectively when we see three to seven meaningful chunks.*
 
 
 ## Bigger windows, same bottleneck: sensemaking
@@ -40,22 +40,19 @@ Long-context prevents truncation, but neither humans nor models weight the middl
     - **Transition:** the brisk-walk-or-jog blur
 - Result: The three clusters captured the useful distinctions while minimizing labeling overhead.
 - Methods note: pace and cadence features, K-means with stability checks.
-- Optional stat placeholder: three clusters explained **[X%]** of variance.
 
-### Beehive monitoring, 4 seasons, 400+ photo-inspections
+### Beehive monitoring, 4 years, 400+ photos across 23 inspections
 
 - Inspections naturally cluster into ~4-hour windows for coherent event arcs.
 - Five weather variables do most explanatory work: temperature, humidity, wind, pressure, cloud cover.
 - In the knowledge graph, seven edge types carried the workload for practical queries like “Inspections before swarms” and “Weather factors preceding queen loss.”
 - Result: The long tail of edges existed, but decision-making lived in the top 3–7.
-- Optional coverage placeholder: seven edge types covered **[Y%]** of production queries.
 
 ### Convoscope interface, multi-model comparison
 
-- Ten side-by-side models looked impressive. Users skimmed the first row and quit.
-- Three model cards with five front-and-center topic chips drove engagement. The rest lived behind “More.”
-- Result: Clearer comparisons, faster judgment calls, better follow-through.
-- Optional engagement placeholder: 3-way comparison increased **[Z%]** dwell time or click-through.
+- Ten side-by-side models looked impressive, but comparing them meant holding ten answers in mind at once.
+- I cut the default view to three model cards with five front-and-center topic chips. The rest live behind “More.”
+- Why: three answers can be compared at a glance; ten have to be read one at a time.
 
 <aside>
 💡
@@ -101,7 +98,7 @@ Primacy and recency shape what’s noticed and remembered. Put the key idea and 
 
 ## Closing
 
-The interface is the new context window. My projects keep surfacing the same constraint. 2,593 workouts collapse to three clusters. Beehive queries ride on seven edges. Three-way model comparison works best. The next leap forward won’t be bigger context windows. It will be **designing for sensemaking**: chunk by purpose, respect the edges, and let experts expand. 
+The interface is the new context window. My projects keep surfacing the same constraint. 2,593 workouts collapse to three clusters. Beehive queries ride on seven edges. Model comparison settled at three cards. The next leap forward won’t be bigger context windows. It will be **designing for sensemaking**: chunk by purpose, respect the edges, and let experts expand. 
 
 ## Quick stats
 

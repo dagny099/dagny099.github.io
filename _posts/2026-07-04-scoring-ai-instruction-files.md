@@ -36,7 +36,7 @@ Three configuration files, three tools, all describing the same project. Every r
 
 ## What the research says about size
 
-Anthropic's [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) gave me the first hard number: frontier models follow roughly 150–200 instructions with reasonable consistency, and Claude Code's own system prompt already accounts for about 50 of them.
+HumanLayer's [Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md) gave me the first hard number: frontier models follow roughly 150–200 instructions with reasonable consistency, and Claude Code's own system prompt already accounts for about 50 of them. Anthropic's [Claude Code best practices](https://code.claude.com/docs/en/best-practices) make the same point without a number: "Bloated CLAUDE.md files cause Claude to ignore your actual instructions."
 
 My CLAUDE.md contained roughly 150 individual instructions. Add the baseline 50 and I was sitting at 200 — right at the ceiling.
 
@@ -90,7 +90,7 @@ The five-minute version, no printout required:
 
 If you'd rather score properly, the full version is a free download: the [AI instruction file evaluation worksheet](/resources/ai-instructions-evaluation-worksheet/) — a two-page PDF with the 100-point scorecard on page one and the complete rubric on page two.
 
-My own file, after the fixes: 650 lines, an estimated 94/100, no date fields left to lie to anyone.
+My own file, after the fixes: 650 lines, an estimated 94/100, no date fields left to lie to anyone. Still past the 500-line mark from step 1, so there's more trimming ahead.
 
 ## What's next
 
@@ -100,7 +100,8 @@ And I'd genuinely like to compare notes. How long is your instruction file? If y
 
 ## Sources
 
-- [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) — Anthropic
+- [Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md) — HumanLayer
+- [Claude Code best practices](https://code.claude.com/docs/en/best-practices) — Anthropic
 - [How I use every Claude Code feature](https://blog.sshh.io/p/how-i-use-every-claude-code-feature) — Shrivu Shankar
 - [Your first AI project attempt will be 95% garbage](https://www.sanity.io/blog/first-attempt-will-be-95-garbage) — Sanity.io
 - [Keep your AGENTS.md in sync](https://kau.sh/blog/agents-md/) — Kaushik Gopal
