@@ -21,7 +21,7 @@ header:
   caption: "From generic applications to tailored pitches—powered by GPT"
   actions:
     - label: "Visit App"
-      url: https://careercraft.barbhs.com
+      url: https://barbsassistant.streamlit.app
       class: "btn--primary"
     - label: "View Repo"
       url: https://github.com/dagny099/assistant_author
@@ -64,7 +64,7 @@ docs_label: "Documentation"
 - **Semantic similarity scoring** using sentence transformers—not just keyword matching, but meaning-based comparison
 - **Interactive visualizations** with Plotly gauge charts, bar charts, and radar charts for skills coverage
 - **Session persistence** via pickle serialization so users can save and resume across browser sessions
-- **Dual deployment** with automatic failover: EC2 primary at [careercraft.barbhs.com](https://careercraft.barbhs.com), Streamlit Cloud backup at [barbsassistant.streamlit.app](https://barbsassistant.streamlit.app)
+- **Deployment**: originally an EC2 primary (Nginx + PM2) with a Streamlit Community Cloud backup; the [Streamlit Cloud instance](https://barbsassistant.streamlit.app) is the one that stays live today
 
 ## Why It Matters
 
@@ -155,9 +155,8 @@ api_key = os.environ.get("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY")
 
 ## Links
 
-[Visit App](https://careercraft.barbhs.com){: .btn .btn--primary}
+[Visit App](https://barbsassistant.streamlit.app){: .btn .btn--primary}
 [View Repository](https://github.com/dagny099/assistant_author){: .btn .btn--light-outline}
-[Backup Instance](https://barbsassistant.streamlit.app){: .btn .btn--light-outline}
 
 **Documentation:**
 - [MkDocs Site](https://github.com/dagny099/assistant_author/tree/main/docs) — User guides, API reference, deployment docs

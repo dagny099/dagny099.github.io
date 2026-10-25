@@ -44,10 +44,25 @@ Place at: _includes/feature_row_dual.html
               <span>{{ f.btn_label | default: "Project" }}</span>
             </a>
           {% endif %}
+          {% comment %} Is docs_url on a host listed in _data/outages.yml? {% endcomment %}
+          {% assign _docs_down = false %}
           {% if f.docs_url %}
+            {% assign _u = f.docs_url | remove_first: "https://" | remove_first: "http://" | remove_first: "www." %}
+            {% for _d in site.data.outages.down %}
+              {% assign _len = _d | size %}
+              {% assign _head = _u | slice: 0, _len %}
+              {% if _head == _d %}{% assign _docs_down = true %}{% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if f.docs_url and _docs_down == false %}
             <a class="btn--cta secondary" href="{{ f.docs_url }}" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-file-alt" aria-hidden="true"></i>
               <span>{{ f.docs_label | default: "Docs" }}</span>
+            </a>
+          {% elsif _docs_down and f.fallback_url %}
+            <a class="btn--cta secondary" href="{{ f.fallback_url }}" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github" aria-hidden="true"></i>
+              <span>{{ f.fallback_label | default: "Source" }}</span>
             </a>
           {% endif %}
         </div>

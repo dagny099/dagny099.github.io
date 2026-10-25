@@ -120,7 +120,7 @@ direnv won't run an `.envrc` it hasn't seen before, or one that changed since yo
 
 > **About other `.envrc` recipes for Poetry.** Two show up a lot, including in the first version of this post.
 > - `use poetry` doesn't work. direnv has built-in layouts for pipenv, pyenv, and plain virtualenvs, but none for Poetry, so that line fails with `use_poetry: command not found`.
-> - `source "$(poetry env info -p)/bin/activate"` works, but it starts Poetry every time you enter the folder just to ask where the environment lives. In a quick test that cost about 0.7 seconds per `cd`, versus 0.04 seconds for sourcing `.venv/bin/activate` directly. Since Step 1 put the environment at `.venv/`, there's no need to ask.
+> - `source "$(poetry env info -p)/bin/activate"` works, but it starts Poetry every time you enter the folder just to ask where the environment lives. On my M1 Mac that added about 0.3 seconds to every `cd`, versus 0.01 seconds for sourcing `.venv/bin/activate` directly. Small, but you pay it every time you enter the folder. Since Step 1 put the environment at `.venv/`, there's no need to ask.
 
 ## Step 5: Keep secrets in `.env`, out of Git
 

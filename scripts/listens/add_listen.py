@@ -17,8 +17,15 @@ Subcommands (all print JSON or the drafted file; nothing is written without --wr
     listen  --show ID --track-id N [--listened-on YYYY-MM-DD] [--precision day|month|year|approximate]
             --guests a,b --topics x,y [--spark TEXT] [--spark-draft] [--notes-file F]
             [--episode-number N] [--write]
+    works   ["<title words>"]                 known works (all, or close title matches)
+    add-work --title T --type book|article|paper|newsletter|talk [--id SLUG]
+            [--authors a,b] [--authors-outside "Name; Name"] [--year N] [--publisher P] [--url U]
+            [--isbn N] [--openlibrary OL…W] [--doi D] [--source show_notes|transcript|manual]
+            [--listen FILE-SLUG --kind by_guest|discussed|recommended [--by PERSON] [--from-show]]
+            [--my-status want_to_read|read] [--write]
+            New id: creates the work. Existing id: adds the mention and/or sets my_status.
 
-Requires PyYAML. Network: itunes.apple.com only.
+Requires PyYAML. Network: itunes.apple.com only (catalog lookups live in works_lookup.py).
 """
 from __future__ import annotations
 
@@ -271,6 +278,138 @@ def cmd_listen(a):
     print(body)
 
 
+# ---------- works (books, articles, papers... connected to episodes and people) ----------
+
+WORK_TYPES = ["book", "article", "paper", "newsletter", "talk"]
+MENTION_KINDS = ["by_guest", "discussed", "recommended"]
+MY_STATUS = ["want_to_read", "read"]
+WORKS_HEADER = """\
+# Works connected to the /listening/ graph: books, articles, papers, newsletters, talks.
+# Managed by scripts/listens/add_listen.py (add-work); schema and decisions in
+# _planning/works-spike.md. Rewritten whole on every add, so keep notes out of this file.
+#
+# mentions[].kind:  by_guest (the guest wrote it) | discussed (came up in the episode or
+#                   its notes) | recommended (a recommendation segment; `by` names who).
+#                   All three count the same.
+# from_show: true   the show linking its own content; kept, but drawn quieter.
+# source:           show_notes | transcript | manual (added by Barbara, may have no mentions)
+# my_status:        want_to_read | read (optional)
+"""
+
+
+class _Flow(dict):
+    """A mapping dumped inline, so each mention stays on one line."""
+
+
+_Dumper.add_representer(_Flow, lambda d, m: d.represent_mapping("tag:yaml.org,2002:map", m, flow_style=True))
+
+
+def load_works() -> list[dict]:
+    path = DATA / "podcast_works.yml"
+    return (yaml.safe_load(path.read_text()) or []) if path.exists() else []
+
+
+def works_text(rows: list[dict]) -> str:
+    out_rows = []
+    for w in rows:
+        w = dict(w)
+        if w.get("ids"):
+            w["ids"] = _Flow(w["ids"])
+        if w.get("mentions"):
+            w["mentions"] = [_Flow(m) for m in w["mentions"]]
+        out_rows.append(w)
+    return WORKS_HEADER + "\n" + dump(out_rows).replace("\n- id:", "\n\n- id:")
+
+
+def listen_slugs() -> set[str]:
+    return {p.stem for p in LISTENS.glob("*.md")}
+
+
+def cmd_works(a):
+    rows = load_works()
+    if a.term:
+        titles = {w["title"].lower(): w for w in rows}
+        close = difflib.get_close_matches(a.term.lower(), list(titles), n=5, cutoff=0.5)
+        sub = [w for w in rows if a.term.lower() in w["title"].lower()] or [titles[c] for c in close]
+        out({"suggested_id": slug_id(a.term), "matches": sub})
+    else:
+        out([{"id": w["id"], "title": w["title"], "type": w["type"],
+              "mentions": len(w.get("mentions") or [])} for w in rows])
+
+
+def cmd_add_work(a):
+    rows = load_works()
+    wid = a.id or (slug_id(a.title) if a.title else None)
+    if not wid:
+        die("give --title (new work) or --id (existing work)")
+    people = {p["id"] for p in load("podcast_people.yml")}
+    split = lambda s, sep=",": [x.strip() for x in (s or "").split(sep) if x.strip()]  # noqa: E731
+
+    mention = None
+    if a.listen:
+        if a.listen not in listen_slugs():
+            die(f"no _listens/{a.listen}.md (use the file name without .md)")
+        if a.kind not in MENTION_KINDS:
+            die(f"--kind must be one of {MENTION_KINDS}")
+        if a.kind == "recommended" and not a.by:
+            die("a recommended mention needs --by <person id> (who recommended it)")
+        if a.by and a.by not in people:
+            die(f"--by {a.by} is not in podcast_people.yml; add the person first")
+        mention = {"listen": a.listen, "kind": a.kind}
+        if a.by:
+            mention["by"] = a.by
+        if a.from_show:
+            mention["from_show"] = True
+    elif a.kind or a.by or a.from_show:
+        die("--kind/--by/--from-show describe a mention; give --listen too")
+
+    existing = next((w for w in rows if w["id"] == wid), None)
+    if existing:
+        if mention:
+            if any(m["listen"] == a.listen for m in existing.get("mentions") or []):
+                die(f"{wid} already has a mention for {a.listen}")
+            existing.setdefault("mentions", []).append(mention)
+        if a.my_status:
+            existing["my_status"] = a.my_status
+        if not (mention or a.my_status):
+            die(f"work {wid} already exists; pass --listen to add a mention or --my-status to mark it")
+        entry, action = existing, "updated"
+    else:
+        if not (a.title and a.type):
+            die("a new work needs --title and --type")
+        authors = split(a.authors)
+        unknown = [p for p in authors if p not in people]
+        if unknown:
+            die(f"--authors must be person ids in podcast_people.yml ({', '.join(unknown)}); "
+                "use --authors-outside for people not on the graph")
+        if a.source == "manual" and not mention and not authors:
+            print("note: a manual work with no mention and no on-graph author won't appear on the graph",
+                  file=sys.stderr)
+        entry = {"id": wid, "title": a.title, "type": a.type}
+        if authors:
+            entry["authors"] = authors
+        if a.authors_outside:
+            entry["authors_outside"] = split(a.authors_outside, ";")
+        for key in ("year", "publisher", "url"):
+            if getattr(a, key):
+                entry[key] = getattr(a, key)
+        ids = {k: getattr(a, k) for k in ("isbn", "openlibrary", "doi") if getattr(a, k)}
+        if ids:
+            entry["ids"] = ids
+        entry["source"] = a.source
+        if a.my_status:
+            entry["my_status"] = a.my_status
+        if mention:
+            entry["mentions"] = [mention]
+        rows.append(entry)
+        action = "created"
+
+    if a.write:
+        (DATA / "podcast_works.yml").write_text(works_text(rows))
+    out({"work": wid, "action": action, "written": a.write})
+    print(dump([entry]))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -295,6 +434,15 @@ def main():
     p.add_argument("--guests", default=""); p.add_argument("--topics", default="")
     p.add_argument("--spark"); p.add_argument("--spark-draft", action="store_true"); p.add_argument("--notes-file")
     p.add_argument("--episode-number", type=int); p.add_argument("--write", action="store_true"); p.set_defaults(fn=cmd_listen)
+    p = sub.add_parser("works"); p.add_argument("term", nargs="?"); p.set_defaults(fn=cmd_works)
+    p = sub.add_parser("add-work"); p.add_argument("--id"); p.add_argument("--title")
+    p.add_argument("--type", choices=WORK_TYPES); p.add_argument("--authors"); p.add_argument("--authors-outside")
+    p.add_argument("--year", type=int); p.add_argument("--publisher"); p.add_argument("--url")
+    p.add_argument("--isbn"); p.add_argument("--openlibrary"); p.add_argument("--doi")
+    p.add_argument("--source", default="show_notes", choices=["show_notes", "transcript", "manual"])
+    p.add_argument("--listen"); p.add_argument("--kind", choices=MENTION_KINDS); p.add_argument("--by")
+    p.add_argument("--from-show", action="store_true"); p.add_argument("--my-status", choices=MY_STATUS)
+    p.add_argument("--write", action="store_true"); p.set_defaults(fn=cmd_add_work)
     a = ap.parse_args()
     a.fn(a)
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Is Your Knowledge Ready for AI? — Knowledge Legibility Diagnostic</title>
+<style>
+  @page { size: letter; margin: 0.55in 0.6in 0.5in; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 9.3pt; line-height: 1.38; color: #1d2731;
+  }
+  header { border-bottom: 2.5px solid #1d2731; padding-bottom: 6px; margin-bottom: 8px; }
+  .kicker { font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; color: #5a6b7b; margin-bottom: 2px; }
+  h1 { font-size: 20pt; letter-spacing: -0.01em; margin-bottom: 3px; }
+  .dek { font-size: 9.8pt; color: #3d4c5c; max-width: 92%; }
+  .howto {
+    background: #eef2f6; border-radius: 4px; padding: 6px 9px; margin-bottom: 9px;
+    font-size: 9.2pt; color: #2a3846;
+  }
+  .howto strong { color: #1d2731; }
+  .grid { column-count: 2; column-gap: 18px; }
+  section.dim { break-inside: avoid; margin-bottom: 9px; }
+  .dim h2 { font-size: 11pt; margin-bottom: 2px; }
+  .dim h2 .num { color: #b3541e; }
+  .dim .q-lede { font-size: 9pt; font-style: italic; color: #5a6b7b; margin-bottom: 4px; }
+  ol.qs { list-style: none; }
+  ol.qs li { display: flex; gap: 6px; margin-bottom: 6px; }
+  .boxes { white-space: nowrap; font-size: 8pt; color: #7c8a97; letter-spacing: 0.02em; padding-top: 1px; }
+  .boxes span { display: inline-block; width: 8px; height: 8px; border: 1px solid #8fa0b0; border-radius: 1.5px; margin-right: 2px; vertical-align: -1px; }
+  .qtext { flex: 1; }
+  .qnum { font-weight: 700; color: #b3541e; }
+  .interpret { break-inside: avoid; background: #f7f3ec; border-radius: 4px; padding: 7px 9px; margin-bottom: 8px; }
+  .interpret h2 { font-size: 11pt; margin-bottom: 4px; }
+  .interpret p { margin-bottom: 4px; font-size: 9.1pt; }
+  .interpret p:last-child { margin-bottom: 0; }
+  footer {
+    border-top: 1px solid #c6d0d9; margin-top: 4px; padding-top: 5px;
+    font-size: 8pt; color: #5a6b7b; display: flex; justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="kicker">Knowledge legibility diagnostic · one page</p>
+  <h1>Is Your Knowledge Ready for AI?</h1>
+  <p class="dek">Before AI can answer from your organization's knowledge, that knowledge has to be findable, structured, traceable, owned, and checkable. Fifteen questions to check, before a model starts answering from it.</p>
+</header>
+
+<p class="howto"><strong>How to use it:</strong> pick <strong>one real workflow or knowledge domain</strong> — support answers, pricing rules, runbooks. Answer each question yes (Y), no (N), or not sure (?) for that domain. "Not sure" means nobody in the room knows — that counts as a finding.</p>
+
+<div class="grid">
+
+<section class="dim">
+  <h2><span class="num">1 ·</span> Findability</h2>
+  <p class="q-lede">Can people and systems find the knowledge they need?</p>
+  <ol class="qs">
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q1</span> Could a new teammate find the current answer to a routine question without asking anyone?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q2</span> Is there one agreed first place to look — or several plausible "sources of truth"?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q3</span> When an answer changes, does the old version get retired or clearly marked?</span></li>
+  </ol>
+</section>
+
+<section class="dim">
+  <h2><span class="num">2 ·</span> Structure</h2>
+  <p class="q-lede">Is the knowledge in a form AI systems can use?</p>
+  <ol class="qs">
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q4</span> Could the core facts be laid out as a table, checklist, or set of rules without losing what matters?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q5</span> Is the same concept called the same name everywhere it appears?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q6</span> Are the decision rules written down as rules — or reconstructed from prose, screenshots, and threads?</span></li>
+  </ol>
+</section>
+
+<section class="dim">
+  <h2><span class="num">3 ·</span> Provenance</h2>
+  <p class="q-lede">Can you trace where knowledge came from?</p>
+  <ol class="qs">
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q7</span> For a key document: can you tell who wrote it, when it was updated, and whether it's still current?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q8</span> Could you trace an AI answer back to the specific passage that supports it?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q9</span> When a significant decision gets made, is it recorded somewhere findable a year later?</span></li>
+  </ol>
+</section>
+
+<section class="dim">
+  <h2><span class="num">4 ·</span> Ownership</h2>
+  <p class="q-lede">Who maintains the knowledge?</p>
+  <ol class="qs">
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q10</span> Can you name the person responsible for keeping each major source current?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q11</span> When two sources disagree, is there a defined way to resolve it?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q12</span> Has anything been updated this quarter for a reason other than something breaking?</span></li>
+  </ol>
+</section>
+
+<section class="dim">
+  <h2><span class="num">5 ·</span> Verification</h2>
+  <p class="q-lede">How would you know whether an AI answer is right?</p>
+  <ol class="qs">
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q13</span> Do you have even ten questions with known-correct answers to test an AI against?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q14</span> Could your team agree — in writing — on which errors are annoying and which are unacceptable?</span></li>
+    <li><span class="boxes"><span></span>Y <span></span>N <span></span>?</span><span class="qtext"><span class="qnum">Q15</span> If the AI gives a confident wrong answer in a high-stakes situation, who catches it, and can they override it?</span></li>
+  </ol>
+</section>
+
+<section class="interpret">
+  <h2>How to read your answers — no score, just the pattern</h2>
+  <p><strong>Mostly yes:</strong> your knowledge may be ready for a narrow, well-scoped AI use case. Start small; keep Q13–Q15 answered in writing.</p>
+  <p><strong>Mixed:</strong> the gaps will surface as "AI problems" if you build first. You likely need cleanup, modeling, or ownership decisions before a build.</p>
+  <p><strong>Mostly no / not sure:</strong> you probably need a knowledge audit before relying on AI outputs. Building now means paying engineers to discover these gaps one incident at a time.</p>
+</section>
+
+<section class="dim">
+  <h2>What to do next</h2>
+  <ol class="qs">
+    <li><span class="qtext">1. Pick one knowledge domain — where AI help would matter most, not the tidiest one.</span></li>
+    <li><span class="qtext">2. Identify the current source of truth. If there are several, choose one and say so.</span></li>
+    <li><span class="qtext">3. List the contradictions and missing owners from Q10–Q12.</span></li>
+    <li><span class="qtext">4. Write ten golden questions with expert-approved answers.</span></li>
+    <li><span class="qtext">5. Decide what should not be automated yet, and write that down too.</span></li>
+  </ol>
+</section>
+
+</div>
+
+<footer>
+  <span>barbhs.com/resources/knowledge-legibility-diagnostic — full version with weak signals &amp; interpretation</span>
+  <span>Barbara Hidalgo-Sotelo · barbhs.com</span>
+</footer>
+
+</body>
+</html>

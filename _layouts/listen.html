@@ -36,6 +36,7 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
   .listen__related{list-style:none;margin:0;padding:0}
   .listen__related li{margin:0 0 .45rem;font-size:.9rem}
   .listen__related small{display:block;color:var(--ink-soft)}
+  .listen__works li.is-quiet a{color:var(--ink-soft)}
 </style>
 
 <div class="listen">
@@ -82,6 +83,29 @@ topics -> podcast_topics.yml. Show colors mirror /listening/ (color_slot 1-5).
         <li>{{ t.label | default: tid }}</li>
       {% endfor %}
     </ul>
+  {% endif %}
+
+  {% comment %} Works this episode mentions (_data/podcast_works.yml), grouped as on the graph. {% endcomment %}
+  {% assign slug = page.url | split: "/" | last %}
+  {% assign work_kinds = "by_guest,recommended,discussed" | split: "," %}
+  {% capture works_html %}
+    {% for kind in work_kinds %}
+      {% for w in site.data.podcast_works %}{% for m in w.mentions %}{% if m.listen == slug and m.kind == kind %}
+        {% capture authors %}{% for a in w.authors %}{% assign ap = site.data.podcast_people | where: "id", a | first %}{{ ap.name | default: a }}{% unless forloop.last %}, {% endunless %}{% endfor %}{% if w.authors and w.authors_outside %}, {% endif %}{{ w.authors_outside | join: ", " }}{% endcapture %}
+        {% assign authors = authors | strip %}
+        {% if kind == "recommended" %}{% assign rp = site.data.podcast_people | where: "id", m.by | first %}{% capture how %}recommended by {{ rp.name | default: m.by }}{% endcapture %}
+        {% elsif kind == "by_guest" %}{% assign how = "by the guest" %}{% else %}{% assign how = "discussed" %}{% endif %}
+        <li class="{% if m.from_show %}is-quiet{% endif %}">
+          {% if w.url %}<a href="{{ w.url }}" target="_blank" rel="noopener">{{ w.title }}</a>{% else %}{{ w.title }}{% endif %}
+          <small>{{ w.type | capitalize }}{% if authors != "" %} by {{ authors }}{% endif %}{% if w.year %}, {{ w.year }}{% endif %} · {{ how }}{% if m.from_show %} · the show's own post{% endif %}{% if w.my_status == "want_to_read" %} · on my want-to-read list{% elsif w.my_status == "read" %} · I've read it{% endif %}</small>
+        </li>
+      {% endif %}{% endfor %}{% endfor %}
+    {% endfor %}
+  {% endcapture %}
+  {% assign works_html = works_html | strip %}
+  {% if works_html != "" %}
+    <div class="listen__label">Works mentioned</div>
+    <ul class="listen__related listen__works">{{ works_html }}</ul>
   {% endif %}
 
   {% comment %} Up to 6 related episodes: shared guests first, then shared topics. {% endcomment %}

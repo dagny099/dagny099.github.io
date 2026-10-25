@@ -37,6 +37,53 @@ def as_date(value):
     return datetime.date.fromisoformat(str(value))
 
 
+WORK_TYPES = {"book", "article", "paper", "newsletter", "talk"}
+MENTION_KINDS = {"by_guest", "discussed", "recommended"}
+WORK_SOURCES = {"show_notes", "transcript", "manual"}
+MY_STATUS = {"want_to_read", "read"}
+
+
+def check_works(errors, people_ids, listen_slugs):
+    """_data/podcast_works.yml: ids, types and every person/listen reference resolve."""
+    path = ROOT / "_data" / "podcast_works.yml"
+    if not path.exists():
+        return 0
+    rows = yaml.safe_load(path.read_text()) or []
+    ids = [w.get("id") for w in rows]
+    errors += [f"podcast_works.yml: duplicate work id '{i}'" for i in sorted({i for i in ids if ids.count(i) > 1})]
+    for w in rows:
+        wid = w.get("id", "?")
+        where = f"podcast_works.yml: {wid}"
+        errors += [f"{where}: missing '{k}'" for k in ("id", "title", "type", "source") if not w.get(k)]
+        if w.get("type") and w["type"] not in WORK_TYPES:
+            errors.append(f"{where}: type must be one of {sorted(WORK_TYPES)}")
+        if w.get("source") and w["source"] not in WORK_SOURCES:
+            errors.append(f"{where}: source must be one of {sorted(WORK_SOURCES)}")
+        if w.get("my_status") and w["my_status"] not in MY_STATUS:
+            errors.append(f"{where}: my_status must be one of {sorted(MY_STATUS)}")
+        errors += [f"{where}: author '{a}' not in podcast_people.yml (use authors_outside)"
+                   for a in w.get("authors") or [] if a not in people_ids]
+        mentions = w.get("mentions") or []
+        if not mentions and not w.get("authors"):
+            errors.append(f"{where}: no mentions and no on-graph author, so it can't appear on the graph")
+        if not mentions and w.get("source") != "manual":
+            errors.append(f"{where}: only manual works may have no mentions")
+        seen = set()
+        for m in mentions:
+            if m.get("listen") not in listen_slugs:
+                errors.append(f"{where}: mention of unknown listen '{m.get('listen')}'")
+            if m.get("listen") in seen:
+                errors.append(f"{where}: two mentions for {m.get('listen')}")
+            seen.add(m.get("listen"))
+            if m.get("kind") not in MENTION_KINDS:
+                errors.append(f"{where}: mention kind must be one of {sorted(MENTION_KINDS)}")
+            if m.get("kind") == "recommended" and not m.get("by"):
+                errors.append(f"{where}: recommended mention needs 'by' (who recommended it)")
+            if m.get("by") and m["by"] not in people_ids:
+                errors.append(f"{where}: recommender '{m['by']}' not in podcast_people.yml")
+    return len(rows)
+
+
 def main():
     errors = []
     shows, show_ids, d1 = load_ids("podcast_shows.yml")
@@ -76,10 +123,12 @@ def main():
             errors.append(f"{name}: duplicate guid, same episode as {guids[guid]}")
         guids[guid] = name
 
+    works = check_works(errors, people_ids, {p.stem for p in files})
+
     for e in errors:
         print("ERROR", e)
     print(f"{len(files)} listens, {len(show_ids)} shows, {len(people_ids)} people, "
-          f"{len(topic_ids)} topics: {'OK' if not errors else f'{len(errors)} error(s)'}")
+          f"{len(topic_ids)} topics, {works} works: {'OK' if not errors else f'{len(errors)} error(s)'}")
     return 1 if errors else 0
 
 

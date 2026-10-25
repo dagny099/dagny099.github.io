@@ -137,14 +137,14 @@ show_title: false
   <section class="curriculum-band">
     <div class="cb-inner">
       <div>
-        <div class="eyebrow cb-eyebrow">Worked in public</div>
+        <div class="eyebrow cb-eyebrow">Field guide</div>
         <h2>The Meaning Layer</h2>
-        <p class="cb-body">A 12-week semantic web curriculum — RDF, OWL, SPARQL, through to a deployed hybrid LLM + knowledge graph capstone — published as I work through it, wrong turns included. Two of the projects above are its anchor canvases: the Naruto network carries the ontology modeling, and my resume graph makes the case for linked data concrete.</p>
-        <p class="cb-mono">PROGRESS.md · updated weekly · module 1 of 4 in progress</p>
+        <p class="cb-body">A working field guide to the semantic web — RDF, SPARQL, and the vocabularies that make linked data useful — written as synthesis essays and hands-on workbooks rather than restated specs. The Naruto network above is one of its practice canvases. The Foundations module is complete and stands on its own; modeling, reasoning, and shipping chapters get added as I work through them.</p>
+        <p class="cb-mono">Foundations complete · 3 essays · 5 workbooks · cheat sheet + glossary</p>
       </div>
       <div class="cb-actions">
-        <a class="cb-btn" href="https://curriculum.barbhs.com" target="_blank" rel="noopener">Explore the curriculum</a>
-        <a class="cb-link" href="https://curriculum.barbhs.com/modules/01-foundations/" target="_blank" rel="noopener">Start at Module 1 →</a>
+        <a class="cb-btn" href="https://curriculum.barbhs.com" target="_blank" rel="noopener">Open the field guide</a>
+        <a class="cb-link" href="https://curriculum.barbhs.com/modules/01-foundations/submodules/1-1-rdf-vs-lpg.html" target="_blank" rel="noopener">Start with RDF vs. LPG →</a>
       </div>
     </div>
   </section>
@@ -180,11 +180,19 @@ const capName  = id => DATA.capabilities.find(c=>c.id===id)?.name || id;
 const techName = id => DATA.tech.find(t=>t.id===id)?.name || id;
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
 
+/* Drop links to hosts listed in _data/outages.yml (see assets/js/outages.js) */
+const isUp = u => !(window.isDownLink && window.isDownLink(u));
+function upLinks(p){
+  const L = {};
+  Object.entries(p.links||{}).forEach(([k,v]) => { if(isUp(v)) L[k] = v; });
+  return L;
+}
+
 function linksHTML(p, primaryFirst=true){
-  const L = p.links||{};
+  const L = upLinks(p);
   const out = [];
   if(L.live) out.push(`<a class="${primaryFirst?'primary':''}" href="${L.live}" target="_blank" rel="noopener">Live demo</a>`);
-  if(L.case_study) out.push(`<a href="${L.case_study}">Case study</a>`);
+  if(L.case_study) out.push(`<a class="${primaryFirst&&!L.live?'primary':''}" href="${L.case_study}">Case study</a>`);
   if(L.docs) out.push(`<a href="${L.docs}" target="_blank" rel="noopener">Docs</a>`);
   if(L.repo) out.push(`<a href="${L.repo}" target="_blank" rel="noopener">Source</a>`);
   return out.join("");
@@ -196,9 +204,12 @@ function chipsHTML(p){
     + `</div>`;
 }
 function cardHTML(p){
-  const liveTag = (p.links&&p.links.live) ? `<span class="live">live</span> · ` : "";
+  const liveTag = upLinks(p).live ? `<span class="live">live</span> · ` : "";
+  const demoDown = p.links && p.links.live && !upLinks(p).live;
+  const status = demoDown ? "demo temporarily offline" : p.status;
+  const kickerStatus = (liveTag && status === "live") ? "" : `${esc(status)} · `;
   return `<article class="card" data-caps="${p.capabilities.join(",")}">
-    <div class="kicker">${liveTag}${esc(p.status)} · ${esc(p.domain)}</div>
+    <div class="kicker">${liveTag}${kickerStatus}${esc(p.domain)}</div>
     <h3>${esc(p.name)}</h3>
     <p class="tagline">${esc(p.tagline)}</p>
     <p class="desc">${esc(p.description)}</p>

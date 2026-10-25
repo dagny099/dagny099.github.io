@@ -85,6 +85,11 @@ sitemap: false
   .search{font:inherit;font-size:.76rem;color:var(--ink);background:var(--card);border:1px solid var(--line);
     border-radius:999px;padding:.3rem .8rem;width:12rem}
   .search::placeholder{color:var(--muted)}
+  .toggle{display:inline-flex;align-items:center;gap:.4rem;font:inherit;font-size:.72rem;color:var(--ink-soft);background:var(--card);
+    border:1px solid var(--line);border-radius:999px;padding:.28rem .75rem .28rem .5rem;cursor:pointer}
+  .toggle[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .toggle .count{opacity:.7;font-variant-numeric:tabular-nums}
+  .toggle .glyph{width:12px;height:12px}
 
   /* ---------- graph ---------- */
   #graph{position:fixed;inset:0;width:100vw;height:100vh;cursor:grab;touch-action:none}
@@ -94,6 +99,14 @@ sitemap: false
   .link.COVERS{stroke-opacity:.45}
   .link.hot{stroke:var(--ink-soft);stroke-opacity:.75}
   .link.HAS_EPISODE.hot{stroke-opacity:.9}
+  /* Works layer (off by default): mentions dashed, recommendations coral, authorship teal.
+     A show linking its own posts is drawn quieter. */
+  .link.MENTIONS{stroke-dasharray:3 3;stroke-opacity:.8}
+  .link.RECOMMENDS{stroke:var(--coral);stroke-opacity:.65}
+  .link.WROTE{stroke:var(--teal);stroke-opacity:.65}
+  .link.RECOMMENDS.hot{stroke:var(--coral);stroke-opacity:1}
+  .link.WROTE.hot{stroke:var(--teal);stroke-opacity:1}
+  .link.quiet{stroke-opacity:.3}
   .pending{fill:var(--paper);pointer-events:none}
   .node{cursor:pointer}
   .node:focus{outline:none}
@@ -107,6 +120,7 @@ sitemap: false
   .label.person{font-size:calc(10.5px * var(--ls,1));fill:var(--ink-soft)}
   .label.topic{font-size:calc(10.5px * var(--ls,1));font-style:italic;fill:var(--ink-soft)}
   .label.episode{font-size:calc(10.5px * var(--ls,1))}
+  .label.work{font-size:calc(10px * var(--ls,1));fill:var(--ink-soft)}
   .label.optional{opacity:0;transition:opacity .2s}
   svg.zoomed .label.optional,.label.optional.lit,.label.optional.selected{opacity:1}
   .label.selected{font-weight:600}
@@ -159,6 +173,10 @@ sitemap: false
   .eplist button{font:inherit;font-size:.8rem;line-height:1.35;color:var(--ink);background:none;border:none;text-align:left;cursor:pointer;display:flex;gap:.45rem;align-items:baseline}
   .eplist button:hover span:last-child{text-decoration:underline}
   .eplist .linekey{transform:translateY(-2px)}
+  .eplist small{display:block;color:var(--muted);font-size:.72rem;margin-top:.1rem}
+  .sublabel{font-size:.72rem;color:var(--muted);margin:.5rem 0 .3rem}
+  .chip.quiet{color:var(--ink-soft);border-style:dashed}
+  aside .mine{display:inline-block;font-size:.74rem;padding:.15rem .6rem;border-radius:999px;background:var(--sand);color:var(--ink);margin-bottom:.8rem}
   .links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
   .links a{font-size:.78rem;color:var(--paper);background:var(--ink);text-decoration:none;padding:.42rem .85rem;border-radius:4px}
   .links a.primary{background:var(--teal)}
@@ -219,6 +237,10 @@ sitemap: false
         <button type="button" data-view="graph" aria-pressed="true">Graph</button>
         <button type="button" data-view="list" aria-pressed="false">List</button>
       </div>
+    </div>
+    <div class="ctl" id="works-ctl" hidden>
+      <button type="button" class="toggle" id="works-toggle" aria-pressed="false"
+        title="Add the books, articles and papers mentioned in these episodes">Works</button>
     </div>
   </div>
   <div class="shows" id="shows" role="group" aria-label="Shows: click to hide or show"></div>
@@ -291,33 +313,67 @@ function init(D) {
     (l.topics || []).forEach(t => links.push({ source: `ep:${l.id}`, target: `topic:${t}`, type: "COVERS" }));
   });
   D.shows.forEach(s => (s.hosts || []).forEach(h => links.push({ source: `person:${h}`, target: `show:${s.id}`, type: "HOSTS" })));
-  const usedPeople = new Set(links.filter(l => l.source.startsWith("person:")).map(l => l.source.slice(7)));
+
+  /* Works layer (off by default): works hang off episodes (MENTIONS) and people (WROTE,
+     RECOMMENDS). Everything it adds is marked `layer`, so the default graph and its layout
+     are exactly what they were without works. */
+  const WORKS = D.works || [];
+  const slugOf = url => url.split("/").filter(Boolean).pop();
+  const listenBySlug = new Map(D.listens.map(l => [slugOf(l.url), l]));
+  WORKS.forEach(w => {
+    add({ id: `work:${w.id}`, type: "work", label: w.title, ref: w, layer: true });
+    (w.mentions || []).forEach(m => {
+      const l = listenBySlug.get(m.listen);
+      if (l) links.push({ source: `ep:${l.id}`, target: `work:${w.id}`, type: "MENTIONS", quiet: !!m.from_show, layer: true });
+      if (m.by) links.push({ source: `person:${m.by}`, target: `work:${w.id}`, type: "RECOMMENDS", quiet: !!m.from_show, layer: true });
+    });
+    (w.authors || []).forEach(a => links.push({ source: `person:${a}`, target: `work:${w.id}`, type: "WROTE", layer: true }));
+  });
+
+  const peopleIn = ls => new Set(ls.filter(l => l.source.startsWith("person:")).map(l => l.source.slice(7)));
+  const basePeople = peopleIn(links.filter(l => !l.layer)), usedPeople = peopleIn(links);
   const usedTopics = new Set(links.filter(l => l.type === "COVERS").map(l => l.target.slice(6)));
-  D.people.filter(p => usedPeople.has(p.id)).forEach(p => add({ id: `person:${p.id}`, type: "person", label: p.name, ref: p }));
+  D.people.filter(p => usedPeople.has(p.id)).forEach(p => add({ id: `person:${p.id}`, type: "person", label: p.name, ref: p,
+    layer: !basePeople.has(p.id) }));
   D.topics.filter(t => usedTopics.has(t.id)).forEach(t => add({ id: `topic:${t.id}`, type: "topic", label: t.label, ref: t }));
   const LINKS = links.filter(l => byId.has(l.source) && byId.has(l.target));
 
-  const nbrs = new Map(nodes.map(n => [n.id, new Set()]));
-  LINKS.forEach(l => { nbrs.get(l.source).add(l.target); nbrs.get(l.target).add(l.source); });
-  nodes.forEach(n => { n.degree = nbrs.get(n.id).size; });
-  const R = { episode: 7, person: 5.5, topic: 6 };
+  const nbrs = new Map(nodes.map(n => [n.id, new Set()])), baseNbrs = new Map(nodes.map(n => [n.id, new Set()]));
+  LINKS.forEach(l => {
+    nbrs.get(l.source).add(l.target); nbrs.get(l.target).add(l.source);
+    if (!l.layer) { baseNbrs.get(l.source).add(l.target); baseNbrs.get(l.target).add(l.source); }
+  });
+  nodes.forEach(n => { n.degree = (n.layer ? nbrs : baseNbrs).get(n.id).size; n.degreeAll = nbrs.get(n.id).size; });
+  // Resolve ends to node objects up front: layer links stay out of the simulation while works are hidden.
+  LINKS.forEach(l => { l.source = byId.get(l.source); l.target = byId.get(l.target); });
+  const BASE_NODES = nodes.filter(n => !n.layer), BASE_LINKS = LINKS.filter(l => !l.layer);
+  const R = { episode: 7, person: 5.5, topic: 6, work: 5 };
   // Show nodes grow with how many of their episodes I've logged; topics with how many episodes cover them.
   const radius = n => n.type === "show" ? (n.logged ? 11 + 4 * Math.sqrt(listenCount.get(n.ref.id)) : 12)
     : n.type === "topic" ? R.topic + Math.min(n.degree, 6) * 0.6 : R[n.type];
   const ownSpark = l => !!(l.spark && !l.spark_draft);
+  const personName = id => (personById.get(id) || { name: id }).name;
+  const TYPE = { book: "Book", article: "Article", paper: "Paper", newsletter: "Newsletter", talk: "Talk" };
+  const MINE = { want_to_read: "On my want-to-read list", read: "I've read it" };
+  const workFill = w => w.my_status === "want_to_read" ? "var(--coral)" : w.my_status === "read" ? "var(--teal)" : "var(--card)";
+  const workLine = w => [TYPE[w.type] || w.type, w.year, w.publisher].filter(Boolean).join(" · ");
+  const byLine = w => [...(w.authors || []).map(personName), ...(w.authors_outside || [])].join(", ");
+  const mentionNote = m => (m.kind === "recommended" ? `Recommended by ${personName(m.by)}`
+    : m.kind === "by_guest" ? "By the guest" : "Discussed") + (m.from_show ? " · the show's own post" : "");
+  const worksFor = l => WORKS.flatMap(w => (w.mentions || []).filter(m => m.listen === slugOf(l.url)).map(m => ({ w, m })));
 
   /* ---------- state ---------- */
-  const state = { axis: "listened_on", lo: null, hi: null, hiddenShows: new Set(), query: "", selected: null, view: "graph" };
+  const state = { axis: "listened_on", lo: null, hi: null, hiddenShows: new Set(), query: "", selected: null, view: "graph", works: false };
   const params = new URLSearchParams(location.search);
 
   /* ---------- svg ---------- */
   const svg = d3.select("#graph");
   const root = svg.append("g");
   const linkSel = root.append("g").selectAll("line").data(LINKS).join("line")
-    .attr("class", d => `link ${d.type}`)
+    .attr("class", d => `link ${d.type}` + (d.quiet ? " quiet" : ""))
     .style("stroke", d => d.type === "HAS_EPISODE" ? d.color : null);
 
-  const ORDER = { episode: 0, person: 1, topic: 2, show: 3 };
+  const ORDER = { episode: 0, work: 1, person: 2, topic: 3, show: 4 };
   const drawn = [...nodes].sort((a, b) => ORDER[a.type] - ORDER[b.type]);
   const nodeSel = root.append("g").selectAll("g").data(drawn, d => d.id).join("g")
     .attr("class", d => `node ${d.type}`)
@@ -333,6 +389,10 @@ function init(D) {
     } else if (d.type === "person") {
       g.append("circle").attr("class", "ring").attr("r", r)
         .style("fill", "var(--paper)").style("stroke", "var(--ink-soft)").style("stroke-width", 1.5);
+    } else if (d.type === "work") {
+      // A small upright book; filled when I've marked it want-to-read (coral) or read (teal).
+      g.append("rect").attr("class", "ring").attr("x", -r * .8).attr("y", -r).attr("width", r * 1.6).attr("height", r * 2)
+        .attr("rx", 1.2).style("fill", workFill(d.ref)).style("stroke", "var(--teal-deep)").style("stroke-width", 1.3);
     } else if (d.type === "show" && !d.logged) {
       g.append("circle").attr("class", "ring").attr("r", r - 3)
         .style("fill", "var(--paper)").style("stroke", "var(--ink-soft)").style("stroke-width", 1.5);
@@ -345,20 +405,20 @@ function init(D) {
   });
   const shortTitle = t => t.replace(/^\d+:\s*/, "").replace(/\s+\|.*$/, "").slice(0, 46) + (t.length > 46 ? "…" : "");
   const labelSel = root.append("g").attr("class", "labels").selectAll("text").data(drawn, d => d.id).join("text")
-    .attr("class", d => `label ${d.type}` + ((d.type === "episode" || (d.type === "person" && d.degree < 2)) ? " optional" : ""))
+    .attr("class", d => `label ${d.type}` + ((d.type === "episode" || d.type === "work" || (d.type === "person" && d.degree < 2)) ? " optional" : ""))
     .attr("dy", "0.32em")
-    .text(d => d.type === "episode" ? shortTitle(d.label) : d.label);
+    .text(d => d.type === "episode" || d.type === "work" ? shortTitle(d.label) : d.label);
   const both = (cls, fn) => { nodeSel.classed(cls, fn); labelSel.classed(cls, fn); };
 
   /* ---------- simulation ---------- */
   const W = () => innerWidth, H = () => innerHeight;
   const RING = innerWidth > 720 ? 330 : 240;
-  const sim = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(LINKS).id(d => d.id)
-      .distance(l => ({ HAS_EPISODE: 48, GUEST_ON: 26, HOSTS: 58, COVERS: 95 })[l.type])
-      .strength(l => ({ HAS_EPISODE: .7, GUEST_ON: .9, HOSTS: .4, COVERS: .05 })[l.type]))
-    .force("charge", d3.forceManyBody().strength(d => d.type === "show" ? -520 : d.type === "topic" ? -60 : -110))
-    .force("collide", d3.forceCollide(d => radius(d) + (d.type === "show" ? 22 : d.type === "topic" ? 42 : 5)))
+  const sim = d3.forceSimulation(BASE_NODES)
+    .force("link", d3.forceLink(BASE_LINKS)
+      .distance(l => ({ HAS_EPISODE: 48, GUEST_ON: 26, HOSTS: 58, COVERS: 95, MENTIONS: 34, WROTE: 30, RECOMMENDS: 44 })[l.type])
+      .strength(l => ({ HAS_EPISODE: .7, GUEST_ON: .9, HOSTS: .4, COVERS: .05, MENTIONS: .6, WROTE: .5, RECOMMENDS: .25 })[l.type]))
+    .force("charge", d3.forceManyBody().strength(d => d.type === "show" ? -520 : d.type === "topic" ? -60 : d.type === "work" ? -45 : -110))
+    .force("collide", d3.forceCollide(d => radius(d) + (d.type === "show" ? 22 : d.type === "topic" ? 42 : d.type === "work" ? 4 : 5)))
     // Topics sit on an outer ring, so shows cluster inside and the cross-show bridges read at a glance.
     .force("ring", d3.forceRadial(d => d.type === "topic" ? RING : 0, W() * .5, H() * .56)
       .strength(d => d.type === "topic" ? .9 : 0))
@@ -381,6 +441,12 @@ function init(D) {
   /* Settle the layout before first paint, then frame it in the space the header
      and legend leave free, so it fits a phone as well as a desktop. */
   for (let i = 0; i < 320; i++) sim.tick();
+  // Seat each works-layer node beside what it connects to (works first, then people reached only through works).
+  ["work", "person"].forEach(type => nodes.filter(n => n.layer && n.type === type).forEach((n, i) => {
+    const near = [...nbrs.get(n.id)].map(id => byId.get(id)).filter(m => m.x != null);
+    const a = i * 2.39996, cx = near.length ? d3.mean(near, m => m.x) : W() * .5, cy = near.length ? d3.mean(near, m => m.y) : H() * .56;
+    n.x = cx + 30 * Math.cos(a); n.y = cy + 30 * Math.sin(a);
+  }));
   draw();
   function fit() {
     const shown = nodes.filter(n => !nodeSel.filter(d => d.id === n.id).classed("gone"));
@@ -407,7 +473,7 @@ function init(D) {
   const tip = document.getElementById("tip");
   const showTip = (d, x, y) => {
     tip.replaceChildren();
-    const kind = { show: "Show", episode: "Episode", person: "Person", topic: "Topic" }[d.type];
+    const kind = { show: "Show", episode: "Episode", person: "Person", topic: "Topic", work: "Work" }[d.type];
     tip.append(el("strong", { text: d.label }));
     if (d.type === "episode") {
       const s = showById.get(d.show), l = d.ref;
@@ -416,8 +482,14 @@ function init(D) {
       if (l.spark) tip.append(el("div", { class: "tspark", text: l.spark }),
         l.spark_draft ? el("div", { class: "tnote", text: "Draft from the show notes" }) : null);
       else tip.append(el("div", { class: "tnote", text: "No spark written yet" }));
+    } else if (d.type === "work") {
+      const w = d.ref, by = byLine(w), n = (w.mentions || []).length;
+      tip.append(el("div", { class: "k", text: workLine(w) }), by ? el("div", { class: "k", text: `By ${by}` }) : null,
+        el("div", { class: "tnote", text: n ? `Mentioned in ${n} episode${n === 1 ? "" : "s"}` : "Added by me" }),
+        w.my_status ? el("div", { class: "tnote", text: MINE[w.my_status] }) : null);
     } else {
-      tip.append(el("div", { class: "k", text: `${kind}, ${d.degree} connection${d.degree === 1 ? "" : "s"}` }));
+      const deg = state.works ? d.degreeAll : d.degree;
+      tip.append(el("div", { class: "k", text: `${kind}, ${deg} connection${deg === 1 ? "" : "s"}` }));
     }
     const pad = 14, w = 290;
     tip.style.left = `${Math.min(x + pad, innerWidth - w - 8)}px`;
@@ -450,6 +522,7 @@ function init(D) {
   addEventListener("keydown", e => { if (e.key === "Escape" && state.selected) select(null); });
 
   function select(id) {
+    if (id && byId.get(id) && byId.get(id).layer && !state.works) setWorks(true);
     state.selected = id;
     both("selected", d => d.id === id);
     highlight(id);
@@ -470,11 +543,13 @@ function init(D) {
     svg.transition().duration(reduce ? 0 : 450)
       .call(zoom.translateBy, ((vx0 + vx1) / 2 - sx) / t.k, ((vy0 + vy1) / 2 - sy) / t.k);
   }
-  const chip = (id, text) => el("button", { class: "chip", type: "button", text, onclick: () => select(id) });
-  const epItem = l => {
+  const chip = (id, text, quiet) => el("button", { class: quiet ? "chip quiet" : "chip", type: "button", text,
+    title: quiet ? "The show's own post" : null, onclick: () => select(id) });
+  const workChip = (w, quiet) => chip(`work:${w.id}`, w.title, quiet);
+  const epItem = (l, note) => {
     const s = showById.get(l.show);
     return el("li", {}, el("button", { type: "button", onclick: () => select(`ep:${l.id}`) },
-      lineKey(slotVar(s && s.color_slot)), el("span", { text: l.title })));
+      lineKey(slotVar(s && s.color_slot)), el("span", {}, l.title, note ? el("small", { text: note }) : null)));
   };
   const listensWhere = f => D.listens.filter(f).sort((a, b) => b.listened_on.localeCompare(a.listened_on));
 
@@ -501,6 +576,18 @@ function init(D) {
         el("div", { class: "chips" }, l.guests.map(g => chip(`person:${g}`, (personById.get(g) || { name: g }).name))));
       if (l.topics && l.topics.length) content.append(el("h3", { text: "Topics" }),
         el("div", { class: "chips" }, l.topics.map(t => chip(`topic:${t}`, (topicById.get(t) || { label: t }).label))));
+      const mentioned = worksFor(l);
+      if (mentioned.length) {
+        content.append(el("h3", { text: "Works mentioned" }));
+        ["by_guest", "recommended", "discussed"].forEach(kind => {
+          const here = mentioned.filter(x => x.m.kind === kind);
+          if (!here.length) return;
+          const by = [...new Set(here.map(x => x.m.by).filter(Boolean))].map(personName).join(" and ");
+          content.append(el("p", { class: "sublabel", text: kind === "recommended" ? `Recommended${by ? ` by ${by}` : ""}`
+              : kind === "by_guest" ? "By the guest" : "Discussed" }),
+            el("div", { class: "chips" }, here.map(x => workChip(x.w, x.m.from_show))));
+        });
+      }
       const links = el("div", { class: "links" },
         el("a", { class: "primary", href: l.url, text: "Episode page" }),
         l.episode_url ? el("a", { href: l.episode_url, target: "_blank", rel: "noopener", text: "Listen ↗" }) : null,
@@ -509,19 +596,35 @@ function init(D) {
     } else if (n.type === "person") {
       const p = n.ref;
       const hosts = D.shows.filter(s => (s.hosts || []).includes(p.id));
-      content.append(el("div", { class: "kicker", text: hosts.length ? (listensWhere(l => (l.guests || []).includes(p.id)).length ? "Host and guest" : "Host") : "Guest" }),
+      content.append(el("div", { class: "kicker", text: n.layer ? "Author" : hosts.length ? (listensWhere(l => (l.guests || []).includes(p.id)).length ? "Host and guest" : "Host") : "Guest" }),
         el("h2", { text: p.name }));
       if (p.bio) content.append(el("p", { text: p.bio }));
       if (hosts.length) content.append(el("h3", { text: "Hosts" }), el("div", { class: "chips" }, hosts.map(s => chip(`show:${s.id}`, s.name))));
       const eps = listensWhere(l => (l.guests || []).includes(p.id));
-      if (eps.length) content.append(el("h3", { text: "Appears on" }), el("ul", { class: "eplist" }, eps.map(epItem)));
+      if (eps.length) content.append(el("h3", { text: "Appears on" }), el("ul", { class: "eplist" }, eps.map(l => epItem(l))));
+      const wrote = WORKS.filter(w => (w.authors || []).includes(p.id));
+      const recs = WORKS.filter(w => (w.mentions || []).some(m => m.by === p.id));
+      if (wrote.length) content.append(el("h3", { text: "Wrote" }), el("div", { class: "chips" }, wrote.map(w => workChip(w))));
+      if (recs.length) content.append(el("h3", { text: "Recommends" }), el("div", { class: "chips" }, recs.map(w => workChip(w))));
     } else if (n.type === "topic") {
       const t = n.ref, eps = listensWhere(l => (l.topics || []).includes(t.id));
       const shows = new Set(eps.map(l => l.show));
       content.append(el("div", { class: "kicker", text: "Topic" }), el("h2", { text: t.label }),
         el("p", { class: "meta", text: `${eps.length} episode${eps.length === 1 ? "" : "s"} across ${shows.size} show${shows.size === 1 ? "" : "s"}` }));
       if (t.description) content.append(el("p", { text: t.description }));
-      content.append(el("h3", { text: "Episodes" }), el("ul", { class: "eplist" }, eps.map(epItem)));
+      content.append(el("h3", { text: "Episodes" }), el("ul", { class: "eplist" }, eps.map(l => epItem(l))));
+    } else if (n.type === "work") {
+      const w = n.ref, by = byLine(w);
+      content.append(el("div", { class: "kicker", text: workLine(w) }), el("h2", { text: w.title }));
+      if (by) content.append(el("p", { class: "meta", text: `By ${by}` }));
+      if (w.my_status) content.append(el("p", { class: "mine", text: MINE[w.my_status] }));
+      const ms = (w.mentions || []).map(m => ({ m, l: listenBySlug.get(m.listen) })).filter(x => x.l);
+      if (ms.length) content.append(el("h3", { text: "Mentioned in" }), el("ul", { class: "eplist" }, ms.map(x => epItem(x.l, mentionNote(x.m)))));
+      else content.append(el("p", { class: "meta", text: "Added by me, not from an episode." }));
+      const ppl = [...new Set([...(w.authors || []), ...ms.map(x => x.m.by).filter(Boolean)])].filter(id => byId.has(`person:${id}`));
+      if (ppl.length) content.append(el("h3", { text: "People on the graph" }), el("div", { class: "chips" }, ppl.map(id => chip(`person:${id}`, personName(id)))));
+      const linkText = /openlibrary\.org/.test(w.url || "") ? "Open Library" : { paper: "Read the paper", newsletter: "Read the newsletter", talk: "Watch the talk", book: "Book page" }[w.type] || "Read it";
+      if (w.url) content.append(el("div", { class: "links" }, el("a", { class: "primary", href: w.url, target: "_blank", rel: "noopener", text: `${linkText} ↗` })));
     } else if (n.type === "show") {
       const s = n.ref, eps = listensWhere(l => l.show === s.id);
       content.append(el("div", { class: "kicker" }, n.color ? lineKey(n.color) : null,
@@ -530,7 +633,7 @@ function init(D) {
       if (!n.logged) content.append(el("p", { text: "On the graph through its host, not through anything I've logged." }));
       if ((s.hosts || []).length) content.append(el("h3", { text: "Hosted by" }),
         el("div", { class: "chips" }, s.hosts.map(h => chip(`person:${h}`, (personById.get(h) || { name: h }).name))));
-      if (eps.length) content.append(el("h3", { text: "Episodes I've heard" }), el("ul", { class: "eplist" }, eps.map(epItem)));
+      if (eps.length) content.append(el("h3", { text: "Episodes I've heard" }), el("ul", { class: "eplist" }, eps.map(l => epItem(l))));
       if (s.apple_url) content.append(el("div", { class: "links" }, el("a", { href: s.apple_url, target: "_blank", rel: "noopener", text: "Show on Apple Podcasts ↗" })));
     }
   }
@@ -580,7 +683,26 @@ function init(D) {
     const shown = new Set(eps.map(l => l.show));
     D.shows.forEach(s => { if (shown.has(s.id)) { vis.add(`show:${s.id}`); (s.hosts || []).forEach(h => vis.add(`person:${h}`)); } });
     D.shows.forEach(s => { if (!listenCount.get(s.id) && (s.hosts || []).some(h => vis.has(`person:${h}`))) vis.add(`show:${s.id}`); });
+    // A work shows when an episode that mentions it, or a person tied to it, is showing.
+    // Works I added by hand with no episode always show (they're mine, not filtered by date).
+    if (state.works) WORKS.forEach(w => {
+      const ms = w.mentions || [], people = [...(w.authors || []), ...ms.map(m => m.by).filter(Boolean)];
+      const viaEp = ms.some(m => { const l = listenBySlug.get(m.listen); return l && vis.has(`ep:${l.id}`); });
+      if (viaEp || !ms.length || people.some(p => vis.has(`person:${p}`))) {
+        vis.add(`work:${w.id}`);
+        people.forEach(p => vis.add(`person:${p}`));
+      }
+    });
     return { vis, eps };
+  }
+  const worksBtn = document.getElementById("works-toggle");
+  function setWorks(on) {
+    state.works = on;
+    worksBtn.setAttribute("aria-pressed", String(on));
+    sim.nodes(on ? nodes : BASE_NODES);
+    sim.force("link").links(on ? LINKS : BASE_LINKS);
+    refresh(); renderKey();
+    sim.alpha(on ? .3 : .05).restart();
   }
   function refresh() {
     const { vis, eps } = visibleSet();
@@ -606,13 +728,15 @@ function init(D) {
 
   /* ---------- show chips + key ---------- */
   const showsBox = document.getElementById("shows"), keyBox = document.getElementById("key");
-  const glyph = kind => {
+  const glyph = (kind, status) => {
     const s = d3.create("svg").attr("class", "glyph").attr("viewBox", "-7 -7 14 14").attr("aria-hidden", "true");
     if (kind === "topic") s.append("rect").attr("x", -4).attr("y", -4).attr("width", 8).attr("height", 8).attr("rx", 1.5).attr("transform", "rotate(45)").style("fill", "var(--sand)").style("stroke", "var(--ink-soft)");
     else if (kind === "person") s.append("circle").attr("r", 4).style("fill", "var(--paper)").style("stroke", "var(--ink-soft)").style("stroke-width", 1.5);
     else if (kind === "unlogged") s.append("circle").attr("r", 5).style("fill", "var(--paper)").style("stroke", "var(--ink-soft)").style("stroke-width", 1.5);
     else if (kind === "sparked") s.append("circle").attr("r", 5).style("fill", "var(--ink-soft)");
     else if (kind === "pending") { s.append("circle").attr("r", 5).style("fill", "var(--ink-soft)"); s.append("circle").attr("r", 2).style("fill", "var(--paper)"); }
+    else if (kind === "work") s.append("rect").attr("x", -4).attr("y", -5).attr("width", 8).attr("height", 10).attr("rx", 1.2)
+      .style("fill", workFill({ my_status: status })).style("stroke", "var(--teal-deep)").style("stroke-width", 1.3);
     return s.node();
   };
   function renderShows(eps) {
@@ -627,13 +751,17 @@ function init(D) {
     });
   }
   function renderKey() {
-    keyBox.replaceChildren(
+    keyBox.replaceChildren(...[
       el("span", {}, glyph("sparked"), "Episode with my spark"),
       el("span", {}, glyph("pending"), "Spark not written yet"),
       el("span", {}, glyph("person"), "Guest or host"),
       el("span", {}, glyph("topic"), "Topic"),
       D.shows.some(s => !listenCount.get(s.id)) ? el("span", {}, glyph("unlogged"), "Show known through its host") : null,
-      el("span", { class: "hint", text: "Drag to rearrange, scroll to zoom" }));
+      state.works ? el("span", {}, glyph("work"), "Book, article or paper") : null,
+      state.works ? el("span", {}, lineKey("var(--coral)"), "Recommends") : null,
+      state.works && WORKS.some(w => w.my_status === "want_to_read") ? el("span", {}, glyph("work", "want_to_read"), "Want to read") : null,
+      state.works && WORKS.some(w => w.my_status === "read") ? el("span", {}, glyph("work", "read"), "Read") : null,
+      el("span", { class: "hint", text: "Drag to rearrange, scroll to zoom" })].filter(Boolean));
   }
   const shownShows = new Set(D.listens.map(l => l.show)).size;
   const span0 = d3.extent(D.listens, l => l.listened_on).map(s => parseDay(s).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" }));
@@ -658,8 +786,16 @@ function init(D) {
       })));
   }
 
+  if (WORKS.length) {
+    document.getElementById("works-ctl").hidden = false;
+    worksBtn.prepend(glyph("work"));
+    worksBtn.append(el("span", { class: "count", text: String(WORKS.length) }));
+    worksBtn.addEventListener("click", () => setWorks(!state.works));
+  }
+
   renderKey(); setupRange(); refresh(); fit();
   sim.alphaTarget(0).alpha(.04).restart();
+  if (WORKS.length && params.get("works") === "1") setWorks(true);
   const focus = params.get("focus");
   if (focus && byId.has(focus)) setTimeout(() => select(focus), 600);
 }
