@@ -72,7 +72,7 @@ The split I've landed on:
 
 For the public Twin at twin.barbhs.com, the default is GPT-4.1. The richer framing and follow-up invitations are worth the extra cost when a recruiter or hiring manager is the visitor.
 
-For regression sweeps after a knowledge-base change or system-prompt change, the default is Gemini 2.5 Flash. It's fast, cheap, and surfaces hallucinations just as reliably as the more expensive model.
+For regression sweeps after a knowledge-base change or system-prompt change, the default is Gemini 2.5 Flash. It's fast and cheap.
 
 The principle generalizes. Model choice isn't a single quality decision. It's a personality decision matched to a use case.
 

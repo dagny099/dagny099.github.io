@@ -1,5 +1,5 @@
 ---
-title: "Using graph neural networks to discover hidden connections between papers that should have met but never did"
+title: "Using knowledge-graph embeddings to discover hidden connections between papers that should have met but never did"
 excerpt: "A decade or so after our Visual Attention paper, I couldn't stop wondering: <b>Where did those ideas travel? What unexpected paths did they take?</b>"
 permalink: /data-stories/citation-link-prediction/
 date: 2024-11-15
@@ -84,7 +84,7 @@ The network wasn't just big—it was full of holes. Missed connections. Parallel
 
 ## Enter the Machines: Teaching AI to See Invisible Bridges
 
-This is where my journey into graph neural networks began. If papers are cities on a map, most research follows existing roads (citations). But what if we could predict where new roads *should* be built?
+This is where my journey into graph machine learning began. If papers are cities on a map, most research follows existing roads (citations). But what if we could predict where new roads *should* be built?
 
 ### The TransE Translation Game
 <!--
@@ -101,9 +101,9 @@ This is where my journey into graph neural networks began. If papers are cities 
 
 Think of TransE like this:
 - **Papers are points** in a multi-dimensional space
-- **Citations are vectors** connecting these points
-- **The pattern**: If A→B and B→C, the model learns the "translation" rule
-- **The prediction**: Apply these rules to find missing connections
+- **"Cites" is a direction**: the model learns one vector for the citing relationship
+- **The pattern**: If paper A cites paper B, then A's point plus the "cites" vector should land close to B
+- **The prediction**: Start at any paper, add the "cites" vector, and see what lands nearby. Close neighbors that were never actually cited are the candidate missing connections
 
 <details markdown="1">
 <summary><strong>🤖 The Learning Journey</strong></summary>
@@ -366,11 +366,11 @@ This project started with simple curiosity about an old paper and revealed an en
 
 ## Resources & Links
 
-**🐙 GitHub Repository:** [Coming this weekend with the code]
+**🐙 GitHub Repository:** [Citation Compass](https://github.com/dagny099/citation-compass)
 
-**📊 Interactive Demo:** [Launching next week at knowledgemap.barbhs.com]
+**📊 Interactive Demo:** [cartography.barbhs.com](https://cartography.barbhs.com/)
 
-**📝 Technical Paper:** [TransE: A simple yet effective method for knowledge graph embedding](https://papers.nips.cc/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html)
+**📝 Technical Paper:** [Translating Embeddings for Modeling Multi-relational Data (Bordes et al., 2013), the TransE paper](https://papers.nips.cc/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html)
 
 **🔗 Semantic Scholar API:** [Build your own citation networks](https://api.semanticscholar.org/)
 
@@ -382,4 +382,4 @@ This project started with simple curiosity about an old paper and revealed an en
 
 ---
 
-*Barbara is a Certified Data Management Professional (CDMP) who left academia in 2010 but never stopped wondering where ideas travel. She's currently teaching herself graph neural networks by mapping the hidden universe of academic knowledge. Follow her journey at [barbhs.com].*
+*Barbara is a Certified Data Management Professional (CDMP) who left academia in 2010 but never stopped wondering where ideas travel. She's currently teaching herself graph machine learning by mapping the hidden universe of academic knowledge. Follow her journey at [barbhs.com].*

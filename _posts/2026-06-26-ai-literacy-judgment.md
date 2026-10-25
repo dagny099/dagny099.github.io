@@ -36,9 +36,9 @@ A lot of AI training begins at the tool. Open this, choose that model, phrase th
 
 ## Speed magnifies whatever you bring to it
 
-Here is what speed does to that skill. I recently built a system that answers questions in one specific person's voice and body of work — mine. To run it in production, I needed to choose between two models, so I [scored both on the same 58 questions](/blog/twin-evaluate-models/). Both wrote fluently. Both sounded confident. Judged on the prose alone, I could have defended either choice.
+Here is what speed does to that skill. I recently built a system that answers questions in one specific person's voice and body of work — mine. To run it in production, I needed to choose between two models, so I [ran both on the same 58 questions](/blog/twin-evaluate-models/). Both wrote fluently. Both sounded confident. Judged on the prose alone, I could have defended either choice.
 
-What separated them only surfaced once I'd gotten specific about what a good answer had to do: hold the right voice, ask a follow-up where a real conversation would, surface the right work at the right moment. I learned to get specific the hard way — by shipping first and watching a fluent answer mislead me before I'd defined what 'good' actually meant. Without evaluation criteria, I picked whichever read better that afternoon, and that's how I got burned.
+What separated them only surfaced once I'd gotten specific about what a good answer had to do: hold the right voice, ask a follow-up where a real conversation would, surface the right work at the right moment.
 
 The same dynamic scales up. Aim a model at a well-framed problem and it compresses good thinking into minutes. Aim it at a vague one and it compresses just as quickly, toward a fluent answer that happens to be confidently wrong, which you now have to catch after the fact instead of before. The acceleration doesn't change. The framing decides where it carries you.
 

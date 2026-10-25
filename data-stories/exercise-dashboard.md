@@ -96,7 +96,7 @@ The remaining 10%? That's where it gets interesting—transition zones where I c
 
 </details>
 
-Here's what actually happened: In June 2018, I adopted a rescue dog who had her own ideas about exercise. Suddenly, my rigid "training runs" exploded into a spectrum of activities:
+Here's what actually happened: In June 2018, I adopted a rescue dog who had his own ideas about exercise. Suddenly, my rigid "training runs" exploded into a spectrum of activities:
 
 - Morning runs (that turned into sniff-walks)
 - Evening walks (that sometimes became runs)  
@@ -105,8 +105,7 @@ Here's what actually happened: In June 2018, I adopted a rescue dog who had her 
 
 My carefully curated workout data became beautifully chaotic—and unexpectedly revealing.
 
-> **[VISUALIZATION: The Consistency Revolution]**
-> *Calendar heatmap showing workout frequency by day, 2015-2025. Sparse dots before June 2018 transform into an almost-daily pattern after. The "Choco line" is clearly visible.*
+<!-- TODO (Tier 2): Calendar heatmap, "The Consistency Revolution": workout frequency by day, 2015-2025. Sparse dots before June 2018 transform into an almost-daily pattern after. The "Choco line" is clearly visible. -->
 
 <div class="chart-container">
   <iframe src="/assets/visualizations/choco-effect/visualization_3_consistency_rolling_avg.html" 
