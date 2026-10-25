@@ -281,6 +281,10 @@ is not yet identified.*
 ### A. Works spike: books and articles connected to guests and hosts
 
 **Spike done 2026-10-08: findings and build recommendation in `works-spike.md`.**
+**Built 2026-10-25 (branch `podcast-works`):** `_data/podcast_works.yml` seeded with the 13 reference
+works; "Works" toggle on `/listening/` (MENTIONS, WROTE, RECOMMENDS edges); "Works mentioned" on
+episode pages; `add-work` / `works` in `add_listen.py`, `works_lookup.py` (Open Library, Crossref);
+validator checks; add-listen step 5b.
 
 Decisions already made:
 - **Two tiers.** Tier 1 (first): works *mentioned in the episode*, taken from show notes,

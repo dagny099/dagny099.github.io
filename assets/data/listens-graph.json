@@ -8,6 +8,7 @@ sitemap: false
   "shows": {{ site.data.podcast_shows | jsonify }},
   "people": {{ site.data.podcast_people | jsonify }},
   "topics": {{ site.data.podcast_topics | jsonify }},
+  "works": {{ site.data.podcast_works | jsonify }},
   "listens": [
   {%- for l in listens %}
     {

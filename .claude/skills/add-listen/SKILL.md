@@ -1,6 +1,6 @@
 ---
 name: add-listen
-description: Add podcast episodes Barbara has listened to into the "My podcast loves, as a graph" page (/listening/) on barbhs.com. Resolves the show and episode through Apple Podcasts, links guests, hosts and topics, captures her spark in her own words, writes the _listens/ file, validates it, and opens a PR. Use this whenever she mentions listening to a podcast episode and wanting it logged, added, saved or graphed, e.g. "I just listened to the SuperDataScience episode with the Linear Digressions creator, add it", "log these episodes", "put this on my podcast graph / I-<3-Podcasts graph", or pastes a list of episodes. Also use it to fix or enrich an existing listen (rewrite a spark, correct a listen date, add notes).
+description: Add podcast episodes Barbara has listened to into the "My podcast loves, as a graph" page (/listening/) on barbhs.com. Resolves the show and episode through Apple Podcasts, links guests, hosts, topics and the works (books, articles, papers) the episode mentions, captures her spark in her own words, writes the _listens/ file, validates it, and opens a PR. Use this whenever she mentions listening to a podcast episode and wanting it logged, added, saved or graphed, e.g. "I just listened to the SuperDataScience episode with the Linear Digressions creator, add it", "log these episodes", "put this on my podcast graph / I-<3-Podcasts graph", or pastes a list of episodes. Also use it to fix or enrich an existing listen (rewrite a spark, correct a listen date, add notes).
 ---
 
 # add-listen
@@ -122,6 +122,52 @@ episodes across shows. If nothing fits, propose one new topic (id, label, one-li
 description) and ask before adding it with `add-topic --write`. Keep the vocabulary
 small; prefer stretching an existing topic over a near-duplicate.
 
+### 5b. Works mentioned
+
+Books, articles, papers, newsletters and talks named in the show notes go in
+`_data/podcast_works.yml` and appear on the graph behind the "Works" toggle. Design
+and Barbara's decisions: `_planning/works-spike.md` (read "Decisions" and "Barbara's
+thoughts" once per session).
+
+1. Read the full description and list every **titled** work, each with its kind:
+   - `by_guest`: the guest wrote it (their book, their Substack).
+   - `recommended`: a recommendation segment, such as Lenny's "Recommended books".
+     Name who recommended it with `--by`. On Lenny's that's the guest (the lightning round).
+   - `discussed`: anything else the episode or its notes point to.
+   - Add `--from-show` when the show is linking its own content (Lenny's newsletter posts).
+     These are kept but drawn quieter.
+   Skip products, companies, frameworks named in passing, films and TV, and
+   untitled pointers ("her TED talk"). Ask Barbara for the title before recording one.
+2. Show her the list as one table (title, type, kind, by) and ask which to keep. All
+   three kinds count the same, so don't pre-filter recommendations.
+3. For each work she keeps, check whether it already exists, then get metadata from a
+   catalog. Never fill in year, author or ISBN from memory.
+   ```bash
+   python3 scripts/listens/add_listen.py works "thinking in systems"
+   python3 scripts/listens/works_lookup.py book "Thinking in Systems" --author Meadows
+   python3 scripts/listens/works_lookup.py paper "Ironies of Automation" --author Bainbridge
+   ```
+   Look up by **title**, never by an author's record (catalogs merge namesakes). Use a
+   result only if `author_match` is true and the author is the one the notes name.
+   Articles and newsletters have no catalog: use the title and URL from the notes, and
+   verify the URL loads.
+4. Write it. An existing id gets the new mention added instead.
+   ```bash
+   python3 scripts/listens/add_listen.py add-work --title "Thinking in Systems" --type book \
+     --authors-outside "Donella H. Meadows" --year 2008 --url https://openlibrary.org/works/OL3737036W \
+     --isbn 9781136551390 --openlibrary OL3737036W \
+     --listen 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems --kind recommended --by elizabeth_stone
+   ```
+   `--authors` takes person ids for people on the graph (a guest's own book);
+   everyone else goes in `--authors-outside "Name; Name"`. `--listen` is the
+   `_listens/` file name without `.md`. If the listen file is new in this run,
+   write it first.
+
+Barbara can also add a work by hand that no episode mentions (`--source manual`, no
+`--listen`), for example another book by a guest. It needs at least one on-graph
+author or it won't appear. She can mark any work `--my-status want_to_read` or
+`read`; that's hers to say, so never set it on her behalf.
+
 ### 6. Spark and notes
 
 Ask what the episode sparked for her, unless she already said it. Offer:
@@ -151,7 +197,8 @@ python3 scripts/listens/validate.py
 ```
 
 It must say OK. It checks every show, guest, host and topic id resolves, dates
-parse and no episode is logged twice. A full Jekyll build is optional; in a cloud
+parse and no episode is logged twice. It also checks works: every mention points
+at a real listen, every `recommended` mention names who, and every person id resolves. A full Jekyll build is optional; in a cloud
 session it needs the workarounds in `_planning/podcast-graph-pilot.md` ("Building
 locally in a cloud session").
 
@@ -160,7 +207,8 @@ locally in a cloud session").
 - If the session assigned a branch, use it. Otherwise branch from the default:
   `git fetch origin master && git checkout -b listen/<first-file-slug> origin/master`.
   Never push to `master` directly; the PR is her review gate.
-- Stage only what changed: the new `_listens/` files and any `_data/podcast_*.yml` edits.
+- Stage only what changed: the new `_listens/` files and any `_data/podcast_*.yml` edits
+  (including `podcast_works.yml`).
 - Commit message: `Add listen: <Show> — <episode title>` (batch: `Add N listens: <shows>`),
   plus whatever attribution lines the environment requires.
 - Push and open a PR (GitHub MCP tool or `gh pr create`). Body: one line per
@@ -174,6 +222,9 @@ Edit the file in `_listens/` directly. For a spark she rewrote: replace `spark`,
 delete `spark_draft`, set `provenance.spark: mine`. For a corrected date: change
 `listened_on` and `listened_precision`; leave the filename alone, since renaming
 breaks the episode's URL. Then validate, commit and open a PR as above.
+
+To mark a work she wants to read or has read:
+`python3 scripts/listens/add_listen.py add-work --id thinking_in_systems --my-status want_to_read --write`.
 
 ## Example
 

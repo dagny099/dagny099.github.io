@@ -1,0 +1,152 @@
+# Works connected to the /listening/ graph: books, articles, papers, newsletters, talks.
+# Managed by scripts/listens/add_listen.py (add-work); schema and decisions in
+# _planning/works-spike.md. Rewritten whole on every add, so keep notes out of this file.
+#
+# mentions[].kind:  by_guest (the guest wrote it) | discussed (came up in the episode or
+#                   its notes) | recommended (a recommendation segment; `by` names who).
+#                   All three count the same.
+# from_show: true   the show linking its own content; kept, but drawn quieter.
+# source:           show_notes | transcript | manual (added by Barbara, may have no mentions)
+# my_status:        want_to_read | read (optional)
+
+- id: thinking_in_systems
+  title: Thinking in Systems
+  type: book
+  authors_outside:
+  - Donella H. Meadows
+  year: 2008
+  url: https://openlibrary.org/works/OL3737036W
+  ids: {isbn: '9781136551390', openlibrary: OL3737036W}
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: recommended, by: elizabeth_stone}
+
+- id: into_thin_air
+  title: Into Thin Air
+  type: book
+  authors_outside:
+  - Jon Krakauer
+  year: 1996
+  url: https://openlibrary.org/works/OL1974548W
+  ids: {isbn: '9780807288283', openlibrary: OL1974548W}
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: recommended, by: elizabeth_stone}
+
+- id: liars_poker
+  title: Liar's Poker
+  type: book
+  authors_outside:
+  - Michael Lewis
+  year: 1989
+  url: https://openlibrary.org/works/OL7944812W
+  ids: {isbn: '9780393027501', openlibrary: OL7944812W}
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: recommended, by: elizabeth_stone}
+
+- id: netflix_culture_of_excellence
+  title: How Netflix builds a culture of excellence
+  type: article
+  publisher: Lenny's Newsletter
+  url: https://www.lennysnewsletter.com/p/how-netflix-builds-a-culture-of-excellence
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: discussed, from_show: true}
+
+- id: brian_chesky_new_playbook
+  title: Brian Chesky's new playbook
+  type: article
+  publisher: Lenny's Newsletter
+  url: https://www.lennysnewsletter.com/p/brian-cheskys-contrarian-approach
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: discussed, from_show: true}
+
+- id: design_process_is_dead
+  title: The design process is dead. Here's what's replacing it.
+  type: article
+  publisher: Lenny's Newsletter
+  url: https://www.lennysnewsletter.com/p/the-design-process-is-dead
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: discussed, from_show: true}
+
+- id: netflix_keeper_test
+  title: Netflix's "Keeper Test" and Why You Need It
+  type: article
+  authors_outside:
+  - Lorne Rubis
+  url: https://www.highlights.lornerubis.com/2015/08/the-netflix-keeper-test-and-the-courage-to-take-it
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: discussed}
+
+- id: interpositive_joining_netflix
+  title: Why InterPositive Is Joining Netflix
+  type: article
+  publisher: Netflix
+  url: https://about.netflix.com/en/news/why-interpositive-is-joining-netflix
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: discussed}
+
+- id: salman_rushdie_substack
+  title: Salman Rushdie's Substack
+  type: newsletter
+  authors_outside:
+  - Salman Rushdie
+  publisher: Substack
+  url: https://salmanrushdie.substack.com
+  source: show_notes
+  mentions:
+  - {listen: 2026-07-19-lennys-podcast-why-netflix-is-betting-on-systems, kind: discussed}
+
+- id: grokking_machine_learning
+  title: Grokking Machine Learning
+  type: book
+  authors:
+  - luis_serrano
+  year: 2021
+  url: https://openlibrary.org/works/OL25456853W
+  ids: {isbn: '9781638350200', openlibrary: OL25456853W}
+  source: show_notes
+  mentions:
+  - {listen: 2026-09-08-superdatascience-word-gravity-how-transformers-bend-space, kind: by_guest}
+
+- id: ironies_of_automation
+  title: Ironies of Automation
+  type: paper
+  authors_outside:
+  - Lisanne Bainbridge
+  year: 1983
+  publisher: Automatica
+  url: https://doi.org/10.1016/0005-1098(83)90046-8
+  ids: {doi: 10.1016/0005-1098(83)90046-8}
+  source: show_notes
+  mentions:
+  - {listen: 2026-09-22-superdatascience-how-ai-brought-a-podcast-back, kind: discussed}
+
+- id: conversations_with_ai
+  title: Conversations with AI
+  type: newsletter
+  authors:
+  - tim_oreilly
+  publisher: Substack
+  url: https://timoreilly.substack.com
+  source: show_notes
+  mentions:
+  - {listen: 2026-09-18-stack-overflow-podcast-the-ai-magic-words, kind: by_guest}
+
+- id: asimovs_addendum
+  title: Asimov's Addendum
+  type: newsletter
+  authors:
+  - tim_oreilly
+  authors_outside:
+  - Ilan Strauss
+  publisher: Substack
+  url: https://asimovaddendum.substack.com
+  source: show_notes
+  mentions:
+  - {listen: 2026-09-18-stack-overflow-podcast-the-ai-magic-words, kind: by_guest}
