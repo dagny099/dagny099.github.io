@@ -280,6 +280,8 @@ is not yet identified.*
 
 ### A. Works spike: books and articles connected to guests and hosts
 
+**Spike done 2026-10-08: findings and build recommendation in `works-spike.md`.**
+
 Decisions already made:
 - **Two tiers.** Tier 1 (first): works *mentioned in the episode*, taken from show notes,
   verifiable against the description. Tier 2 (later): up to 3 works *by* a guest or
