@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 940" role="img" aria-labelledby="t d">
+  <title id="t">What the commands build</title>
+  <desc id="d">Your laptop runs AWS CLI commands against the AWS API, which creates resources inside the default VPC in us-east-1. The VPC has two default subnets in two availability zones. Step 5 groups both subnets into a DB subnet group, so RDS can place the database in either one. An EC2 instance running the fitness dashboard sits in one subnet with its own security group. Step 7 creates the RDS MySQL instance sweat-db, which is not publicly accessible, inside the security group sweat-db-sg from Step 6. The only way in is TCP port 3306 from the EC2 instance's security group. You reach the EC2 instance over SSH, and there is no route from the internet to the database.</desc>
+  <defs>
+    <style>
+      .serif { font-family: 'EB Garamond', Georgia, 'Times New Roman', serif; }
+      .sans  { font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, sans-serif; }
+      .mono  { font-family: 'IBM Plex Mono', Menlo, Consolas, monospace; }
+      .eyebrow { font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; }
+      .muted { fill: #5b6670; }
+      .ink   { fill: #1f2933; }
+    </style>
+    <marker id="teal-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0f5e55"/>
+    </marker>
+    <marker id="warm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#7a6f62"/>
+    </marker>
+    <marker id="coral-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#b9411f"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="940" fill="#f8f4ec"/>
+
+  <!-- Header -->
+  <text x="60" y="92" class="serif" font-size="52" font-weight="600" fill="#b9411f">What the commands build</text>
+  <text x="60" y="132" class="sans muted" font-size="19">One database, reachable from the one server that needs it, and from nowhere else.</text>
+  <line x1="60" y1="162" x2="1140" y2="162" stroke="#e2d9c9" stroke-width="1.5"/>
+
+  <!-- Outside AWS: laptop, AWS API, internet -->
+  <rect x="60" y="190" width="290" height="84" rx="12" fill="#ffffff" stroke="#a2988b" stroke-width="1.5"/>
+  <text x="82" y="224" class="sans" font-size="19" font-weight="700" fill="#5f554a">Your laptop</text>
+  <text x="82" y="252" class="mono" font-size="14" fill="#5b6670">aws CLI (SSO profile) · ssh</text>
+
+  <rect x="470" y="190" width="300" height="84" rx="12" fill="#ffffff" stroke="#a2988b" stroke-width="1.5"/>
+  <text x="492" y="224" class="sans" font-size="19" font-weight="700" fill="#5f554a">AWS API</text>
+  <text x="492" y="252" class="sans muted" font-size="14">creates everything in the VPC below</text>
+  <line x1="352" y1="232" x2="462" y2="232" stroke="#7a6f62" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#warm-arrow)"/>
+  <text x="407" y="220" class="mono" font-size="12.5" fill="#7a6f62" text-anchor="middle">aws rds …</text>
+  <line x1="620" y1="276" x2="620" y2="330" stroke="#7a6f62" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#warm-arrow)"/>
+
+  <rect x="900" y="190" width="240" height="84" rx="12" fill="#ffffff" stroke="#b9411f" stroke-width="1.5"/>
+  <text x="922" y="224" class="sans" font-size="19" font-weight="700" fill="#b9411f">The internet</text>
+  <text x="922" y="252" class="sans muted" font-size="14">anyone, anywhere</text>
+
+  <!-- AWS / VPC frame -->
+  <rect x="60" y="336" width="1080" height="490" rx="16" fill="#fbf8f2" stroke="#5f554a" stroke-width="2"/>
+  <text x="88" y="370" class="eyebrow" fill="#5f554a">AWS · DEFAULT VPC</text>
+  <text x="1112" y="370" class="eyebrow" fill="#7a6f62" text-anchor="end">US-EAST-1</text>
+
+  <!-- AZ columns -->
+  <rect x="88" y="386" width="500" height="416" rx="12" fill="#f3eee4" stroke="#d8cfbf" stroke-width="1.5"/>
+  <text x="108" y="414" class="sans" font-size="15" font-weight="600" fill="#7a6f62">us-east-1a · default subnet</text>
+  <rect x="612" y="386" width="500" height="416" rx="12" fill="#f3eee4" stroke="#d8cfbf" stroke-width="1.5"/>
+  <text x="632" y="414" class="sans" font-size="15" font-weight="600" fill="#7a6f62">us-east-1b · default subnet</text>
+
+  <!-- DB subnet group (Step 5), spanning both subnets -->
+  <rect x="76" y="596" width="1048" height="218" rx="14" fill="none" stroke="#0f5e55" stroke-width="2" stroke-dasharray="9 6"/>
+  <rect x="96" y="584" width="370" height="26" rx="6" fill="#f8f4ec"/>
+  <text x="104" y="603" class="sans" font-size="14.5" font-weight="700" fill="#0f5e55">STEP 5 · DB subnet group: sweat-db-subnets</text>
+  <text x="108" y="644" class="sans muted" font-size="15">A list of subnets in two zones.</text>
+  <text x="108" y="666" class="sans muted" font-size="15">RDS can put the database in either one.</text>
+
+  <!-- EC2 instance -->
+  <rect x="120" y="436" width="330" height="116" rx="12" fill="#ffffff" stroke="#0f5e55" stroke-width="2"/>
+  <text x="142" y="468" class="sans" font-size="19" font-weight="700" fill="#1f2933">EC2 instance</text>
+  <text x="142" y="494" class="sans muted" font-size="15">fitness dashboard (Streamlit)</text>
+  <rect x="142" y="510" width="196" height="26" rx="7" fill="#dcebe7"/>
+  <text x="240" y="528" class="sans" font-size="13.5" fill="#0f5e55" text-anchor="middle">its own security group</text>
+
+  <!-- RDS instance (Step 7) inside sweat-db-sg (Step 6) -->
+  <rect x="742" y="632" width="350" height="160" rx="14" fill="#fdf1ec" stroke="#b9411f" stroke-width="2"/>
+  <text x="762" y="658" class="sans" font-size="13" font-weight="700" letter-spacing="1.5" fill="#b9411f">STEP 6 · sweat-db-sg</text>
+  <rect x="762" y="670" width="310" height="104" rx="10" fill="#ffffff" stroke="#0f5e55" stroke-width="2"/>
+  <text x="782" y="700" class="sans" font-size="19" font-weight="700" fill="#1f2933">RDS MySQL · sweat-db</text>
+  <text x="782" y="724" class="mono" font-size="14" fill="#5b6670">db.t3.micro · 20 GB</text>
+  <text x="782" y="748" class="sans" font-size="14" fill="#0f5e55">STEP 7 · not publicly accessible</text>
+
+  <!-- Allowed path: EC2 -> RDS on 3306 -->
+  <path d="M452,494 L690,494 L690,722 L734,722" fill="none" stroke="#0f5e55" stroke-width="2.5" marker-end="url(#teal-arrow)"/>
+  <rect x="478" y="452" width="216" height="38" rx="6" fill="#fbf8f2"/>
+  <text x="486" y="468" class="mono" font-size="13.5" font-weight="700" fill="#0f5e55">TCP 3306 allowed</text>
+  <text x="486" y="485" class="sans" font-size="13" fill="#0f5e55">source: the EC2's security group</text>
+
+  <!-- ssh from laptop to EC2 -->
+  <path d="M330,276 L330,428" fill="none" stroke="#7a6f62" stroke-width="2" marker-end="url(#warm-arrow)"/>
+  <rect x="338" y="290" width="104" height="22" rx="5" fill="#f8f4ec"/>
+  <text x="344" y="306" class="mono" font-size="13" fill="#7a6f62">ssh · port 22</text>
+
+  <!-- Blocked: internet -> database, stopped at the VPC boundary -->
+  <path d="M940,276 L940,320" fill="none" stroke="#b9411f" stroke-width="2" stroke-dasharray="4 5"/>
+  <g transform="translate(940,336)">
+    <circle r="15" fill="#f8f4ec" stroke="#b9411f" stroke-width="2"/>
+    <path d="M-6,-6 L6,6 M6,-6 L-6,6" stroke="#b9411f" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <text x="922" y="298" class="sans" font-size="14" fill="#b9411f" text-anchor="end">no public route</text>
+  <text x="922" y="316" class="sans" font-size="14" fill="#b9411f" text-anchor="end">to the database</text>
+
+  <!-- Footer -->
+  <line x1="60" y1="862" x2="1140" y2="862" stroke="#e2d9c9" stroke-width="1.5"/>
+  <text x="60" y="902" class="serif" font-size="26" font-style="italic" fill="#1f2933">The database answers one server, on one port.</text>
+  <text x="1140" y="902" class="sans muted" font-size="18" text-anchor="end">barbhs.com</text>
+</svg>
