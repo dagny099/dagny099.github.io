@@ -104,7 +104,8 @@ Newsletters, talks and Substacks have no catalog; their record is title + URL fr
    "Recommended books" and similar standing segments are first-class, not noise to filter
    out or down-weight. Keep the distinction in the data so it can be shown, but not ranked:
    `mentions[].kind` is one of `by_guest` (the guest wrote it), `discussed` (came up in the
-   conversation or notes) or `recommended` (a standing recommendation segment). All three
+   conversation or notes) or `recommended` (a standing recommendation segment; names the
+   recommender in `by`). All three
    count equally toward a work's mentions, and the Works view shows them together.
    Consequence to accept: shows with recommendation segments will have the most works.
    That reflects how the shows are made, not a bias to correct.
@@ -119,6 +120,27 @@ Schema changes from the recommendation above: `mentions` becomes optional; `kind
 `recommended`; `source` is `show_notes | transcript | manual`, with catalog metadata
 recorded separately in `ids`.
 
-## Barbara's thoughts on recommendations and works
+## Barbara's thoughts on recommendations and works (interview, 2026-10-25)
 
-Barbara has more to say about this area. Capture it here before the build session starts.
+**Capture facts, not influence scores.** I care about the host's taste and about what guests
+recommend, but the goal is to record who wrote what and who recommends what. I don't know
+how I'd evaluate "who influences whom", so the graph shouldn't claim it. Influence can
+show up on its own as paths in the facts, e.g. a guest recommends a book another guest
+wrote, or two guests independently recommend the same book. Those patterns can be pointed
+out, never scored.
+
+**The recommender is a person, not just the episode.** Lenny's "recommended books" come from
+the guest in the lightning round, so they are Elizabeth Stone's picks. Model that as an edge
+person → work (`RECOMMENDS`), alongside episode → work (`MENTIONS`), so "what do guests I
+like recommend?" is answerable. Each `recommended` mention therefore names who recommended it
+(`by: <person id>`).
+
+**A show plugging its own content is kept but marked.** Lenny linking his own newsletter
+posts is real, but it shouldn't drown out recommendations. Such mentions carry
+`from_show: true` and render quieter (and are excluded from "most recommended" counts).
+
+**My own reading: start small.** I like a "want to read" marker; Goodreads can come later.
+v1: an optional `my_status: want_to_read | read` on a work, shown as a small marker in the
+panel and on episode pages. No Goodreads import, no reading log, no ratings yet.
+
+**`referenced` folds into `discussed`** for now (the reference set's fourth kind).
