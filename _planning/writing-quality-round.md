@@ -11,8 +11,8 @@ Tier 1 progress: Poetry post rewritten 2026-10-19 (decisions: keep Poetry, fixed
 "seamless switching" feeling; keep Jupyter; diagram + terminal cast). Every command re-run on Poetry 2.4.3 and
 direnv 2.32.1 in the cloud container. Assets: `assets/diagrams/poetry-direnv-layers-v1.svg`,
 `assets/videos/poetry-direnv-terminal.svg` (recorded from a real shell, paths shortened to `~/projects`).
-Barbara to check: the "Why I bother" paragraph (re-entry after months away) is my wording of her motivation;
-the 0.7 s vs 0.04 s timing came from the Linux container, not her Mac.
+Checked 2026-10-25: Barbara confirmed the "Why I bother" paragraph. Timing re-measured on her M1 Mac
+(Poetry 1.8.4, 10 runs each): 0.3 s per `cd` via `poetry env info -p` vs 0.01 s sourcing `.venv` directly. Post updated.
 
 New findings while doing Tier 1 (add to Tier 2 fixes):
 - Hero and og:image for *Three Readers* and *Implementing Structured Metadata* point at `assets/images/posts/`,

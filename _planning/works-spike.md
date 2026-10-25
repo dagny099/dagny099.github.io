@@ -98,9 +98,27 @@ Newsletters, talks and Substacks have no catalog; their record is title + URL fr
 5. **Before papers**: get a free OpenAlex API key (store as an environment secret) or
    allowlist `api.crossref.org`.
 
-## Open questions for me
+## Decisions (Barbara, 2026-10-25)
 
-- Are recommended books from a host's standard segment (Lenny's "Recommended books") as
-  interesting as works the guest discussed? They will dominate counts.
-- Should Tier 2 ever go beyond works the notes mention, given the catalog problem above?
-  My lean: only when I add one by hand.
+1. **Host recommendation segments count the same as works the guest discussed.** Lenny's
+   "Recommended books" and similar standing segments are first-class, not noise to filter
+   out or down-weight. Keep the distinction in the data so it can be shown, but not ranked:
+   `mentions[].kind` is one of `by_guest` (the guest wrote it), `discussed` (came up in the
+   conversation or notes) or `recommended` (a standing recommendation segment). All three
+   count equally toward a work's mentions, and the Works view shows them together.
+   Consequence to accept: shows with recommendation segments will have the most works.
+   That reflects how the shows are made, not a bias to correct.
+2. **Both routes in, mentioned and hand-added.** A work enters the graph either because an
+   episode mentions it (`source: show_notes`, later `transcript`) or because Barbara adds it
+   by hand (`source: manual`), even if no episode mentions it. A hand-added work may link to
+   a person (e.g. another book by a guest) with no `mentions` entry. What stays ruled out is
+   automatic listing from catalog author records (section 2): the catalog fills in metadata
+   for a title someone chose, never the list of titles.
+
+Schema changes from the recommendation above: `mentions` becomes optional; `kind` gains
+`recommended`; `source` is `show_notes | transcript | manual`, with catalog metadata
+recorded separately in `ids`.
+
+## Barbara's thoughts on recommendations and works
+
+Barbara has more to say about this area. Capture it here before the build session starts.
