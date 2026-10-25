@@ -41,6 +41,8 @@ feature_row:
     btn_label: "Project"
     docs_url: https://docs.barbhs.com/fitness-dashboard/
     docs_label: "Docs"
+    fallback_url: https://github.com/dagny099/fitness-dashboard   # shown while docs host is in _data/outages.yml
+    fallback_label: "Source"
 
   - image_path: /assets/images/teasers/proj-cartographer-v1-1024x768.jpg
     alt: "Concept Cartographer"
@@ -79,8 +81,12 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
 
 -->
 <!-- =======================
-     Currently
+     Currently — PARKED 2026-10-18. The Semantic Web curriculum now lives on as an
+     evergreen field guide (linked from /projects/ and /my-journey/). Liquid comment
+     (not HTML) because the block contains a nested HTML comment. To restore, delete
+     the comment/endcomment tags. Slot is reserved for a future "Now / Lab" strip.
      ======================= -->
+{% comment %}
 <div class="home-section home-section--currently">
   <div class="current-feature current-feature--slim">
     <div class="current-feature__content">
@@ -119,9 +125,10 @@ Here's what that looks like in practice: When I build metadata tools, I don't ju
     </aside>
   </div>
 </div>
+{% endcomment %}
 
 <!-- =======================
-     My Approach + Digital Twin (merged row) — placed right after Currently so the two visually distinct "who I am" sections cluster, then the credibility sections (Projects / Writing / Principles) flow as a unit
+     My Approach + Digital Twin (merged row) — placed right after the hero so the two visually distinct "who I am" sections cluster, then the credibility sections (Projects / Writing / Principles) flow as a unit
      ======================= -->
 <div class="home-section home-section--duo">
   <div class="duo-row">

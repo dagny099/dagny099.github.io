@@ -1,0 +1,23 @@
+# Temporarily unreachable link targets (added 2026-10-18 after the AWS restart).
+#
+# While a prefix is listed here:
+#   - Project buttons that point at it are dropped, so the remaining Case study /
+#     Source buttons take their place (homepage feature row, /projects/, project map).
+#   - Any other button-styled link to it is hidden, and inline prose links are shown
+#     as "temporarily offline" (see assets/js/outages.js).
+#
+# TO REVERT: delete the line (or the whole list) once the target is back. Nothing
+# else needs to change — the original URLs are all still in the content.
+#
+# Prefixes are matched without the scheme or "www.".
+down:
+  # us-east-2 EC2 box (18.188.130.227) — not reachable since the billing restart
+  - docs.barbhs.com
+  - workouts.barbhs.com
+  - hivetracker.barbhs.com
+  # Citation Compass — Cloud Run domain mapping returns 404
+  - cartography.barbhs.com
+  # Repos that are private on GitHub (public visitors get a 404).
+  # Remove these if/when you make the repos public.
+  - github.com/dagny099/naruto-network-graph
+  - github.com/dagny099/biographical-neo4j-graph
