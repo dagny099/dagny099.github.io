@@ -159,7 +159,7 @@ flowchart LR
     C --> D[Dashboard]
 ```
 
-The two `---` lines are not optional, and the first version of this post left them out. Here's what Mermaid 11, Mermaid 12, and the Mermaid CLI all do with each way of writing the metadata:
+Mermaid only treats the metadata as metadata when it sits between the two `---` lines. Here's what Mermaid 11, Mermaid 12, and the Mermaid CLI each do with three ways of writing it:
 
 | How the metadata is written | What Mermaid does |
 | ----- | ----- |
