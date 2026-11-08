@@ -75,6 +75,26 @@ def test_heading_demotion_preserves_fenced_code_headings():
     assert "##### Child" in output
 
 
+def test_html_card_and_hero_headings_reclassified_to_bold():
+    source = (
+        '<h1 class="journey-hero-title">Hero Line</h1>'
+        '<h2 class="section-title">Real Section</h2>'
+        "<h3>Real Subsection</h3>"
+        '<div class="lens"><h4>Card Label</h4><p>Card body.</p></div>'
+    )
+    markdown, reclassified = builder.html_to_markdown(source)
+    # Structural headings (h1-h3, non-hero) stay headings; hero and card labels go bold.
+    assert "## Real Section" in markdown
+    assert "### Real Subsection" in markdown
+    assert "**Hero Line**" in markdown
+    assert "**Card Label**" in markdown
+    assert "# Hero Line" not in markdown
+    assert "#### Card Label" not in markdown
+    # Reclassifications are reported for provenance (hero h1 + card h4).
+    assert (1, "Hero Line") in reclassified
+    assert (4, "Card Label") in reclassified
+
+
 def test_duplicate_title_heading_removed():
     state = builder.TransformState()
     output = builder.remove_duplicate_title_heading("# Same Title\n\nBody", "Same Title", state)

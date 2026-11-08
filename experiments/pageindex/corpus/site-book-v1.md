@@ -3,8 +3,8 @@
 ## Corpus Preface
 
 Purpose: Derived experimental Markdown corpus for PageIndex hierarchy and navigation experiments.
-Snapshot date: 2026-07-07
-Git commit: `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+Snapshot date: 2026-07-08
+Git commit: `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 Source documents: 25
 Content-type counts: Core Positioning Pages=4, Project Portfolio=6, Articles=10, Resources=5
 This document is a derived experimental corpus for PageIndex-oriented navigation experiments.
@@ -19,7 +19,7 @@ The original website source files remain authoritative.
 **Source path:** `index.md`
 **Source type:** page
 **Canonical URL:** /
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -136,7 +136,7 @@ Made it this far? If anything resonated — a project, a principle, a half-finis
 **Source path:** `_pages/start_here.md`
 **Source type:** page
 **Canonical URL:** /start-here/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -238,7 +238,7 @@ Browse by expertise area: cognitive science, data analysis, visualization and ma
 **Source path:** `_pages/work-with-me.md`
 **Source type:** page
 **Canonical URL:** /work-with-me/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -268,7 +268,7 @@ Before you fund a build, find out what the AI would actually be reasoning over. 
 
 **Why it matters:** most stalled AI projects didn't fail at the model. They failed a year earlier, when nobody checked whether the knowledge was legible. I wrote about that pattern in [The Missing Layer](/blog/missing-layer-ai-adoption-value/).
 
-*Related work: [Metadata Matters](/blog/metadata-matters/) · [Schema.org cheatsheet](/resources/resource-schema-org-cheatsheet-builders/)*
+*Start with the self-check: [Is Your Knowledge Ready for AI?](/resources/knowledge-legibility-diagnostic/) · Related work: [Metadata Matters](/blog/metadata-matters/) · [Schema.org cheatsheet](/assets/resources/schema-org-cheatsheet-builders.pdf)*
 
 Offer 2
 
@@ -353,13 +353,13 @@ I bring research-grade rigor and full-stack execution to systems where the data 
 **Source path:** `_pages/my-journey.html`
 **Source type:** page
 **Canonical URL:** /my-journey/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
 From MIT eye-tracking research to building human-centered data systems - how cognitive science principles shape modern AI workflows and data platform design
 
-#### The Cognitive Scientist Who Builds Data Systems
+**The Cognitive Scientist Who Builds Data Systems**
 
 ![Barbara Hidalgo-Sotelo](/assets/images/biopic/bhs_forweb.png)
 
@@ -373,29 +373,29 @@ The purpose of computing is insight, not numbers.
 
 — Richard W. Hamming
 
-##### Lenses I Bring to Every Problem
+#### Lenses I Bring to Every Problem
 
-###### 🧠The Cognitive Scientist Asks:
+**🧠The Cognitive Scientist Asks:**
 
 "How will a tired human at 3pm on Friday actually use this?" I test interfaces under cognitive load. If it doesn't work when you're distracted, it doesn't work.
 
-###### 🔍The Data Scientist Asks:
+**🔍The Data Scientist Asks:**
 
 "What patterns are hiding in this chaos?" But more importantly: "How do I surface them so humans can see them instantly?" Statistical significance means nothing if humans can't grasp it.
 
-###### 🎯The Consultant Asks:
+**🎯The Consultant Asks:**
 
 "What decision does this enable?" Every visualization, every model, every interface must answer: what action should someone take based on this? No action, no value.
 
-###### 🏗️The System Builder Asks:
+**🏗️The System Builder Asks:**
 
 "How does this scale cognitively?" A system that works for 10 items might break human comprehension at 100. I design for cognitive scalability, not just computational.
 
-##### The Big Turns
+#### The Big Turns
 
 2009
 
-###### Learning to See How We See
+##### Learning to See How We See
 
 At MIT, I didn't just study vision—I mapped it. Tracking thousands of eye movements across visual scenes revealed how humans construct meaning from chaos in milliseconds. We discovered that attention isn't random; it follows predictable patterns based on both visual features and personal experience. This research into human information processing became my foundation for understanding why some data visualizations work instantly while others fail despite being "correct."
 
@@ -403,7 +403,7 @@ At MIT, I didn't just study vision—I mapped it. Tracking thousands of eye move
 
 2013
 
-###### From Lab Theory to Human Impact
+##### From Lab Theory to Human Impact
 
 At UT Austin's HABLA lab, I discovered the messy reality of applied cognitive science. Working on NIH-funded bilingualism research meant designing experiments that 5-year-olds could complete while generating data rigorous enough for clinical decisions. I built data pipelines that tracked language development patterns across hundreds of children—learning that the best system architecture means nothing if humans can't use it under pressure. This taught me that cognitive principles only matter when they solve real problems for real people.
 
@@ -411,13 +411,13 @@ At UT Austin's HABLA lab, I discovered the messy reality of applied cognitive sc
 
 2015
 
-###### Healthcare Through a Cognitive Lens
+##### Healthcare Through a Cognitive Lens
 
 Running BALEX Healthcare Services revealed why healthcare technology often fails: it's designed for ideal scenarios, not cognitive reality. Nurses making decisions at 3am don't have working memory to spare. Our interfaces needed to work when users were exhausted, stressed, and multitasking. Three years of building systems under these constraints taught me that successful technology doesn't just process data correctly—it presents information in ways that reduce cognitive load when it matters most.
 
 2017
 
-###### The Pattern Recognition Years
+##### The Pattern Recognition Years
 
 Consulting across industries revealed a universal pattern: technical solutions fail when they ignore human cognition. Whether helping a risk management firm visualize threats or designing medical bill classification systems, the challenge was always the same—how do we present complex information so humans can act on it quickly and accurately? My cognitive science training became invaluable for designing interfaces that guide attention to what matters and hide complexity until it's needed.
 
@@ -425,51 +425,51 @@ Consulting across industries revealed a universal pattern: technical solutions f
 
 2021
 
-###### Making Metadata Human-Friendly
+##### Making Metadata Human-Friendly
 
 Supporting the SEC's data catalog initiative brought everything full circle. Most data discovery fails because systems are organized for machines, not human memory. We built interfaces that mirror how people actually recall information—through association and context, not alphabetical lists. My role wasn't just technical; it was cognitive translation. I helped teams understand that findability isn't about perfect taxonomies—it's about matching how humans naturally organize and retrieve information. The Python tools I built reflected this: simple surfaces hiding sophisticated information architecture designed around human memory patterns.
 
-##### Beyond the Data
+#### Beyond the Data
 
 The same curiosity that drives my research shows up everywhere else in life.
 
 🏃‍♀️
 
-###### Marathon Runner
+**Marathon Runner**
 
 Long-distance thinking, one mile at a time
 
 🎤
 
-###### Bilingual Toastmaster
+**Bilingual Toastmaster**
 
 [Club 7032821](https://7032821.toastmastersclubs.org/) — practice explaining complex ideas clearly
 
 🗳️
 
-###### Deputy Voter Registrar
+**Deputy Voter Registrar**
 
 Civic engagement via [Foundation Communities](https://foundcom.org/)
 
 🐝
 
-###### Backyard Beekeeper
+**Backyard Beekeeper**
 
 4 years of hives, now a [data project](/projects/beehive-tracker/)
 
 🌐
 
-###### Open Data Advocate
+**Open Data Advocate**
 
 Striving to expand knowledge for the public good — Inspired by the stunningly informative visuals at [Our World in Data](https://distill.pub/)
 
 🤖
 
-###### AI Literacy Mentor
+**AI Literacy Mentor**
 
 Translating complex ideas into approachable insights — Explore one of my favorite visual explainers at [Distill.pub](https://distill.pub/)
 
-##### Now & Next
+#### Now & Next
 
 Today, I'm applying 15+ years of cognitive insights to the hardest problems in data and AI: How do we make machine learning explainable? How do we build dashboards that actually drive decisions? How do we design human-AI collaboration that amplifies rather than replaces human intelligence?
 
@@ -477,13 +477,13 @@ My recent projects—from knowledge graphs that mirror human memory to workout t
 
 I'm actively exploring the intersection of attention mechanisms in transformers and human visual attention. The parallels aren't coincidental—the same principles that help humans find meaning in visual chaos are now helping machines process language. This convergence is where I want to build next.
 
-##### Dive Deeper
+#### Dive Deeper
 
 [
 
 💼
 
-###### Experience
+**Experience**
 
 Filterable role cards with highlights and tech tags
 
@@ -491,7 +491,7 @@ Filterable role cards with highlights and tech tags
 
 🔬
 
-###### Research & Publications
+**Research & Publications**
 
 Eye-tracking papers, posters, and 430+ citations
 
@@ -499,7 +499,7 @@ Eye-tracking papers, posters, and 430+ citations
 
 📄
 
-###### Resume (PDF)
+**Resume (PDF)**
 
 One-page professional summary
 
@@ -507,7 +507,7 @@ One-page professional summary
 
 🎓
 
-###### Academic CV (PDF)
+**Academic CV (PDF)**
 
 Full academic history and publications
 
@@ -515,7 +515,7 @@ Full academic history and publications
 
 🗺️
 
-###### Projects
+**Projects**
 
 Sensemaking AI — knowledge graphs, RAG, and built work
 
@@ -523,13 +523,13 @@ Sensemaking AI — knowledge graphs, RAG, and built work
 
 🕸️
 
-###### Semantic Web Curriculum
+**Semantic Web Curriculum**
 
 A 12-week RDF, OWL & SPARQL journey, published as I learn
 
 ](https://curriculum.barbhs.com)
 
-###### Looking for someone who designs data systems that think with people, not against them?
+##### Looking for someone who designs data systems that think with people, not against them?
 
 I specialize in the intersection of human understanding and technical execution—turning cognitive science into systems that genuinely serve their users.
 
@@ -551,7 +551,7 @@ I specialize in the intersection of human understanding and technical execution�
 **Tags:** RAG, NLP, FastAPI, SQLModel, ChromaDB, Claude, Evaluation, Data Lineage, Python
 **Categories:** AI Systems & MLOps (Pragmatic)
 **Demo URL:** /projects/poolula-platform/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -808,7 +808,7 @@ When the AI cites a transaction, you can trace it back to the original source fi
 **Tags:** machine-learning, data-pipeline, etl, analytics, streamlit
 **Demo URL:** /projects/fitness-dashboard/
 **Docs URL:** https://docs.barbhs.com/fitness-dashboard/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -1227,7 +1227,7 @@ else:
 **Tags:** computer-vision, data-pipeline, api-integration, streamlit
 **Demo URL:** /projects/beehive-tracker/
 **Docs URL:** https://docs.barbhs.com/beehive-tracker/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -1489,7 +1489,7 @@ All API tests use mocks—no real API calls in test suite.
 **Categories:** Data Products & Interfaces
 **Demo URL:** /projects/chronoscope/
 **Docs URL:** https://chronoscope-docs.github.io
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -1725,7 +1725,7 @@ See [docs/assets/images/](https://github.com/dagny099/chrono-scope/tree/main/doc
 **Categories:** Data Products & Interfaces
 **Demo URL:** /projects/digital-memory-chest/
 **Docs URL:** https://github.com/dagny099/digital-memory-chest/tree/main/docs
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -1976,7 +1976,7 @@ Creates a complete memorial for "Eleanor Thompson" with sample photos, videos, a
 **Tags:** llm, multi-provider, chat, model-comparison, streamlit
 **Demo URL:** /projects/convoscope/
 **Docs URL:** https://docs.barbhs.com/convoscope/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -2186,7 +2186,7 @@ The system works with any subset of these—if you only have an OpenAI key, it r
 **Technologies:** GPT-4.1, Gemini 2.5 Flash, Python, OpenAI API, Google AI
 **Tags:** LLM, evaluation, digital-twin, RAG, AI, GPT-4, Gemini
 **Categories:** data-science
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -2292,7 +2292,7 @@ Three things are on the list.
 **Technologies:** Neo4j, ChromaDB, Python, OpenAI embeddings, Cypher, GPT-4.1
 **Tags:** LLM, evaluation, digital-twin, RAG, GraphRAG, Neo4j, knowledge-graph, AI
 **Categories:** data-science
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -2409,7 +2409,7 @@ The deeper goal is the one underneath the model-comparison post and this one and
 **Technologies:** LLM evaluation, RAG, problem framing, AI governance
 **Tags:** AI, AI-literacy, AI-governance, judgment, evaluation, digital-twin, LLM
 **Categories:** data-science
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -2496,7 +2496,7 @@ If this framing is useful, I’d love to hear how it shows up in your own AI wor
 **Last modified:** 2026-06-30
 **Tags:** AI, enterprise-AI, AI-governance, AI-adoption, AI-value, AI-strategy, evaluation, judgment, work-design, cost-visibility, ROI, KPMG, Glean
 **Categories:** thinking, data-science
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -2676,7 +2676,7 @@ AI value does not come from the tool alone. It comes from the organizational lay
 **Last modified:** 2026-07-04
 **Tags:** claude-code, agents-md, cursorrules, AI, evaluation, documentation, developer-tools, LLM
 **Categories:** data-science
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -2783,7 +2783,7 @@ And I'd genuinely like to compare notes. How long is your instruction file? If y
 **Publication date:** 2026-03-12
 **Tags:** metadata, seo, open-graph, structured-data, knowledge-representation, github-pages, jekyll
 **Categories:** applied-thinking, website-building
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -2872,7 +2872,7 @@ The companion piece, *Implementing Structured Metadata on a Jekyll + GitHub Page
 **Technologies:** Schema.org, Python, Jekyll, YAML
 **Tags:** metadata, seo, schema-org, content-strategy, documentation
 **Categories:** tutorial
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3037,7 +3037,7 @@ The time investment is front-loaded, but the long-term benefits—better SEO, ea
 **Last modified:** 2025-01-15
 **Tags:** rag, retrieval, evaluation, prompting, governance, prod-readiness
 **Categories:** Thinking, AI Systems
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3140,7 +3140,7 @@ User Q
 **Technologies:** Neo4j, Python, EXIF, NOAA API
 **Tags:** knowledge-graph, metadata, data-governance, ux-for-analytics, explainability
 **Categories:** thinking
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3235,7 +3235,7 @@ Provenance: ingest_v0.3 · weather_api v2.1 · camera iPhone15 · tz:America/Den
 **Last modified:** 2025-01-15
 **Tags:** visual-working-memory, data-visualization, visual-attention, ux-for-analytics
 **Categories:** thinking
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3375,7 +3375,7 @@ I build data tools and interfaces where cognitive science meets practice. If you
 **Source path:** `resources/index.md`
 **Source type:** resource_index
 **Canonical URL:** /resources/
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3391,9 +3391,14 @@ A curated library: templates, cheatsheets, guides, visual explainers, and projec
   <div class="content-slab">
     <div class="section-heading">
       <p class="eyebrow">Start with these</p>
-      <p class="section-intro">Three short pieces that show what this library is for: verifying AI systems instead of just trusting them.</p>
+      <p class="section-intro">Short pieces that show what this library is for: verifying AI systems instead of just trusting them.</p>
     </div>
     <div class="cards-grid">
+      <article class="card-surface">
+        <h2 class="card-title"><a class="text-link" href="/resources/knowledge-legibility-diagnostic/">Is your knowledge ready for AI?</a></h2>
+        <p class="card-lede">A short diagnostic for teams building AI on top of documents, workflows, decisions, and institutional memory. Use it to see whether your knowledge is findable, structured, traceable, owned, and checkable before a model starts answering from it.</p>
+        <p><a class="text-link" href="/resources/knowledge-legibility-diagnostic/">Take the diagnostic</a></p>
+      </article>
       <article class="card-surface">
         <h2 class="card-title"><a class="text-link" href="/assets/downloads/missing-layer-two-reports.pdf">The integration test</a></h2>
         <p class="card-lede">One page, five questions. Pick one real AI-assisted workflow and ask: who owns the decision, what does it cost to run, what context does it need, what quality bar must it meet, and who can override the output? Unanswered questions here are integration problems, even when adoption looks strong.</p>
@@ -3508,6 +3513,14 @@ A paste-in constraint block, a two-pass workflow, and a self-edit checklist for 
 - Tags: memory, ai-agents, cognitive-science, knowledge-systems
 
 A one-page map of what makes memory useful — selection, structure, retrieval, revision, and forgetting — for humans and AI agents alike, with the four papers that shaped it.
+
+##### Is Your Knowledge Ready for AI?
+- URL: /resources/knowledge-legibility-diagnostic/
+- Format: Diagnostic
+- Level: Beginner
+- Tags: knowledge-systems, ai-readiness, rag, evaluation, metadata
+
+Fifteen questions across five dimensions — findability, structure, provenance, ownership, and verification — to check whether your organizational knowledge is in good enough shape for AI to use and for humans to verify.
 
 ##### AI Instruction File Evaluation Worksheet
 - URL: /resources/ai-instructions-evaluation-worksheet/
@@ -3631,7 +3644,7 @@ A ready-to-use template for small multiples — the most underused way to compar
 **Last modified:** 2026-07-04
 **Tags:** evaluation, ai-agents, llm, testing, knowledge-systems
 **Categories:** Knowledge Systems
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3667,7 +3680,7 @@ Building this layer — the evaluation and verification structure that earns tru
 **Last modified:** 2026-07-04
 **Tags:** memory, ai-agents, cognitive-science, knowledge-systems
 **Categories:** Knowledge Systems
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3712,7 +3725,7 @@ The papers are quite different, and I'm not suggesting that human and agent memo
 **Last modified:** 2026-06-22
 **Tags:** data-architecture, json-schema, automation, systems-design
 **Categories:** Technical Documentation
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
@@ -3939,7 +3952,7 @@ This schema powers my [experience page](/experience/) and maintains consistency 
 **Last modified:** 2026-07-04
 **Tags:** claude-code, agents-md, cursorrules, evaluation, documentation, AI
 **Categories:** Working with AI
-**Snapshot:** `ad965bf9983d9526bef7b64aa6005eb2a624f0c6`
+**Snapshot:** `7d3ea3e68bdee14e7c386b99d235ec64f1472e77`
 
 #### Summary
 
