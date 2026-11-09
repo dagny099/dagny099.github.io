@@ -90,12 +90,3 @@ User Q
   → Verify (faithfulness; coverage; answerable?)
   → Output (answer + cites + confidence + follow-ups)
 ```
-
----
-
-### Downloadables (optional)
-- Starter eval sheet (CSV)
-- Query router rules (YAML)
-- Claims→Evidence template (MD)
-
-**CTA.** Want the eval starter kit? Email me; I’ll share a lean, no‑nonsense pack.

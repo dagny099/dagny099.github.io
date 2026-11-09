@@ -25,10 +25,10 @@ pagination:
 
 Curiosity was sparked by a Kickstarter campaign by AnkerMake in the fall of 2022.   
 
-This is my printer: the [M5 AnkerMake ](https://www.ankermake.com/uk/products/m5)
+This is my printer: the [M5 AnkerMake](https://www.ankermake.com/uk/products/m5)
 
 _Lessons in progress_:
-- Best initial 3D prints to motiviate and delight
+- Best initial 3D prints to motivate and delight
 - Most important slicer settings to understand
 - Editing STL models with 3d modeling software (starting with [TinkerCad](https://www.tinkercad.com/))
 {: .small}
@@ -36,10 +36,5 @@ _Lessons in progress_:
 ### Demo of gist
 <script src="https://gist.github.com/dagny099/ff93395ed55b984060bb9bfae6aa5b52.js"></script>
 
-
-##### More to come soon:
-- Network graph based on schema.org showing objects to print
-- List of awesome resources for learning slicing settings
-{: .small}
 
 [Home](/)

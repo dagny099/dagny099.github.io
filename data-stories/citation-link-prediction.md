@@ -18,7 +18,7 @@ author_profile: false
 ---
 <br>
 # Finding Lost Cousins in the Academic Family Tree
-## Part 1: When Your Old Paper Becomes a Treasure Map
+## When Your Old Paper Becomes a Treasure Map
 
 *How a 15-year-old paper on visual attention became the seed for mapping hidden connections across 8,000 papers, revealing the invisible bridges between parallel research universes.*
 
@@ -292,21 +292,9 @@ Building this map surfaced questions I hadn't thought to ask:
 
 ---
 
-## Try This Yourself (Coming Next Week!)
+## Try This Yourself
 
-I'm building a tool that lets you map your own paper's hidden network. Here's what you'll be able to do:
-
-**🎯 Your Paper → Your Map**
-1. Enter any paper ID from Semantic Scholar
-2. Watch your citation network grow recursively
-3. See predicted connections with confidence scores
-4. Explore which fields your work influenced unexpectedly
-
-**Preview of what's coming:**
-- Interactive network explorer
-- Real-time TransE predictions
-- Shareable knowledge maps
-- Citation gap analysis
+The tool I built from this project is [Citation Compass](https://cartography.barbhs.com/) ([code on GitHub](https://github.com/dagny099/citation-compass)). It stores the citation network in Neo4j, predicts missing citation links with a from-scratch TransE model and confidence scores, and uses graph algorithms to find research communities and central papers.
 
 ---
 
@@ -344,7 +332,7 @@ missing_links = model.predict_missing_links(threshold=0.7)
 - **Plotly**: Interactive visualizations
 - **Python**: Gluing it all together
 
-Full implementation notebook coming with Part 2!
+The full pipeline, as four notebooks from training through analysis, is in the [Citation Compass repo](https://github.com/dagny099/citation-compass).
 </details>
 
 ---
@@ -352,13 +340,6 @@ Full implementation notebook coming with Part 2!
 ## What's Next: Your Turn to Map
 
 This project started with simple curiosity about an old paper and revealed an entire hidden universe of connections. Every researcher has these hidden networks waiting to be discovered.
-
-**Part 2 Preview: Building Your Knowledge Map**
-- 🛠️ Complete implementation guide
-- 📊 Advanced visualization techniques
-- 🔍 Strategies for validating predictions
-- 🎯 Finding your paper's lost cousins
-- 🚀 Deploying your own citation explorer
 
 **The Big Question:** What connections are hiding in your research universe?
 
@@ -376,10 +357,4 @@ This project started with simple curiosity about an old paper and revealed an en
 
 ---
 
-*Next time: Turn any paper into a map and discover the research connections you never knew existed.*
-
-**What hidden connections lurk in your field?** Share your paper ID in the comments—I'll run it through the model and share what I find!
-
----
-
-*Barbara is a Certified Data Management Professional (CDMP) who left academia in 2010 but never stopped wondering where ideas travel. She's currently teaching herself graph machine learning by mapping the hidden universe of academic knowledge. Follow her journey at [barbhs.com].*
+*Barbara is a Certified Data Management Professional (CDMP) who left academia in 2010 but never stopped wondering where ideas travel. She's currently teaching herself graph machine learning by mapping the hidden universe of academic knowledge.*

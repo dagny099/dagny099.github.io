@@ -38,6 +38,15 @@ fixed. Follow-up post outline exists in that repo (blog/Blog_mermaid-2-automatio
 "NEXT TIME" promise was removed. Minor, not fixed: diagram_hub/__init.py__ is misnamed (works as a namespace
 package); the wizard's type caption doesn't update inside the form until submit.
 
+Tier 3 (2026-11-09, Barbara's decisions): Sensor Fleet parts 1-6 + series page unpublished, URLs redirect to
+the intro; 3D printing and AWS CCP kept with minimal fixes; Bees and RAG essays kept, dead download/email offers
+removed; Notion memory pages left in place (Barbara uses Drive now). Placeholder sweep of the three data stories
+done in the same batch (PR #64). Still to check by hand: workouts.barbhs.com, beestory.barbhs.com and
+cartography.barbhs.com are live (not reachable from the sandbox; the workouts dashboard depended on RDS);
+the 3D printing post's "Demo of gist" heading. Backlog moved to Drive: BarbHS Backlog - NOV 2026.
+Remaining: GitHub Actions series (Tier 1), Vision essay (Tier 1, needs Barbara's interview answers),
+Three Readers graphics + broken og:images (Tier 2), Implementing Structured Metadata full read.
+
 Lives in `_planning/` (not published).
 
 Scope: every piece a visitor can reach today. That is 24 published posts
