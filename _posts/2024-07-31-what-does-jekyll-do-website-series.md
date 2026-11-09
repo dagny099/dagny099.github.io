@@ -3,7 +3,7 @@ layout: post
 title: "Digital Home Base Workshop Part 2- Under the Hood: Understanding Your Site's Engine"
 subtitle: "How Jekyll transforms Markdown into a responsive website"
 date: 2024-07-31
-last_modified_at: 2024-07-31
+last_modified_at: 2026-11-09
 sitemap:
     priority: 0.5
 permalink: /blog/understanding-your-jekyll-site/
@@ -23,13 +23,13 @@ pagination:
 ---
 ## How Jekyll Brings Your Site to Life
 ![image-right]({{ site.url }}{{ site.baseurl }}/assets/images/series-website/mermaid-diagram-website-post-1-jekyll-build.png){: .align-right style="max-width:400px"}
-If you've followed our [first guide](/posts/getting-started-with-github-pages/), you've already got a working website. Now let's peek under the hood and understand how Jekyll transforms your content into a beautiful, responsive website. Why? Because understanding your tools makes you a better craftsperson! 
+If you've followed the [first guide](/blog/getting-started-with-github-pages/), you've already got a working website. Now let's peek under the hood and understand how Jekyll transforms your content into a beautiful, responsive website. Why? Because understanding your tools makes you a better craftsperson! 
 
 Pretty neat, right? Jekyll takes your Markdown files, applies your chosen theme, and creates a complete website. 
 
-Let's break down each component 🛠️
+Let's break down each component.
 
-## 🏗️ Your Site's Building Blocks 
+## Your Site's Building Blocks
 
 **Understanding Your Site's Structure:**  
 Here's the basic directory structure of your new site:
@@ -68,7 +68,7 @@ description: "Data Science | Machine Learning | Insights"
 permalink: /:categories/:title/
 paginate: 5
 ```
-Pro tip: Changes to `_config.yml` require a full site rebuild. Don't panic if changes take a minute to show up!
+Pro tip: when you're previewing locally, changes to `_config.yml` don't show up until you stop and restart `jekyll serve`.
 
 #### Content Organization
 Jekyll uses a smart system to organize your content:
@@ -89,20 +89,11 @@ Jekyll uses a smart system to organize your content:
   ---
   ```
 
-## 💻 Don't Neglect: Set Up Your Local Environment 
+## Don't Neglect: Set Up Your Local Environment
 Want to preview changes before pushing them live? Let's set up local development:
 ![image]({{ site.url }}{{ site.baseurl }}/assets/images/series-website/mermaid-diagram-website-post-1-git.png){: .align-center style="max-width:85%"}
 
-1. Install Ruby and Jekyll:
-   ```bash
-   # macOS (with Homebrew)
-   brew install ruby
-   gem install bundler jekyll
-   
-   # Ubuntu/Debian
-   sudo apt-get install ruby-full build-essential
-   gem install bundler jekyll
-   ```
+1. Install Ruby, Bundler, and Jekyll by following [Jekyll's installation guide](https://jekyllrb.com/docs/installation/) for your operating system. The macOS and Ubuntu pages cover the PATH and gem-directory setup that trips most people up the first time.
 
 2. Clone your repository:
    ```bash
@@ -116,9 +107,9 @@ Want to preview changes before pushing them live? Let's set up local development
    bundle exec jekyll serve
    ```
 
-Now visit<span style="color:red"> `http://localhost:4000` </span> to see your site! Changes will update in real-time (except for `_config.yml`).
+Now visit `http://localhost:4000` to see your site! Changes will update in real-time (except for `_config.yml`).
 
-## 🎨 Making Your Site Truly Yours 
+## Making Your Site Truly Yours
 
 ### Customizing Your Theme
 The Minimal Mistakes theme offers tons of customization options:
@@ -129,21 +120,21 @@ minimal_mistakes_skin: "dark" # Try: default, air, aqua, contrast
 ```
 
 ### Adding Custom Styles
-Want to tweak specific elements? Create `assets/css/main.scss`:
+Want to tweak specific elements? Create `assets/css/main.scss`. Keep the two lines of dashes at the top (they tell Jekyll to compile the file) and the skin import (without it, the `minimal_mistakes_skin` setting above is ignored):
 
 ```scss
+{% raw %}---
 ---
----
-
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
 // Your custom CSS here
 .page__title {
   color: #2ecc71;
-}
+}{% endraw %}
 ```
 
-## 🔧 Troubleshooting Like a Pro 
+## Troubleshooting Like a Pro
 
 Common issues and their solutions:
 
@@ -162,7 +153,7 @@ Common issues and their solutions:
    - Use Jekyll's incremental build (`--incremental`)
    - Implement lazy loading for images
 
-## 🧠 Advanced Features 
+## Advanced Features
 
 ### Collections
 Perfect for organizing related content:
@@ -176,7 +167,7 @@ collections:
 ```
 
 ### Custom Layouts
-Create unique templates for different content types:
+Create unique templates for different content types. Save this as `_layouts/project.html`, then set `layout: project` in a page's front matter:
 
 ```liquid
 {% raw %}
@@ -190,18 +181,16 @@ layout: default
 {% endraw %}
 ```
 
-## What's Next? 
+## What's Next?
 
-In [Post 3](/posts/deploy-jekyll-gh-actions/), we'll automate your workflow with GitHub Actions. You'll learn how to:
-- Set up continuous integration
-- Automatically check for broken links
-- Deploy with confidence
-- Get notifications when something goes wrong
+In [Part 3](/blog/deploy-jekyll-gh-actions/), we'll automate your workflow with GitHub Actions. You'll learn how to:
+- Build and deploy your site on every push
+- Check every pull request with a build before it goes live
+- Optionally check for broken links
 
-## Resources 📚
+## Resources
 - [Jekyll Configuration](https://jekyllrb.com/docs/configuration/)
 - [Minimal Mistakes Theme Guide](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/)
 - [Liquid Template Language](https://shopify.github.io/liquid/)
 
 
-[Home](/)

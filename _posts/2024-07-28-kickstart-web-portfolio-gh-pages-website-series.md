@@ -3,7 +3,7 @@ layout: post
 title: "Digital Home Base Workshop Part 1- Assembly Required: Getting Started with GitHub Pages"
 subtitle: "Build a professional portfolio site using GitHub Pages and Jekyll - version control for data professionals"
 date: 2024-07-28
-last_modified_at: 2024-07-28
+last_modified_at: 2026-11-09
 sitemap:
     priority: 0.5
 permalink: /blog/getting-started-with-github-pages/
@@ -28,15 +28,13 @@ As a data scientist, you're probably comfortable with Jupyter notebooks and GitH
 
 Back in 2020, I was drowning in a sea of options for building my online presence. WordPress felt bloated, Medium wasn't customizable enough, and hand-coding a responsive website seemed like overkill. That's when I discovered GitHub Pages, and it turned out to be the perfect solution for a data professional's needs.
 
-![image-left]({{ site.url }}{{ site.baseurl }}/assets/images/series-website/so-many-options-for-a-data-sci.png){: .align-right style="max-width: 400px"} 
-
-What makes it click for data people? It's version control native (if you can git push, you can update your website), Markdown-based (just like your notebooks!), and perfect for embedding visualizations and code snippets. Plus, it's free, secure (HTTPS by default), and looks professional with custom domain support.
+![Illustration of a person at a laptop surrounded by floating web pages and screens]({{ site.url }}{{ site.baseurl }}/assets/images/series-website/so-many-options-for-a-data-sci.png){: .align-right style="max-width: 400px"} 
 
 What makes it click for data people? It's version control native (if you can `git push`, you can update your website), Markdown-based (just like your notebooks!), and perfect for embedding visualizations and code snippets. Plus, it's free, secure (HTTPS by default), and looks professional with custom domain support.
 
 ## The Building Blocks: Understanding Your Site
 
-Before we dive into setup, let's peek at what makes up a GitHub Pages site:
+Before setup, here's what makes up a GitHub Pages site:
 
 ```
 yoursite.github.io/
@@ -64,9 +62,11 @@ Think of it like a well-organized data project: your configuration goes in `_con
 2. Create a new repository named `yourusername.github.io` -- The name is crucial – it must match this format exactly!
 
 ### Step 2: Set Up Your Theme
-We'll use Minimal Mistakes (clean, professional, great for data visualization). Fork the [starter repository](https://github.com/mmistakes/mm-github-pages-starter), rename it to `yourusername.github.io`, and:
+We'll use Minimal Mistakes (clean, professional, great for data visualization). Clone its [starter repository](https://github.com/mmistakes/mm-github-pages-starter), then give it fresh history and point it at the repository you just created:
 
 ```bash
+git clone https://github.com/mmistakes/mm-github-pages-starter.git yourusername.github.io
+cd yourusername.github.io
 rm -rf .git
 git init
 git add .
@@ -77,11 +77,8 @@ git push -u origin main
 ```
 
 
-### Step 3: Initial Configuration
+### Step 3: Configure your site
 The `_config.yml` file is your website's control center. Here's a minimal configuration to get started:
-
-### Step 3: Configure
-In `_config.yml`, set up your basics:
 
 ```yaml
 title: Your Name
@@ -97,16 +94,16 @@ Create your first blog post:
 2. Add front matter and content:
 
 ```markdown
- ---
- title: "Why Every Data Scientist Needs a Blog"
- date: 2024-02-15
- categories:
-   - blog
- tags:
-   - data science
-   - writing
-   - career
- ---
+---
+title: "Why Every Data Scientist Needs a Blog"
+date: 2024-02-15
+categories:
+  - blog
+tags:
+  - data science
+  - writing
+  - career
+---
 
 Your content here in Markdown format...
 ```
@@ -142,17 +139,10 @@ Don't overthink it – start with something like "Why I Love Data" or "My Journe
 
 ## Next Steps
 
-In [Post 2: Jekyll Deep Dive](/posts/understanding-your-jekyll-site/), we'll explore:
+In [Part 2: Under the Hood](/blog/understanding-your-jekyll-site/), we'll explore:
 - Setting up your local development environment
 - Customizing your theme
 - Working with collections and layouts
-- Adding dynamic features
-- Optimizing for search engines
-
-In other posts, I'd like to cover: 
-- **Content Organization**: Set up collections for projects and papers
-- **Local Testing**: Set up a local development environment (we'll cover this in Post 2)
-- **Analytics**: Add Google Analytics to track your reach
 
 
 ## Resources

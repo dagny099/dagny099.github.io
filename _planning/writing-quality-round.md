@@ -47,6 +47,13 @@ the 3D printing post's "Demo of gist" heading. Backlog moved to Drive: BarbHS Ba
 Remaining: GitHub Actions series (Tier 1), Vision essay (Tier 1, needs Barbara's interview answers),
 Three Readers graphics + broken og:images (Tier 2), Implementing Structured Metadata full read.
 
+GitHub Actions series (2026-11-09): fix-and-trim pass on parts 1-4. Part 3's workflow is now the live
+pages.yml (deploys only on push; PR = build check); live pages.yml switched from an actions/cache@v3 step that
+never populated (vendor/bundle unused; actionlint flags v3 as too old) to setup-ruby bundler-cache. Note: do NOT
+add JEKYLL_ENV=production to the build; head.html hardcodes the gtag and analytics.html would add a second one.
+Correction made: the Mermaid post's original examples did have --- delimiters (an audit filter dropped --- lines);
+real failure causes were trailing spaces on diagram lines and a comment above the front matter.
+
 Lives in `_planning/` (not published).
 
 Scope: every piece a visitor can reach today. That is 24 published posts
