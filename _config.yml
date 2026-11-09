@@ -117,6 +117,7 @@ exclude:
   - agent-context/
   - Gemfile
   - Gemfile.lock
+  - vendor/   # where CI's bundler-cache installs gems; a custom exclude list replaces Jekyll's defaults
 
 # Build
 markdown:
