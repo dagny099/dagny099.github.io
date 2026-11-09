@@ -187,6 +187,14 @@ Always check the latest versions of actions you're using. For example, I had to 
 - uses: actions/upload-pages-artifact@v3
 ```
 
+### 4. "Invalid date" errors from files you never wrote
+`bundler-cache: true` installs your gems into a `vendor/bundle` folder inside the repository. Jekyll normally skips `vendor/`, but if your `_config.yml` has its own `exclude:` list, that list replaces Jekyll's defaults, and Jekyll tries to build the installed gems' template files as pages. The build fails with an error like `Invalid date '<%= Time.now.strftime(...) %>'` pointing at a file under `vendor/bundle/`. This site hit exactly that when it switched to `bundler-cache`. The fix is one line in `_config.yml`:
+
+```yaml
+exclude:
+  - vendor/
+```
+
 ---
 
 In [Part 4](/blog/post-deployment-reflextions/), I reflect on what I actually learned from this project, especially that last part.
