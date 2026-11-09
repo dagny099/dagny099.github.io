@@ -19,7 +19,7 @@ read_time: false
 categories: [tutorial]
 ---
 
-*Updated October 2026. The metadata examples in the first version were missing the `---` lines Mermaid needs, so every one of them failed to render, on this page and in the render script. They're fixed below, and every diagram on this page was rendered by the companion repo's own script from the files in that repo. The [companion repo](https://github.com/dagny099/mermaid-diagram-workflow) is now public.*
+*Updated October 2026. The examples in the first version failed to render, on this page and in the render script, for two reasons: trailing spaces at the ends of the diagram lines, and in one example a comment line above the opening `---`. Both are fixed below, and every diagram on this page was rendered by the companion repo's own script from the files in that repo. The [companion repo](https://github.com/dagny099/mermaid-diagram-workflow) is now public.*
 
 ## Overview
 
@@ -159,13 +159,16 @@ flowchart LR
     C --> D[Dashboard]
 ```
 
-Mermaid only treats the metadata as metadata when it sits between the two `---` lines. Here's what Mermaid 11, Mermaid 12, and the Mermaid CLI each do with three ways of writing it:
+Mermaid only treats the metadata as metadata when it sits between the two `---` lines. Here's what Mermaid 11, Mermaid 12, and the Mermaid CLI each do with four ways of writing it:
 
 | How the metadata is written | What Mermaid does |
 | ----- | ----- |
 | YAML between `---` lines (above) | Renders the diagram and ignores keys it doesn't know |
 | `%% id: data_flow_core_v1` comment lines | Renders, but tools can't read the comments as YAML |
 | Bare `id: data_flow_core_v1` lines, no `---` | Fails: `No diagram type detected` |
+| A `#` comment line above the opening `---` | Fails: `No diagram type detected` |
+
+One more trap, separate from the metadata: trailing spaces at the ends of the diagram lines make Mermaid's parser fail, even though the file looks fine. If a diagram fails with a parse error you can't see, check for those first.
 
 One more thing worth knowing: Mermaid reads *one* of these keys itself. `title` gets drawn above the diagram, which is why the diagrams on this page have headings. If you'd rather keep the title out of the picture, name the key something else, like `name`.
 
