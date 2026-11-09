@@ -20,23 +20,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
+      - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'  # Match your Jekyll version
-
-      - name: Cache Ruby gems
-        uses: actions/cache@v3
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
-      - name: Install Jekyll and dependencies
-        run: |
-          gem install bundler
-          bundle install
+          bundler-cache: true  # Runs bundle install and caches the gems between runs
 
       - name: Build the site
         run: bundle exec jekyll build
