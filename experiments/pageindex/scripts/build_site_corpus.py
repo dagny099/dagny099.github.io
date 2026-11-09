@@ -198,6 +198,9 @@ class HtmlToMarkdown(HTMLParser):
         self.skip_stack: list[str] = []
         self.list_depth = 0
         self.current_heading: int | None = None
+        self.heading_as_bold = False
+        self.heading_text_start = 0
+        self.reclassified_headings: list[tuple[int, str]] = []
 
     def add(self, text: str) -> None:
         if not self.skip_stack:
@@ -212,9 +215,19 @@ class HtmlToMarkdown(HTMLParser):
             self.skip_stack.append(tag)
             return
         if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
-            self.current_heading = int(tag[1])
+            level = int(tag[1])
+            self.current_heading = level
+            class_attr = (attrs_dict.get("class") or "").lower()
+            # In this site's HTML pages, h4+ headings and hero/banner titles are
+            # presentational card labels, not document structure. Render them as bold
+            # text so they don't inflate (and overflow past level 6) the heading tree.
+            self.heading_as_bold = level >= 4 or "hero" in class_attr
             self.newline(2)
-            self.add("#" * self.current_heading + " ")
+            if self.heading_as_bold:
+                self.add("**")
+            else:
+                self.add("#" * level + " ")
+            self.heading_text_start = len(self.parts)
         elif tag in {"p", "section", "article", "div", "header", "footer", "blockquote"}:
             self.newline(2)
         elif tag == "br":
@@ -244,7 +257,13 @@ class HtmlToMarkdown(HTMLParser):
             self.skip_stack.pop()
             return
         if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            if self.heading_as_bold:
+                text = "".join(self.parts[self.heading_text_start:]).strip()
+                self.add("**")
+                if self.current_heading is not None:
+                    self.reclassified_headings.append((self.current_heading, text))
             self.current_heading = None
+            self.heading_as_bold = False
             self.newline(2)
         elif tag in {"p", "section", "article", "div", "header", "footer", "blockquote"}:
             self.newline(2)
@@ -284,10 +303,10 @@ class HtmlToMarkdown(HTMLParser):
         return "\n".join(cleaned).strip() + "\n"
 
 
-def html_to_markdown(text: str) -> str:
+def html_to_markdown(text: str) -> tuple[str, list[tuple[int, str]]]:
     parser = HtmlToMarkdown()
     parser.feed(text)
-    return html.unescape(parser.get_markdown())
+    return html.unescape(parser.get_markdown()), parser.reclassified_headings
 
 
 def is_html_heavy(body: str) -> bool:
@@ -566,7 +585,15 @@ def normalize_body(body: str, root: Path, rel_path: str, front_matter: dict[str,
     body = re.sub(r"<style\b.*?</style>", "", body, flags=re.I | re.S)
     if is_html_heavy(body):
         state.transformations.append({"type": "html", "action": "converted_to_markdown"})
-        body = html_to_markdown(body)
+        body, reclassified_headings = html_to_markdown(body)
+        for level, heading_text in reclassified_headings:
+            state.heading_transformations.append(
+                {
+                    "type": "heading_reclassified_to_bold",
+                    "from_level": level,
+                    "text": heading_text,
+                }
+            )
     body = re.sub(r"\n{3,}", "\n\n", body)
     state.referenced_assets = collect_referenced_assets(body, front_matter)
     body = remove_duplicate_title_heading(body, title, state)
