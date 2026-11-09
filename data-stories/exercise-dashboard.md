@@ -164,16 +164,13 @@ The insights hiding in this "messy" data were profound:
 
 This discovery led to an intriguing question: If the difference between my runs and dog walks is so clear in the data, can machine learning identify them without labels?
 
-> **[INTERACTIVE ELEMENT: Predict the Activity Type]**
-> *Quiz showing 5 workout metrics. Reader guesses "Run" or "Dog Walk" before revealing the answer and ML prediction.*
-
 The bimodal distribution in my pace data suggests clear clusters:
 - **Cluster 1**: 8-12 min/mile, 3-8 miles, 30-70 minutes
 - **Cluster 2**: 20-28 min/mile, 1-3 miles, 20-90 minutes
 
 But here's where it gets interesting: there's a fuzzy middle ground where runs became walks, or walks became runs. These edge cases might reveal the most about how life happens in the margins of our planned activities.
 
-**Coming in Episode 2**: Building a classifier to automatically identify workout types, and discovering what the "unclassifiable" workouts reveal about the beautiful messiness of real life.
+The [fitness dashboard project](/projects/fitness-dashboard/) is where this went next: a K-means classifier that sorts workouts by type, without labels.
 
 ---
 
@@ -224,20 +221,10 @@ What stories are hiding in your perfectly tracked imperfect life?
 
 ---
 
-## What's Next
-
-**Episode 2: "Teaching Machines to Spot Dog Walks"** - Can unsupervised learning identify workout types based purely on pace, distance, and duration patterns? More importantly, what do the edge cases teach us about the fuzzy boundaries in our categorized lives?
-
-**Episode 3: "The Weather Excuse Myth"** - Combining workout data with historical weather reveals surprising patterns about what actually affects exercise consistency (spoiler: it's not rain).
-
----
-
-**[Links Section]**
+**Links**
 - 🔗 **[Interactive Dashboard](https://workouts.barbhs.com/)** - Explore the full workout dataset
-- 🐙 **[GitHub Repository](your-repo-url)** - Code, data, and notebooks
-- 📊 **[SQL Playground](your-playground-url)** - Query the workout database yourself
-- 📈 **[Dataset](sample-data-url)** - Download a sample for your own analysis
+- 🐙 **[GitHub Repository](https://github.com/dagny099/fitness-dashboard)** - Code for the dashboard and pipeline
 
 ---
 
-*Barbara is a data scientist who discovered that the best insights come from imperfect data. Her dog Choco is a better personal trainer than any app, though he refuses to wear a fitness tracker. Follow their data adventures at [barbhs.com].*
+*Barbara is a data scientist who discovered that the best insights come from imperfect data. Her dog Choco is a better personal trainer than any app, though he refuses to wear a fitness tracker.*

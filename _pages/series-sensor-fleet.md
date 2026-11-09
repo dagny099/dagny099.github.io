@@ -1,4 +1,5 @@
 ---
+published: false
 layout: single
 title: "Sensor Fleet"
 description: "A six-part IoT data pipeline build from sensors to dashboards."

@@ -107,9 +107,9 @@ show_title: false
       </article>
 
       <article class="card-surface">
-        <p class="card-meta">IoT pipeline series</p>
-        <h2 class="card-title"><a class="text-link" href="/series/sensor-fleet/">Sensor Fleet: IoT Temperature Monitoring</a></h2>
-        <p class="card-lede">Arduino sensors, MQTT, pipelines, and visualization in a cohesive build.</p>
+        <p class="card-meta">IoT pipeline project</p>
+        <h2 class="card-title"><a class="text-link" href="/blog/sensor-fleet-intro/">Sensor Fleet: IoT Temperature Monitoring</a></h2>
+        <p class="card-lede">A 2021 build: Arduino sensors, MQTT, a MySQL pipeline, and a dashboard.</p>
       </article>
 
       <article class="card-surface">

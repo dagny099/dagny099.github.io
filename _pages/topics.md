@@ -74,13 +74,7 @@ User-facing analytics, dashboards, and data-driven storytelling.
 IoT pipelines, CI/CD, deployment automation, and technical implementation.
 
 **Notes &amp; Experiments Series:**
-- [Sensor Fleet Series](/blog/sensor-fleet-intro/) (7 parts) — Complete IoT temperature monitoring system
-  - Arduino sensor setup
-  - MQTT broker configuration
-  - Automated data pipelines
-  - Heroku deployment
-  - Kafka streaming
-  - Security hardening
+- [Sensor Fleet](/blog/sensor-fleet-intro/) — A 2021 IoT temperature-monitoring build: Arduino sensors, MQTT, and a MySQL pipeline
 
 **Notes &amp; Experiments:**
 - [GitHub Actions for Jekyll](/blog/deploy-jekyll-gh-actions/) — CI/CD automation for static sites

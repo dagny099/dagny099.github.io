@@ -17,7 +17,7 @@ date: 2024-09-10
 last_modified_at: 2024-12-21
 ---
 <br>
-# Hive Tracker Part 1: When an Owl Box turned into a Beehive and Spawned a Data Management Professional's Metaphorical Playground
+# Hive Tracker: When an Owl Box turned into a Beehive and Spawned a Data Management Professional's Metaphorical Playground
 
 *How an unexpected visitor in our backyard owl box led to years of photos, a lot of honey, and eventually a machine learning pipeline that can tell the difference between brood and breakfast.*
 
@@ -327,7 +327,7 @@ charts = generate_plotly_visualizations(timeline_data, patterns)
 
 ### The Beekeeping Intelligence Layer - A work in progress
 
-Converting raw API responses into domain-specific insights is requiring combining computer vision with beekeeping knowledge, for now this is a skeleton of my approach and experiments will be updated here soon. For now...  
+Turning raw API responses into beekeeping insights means combining computer vision with beekeeping knowledge. Here is a sketch of the approach so far:
 
 <details markdown="1">
 <summary><strong>🐝 Domain Expert System</strong></summary>
@@ -354,21 +354,14 @@ def analyze_hive_health(vision_results):
     )
 ```
 
-This translation layer transforms generic computer vision into actionable beekeeping intelligence.
+The idea is to translate generic computer-vision output into measures a beekeeper would recognize.
 </details>
 
 ---
 
-## What's Next: The Interactive Time Machine
+## Where It Went Next
 
-Part 1 established the foundation—we can extract structure from chaos and teach machines to see hives. But the real magic happens when we can navigate through time and spot patterns across seasons and years.
-
-**Coming in Part 2: Building the Time Machine**
-- 🖱️ **Interactive Timeline Navigation** - Click through four years of inspections
-- 🔍 **Drill-Down Analysis** - Examine individual photos with full AI analysis
-- 📊 **Trend Detection** - Spot seasonal patterns and anomalies
-- 🎯 **Smart Filtering** - Find inspections by date, photo count, or AI confidence
-- 🤖 **Automated Insights** - Let the system flag interesting changes
+The [Beehive Analytics Platform](/projects/beehive-tracker/) project picks up from here.
 
 **Try It Yourself Preview**
 
@@ -400,8 +393,6 @@ Whether you're drowning in family photos, business documents, or research images
 
 **📊 Interactive Demo:** [Try the photo analyzer yourself](http://beestory.barbhs.com)
 
-**📝 Technical Deep-Dive:** Jupyter notebook with full reproducible analysis - [Coming soon here](https://github.com/dagny099/beehive-tracker/blob/main/analysis.ipynb)
-
 <details markdown="1">
 <summary><strong>🚀 Quick Start for Your Own Photos</strong></summary>
 
@@ -431,10 +422,4 @@ python analyze_photos.py --input-dir /path/to/photos --output timeline.html
 
 ---
 
-*Next time: Building an interactive timeline that transforms four years of beekeeping chaos into explorable, clickable insights.*
-
-**What stories are hiding in your photo collections?** Share your ideas in the comments—I'd love to help you uncover the patterns in your visual data.
-
----
-
-*I'm a Certified Data Management Professional (CDMP) who discovered that the intersection of data science and beekeeping produces both honey and insights. Follow my journey at [barbhs.com] and try the photo analyzer at [hivetracker.barbhs.com].*
+*I'm a Certified Data Management Professional (CDMP) who discovered that the intersection of data science and beekeeping produces both honey and insights.*

@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 classes: wide
 title: "Sensor Fleet Part 1"

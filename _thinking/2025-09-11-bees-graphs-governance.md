@@ -89,12 +89,3 @@ Provenance: ingest_v0.3 · weather_api v2.1 · camera iPhone15 · tz:America/Den
 3. Ingest a **week** of data with provenance fields.  
 4. Build one **evidence table** and one **timeline**.  
 5. Write the **one‑page glossary**. Repeat.
-
----
-
-### Downloadables (optional)
-- Graph starter schema (CSV)  
-- Evidence table template (CSV)  
-- Glossary template (MD)
-
-**CTA.** Want the schema or templates? Email me; I’ll share the starter pack.
