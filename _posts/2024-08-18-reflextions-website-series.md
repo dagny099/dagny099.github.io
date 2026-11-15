@@ -68,7 +68,7 @@ This experience taught me something important about technical writing and docume
 **What I'll Strive to Do Better:****
 1. **Start with the Why**: Begin with clear motivation and context
 2. **Show the Evolution**: Demonstrate how and why things change
-3. **Highlight True Value**: Focus on what we gain, not just what we do
+3. **Highlight True Value**: Focus on what we gain as well as what we do
 4. **Question Assumptions**: Challenge the "magic" in our technical processes
 5. **Document the Journey**: Share both successes and realizations
 

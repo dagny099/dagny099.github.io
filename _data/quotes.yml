@@ -19,7 +19,7 @@
 
 footer:
   - id: systems-make-sense
-    text: "The best systems don't just work. They make sense."
+    text: "The best systems make sense to the people who use them."
     author: "Barbara Hidalgo-Sotelo"
   - id: probability-vs-structure
     text: "Some problems need probability. Some need structure. Good design begins with knowing the difference."

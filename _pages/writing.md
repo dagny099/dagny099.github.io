@@ -76,7 +76,7 @@ show_title: false
   <section class="section-stack">
     <div class="section-heading">
       <p class="eyebrow">🧪 Notes &amp; Experiments</p>
-      <p class="section-intro">Hands-on guides, experiments, and build notes that show the mechanics behind the work. Why this matters: it captures the learning path, not just the polished result.</p>
+      <p class="section-intro">Hands-on guides, experiments, and build notes that show the mechanics behind the work. Why this matters: it captures the learning path along with the polished result.</p>
     </div>
     <div class="cards-grid">
       <article class="card-surface">

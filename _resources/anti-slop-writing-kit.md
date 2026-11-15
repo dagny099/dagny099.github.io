@@ -5,7 +5,7 @@ subtitle: "Get LLM writing help without the tell-tale AI rhetoric"
 permalink: /resources/anti-slop-writing-kit/
 excerpt: "A paste-in constraint block, a two-pass workflow, and a self-edit checklist for getting writing help from an LLM without the 'it's not X, it's Y' constructions and emphasis cues that give it away."
 date: 2026-07-04
-last_modified_at: 2026-07-04
+last_modified_at: 2026-11-14
 tags: [writing, llm, prompts, editing]
 categories: ["Working with AI"]
 format: Kit
@@ -29,8 +29,10 @@ to reach for a contrast, an analogy, or an emphasis cue, reach for a real
 detail, example, or mechanism instead.
 
 - No "it's not X, it's Y" constructions or variants ("never X, but Y"; "isn't
-  about X, it's about Y"; "the X isn't the point, the Y is"). If a contrast is
-  truly needed, state the real thing directly, and at most once in the piece.
+  about X, it's about Y"; "the X isn't the point, the Y is") when nobody holds
+  the negated claim. Ruling out a real alternative is fine: a belief readers
+  actually have, or a hypothesis you tested and rejected. Otherwise state the
+  real thing directly.
 
 - Don't open by announcing background or credentials ("As a...", "Coming
   from...", "With my background in..."). Let expertise show through how the
@@ -70,7 +72,7 @@ something only I could have written.
 
 Run your own drafts against this before they ship:
 
-- Search for "not ... it's" / "isn't ... it's" / "never ... but" — is each one earned, and is there more than one?
+- Search for "not ... it's" / "isn't ... it's" / "never ... but". For each one: does anyone actually hold the claim being negated? If yes, keep it. If no, state the real thing directly.
 - Does the opening announce who I am instead of showing how I think?
 - Any "it's exactly like / same as / think of it as"? Replace with a real example.
 - Any "the key point / notice that / make no mistake / here's the thing"? Delete.

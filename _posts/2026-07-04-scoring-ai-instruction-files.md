@@ -40,7 +40,7 @@ HumanLayer's [Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-
 
 My CLAUDE.md contained roughly 150 individual instructions. Add the baseline 50 and I was sitting at 200 — right at the ceiling.
 
-Instruction count wasn't the only problem. Every line of the file is processed on every interaction, so size is a performance cost, not just a reading cost. And when I looked at what those lines actually contained — Plotly tooltip font sizes, pixel-perfect color codes — much of it wasn't AI instruction at all. It was design documentation disguised as AI instructions.
+Instruction count wasn't the only problem. Every line of the file is processed on every interaction, so size is a performance cost as well as a reading cost. And when I looked at what those lines actually contained — Plotly tooltip font sizes, pixel-perfect color codes — much of it was design documentation disguised as AI instructions.
 
 ## The framework: six categories, 100 points
 

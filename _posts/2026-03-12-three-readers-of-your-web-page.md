@@ -11,7 +11,7 @@ image: /assets/images/posts/three-readers-hero.png
 
 Here's the setup. You have a personal site built with Jekyll, hosted for free on GitHub Pages. The content is good. The writing is yours. And yet, when you search your own name, the result is thinner than you'd like — or when you paste a link into LinkedIn, the preview is a gray rectangle and a cropped logo. You go looking for "how to improve my metadata," and within ten minutes you're drowning in acronyms: OG, SEO, JSON-LD, canonical, schema. They all seem to live in the same place — that mysterious `<head>` tag at the top of every page — so it's natural to assume they all do the same job.
 
-They don't. And the single most clarifying idea in this whole topic is this: **your page's `<head>` is not read by one audience. It's read by three, and each one speaks a different language.** Once you can see the three readers, every confusing acronym snaps into a slot, and you stop optimizing the wrong tag for the wrong machine.
+They don't. And the single most clarifying idea in this whole topic is this: **your page's `<head>` is read by three audiences, and each one speaks a different language.** Once you can see the three readers, every confusing acronym snaps into a slot, and you stop optimizing the wrong tag for the wrong machine.
 
 This article is the conceptual tour. A companion piece walks through the exact changes to make in your repo. For now, let's just learn how the web actually reads you.
 
@@ -69,7 +69,7 @@ Structured data (the JSON-LD kind) is the same idea, one level richer. Instead o
 
 That last move is the one I'd underline. The `sameAs` property in Schema.org is, functionally, `owl:sameAs` — the identity statement that lets a reasoner merge two references into one entity. When you list your profiles in `sameAs`, you are handing the search engine the edges it needs to reconcile your scattered web presence — your site, your code, your writing, your professional profile — into a single, trusted node. You are, in the most literal sense, doing entity reconciliation on yourself.
 
-There's a cognitive-science echo here too, which is why I keep coming back to this topic. A memory isn't retrieved by brute force; it's retrieved through *context* — the cues and associations that point to it. Metadata is the web's version of that context. The page is the memory; the structured data is the set of associations that let the right query surface it. "Metadata matters" isn't a slogan about tidiness. It's a claim about how retrieval works, in heads and in machines alike.
+There's a cognitive-science echo here too, which is why I keep coming back to this topic. A memory isn't retrieved by brute force; it's retrieved through *context* — the cues and associations that point to it. Metadata is the web's version of that context. The page is the memory; the structured data is the set of associations that let the right query surface it. "Metadata matters" is a claim about how retrieval works, in heads and in machines alike.
 
 > **Suggested graphic — the triple.** Three connected nodes: *This page → og:title → "…"* drawn as a graph edge, sitting next to the equivalent JSON-LD *Person → sameAs → GitHub*. The visual argument: "these tags you've been treating as form fields are actually graph statements." For your audience specifically, this is the image that earns the article.
 

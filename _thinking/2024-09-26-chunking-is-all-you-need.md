@@ -27,7 +27,7 @@ teaser_alt: "Beehive inspection photo with notes overlay"
 
 ## Bigger windows, same bottleneck: sensemaking
 
-Long-context prevents truncation, but neither humans nor models weight the middle well. Primacy and recency dominate. The practical consequence: chunking and selective retrieval still win, and interfaces must respect human attention, not just token capacity.
+Long-context prevents truncation, but neither humans nor models weight the middle well. Primacy and recency dominate. The practical consequence: chunking and selective retrieval still win, and interfaces must respect human attention as well as token capacity.
 
 
 ## Evidence across three domains
