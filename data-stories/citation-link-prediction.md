@@ -78,7 +78,7 @@ Building the network was surprisingly straightforward once I wrestled with the S
 - **Parallel evolution**: Similar solutions emerging independently
 - **Lost connections**: Papers that *should* be connected based on content but aren't
 
-The network wasn't just big—it was full of holes. Missed connections. Parallel universes of research that should be talking but aren't.
+The network was big, and it was full of holes. Missed connections. Parallel universes of research that should be talking but aren't.
 
 ---
 
@@ -110,7 +110,7 @@ Think of TransE like this:
 
 As someone teaching myself graph ML, I was skeptical. How could a model predict meaningful connections between papers it only sees as nodes and edges?
 
-The breakthrough came when I understood: TransE isn't guessing randomly. It's learning the hidden grammar of how ideas flow through academia. Just like "visual attention" in psychology translates to "attention mechanisms" in deep learning, the model learns these conceptual bridges.
+The breakthrough came when I understood: TransE is learning the hidden grammar of how ideas flow through academia. Just like "visual attention" in psychology translates to "attention mechanisms" in deep learning, the model learns these conceptual bridges.
 
 ```
 # The core insight in code
@@ -253,7 +253,7 @@ The model is a discovery tool, not an oracle. It suggests where to look, not wha
 
 ## What This Means: Your Research Has Hidden Family
 
-Every paper in this network has undiscovered cousins—research that shares its intellectual DNA but lives in a parallel universe. My 2009 visual attention paper wasn't just cited 156 times; it has hundreds of potential connections waiting to be discovered.
+Every paper in this network has undiscovered cousins—research that shares its intellectual DNA but lives in a parallel universe. My 2009 visual attention paper was cited 156 times, and it has hundreds of potential connections waiting to be discovered.
 
 **The Bigger Implications:**
 

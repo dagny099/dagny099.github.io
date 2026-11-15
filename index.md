@@ -9,7 +9,7 @@ classes: home
 author_profile: false
 excerpt: >
   <span class="hero-headline">
-    The best systems don't just work.<br>They make sense.
+    The best systems make sense<br>to the people who use them.
   </span>
 
   <span class="hero-subheadline">

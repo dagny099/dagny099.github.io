@@ -92,7 +92,7 @@ When organizations measure only adoption, they can miss the operational debt acc
 
 ### 2. AI makes weak work harder to see
 
-AI does not just produce errors; it changes the appearance of errors. Rough drafts used to carry warning signs. AI can remove those signs.
+AI produces errors, and it also changes the appearance of errors. Rough drafts used to carry warning signs. AI can remove those signs.
 
 {% include punchline.html text="Polish stops tracking substance." %}
 
@@ -101,7 +101,7 @@ That means organizations need explicit quality bars, source checks, review ritua
 <!-- ===================== GRAPHIC SLOT 2 ===================== -->
 {% include figure
    image_path="assets/images/missing-layer-graphic-weak-work.png"
-   caption="AI does not only change the work. It changes the signals reviewers use to detect whether the work is sound."
+   caption="AI changes the work, and it changes the signals reviewers use to detect whether the work is sound."
    alt="Slide showing polished AI output hiding underlying weaknesses, with quality bars, review rituals, source checks, and ownership rules as explicit evaluation tools."
    width="90%"
 %}
@@ -110,7 +110,7 @@ That means organizations need explicit quality bars, source checks, review ritua
 
 The best AI users are not simply the heaviest users. They are the people who can explain what the system produced, challenge it when needed, and know when not to use it.
 
-That makes judgment an organizational capability, not just an individual virtue.
+That makes judgment an organizational capability as well as an individual virtue.
 
 {% include punchline.html text="The capability ceiling of an organization is determined by the people who can explain, challenge, and override what the model returns." %}
 
@@ -157,7 +157,7 @@ Then ask:
    If the AI-assisted output is wrong, unclear, biased, incomplete, or misused, where does accountability sit?
 
 2. **What does it cost to run?**  
-   Not only in tokens or subscriptions, but in supervision time, rework, tool-switching, context-loading, and downstream review.
+   In tokens and subscriptions, and also in supervision time, rework, tool-switching, context-loading, and downstream review.
 
 3. **What context does it need?**  
    What business rules, customer history, domain knowledge, data definitions, exceptions, and tacit assumptions must be available for the system to produce usable work?

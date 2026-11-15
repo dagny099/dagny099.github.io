@@ -124,7 +124,7 @@ The comparison tool runs the same prompt against multiple models simultaneously:
 4. **Rate responses**: 5-point rubric for correctness, usefulness, clarity, safety, overall
 5. **Reveal and log**: See which model was which, results saved to JSONL
 
-This creates a personal dataset of model performance across your actual use cases—not benchmarks, but real tasks.
+This creates a personal dataset of model performance across your actual use cases: real tasks in place of benchmarks.
 
 ### Conversation Management
 

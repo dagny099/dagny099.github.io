@@ -121,7 +121,7 @@
         "plotly"
       ],
       "cluster": "graphs",
-      "marketable_angle": "Proof of ML depth beyond API calls: implementing TransE from scratch signals you understand embeddings at the math level, not just the import statement. Resonates with research-adjacent roles.",
+      "marketable_angle": "Proof of ML depth beyond API calls: implementing TransE from scratch signals you understand embeddings at the math level, below the import statement. Resonates with research-adjacent roles.",
       "story_hook": "Everyone uses embeddings. I implemented the embedding model from the paper to understand what it actually learns.",
       "tier": "featured",
       "receipt": "From-scratch implementation of TransE knowledge-graph embeddings — not a wrapper, not an API call. The 4-notebook pipeline shows every step.",
@@ -153,7 +153,7 @@
       "marketable_angle": "The most emotionally resonant project — and a direct embodiment of the Sensemaking thesis. Connects to your father's legacy; powerful as a talk or essay rather than a feature list.",
       "story_hook": "Schema is where meaning lives — including in a family's stories. I gave my family's memories a data model.",
       "tier": "featured",
-      "receipt": "A 14-entity knowledge graph with Wikidata enrichment — preserving not just memories but the relationships and provenance between them.",
+      "receipt": "A 14-entity knowledge graph with Wikidata enrichment — preserving memories along with the relationships and provenance between them.",
       "in_graph": true,
       "docs_blurb": "The 14-entity knowledge-graph schema, Wikidata enrichment, the Whisper/CLIP ingestion pipeline, and provenance modeling."
     },

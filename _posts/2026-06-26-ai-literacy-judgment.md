@@ -77,7 +77,7 @@ Those five run before the prompt, for one person. The same discipline scales to 
 
 I work with these tools every day and I'm glad they're this good. But the teams getting the most from AI are not simply the ones moving fastest. They are the ones that can sit with a half-formed problem long enough to frame it well, then look at a confident output and still ask whether it is right.
 
-That is the literacy worth building: not just the ability to use the tool, but the judgment to know when its answer has earned trust.
+That is the literacy worth building: the ability to use the tool, and the judgment to know when its answer has earned trust.
 
 ---
 

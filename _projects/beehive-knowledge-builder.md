@@ -46,7 +46,7 @@ docs_label: "Docs"
 
 When bees moved into our owl box in 2020, I did what any curious person would do: I started documenting. Four years later, I had hundreds of photos across phones, cameras, and cloud storage—all with names like "IMG_2847.jpg" and no reliable way to search, compare, or learn from them.
 
-The friction wasn't just organizational. I wanted to answer questions that required correlating multiple data sources: What were conditions like before the swarm? Is there a pattern between weather and foraging activity? Which frames showed early signs of problems I missed at the time?
+The friction went beyond organization. I wanted to answer questions that required correlating multiple data sources: What were conditions like before the swarm? Is there a pattern between weather and foraging activity? Which frames showed early signs of problems I missed at the time?
 
 This platform addresses that gap by treating inspection photos as structured data rather than digital clutter. The system extracts EXIF metadata (using a multi-library approach to handle diverse camera formats), enriches it with historical weather data via Open-Meteo API, runs Google Cloud Vision to detect hive components and bee activity, and stores everything in a queryable format.
 

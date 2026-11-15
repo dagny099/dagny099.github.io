@@ -85,7 +85,7 @@ Every architectural decision in this migration lives in [a standalone reference 
 
 It also embeds the live canonical entity data. All 167 entity nodes — Skills, Methods, Technologies, Concepts — are loaded into a filterable table you can search across names and alt-labels, sort by role or stage, and expand to see the full alt-label list. The same data the graph is built from, browsable without writing a Cypher query.
 
-I wanted that to exist for two reasons. First, when I talk about this work in interviews, I'd rather point to a reference than re-explain every time. Second, the work of making data legible to humans — not just to machines — is the thing I care most about as an applied AI practitioner. The doc itself is an instance of the practice.
+I wanted that to exist for two reasons. First, when I talk about this work in interviews, I'd rather point to a reference than re-explain every time. Second, the work of making data legible to humans as well as machines is the thing I care most about as an applied AI practitioner. The doc itself is an instance of the practice.
 
 ## Where I'm being cautious
 
@@ -109,7 +109,7 @@ Three things are on the list.
 
 3. **Fix the entity extraction quality issues.** The acronym casing fix is a one-line change in the deterministic phase of canonicalization. The cross-type pool bleed for things like RDF needs a tighter extraction prompt. Both are scheduled for the next rebuild.
 
-The deeper goal is the one underneath the model-comparison post and this one and every project I build: making messy data legible — not just to the machines that index it, but to the humans who depend on it. A graph is one specific bet about how to do that. The reference doc is another. Both are how I show my work.
+The deeper goal is the one underneath the model-comparison post and this one and every project I build: making messy data legible to the machines that index it and to the humans who depend on it. A graph is one specific bet about how to do that. The reference doc is another. Both are how I show my work.
 
 ---
 

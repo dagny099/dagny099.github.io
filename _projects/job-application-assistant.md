@@ -61,7 +61,7 @@ docs_label: "Documentation"
 - **Multi-format resume ingestion** via PDF upload, text file, or manual entry with automatic information extraction
 - **AI-generated cover letters** using GPT-3.5/GPT-4 with iterative editing ("make the tone more formal", "highlight leadership experience")
 - **ATS keyword optimization** showing percentage match, missing keywords, and gap analysis between your documents and the job description
-- **Semantic similarity scoring** using sentence transformers—not just keyword matching, but meaning-based comparison
+- **Semantic similarity scoring** using sentence transformers: meaning-based comparison that goes past keyword matching
 - **Interactive visualizations** with Plotly gauge charts, bar charts, and radar charts for skills coverage
 - **Session persistence** via pickle serialization so users can save and resume across browser sessions
 - **Deployment**: originally an EC2 primary (Nginx + PM2) with a Streamlit Community Cloud backup; the [Streamlit Cloud instance](https://barbsassistant.streamlit.app) is the one that stays live today

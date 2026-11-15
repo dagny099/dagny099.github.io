@@ -28,7 +28,7 @@ author_profile: false
 
 I was the model quantified-self runner: 2,593 workouts logged over 14 years. Every run tracked, every mile recorded, every pace calculated. MapMyRun dutifully collected it all while I... never actually looked at what it was telling me.
 
-That changed when I finally exported my data and discovered something remarkable: I could pinpoint the exact month my life changed. Not through memory or photos, but through the dramatic shift in my running patterns:  **June 2018. The month I became a different kind of runner.**
+That changed when I finally exported my data and discovered something remarkable: I could pinpoint the exact month my life changed, using only the dramatic shift in my running patterns:  **June 2018. The month I became a different kind of runner.**
 <!-- **VISUALIZATION: The Timeline Split**-->
 <figure class="chart">
   <iframe src="/assets/visualizations/choco-effect/fig_1_timeline.html" 
@@ -80,7 +80,7 @@ Something had fundamentally changed about how I exercised. And that something ha
 <details markdown="1" open>
 <summary>🐕 The Technical Details of Dog-Driven Data</summary>
 
-Choco, my Labrador Retriever, didn't just join my workouts—he restructured them entirely. The data reveals two distinct activity profiles post-June 2018:
+Choco, my Labrador Retriever, joined my workouts and restructured them entirely. The data reveals two distinct activity profiles post-June 2018:
 
 **Profile 1: "Real Runs" (14% of workouts)**
 - Pace: 8-12 min/mile
@@ -215,7 +215,7 @@ LIMIT 10;
 
 </details>
 
-**The real lesson isn't about dogs or running**. It's that our data tells stories we don't expect. My "failed" attempt at maintaining pristine running data became a beautiful record of life change. The metrics got messy, but my habits got better.
+**The real lesson**: our data tells stories we don't expect. My "failed" attempt at maintaining pristine running data became a beautiful record of life change. The metrics got messy, but my habits got better.
 
 What stories are hiding in your perfectly tracked imperfect life?
 
