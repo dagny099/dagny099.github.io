@@ -44,13 +44,13 @@ excerpt: >
     </div>
   </a>
 
-  <a href="mailto:barbs@barbhs.com" class="contact-card contact-card--email">
+  <a href="mailto:barbs@balex.com" class="contact-card contact-card--email">
     <div class="contact-card__icon" aria-hidden="true">
       <i class="fas fa-envelope"></i>
     </div>
     <div class="contact-card__body">
       <h3>Email</h3>
-      <span>barbs@<br />barbhs.com</span>
+      <span>barbs@<br />balex.com</span>
     </div>
   </a>
 

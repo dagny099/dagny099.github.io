@@ -512,7 +512,7 @@ streamlit run chrono_scope/ui/streamlit_app.py
 - 🔗 Try the demo: [ChronoScope Explorer](PLACEHOLDER_URL)
 - 🐙 Clone the code: [GitHub](https://github.com/YOUR_USERNAME/chronoscope)
 - 💬 Share your discoveries: Tag #ChronoScope with your timeline insights
-- 📧 Questions? barbara@barbhs.com
+- 📧 Questions? barbs@balex.com
 
 ---
 
