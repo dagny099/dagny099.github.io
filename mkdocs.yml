@@ -1,0 +1,119 @@
+# Documentation for the listening system (the /listening/ graph, _listens/, the
+# add-listen toolchain and the screenshot intake). Source lives in _docs/, which
+# Jekyll ignores (underscore folder). Build: mkdocs build --strict  (output in
+# _docs_site/, gitignored). Hosting is a separate step; see workflow/publishing.md.
+site_name: The listening graph, documented
+site_description: How barbhs.com/listening/ works, from a screenshot or a sentence to a node on the graph.
+site_author: Barbara Hidalgo-Sotelo
+site_url: https://docs.barbhs.com/listening/
+repo_url: https://github.com/dagny099/dagny099.github.io
+repo_name: dagny099/dagny099.github.io
+edit_uri: edit/master/_docs/
+copyright: "&copy; 2026 Barbara Hidalgo-Sotelo"
+
+docs_dir: _docs
+site_dir: _docs_site
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  logo: assets/swirl-icon.png
+  favicon: assets/swirl-icon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dagny099
+      name: dagny099 on GitHub
+
+nav:
+  - Home: index.md
+  - Concepts: concepts.md
+  - Data model:
+    - data-model/index.md
+    - Shows, people, topics: data-model/entities.md
+    - Listens: data-model/listens.md
+    - Works: data-model/works.md
+    - Moments: data-model/moments.md
+    - Graph JSON: data-model/graph-json.md
+  - Workflow:
+    - workflow/index.md
+    - Adding a listen: workflow/adding-a-listen.md
+    - Screenshot intake: workflow/screenshot-intake.md
+    - Validation and tests: workflow/validation.md
+    - Publishing and review: workflow/publishing.md
+  - The page: the-page.md
+  - Reference:
+    - reference/index.md
+    - add_listen.py: reference/add-listen-cli.md
+    - Lookup helpers: reference/lookups.md
+    - Environment: reference/environment.md
+  - Roadmap: roadmap.md
+  - Decisions: decisions.md
