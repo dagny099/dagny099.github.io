@@ -17,6 +17,9 @@ Subcommands (all print JSON or the drafted file; nothing is written without --wr
     listen  --show ID --track-id N [--listened-on YYYY-MM-DD] [--precision day|month|year|approximate]
             --guests a,b --topics x,y [--spark TEXT] [--spark-draft] [--notes-file F]
             [--episode-number N] [--write]
+    add-moment --listen FILE-SLUG --at MM:SS --shot-on YYYY-MM-DD [--chapter TEXT] [--write]
+            Mark a playback position on an episode already logged (from a screenshot).
+            Same position (within a minute) on the same day: no change.
     works   ["<title words>"]                 known works (all, or close title matches)
     add-work --title T --type book|article|paper|newsletter|talk [--id SLUG]
             [--authors a,b] [--authors-outside "Name; Name"] [--year N] [--publisher P] [--url U]
@@ -278,6 +281,56 @@ def cmd_listen(a):
     print(body)
 
 
+# ---------- moments (a playback position she marked, usually with a screenshot) ----------
+
+MOMENT_CLOCK = re.compile(r"^(?:(\d+):)?([0-5]?\d):([0-5]\d)$")
+SAME_MOMENT_S = 60  # two marks this close on the same day are one moment
+
+
+def clock_seconds(text: str) -> int:
+    m = MOMENT_CLOCK.match(str(text).strip())
+    if not m:
+        die(f"--at must look like 25:53 or 1:02:03, got '{text}'")
+    return int(m.group(1) or 0) * 3600 + int(m.group(2)) * 60 + int(m.group(3))
+
+
+def clock_text(seconds: int) -> str:
+    h, rest = divmod(seconds, 3600)
+    return f"{h}:{rest // 60:02d}:{rest % 60:02d}" if h else f"{rest // 60}:{rest % 60:02d}"
+
+
+def cmd_add_moment(a):
+    path = LISTENS / f"{a.listen}.md"
+    if not path.exists():
+        die(f"no _listens/{a.listen}.md; log the episode first with listen")
+    _, head, body = path.read_text().split("---\n", 2)
+    fm = yaml.safe_load(head) or {}
+    at = clock_seconds(a.at)
+    shot_on = datetime.date.fromisoformat(a.shot_on).isoformat()
+    if shot_on < str(fm.get("published_on")):
+        die(f"--shot-on {shot_on} is before the episode was published ({fm.get('published_on')})")
+    if fm.get("duration_min") and at > fm["duration_min"] * 60 + 120:
+        die(f"--at {a.at} is past the end of a {fm['duration_min']}-minute episode")
+    moments = list(fm.get("moments") or [])
+    for m in moments:
+        if str(m.get("shot_on")) == shot_on and abs(clock_seconds(m["at"]) - at) <= SAME_MOMENT_S:
+            out({"file": f"_listens/{path.name}", "written": False, "note": f"already marked at {m['at']}"})
+            return
+    entry = {"at": clock_text(at), "shot_on": shot_on}
+    if a.chapter:
+        entry["chapter"] = clean(a.chapter)
+    moments.append(entry)
+    moments.sort(key=lambda m: (clock_seconds(m["at"]), str(m["shot_on"])))
+    # Keep provenance last, where the listen command puts it.
+    prov = fm.pop("provenance", None)
+    fm["moments"] = moments
+    if prov is not None:
+        fm["provenance"] = prov
+    if a.write:
+        path.write_text("---\n" + dump(fm) + "---\n" + body)
+    out({"file": f"_listens/{path.name}", "written": a.write, "moments": moments})
+
+
 # ---------- works (books, articles, papers... connected to episodes and people) ----------
 
 WORK_TYPES = ["book", "article", "paper", "newsletter", "talk"]
@@ -434,6 +487,9 @@ def main():
     p.add_argument("--guests", default=""); p.add_argument("--topics", default="")
     p.add_argument("--spark"); p.add_argument("--spark-draft", action="store_true"); p.add_argument("--notes-file")
     p.add_argument("--episode-number", type=int); p.add_argument("--write", action="store_true"); p.set_defaults(fn=cmd_listen)
+    p = sub.add_parser("add-moment"); p.add_argument("--listen", required=True); p.add_argument("--at", required=True)
+    p.add_argument("--shot-on", required=True); p.add_argument("--chapter")
+    p.add_argument("--write", action="store_true"); p.set_defaults(fn=cmd_add_moment)
     p = sub.add_parser("works"); p.add_argument("term", nargs="?"); p.set_defaults(fn=cmd_works)
     p = sub.add_parser("add-work"); p.add_argument("--id"); p.add_argument("--title")
     p.add_argument("--type", choices=WORK_TYPES); p.add_argument("--authors"); p.add_argument("--authors-outside")

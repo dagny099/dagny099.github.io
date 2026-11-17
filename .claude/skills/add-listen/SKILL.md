@@ -216,6 +216,23 @@ locally in a cloud session").
   draft sparks she still needs to rewrite.
 - Give her the PR link and the episode's future URL: `/listening/<file name without .md>/`.
 
+## Marking a moment
+
+A moment is a playback position she marked on an episode, usually with a screenshot.
+It goes on a listen that is already logged; log the episode first if it isn't.
+
+```bash
+python3 scripts/listens/add_listen.py add-moment --listen 2026-09-25-catalog-cocktails-ai-inherits-the-business-choices-you \
+  --at 25:53 --shot-on 2026-09-27 --chapter "Chapter title as shown" --write
+```
+
+- `--at` is the position in the player, `--shot-on` the date in the screenshot's file name.
+- Several screenshots of one passage are one moment: use the earliest position. The script
+  ignores a second mark within a minute on the same day.
+- Position and chapter only. Transcript text from a screenshot never goes in `_listens/`:
+  the repo is public and the words are someone else's. `validate.py` rejects any other key.
+- A moment is not a spark. Ask her for the spark separately, in her words.
+
 ## Updating a listen
 
 Edit the file in `_listens/` directly. For a spark she rewrote: replace `spark`,

@@ -70,7 +70,7 @@ will later cover the same episodes. Re-running the whole inbox must change nothi
 Files stay in the inbox after processing. The ledger records what was done; nothing is
 moved or deleted, so a failed run can be repeated.
 
-## Proposed schema change (needs her yes)
+## Schema change (approved 2026-11-16)
 
 An optional list on a `_listens/` file:
 
@@ -84,15 +84,23 @@ moments:
 No passage text in the public file. If a quote is ever shown, it is short, checked against
 the audio, and links to the episode.
 
-## Decisions that are Barbara's
+## Decisions (made 2026-11-16)
 
-1. **Log every show, display some?** She wants to save any podcast she comes across. The
-   store can take everything. The public graph has six show colors, and a seventh show
-   renders in neutral ink. Recommendation: log all, add a `featured: true` flag per show,
-   and let the graph give colors to featured shows only.
-2. **Ledger location.** Recommendation above.
-3. **The `moments` field.** Recommendation: yes, position and chapter only.
-4. **Sparks from work-adjacent thinking.** Anything in `_listens/` is public once merged.
+1. **Log every show, color only some.** Yes. A `featured` flag per show; not built yet.
+2. **Ledger location.** `podcast-ingest-agent/screenshots/` (private).
+3. **The `moments` field.** Yes, position and chapter only. Built: `add_listen.py add-moment`,
+   checks in `validate.py`, tests in `scripts/listens/test_moments.py`.
+4. **Work-adjacent sparks** stay off the public page.
+
+## Built so far
+
+- `podcast-ingest-agent/screenshots/intake.py`: ledger, burst merging, title-fragment
+  joining, episode matching. Tested on the 10 screenshots and a 390-episode Catalog &
+  Cocktails catalog. Network-free.
+- This repo: `add-moment` and its validator checks (above).
+
+Not built: live episode lookup for a burst (needs Apple or RSS, so a local session),
+the `featured` flag, any display of moments on the page, the spark call.
 
 ## Build order
 
