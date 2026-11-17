@@ -2,11 +2,12 @@
 """Check _listens/ against the podcast data files.
 
 Every show, guest, host and topic id must resolve; dates must parse; no two
-listens may share a guid. Exits non-zero on any error so CI can gate on it.
+listens may share a guid; moments carry a position and chapter only. Exits non-zero on any error so CI can gate on it.
 
 Usage: python3 scripts/listens/validate.py
 """
 import datetime
+import re
 import sys
 from pathlib import Path
 
@@ -84,6 +85,46 @@ def check_works(errors, people_ids, listen_slugs):
     return len(rows)
 
 
+MOMENT_KEYS = {"at", "shot_on", "chapter"}
+MOMENT_CLOCK = re.compile(r"^(?:(\d+):)?([0-5]?\d):([0-5]\d)$")
+
+
+def check_moments(errors, name, fm):
+    """moments: positions she marked. Position and chapter only; no transcript text here."""
+    moments = fm.get("moments")
+    if moments is None:
+        return
+    if not isinstance(moments, list):
+        errors.append(f"{name}: moments must be a list")
+        return
+    seen = set()
+    for m in moments:
+        if not isinstance(m, dict):
+            errors.append(f"{name}: each moment must be a mapping with 'at' and 'shot_on'")
+            continue
+        extra = sorted(set(m) - MOMENT_KEYS)
+        if extra:
+            errors.append(f"{name}: moment has unexpected key(s) {extra}; this file is public, "
+                          "so passage text and notes stay in the private ledger")
+        clock = MOMENT_CLOCK.match(str(m.get("at", "")))
+        if not clock:
+            errors.append(f"{name}: moment 'at' must look like 25:53 or 1:02:03")
+            continue
+        seconds = int(clock.group(1) or 0) * 3600 + int(clock.group(2)) * 60 + int(clock.group(3))
+        if fm.get("duration_min") and seconds > fm["duration_min"] * 60 + 120:
+            errors.append(f"{name}: moment at {m['at']} is past the end of the episode")
+        try:
+            shot = as_date(m.get("shot_on"))
+            if shot < as_date(fm.get("published_on")):
+                errors.append(f"{name}: moment shot_on {shot} is before the episode was published")
+        except (TypeError, ValueError):
+            errors.append(f"{name}: moment shot_on is not YYYY-MM-DD")
+            continue
+        if (seconds, str(shot)) in seen:
+            errors.append(f"{name}: the same moment ({m['at']} on {shot}) is listed twice")
+        seen.add((seconds, str(shot)))
+
+
 def main():
     errors = []
     shows, show_ids, d1 = load_ids("podcast_shows.yml")
@@ -118,6 +159,7 @@ def main():
                 errors.append(f"{name}: {key} is not YYYY-MM-DD")
         if fm.get("listened_precision", "day") not in PRECISIONS:
             errors.append(f"{name}: listened_precision must be one of {sorted(PRECISIONS)}")
+        check_moments(errors, name, fm)
         guid = fm.get("guid")
         if guid in guids:
             errors.append(f"{name}: duplicate guid, same episode as {guids[guid]}")
