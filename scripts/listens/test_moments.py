@@ -27,7 +27,8 @@ class MomentsCase(unittest.TestCase):
         shutil.copytree(REAL, self.tmp / "_listens")
         self._listens = add_listen.LISTENS
         add_listen.LISTENS = self.tmp / "_listens"
-        self.slug = sorted(p.stem for p in REAL.glob("*.md"))[0]
+        # A real listen that has no moments yet, so the assertions below start from zero.
+        self.slug = sorted(p.stem for p in REAL.glob("*.md") if "moments" not in add_listen.front_matter(p))[0]
         self.fm = add_listen.front_matter(REAL / f"{self.slug}.md")
         self.pub = str(self.fm["published_on"])
 
