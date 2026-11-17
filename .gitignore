@@ -40,3 +40,6 @@ agent-context
 
 # Python bytecode from scripts/
 __pycache__/
+
+# MkDocs output for _docs/ (see mkdocs.yml)
+_docs_site/
