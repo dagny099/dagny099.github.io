@@ -75,3 +75,31 @@
   name: Yann Le Franc
   bio: Ontology and knowledge-graph consultant; former computational neuroscientist.
   source: KGI 54 description
+- id: alex_lobert
+  name: Alex Lobert
+  bio: Host of The Best Job I've Ever Had.
+  source: itunes artistName
+- id: dan_gonzalez
+  name: Dan Gonzalez
+  bio: Marketing leader at Meta, Yahoo and Sam's Club; former CMO of TechShop.
+  source: The Best Job I've Ever Had 2025-04-07 description
+- id: daniel_whitenack
+  name: Daniel Whitenack
+  bio: Co-host of Practical AI.
+  source: Practical AI 2025-02-14 description
+- id: chris_benson
+  name: Chris Benson
+  bio: Co-host of Practical AI.
+  source: Practical AI 2025-02-14 description
+- id: amy_hodler
+  name: Amy Hodler
+  bio: Host of GraphGeeks Podcast.
+  source: GraphGeeks 2025-09-24 description
+- id: paco_nathan
+  name: Paco Nathan
+  bio: Senior DevRel at Senzing; pioneer in neural networks and NLP since the 1980s.
+  source: GraphGeeks 2026-04-26 description
+- id: sanjeev_mohan
+  name: Sanjeev Mohan
+  bio: Data & analytics industry analyst.
+  source: Catalog & Cocktails 2025-11-12 description

@@ -49,3 +49,26 @@
   itunes_id: 941219323
   feed_url: https://feeds.feedburner.com/linear-digressions?format=xml
   apple_url: https://podcasts.apple.com/us/podcast/linear-digressions/id941219323
+- id: best_job_ive_ever_had
+  color_slot: 6
+  name: The Best Job I've Ever Had with Alex Lobert
+  hosts:
+  - alex_lobert
+  itunes_id: 1811241926
+  feed_url: https://anchor.fm/s/106099848/podcast/rss
+  apple_url: https://podcasts.apple.com/us/podcast/id1811241926
+- id: practical_ai
+  name: Practical AI
+  hosts:
+  - daniel_whitenack
+  - chris_benson
+  itunes_id: 1406537385
+  feed_url: https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm
+  apple_url: https://podcasts.apple.com/us/podcast/id1406537385
+- id: graphgeeks_podcast
+  name: GraphGeeks Podcast
+  hosts:
+  - amy_hodler
+  itunes_id: 1741850482
+  feed_url: https://feeds.redcircle.com/ffc07023-514c-474d-b434-8bf9c5e24963
+  apple_url: https://podcasts.apple.com/us/podcast/id1741850482
